@@ -14,6 +14,8 @@ This repository ships `starting-point`, a skill for finding the real outcome, ch
 
 No client integration contains a second skill body.
 
+GitHub release versions and skill metadata versions are independent. Skills don't depend on each other's versions.
+
 ## Install the repository
 
 ```sh
@@ -119,6 +121,8 @@ npm run skills -- benchmark starting-point --transport fixture --samples 1000 --
 ```
 
 Fixture results prove runner behavior only. They are not evidence about a language model. Paid OpenRouter evaluation is a separate post-release step with a frozen model inventory, checkpoint files, a cost estimate, and explicit spend approval.
+
+Use the fixed-route, capped procedure in [OpenRouter sweeps](docs/openrouter-sweeps.md).
 
 Run the complete local gate with:
 

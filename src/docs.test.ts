@@ -10,6 +10,7 @@ const requiredDocs = [
   'SECURITY.md',
   'SUPPORT.md',
   'CHANGELOG.md',
+  'docs/openrouter-sweeps.md',
   'adapters/aider/README.md',
   'adapters/continue/README.md',
   'adapters/hermes-agent/README.md',
@@ -45,6 +46,9 @@ test('documents every supported client and tested local command', async () => {
   ]) {
     expect(readme).toContain(command);
   }
+  const sweep = await readable('docs/openrouter-sweeps.md');
+  expect(sweep).toContain('npm run skills -- sweep --phase dry-run');
+  expect(sweep).toContain('--approval');
 });
 
 test('keeps every relative Markdown link resolvable', async () => {

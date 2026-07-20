@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/main/schemas/sweep-manifest.schema.json",
+  "title": "Fixed-route OpenRouter sweep manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "requests"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "run_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "requests": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/request" }
+    }
+  },
+  "definitions": {
+    "message": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "content"],
+      "properties": {
+        "role": { "enum": ["assistant", "system", "user"] },
+        "content": { "type": "string", "minLength": 1 }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt_usd_per_token", "completion_usd_per_token", "request_usd"],
+      "properties": {
+        "prompt_usd_per_token": { "type": ["number", "null"], "minimum": 0 },
+        "completion_usd_per_token": { "type": ["number", "null"], "minimum": 0 },
+        "request_usd": { "type": "number", "minimum": 0 }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "prompt_usd_per_token": { "type": "number" },
+            "completion_usd_per_token": { "type": "number" }
+          }
+        },
+        {
+          "properties": {
+            "prompt_usd_per_token": { "type": "null" },
+            "completion_usd_per_token": { "type": "null" }
+          }
+        }
+      ]
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "max_input_tokens",
+        "max_output_tokens",
+        "messages",
+        "model",
+        "pricing",
+        "provider",
+        "provider_name",
+        "reservation_usd"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "kind": { "enum": ["candidate", "judge", "trigger"] },
+        "max_input_tokens": { "type": "integer", "minimum": 1 },
+        "max_output_tokens": { "type": "integer", "minimum": 1 },
+        "messages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/message" }
+        },
+        "model": { "type": "string", "minLength": 1 },
+        "pricing": { "$ref": "#/definitions/pricing" },
+        "provider": { "type": "string", "minLength": 1 },
+        "provider_name": { "type": "string", "minLength": 1 },
+        "reservation_usd": { "type": "number", "minimum": 0 }
+      }
+    }
+  }
+}

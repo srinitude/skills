@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/main/schemas/sweep-checkpoint.schema.json",
+  "title": "OpenRouter sweep request checkpoint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "request_hash",
+    "ledger_id",
+    "response_id",
+    "actual_cost_usd",
+    "provider_name",
+    "raw_sha256"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "request_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "ledger_id": { "type": "string", "minLength": 1 },
+    "response_id": { "type": "string", "minLength": 1 },
+    "actual_cost_usd": { "type": "number", "minimum": 0 },
+    "provider_name": { "type": "string", "minLength": 1 },
+    "raw_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

@@ -23,6 +23,7 @@
     "SUPPORT.md",
     "__init__.py",
     "adapters/",
+    "docs/",
     "evidence/",
     "gemini-extension.json",
     "mcp/dist/server.mjs",

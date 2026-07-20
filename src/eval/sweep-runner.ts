@@ -159,10 +159,11 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
       });
       const result = await executeSweepRequest(request, options.apiKey, fetchImpl).catch(
         async (error: unknown) => {
-          if (error instanceof OpenRouterRequestRejectedError) {
-            await ledger.release(ledgerId);
-            await unlinkIfExists(pendingPath);
+          if (!(error instanceof OpenRouterRequestRejectedError && error.confirmedUnsent)) {
+            throw error;
           }
+          await ledger.release(ledgerId);
+          await unlinkIfExists(pendingPath);
           throw error;
         },
       );

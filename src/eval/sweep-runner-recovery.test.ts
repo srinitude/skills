@@ -122,41 +122,6 @@ test('executes and reconciles a verified zero-cost route', async () => {
   });
 });
 
-test('releases a rejected request and resumes under a tight cap', async () => {
-  const out = await output();
-  const input = manifest([request('candidate-a'), request('candidate-b')]);
-  let calls = 0;
-  const options = {
-    apiKey: ['test', 'key'].join('-'),
-    approval: approval(input, 0.28),
-    capUsd: 0.28,
-    fetchImpl: async () => {
-      calls += 1;
-      if (calls === 1) return new Response('temporary failure', { status: 503 });
-      return response(`generation-${calls}`, 0.01);
-    },
-    manifest: input,
-    out,
-    phase: 'full' as const,
-    unknownPriceCapUsd: 0,
-  };
-
-  await expect(runSweep(options)).rejects.toThrow('OpenRouter request failed: 503');
-  expect(JSON.parse(await readFile(join(out, 'spend-ledger.json'), 'utf8'))).toMatchObject({
-    actual_usd: 0,
-    entries: [],
-    reserved_usd: 0,
-  });
-
-  const resumed = await runSweep(options);
-  const ledger = JSON.parse(await readFile(join(out, 'spend-ledger.json'), 'utf8')) as {
-    entries: Array<{ id: string }>;
-  };
-  expect(calls).toBe(3);
-  expect(resumed).toMatchObject({ completed: 2, status: 'PASS' });
-  expect(ledger.entries.map((entry) => entry.id)).toEqual(['candidate-a', 'candidate-b']);
-});
-
 test('blocks unknown pricing before opening the ledger', async () => {
   const out = await output();
   const unknown = request('candidate-unknown');

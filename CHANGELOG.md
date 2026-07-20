@@ -2,6 +2,13 @@
 
 All notable changes to this project are recorded here.
 
+## GitHub release 0.1.1
+
+- Added a fixed-route, capped, resumable OpenRouter sweep runner.
+- Added manifest-bound user approval and first-party route and cost checks.
+- Removed repository validation that tied skill versions to the package version.
+- Kept `starting-point` at `metadata.version: "0.1.0"`.
+
 ## 0.1.0
 
 Initial public package.

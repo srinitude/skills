@@ -32,6 +32,7 @@ test('builds a safe package with canonical skills and client manifests', async (
       'package/.claude-plugin/plugin.json',
       'package/.codex-plugin/plugin.json',
       'package/.cursor-plugin/plugin.json',
+      'package/docs/openrouter-sweeps.md',
       'package/gemini-extension.json',
       'package/openclaw.plugin.json',
       'package/plugin.yaml',

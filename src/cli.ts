@@ -11,6 +11,7 @@ import { checkIntegrations } from './integrations.js';
 import { buildPackage } from './package.js';
 import { validateRepository } from './repository-validation.js';
 import { validateSkill } from './skill-validation.js';
+import { runSweepCli } from './sweep-cli.js';
 
 interface DiagnosticSink {
   write(text: string): unknown;
@@ -154,6 +155,7 @@ async function dispatch(
   if (command === 'benchmark') return benchmarkCommand(args, root, stderr);
   if (command === 'check-integrations') return integrationsCommand(args, root, stderr);
   if (command === 'package') return packageCommand(args, root, stderr);
+  if (command === 'sweep') return runSweepCli(args, stderr);
   throw new Error(`unknown command: ${command ?? '(missing)'}`);
 }
 

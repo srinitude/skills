@@ -122,7 +122,7 @@ test('executes and reconciles a verified zero-cost route', async () => {
   });
 });
 
-test('reuses one reservation after failure and resumes under a tight cap', async () => {
+test('releases a rejected request and resumes under a tight cap', async () => {
   const out = await output();
   const input = manifest([request('candidate-a'), request('candidate-b')]);
   let calls = 0;
@@ -132,7 +132,7 @@ test('reuses one reservation after failure and resumes under a tight cap', async
     capUsd: 0.28,
     fetchImpl: async () => {
       calls += 1;
-      if (calls === 1) throw new Error('transient failure');
+      if (calls === 1) return new Response('temporary failure', { status: 503 });
       return response(`generation-${calls}`, 0.01);
     },
     manifest: input,
@@ -141,10 +141,11 @@ test('reuses one reservation after failure and resumes under a tight cap', async
     unknownPriceCapUsd: 0,
   };
 
-  await expect(runSweep(options)).rejects.toThrow('transient failure');
+  await expect(runSweep(options)).rejects.toThrow('OpenRouter request failed: 503');
   expect(JSON.parse(await readFile(join(out, 'spend-ledger.json'), 'utf8'))).toMatchObject({
     actual_usd: 0,
-    reserved_usd: 0.14,
+    entries: [],
+    reserved_usd: 0,
   });
 
   const resumed = await runSweep(options);

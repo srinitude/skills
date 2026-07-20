@@ -13,12 +13,14 @@ Use the sweep runner to execute immutable request packets against one exact Open
 - `pilot` and `full` require a user approval artifact.
 - The approval binds the manifest SHA-256, total cap, and unknown-price cap.
 - The spend ledger reserves before each request and reconciles reported cost afterward.
-- A failed request reuses its existing reservation on resume instead of reserving twice.
+- The runner writes a durable pending record after reservation and before HTTP.
+- A confirmed non-2xx response releases its reservation. An ambiguous failure stays pending.
+- An unresolved pending record or orphan reservation blocks automatic retry.
 - Use one runner process per output directory.
 - The runner opts into route metadata and checks the selected provider label.
 - A missing provider label, missing cost, invalid response, or cap mismatch blocks the run.
 
-The JSON contracts are [`sweep-manifest.schema.json`](../schemas/sweep-manifest.schema.json), [`sweep-approval.schema.json`](../schemas/sweep-approval.schema.json), and [`sweep-checkpoint.schema.json`](../schemas/sweep-checkpoint.schema.json).
+The JSON contracts are [`sweep-manifest.schema.json`](../schemas/sweep-manifest.schema.json), [`sweep-approval.schema.json`](../schemas/sweep-approval.schema.json), [`sweep-pending.schema.json`](../schemas/sweep-pending.schema.json), and [`sweep-checkpoint.schema.json`](../schemas/sweep-checkpoint.schema.json).
 
 ## Run a dry check
 
@@ -70,7 +72,7 @@ npm run skills -- sweep --phase full \
 
 A matching completed checkpoint is reconciled and skipped. A changed request, manifest, cap, or approval blocks instead of sending.
 
-If the process stops after a request may have reached OpenRouter but before its checkpoint is written, don't resume automatically. Reconcile the request against first-party OpenRouter generation or account data first. The local ledger alone can't prove whether OpenRouter charged an uncheckpointed request.
+If the process stops after a request may have reached OpenRouter but before its checkpoint is written, the runner blocks that request. Reconcile it against first-party OpenRouter generation or account data before repairing the matching pending record and reservation. The local ledger alone can't prove whether OpenRouter charged an uncheckpointed request.
 
 ## Version boundaries
 

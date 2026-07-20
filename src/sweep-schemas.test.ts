@@ -68,3 +68,17 @@ test('sweep checkpoint schema records reconciliable first-party cost', async () 
     await validate('sweep-checkpoint.schema.json', { ...checkpoint, extra: true }),
   ).toBe(false);
 });
+
+test('sweep pending schema binds an in-flight request before execution', async () => {
+  const pending = {
+    ledger_id: 'candidate-001',
+    manifest_sha256: 'a'.repeat(64),
+    request_hash: 'b'.repeat(64),
+    request_id: 'candidate-001',
+    schema_version: 1,
+  };
+  expect(await validate('sweep-pending.schema.json', pending)).toBe(true);
+  expect(await validate('sweep-pending.schema.json', { ...pending, extra: true })).toBe(
+    false,
+  );
+});

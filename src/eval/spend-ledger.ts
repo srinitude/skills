@@ -105,6 +105,17 @@ export class SpendLedger {
     });
   }
 
+  release(id: string): Promise<void> {
+    return this.mutate(async (next) => {
+      const index = next.entries.findIndex((entry) => entry.id === id);
+      if (index === -1) return;
+      if (next.entries[index]!.status === 'completed') {
+        throw new Error(`cannot release completed reservation: ${id}`);
+      }
+      next.entries.splice(index, 1);
+    });
+  }
+
   reconcile(id: string, actualUsd: number): Promise<void> {
     return this.mutate(async (next) => {
       const amount = z.number().nonnegative().parse(actualUsd);

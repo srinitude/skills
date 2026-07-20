@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/main/schemas/sweep-pending.schema.json",
+  "title": "OpenRouter sweep in-flight request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "request_hash",
+    "manifest_sha256",
+    "ledger_id"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "request_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "manifest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "ledger_id": { "type": "string", "minLength": 1 }
+  }
+}

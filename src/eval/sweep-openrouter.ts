@@ -48,6 +48,13 @@ export interface SweepResponse {
   responseId: string;
 }
 
+export class OpenRouterRequestRejectedError extends Error {
+  constructor(status: number) {
+    super(`OpenRouter request failed: ${status}`);
+    this.name = 'OpenRouterRequestRejectedError';
+  }
+}
+
 type ExecutableSweepRequest = SweepRequest & {
   pricing: {
     completion_usd_per_token: number;
@@ -125,7 +132,7 @@ export async function executeSweepRequest(
     },
     method: 'POST',
   });
-  if (!response.ok) throw new Error(`OpenRouter request failed: ${response.status}`);
+  if (!response.ok) throw new OpenRouterRequestRejectedError(response.status);
   const raw: unknown = await response.json();
   const parsed = responseSchema.parse(raw);
   const provider = selectedProvider(parsed);

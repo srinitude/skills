@@ -58,6 +58,15 @@ test('persists and reconciles a zero-dollar reservation', async () => {
   });
 });
 
+test('releases an uncharged reservation before retry', async () => {
+  const { ledger: spend } = await ledger();
+
+  await spend.reserve('rejected-request', 0.6);
+  await spend.release('rejected-request');
+
+  expect(spend.snapshot()).toMatchObject({ actual_usd: 0, entries: [], reserved_usd: 0 });
+});
+
 test('persists exact state and resumes completed reservations idempotently', async () => {
   const { ledger: spend, path } = await ledger();
   await spend.reserve('request-a', 0.6);

@@ -5,7 +5,8 @@ All notable changes to this project are recorded here.
 ## GitHub release 0.1.2
 
 - Allowed verified zero-cost routes through the full ledger path.
-- Reused one stable reservation when a failed request resumes.
+- Added durable pending records that block automatic repayment after an ambiguous failure.
+- Released reservations only after a confirmed non-2xx response.
 - Blocked unknown-price requests before creating a ledger reservation.
 - Kept every skill version unchanged.
 

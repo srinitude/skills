@@ -2,6 +2,13 @@
 
 All notable changes to this project are recorded here.
 
+## GitHub release 0.1.2
+
+- Allowed verified zero-cost routes through the full ledger path.
+- Reused one stable reservation when a failed request resumes.
+- Blocked unknown-price requests before creating a ledger reservation.
+- Kept every skill version unchanged.
+
 ## GitHub release 0.1.1
 
 - Added a fixed-route, capped, resumable OpenRouter sweep runner.

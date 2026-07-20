@@ -39,6 +39,25 @@ test('reconciles first-party cost and makes released capacity reusable', async (
   expect(spend.snapshot()).toMatchObject({ actual_usd: 0.35, reserved_usd: 0.6 });
 });
 
+test('persists and reconciles a zero-dollar reservation', async () => {
+  const { ledger: spend, path } = await ledger();
+
+  await spend.reserve('free-request', 0);
+  await spend.reconcile('free-request', 0);
+
+  expect(spend.snapshot()).toMatchObject({ actual_usd: 0, reserved_usd: 0 });
+  expect(JSON.parse(await readFile(path, 'utf8'))).toMatchObject({
+    entries: [
+      {
+        actual_usd: 0,
+        id: 'free-request',
+        reservation_usd: 0,
+        status: 'completed',
+      },
+    ],
+  });
+});
+
 test('persists exact state and resumes completed reservations idempotently', async () => {
   const { ledger: spend, path } = await ledger();
   await spend.reserve('request-a', 0.6);

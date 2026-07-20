@@ -8,7 +8,7 @@ const entrySchema = z
   .object({
     actual_usd: z.number().nonnegative().optional(),
     id: z.string().min(1),
-    reservation_usd: z.number().positive(),
+    reservation_usd: z.number().nonnegative(),
     status: z.enum(['completed', 'reserved']),
   })
   .strict();
@@ -91,7 +91,7 @@ export class SpendLedger {
 
   reserve(id: string, reservationUsd: number): Promise<void> {
     return this.mutate(async (next) => {
-      const amount = z.number().positive().parse(reservationUsd);
+      const amount = z.number().nonnegative().parse(reservationUsd);
       const existing = next.entries.find((entry) => entry.id === id);
       if (existing) {
         if (existing.reservation_usd !== amount)

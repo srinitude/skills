@@ -48,11 +48,26 @@ export interface SweepResponse {
   responseId: string;
 }
 
-function route(request: SweepRequest): Record<string, unknown> {
+type ExecutableSweepRequest = SweepRequest & {
+  pricing: {
+    completion_usd_per_token: number;
+    prompt_usd_per_token: number;
+    request_usd: number;
+  };
+};
+
+export function assertSweepRequestExecutable(
+  request: SweepRequest,
+): asserts request is ExecutableSweepRequest {
   const pricing = request.pricing;
   if (pricing.prompt_usd_per_token === null || pricing.completion_usd_per_token === null) {
     throw new Error(`cannot execute unknown-price request: ${request.id}`);
   }
+}
+
+function route(request: SweepRequest): Record<string, unknown> {
+  assertSweepRequestExecutable(request);
+  const pricing = request.pricing;
   return {
     allow_fallbacks: false,
     max_price: {

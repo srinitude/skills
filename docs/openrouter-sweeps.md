@@ -13,6 +13,8 @@ Use the sweep runner to execute immutable request packets against one exact Open
 - `pilot` and `full` require a user approval artifact.
 - The approval binds the manifest SHA-256, total cap, and unknown-price cap.
 - The spend ledger reserves before each request and reconciles reported cost afterward.
+- A failed request reuses its existing reservation on resume instead of reserving twice.
+- Use one runner process per output directory.
 - The runner opts into route metadata and checks the selected provider label.
 - A missing provider label, missing cost, invalid response, or cap mismatch blocks the run.
 
@@ -67,6 +69,8 @@ npm run skills -- sweep --phase full \
 ```
 
 A matching completed checkpoint is reconciled and skipped. A changed request, manifest, cap, or approval blocks instead of sending.
+
+If the process stops after a request may have reached OpenRouter but before its checkpoint is written, don't resume automatically. Reconcile the request against first-party OpenRouter generation or account data first. The local ledger alone can't prove whether OpenRouter charged an uncheckpointed request.
 
 ## Version boundaries
 

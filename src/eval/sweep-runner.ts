@@ -11,7 +11,7 @@ import {
   type SweepApproval,
 } from './sweep-approval.js';
 import { planSweep, sweepManifestHash, type SweepManifest } from './sweep-manifest.js';
-import { executeSweepRequest } from './sweep-openrouter.js';
+import { assertSweepRequestExecutable, executeSweepRequest } from './sweep-openrouter.js';
 
 const checkpointSchema = z
   .object({
@@ -72,6 +72,22 @@ async function readCheckpoint(path: string) {
   }
 }
 
+function reservationId(ledger: SpendLedger, requestId: string): string {
+  const matching = ledger
+    .snapshot()
+    .entries.filter(
+      (entry) => entry.id === requestId || entry.id.startsWith(`${requestId}#`),
+    );
+  const reserved = matching.filter((entry) => entry.status === 'reserved');
+  if (reserved.length > 1)
+    throw new Error(`multiple reservations require repair: ${requestId}`);
+  if (reserved[0]) return reserved[0].id;
+  if (matching.some((entry) => entry.status === 'completed')) {
+    throw new Error(`completed ledger entry missing checkpoint: ${requestId}`);
+  }
+  return requestId;
+}
+
 export async function runSweep(options: SweepOptions): Promise<SweepReport> {
   const plan = planSweep(options.manifest, {
     capUsd: options.capUsd,
@@ -106,6 +122,7 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
       unknownPriceCapUsd: options.unknownPriceCapUsd,
     });
     if (!options.apiKey) throw new Error('OpenRouter API key is required');
+    selected.forEach(assertSweepRequestExecutable);
 
     const ledger = await SpendLedger.open(
       join(options.out, 'spend-ledger.json'),
@@ -131,10 +148,7 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
         base.resumed += 1;
         continue;
       }
-      const attempts = ledger
-        .snapshot()
-        .entries.filter((entry) => entry.id.startsWith(`${request.id}#`));
-      const ledgerId = `${request.id}#${attempts.length + 1}`;
+      const ledgerId = reservationId(ledger, request.id);
       await ledger.reserve(ledgerId, request.reservation_usd);
       const result = await executeSweepRequest(request, options.apiKey, fetchImpl);
       const rawSource = `${JSON.stringify(result.raw, null, 2)}\n`;

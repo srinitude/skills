@@ -21,6 +21,16 @@ test('defines local and release GitHub Actions gates', async () => {
   expect(release.jobs).toHaveProperty('release');
 });
 
+test('uses Node 24 GitHub actions', async () => {
+  for (const path of ['.github/workflows/ci.yml', '.github/workflows/release.yml']) {
+    const workflow = await readFile(join(root, path), 'utf8');
+    expect(workflow).toContain('actions/checkout@v7');
+    expect(workflow).toContain('jdx/mise-action@v4');
+    expect(workflow).not.toContain('actions/checkout@v4');
+    expect(workflow).not.toContain('jdx/mise-action@v3');
+  }
+});
+
 test('provides issue and pull request templates', async () => {
   await Promise.all(
     [

@@ -1,0 +1,20 @@
+{
+  "description": "Portable Agent Skills from srinitude.",
+  "name": "srinitude-skills",
+  "owner": {
+    "name": "Kiren Srinivasan",
+    "email": "kiren@fantasymetals.com"
+  },
+  "plugins": [
+    {
+      "name": "srinitude-skills",
+      "source": "./",
+      "description": "Portable Agent Skills and read-only local tools.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Kiren Srinivasan",
+        "email": "kiren@fantasymetals.com"
+      }
+    }
+  ]
+}

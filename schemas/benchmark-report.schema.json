@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/v0.1.0/schemas/benchmark-report.schema.json",
+  "title": "Agent Skill benchmark report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "skill",
+    "transport",
+    "status",
+    "samples",
+    "discovery_ms",
+    "full_load_ms",
+    "cold_start_ms",
+    "warm_start_p50_ms",
+    "warm_start_p95_ms",
+    "case_p95_ms",
+    "full_run_ms"
+  ],
+  "properties": {
+    "skill": { "type": "string", "minLength": 1 },
+    "transport": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["PASS", "FAIL", "BLOCKED"] },
+    "samples": { "type": "integer", "minimum": 1 },
+    "discovery_ms": { "$ref": "#/definitions/milliseconds" },
+    "full_load_ms": { "$ref": "#/definitions/milliseconds" },
+    "cold_start_ms": { "$ref": "#/definitions/milliseconds" },
+    "warm_start_p50_ms": { "$ref": "#/definitions/milliseconds" },
+    "warm_start_p95_ms": { "$ref": "#/definitions/milliseconds" },
+    "case_p95_ms": { "$ref": "#/definitions/milliseconds" },
+    "full_run_ms": { "$ref": "#/definitions/milliseconds" }
+  },
+  "definitions": {
+    "milliseconds": { "type": "number", "minimum": 0 }
+  }
+}

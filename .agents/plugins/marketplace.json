@@ -1,0 +1,16 @@
+{
+  "name": "srinitude-skills",
+  "interface": {
+    "displayName": "srinitude skills"
+  },
+  "plugins": [
+    {
+      "name": "srinitude-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

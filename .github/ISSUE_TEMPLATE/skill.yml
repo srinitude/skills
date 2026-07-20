@@ -1,0 +1,36 @@
+name: Skill proposal
+description: Propose a new portable Agent Skill.
+title: 'skill: '
+labels:
+  - skill
+body:
+  - type: input
+    id: trigger
+    attributes:
+      label: Trigger
+      description: State when the skill should load.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Distinct procedure and boundary
+      description: Explain why an existing skill cannot own the procedure.
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation plan
+      description: Cover activation, rejection, behavior, failure, recovery, and speed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The procedure is stable and likely to recur.
+          required: true
+        - label: The description can stay below 60 characters.
+          required: true

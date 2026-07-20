@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/v0.1.0/schemas/checkpoint.schema.json",
+  "title": "OpenRouter evaluation checkpoint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "condition", "model", "record_hash", "replica", "status"],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "condition": { "enum": ["with_skill", "without_skill"] },
+    "model": { "type": "string", "minLength": 1 },
+    "record_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "replica": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["PASS", "FAIL", "BLOCKED"] }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "skill": "starting-point",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "The requested launch checklist is busywork and the stated goal is fewer failed releases. What should we prove first?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "We keep repeating the same fix but the outage returns. Help choose a better starting point and proof threshold.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "My request includes an exact method, but I am not sure whether the method is binding or only one possible route.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Separate what these focused tests prove from whether the whole release is complete.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "hard_negative",
+      "prompt": "Rename CustomerID to customer_id and return only the new header.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Translate Good morning into French and return only the translation.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "What command shows the current Git branch?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Fix the typo in this sentence and change nothing else.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "near_neighbor",
+      "pair_id": "simple-vs-route",
+      "prompt": "Copy notes.md to notes-edited.md and preserve the original.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "simple-vs-route",
+      "prompt": "Copy notes.md, but first decide whether editing it can prove the stated incident outcome.",
+      "should_trigger": true
+    }
+  ]
+}

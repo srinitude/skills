@@ -1,0 +1,62 @@
+{
+  "name": "@srinitude/skills",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.11.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": [
+    ".aider.conf.yml",
+    ".agents/plugins/",
+    ".claude-plugin/",
+    ".codex-plugin/",
+    ".cursor-plugin/",
+    ".mcp.json",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "__init__.py",
+    "adapters/",
+    "evidence/",
+    "gemini-extension.json",
+    "mcp/dist/server.mjs",
+    "openclaw.plugin.json",
+    "opencode.json",
+    "plugin.yaml",
+    "schemas/",
+    "skills/",
+    "skills.sh.json"
+  ],
+  "scripts": {
+    "build:mcp": "tsx scripts/build-mcp.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "skills": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.27.1",
+    "yaml": "2.9.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.13.3",
+    "ajv": "8.18.0",
+    "esbuild": "0.28.1",
+    "eslint": "10.1.0",
+    "prettier": "3.8.2",
+    "tsx": "4.21.0",
+    "typescript": "6.0.2",
+    "typescript-eslint": "8.65.0",
+    "vitest": "4.1.1"
+  }
+}

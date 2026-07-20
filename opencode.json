@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "srinitude-skills": {
+      "type": "local",
+      "command": ["node", "mcp/dist/server.mjs"],
+      "cwd": ".",
+      "enabled": true
+    }
+  }
+}

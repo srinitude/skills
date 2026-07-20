@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: jdx/mise-action@v3
+        with:
+          cache: true
+      - run: npm ci --include=dev
+      - run: mise run ci
+      - run: mkdir -p .artifacts/release
+      - run: npm pack --pack-destination .artifacts/release
+      - run: gh release create "$GITHUB_REF_NAME" .artifacts/release/* --verify-tag --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

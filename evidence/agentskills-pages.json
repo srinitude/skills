@@ -1,0 +1,52 @@
+{
+  "schema": "agentskills-pages/v1",
+  "captured_at": "2026-07-20",
+  "source": "https://agentskills.io/sitemap.xml",
+  "pages": [
+    {
+      "url": "https://agentskills.io/client-implementation/adding-skills-support.md",
+      "bytes": 20898,
+      "sha256": "053f470d59333548d1338e2c4ea1aa69cb2da47ff12d7977d180c7ab70611ea6"
+    },
+    {
+      "url": "https://agentskills.io/clients.md",
+      "bytes": 24275,
+      "sha256": "d67af9f4c31f95991cc9c5ff3d5a7f9ebc30fa2442a5185c858eff9b6057c299"
+    },
+    {
+      "url": "https://agentskills.io/home.md",
+      "bytes": 25349,
+      "sha256": "546f0f92a3d16945f7e5b8a739de449bb740a5cb8fcaef8ee5469544d936e2c9"
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/best-practices.md",
+      "bytes": 14864,
+      "sha256": "8e78d596cf2b24eadcfea8e7a67dbf7b2a0f70953942849b8872664f9d69d836"
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/evaluating-skills.md",
+      "bytes": 16957,
+      "sha256": "221fbace3a1127b9d65bad726e11d828cb8cbe50869017eb49cc0a8257ee97bb"
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/optimizing-descriptions.md",
+      "bytes": 13307,
+      "sha256": "2b4357e5551906f6db918c52237abacd25f2e3c3e80301274270ab103afac96f"
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/quickstart.md",
+      "bytes": 4011,
+      "sha256": "2700eb30514ca1f207edfc452dd024356ec8bcb400bcc58234158f78e5eb8436"
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/using-scripts.md",
+      "bytes": 12743,
+      "sha256": "f3393478445121f53363fa9810895f4f1ecd633da6b147e102e7fcf844f68b42"
+    },
+    {
+      "url": "https://agentskills.io/specification.md",
+      "bytes": 7986,
+      "sha256": "9d770de8f1b0556e6198defeba162e3336df431b60b52bf786f3700c5555493b"
+    }
+  ]
+}

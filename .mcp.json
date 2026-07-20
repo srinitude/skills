@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "srinitude-skills": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/dist/server.mjs"]
+    }
+  }
+}

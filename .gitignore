@@ -1,0 +1,9 @@
+node_modules/
+.artifacts/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+mcp/dist/*.map

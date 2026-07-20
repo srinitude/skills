@@ -1,0 +1,12 @@
+{
+  "name": "srinitude-skills",
+  "version": "0.1.0",
+  "description": "Portable Agent Skills and read-only local tools.",
+  "mcpServers": {
+    "srinitude-skills": {
+      "command": "node",
+      "args": ["${extensionPath}/mcp/dist/server.mjs"],
+      "cwd": "${extensionPath}"
+    }
+  }
+}

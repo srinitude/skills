@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/v0.1.0/schemas/eval-manifest.schema.json",
+  "title": "Agent Skill evaluation manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "skill",
+    "test_classes",
+    "conditions",
+    "repetitions",
+    "case_source",
+    "trigger_source",
+    "contract",
+    "rubric",
+    "speed_budgets"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "skill": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "test_classes": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "positive_activation",
+          "rejection",
+          "behavior",
+          "failure_handling",
+          "recovery",
+          "speed"
+        ]
+      }
+    },
+    "conditions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": { "enum": ["with_skill", "without_skill"] }
+    },
+    "repetitions": { "type": "integer", "const": 2 },
+    "case_source": { "$ref": "#/definitions/file" },
+    "trigger_source": { "$ref": "#/definitions/file" },
+    "contract": { "$ref": "#/definitions/file" },
+    "rubric": { "$ref": "#/definitions/file" },
+    "speed_budgets": { "$ref": "#/definitions/file" }
+  },
+  "definitions": {
+    "file": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9.-]*$"
+    }
+  }
+}

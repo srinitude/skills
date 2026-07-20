@@ -1,0 +1,22 @@
+{
+  "name": "srinitude-skills",
+  "version": "0.1.0",
+  "description": "Portable Agent Skills and read-only local tools.",
+  "author": {
+    "name": "Kiren Srinivasan",
+    "email": "kiren@fantasymetals.com"
+  },
+  "homepage": "https://github.com/srinitude/skills",
+  "repository": "https://github.com/srinitude/skills",
+  "license": "MIT",
+  "keywords": ["agent-skills", "mcp", "workflow"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "srinitude skills",
+    "shortDescription": "Portable skills and local read-only tools",
+    "developerName": "Kiren Srinivasan",
+    "category": "Productivity",
+    "capabilities": ["Read"]
+  }
+}

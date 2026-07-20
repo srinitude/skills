@@ -1,0 +1,65 @@
+min_version = "2026.4.0"
+
+[tools]
+"aqua:rhysd/actionlint" = "1.7.12"
+node = "24.18.0"
+python = "3.13.14"
+uv = "0.11.29"
+
+[tasks.bootstrap]
+run = "npm ci --include=dev"
+
+[tasks.format]
+run = "npm run format:check"
+
+[tasks.lint]
+run = "npm run lint"
+
+[tasks.actionlint]
+run = "actionlint"
+
+[tasks.typecheck]
+run = "npm run typecheck"
+
+[tasks.test]
+run = "npm test"
+
+[tasks.build-mcp]
+run = "npm run build:mcp"
+
+[tasks.validate-skills]
+run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point"
+
+[tasks.eval-offline]
+run = "npm run skills -- eval --skill starting-point --transport fixture --report .artifacts/eval"
+
+[tasks.benchmark-offline]
+run = "npm run skills -- benchmark --skill starting-point --transport fixture --report .artifacts/benchmark"
+
+[tasks.test-mcp]
+run = "npm test -- --run mcp/src"
+
+[tasks.check-integrations]
+run = "npm run skills -- check-integrations --source . --out .artifacts/integrations"
+
+[tasks.check-copy]
+run = "npm test -- --run src/copy.test.ts"
+
+[tasks.package]
+run = "npm run skills -- package --out .artifacts/package"
+
+[tasks.ci]
+depends = [
+  "actionlint",
+  "format",
+  "lint",
+  "typecheck",
+  "test",
+  "build-mcp",
+  "validate-skills",
+  "eval-offline",
+  "benchmark-offline",
+  "check-integrations",
+  "check-copy",
+  "package",
+]

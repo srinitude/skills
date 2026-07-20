@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "1.1.6",
+  "native_manifest_sha256": "ef10e9c27dec7b9cb594b1bdd7f7a3bdec50caaeb663a21016d8cc483f8cc5f0",
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/core-loop.md",
+      "source_paths": ["references/path-check.md"]
+    },
+    {
+      "path": "references/proof-checklist.md",
+      "source_paths": ["references/evidence.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["references/eval-contract.md"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "b152677dd2752ee87293c126db39a4ffbd2c4b2971372910735129df8d5a6821"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "82799de7063ebcb1941d7c24324052d6234f4202f9de582e66bee939aa2859ce"
+    },
+    {
+      "path": "references/eval-contract.md",
+      "sha256": "6491133b245f06d8f4c386aa91c31159df110fc180d8c95b8f4558ea90534c35"
+    },
+    {
+      "path": "references/evidence.md",
+      "sha256": "b4c9167f0af489222c791c673b5f65dfcc5e1cc9efac114d493c91f5c799a215"
+    },
+    {
+      "path": "references/path-check.md",
+      "sha256": "73ff5bc0e0f2b299de47b674bbc3fa0842d75ab5d298764ec545018beda98a0f"
+    }
+  ],
+  "source_case_ids": [
+    "SP-001",
+    "SP-002",
+    "SP-003",
+    "SP-004",
+    "SP-005",
+    "SP-006",
+    "SP-007",
+    "SP-008",
+    "SP-009",
+    "SP-010",
+    "SP-011",
+    "SP-012",
+    "SP-013",
+    "SP-014",
+    "SP-015",
+    "SP-016",
+    "SP-017",
+    "SP-018"
+  ]
+}

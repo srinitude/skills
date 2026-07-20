@@ -1,0 +1,14 @@
+{
+  "name": "srinitude-skills",
+  "displayName": "srinitude skills",
+  "version": "0.1.0",
+  "description": "Portable Agent Skills from one canonical tree.",
+  "author": {
+    "name": "Kiren Srinivasan",
+    "email": "kiren@fantasymetals.com"
+  },
+  "homepage": "https://github.com/srinitude/skills",
+  "repository": "https://github.com/srinitude/skills",
+  "license": "MIT",
+  "keywords": ["agent-skills", "workflow"]
+}

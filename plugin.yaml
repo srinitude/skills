@@ -1,0 +1,8 @@
+manifest_version: 1
+name: srinitude-skills
+version: 0.1.0
+description: Read-only access to the repository's canonical Agent Skills.
+author: Kiren Srinivasan
+kind: standalone
+provides_tools: []
+provides_hooks: []

@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/v0.1.0/schemas/eval-report.schema.json",
+  "title": "Agent Skill evaluation report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "skill",
+    "transport",
+    "status",
+    "test_classes",
+    "records",
+    "trigger_records",
+    "judge_packets"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "skill": { "type": "string", "minLength": 1 },
+    "transport": { "type": "string", "minLength": 1 },
+    "status": { "$ref": "#/definitions/status" },
+    "test_classes": { "type": "array", "minItems": 6, "items": { "type": "string" } },
+    "records": { "type": "array", "items": { "$ref": "#/definitions/record" } },
+    "trigger_records": { "type": "array", "items": { "$ref": "#/definitions/trigger" } },
+    "judge_packets": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "$ref": "#/definitions/judgePacket" }
+    }
+  },
+  "definitions": {
+    "status": { "enum": ["PASS", "FAIL", "BLOCKED"] },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_tokens", "output_tokens"],
+      "properties": {
+        "input_tokens": { "type": "integer", "minimum": 0 },
+        "output_tokens": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "criterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "observation", "status"],
+      "properties": {
+        "criterion": { "type": "string" },
+        "observation": { "type": "string" },
+        "status": { "enum": ["PASS", "FAIL"] }
+      }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "veto", "status"],
+      "properties": {
+        "required": { "type": "array", "items": { "$ref": "#/definitions/criterion" } },
+        "veto": { "type": "array", "items": { "$ref": "#/definitions/criterion" } },
+        "status": { "enum": ["PASS", "FAIL"] }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "case_id",
+        "condition",
+        "replica",
+        "status",
+        "retry_count",
+        "provider",
+        "model",
+        "duration_ms",
+        "input_sha256",
+        "output_sha256",
+        "usage"
+      ],
+      "properties": {
+        "record_id": { "type": "string" },
+        "case_id": { "type": "string" },
+        "condition": { "enum": ["with_skill", "without_skill"] },
+        "replica": { "type": "integer", "minimum": 1 },
+        "status": { "$ref": "#/definitions/status" },
+        "retry_count": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "provider": { "type": "string" },
+        "model": { "type": "string" },
+        "duration_ms": { "type": "number", "minimum": 0 },
+        "input_sha256": { "$ref": "#/definitions/hash" },
+        "output_sha256": { "$ref": "#/definitions/hash" },
+        "error": { "type": "string" },
+        "usage": { "$ref": "#/definitions/usage" },
+        "score": { "$ref": "#/definitions/score" }
+      }
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "replica", "expected", "status", "duration_ms"],
+      "properties": {
+        "id": { "type": "string" },
+        "replica": { "type": "integer", "minimum": 1 },
+        "expected": { "type": "boolean" },
+        "triggered": { "type": "boolean" },
+        "status": { "$ref": "#/definitions/status" },
+        "duration_ms": { "type": "number", "minimum": 0 }
+      }
+    },
+    "judgePacket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order", "record_ids"],
+      "properties": {
+        "order": { "enum": ["forward", "reverse"] },
+        "record_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

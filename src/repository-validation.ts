@@ -88,11 +88,6 @@ export async function validateRepository(
       catalog.map((entry) => validateSkill(root, entry.name)),
     );
     const errors = validatePageSet(evidence.pages.map((page) => page.url));
-    for (const entry of catalog) {
-      if (entry.version !== packageData.version) {
-        errors.push(`${entry.name} version does not match package version`);
-      }
-    }
     for (const report of skills) {
       if (report.status !== 'PASS')
         errors.push(`${report.name} validation is ${report.status}`);

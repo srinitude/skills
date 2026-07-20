@@ -22,6 +22,7 @@ Every supported client must load the same skill bytes.
 - Descriptions state when the skill applies and must not summarize its procedure.
 - `metadata.author` is `Kiren Srinivasan`.
 - New skills start at `metadata.version: "0.1.0"`.
+- Each skill owns its version. It must not depend on a package, integration, GitHub release, or another skill version.
 - Metadata values are strings.
 - Keep `SKILL.md` below 200 lines. Move optional detail out before 150 lines.
 - Tell the reader exactly when to load each reference.

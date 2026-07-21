@@ -2,11 +2,11 @@
 
 Portable Agent Skills from one canonical source tree.
 
-This repository ships `starting-point`, a skill for finding the real outcome, choosing a route, and setting proof before doing the requested work. Its format follows the [Agent Skills specification](https://agentskills.io/specification).
+This repository packages portable skills that follow the [Agent Skills specification](https://agentskills.io/specification).
 
 ## What ships
 
-- One canonical skill at [`skills/starting-point/SKILL.md`](skills/starting-point/SKILL.md).
+- Canonical skill packages under [`skills/`](skills/).
 - Trigger, behavior, failure, recovery, and speed evaluations.
 - A bundled, read-only local MCP server.
 - Native plugin metadata or an honest adapter for ten clients.
@@ -115,9 +115,10 @@ Paths are confined to the repository skill tree. Absolute paths, traversal, hidd
 ## Validate and evaluate
 
 ```sh
+SKILL_NAME=your-skill-name
 npm run skills -- validate --all --report .artifacts/skill-validation.json
-npm run skills -- eval starting-point --transport fixture --report .artifacts/evals/starting-point-fixture
-npm run skills -- benchmark starting-point --transport fixture --samples 1000 --report .artifacts/benchmarks/starting-point-fixture.json
+npm run skills -- eval --skill "$SKILL_NAME" --transport fixture --report ".artifacts/evals/$SKILL_NAME-fixture"
+npm run skills -- benchmark --skill "$SKILL_NAME" --transport fixture --samples 1000 --report ".artifacts/benchmarks/$SKILL_NAME-fixture.json"
 ```
 
 Fixture results prove runner behavior only. They are not evidence about a language model. Paid OpenRouter evaluation is a separate post-release step with a frozen model inventory, checkpoint files, a cost estimate, and explicit spend approval.

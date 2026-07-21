@@ -42,13 +42,19 @@ test('documents every supported client and tested local command', async () => {
     'npm ci --include=dev',
     'mise run ci',
     'npm run build:mcp',
-    'npm run skills -- eval starting-point --transport fixture',
+    'npm run skills -- eval --skill "$SKILL_NAME" --transport fixture',
   ]) {
     expect(readme).toContain(command);
   }
   const sweep = await readable('docs/openrouter-sweeps.md');
   expect(sweep).toContain('npm run skills -- sweep --phase dry-run');
   expect(sweep).toContain('--approval');
+});
+
+test('keeps the root guide skill-neutral', async () => {
+  const readme = await readable('README.md');
+
+  expect(readme).not.toContain('starting-point');
 });
 
 test('keeps every relative Markdown link resolvable', async () => {

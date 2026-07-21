@@ -21,6 +21,15 @@ test('defines local and release GitHub Actions gates', async () => {
   expect(release.jobs).toHaveProperty('release');
 });
 
+test('makes tag release reruns recoverable', async () => {
+  const workflow = await readFile(join(root, '.github/workflows/release.yml'), 'utf8');
+
+  expect(workflow).toContain('gh release view "$GITHUB_REF_NAME"');
+  expect(workflow).toContain('gh release upload "$GITHUB_REF_NAME"');
+  expect(workflow).toContain('--clobber');
+  expect(workflow).toContain('gh release create "$GITHUB_REF_NAME"');
+});
+
 test('uses Node 24 GitHub actions', async () => {
   for (const path of ['.github/workflows/ci.yml', '.github/workflows/release.yml']) {
     const workflow = await readFile(join(root, path), 'utf8');

@@ -1,30 +1,26 @@
-import { createHash, randomUUID } from 'node:crypto';
-import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-
-import { z } from 'zod';
+import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 import { SpendLedger } from './spend-ledger.js';
+import {
+  readCheckpoint,
+  readPending,
+  unlinkIfExists,
+  verifyPending,
+  writeJson,
+} from './sweep-artifacts.js';
 import {
   parseSweepApproval,
   verifySweepApproval,
   type SweepApproval,
 } from './sweep-approval.js';
 import { planSweep, sweepManifestHash, type SweepManifest } from './sweep-manifest.js';
-import { executeSweepRequest } from './sweep-openrouter.js';
-
-const checkpointSchema = z
-  .object({
-    actual_cost_usd: z.number().nonnegative(),
-    ledger_id: z.string().min(1),
-    provider_name: z.string().min(1),
-    raw_sha256: z.string().regex(/^[a-f0-9]{64}$/),
-    request_hash: z.string().regex(/^[a-f0-9]{64}$/),
-    request_id: z.string().min(1),
-    response_id: z.string().min(1),
-    schema_version: z.literal(1),
-  })
-  .strict();
+import {
+  assertSweepRequestExecutable,
+  executeSweepRequest,
+  OpenRouterRequestRejectedError,
+} from './sweep-openrouter.js';
 
 type SweepPhase = 'dry-run' | 'full' | 'pilot';
 
@@ -52,24 +48,20 @@ function sha256(value: string): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
-async function writeJson(path: string, value: unknown): Promise<void> {
-  await mkdir(dirname(path), { recursive: true });
-  const temporary = `${path}.tmp-${process.pid}-${randomUUID()}`;
-  try {
-    await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, { flag: 'wx' });
-    await rename(temporary, path);
-  } finally {
-    await unlink(temporary).catch(() => undefined);
+function reservationId(ledger: SpendLedger, requestId: string): string {
+  const matching = ledger
+    .snapshot()
+    .entries.filter(
+      (entry) => entry.id === requestId || entry.id.startsWith(`${requestId}#`),
+    );
+  const reserved = matching.filter((entry) => entry.status === 'reserved');
+  if (reserved.length > 1)
+    throw new Error(`multiple reservations require repair: ${requestId}`);
+  if (reserved[0]) throw new Error(`reservation requires reconciliation: ${requestId}`);
+  if (matching.some((entry) => entry.status === 'completed')) {
+    throw new Error(`completed ledger entry missing checkpoint: ${requestId}`);
   }
-}
-
-async function readCheckpoint(path: string) {
-  try {
-    return checkpointSchema.parse(JSON.parse(await readFile(path, 'utf8')));
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
-    throw error;
-  }
+  return requestId;
 }
 
 export async function runSweep(options: SweepOptions): Promise<SweepReport> {
@@ -106,6 +98,7 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
       unknownPriceCapUsd: options.unknownPriceCapUsd,
     });
     if (!options.apiKey) throw new Error('OpenRouter API key is required');
+    selected.forEach(assertSweepRequestExecutable);
 
     const ledger = await SpendLedger.open(
       join(options.out, 'spend-ledger.json'),
@@ -115,9 +108,22 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
     for (const request of selected) {
       const requestHash = sha256(JSON.stringify(request));
       const checkpointPath = join(options.out, 'checkpoints', `${request.id}.json`);
+      const pendingPath = join(options.out, 'pending', `${request.id}.json`);
       const rawPath = join(options.out, 'raw', `${request.id}.json`);
+      const expectedPending = {
+        manifest_sha256: manifestHash,
+        request_hash: requestHash,
+        request_id: request.id,
+      };
       const existing = await readCheckpoint(checkpointPath);
+      const pending = await readPending(pendingPath);
       if (existing) {
+        if (pending) {
+          verifyPending(pending, expectedPending);
+          if (pending.ledger_id !== existing.ledger_id) {
+            throw new Error(`pending ledger conflict: ${request.id}`);
+          }
+        }
         if (existing.request_hash !== requestHash)
           throw new Error(`checkpoint conflict: ${request.id}`);
         if (existing.provider_name !== request.provider_name)
@@ -127,16 +133,40 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
           throw new Error(`raw checkpoint hash mismatch: ${request.id}`);
         await ledger.reserve(existing.ledger_id, request.reservation_usd);
         await ledger.reconcile(existing.ledger_id, existing.actual_cost_usd);
+        await unlinkIfExists(pendingPath);
         base.completed += 1;
         base.resumed += 1;
         continue;
       }
-      const attempts = ledger
-        .snapshot()
-        .entries.filter((entry) => entry.id.startsWith(`${request.id}#`));
-      const ledgerId = `${request.id}#${attempts.length + 1}`;
+      if (pending) {
+        verifyPending(pending, expectedPending);
+        const entry = ledger.snapshot().entries.find(({ id }) => id === pending.ledger_id);
+        if (
+          !entry ||
+          entry.status !== 'reserved' ||
+          entry.reservation_usd !== request.reservation_usd
+        ) {
+          throw new Error(`pending ledger mismatch: ${request.id}`);
+        }
+        throw new Error(`pending request requires reconciliation: ${request.id}`);
+      }
+      const ledgerId = reservationId(ledger, request.id);
       await ledger.reserve(ledgerId, request.reservation_usd);
-      const result = await executeSweepRequest(request, options.apiKey, fetchImpl);
+      await writeJson(pendingPath, {
+        ...expectedPending,
+        ledger_id: ledgerId,
+        schema_version: 1,
+      });
+      const result = await executeSweepRequest(request, options.apiKey, fetchImpl).catch(
+        async (error: unknown) => {
+          if (!(error instanceof OpenRouterRequestRejectedError && error.confirmedUnsent)) {
+            throw error;
+          }
+          await ledger.release(ledgerId);
+          await unlinkIfExists(pendingPath);
+          throw error;
+        },
+      );
       const rawSource = `${JSON.stringify(result.raw, null, 2)}\n`;
       await writeJson(rawPath, result.raw);
       await writeJson(checkpointPath, {
@@ -150,6 +180,7 @@ export async function runSweep(options: SweepOptions): Promise<SweepReport> {
         schema_version: 1,
       });
       await ledger.reconcile(ledgerId, result.cost);
+      await unlinkIfExists(pendingPath);
       base.completed += 1;
     }
     await writeJson(join(options.out, 'report.json'), base);

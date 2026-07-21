@@ -35,6 +35,15 @@ const responseSchema = z
   })
   .passthrough();
 
+const rejectionSchema = z
+  .object({
+    openrouter_metadata: z
+      .object({ attempt: z.number().int().nonnegative() })
+      .passthrough()
+      .optional(),
+  })
+  .passthrough();
+
 const generationSchema = z.object({
   data: z
     .object({ provider_name: z.string().min(1), total_cost: z.number().nonnegative() })
@@ -48,11 +57,39 @@ export interface SweepResponse {
   responseId: string;
 }
 
-function route(request: SweepRequest): Record<string, unknown> {
+export class OpenRouterRequestRejectedError extends Error {
+  constructor(
+    status: number,
+    readonly confirmedUnsent: boolean,
+    readonly generationId: string | null,
+  ) {
+    super(
+      `OpenRouter request failed: ${status}${generationId ? `; generation: ${generationId}` : ''}`,
+    );
+    this.name = 'OpenRouterRequestRejectedError';
+  }
+}
+
+type ExecutableSweepRequest = SweepRequest & {
+  pricing: {
+    completion_usd_per_token: number;
+    prompt_usd_per_token: number;
+    request_usd: number;
+  };
+};
+
+export function assertSweepRequestExecutable(
+  request: SweepRequest,
+): asserts request is ExecutableSweepRequest {
   const pricing = request.pricing;
   if (pricing.prompt_usd_per_token === null || pricing.completion_usd_per_token === null) {
     throw new Error(`cannot execute unknown-price request: ${request.id}`);
   }
+}
+
+function route(request: SweepRequest): Record<string, unknown> {
+  assertSweepRequestExecutable(request);
+  const pricing = request.pricing;
   return {
     allow_fallbacks: false,
     max_price: {
@@ -90,6 +127,17 @@ function selectedProvider(response: z.infer<typeof responseSchema>): string {
   return selected[0]!.provider;
 }
 
+async function rejectedError(response: Response): Promise<OpenRouterRequestRejectedError> {
+  const raw: unknown = await response.json().catch(() => undefined);
+  const parsed = rejectionSchema.safeParse(raw);
+  const confirmedUnsent = parsed.success && parsed.data.openrouter_metadata?.attempt === 0;
+  return new OpenRouterRequestRejectedError(
+    response.status,
+    confirmedUnsent,
+    response.headers.get('x-generation-id'),
+  );
+}
+
 export async function executeSweepRequest(
   request: SweepRequest,
   apiKey: string,
@@ -110,7 +158,7 @@ export async function executeSweepRequest(
     },
     method: 'POST',
   });
-  if (!response.ok) throw new Error(`OpenRouter request failed: ${response.status}`);
+  if (!response.ok) throw await rejectedError(response);
   const raw: unknown = await response.json();
   const parsed = responseSchema.parse(raw);
   const provider = selectedProvider(parsed);

@@ -4,7 +4,7 @@ Portable Agent Skills from one canonical source tree.
 
 This repository packages portable skills that follow the [Agent Skills specification](https://agentskills.io/specification).
 
-[![skills.sh](https://skills.sh/b/srinitude/skills)](https://skills.sh/srinitude/skills)
+[![Install with skills.sh](https://img.shields.io/badge/skills.sh-install-111111)](https://www.skills.sh/srinitude)
 
 ## What ships
 

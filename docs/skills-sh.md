@@ -1,6 +1,6 @@
 # skills.sh publishing notes
 
-The canonical source is [`srinitude/skills`](https://github.com/srinitude/skills). Its directory page is [`skills.sh/srinitude/skills`](https://skills.sh/srinitude/skills).
+The canonical source is [`srinitude/skills`](https://github.com/srinitude/skills). The current owner directory is [`skills.sh/srinitude`](https://www.skills.sh/srinitude).
 
 ## Install and discovery
 
@@ -22,15 +22,15 @@ Set `DISABLE_TELEMETRY=1` to opt out. `DO_NOT_TRACK=1` is also supported by the 
 
 ## Badge
 
-The repository README uses the source badge documented by skills.sh:
+Until skills.sh creates a source-specific page and badge, the README uses a static install badge linked to the owner directory:
 
 ```md
-[![skills.sh](https://skills.sh/b/srinitude/skills)](https://skills.sh/srinitude/skills)
+[![Install with skills.sh](https://img.shields.io/badge/skills.sh-install-111111)](https://www.skills.sh/srinitude)
 ```
 
 ## Catalog API
 
-The catalog API is served from `https://skills.sh/api/v1/`. API consumers deployed on Vercel authenticate with a short-lived `VERCEL_OIDC_TOKEN`. Request handlers should read or obtain a fresh token for each request instead of caching it at module scope.
+The [catalog API](https://www.skills.sh/docs/api) uses routes under `/api/v1/`. API consumers deployed on Vercel authenticate with a short-lived `VERCEL_OIDC_TOKEN`. Request handlers should read or obtain a fresh token for each request instead of caching it at module scope.
 
 Use the stable `{source}/{slug}` ID returned by the API for skill lookups. Respect response cache headers and the `Retry-After` header on HTTP 429 responses. This repository doesn't call the catalog API today.
 

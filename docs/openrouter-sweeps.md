@@ -72,7 +72,7 @@ npm run skills -- sweep --phase full \
 
 A matching completed checkpoint is reconciled and skipped. A changed request, manifest, cap, or approval blocks instead of sending.
 
-If the process stops after a request may have reached OpenRouter but before its checkpoint is written, the runner blocks that request. Reconcile it against first-party OpenRouter generation or account data before repairing the matching pending record and reservation. Use the generation ID printed with a rejected response when OpenRouter provides one. The local ledger alone can't prove whether OpenRouter charged an uncheckpointed request. OpenRouter notes that prompt processing can still be charged when no content is generated; see [Errors and Debugging](https://openrouter.ai/docs/api-reference/errors-and-debugging).
+If the process stops after a request may have reached OpenRouter but before its checkpoint is written, the runner blocks that request. Reconcile it against first-party OpenRouter generation or account data before repairing the matching pending record and reservation. Use the generation ID printed with a rejected response when OpenRouter provides one. The local ledger alone can't prove whether OpenRouter charged an uncheckpointed request. OpenRouter notes that prompt processing can still be charged when no content is generated; see [Errors and Debugging](https://openrouter.ai/docs/api_reference/errors-and-debugging).
 
 ## Version boundaries
 

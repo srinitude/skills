@@ -61,13 +61,16 @@ test('keeps the root guide skill-neutral', async () => {
 test('publishes the canonical skills.sh source and applicable guidance', async () => {
   const readme = await readable('README.md');
   const guidance = await readable('docs/skills-sh.md');
+  const sweep = await readable('docs/openrouter-sweeps.md');
   const evidence = JSON.parse(await readable('evidence/skills-sh-pages.json')) as {
     pages: Array<{ url: string }>;
   };
 
   expect(readme).toContain(
-    '[![skills.sh](https://skills.sh/b/srinitude/skills)](https://skills.sh/srinitude/skills)',
+    '[![Install with skills.sh](https://img.shields.io/badge/skills.sh-install-111111)](https://www.skills.sh/srinitude)',
   );
+  expect(readme).not.toContain('https://skills.sh/b/srinitude/skills');
+  expect(readme).not.toContain('https://skills.sh/srinitude/skills');
   expect(readme).toContain('npx skills add srinitude/skills');
   expect(readme).toContain('[skills.sh publishing notes](docs/skills-sh.md)');
   expect(evidence.pages.map(({ url }) => url)).toEqual([
@@ -79,6 +82,11 @@ test('publishes the canonical skills.sh source and applicable guidance', async (
   expect(guidance).toContain('DISABLE_TELEMETRY=1');
   expect(guidance).toContain('VERCEL_OIDC_TOKEN');
   expect(guidance).toContain('github.com/vercel-labs/skills');
+  expect(guidance).not.toContain('https://skills.sh/api/v1/');
+  expect(sweep).toContain('https://openrouter.ai/docs/api_reference/errors-and-debugging');
+  expect(sweep).not.toContain(
+    'https://openrouter.ai/docs/api-reference/errors-and-debugging',
+  );
 });
 
 test('keeps every relative Markdown link resolvable', async () => {

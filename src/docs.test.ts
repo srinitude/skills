@@ -10,6 +10,7 @@ const requiredDocs = [
   'SECURITY.md',
   'SUPPORT.md',
   'CHANGELOG.md',
+  'docs/skills-sh.md',
   'docs/openrouter-sweeps.md',
   'adapters/aider/README.md',
   'adapters/continue/README.md',
@@ -55,6 +56,29 @@ test('keeps the root guide skill-neutral', async () => {
   const readme = await readable('README.md');
 
   expect(readme).not.toContain('starting-point');
+});
+
+test('publishes the canonical skills.sh source and applicable guidance', async () => {
+  const readme = await readable('README.md');
+  const guidance = await readable('docs/skills-sh.md');
+  const evidence = JSON.parse(await readable('evidence/skills-sh-pages.json')) as {
+    pages: Array<{ url: string }>;
+  };
+
+  expect(readme).toContain(
+    '[![skills.sh](https://skills.sh/b/srinitude/skills)](https://skills.sh/srinitude/skills)',
+  );
+  expect(readme).toContain('npx skills add srinitude/skills');
+  expect(readme).toContain('[skills.sh publishing notes](docs/skills-sh.md)');
+  expect(evidence.pages.map(({ url }) => url)).toEqual([
+    'https://www.skills.sh/docs',
+    'https://www.skills.sh/docs/cli',
+    'https://www.skills.sh/docs/api',
+    'https://www.skills.sh/docs/faq',
+  ]);
+  expect(guidance).toContain('DISABLE_TELEMETRY=1');
+  expect(guidance).toContain('VERCEL_OIDC_TOKEN');
+  expect(guidance).toContain('github.com/vercel-labs/skills');
 });
 
 test('keeps every relative Markdown link resolvable', async () => {

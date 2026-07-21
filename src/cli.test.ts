@@ -29,7 +29,7 @@ test('writes a repository validation report and returns PASS', async () => {
   expect(code).toBe(0);
   expect(JSON.parse(await readFile(report, 'utf8'))).toMatchObject({
     skillCount: 1,
-    sourcePageCount: 9,
+    sourcePageCount: 13,
     status: 'PASS',
   });
   expect(diagnostics).toContain('validation: PASS');

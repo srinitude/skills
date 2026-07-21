@@ -4,6 +4,8 @@ Portable Agent Skills from one canonical source tree.
 
 This repository packages portable skills that follow the [Agent Skills specification](https://agentskills.io/specification).
 
+[![skills.sh](https://skills.sh/b/srinitude/skills)](https://skills.sh/srinitude/skills)
+
 ## What ships
 
 - Canonical skill packages under [`skills/`](skills/).
@@ -16,16 +18,15 @@ No client integration contains a second skill body.
 
 GitHub release versions and skill metadata versions are independent. Skills don't depend on each other's versions.
 
-## Install the repository
+## Install
 
 ```sh
-git clone https://github.com/srinitude/skills.git
-cd skills
-npm ci --include=dev
-npm run build:mcp
+npx skills add srinitude/skills
 ```
 
-Node 24 or newer is required. [Mise](https://mise.jdx.dev/) pins the full local toolchain.
+Use `npx skills add srinitude/skills --list` to inspect available skills first. The CLI reports anonymous install telemetry to skills.sh unless `DISABLE_TELEMETRY=1` is set.
+
+Clone the repository and run `npm ci --include=dev` plus `npm run build:mcp` when developing the package. Node 24 or newer is required. [Mise](https://mise.jdx.dev/) pins the full local toolchain.
 
 ## Client support
 
@@ -83,11 +84,7 @@ Use the Skills Hub tap or optional Python plugin route in the [Hermes Agent adap
 
 ### opencode
 
-Install the skill with the skills CLI. Use [`opencode.json`](opencode.json) when running opencode from this checkout to start the local MCP server.
-
-```sh
-npx skills add srinitude/skills
-```
+Use the repository installation above. [`opencode.json`](opencode.json) starts the local MCP server when running opencode from this checkout.
 
 ### Continue and Aider
 
@@ -133,7 +130,7 @@ mise run ci
 
 ## Contribute and report problems
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing a skill or integration. Security reports follow [SECURITY.md](SECURITY.md). Other help is covered by [SUPPORT.md](SUPPORT.md).
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing a skill or integration. The [skills.sh publishing notes](docs/skills-sh.md) record discovery, telemetry, API, and listing-correction rules. Security reports follow [SECURITY.md](SECURITY.md). Other help is covered by [SUPPORT.md](SUPPORT.md).
 
 ## License
 

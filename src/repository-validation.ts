@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { loadCatalog } from './catalog.js';
 import { validateSkill, type SkillValidationReport } from './skill-validation.js';
 
-const expectedPages = new Set([
+const expectedAgentSkillsPages = new Set([
   'https://agentskills.io/client-implementation/adding-skills-support.md',
   'https://agentskills.io/clients.md',
   'https://agentskills.io/home.md',
@@ -17,20 +17,39 @@ const expectedPages = new Set([
   'https://agentskills.io/specification.md',
 ]);
 
+const expectedSkillsShPages = new Set([
+  'https://www.skills.sh/docs',
+  'https://www.skills.sh/docs/cli',
+  'https://www.skills.sh/docs/api',
+  'https://www.skills.sh/docs/faq',
+]);
+
+const pageSchema = z
+  .object({
+    bytes: z.number().int().positive(),
+    url: z.string().url(),
+  })
+  .strict();
+
 const evidenceSchema = z
   .object({
     captured_at: z.string().date(),
     pages: z.array(
-      z
-        .object({
-          bytes: z.number().int().positive(),
-          sha256: z.string().regex(/^[a-f0-9]{64}$/),
-          url: z.string().url(),
-        })
-        .strict(),
+      pageSchema.extend({
+        sha256: z.string().regex(/^[a-f0-9]{64}$/),
+      }),
     ),
     schema: z.literal('agentskills-pages/v1'),
     source: z.literal('https://agentskills.io/sitemap.xml'),
+  })
+  .strict();
+
+const skillsShEvidenceSchema = z
+  .object({
+    captured_at: z.string().date(),
+    pages: z.array(pageSchema),
+    schema: z.literal('skills-sh-pages/v1'),
+    source: z.literal('https://www.skills.sh/sitemap-misc.xml'),
   })
   .strict();
 
@@ -49,15 +68,15 @@ export interface RepositoryValidationReport {
   version: string;
 }
 
-function validatePageSet(urls: string[]): string[] {
+function validatePageSet(urls: string[], expected: Set<string>, label: string): string[] {
   const actual = new Set(urls);
   const errors: string[] = [];
-  if (actual.size !== urls.length) errors.push('specification page URLs must be unique');
-  for (const url of expectedPages) {
-    if (!actual.has(url)) errors.push(`missing specification page: ${url}`);
+  if (actual.size !== urls.length) errors.push(`${label} page URLs must be unique`);
+  for (const url of expected) {
+    if (!actual.has(url)) errors.push(`missing ${label} page: ${url}`);
   }
   for (const url of actual) {
-    if (!expectedPages.has(url)) errors.push(`unexpected specification page: ${url}`);
+    if (!expected.has(url)) errors.push(`unexpected ${label} page: ${url}`);
   }
   return errors;
 }
@@ -77,17 +96,30 @@ export async function validateRepository(
   root: string,
 ): Promise<RepositoryValidationReport> {
   try {
-    const [evidenceRaw, packageRaw, catalog] = await Promise.all([
+    const [evidenceRaw, skillsShEvidenceRaw, packageRaw, catalog] = await Promise.all([
       readFile(`${root}/evidence/agentskills-pages.json`, 'utf8'),
+      readFile(`${root}/evidence/skills-sh-pages.json`, 'utf8'),
       readFile(`${root}/package.json`, 'utf8'),
       loadCatalog(root),
     ]);
     const evidence = evidenceSchema.parse(JSON.parse(evidenceRaw));
+    const skillsShEvidence = skillsShEvidenceSchema.parse(JSON.parse(skillsShEvidenceRaw));
     const packageData = packageSchema.parse(JSON.parse(packageRaw));
     const skills = await Promise.all(
       catalog.map((entry) => validateSkill(root, entry.name)),
     );
-    const errors = validatePageSet(evidence.pages.map((page) => page.url));
+    const errors = [
+      ...validatePageSet(
+        evidence.pages.map((page) => page.url),
+        expectedAgentSkillsPages,
+        'specification',
+      ),
+      ...validatePageSet(
+        skillsShEvidence.pages.map((page) => page.url),
+        expectedSkillsShPages,
+        'skills.sh documentation',
+      ),
+    ];
     for (const report of skills) {
       if (report.status !== 'PASS')
         errors.push(`${report.name} validation is ${report.status}`);
@@ -97,7 +129,7 @@ export async function validateRepository(
       errors,
       skillCount: catalog.length,
       skills,
-      sourcePageCount: evidence.pages.length,
+      sourcePageCount: evidence.pages.length + skillsShEvidence.pages.length,
       status,
       version: packageData.version,
     };

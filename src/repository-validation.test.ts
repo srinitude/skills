@@ -21,7 +21,7 @@ test('validates every skill and all frozen specification pages', async () => {
   expect(report).toMatchObject({
     errors: [],
     skillCount: 1,
-    sourcePageCount: 9,
+    sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
   });
@@ -38,6 +38,10 @@ test('validates package and skill versions independently', async () => {
   await cp(
     join(root, 'evidence', 'agentskills-pages.json'),
     join(fixture, 'evidence', 'agentskills-pages.json'),
+  );
+  await cp(
+    join(root, 'evidence', 'skills-sh-pages.json'),
+    join(fixture, 'evidence', 'skills-sh-pages.json'),
   );
   await cp(
     join(root, 'skills', 'starting-point'),
@@ -90,4 +94,40 @@ test('validates package and skill versions independently', async () => {
     { name: 'independent-skill', version: '7.4.2' },
     { name: 'starting-point', version: '0.1.0' },
   ]);
+});
+
+test('fails when the frozen skills.sh documentation set is incomplete', async () => {
+  const fixture = await mkdtemp(join(tmpdir(), 'skills-docs-evidence-'));
+  roots.push(fixture);
+  await mkdir(join(fixture, 'evidence'), { recursive: true });
+  await mkdir(join(fixture, 'skills'), { recursive: true });
+  await cp(
+    join(root, 'evidence', 'agentskills-pages.json'),
+    join(fixture, 'evidence', 'agentskills-pages.json'),
+  );
+  await cp(
+    join(root, 'skills', 'starting-point'),
+    join(fixture, 'skills', 'starting-point'),
+    { recursive: true },
+  );
+  await writeFile(
+    join(fixture, 'package.json'),
+    JSON.stringify({ name: 'docs-fixture', version: '0.1.0' }),
+  );
+  await writeFile(
+    join(fixture, 'evidence', 'skills-sh-pages.json'),
+    JSON.stringify({
+      captured_at: '2026-07-21',
+      pages: [],
+      schema: 'skills-sh-pages/v1',
+      source: 'https://www.skills.sh/sitemap-misc.xml',
+    }),
+  );
+
+  const report = await validateRepository(fixture);
+
+  expect(report.status).toBe('FAIL');
+  expect(report.errors).toContain(
+    'missing skills.sh documentation page: https://www.skills.sh/docs',
+  );
 });

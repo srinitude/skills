@@ -1,0 +1,23 @@
+{
+  "schema": "skills-sh-pages/v1",
+  "captured_at": "2026-07-21",
+  "source": "https://www.skills.sh/sitemap-misc.xml",
+  "pages": [
+    {
+      "url": "https://www.skills.sh/docs",
+      "bytes": 42048
+    },
+    {
+      "url": "https://www.skills.sh/docs/cli",
+      "bytes": 38095
+    },
+    {
+      "url": "https://www.skills.sh/docs/api",
+      "bytes": 133205
+    },
+    {
+      "url": "https://www.skills.sh/docs/faq",
+      "bytes": 41407
+    }
+  ]
+}

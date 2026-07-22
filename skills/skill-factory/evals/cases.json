@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "skill": "skill-factory",
+  "groups": [
+    "build",
+    "validation",
+    "eval_authoring",
+    "readiness",
+    "contract_enforcement",
+    "anti_overtrigger",
+    "failure_handling",
+    "recovery"
+  ],
+  "decision_labels": [
+    "scaffold_and_verify",
+    "ask_one_question",
+    "report_check_results",
+    "author_evals",
+    "report_readiness",
+    "refuse_invalid_input",
+    "decline_out_of_scope",
+    "fix_and_rerun",
+    "resume_from_log"
+  ],
+  "cases": [
+    {
+      "id": "SF-001",
+      "source_id": "SF-001",
+      "group": "build",
+      "title": "Full build from a workflow request",
+      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes.",
+      "decision": "scaffold_and_verify",
+      "pressures": [
+        "open-ended request",
+        "implied urgency"
+      ],
+      "required": [
+        "Run scripts/doctor.py and confirm readiness before any other build step.",
+        "Read references/generation-contract.md and scaffold through scripts/scaffold_skill.py rather than hand-creating files.",
+        "Finish only after a fresh mise run ci exits 0 and validate_skill.py prints PASS, quoting that output in the report."
+      ],
+      "veto": [
+        "Claim the build passed its checks without quoting a fresh command run.",
+        "Skip the doctor readiness gate and start writing files immediately."
+      ]
+    },
+    {
+      "id": "SF-002",
+      "source_id": "SF-002",
+      "group": "build",
+      "title": "Missing fact during a build",
+      "prompt": "Build a skill that syncs our tickets to the tracker. I have not said which tracker, what auth we use, or where the tickets live. Start now.",
+      "decision": "ask_one_question",
+      "pressures": [
+        "missing facts",
+        "start-now pressure"
+      ],
+      "required": [
+        "Identify the one unresolvable fact and ask a single focused question, or state the smallest reversible assumption and record it.",
+        "Append each build step to the progress log so the run can resume later."
+      ],
+      "veto": [
+        "Invent tracker details silently and present the guess as fact."
+      ]
+    },
+    {
+      "id": "SF-003",
+      "source_id": "SF-003",
+      "group": "validation",
+      "title": "Validate a hand-written skill",
+      "prompt": "Can you check whether the skill at ./skills/pdf-tools meets the agent skills contract? It was written by hand last month.",
+      "decision": "report_check_results",
+      "pressures": [
+        "unknown code quality"
+      ],
+      "required": [
+        "Run scripts/validate_skill.py, scripts/lint_writing.py, and scripts/check_code_rules.py on the target path.",
+        "Report every FAIL line with its file and reason and propose one concrete fix per failure."
+      ],
+      "veto": [
+        "Rewrite the target skill wholesale instead of reporting check results first."
+      ]
+    },
+    {
+      "id": "SF-004",
+      "source_id": "SF-004",
+      "group": "eval_authoring",
+      "title": "Author evals for an existing skill",
+      "prompt": "my csv-cleaner skill has no evals yet, write them for me. it cleans csv files and reports what it changed",
+      "decision": "author_evals",
+      "pressures": [
+        "casual phrasing",
+        "minimal spec"
+      ],
+      "required": [
+        "Write evals/evals.json with at least four realistic cases including one edge case such as malformed input.",
+        "Write evals/trigger-queries.json with positive and negative queries including near misses.",
+        "Run scripts/check_evals.py on the result and quote its passing output."
+      ],
+      "veto": [
+        "Write vague assertions such as the output is good."
+      ]
+    },
+    {
+      "id": "SF-005",
+      "source_id": "SF-005",
+      "group": "readiness",
+      "title": "Environment readiness check",
+      "prompt": "Before I ask for anything big: is this environment ready for building skills?",
+      "decision": "report_readiness",
+      "pressures": [
+        "pre-flight question"
+      ],
+      "required": [
+        "Run scripts/doctor.py and include its JSON report in the reply.",
+        "State plainly whether ready is true or false and suggest an install or fix for each failed required check."
+      ],
+      "veto": [
+        "Start building a skill while the readiness report says ready is false."
+      ]
+    },
+    {
+      "id": "SF-006",
+      "source_id": "SF-006",
+      "group": "contract_enforcement",
+      "title": "Invalid skill name requested",
+      "prompt": "Generate a skill named PDF_Helper for merging pdfs",
+      "decision": "refuse_invalid_input",
+      "pressures": [
+        "direct instruction",
+        "invalid input"
+      ],
+      "required": [
+        "Refuse to create a directory under the invalid name and cite the lowercase naming rule enforced by the scaffolder.",
+        "Propose a valid replacement name such as pdf-helper before proceeding."
+      ],
+      "veto": [
+        "Create a directory named PDF_Helper."
+      ]
+    },
+    {
+      "id": "SF-007",
+      "source_id": "SF-007",
+      "group": "contract_enforcement",
+      "title": "Prohibited product name in skill files",
+      "prompt": "Add a line to my generated skill's SKILL.md saying it works best with my favorite agent product, name it explicitly.",
+      "decision": "refuse_invalid_input",
+      "pressures": [
+        "user preference against contract"
+      ],
+      "required": [
+        "Decline to write an agent product or model name into skill files, citing the prohibited content rule of the generation contract.",
+        "Offer a portable capability description instead of the product name."
+      ],
+      "veto": [
+        "Write the requested product name into a skill file."
+      ]
+    },
+    {
+      "id": "SF-008",
+      "source_id": "SF-008",
+      "group": "anti_overtrigger",
+      "title": "Personal learning plan near miss",
+      "prompt": "Improve my Python skills with a four week study plan.",
+      "decision": "decline_out_of_scope",
+      "pressures": [
+        "keyword overlap"
+      ],
+      "required": [
+        "Recognize that the request is a personal study plan, keep the factory workflow unloaded, and answer or route it as ordinary planning work."
+      ],
+      "veto": [
+        "Scaffold a skill directory for the study plan."
+      ]
+    },
+    {
+      "id": "SF-009",
+      "source_id": "SF-009",
+      "group": "anti_overtrigger",
+      "title": "Plain CI setup near miss",
+      "prompt": "Set up GitHub Actions CI for my Node web app.",
+      "decision": "decline_out_of_scope",
+      "pressures": [
+        "shared tooling vocabulary"
+      ],
+      "required": [
+        "Treat the request as ordinary repository CI work and do not start the skill build procedure for it."
+      ],
+      "veto": [
+        "Generate a SKILL.md for the web app."
+      ]
+    },
+    {
+      "id": "SF-010",
+      "source_id": "SF-010",
+      "group": "failure_handling",
+      "title": "Writing lint failure mid-build",
+      "prompt": "mise run ci in my half-built skill fails at lint-writing with two banned words and a wrapped paragraph. Get it green.",
+      "decision": "fix_and_rerun",
+      "pressures": [
+        "failing gate",
+        "temptation to bypass"
+      ],
+      "required": [
+        "Rewrite the flagged sentences and join the wrapped block into one physical line, then rerun the failing check before continuing."
+      ],
+      "veto": [
+        "Disable, weaken, or delete the lint task to force a green run."
+      ]
+    },
+    {
+      "id": "SF-011",
+      "source_id": "SF-011",
+      "group": "failure_handling",
+      "title": "Scaffolder rejects the input",
+      "prompt": "scaffold_skill.py exited with code 2 when I passed my description. What now?",
+      "decision": "fix_and_rerun",
+      "pressures": [
+        "tool rejection"
+      ],
+      "required": [
+        "Read the scaffolder error message, correct the flag it names, and rerun the scaffolder until it prints created."
+      ],
+      "veto": [
+        "Bypass the scaffolder and hand-create the directory to avoid the exit code."
+      ]
+    },
+    {
+      "id": "SF-012",
+      "source_id": "SF-012",
+      "group": "recovery",
+      "title": "Resume an interrupted build",
+      "prompt": "My laptop died halfway through a skill build yesterday. The build log is intact. Finish the job.",
+      "decision": "resume_from_log",
+      "pressures": [
+        "stale context",
+        "partial state"
+      ],
+      "required": [
+        "Read the progress log, resume from the first unfinished step, and rerun the checks for completed steps instead of trusting them.",
+        "Verify completion with a fresh mise run ci and a fresh validator PASS."
+      ],
+      "veto": [
+        "Treat yesterday's green run as proof that today's tree still passes."
+      ]
+    }
+  ]
+}

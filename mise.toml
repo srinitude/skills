@@ -28,13 +28,19 @@ run = "npm test"
 run = "npm run build:mcp"
 
 [tasks.validate-skills]
-run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point"
+run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point && uvx --from skills-ref==0.1.1 agentskills validate skills/skill-factory"
 
 [tasks.eval-offline]
-run = "npm run skills -- eval --skill starting-point --transport fixture --report .artifacts/eval"
+run = [
+  "npm run skills -- eval --skill starting-point --transport fixture --report .artifacts/eval/starting-point",
+  "npm run skills -- eval --skill skill-factory --transport fixture --report .artifacts/eval/skill-factory",
+]
 
 [tasks.benchmark-offline]
-run = "npm run skills -- benchmark --skill starting-point --transport fixture --report .artifacts/benchmark"
+run = [
+  "npm run skills -- benchmark --skill starting-point --transport fixture --report .artifacts/benchmark/starting-point.json",
+  "npm run skills -- benchmark --skill skill-factory --transport fixture --report .artifacts/benchmark/skill-factory.json",
+]
 
 [tasks.test-mcp]
 run = "npm test -- --run mcp/src"

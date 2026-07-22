@@ -7,11 +7,11 @@ export const evalCaseSchema = z
   .object({
     decision: z.string().min(1),
     group: z.string().min(1),
-    id: z.string().regex(/^SP-\d{3}$/),
+    id: z.string().regex(/^[A-Z]{2}-\d{3}$/),
     pressures: z.array(z.string()),
     prompt: z.string().min(1),
     required: z.array(z.string().min(1)).min(1),
-    source_id: z.string().regex(/^SP-\d{3}$/),
+    source_id: z.string().regex(/^[A-Z]{2}-\d{3}$/),
     title: z.string().min(1),
     veto: z.array(z.string().min(1)).min(1),
   })

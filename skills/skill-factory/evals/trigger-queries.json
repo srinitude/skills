@@ -1,0 +1,22 @@
+[
+  {"query": "Build me a skill that reviews SQL migrations before I run them.", "should_trigger": true},
+  {"query": "package the workflow we just did into a reusable skill", "should_trigger": true},
+  {"query": "Can you scaffold a new SKILL.md folder for my report generator?", "should_trigger": true},
+  {"query": "validate my markdown-tools skill against the agent skills spec", "should_trigger": true},
+  {"query": "write evals for the invoice-parser skill in ~/skills/invoice-parser", "should_trigger": true},
+  {"query": "I want a repeatable recipe my agent can load for deploy checks. make one", "should_trigger": true},
+  {"query": "turn these runbook notes into an installable agent skill w/ tests", "should_trigger": true},
+  {"query": "my skill fails validation, someting about frontmatter at byte 0, fix it", "should_trigger": true},
+  {"query": "create a skill called meeting-notes with ci and trigger queries", "should_trigger": true},
+  {"query": "is my machine ready to generate agent skills? run a doctor check", "should_trigger": true},
+  {"query": "What are agent skills and how do they work?", "should_trigger": false},
+  {"query": "Install the starting-point skill from the srinitude registry for me.", "should_trigger": false},
+  {"query": "Improve my Python skills with a four week study plan.", "should_trigger": false},
+  {"query": "Write a blog post about test driven development.", "should_trigger": false},
+  {"query": "Set up GitHub Actions CI for my Node web app.", "should_trigger": false},
+  {"query": "Validate this JSON file against its schema.", "should_trigger": false},
+  {"query": "Add a skills section to my resume for the recruiter.", "should_trigger": false},
+  {"query": "Summarize the attached PDF in three bullet points.", "should_trigger": false},
+  {"query": "Why does mise run ci fail in my Rust repository?", "should_trigger": false},
+  {"query": "Translate good morning into French.", "should_trigger": false}
+]

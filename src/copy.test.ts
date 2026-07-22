@@ -20,7 +20,10 @@ test('passes the current public repository copy', async () => {
     'PASS',
   );
   expect(report.inspected_files).toBeGreaterThan(10);
-  expect(report.skill_files).toEqual(['skills/starting-point/SKILL.md']);
+  expect(report.skill_files).toEqual([
+    'skills/skill-factory/SKILL.md',
+    'skills/starting-point/SKILL.md',
+  ]);
 });
 
 test('reports banned wording and duplicate skill locations', async () => {

@@ -2,6 +2,14 @@
 
 All notable changes to this project are recorded here.
 
+## Unreleased
+
+- Added the `skill-factory` Agent Skill at `metadata.version: "0.1.0"` with the full registry eval artifact set and source-lineage hashes.
+- Unified the repository rules and the skill-factory generation contract in `AGENTS.md`.
+- Raised the skill description limit to the 1024-character agentskills.io specification limit; descriptions still start with `Use when`.
+- Adopted the one-line markdown layout for skill markdown and applied it to `starting-point`.
+- Kept `starting-point` at `metadata.version: "0.1.0"`.
+
 ## GitHub release 0.1.2
 
 - Allowed verified zero-cost routes through the full ledger path.

@@ -86,6 +86,18 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
 
   expect(skills).toEqual([
     {
+      description:
+        'Use when a workflow, recipe, or capability needs to be packaged as an' +
+        ' agent skill, or when an existing skill needs scaffolding, validation,' +
+        ' linting, or evals. Covers requests to build, create, generate,' +
+        ' scaffold, check, or evaluate a skill: a folder holding SKILL.md,' +
+        ' scripts, tests, a task graph, CI, and eval cases. Applies even when' +
+        ' the request says playbook, runbook, or reusable workflow instead of' +
+        ' skill.',
+      name: 'skill-factory',
+      path: resolve(root, 'skills', 'skill-factory', 'SKILL.md'),
+    },
+    {
       description: 'Use when an outcome is stated, inferred, or hidden.',
       name: 'starting-point',
       path: resolve(root, 'skills', 'starting-point', 'SKILL.md'),

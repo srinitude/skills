@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "0.1.0",
+  "native_manifest_sha256": "98aaa681eb690d87a7668632d481cd895e29afe09efe2af2540f0de61f87a56e",
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "path": "assets/ci/ci.yml",
+      "source_paths": [
+        "assets/ci/ci.yml"
+      ]
+    },
+    {
+      "path": "assets/decisions-template.md",
+      "source_paths": [
+        "assets/decisions-template.md"
+      ]
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "source_paths": [
+        "assets/eval-case-template.json"
+      ]
+    },
+    {
+      "path": "assets/evals-template.json",
+      "source_paths": [
+        "assets/evals-template.json"
+      ]
+    },
+    {
+      "path": "assets/mise-template.toml",
+      "source_paths": [
+        "assets/mise-template.toml"
+      ]
+    },
+    {
+      "path": "assets/skill-template.md",
+      "source_paths": [
+        "assets/skill-template.md"
+      ]
+    },
+    {
+      "path": "assets/starter-script.py",
+      "source_paths": [
+        "assets/starter-script.py"
+      ]
+    },
+    {
+      "path": "assets/starter-test.py",
+      "source_paths": [
+        "assets/starter-test.py"
+      ]
+    },
+    {
+      "path": "assets/trigger-template.json",
+      "source_paths": [
+        "assets/trigger-template.json"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": [
+        "evals/cases.json"
+      ]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": [
+        "evals/contract.md"
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": [
+        "evals/evals.json"
+      ]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": [
+        "evals/manifest.json"
+      ]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": [
+        "evals/rubric.md"
+      ]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": [
+        "evals/speed-budgets.json"
+      ]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": [
+        "evals/trigger-cases.json"
+      ]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": [
+        "evals/trigger-queries.json"
+      ]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": [
+        "mise.toml"
+      ]
+    },
+    {
+      "path": "references/code-rules.md",
+      "source_paths": [
+        "references/code-rules.md"
+      ]
+    },
+    {
+      "path": "references/eval-authoring.md",
+      "source_paths": [
+        "references/eval-authoring.md"
+      ]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": [
+        "references/generation-contract.md"
+      ]
+    },
+    {
+      "path": "references/registry.md",
+      "source_paths": [
+        "references/registry.md"
+      ]
+    },
+    {
+      "path": "references/writing-rules.md",
+      "source_paths": [
+        "references/writing-rules.md"
+      ]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": [
+        "scripts/check_code_rules.py"
+      ]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": [
+        "scripts/check_evals.py"
+      ]
+    },
+    {
+      "path": "scripts/doctor.py",
+      "source_paths": [
+        "scripts/doctor.py"
+      ]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": [
+        "scripts/lint_writing.py"
+      ]
+    },
+    {
+      "path": "scripts/scaffold_skill.py",
+      "source_paths": [
+        "scripts/scaffold_skill.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/cli.py",
+      "source_paths": [
+        "scripts/tests/cli.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_check_code_rules.py",
+      "source_paths": [
+        "scripts/tests/test_check_code_rules.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_check_evals.py",
+      "source_paths": [
+        "scripts/tests/test_check_evals.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": [
+        "scripts/tests/test_ci_contract.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_doctor.py",
+      "source_paths": [
+        "scripts/tests/test_doctor.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_lint_writing.py",
+      "source_paths": [
+        "scripts/tests/test_lint_writing.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_scaffold_skill.py",
+      "source_paths": [
+        "scripts/tests/test_scaffold_skill.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_validate_skill.py",
+      "source_paths": [
+        "scripts/tests/test_validate_skill.py"
+      ]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": [
+        "scripts/validate_skill.py"
+      ]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "98aaa681eb690d87a7668632d481cd895e29afe09efe2af2540f0de61f87a56e"
+    },
+    {
+      "path": "assets/ci/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0"
+    },
+    {
+      "path": "assets/decisions-template.md",
+      "sha256": "d609fc19a53cc8ed5c14c96091bc906746ee7035f2eea5cdef727b8f852d6b93"
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "sha256": "89cff553a7d700331104d6dedf95ee5961d014fca3b7283044b1dd1369175563"
+    },
+    {
+      "path": "assets/evals-template.json",
+      "sha256": "2879ada9f29b93a87835c6f9525213bb7471ab2e646e19a5f9ed2109d578840d"
+    },
+    {
+      "path": "assets/mise-template.toml",
+      "sha256": "003e384371ea52b2a4196ace22342d8cc0fa311580af58af1d21dba78a944a7f"
+    },
+    {
+      "path": "assets/skill-template.md",
+      "sha256": "2535b84023cc8457984cd1fc119cae4e6ec9a3fee3e40ce83a4c6553bfa585af"
+    },
+    {
+      "path": "assets/starter-script.py",
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28"
+    },
+    {
+      "path": "assets/starter-test.py",
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73"
+    },
+    {
+      "path": "assets/trigger-template.json",
+      "sha256": "33895d371cdd84fc32624df0b92bd92c46dc4acaa609858a8adc33463ab2ccb5"
+    },
+    {
+      "path": "evals/cases.json",
+      "sha256": "86e28c8f7d83d65245ceda5132b506658293b5de8d00f49e698eed9dd4cfebe5"
+    },
+    {
+      "path": "evals/contract.md",
+      "sha256": "e52f929fef31bdd437618abc8ca30499e47cd28e43a94fe9e3d79b2064dc8817"
+    },
+    {
+      "path": "evals/evals.json",
+      "sha256": "a4c159fe6fd12beddf500627834a6be1ded2f4ad3d1c7f4b6e632356c692dab7"
+    },
+    {
+      "path": "evals/manifest.json",
+      "sha256": "9b41ea82939a41ba18a0ed4d28a24c13eaf76c6b3db46a2021e2a0de2b826e6c"
+    },
+    {
+      "path": "evals/rubric.md",
+      "sha256": "dc46ff7853931ef0f7ebb7858742fb925ff9698b42c4509b56ace8f439c25bb7"
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "sha256": "26b3879bf7742bc76790a4385507ba28e7111560e72e304adf2d2798f7972840"
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "sha256": "ba343cd54a35ce2f111bfc91da5d5f9593ab219213f950999a8d656493b872d1"
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "sha256": "c0d142044647e89e55d2b4a3e46d5771bff08f28700bf9af319e357021255cf0"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "47354d3ad3caff7467ac039607e9c369dd4baea7d3bbc133edd8f4c1e429712e"
+    },
+    {
+      "path": "references/code-rules.md",
+      "sha256": "11586f95165a42e9f14d1f2f8a3f6748155aafa49209365a99287fa93e484e33"
+    },
+    {
+      "path": "references/eval-authoring.md",
+      "sha256": "d6232a521c4f193c59d20ededd6618302b24c977e8d72b348d18da4ba79afcf7"
+    },
+    {
+      "path": "references/generation-contract.md",
+      "sha256": "9a0db275cee17ea8738d767324dd9e1c79f4823b18c369e847398b58ec92ad6a"
+    },
+    {
+      "path": "references/registry.md",
+      "sha256": "f1dc40c487898f625f39fe9f993c714b02435f1f0398938d44e3c70a96294d74"
+    },
+    {
+      "path": "references/writing-rules.md",
+      "sha256": "9ab8e269a1a015ce489d35b7509e96d25c50d499ec93c25698fa6c53bde0b72a"
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
+    },
+    {
+      "path": "scripts/doctor.py",
+      "sha256": "fea21971e2f7030df7f3c647017226e72cd40b5ee486daa99f46a27840daa65f"
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399"
+    },
+    {
+      "path": "scripts/scaffold_skill.py",
+      "sha256": "ec84ae7fda0173d542b4a866e9505be3005bea1b6a7a6a9e19b124671789d35d"
+    },
+    {
+      "path": "scripts/tests/cli.py",
+      "sha256": "ef0c71323f436dc481f55a1aa94e14b6840340350f46d4a9643b2d2c6b6aa6dd"
+    },
+    {
+      "path": "scripts/tests/test_check_code_rules.py",
+      "sha256": "4dd17fef8dbb88344d4c6675dfccbe00b7af4cb6fa7c092c2e58137046355258"
+    },
+    {
+      "path": "scripts/tests/test_check_evals.py",
+      "sha256": "721db209c50835c25fbc748b0a5e8631504e2f402592a1c242424368dd5a15b9"
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "sha256": "a94b14c4271cd2e5ebe264a00a4c48808c01447d9b5c6e6410b74e06e6da9345"
+    },
+    {
+      "path": "scripts/tests/test_doctor.py",
+      "sha256": "de07b36d020f605e101954da6adde0493548272dbd459d87590f2e118e795be9"
+    },
+    {
+      "path": "scripts/tests/test_lint_writing.py",
+      "sha256": "2b2cc7f3f27a7bf2a785229c037f40c5b8cc8f848373c1f34d10bbc4078990f6"
+    },
+    {
+      "path": "scripts/tests/test_scaffold_skill.py",
+      "sha256": "66cdd7d4fec480afe303ead8fe025bf9668d78c6d0ea528a65035a22d12c8878"
+    },
+    {
+      "path": "scripts/tests/test_validate_skill.py",
+      "sha256": "83117db8893d26f724a0b15f77ef5217a909f8d8e285ea53d8586a9bf4b75d1a"
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "sha256": "df16706c8949cf2ae40a2bf2e09709dbf94d4550339f95c4f8075afe370bad0d"
+    }
+  ],
+  "source_case_ids": [
+    "SF-001",
+    "SF-002",
+    "SF-003",
+    "SF-004",
+    "SF-005",
+    "SF-006",
+    "SF-007",
+    "SF-008",
+    "SF-009",
+    "SF-010",
+    "SF-011",
+    "SF-012"
+  ]
+}

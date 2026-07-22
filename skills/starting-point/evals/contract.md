@@ -1,7 +1,6 @@
 # Evaluation contract
 
-Owner and backlink: [`../SKILL.md`](../SKILL.md). This file owns the public regression procedure.
-The parent owns runtime behavior.
+Owner and backlink: [`../SKILL.md`](../SKILL.md). This file owns the public regression procedure. The parent owns runtime behavior.
 
 ## Frozen inputs
 
@@ -20,7 +19,7 @@ A changed case, criterion, threshold, prompt, route, or skill byte invalidates t
 Require all of the following:
 
 - valid frontmatter with `metadata.version: "0.1.0"`;
-- a description that starts with `Use when` and is shorter than 60 characters;
+- a description that starts with `Use when`, states when the skill applies, and stays within 1024 characters;
 - exactly 18 unique `SP-###` cases across every declared group;
 - one native `source_id` per case;
 - required and veto criteria on every case;
@@ -30,9 +29,7 @@ Require all of the following:
 
 ## Trigger gate
 
-Use positive triggers, hard negatives, and near-neighbor pairs. A trigger pass requires the
-skill to load for every positive case and stay unloaded for every hard negative. Near-neighbor
-pairs must differ only at the intended boundary.
+Use positive triggers, hard negatives, and near-neighbor pairs. A trigger pass requires the skill to load for every positive case and stay unloaded for every hard negative. Near-neighbor pairs must differ only at the intended boundary.
 
 ## Behavior gate
 
@@ -47,8 +44,7 @@ pairs must differ only at the intended boundary.
 
 ## Decision rule
 
-A response passes only when every required criterion passes and every veto is absent. A case
-passes only when both responses pass in both judge orders with no material decision conflict.
+A response passes only when every required criterion passes and every veto is absent. A case passes only when both responses pass in both judge orders with no material decision conflict.
 
 Whole-eval PASS requires:
 
@@ -62,8 +58,7 @@ Anything else is BLOCKED. Do not average away a failed boundary.
 
 ## Report
 
-Record the frozen hashes, identities, provider route, token usage, reported cost, timing,
-criterion verdicts, conflicts, and blocked records. Keep these statuses separate:
+Record the frozen hashes, identities, provider route, token usage, reported cost, timing, criterion verdicts, conflicts, and blocked records. Keep these statuses separate:
 
 - subtask verification;
 - whole-eval completion;

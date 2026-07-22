@@ -1,7 +1,6 @@
 # Proof checklist
 
-Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference before claiming a result
-when component evidence, approvals, or external effects can be mistaken for whole completion.
+Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference before claiming a result when component evidence, approvals, or external effects can be mistaken for whole completion.
 
 ## Before execution
 
@@ -22,6 +21,4 @@ when component evidence, approvals, or external effects can be mistaken for whol
 
 ## Wording rule
 
-Say exactly what the evidence proves. A focused test proves the focused scope. A local package
-check does not prove remote installation. A prepared message does not prove delivery. A passing
-component does not prove the whole release.
+Say exactly what the evidence proves. A focused test proves the focused scope. A local package check does not prove remote installation. A prepared message does not prove delivery. A passing component does not prove the whole release.

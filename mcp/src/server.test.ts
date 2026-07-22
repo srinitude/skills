@@ -51,6 +51,7 @@ test('exposes canonical skill bytes as a fixed read-only resource', async () => 
   const client = await connectedClient();
   const resources = await client.listResources();
   expect(resources.resources.map((resource) => resource.uri)).toEqual([
+    'skill://skill-factory/SKILL.md',
     'skill://starting-point/SKILL.md',
   ]);
 
@@ -82,7 +83,9 @@ test('exposes only the approved read-only tools', async () => {
   expect(tools.tools.every((tool) => tool.annotations?.readOnlyHint === true)).toBe(true);
 
   const listed = await client.callTool({ name: 'list_skills' });
-  expect(JSON.parse(text(listed))).toMatchObject({ skills: [{ name: 'starting-point' }] });
+  expect(JSON.parse(text(listed))).toMatchObject({
+    skills: [{ name: 'skill-factory' }, { name: 'starting-point' }],
+  });
 
   const searched = await client.callTool({
     arguments: { query: 'outcome hidden' },

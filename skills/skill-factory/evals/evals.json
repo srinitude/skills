@@ -1,0 +1,58 @@
+{
+  "skill_name": "skill-factory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes.",
+      "expected_output": "A new release-notes skill directory with SKILL.md, mise.toml, a CI workflow, scripts, tests under scripts/tests, references, assets, and evals, plus a green mise run ci and a PASS from the validator, reported with the fresh command output.",
+      "assertions": [
+        "A directory named release-notes exists with SKILL.md at its root and frontmatter opening at byte 0.",
+        "mise run ci inside release-notes exits 0 and the reply quotes the run.",
+        "validate_skill.py on release-notes prints PASS.",
+        "evals/evals.json in release-notes holds at least 4 cases with assertions.",
+        "No file in release-notes names an agent product or a model."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you check whether the skill at ./skills/pdf-tools meets the agent skills contract? It was written by hand last month.",
+      "expected_output": "A validation report listing each contract check as PASS or FAIL, with file and reason for every failure and a proposed fix per failure.",
+      "assertions": [
+        "The reply shows output from validate_skill.py, lint_writing.py, and check_code_rules.py.",
+        "Every FAIL line carries a file reference and a reason.",
+        "Each reported failure comes with a concrete fix."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "my csv-cleaner skill has no evals yet, write them for me. it cleans csv files and reports what it changed",
+      "expected_output": "An evals/evals.json with at least four realistic cases including one edge case, plus an evals/trigger-queries.json with positive and negative queries, both passing check_evals.py.",
+      "assertions": [
+        "evals.json holds at least 4 cases, each with prompt, expected_output, and assertions.",
+        "At least one case covers an edge such as malformed input.",
+        "trigger-queries.json holds both should_trigger labels and includes near-miss negatives.",
+        "check_evals.py exits 0 on the result and the reply quotes the run."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Before I ask for anything big: is this environment ready for building skills?",
+      "expected_output": "The doctor report as JSON, with a plain statement of readiness and what to install when a required check fails.",
+      "assertions": [
+        "The reply includes the JSON report from scripts/doctor.py.",
+        "The reply states whether ready is true or false.",
+        "Failed required checks come with an install or fix suggestion."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Generate a skill named PDF_Helper for merging pdfs",
+      "expected_output": "No directory created under the invalid name. The reply explains the naming rule and proposes pdf-helper, then proceeds only after the user accepts the new name or the rename is a stated reversible assumption.",
+      "assertions": [
+        "No directory named PDF_Helper is created.",
+        "The reply cites the lowercase naming rule from the scaffolder error.",
+        "The reply proposes a valid replacement name such as pdf-helper."
+      ]
+    }
+  ]
+}

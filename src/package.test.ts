@@ -22,7 +22,9 @@ test('builds a safe package with canonical skills and client manifests', async (
 
   expect(result.sha256).toMatch(/^[a-f0-9]{64}$/);
   expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
+  expect(result.entries).toContain('package/skills/skill-factory/SKILL.md');
   expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
+    'package/skills/skill-factory/SKILL.md',
     'package/skills/starting-point/SKILL.md',
   ]);
   expect(result.entries).toEqual(

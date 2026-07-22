@@ -24,13 +24,13 @@ afterEach(async () => {
   );
 });
 
-test('accepts a description with exactly 59 characters', async () => {
-  const description = `Use when ${'x'.repeat(50)}`;
+test('accepts a description with exactly 1024 characters', async () => {
+  const description = `Use when ${'x'.repeat(1015)}`;
   const skill = await readSkillDocument(await skillFile(description));
   expect(skill.description).toBe(description);
 });
 
-test('rejects a description with 60 characters', async () => {
-  const description = `Use when ${'x'.repeat(51)}`;
+test('rejects a description with 1025 characters', async () => {
+  const description = `Use when ${'x'.repeat(1016)}`;
   await expect(readSkillDocument(await skillFile(description))).rejects.toThrow();
 });

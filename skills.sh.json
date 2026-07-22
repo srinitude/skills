@@ -4,6 +4,10 @@
     {
       "title": "Planning",
       "skills": ["starting-point"]
+    },
+    {
+      "title": "Skill Authoring",
+      "skills": ["skill-factory"]
     }
   ]
 }

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "skill": "skill-factory",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Build me a skill that reviews SQL migrations before I run them.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "package the workflow we just did into a reusable skill",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Can you scaffold a new SKILL.md folder for my report generator?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "validate my markdown-tools skill against the agent skills spec",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "write evals for the invoice-parser skill in ~/skills/invoice-parser",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "positive",
+      "prompt": "turn these runbook notes into an installable agent skill w/ tests",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-007",
+      "kind": "positive",
+      "prompt": "my skill fails validation, someting about frontmatter at byte 0, fix it",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-008",
+      "kind": "positive",
+      "prompt": "is my machine ready to generate agent skills? run a doctor check",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-009",
+      "kind": "hard_negative",
+      "prompt": "What are agent skills and how do they work?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "hard_negative",
+      "prompt": "Install the starting-point skill from the srinitude registry for me.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-011",
+      "kind": "hard_negative",
+      "prompt": "Write a blog post about test driven development.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-012",
+      "kind": "hard_negative",
+      "prompt": "Summarize the attached PDF in three bullet points.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-013",
+      "kind": "near_neighbor",
+      "pair_id": "study-plan",
+      "prompt": "Improve my Python skills with a four week study plan.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-014",
+      "kind": "near_neighbor",
+      "pair_id": "study-plan",
+      "prompt": "Turn my four week Python study plan into an installable agent skill.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-015",
+      "kind": "near_neighbor",
+      "pair_id": "plain-ci",
+      "prompt": "Set up GitHub Actions CI for my Node web app.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-016",
+      "kind": "near_neighbor",
+      "pair_id": "plain-ci",
+      "prompt": "Set up the CI workflow template inside the skill you scaffolded for me.",
+      "should_trigger": true
+    }
+  ]
+}

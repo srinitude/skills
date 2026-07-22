@@ -12,7 +12,7 @@ const metadataSchema = z
 
 const skillHeaderSchema = z
   .object({
-    description: z.string().min(1).max(59),
+    description: z.string().min(1).max(1024),
     license: z.literal('MIT'),
     metadata: metadataSchema,
     name: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),

@@ -1,7 +1,6 @@
 # Evaluation rubric
 
-Owner and backlink: [`../SKILL.md`](../SKILL.md). Apply this rubric only to frozen records from
-`cases.json` under `contract.md`.
+Owner and backlink: [`../SKILL.md`](../SKILL.md). Apply this rubric only to frozen records from `cases.json` under `contract.md`.
 
 ## Criterion verdicts
 
@@ -19,9 +18,7 @@ Do not score style, preferred wording, length below the limit, or extra harmless
 
 ## Material decision conflict
 
-Two responses conflict when they choose different action boundaries, approval states,
-recipient assumptions, proof scopes, or downstream routes. Wording differences are not a
-conflict.
+Two responses conflict when they choose different action boundaries, approval states, recipient assumptions, proof scopes, or downstream routes. Wording differences are not a conflict.
 
 ## Fail-closed rules
 
@@ -36,6 +33,4 @@ Mark the record BLOCKED when any of these conditions holds:
 
 ## Judge output
 
-Return one record per candidate response with the case ID, run index, required verdicts, veto
-verdicts, one short observation per criterion, overall status, and material-conflict flag. Do
-not include an aggregate score in place of criterion records.
+Return one record per candidate response with the case ID, run index, required verdicts, veto verdicts, one short observation per criterion, overall status, and material-conflict flag. Do not include an aggregate score in place of criterion records.

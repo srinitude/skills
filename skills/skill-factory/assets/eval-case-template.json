@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "prompt": "A realistic user request with file names, column names, or other concrete context.",
+  "expected_output": "What success looks like, stated so a reviewer can check it against the output.",
+  "assertions": [
+    "One verifiable statement about the output, countable or observable.",
+    "A second statement covering an edge the prompt exercises."
+  ],
+  "files": []
+}

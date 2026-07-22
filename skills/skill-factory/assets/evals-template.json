@@ -1,0 +1,41 @@
+{
+  "skill_name": "{{NAME}}",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Show me what the {{NAME}} skill can do.",
+      "expected_output": "The command table from SKILL.md plus the frontmatter description, restated briefly.",
+      "assertions": [
+        "The reply lists the help, info, and check commands.",
+        "The reply matches the description in the SKILL.md frontmatter."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run the {{NAME}} self checks and report what passed.",
+      "expected_output": "Output of mise run ci with every job green and a per-job summary.",
+      "assertions": [
+        "Each job in the ci task appears in the report.",
+        "The reply quotes the exit status or final line as evidence."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Give me the name and description of the {{NAME}} skill as JSON.",
+      "expected_output": "The JSON object printed by scripts/skill_info.py.",
+      "assertions": [
+        "The output is valid JSON with name and description fields.",
+        "The name field equals {{NAME}}."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "One of the {{NAME}} checks is failing. Find the failing job and fix it.",
+      "expected_output": "The failing mise job named, the cause fixed, and a green rerun shown.",
+      "assertions": [
+        "The reply names the failing task before changing anything.",
+        "The reply shows a passing rerun after the fix."
+      ]
+    }
+  ]
+}

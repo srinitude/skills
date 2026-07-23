@@ -2,6 +2,12 @@ from pathlib import Path
 
 _SKILLS = (
     (
+        "reify",
+        "Use when a vague idea, stray thought, remembered fragment, or uncertain"
+        " direction needs to become a concrete outcome, tested design, decision"
+        " record, artifact, or executable handoff.",
+    ),
+    (
         "skill-factory",
         "Use when a workflow, recipe, or capability needs to be packaged as an"
         " agent skill, or when an existing skill needs scaffolding, validation,"

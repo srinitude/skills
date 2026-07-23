@@ -9,6 +9,9 @@ All notable changes to this project are recorded here.
 - Raised the skill description limit to the 1024-character agentskills.io specification limit; descriptions still start with `Use when`.
 - Adopted the one-line markdown layout for skill markdown and applied it to `starting-point`.
 - Kept `starting-point` at `metadata.version: "0.1.0"`.
+- Added the platform-neutral `reify` skill with frozen source lineage.
+- Added trigger, behavior, failure, recovery, and speed evaluations for `reify`.
+- Updated package, plugin, MCP, skills.sh, Aider, Continue, and Hermes Agent discovery routes.
 
 ## GitHub release 0.1.2
 

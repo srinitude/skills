@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "skill": "reify",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Reify this with me: a pocket museum for ordinary objects.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "I have a feeling about abandoned shopping malls, but I don't know whether it is an essay, installation, or product. Help me make it real.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Can we work back and forth on this rough thought until there is one thing I can actually make?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "This keeps coming back to me, but every time I try to explain it I produce a different idea. Help me find what it wants to become.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "I have scraps, references, and half a premise. Help me discover the one object they should become.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "What year was the first lighthouse built at Cape Hatteras?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Write a TypeScript function that parses this JSON into a User object.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "That movie was fun. I liked the ending.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "near_neighbor",
+      "pair_id": "settled-vs-unsettled",
+      "prompt": "Summarize this finished project plan in five bullets.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "settled-vs-unsettled",
+      "prompt": "This unfinished project plan has three conflicting directions. Help me discover which one concrete outcome it should become.",
+      "should_trigger": true
+    }
+  ]
+}

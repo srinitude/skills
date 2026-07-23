@@ -1,8 +1,9 @@
 # Aider adapter
 
-Read a canonical [`SKILL.md`](../../skills/starting-point/SKILL.md) by absolute path from the project where Aider is running. The same route works for [`skill-factory`](../../skills/skill-factory/SKILL.md):
+Read a canonical [`SKILL.md`](../../skills/starting-point/SKILL.md) by absolute path from the project where Aider is running. The same route works for [`reify`](../../skills/reify/SKILL.md) and [`skill-factory`](../../skills/skill-factory/SKILL.md):
 
 ```sh
+aider --read /absolute/path/to/skills/skills/reify/SKILL.md
 aider --read /absolute/path/to/skills/skills/starting-point/SKILL.md
 aider --read /absolute/path/to/skills/skills/skill-factory/SKILL.md
 ```
@@ -14,4 +15,4 @@ cd /absolute/path/to/skills
 aider --config .aider.conf.yml
 ```
 
-This adapter does not install a plugin or start the MCP server. It adds the skill file as read-only context. Update the root config when another canonical skill is added.
+This adapter does not install a plugin or start the MCP server. It adds the skill files as read-only context. Update the root config when another canonical skill is added.

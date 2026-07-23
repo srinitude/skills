@@ -1,0 +1,82 @@
+[
+  {
+    "query": "I have a half-formed idea for a neighborhood repair exchange and need help making it concrete.",
+    "should_trigger": true
+  },
+  {
+    "query": "This thought keeps returning, but I cannot tell whether it should be a tool, service, or essay.",
+    "should_trigger": true
+  },
+  {
+    "query": "Can we shape this loose meeting idea into one outcome I can test next week?",
+    "should_trigger": true
+  },
+  {
+    "query": "Continue the concept from my notes and help me settle what it wants to become.",
+    "should_trigger": true
+  },
+  {
+    "query": "I remember a fragment of a project from last month. Help me recover it and choose a first milestone.",
+    "should_trigger": true
+  },
+  {
+    "query": "Give this rough product thought a concrete form, then make the next safe move.",
+    "should_trigger": true
+  },
+  {
+    "query": "We explored three directions earlier. Help me revert the last choice and recheck the design.",
+    "should_trigger": true
+  },
+  {
+    "query": "I want to scrap this direction without losing the reasoning behind it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn this feeling that our reports are useless into a small object we can test.",
+    "should_trigger": true
+  },
+  {
+    "query": "I do not know what the deliverable is yet, but I know the problem I want to change.",
+    "should_trigger": true
+  },
+  {
+    "query": "What is the capital of Iceland?",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the failing parser test in src/parser.test.ts and run the suite.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this attached report in five bullets.",
+    "should_trigger": false
+  },
+  {
+    "query": "Send the approved invoice to the recipient listed in the ticket.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a repository skill that validates CSV files.",
+    "should_trigger": false
+  },
+  {
+    "query": "Show me the weather for tomorrow.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run the deployment plan in deploy.md exactly as written.",
+    "should_trigger": false
+  },
+  {
+    "query": "We already chose the outcome. Write the final announcement from this approved brief.",
+    "should_trigger": false
+  },
+  {
+    "query": "List every decision recorded in project-log.md without changing them.",
+    "should_trigger": false
+  },
+  {
+    "query": "Delete the scrapped draft directory now.",
+    "should_trigger": false
+  }
+]

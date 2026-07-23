@@ -2,7 +2,7 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from 'vitest';
 
-import { evalManifestSchema, loadEvalDefinition } from './schema.js';
+import { evalCaseSchema, evalManifestSchema, loadEvalDefinition } from './schema.js';
 
 const root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
 
@@ -27,6 +27,32 @@ test('loads the complete starting-point eval definition', async () => {
   expect(definition.triggers.cases.some((entry) => !entry.should_trigger)).toBe(true);
   expect(definition.budgets.fixture.cold_start_ms_max).toBeGreaterThan(0);
   expect(definition.budgets.fixture.warm_start_ms_max).toBeGreaterThan(0);
+});
+
+test('loads the complete reify eval definition', async () => {
+  const definition = await loadEvalDefinition(root, 'reify');
+
+  expect(definition.manifest.test_classes).toEqual(requiredClasses);
+  expect(definition.cases.cases).toHaveLength(5);
+  expect(new Set(definition.cases.cases.map((entry) => entry.source_id))).toHaveLength(5);
+  expect(definition.triggers.cases.some((entry) => entry.should_trigger)).toBe(true);
+  expect(definition.triggers.cases.some((entry) => !entry.should_trigger)).toBe(true);
+});
+
+test('accepts portable skill case identifiers', () => {
+  expect(
+    evalCaseSchema.parse({
+      decision: 'shape_one_object',
+      group: 'collaborative_shaping',
+      id: 'RFY-001',
+      pressures: ['uncertainty'],
+      prompt: 'I have a rough thought. Reify it with me.',
+      required: ['Offer one concrete object.'],
+      source_id: 'RFY-001',
+      title: 'Rough thought',
+      veto: ['Ask a questionnaire.'],
+    }),
+  ).toMatchObject({ id: 'RFY-001', source_id: 'RFY-001' });
 });
 
 test('rejects unknown manifest fields', () => {

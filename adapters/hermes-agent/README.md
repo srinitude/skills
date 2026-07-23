@@ -1,9 +1,10 @@
 # Hermes Agent plugin
 
-The Skills Hub tap is the primary route for this skill collection. [`skills.sh.json`](../../skills.sh.json) groups the canonical [`starting-point` SKILL.md](../../skills/starting-point/SKILL.md) and [`skill-factory` SKILL.md](../../skills/skill-factory/SKILL.md).
+The Skills Hub tap is the primary route for this skill collection. [`skills.sh.json`](../../skills.sh.json) groups the canonical [`reify`](../../skills/reify/SKILL.md), [`starting-point`](../../skills/starting-point/SKILL.md), and [`skill-factory`](../../skills/skill-factory/SKILL.md) skills.
 
 ```sh
 hermes skills tap add srinitude/skills
+hermes skills install srinitude/skills/reify
 hermes skills install srinitude/skills/starting-point
 hermes skills install srinitude/skills/skill-factory
 ```

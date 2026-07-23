@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "native_version": "1.0.0",
+  "native_manifest_sha256": "d9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "af0c63a584eb4f36f6095bb973dc85823543e80fbe1ab8f18b8f1c3640c709f8"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "c562a3a86b949cfc9ffdd67985213565eb21a6245162347ab4debe5d8d7323b7"
+    }
+  ],
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    }
+  ],
+  "source_case_ids": ["RFY-001", "RFY-002", "RFY-003", "RFY-004", "RFY-005"]
+}

@@ -87,6 +87,14 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
   expect(skills).toEqual([
     {
       description:
+        'Use when a vague idea, stray thought, remembered fragment, or uncertain' +
+        ' direction needs to become a concrete outcome, tested design, decision' +
+        ' record, artifact, or executable handoff.',
+      name: 'reify',
+      path: resolve(root, 'skills', 'reify', 'SKILL.md'),
+    },
+    {
+      description:
         'Use when a workflow, recipe, or capability needs to be packaged as an' +
         ' agent skill, or when an existing skill needs scaffolding, validation,' +
         ' linting, or evals. Covers requests to build, create, generate,' +

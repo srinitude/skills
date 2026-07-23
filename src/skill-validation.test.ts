@@ -19,3 +19,17 @@ test('validates the public starting-point release and native lineage', async () 
     version: '0.1.0',
   });
 });
+
+test('validates the public reify release and native lineage', async () => {
+  const report = await validateSkill(root, 'reify');
+
+  expect(report).toEqual({
+    caseCount: 5,
+    errors: [],
+    manifestSha256: 'd9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a',
+    name: 'reify',
+    skillPath: join('skills', 'reify', 'SKILL.md'),
+    status: 'PASS',
+    version: '0.1.0',
+  });
+});

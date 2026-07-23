@@ -5,6 +5,7 @@ import { expect, test } from 'vitest';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const evalRoot = join(root, 'skills', 'starting-point', 'evals');
+const reifyEvalRoot = join(root, 'skills', 'reify', 'evals');
 
 test('binds the public port to the frozen native v1.1.6 manifest', async () => {
   const lineage = JSON.parse(
@@ -56,5 +57,34 @@ test('keeps all frozen native pressure IDs in the public case file', async () =>
   };
   expect(cases.cases.map((entry) => entry.id).sort()).toEqual(
     [...lineage.source_case_ids].sort(),
+  );
+});
+
+test('binds reify to the frozen native v1.0.0 packet', async () => {
+  const lineage = JSON.parse(
+    await readFile(join(reifyEvalRoot, 'source-lineage.json'), 'utf8'),
+  ) as {
+    native_manifest_sha256: string;
+    native_version: string;
+    public_files: Array<{ path: string; source_paths: string[] }>;
+    public_version: string;
+    source_case_ids: string[];
+  };
+
+  expect(lineage).toMatchObject({
+    native_manifest_sha256:
+      'd9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a',
+    native_version: '1.0.0',
+    public_version: '0.1.0',
+  });
+  expect(lineage.source_case_ids).toEqual([
+    'RFY-001',
+    'RFY-002',
+    'RFY-003',
+    'RFY-004',
+    'RFY-005',
+  ]);
+  await Promise.all(
+    lineage.public_files.map((entry) => access(join(root, 'skills', 'reify', entry.path))),
   );
 });

@@ -106,8 +106,13 @@ test('opencode adapter starts the bundled read-only server', async () => {
 
 test('Aider adapter reads the canonical skill without copying it', async () => {
   expect(await yaml('.aider.conf.yml')).toEqual({
-    read: ['skills/starting-point/SKILL.md', 'skills/skill-factory/SKILL.md'],
+    read: [
+      'skills/reify/SKILL.md',
+      'skills/starting-point/SKILL.md',
+      'skills/skill-factory/SKILL.md',
+    ],
   });
+  await expectInside('skills/reify/SKILL.md');
   await expectInside('skills/starting-point/SKILL.md');
   await expectInside('skills/skill-factory/SKILL.md');
 });
@@ -136,6 +141,7 @@ test('groups canonical skills for skills-hub clients', async () => {
   expect(await json('skills.sh.json')).toEqual({
     $schema: 'https://skills.sh/schemas/skills.sh.schema.json',
     groupings: [
+      { skills: ['reify'], title: 'Ideation' },
       { skills: ['starting-point'], title: 'Planning' },
       { skills: ['skill-factory'], title: 'Skill Authoring' },
     ],

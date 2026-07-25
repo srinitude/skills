@@ -1,11 +1,12 @@
 # Aider adapter
 
-Read a canonical [`SKILL.md`](../../skills/starting-point/SKILL.md) by absolute path from the project where Aider is running. The same route works for [`reify`](../../skills/reify/SKILL.md) and [`skill-factory`](../../skills/skill-factory/SKILL.md):
+Read a canonical [`SKILL.md`](../../skills/starting-point/SKILL.md) by absolute path from the project where Aider is running. The same route works for [`reify`](../../skills/reify/SKILL.md) and [`skill-factory`](../../skills/skill-factory/SKILL.md), and for [`visual-design-system-extractor`](../../skills/visual-design-system-extractor/SKILL.md):
 
 ```sh
 aider --read /absolute/path/to/skills/skills/reify/SKILL.md
 aider --read /absolute/path/to/skills/skills/starting-point/SKILL.md
 aider --read /absolute/path/to/skills/skills/skill-factory/SKILL.md
+aider --read /absolute/path/to/skills/skills/visual-design-system-extractor/SKILL.md
 ```
 
 The root [`.aider.conf.yml`](../../.aider.conf.yml) is a checkout-local convenience. Its relative read path works when the current directory is this repository:

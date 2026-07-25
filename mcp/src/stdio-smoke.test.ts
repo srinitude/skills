@@ -38,6 +38,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://reify/SKILL.md',
       'skill://skill-factory/SKILL.md',
       'skill://starting-point/SKILL.md',
+      'skill://visual-design-system-extractor/SKILL.md',
     ]);
   } finally {
     await client.close();

@@ -1,0 +1,304 @@
+meta:
+  schema: visual-design-system-extraction
+  rarity_floor: 70.0
+  extracted_at: '2026-07-25'
+source_analysis:
+  observed:
+    - 'One editorial poster crop with a high contrast serif headline.'
+  inferred:
+    - 'A two family system with a serif display voice and a quieter text face.'
+  speculative:
+    - 'Motion behaviour is not visible in a still reference.'
+  source_inventory:
+    images:
+      - 'poster-crop.png'
+    visible_text:
+      - 'Headline set in a high contrast serif.'
+    visible_interfaces: []
+    visible_people_or_characters: []
+    visible_environments: []
+    visible_brand_marks: []
+  evidence_boundaries:
+    directly_observed:
+      - 'Letterform contrast and headline scale.'
+    inferred_from_visual_cues:
+      - 'Text face pairing derived from the caption weight.'
+    low_confidence_extrapolations:
+      - 'Interface behaviour beyond the crop.'
+confidence_scores:
+  typography: high
+  color_system: medium
+  motion: low
+design_principles:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+brand_identity:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+character_identity:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+art_direction:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+visual_language:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+color_system:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+typography:
+  font_families:
+    catalog_snapshot:
+      source: 'https://fonts.google.com/metadata/fonts'
+      retrieved_at: '2026-07-25'
+      total_families: 1942
+    observed_or_implied:
+      - family: 'Unidentified high contrast serif'
+        role: display
+        confidence: medium
+        inference_basis: 'Sharp thin to thick transition in the headline.'
+    primary:
+      family: 'Idiqlat'
+      google_fonts_family: true
+      rarity:
+        popularity_rank: 2023
+        total_families: 1942
+        rarity_percentile: 100.0
+        trending_rank: 1974
+        date_added: '2026-02-12'
+        variable: false
+        source: 'https://fonts.google.com/metadata/fonts'
+        retrieved_at: '2026-07-25'
+      classification: 'serif'
+      fallback_stack:
+        - 'Georgia'
+        - 'serif'
+      visual_grounding: 'Matches the headline stroke contrast and narrow counters.'
+      confidence: medium
+      inference_basis: 'Selected from the live catalog under the serif filter.'
+    supporting:
+      family: 'Padyakke Expanded One'
+      google_fonts_family: true
+      rarity:
+        popularity_rank: 1961
+        total_families: 1942
+        rarity_percentile: 100.0
+        trending_rank: 2128
+        date_added: '2022-12-05'
+        variable: false
+        source: 'https://fonts.google.com/metadata/fonts'
+        retrieved_at: '2026-07-25'
+      classification: 'serif'
+      fallback_stack:
+        - 'Georgia'
+        - 'serif'
+      pairing_logic: 'Lower contrast text face against the display voice.'
+      visual_grounding: 'Caption weight sits far below the headline weight.'
+      confidence: medium
+      inference_basis: 'Selected from the live catalog under the serif filter.'
+    rare_unique_candidates:
+      - family: 'Ramsina'
+        google_fonts_family: true
+        rarity:
+          popularity_rank: 2073
+          total_families: 1942
+          rarity_percentile: 100.0
+          trending_rank: 275
+          date_added: '2026-02-12'
+          variable: false
+          source: 'https://fonts.google.com/metadata/fonts'
+          retrieved_at: '2026-07-25'
+        role: display
+        classification: 'serif'
+        fallback_stack:
+          - 'Georgia'
+          - 'serif'
+        pairs_well_with:
+          - 'Padyakke Expanded One'
+        visual_grounding: 'Shares the wedge serif terminals seen in the crop.'
+        rarity_reason: 'Rank 2073 of 1942 places it outside common use.'
+        pairing_logic: 'Display voice above a quieter text face.'
+        use_constraints: 'Display sizes only; counters close below 24px.'
+        confidence: medium
+        inference_basis: 'Ranked by the live catalog under the serif filter.'
+  type_scale: {}
+  hierarchy:
+    headline_rules:
+      - 'One headline per view.'
+  weights: {}
+  leading: {}
+  tracking: {}
+  editorial_tone: 'Measured and editorial.'
+  accessibility:
+    - 'Keep body text at or above 16px.'
+spacing:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+layout:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+grid_system:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+sizing:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+borders:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+radii:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+shadows:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+gradients:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+materials:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+textures:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+lighting:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+motion:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+animation:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+camera:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+composition:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+environment:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+setting:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+wardrobe:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+props:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+iconography:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+illustration_style:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+photography_style:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+cinematic_style:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+rendering_style:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+surface_treatment:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+accessibility:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+interaction_design:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+ui_patterns:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+sound_design:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+narrative_tone:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+emotional_palette:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+worldbuilding:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+styling_rules:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+dos_and_donts:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+token_dependencies:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+dynamic_tokens:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+responsive_rules:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+state_variants:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+platform_adaptations:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+ai_generation_prompts:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'
+implementation_notes:
+  applicability: not_applicable
+  confidence: low
+  inference_basis: 'No evidence for this layer in the supplied reference.'

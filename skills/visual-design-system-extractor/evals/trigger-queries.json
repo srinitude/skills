@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Extract a design system from these screenshots and give me the tokens as YAML.",
+    "should_trigger": true
+  },
+  {
+    "query": "Reverse engineer the visual language in this moodboard into something engineering can use.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn this brand board into design tokens with rare Google Fonts backed by live rarity data.",
+    "should_trigger": true
+  },
+  {
+    "query": "Pull the grade, lighting, and camera rules out of these film stills.",
+    "should_trigger": true
+  },
+  {
+    "query": "Read this app shot as a reference and produce the reusable style specification behind it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Infer the typography, spacing, and color system from this poster crop.",
+    "should_trigger": true
+  },
+  {
+    "query": "I need a YAML style spec from these three style frames for image generation later.",
+    "should_trigger": true
+  },
+  {
+    "query": "Validate this design system extraction and check the font rarity records.",
+    "should_trigger": true
+  },
+  {
+    "query": "Generate an image of a neon city street at night.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the flex alignment on the pricing card in src/Pricing.tsx.",
+    "should_trigger": false
+  },
+  {
+    "query": "What is the hex code for cornflower blue?",
+    "should_trigger": false
+  },
+  {
+    "query": "Describe what is happening in this photo in one sentence.",
+    "should_trigger": false
+  },
+  {
+    "query": "List some rare Google Fonts that pair well together.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write the marketing copy for our new pricing page.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this design critique document in five bullets.",
+    "should_trigger": false
+  },
+  {
+    "query": "Set up a Tailwind config with our existing brand colors.",
+    "should_trigger": false
+  }
+]

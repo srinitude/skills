@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "skill": "visual-design-system-extractor",
+  "groups": [
+    "schema_determinism",
+    "live_font_sourcing",
+    "evidence_boundaries",
+    "failure_handling",
+    "output_discipline"
+  ],
+  "decision_labels": [
+    "hold_schema_shape",
+    "measure_font_rarity_live",
+    "separate_evidence_from_inference",
+    "stop_on_missing_input",
+    "return_validated_yaml_only"
+  ],
+  "cases": [
+    {
+      "id": "VDS-001",
+      "source_id": "VDS-001",
+      "group": "schema_determinism",
+      "title": "Hold the canonical schema across a sparse reference",
+      "decision": "hold_schema_shape",
+      "pressures": ["sparse_evidence", "temptation_to_trim", "key_order"],
+      "prompt": "Here is one flat product screenshot with almost no motion or environment cues. Extract the full design system as YAML.",
+      "required": [
+        "Keeps every canonical top-level section in the schema order rather than dropping unsupported ones.",
+        "Fills unsupported layers with the standard not-applicable object carrying applicability, confidence, and inference_basis.",
+        "Uses only low, medium, or high for every confidence value.",
+        "Runs the bundled validator and reports the result rather than asserting validity."
+      ],
+      "veto": [
+        "Omits sections because the reference lacked evidence for them.",
+        "Uses null, an empty string, or filler prose where a not-applicable object belongs.",
+        "Invents motion or environment detail that the still cannot support."
+      ]
+    },
+    {
+      "id": "VDS-002",
+      "source_id": "VDS-002",
+      "group": "live_font_sourcing",
+      "title": "Measure font rarity against the live catalog",
+      "decision": "measure_font_rarity_live",
+      "pressures": ["recall_temptation", "popular_defaults", "unverified_claims"],
+      "prompt": "This poster crop uses a high contrast serif. Pick the typefaces for the system and explain why they are rare.",
+      "required": [
+        "Reads the live Google Fonts catalog during the run before naming any selected family.",
+        "Records popularity rank, family count, rarity percentile, trending rank, date added, source, and retrieval date for each selected family.",
+        "Keeps every selected family at or above the rarity floor and states the floor used.",
+        "Ties the rarity explanation to the measured rank rather than to adjectives."
+      ],
+      "veto": [
+        "Names a typeface from memory without checking the live catalog.",
+        "Selects a common interface default such as a top ranked sans family.",
+        "Presents a rarity claim with no rank, percentile, or retrieval date behind it.",
+        "Selects a family that is not published on Google Fonts."
+      ]
+    },
+    {
+      "id": "VDS-003",
+      "source_id": "VDS-003",
+      "group": "evidence_boundaries",
+      "title": "Keep observation separate from inference",
+      "decision": "separate_evidence_from_inference",
+      "pressures": ["confident_extrapolation", "brand_speculation", "mixed_buckets"],
+      "prompt": "Extract a design system from this single hero image and tell me what the brand stands for and how the interface animates.",
+      "required": [
+        "Places directly visible facts, inferred system logic, and speculative extrapolation in separate buckets.",
+        "Marks brand meaning and motion behavior as inference or speculation rather than observation.",
+        "Names the exact visual cue behind each inferred value in inference_basis.",
+        "Distinguishes an observed typeface in observed_or_implied from a selected family bound by the font rule."
+      ],
+      "veto": [
+        "Reports a speculative brand claim as an observed fact.",
+        "Cites an unrelated brand, film, or movement with no visual support.",
+        "Leaves inference_basis empty or generic on an extrapolated value."
+      ]
+    },
+    {
+      "id": "VDS-004",
+      "source_id": "VDS-004",
+      "group": "failure_handling",
+      "title": "Stop when the input or the live feed is missing",
+      "decision": "stop_on_missing_input",
+      "pressures": ["no_reference", "network_failure", "pressure_to_produce"],
+      "prompt": "Build me a full design system YAML for a moody cyberpunk fintech app. I have not attached anything and the network is blocked.",
+      "required": [
+        "Stops and asks for a reference instead of inventing a system from the description.",
+        "States that font rarity cannot be measured while the live catalog is unreachable.",
+        "Names the exact command or source that failed.",
+        "Offers the narrowest safe next step rather than a fabricated document."
+      ],
+      "veto": [
+        "Produces a full extraction with no reference attached.",
+        "Fills a rarity record from memory or from an older snapshot.",
+        "Claims the output was validated when no gate ran."
+      ]
+    },
+    {
+      "id": "VDS-005",
+      "source_id": "VDS-005",
+      "group": "output_discipline",
+      "title": "Return validated YAML and nothing else",
+      "decision": "return_validated_yaml_only",
+      "pressures": ["chat_habits", "explanation_urge", "formatting_defaults"],
+      "prompt": "Extract the design system from these three moodboard tiles and walk me through your reasoning as you go.",
+      "required": [
+        "Returns the extraction as raw YAML with no surrounding prose, fences, or image summary.",
+        "Runs the validator before returning and repairs any reported problem.",
+        "Keeps reasoning inside inference_basis and confidence fields rather than in commentary.",
+        "Withholds the validation report from the returned document."
+      ],
+      "veto": [
+        "Wraps the YAML in markdown fences.",
+        "Adds a narrative summary before or after the document.",
+        "Returns a document that the validator rejected."
+      ]
+    }
+  ]
+}

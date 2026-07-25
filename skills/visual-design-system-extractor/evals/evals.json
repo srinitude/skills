@@ -1,0 +1,62 @@
+{
+  "skill_name": "visual-design-system-extractor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Extract a full design system from this dark editorial product screenshot and return it as YAML.",
+      "expected_output": "One parser-valid YAML document holding every canonical section in schema order, with not-applicable objects wherever the screenshot carries no evidence.",
+      "assertions": [
+        "The response contains YAML only, with no markdown fences and no surrounding prose.",
+        "Every canonical top-level section appears in the schema order.",
+        "Unsupported layers use an object with applicability, confidence, and inference_basis rather than null.",
+        "The validator was run before the document was returned."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Choose the typefaces for this poster system. They must be rare Google Fonts.",
+      "expected_output": "Selected families drawn from the live Google Fonts catalog during the run, each carrying a complete rarity record at or above the floor.",
+      "files": ["scripts/rare_google_fonts.py", "references/font-sourcing.md"],
+      "assertions": [
+        "The live catalog is read during the run rather than recalled from memory.",
+        "Each selected family records popularity rank, total families, rarity percentile, trending rank, date added, source, and retrieval date.",
+        "No selected family is a common interface default.",
+        "The rarity explanation cites the measured rank instead of relying on adjectives."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "This hero image is all I have. Tell me the brand meaning and the motion system too.",
+      "expected_output": "Observed facts, inferred logic, and speculative extrapolation kept in separate buckets, with brand meaning and motion marked as inference or speculation.",
+      "assertions": [
+        "Directly visible facts stay in the observed bucket.",
+        "Brand meaning and motion behavior are labelled as inference or speculation.",
+        "Each extrapolated value names the visual cue behind it in inference_basis.",
+        "An observed typeface is recorded separately from a selected family."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build the design system for a moody fintech app. Nothing is attached and the network is down.",
+      "expected_output": "A stop-and-report answer that asks for a reference, states that live rarity cannot be measured, and names the failed command.",
+      "assertions": [
+        "The response asks for a visual reference instead of inventing a system.",
+        "The response states that the live catalog is unreachable and that rarity cannot be verified.",
+        "The response names the exact command or source that failed.",
+        "No rarity record is filled from memory or from an older snapshot."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Validate this extraction file I already have and tell me what is wrong with it.",
+      "expected_output": "A fresh validator run whose reported problems are quoted, with each fix named against the failing path.",
+      "files": ["scripts/validate_design_system_yaml.py", "assets/minimal-extraction.yaml"],
+      "assertions": [
+        "The validator is run against the supplied file rather than judged by reading.",
+        "Reported problems are quoted from the fresh run, including any font rule failures.",
+        "A stale popularity rank is reported as drift against the live catalog.",
+        "The answer states the exit code rather than claiming validity from memory."
+      ]
+    }
+  ]
+}

@@ -24,6 +24,7 @@ test('passes the current public repository copy', async () => {
     'skills/reify/SKILL.md',
     'skills/skill-factory/SKILL.md',
     'skills/starting-point/SKILL.md',
+    'skills/visual-design-system-extractor/SKILL.md',
   ]);
 });
 

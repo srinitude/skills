@@ -6,6 +6,17 @@ All notable changes to this project are recorded here.
 
 Nothing yet.
 
+## GitHub release 0.1.4
+
+- Made `examples/` a required directory in every skill: `AGENTS.md` gains an Examples section, the generation contract adds `examples/` to the required layout, and `scripts/validate_skill.py` fails a skill whose `examples/` directory is missing or never referenced from its `SKILL.md`.
+- Added 39 worked examples across the four skills, each one a complete run with the user's words, the reply, real command output, exit codes, and the files the run created.
+- Invoked every skill the way a user would before and after the change, and fixed what those runs exposed.
+- `skill-factory`: the scaffolder emits `examples/`; the new `scripts/check_placeholders.py` gate fails a boilerplate scaffold that previously passed every check; `scripts/doctor.py` reports a degraded mode with fallback commands instead of blocking when the task runner is absent; seed evals describe the requested skill instead of the scaffolder. Tests grew from 72 to 94.
+- `reify`: one brief schema shared by the asset, the record reference, and the validator; a validator invocation that works from a user working directory, with branches for exit 0, 1, and 2; a fixed decision ID format and defined revert moves; a reply budget matching the evals; a rule against inventing first-person biographical detail.
+- `starting-point`: a description that can fail to match and routes vague requests to `reify`; the new `references/constraint-classes.md`; proof thresholds by task type; a limit on how much analysis reaches the user; the handoff to nonexistent workflows removed.
+- `visual-design-system-extractor`: font ranking on fit and legibility first with rarity only breaking ties inside a band; a set-level pairing check across seven dimensions that can veto a winner; a rarity measure that no longer saturates across the rare tail; a binding `meta.rarity_floor`; and a render, screenshot, and visual judgement loop that gates completion at `meta.viability`.
+- Raised `visual-design-system-extractor` to `metadata.version: "0.2.0"`. Kept `reify`, `skill-factory`, and `starting-point` at `metadata.version: "0.1.0"`.
+
 ## GitHub release 0.1.3
 
 - Added the `skill-factory` Agent Skill at `metadata.version: "0.1.0"` with the full registry eval artifact set and source-lineage hashes.

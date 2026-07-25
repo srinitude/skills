@@ -2,6 +2,10 @@
   "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
   "groupings": [
     {
+      "title": "Design Systems",
+      "skills": ["visual-design-system-extractor"]
+    },
+    {
       "title": "Ideation",
       "skills": ["reify"]
     },

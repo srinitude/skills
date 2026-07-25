@@ -1,0 +1,41 @@
+{
+  "brief": "Map visible type evidence onto live catalog filters. Fill every field from the reference, not from taste, then pass the values to scripts/rare_google_fonts.py discover.",
+  "visual_evidence": {
+    "letterforms": "",
+    "stroke_contrast": "",
+    "width_and_proportion": "",
+    "weight_range_seen": "",
+    "language_coverage_seen": "",
+    "era_or_context_cues": ""
+  },
+  "filters": {
+    "category": null,
+    "subset": null,
+    "search": null,
+    "variable_only": false,
+    "added_after": null,
+    "include_noto": false,
+    "min_rarity_percentile": 70.0,
+    "limit": 10
+  },
+  "roles_to_fill": ["primary", "supporting", "rare_unique_candidates"],
+  "record_for_each_selection": [
+    "family",
+    "google_fonts_family",
+    "rarity.popularity_rank",
+    "rarity.total_families",
+    "rarity.rarity_percentile",
+    "rarity.trending_rank",
+    "rarity.date_added",
+    "rarity.variable",
+    "rarity.source",
+    "rarity.retrieved_at",
+    "classification",
+    "fallback_stack",
+    "visual_grounding",
+    "confidence",
+    "inference_basis"
+  ],
+  "verification": "python3 scripts/rare_google_fonts.py verify --family \"<name>\"",
+  "on_feed_failure": "Stop and report. Do not fill a rarity block from memory or from an earlier snapshot."
+}

@@ -1,0 +1,405 @@
+meta:
+  schema_version: '1.0'
+  extraction_mode: 'comprehensive_visual_design_system'
+  source_count: 0
+  source_types: []
+  generated_for: 'ui_ux_brand_motion_creative_direction'
+  validation:
+    yaml_only: true
+    parser_validated: true
+    markdown_fences: false
+source_analysis:
+  observed: []
+  inferred: []
+  speculative: []
+  source_inventory:
+    images: []
+    visible_text: []
+    visible_interfaces: []
+    visible_people_or_characters: []
+    visible_environments: []
+    visible_brand_marks: []
+  evidence_boundaries:
+    directly_observed: []
+    inferred_from_visual_cues: []
+    low_confidence_extrapolations: []
+confidence_scores:
+  overall: medium
+  color_system: medium
+  typography: medium
+  layout: medium
+  motion: low
+  cinematic_language: medium
+  ui_patterns: medium
+  worldbuilding: medium
+design_principles:
+  core_tenets: []
+  hierarchy_rules: []
+  consistency_rules: []
+  contrast_rules: []
+  restraint_rules: []
+  confidence: medium
+  inference_basis: ''
+brand_identity:
+  positioning: ''
+  personality_traits: []
+  audience: []
+  value_signals: []
+  trust_signals: []
+  differentiation: []
+  confidence: medium
+  inference_basis: ''
+character_identity:
+  applicability: 'applicable'
+  archetypes: []
+  role_in_system: []
+  personality_cues: []
+  social_positioning: []
+  grooming_and_presentation: []
+  confidence: medium
+  inference_basis: ''
+art_direction:
+  art_direction_summary: ''
+  references_to_visual_cues: []
+  production_value: ''
+  cultural_references: []
+  tactile_feel: []
+  sensory_implications: []
+  confidence: medium
+  inference_basis: ''
+visual_language:
+  shape_language: []
+  line_quality: []
+  density: ''
+  balance: ''
+  rhythm: ''
+  contrast: ''
+  motif_library: []
+  confidence: medium
+  inference_basis: ''
+color_system:
+  primary: {}
+  secondary: {}
+  neutrals: {}
+  accents: {}
+  semantic: {}
+  tonal_scales: {}
+  contrast_hierarchy: []
+  atmospheric_grading: []
+  lut_cues: []
+  accessibility_notes: []
+typography:
+  font_families:
+    catalog_snapshot:
+      source: https://fonts.google.com/metadata/fonts
+      retrieved_at: ''
+      total_families: 0
+    observed_or_implied: []
+    primary:
+      family: ''
+      google_fonts_family: true
+      rarity:
+        popularity_rank: 0
+        total_families: 0
+        rarity_percentile: 0.0
+        trending_rank: 0
+        date_added: ''
+        variable: false
+        source: https://fonts.google.com/metadata/fonts
+        retrieved_at: ''
+      classification: ''
+      fallback_stack: []
+      visual_grounding: ''
+      confidence: medium
+      inference_basis: ''
+    supporting:
+      family: ''
+      google_fonts_family: true
+      rarity:
+        popularity_rank: 0
+        total_families: 0
+        rarity_percentile: 0.0
+        trending_rank: 0
+        date_added: ''
+        variable: false
+        source: https://fonts.google.com/metadata/fonts
+        retrieved_at: ''
+      classification: ''
+      fallback_stack: []
+      pairing_logic: ''
+      visual_grounding: ''
+      confidence: medium
+      inference_basis: ''
+    rare_unique_candidates: []
+  type_scale:
+    display: {}
+    heading: {}
+    body: {}
+    caption: {}
+    microcopy: {}
+  hierarchy:
+    headline_rules: []
+    body_rules: []
+    label_rules: []
+    emphasis_rules: []
+  weights: {}
+  leading: {}
+  tracking: {}
+  editorial_tone: ''
+  accessibility: []
+spacing:
+  base_unit: ''
+  scale: {}
+  component_spacing: {}
+  section_spacing: {}
+  density_rules: []
+layout:
+  layout_principles: []
+  alignment: []
+  information_hierarchy: []
+  content_grouping: []
+  negative_space: []
+grid_system:
+  columns: {}
+  gutters: {}
+  margins: {}
+  breakpoints: {}
+  composition_grid: []
+sizing:
+  component_sizes: {}
+  icon_sizes: {}
+  media_sizes: {}
+  touch_targets: {}
+  responsive_scaling: []
+borders:
+  widths: {}
+  styles: {}
+  usage_rules: []
+  contrast_behavior: []
+radii:
+  scale: {}
+  usage_rules: []
+  shape_personality: ''
+shadows:
+  elevation_scale: {}
+  ambient_shadows: {}
+  directional_shadows: {}
+  usage_rules: []
+gradients:
+  linear: {}
+  radial: {}
+  atmospheric: {}
+  usage_rules: []
+materials:
+  material_palette: []
+  physical_properties: []
+  ui_materials: []
+  confidence: medium
+  inference_basis: ''
+textures:
+  texture_types: []
+  grain: ''
+  surface_noise: ''
+  pattern_language: []
+lighting:
+  lighting_direction: ''
+  quality: ''
+  contrast: ''
+  color_temperature: ''
+  practical_lights: []
+  mood_effect: ''
+motion:
+  motion_principles: []
+  durations: {}
+  easing: {}
+  choreography: []
+  interaction_motion: {}
+  camera_motion: {}
+animation:
+  entrance: {}
+  exit: {}
+  loading: {}
+  feedback: {}
+  state_change: {}
+  reduced_motion: {}
+camera:
+  framing: []
+  focal_length_tendencies: []
+  depth_of_field: ''
+  camera_movement: []
+  stabilization: ''
+  aspect_ratio: ''
+composition:
+  framing_rules: []
+  focal_points: []
+  balance: ''
+  rhythm: ''
+  cropping: []
+  scale_relationships: []
+environment:
+  environment_type: ''
+  architecture: []
+  geography: []
+  climate: []
+  socioeconomic_tone: ''
+  environmental_storytelling: []
+setting:
+  era: ''
+  time_of_day: ''
+  cultural_context: []
+  technological_sophistication: ''
+  narrative_function: ''
+wardrobe:
+  applicability: 'applicable'
+  palette: []
+  silhouette: []
+  materials: []
+  styling_rules: []
+  confidence: medium
+  inference_basis: ''
+props:
+  prop_categories: []
+  material_rules: []
+  narrative_roles: []
+  scale_rules: []
+iconography:
+  style: ''
+  stroke_width: ''
+  corner_style: ''
+  filled_vs_outline: ''
+  metaphor_rules: []
+  accessibility_rules: []
+illustration_style:
+  applicability: 'applicable'
+  rendering_approach: ''
+  linework: ''
+  color_behavior: ''
+  detail_level: ''
+  confidence: medium
+  inference_basis: ''
+photography_style:
+  applicability: 'applicable'
+  subject_treatment: ''
+  lens_behavior: ''
+  color_grading: ''
+  composition: []
+  retouching: ''
+cinematic_style:
+  genre_cues: []
+  shot_language: []
+  editorial_rhythm: ''
+  aspect_ratio: ''
+  grading: []
+rendering_style:
+  medium: ''
+  realism_level: ''
+  surface_modeling: []
+  atmosphere: []
+  post_processing: []
+surface_treatment:
+  finish: []
+  reflectivity: ''
+  translucency: ''
+  wear: ''
+  depth_treatment: []
+accessibility:
+  contrast_targets: []
+  type_legibility: []
+  motion_safety: []
+  color_independence: []
+  touch_targets: []
+  alt_text_guidance: []
+interaction_design:
+  interaction_principles: []
+  affordances: []
+  feedback_rules: []
+  input_methods: []
+  error_behavior: []
+ui_patterns:
+  navigation: []
+  controls: []
+  cards_or_panels: []
+  forms: []
+  overlays: []
+  data_display: []
+  empty_states: []
+sound_design:
+  applicability: 'applicable'
+  sonic_palette: []
+  feedback_sounds: []
+  ambient_sound: ''
+  rhythm: ''
+  confidence: low
+  inference_basis: ''
+narrative_tone:
+  tone_words: []
+  pacing: ''
+  point_of_view: ''
+  stakes: ''
+  emotional_arc: []
+emotional_palette:
+  primary_emotions: []
+  secondary_emotions: []
+  tension_release: []
+  sensory_associations: []
+worldbuilding:
+  world_rules: []
+  cultural_influences: []
+  economy_and_status: []
+  technology_rules: []
+  environmental_logic: []
+styling_rules:
+  always: []
+  prefer: []
+  avoid: []
+  conditional: []
+dos_and_donts:
+  dos: []
+  donts: []
+  edge_cases: []
+token_dependencies:
+  color_to_typography: []
+  spacing_to_layout: []
+  motion_to_interaction: []
+  material_to_lighting: []
+  brand_to_components: []
+dynamic_tokens:
+  modes: {}
+  emotional_states: {}
+  cinematic_intensity: {}
+  seasonal_variants: {}
+  interaction_states: {}
+responsive_rules:
+  mobile: {}
+  tablet: {}
+  desktop: {}
+  wide: {}
+  density_adjustments: []
+state_variants:
+  default: {}
+  hover: {}
+  active: {}
+  focus: {}
+  disabled: {}
+  loading: {}
+  error: {}
+  success: {}
+platform_adaptations:
+  web: {}
+  ios: {}
+  android: {}
+  print: {}
+  ai_generation: {}
+ai_generation_prompts:
+  image_prompt: ''
+  negative_prompt: ''
+  style_prompt: ''
+  motion_prompt: ''
+  ui_prompt: ''
+  consistency_rules: []
+implementation_notes:
+  tokenization_notes: []
+  css_variable_guidance: []
+  design_tool_guidance: []
+  engineering_constraints: []
+  validation_steps: []

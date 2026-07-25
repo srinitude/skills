@@ -110,6 +110,20 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
       name: 'starting-point',
       path: resolve(root, 'skills', 'starting-point', 'SKILL.md'),
     },
+    {
+      description:
+        'Use when reference images, screenshots, moodboards, style frames,' +
+        ' brand boards, cinematic stills, or product interface shots must' +
+        ' become a production design system, design tokens, art direction,' +
+        ' motion rules, or a YAML style specification. Covers reverse' +
+        ' engineering visual references into a deterministic YAML contract' +
+        ' with graded confidence, evidence boundaries, and typefaces drawn' +
+        ' from the live Google Fonts catalog and ranked as rarely used. Not' +
+        ' for generating images or for ordinary frontend work where no' +
+        ' reference has to be decoded first.',
+      name: 'visual-design-system-extractor',
+      path: resolve(root, 'skills', 'visual-design-system-extractor', 'SKILL.md'),
+    },
   ]);
 });
 

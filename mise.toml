@@ -28,13 +28,14 @@ run = "npm test"
 run = "npm run build:mcp"
 
 [tasks.validate-skills]
-run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point && uvx --from skills-ref==0.1.1 agentskills validate skills/skill-factory && uvx --from skills-ref==0.1.1 agentskills validate skills/reify"
+run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point && uvx --from skills-ref==0.1.1 agentskills validate skills/skill-factory && uvx --from skills-ref==0.1.1 agentskills validate skills/reify && uvx --from skills-ref==0.1.1 agentskills validate skills/visual-design-system-extractor"
 
 [tasks.eval-offline]
 run = [
   "npm run skills -- eval --skill starting-point --transport fixture --report .artifacts/eval/starting-point",
   "npm run skills -- eval --skill skill-factory --transport fixture --report .artifacts/eval/skill-factory",
   "npm run skills -- eval --skill reify --transport fixture --report .artifacts/eval/reify",
+  "npm run skills -- eval --skill visual-design-system-extractor --transport fixture --report .artifacts/eval/visual-design-system-extractor",
 ]
 
 [tasks.benchmark-offline]
@@ -42,6 +43,7 @@ run = [
   "npm run skills -- benchmark --skill starting-point --transport fixture --report .artifacts/benchmark/starting-point.json",
   "npm run skills -- benchmark --skill skill-factory --transport fixture --report .artifacts/benchmark/skill-factory.json",
   "npm run skills -- benchmark --skill reify --transport fixture --report .artifacts/benchmark/reify.json",
+  "npm run skills -- benchmark --skill visual-design-system-extractor --transport fixture --report .artifacts/benchmark/visual-design-system-extractor.json",
 ]
 
 [tasks.test-mcp]

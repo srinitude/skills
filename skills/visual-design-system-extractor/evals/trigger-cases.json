@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "skill": "visual-design-system-extractor",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Reverse engineer a design system from these three product screenshots and give me the tokens as YAML.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Here is a moodboard. Extract the art direction, color, and typography into a style specification I can hand to engineering.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Pull the cinematic language out of these film stills: grade, lighting, camera, and wardrobe rules.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Turn this brand board into design tokens with rare Google Fonts picked from live rarity data.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "Decode the visual system in this app shot so I can generate consistent images from it later.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Generate an image of a neon city street at night.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Fix the flex alignment on the pricing card in src/Pricing.tsx.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "What is the hex code for cornflower blue?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "near_neighbor",
+      "pair_id": "describe-vs-extract",
+      "prompt": "Describe what is happening in this photo in a sentence.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "describe-vs-extract",
+      "prompt": "Read this photo as a design reference and give me the reusable token system behind it.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-011",
+      "kind": "near_neighbor",
+      "pair_id": "fonts-alone-vs-system",
+      "prompt": "List some rare Google Fonts that pair well together.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-012",
+      "kind": "near_neighbor",
+      "pair_id": "fonts-alone-vs-system",
+      "prompt": "From this style frame, choose rare Google Fonts with live rarity evidence and build the typography section of the system.",
+      "should_trigger": true
+    }
+  ]
+}

@@ -21,6 +21,18 @@ _SKILLS = (
         "starting-point",
         "Use when an outcome is stated, inferred, or hidden.",
     ),
+    (
+        "visual-design-system-extractor",
+        "Use when reference images, screenshots, moodboards, style frames,"
+        " brand boards, cinematic stills, or product interface shots must"
+        " become a production design system, design tokens, art direction,"
+        " motion rules, or a YAML style specification. Covers reverse"
+        " engineering visual references into a deterministic YAML contract"
+        " with graded confidence, evidence boundaries, and typefaces drawn"
+        " from the live Google Fonts catalog and ranked as rarely used. Not"
+        " for generating images or for ordinary frontend work where no"
+        " reference has to be decoded first.",
+    ),
 )
 
 

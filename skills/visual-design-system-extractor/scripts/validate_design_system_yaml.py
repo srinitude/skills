@@ -9,6 +9,12 @@ By default the recorded ranks are re-checked against the live feed. Pass
 --no-live-fonts when the feed is unreachable, then say so in the answer
 rather than presenting the result as verified.
 
+The report is JSON on stdout with seven keys: valid, errors, rarity_floor
+(the floor enforced, raised by meta.rarity_floor when the document records
+a higher one), live_fonts_checked, confidence_markers, font_entries, and
+viability_recorded (true when the document carries the judgment of the
+rendered preview, which every criterion must pass).
+
 Exit codes:
   0  the document passed every check
   1  at least one check failed
@@ -27,7 +33,8 @@ from pathlib import Path
 
 import extraction_rules
 from extraction_schema import count_key
-from font_rules import DEFAULT_MIN_PERCENTILE, verify_live
+import viability_rules
+from font_rules import DEFAULT_MIN_PERCENTILE, verify_live, verify_pairing
 from google_fonts_api import FeedError, load_catalog
 
 try:
@@ -85,20 +92,24 @@ def build_parser():
                         help="lowest number of confidence keys. Default: 5")
     parser.add_argument("--min-rarity-percentile", type=float,
                         default=DEFAULT_MIN_PERCENTILE,
-                        help="lowest rarity percentile a family may hold")
+                        help="lowest rarity percentile a family may hold. "
+                             "meta.rarity_floor raises it, never lowers it")
     parser.add_argument("--no-live-fonts", action="store_true",
                         help="skip the live catalog comparison")
     return parser
 
 
-def add_live_errors(entries, floor, errors):
-    """Compare every font entry against the live catalog."""
+def add_live_errors(data, entries, floor, errors):
+    """Compare every font entry against the live catalog and pair the set."""
     try:
         catalog = load_catalog()
     except FeedError as error:
         errors.append(f"live font check failed: {error}")
         return False
     verify_live(entries, catalog, floor, errors)
+    families = ((data.get("typography") or {}).get("font_families") or {})
+    if isinstance(families, dict):
+        verify_pairing(families, catalog, errors)
     return True
 
 
@@ -118,14 +129,23 @@ def run(args):
         errors = []
         extraction_rules.check_text_form(text, errors)
         return {"valid": False, "errors": errors + [failure], "font_entries": 0,
-                "live_fonts_checked": False, "confidence_markers": 0}
-    errors, entries = extraction_rules.validate(data, text, args.min_rarity_percentile)
+                "live_fonts_checked": False, "confidence_markers": 0,
+                "rarity_floor": args.min_rarity_percentile,
+                "viability_recorded": False}
+    recorded = []
+    floor = args.min_rarity_percentile
+    if isinstance(data, dict):
+        floor = extraction_rules.resolve_floor(data, floor, recorded)
+    errors, entries = extraction_rules.validate(data, text, floor)
+    errors = recorded + errors
     markers = check_markers(data, args.min_confidence_markers, errors) if data else 0
     live = False
     if not args.no_live_fonts and entries:
-        live = add_live_errors(entries, args.min_rarity_percentile, errors)
+        live = add_live_errors(data, entries, floor, errors)
+    viable = viability_rules.check_viability(data, errors) if data else False
     return {"valid": not errors, "errors": errors, "live_fonts_checked": live,
-            "confidence_markers": markers, "font_entries": len(entries)}
+            "confidence_markers": markers, "font_entries": len(entries),
+            "rarity_floor": floor, "viability_recorded": viable}
 
 
 def main(argv=None):

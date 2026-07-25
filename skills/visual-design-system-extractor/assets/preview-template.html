@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{TITLE}}</title>
+    {{FONT_LINKS}}
+    <style>
+      :root {
+      {{ROOT_VARS}}
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--role-bg); color: var(--role-fg);
+        font-family: var(--role-font-text); font-size: var(--role-size-body);
+        line-height: var(--role-leading-body); }
+      section[data-mode] { padding: var(--role-space-lg) var(--role-space-lg) var(--role-space-xl); }
+      section[data-mode="dark"] { background: var(--role-bg-dark); color: var(--role-fg-dark); }
+      section[data-mode] a, section[data-mode] .accent { color: var(--role-accent); }
+      section[data-mode="dark"] a, section[data-mode="dark"] .accent { color: var(--role-accent-dark); }
+      header[data-component="page-header"] { display: flex; justify-content: space-between;
+        align-items: baseline; border-bottom: var(--role-border-width) solid var(--role-border);
+        padding-bottom: var(--role-space-sm); }
+      nav[data-component="nav"] a { margin-left: var(--role-space-md); color: inherit;
+        text-decoration: none; border-bottom: var(--role-border-width) solid transparent;
+        transition: border-color var(--role-duration) var(--role-easing); }
+      nav[data-component="nav"] a:hover { border-bottom-color: var(--role-accent); }
+      div[data-component="hero"] { padding: var(--role-space-xl) 0; }
+      div[data-component="hero"] p { max-width: 34em; }
+      h1, h2, h3, h4 { font-family: var(--role-font-display); font-weight: var(--role-weight-display);
+        letter-spacing: var(--role-tracking-display); line-height: var(--role-leading-display);
+        margin: 0 0 var(--role-space-sm); }
+      h1 { font-size: var(--role-size-display); }
+      h2 { font-size: var(--role-size-h2); }
+      h3 { font-size: var(--role-size-h3); }
+      h4 { font-size: var(--role-size-h4); }
+      p[data-component="body-copy"] { max-width: 34em; }
+      button { font-family: inherit; font-size: var(--role-size-body);
+        padding: var(--role-space-sm) var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-accent); background: var(--role-accent);
+        color: var(--role-bg); box-shadow: var(--role-shadow);
+        transition: opacity var(--role-duration) var(--role-easing); }
+      button.secondary { background: transparent; color: var(--role-fg); }
+      button:hover { opacity: 0.86; }
+      button:focus-visible { outline: 3px solid var(--role-accent); outline-offset: 3px; }
+      button[disabled] { opacity: 0.4; }
+      form[data-component="form"] { display: grid; gap: var(--role-space-sm); max-width: 26em; }
+      input, select, textarea { font-family: inherit; font-size: var(--role-size-body);
+        padding: var(--role-space-sm); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); background: var(--role-bg);
+        color: var(--role-fg); }
+      input:focus-visible { outline: 3px solid var(--role-accent); outline-offset: 2px; }
+      table[data-component="table"] { border-collapse: collapse; width: 100%; }
+      th, td { text-align: left; padding: var(--role-space-sm);
+        border-bottom: var(--role-border-width) solid var(--role-border); }
+      th { font-family: var(--role-font-display); }
+      div[data-component="card-grid"] { display: grid; gap: var(--role-space-md);
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); }
+      article.card { padding: var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); box-shadow: var(--role-shadow); }
+      pre[data-component="code-block"] { font-family: var(--role-font-mono); overflow-x: auto;
+        padding: var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); }
+      footer[data-component="footer"] { margin-top: var(--role-space-xl);
+        padding-top: var(--role-space-md);
+        border-top: var(--role-border-width) solid var(--role-border);
+        font-size: var(--role-size-small); }
+      table[data-component="token-inventory"] td:first-child { font-family: var(--role-font-mono);
+        font-size: var(--role-size-small); white-space: nowrap; }
+      .swatch { display: inline-block; width: 4rem; height: 1.6rem; vertical-align: middle;
+        border: var(--role-border-width) solid var(--role-border); }
+      .bar { display: inline-block; height: 1rem; background: var(--role-accent); }
+      .box { display: inline-block; width: 3rem; height: 1.6rem; background: var(--role-accent); }
+    </style>
+  </head>
+  <body>
+    {{LIGHT_BLOCK}} {{DARK_BLOCK}}
+    <section data-mode="inventory">
+      <h2>Token inventory</h2>
+      <p data-component="body-copy">
+        Every token the document defines, applied to a live sample.
+      </p>
+      <table data-component="token-inventory">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Value</th>
+            <th>Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{INVENTORY}}
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

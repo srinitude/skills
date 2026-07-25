@@ -67,8 +67,8 @@ class TestValidateSkillRules(unittest.TestCase):
             skill = write_skill(tmp, "sample-skill", GOOD_HEADER + "Body.\n")
             result = run("validate_skill.py", skill)
         self.assertEqual(result.returncode, 1)
-        for missing in ["references", "assets", "scripts", "evals",
-                        "scripts/tests"]:
+        for missing in ["references", "assets", "examples", "scripts",
+                        "evals", "scripts/tests"]:
             self.assertIn(missing, result.stdout)
 
     def test_scripts_without_tests_directory_fails(self):
@@ -80,8 +80,20 @@ class TestValidateSkillRules(unittest.TestCase):
         self.assertIn("scripts/tests", result.stdout)
 
     def test_body_must_reference_scripts_tests(self):
+        body = ("Read references/ and assets/ and examples/ and evals/ and\n"
+                "run the checks in scripts/ when anything changes.\n")
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = write_skill(tmp, "sample-skill", GOOD_HEADER + body)
+            for name in ["references", "assets", "examples", "scripts",
+                         "scripts/tests", "evals"]:
+                (skill / name).mkdir(parents=True, exist_ok=True)
+            result = run("validate_skill.py", skill)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("scripts/tests/", result.stdout)
+
+    def test_missing_examples_directory_is_reported(self):
         body = ("Read references/ and assets/ and evals/ and run the\n"
-                "checks in scripts/ when anything changes.\n")
+                "checks in scripts/tests/ and scripts/ when anything changes.\n")
         with tempfile.TemporaryDirectory() as tmp:
             skill = write_skill(tmp, "sample-skill", GOOD_HEADER + body)
             for name in ["references", "assets", "scripts",
@@ -89,7 +101,7 @@ class TestValidateSkillRules(unittest.TestCase):
                 (skill / name).mkdir(parents=True, exist_ok=True)
             result = run("validate_skill.py", skill)
         self.assertEqual(result.returncode, 1)
-        self.assertIn("scripts/tests/", result.stdout)
+        self.assertIn("examples/", result.stdout)
 
     def test_deep_relative_path_in_body_fails(self):
         body = "Read references/a/b/c.md for details.\n"

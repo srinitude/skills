@@ -32,7 +32,7 @@ test('validates every skill and all frozen specification pages', async () => {
     expect.objectContaining({
       name: 'visual-design-system-extractor',
       status: 'PASS',
-      version: '0.1.0',
+      version: '0.2.0',
     }),
   ]);
 });

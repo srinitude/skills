@@ -1,0 +1,186 @@
+### uv run --no-project --with PyYAML>=6,<7 python scripts/schema_tools.py field meta.rarity_floor
+meta.rarity_floor: Record the rarity percentile floor the run enforced, `70.0` unless the user set another
+  value. The validator reads this number and raises its own floor to match, so a recorded floor is a binding
+  claim rather than a note. It never lowers the floor the contract or the `--min-rarity-percentile` flag
+  sets.
+exit=0
+### python3 scripts/rare_google_fonts.py discover --skeleton Serif --need-weight 400 --need-weight 700 --limit 2 --show-rejected
+{
+  "candidates": [
+    {
+      "category": "Serif",
+      "family": "Namdhinggo",
+      "fit": {
+        "common_default": false,
+        "family": "Namdhinggo",
+        "fit_band": 1.0,
+        "fit_score": 1.0,
+        "legibility_floor": 0.7,
+        "legibility_score": 0.8,
+        "passes": true,
+        "reject_reason": "",
+        "role": "text",
+        "script_score": 1.0,
+        "skeleton_score": 1.0,
+        "style_score": 1.0,
+        "weight_score": 1.0,
+        "width_score": 1.0
+      },
+      "rarity": {
+        "date_added": "2024-02-14",
+        "popularity_rank": 1872,
+        "rank_ceiling": 2113,
+        "rarity_percentile": 88.6,
+        "retrieved_at": "2026-07-25",
+        "source": "https://fonts.google.com/metadata/fonts",
+        "total_families": 1942,
+        "trending_rank": 357,
+        "variable": false
+      }
+    },
+    {
+      "category": "Serif",
+      "family": "Epunda Slab",
+      "fit": {
+        "common_default": false,
+        "family": "Epunda Slab",
+        "fit_band": 1.0,
+        "fit_score": 1.0,
+        "legibility_floor": 0.7,
+        "legibility_score": 1.0,
+        "passes": true,
+        "reject_reason": "",
+        "role": "text",
+        "script_score": 1.0,
+        "skeleton_score": 1.0,
+        "style_score": 1.0,
+        "weight_score": 1.0,
+        "width_score": 1.0
+      },
+      "rarity": {
+        "date_added": "2025-08-25",
+        "popularity_rank": 1867,
+        "rank_ceiling": 2113,
+        "rarity_percentile": 88.4,
+        "retrieved_at": "2026-07-25",
+        "source": "https://fonts.google.com/metadata/fonts",
+        "total_families": 1942,
+        "trending_rank": 2000,
+        "variable": true
+      }
+    }
+  ],
+  "ranked_by": "fit_band descending, then rarity_percentile, then rank",
+  "rejected": [
+    {
+      "family": "Kalnia Glaze",
+      "rarity_percentile": 84.1,
+      "reason": "legibility 0.5 is below the text floor 0.7"
+    },
+    {
+      "family": "Elsie Swash Caps",
+      "rarity_percentile": 72.9,
+      "reason": "legibility 0.5 is below the text floor 0.7"
+    }
+  ],
+  "retrieved_at": "2026-07-25",
+  "source": "https://fonts.google.com/metadata/fonts",
+  "total_families": 1942
+}
+exit=0
+### python3 scripts/rare_google_fonts.py discover --skeleton Serif --need-weight 400 --need-weight 700 --min-rarity-percentile 96 --limit 3 --show-rejected
+{
+  "candidates": [
+    {
+      "category": "Serif",
+      "family": "Ramsina",
+      "fit": {
+        "common_default": false,
+        "family": "Ramsina",
+        "fit_band": 0.9,
+        "fit_score": 0.9,
+        "legibility_floor": 0.7,
+        "legibility_score": 0.7,
+        "passes": true,
+        "reject_reason": "",
+        "role": "text",
+        "script_score": 1.0,
+        "skeleton_score": 1.0,
+        "style_score": 1.0,
+        "weight_score": 0.5,
+        "width_score": 1.0
+      },
+      "rarity": {
+        "date_added": "2026-02-12",
+        "popularity_rank": 2073,
+        "rank_ceiling": 2113,
+        "rarity_percentile": 98.1,
+        "retrieved_at": "2026-07-25",
+        "source": "https://fonts.google.com/metadata/fonts",
+        "total_families": 1942,
+        "trending_rank": 275,
+        "variable": false
+      }
+    }
+  ],
+  "ranked_by": "fit_band descending, then rarity_percentile, then rank",
+  "rejected": [
+    {
+      "family": "Jacquarda Bastarda 9 Charted",
+      "rarity_percentile": 96.1,
+      "reason": "legibility 0.4 is below the text floor 0.7"
+    },
+    {
+      "family": "Yarndings 12",
+      "rarity_percentile": 97.3,
+      "reason": "legibility 0.4 is below the text floor 0.7"
+    },
+    {
+      "family": "Yarndings 12 Charted",
+      "rarity_percentile": 97.2,
+      "reason": "legibility 0.4 is below the text floor 0.7"
+    }
+  ],
+  "retrieved_at": "2026-07-25",
+  "source": "https://fonts.google.com/metadata/fonts",
+  "total_families": 1942
+}
+exit=0
+### python3 scripts/rare_google_fonts.py verify --family Ramsina --family Epunda Slab
+{
+  "checked": 2,
+  "failed": 0,
+  "verdicts": [
+    {
+      "family": "Ramsina",
+      "rarity": {
+        "date_added": "2026-02-12",
+        "popularity_rank": 2073,
+        "rank_ceiling": 2113,
+        "rarity_percentile": 98.1,
+        "retrieved_at": "2026-07-25",
+        "source": "https://fonts.google.com/metadata/fonts",
+        "total_families": 1942,
+        "trending_rank": 275,
+        "variable": false
+      },
+      "status": "PASS"
+    },
+    {
+      "family": "Epunda Slab",
+      "rarity": {
+        "date_added": "2025-08-25",
+        "popularity_rank": 1867,
+        "rank_ceiling": 2113,
+        "rarity_percentile": 88.4,
+        "retrieved_at": "2026-07-25",
+        "source": "https://fonts.google.com/metadata/fonts",
+        "total_families": 1942,
+        "trending_rank": 2000,
+        "variable": true
+      },
+      "status": "PASS"
+    }
+  ]
+}
+exit=0

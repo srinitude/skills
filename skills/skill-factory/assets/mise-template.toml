@@ -8,6 +8,7 @@ run = [
   "mise run validate",
   "mise run lint-writing",
   "mise run lint-code",
+  "mise run lint-placeholders",
   "mise run evals",
 ]
 
@@ -26,6 +27,10 @@ run = "python3 scripts/lint_writing.py ."
 [tasks.lint-code]
 description = "Size and nesting limits on every code file"
 run = "python3 scripts/check_code_rules.py ."
+
+[tasks.lint-placeholders]
+description = "Refuse any scaffold placeholder text left in markdown or evals"
+run = "python3 scripts/check_placeholders.py ."
 
 [tasks.evals]
 description = "Schema checks on evals/evals.json and evals/trigger-queries.json"

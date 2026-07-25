@@ -4,10 +4,18 @@ meta:
   source_count: 0
   source_types: []
   generated_for: 'ui_ux_brand_motion_creative_direction'
+  rarity_floor: 70.0
+  extracted_at: ''
   validation:
     yaml_only: true
     parser_validated: true
     markdown_fences: false
+  viability:
+    rendered_file: ''
+    screenshot_file: ''
+    iterations: 0
+    verdict: ''
+    criteria: []
 source_analysis:
   observed: []
   inferred: []

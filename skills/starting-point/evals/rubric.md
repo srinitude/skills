@@ -16,9 +16,13 @@ For each veto criterion, return:
 
 Do not score style, preferred wording, length below the limit, or extra harmless detail.
 
+One exception: when a case names a reply budget or a compression requirement, score it. Mark it BLOCKED when the response exceeds the word limit the prompt states, numbers its own reasoning steps for the user, or exposes the private outcome map, the route comparison, or the proof checklist as visible structure. A compressed answer that keeps the same decision passes.
+
 ## Material decision conflict
 
-Two responses conflict when they choose different action boundaries, approval states, recipient assumptions, proof scopes, or downstream routes. Wording differences are not a conflict.
+Two responses conflict when they choose different action boundaries, approval states, recipient assumptions, proof scopes, constraint classifications, or downstream routes. Wording differences are not a conflict.
+
+Reading a stated method as fixed in one response and as optional in the other is a material conflict. So is inventing an unknown external fact in one response and withholding it in the other.
 
 ## Fail-closed rules
 

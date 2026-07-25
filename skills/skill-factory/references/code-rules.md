@@ -25,7 +25,7 @@ Every script under scripts/ meets one interface:
 The order is fixed and test-first:
 
 1. mise.toml, so every job has its one command.
-2. The CI workflow plus the tests that pin the task graph.
+2. The CI workflow plus the tests that pin the task graph. The scaffold ships scripts/tests/test_ci_contract.py for this, and its four tests name the contracts they pin: every required task exists, ci invokes every check job in order, every task carries a description, and the workflow runs the single entry point.
 3. Tests for each script, written against the real interface.
 4. The scripts, until those tests pass.
 5. Docs, checked by the writing lint.

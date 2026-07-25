@@ -24,6 +24,8 @@ def candidate(**overrides):
              "rarity_reason": "Rank 1700 of 1900 places it outside common use.",
              "pairing_logic": "Display voice above a quieter text face.",
              "use_constraints": "Display sizes only.", "confidence": "medium",
+             "fit": {"fit_score": 0.95, "legibility_score": 0.6,
+                     "evidence": "Poured terminals and the wide bowl match the crop."},
              "inference_basis": "Ranked by the live catalog."}
     entry.update(overrides)
     return entry
@@ -55,7 +57,28 @@ class RejectionTests(unittest.TestCase):
         self.assertTrue(run({}))
 
     def test_a_common_default_is_rejected(self):
-        self.assert_rejects(candidate(family="Inter"), "common default")
+        self.assert_rejects(candidate(family="Inter"), "overexposed default")
+
+    def test_a_common_default_passes_when_the_reason_is_stated(self):
+        entry = candidate(family="Inter",
+                          common_face_reason="The reference renders Inter, "
+                                             "confirmed from the live stylesheet.")
+        self.assertEqual(run({"rare_unique_candidates": [entry]}), [])
+
+    def test_a_missing_fit_record_is_rejected(self):
+        entry = candidate()
+        entry.pop("fit")
+        self.assert_rejects(entry, "fit must record")
+
+    def test_a_fit_score_below_the_bar_is_rejected(self):
+        entry = candidate(fit={"fit_score": 0.2, "legibility_score": 0.9,
+                               "evidence": "Only the width matches."})
+        self.assert_rejects(entry, "fit_score")
+
+    def test_a_legibility_score_below_the_floor_is_rejected(self):
+        entry = candidate(fit={"fit_score": 0.9, "legibility_score": 0.3,
+                               "evidence": "Rare but the counters close up."})
+        self.assert_rejects(entry, "legibility_score")
 
     def test_an_undeclared_google_family_is_rejected(self):
         self.assert_rejects(candidate(google_fonts_family=False), "google_fonts_family")

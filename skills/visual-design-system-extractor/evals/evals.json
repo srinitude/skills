@@ -57,6 +57,42 @@
         "A stale popularity rank is reported as drift against the live catalog.",
         "The answer states the exit code rather than claiming validity from memory."
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "Extract the system from this poster crop and prove it actually works before you tell me it is done.",
+      "expected_output": "A rendered page generated from the document, a screenshot of it, a per criterion verdict written from the image, at least one revision when a criterion fails, and a meta.viability record whose verdict is pass.",
+      "files": [
+        "scripts/render_preview.py",
+        "scripts/screenshot_preview.py",
+        "scripts/viability_rules.py",
+        "examples/viability-loop.md"
+      ],
+      "assertions": [
+        "The preview page is generated from the design system file by the bundled script rather than hand written.",
+        "A screenshot is captured and the verdicts describe what the image shows rather than repeating token values.",
+        "All eight criteria appear once each: legibility, contrast, hierarchy, font_pairing, spacing_rhythm, color_harmony, state_distinction, and reference_fidelity.",
+        "A failing criterion sends the run back to the tokens, and the loop stops at three iterations with the failing criteria reported instead of a success claim.",
+        "meta.viability records the rendered file, the screenshot file, the iteration count, and a passing verdict before success is reported."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Pick the rarest fonts you can find for display and body copy.",
+      "expected_output": "A fit first ranking where rarity only breaks ties inside a fit band, rejected rarer candidates named with the floor they missed, and a set level pairing verdict that can veto the top candidate.",
+      "files": [
+        "scripts/font_fit.py",
+        "scripts/font_pairing.py",
+        "examples/pairing-veto.md",
+        "examples/make-it-rarer.md"
+      ],
+      "assertions": [
+        "Each candidate carries a fit score and a legibility score, and a candidate under the role floor is rejected however rare it is.",
+        "Rarity orders candidates only inside the same fit band, never across bands.",
+        "The whole set is checked across the seven pairing dimensions after the per slot bars.",
+        "A vetoed candidate names the failing dimension and the next candidate takes the slot.",
+        "An overexposed default is only accepted when common_face_reason names the visible evidence."
+      ]
     }
   ]
 }

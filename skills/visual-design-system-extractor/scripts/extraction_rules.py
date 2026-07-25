@@ -26,6 +26,29 @@ def check_text_form(text, errors):
         errors.append("Output contains tab characters; use spaces for indentation.")
 
 
+def resolve_floor(data, floor, errors):
+    """Return the floor to enforce, raised by meta.rarity_floor when recorded."""
+    meta = data.get("meta")
+    recorded = meta.get("rarity_floor") if isinstance(meta, dict) else None
+    if recorded is None:
+        return floor
+    usable = isinstance(recorded, (int, float)) and not isinstance(recorded, bool)
+    if not usable or not 0.0 <= float(recorded) <= 100.0:
+        errors.append("meta.rarity_floor must be a number from 0.0 to 100.0.")
+        return floor
+    return max(floor, float(recorded))
+
+
+def order_message(present, expected):
+    """Return an order problem that names the first key out of place."""
+    head = "Top-level section order must match the schema order exactly"
+    for index, (found, wanted) in enumerate(zip(present, expected), start=1):
+        if found != wanted:
+            return (f"{head}; position {index} holds {found!r} where "
+                    f"{wanted!r} belongs.")
+    return head + "."
+
+
 def check_sections(data, errors):
     """Require the canonical sections, in order, with no bare placeholders."""
     missing = [key for key in REQUIRED_TOP_LEVEL if key not in data]
@@ -35,8 +58,9 @@ def check_sections(data, errors):
     if extras:
         errors.append("Unexpected top-level sections: " + ", ".join(extras))
     present = [key for key in data if key in REQUIRED_TOP_LEVEL]
-    if present != [key for key in REQUIRED_TOP_LEVEL if key in data]:
-        errors.append("Top-level section order must match the schema order exactly.")
+    expected = [key for key in REQUIRED_TOP_LEVEL if key in data]
+    if present != expected:
+        errors.append(order_message(present, expected))
     empty = [key for key in REQUIRED_TOP_LEVEL if key in data and data[key] is None]
     if empty:
         errors.append("Top-level sections must not be bare null placeholders: "

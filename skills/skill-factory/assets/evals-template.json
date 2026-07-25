@@ -3,39 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Show me what the {{NAME}} skill can do.",
-      "expected_output": "The command table from SKILL.md plus the frontmatter description, restated briefly.",
+      "prompt": "SCAFFOLD-PLACEHOLDER replace with the most common real request this skill answers, written the way a user types it, with a file path or a column name in it.",
+      "expected_output": "SCAFFOLD-PLACEHOLDER name the artifact the run produces and the facts it must state.",
       "assertions": [
-        "The reply lists the help, info, and check commands.",
-        "The reply matches the description in the SKILL.md frontmatter."
-      ]
+        "SCAFFOLD-PLACEHOLDER one countable or observable statement about the output.",
+        "SCAFFOLD-PLACEHOLDER a second statement covering the part of the job users get wrong."
+      ],
+      "files": []
     },
     {
       "id": 2,
-      "prompt": "Run the {{NAME}} self checks and report what passed.",
-      "expected_output": "Output of mise run ci with every job green and a per-job summary.",
+      "prompt": "SCAFFOLD-PLACEHOLDER replace with a second real request that exercises a different input shape, casual phrasing allowed.",
+      "expected_output": "SCAFFOLD-PLACEHOLDER what success looks like for that input.",
       "assertions": [
-        "Each job in the ci task appears in the report.",
-        "The reply quotes the exit status or final line as evidence."
-      ]
+        "SCAFFOLD-PLACEHOLDER one verifiable statement about the output.",
+        "SCAFFOLD-PLACEHOLDER one statement about what the output must not contain."
+      ],
+      "files": []
     },
     {
       "id": 3,
-      "prompt": "Give me the name and description of the {{NAME}} skill as JSON.",
-      "expected_output": "The JSON object printed by scripts/skill_info.py.",
+      "prompt": "SCAFFOLD-PLACEHOLDER replace with an edge case: malformed input, an empty file, or a fixture stored under evals/files/.",
+      "expected_output": "SCAFFOLD-PLACEHOLDER the exact message or partial result the skill returns on that input.",
       "assertions": [
-        "The output is valid JSON with name and description fields.",
-        "The name field equals {{NAME}}."
-      ]
+        "SCAFFOLD-PLACEHOLDER the reply names the bad input and the line or field that broke.",
+        "SCAFFOLD-PLACEHOLDER the run stops instead of inventing a result."
+      ],
+      "files": []
     },
     {
       "id": 4,
-      "prompt": "One of the {{NAME}} checks is failing. Find the failing job and fix it.",
-      "expected_output": "The failing mise job named, the cause fixed, and a green rerun shown.",
+      "prompt": "SCAFFOLD-PLACEHOLDER replace with a request this skill must refuse or hand off, phrased as a near miss of the real job.",
+      "expected_output": "SCAFFOLD-PLACEHOLDER a refusal that names what is missing and what the user should do next.",
       "assertions": [
-        "The reply names the failing task before changing anything.",
-        "The reply shows a passing rerun after the fix."
-      ]
+        "SCAFFOLD-PLACEHOLDER the reply refuses and states the missing fact.",
+        "SCAFFOLD-PLACEHOLDER the reply produces no output file."
+      ],
+      "files": []
     }
   ]
 }

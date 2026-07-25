@@ -14,7 +14,7 @@ and new skills start at `metadata.version: "0.1.0"`.
 ## Source layout
 
 - `skills/<name>/SKILL.md` owns each skill body.
-- Put optional detail in `references/`, executable code in `scripts/`, and evaluation inputs in `evals/`.
+- Put optional detail in `references/`, executable code in `scripts/`, worked examples in `examples/`, and evaluation inputs in `evals/`.
 - A skill may also bundle `assets/` templates, tests in `scripts/tests/`, and its own `mise.toml` task graph so it verifies itself with its own `mise run ci`.
 - Keep file references relative to the skill root and at most one subdirectory deep.
 - Don't copy a skill body into a client integration.
@@ -33,6 +33,15 @@ and new skills start at `metadata.version: "0.1.0"`.
 - Metadata values are strings.
 - Keep `SKILL.md` below 200 lines. Move optional detail out before 150 lines.
 - Tell the reader exactly when to load each reference.
+
+## Examples
+
+- Every skill ships an `examples/` directory. It is required, not optional, and `SKILL.md` must reference it with a load condition.
+- Ship at least one worked example per command in the skill's grammar, plus one for the failure the skill is most likely to cause.
+- A worked example is a complete run: the user's words, the executor's visible reply, every command with its real output and exit code, and every file the run created with its full contents.
+- Open each example by naming the guess it removes, so a reader can pick the right one without reading all of them.
+- Never invent output. Run the commands and paste what they printed.
+- Change the affected examples in the same commit as any rule, path, schema, or command change that outdates them.
 
 ## Markdown layout
 

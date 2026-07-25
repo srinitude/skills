@@ -1,0 +1,83 @@
+<section data-mode="{{MODE}}">
+  <header data-component="page-header">
+    <strong class="accent">{{BRAND}}</strong>
+    <nav data-component="nav">
+      <a href="#work">Work</a><a href="#studio">Studio</a><a href="#index">Index</a
+      ><a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div data-component="hero">
+    <h1>{{HEADLINE}}</h1>
+    <p data-component="body-copy">{{STANDFIRST}}</p>
+    <button>Primary action</button>
+    <button class="secondary">Secondary</button>
+    <button disabled>Disabled</button>
+  </div>
+  <h2>Heading level two</h2>
+  <p data-component="body-copy">
+    The quick brown fox jumps over a lazy dog while the printer warms up in the next room.
+    Reading length matters here: this paragraph runs long enough to test measure, leading,
+    and the optical color of the text face at its real size. Numbers behave too, 0123456789,
+    alongside punctuation, quotation marks, and an ampersand.
+  </p>
+  <h3>Heading level three</h3>
+  <p data-component="body-copy">
+    A second paragraph confirms paragraph spacing and the rhythm between headings and body
+    copy. Inline <a href="#link">links</a> and <strong>bold runs</strong> appear where a
+    reader expects them.
+  </p>
+  <h4>Heading level four</h4>
+  <form data-component="form">
+    <label>Email<br /><input type="email" value="reader@example.com" /></label>
+    <label
+      >Subject<br /><select>
+        <option>Studio enquiry</option>
+        <option>Press</option>
+      </select></label
+    >
+    <label
+      >Message<br /><textarea rows="3">Typed into a field at the real size.</textarea>
+    </label>
+  </form>
+  <table data-component="table">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Family</th>
+        <th>Rarity percentile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Display</td>
+        <td>{{DISPLAY_FAMILY}}</td>
+        <td>{{DISPLAY_RARITY}}</td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>{{TEXT_FAMILY}}</td>
+        <td>{{TEXT_RARITY}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div data-component="card-grid">
+    <article class="card">
+      <h4>Card one</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+    <article class="card">
+      <h4>Card two</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+    <article class="card">
+      <h4>Card three</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+  </div>
+  <pre
+    data-component="code-block"
+  ><code>:root { --display: "{{DISPLAY_FAMILY}}"; --text: "{{TEXT_FAMILY}}"; }</code></pre>
+  <footer data-component="footer">
+    Rendered from the extracted design system on {{EXTRACTED_AT}}.
+  </footer>
+</section>

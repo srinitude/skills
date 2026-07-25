@@ -58,6 +58,41 @@ class FixtureTests(unittest.TestCase):
         _, report = call([str(context.FIXTURE), "--no-live-fonts"])
         self.assertFalse(report["live_fonts_checked"])
 
+    def test_the_report_names_the_floor_it_enforced(self):
+        _, report = call([str(context.FIXTURE), "--no-live-fonts"])
+        self.assertEqual(report["rarity_floor"], 70.0)
+
+    def test_the_report_counts_confidence_markers(self):
+        _, report = call([str(context.FIXTURE), "--no-live-fonts"])
+        self.assertGreaterEqual(report["confidence_markers"], 5)
+
+
+class RecordedFloorTests(unittest.TestCase):
+    def set_floor(self, value):
+        return mutated(lambda data: data["meta"].__setitem__("rarity_floor", value))
+
+    def test_a_recorded_floor_raises_the_gate(self):
+        def raise_floor(data):
+            data["meta"]["rarity_floor"] = 90.0
+            data["typography"]["font_families"]["primary"]["rarity"][
+                "rarity_percentile"] = 80.0
+
+        code, report = call([mutated(raise_floor), "--no-live-fonts"])
+        self.assertEqual((code, report["rarity_floor"]), (1, 90.0))
+        self.assertTrue(any("the floor is 90.0" in item for item in report["errors"]),
+                        report)
+
+    def test_a_recorded_floor_never_lowers_the_flag(self):
+        path = self.set_floor(10.0)
+        _, report = call([path, "--no-live-fonts", "--min-rarity-percentile", "70"])
+        self.assertEqual(report["rarity_floor"], 70.0)
+
+    def test_a_non_numeric_recorded_floor_is_rejected(self):
+        code, report = call([self.set_floor("high"), "--no-live-fonts"])
+        self.assertEqual(code, 1)
+        self.assertTrue(any("meta.rarity_floor" in item for item in report["errors"]),
+                        report)
+
 
 class RejectionTests(unittest.TestCase):
     def assert_fails(self, path, fragment):
@@ -67,11 +102,24 @@ class RejectionTests(unittest.TestCase):
 
     def test_a_common_family_is_rejected(self):
         path = mutated(lambda data: set_primary(data, "family", "Roboto"))
-        self.assert_fails(path, "common default")
+        self.assert_fails(path, "overexposed default")
 
     def test_an_undeclared_google_family_is_rejected(self):
         path = mutated(lambda data: set_primary(data, "google_fonts_family", False))
         self.assert_fails(path, "google_fonts_family")
+
+    def test_a_misordered_section_names_the_offending_key(self):
+        def swap(data):
+            moved = data.pop("worldbuilding")
+            rebuilt = {}
+            for key, value in data.items():
+                if key == "emotional_palette":
+                    rebuilt["worldbuilding"] = moved
+                rebuilt[key] = value
+            data.clear()
+            data.update(rebuilt)
+
+        self.assert_fails(mutated(swap), "position 41 holds 'worldbuilding'")
 
     def test_a_missing_section_is_rejected(self):
         self.assert_fails(variant("worldbuilding:", "worldbuildings:"), "Missing required")
@@ -83,7 +131,7 @@ class RejectionTests(unittest.TestCase):
         self.assert_fails(variant("meta:", "```yaml\nmeta:"), "code fences")
 
     def test_a_tab_indent_is_rejected(self):
-        self.assert_fails(variant("  schema:", "\tschema:"), "tab characters")
+        self.assert_fails(variant("  schema_version:", "\tschema_version:"), "tab characters")
 
     def test_an_empty_document_is_rejected(self):
         empty = tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False)

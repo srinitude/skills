@@ -5,9 +5,11 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 REQUIRED_TASKS = [
-    "ci", "test-ci", "test", "validate",
-    "lint-writing", "lint-code", "evals", "doctor", "new",
+    "ci", "test-ci", "test", "validate", "lint-writing",
+    "lint-code", "lint-placeholders", "evals", "doctor", "new",
 ]
+CHECK_JOBS = ["validate", "lint-writing", "lint-code",
+              "lint-placeholders", "evals"]
 
 
 def load_tasks(path):
@@ -32,11 +34,11 @@ class TestMiseTaskGraph(unittest.TestCase):
 
     def test_ci_covers_every_check_job(self):
         steps = " ".join(self.tasks["ci"]["run"])
-        for job in ["validate", "lint-writing", "lint-code", "evals"]:
+        for job in CHECK_JOBS:
             self.assertIn(f"mise run {job}", steps)
 
     def test_each_check_job_has_one_default_path(self):
-        for job in ["validate", "lint-writing", "lint-code", "evals"]:
+        for job in CHECK_JOBS:
             run = self.tasks[job]["run"]
             self.assertIsInstance(run, str, f"{job} must run one command")
             self.assertIn("python3 scripts/", run)
@@ -74,11 +76,11 @@ class TestGeneratedSkillTemplate(unittest.TestCase):
         steps = self.tasks["ci"]["run"]
         self.assertEqual(steps[0], "mise run test")
         joined = " ".join(steps)
-        for job in ["validate", "lint-writing", "lint-code", "evals"]:
+        for job in CHECK_JOBS:
             self.assertIn(f"mise run {job}", joined)
 
     def test_template_jobs_match_factory_jobs(self):
-        for job in ["test", "validate", "lint-writing", "lint-code", "evals"]:
+        for job in ["test"] + CHECK_JOBS:
             self.assertIn(job, self.tasks)
 
 

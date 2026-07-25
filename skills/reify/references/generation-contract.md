@@ -4,7 +4,7 @@ Every skill this factory creates must meet every rule in this file. The rule set
 
 ## Layout
 
-A skill is one directory whose name equals the frontmatter name. It holds SKILL.md at the root plus four support directories and a test directory at scripts/tests/, all present and all referenced from the SKILL.md body with load conditions: references/, assets/, scripts/, scripts/tests/, evals/. Generated skills also carry mise.toml and a CI workflow at .github/workflows/ci.yml. Relative paths stay close to the skill root: one subdirectory at most, as in assets/ci/ci.yml or scripts/tests/test_scripts.py.
+A skill is one directory whose name equals the frontmatter name. It holds SKILL.md at the root plus five support directories and a test directory at scripts/tests/, all present and all referenced from the SKILL.md body with load conditions: references/, assets/, examples/, scripts/, scripts/tests/, evals/. Generated skills also carry mise.toml and a CI workflow at .github/workflows/ci.yml. Relative paths stay close to the skill root: one subdirectory at most, as in assets/ci/ci.yml or scripts/tests/test_scripts.py.
 
 ## Frontmatter
 
@@ -30,6 +30,10 @@ Keep the body under 200 lines and the file under 100000 characters. Order: title
 ## Markdown layout
 
 Every markdown file lays wrappable prose out as one physical line per block: a paragraph, or a list item plus its continuation lines, never holds an internal hard line break, and no maximum line length applies. Blank lines between elements stay exactly as markdown readability requires. YAML frontmatter, headings, table rows, code fences and their content, indented code, and blank lines are exempt. The writing lint enforces this rule on every markdown file.
+
+## Examples
+
+Every skill ships examples/ with at least one worked example per command in its grammar, and one more for the failure the skill is most likely to cause. An example is a complete run, not a fragment: the user's words, the executor's visible reply, every command with its real output and exit code, and every file the run created with its full contents. Each example names the guess it removes at the top and stays consistent with SKILL.md, so a rule change that outdates an example changes the example in the same commit. SKILL.md points at examples/ with a load condition, and the writing lint and structure validator both cover the directory.
 
 ## Code
 

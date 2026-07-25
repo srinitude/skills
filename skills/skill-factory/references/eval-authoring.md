@@ -25,7 +25,7 @@ Assertions are verifiable statements. "The output file is valid JSON" and "the r
 
 ## evals/trigger-queries.json
 
-A list of entries shaped {"query": "...", "should_trigger": true}. Aim for about 20, half positive and half negative. The strongest negatives are near misses: queries that share keywords with the skill yet need something different. Realism helps, so include paths, personal context, and abbreviations.
+A list of entries shaped {"query": "...", "should_trigger": true}. The checker enforces a floor of 4 with both labels present, and the shipping bar is about 20, half positive and half negative. Treat the floor as the schema minimum, never as the target. The strongest negatives are near misses: queries that share keywords with the skill yet need something different. Realism helps, so include paths, personal context, and abbreviations.
 
 ## What does the srinitude registry add?
 

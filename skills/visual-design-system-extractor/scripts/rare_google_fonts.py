@@ -4,9 +4,14 @@
 Every answer comes from the family metadata feed read at run time, so a
 family that grew popular stops qualifying without any edit to this skill.
 
+Ranking runs fit first. A candidate must match the reference skeleton and
+clear the legibility floor for its role before rarity is consulted, and
+rarity only breaks a tie between candidates that already fit.
+
 Commands:
   catalog   Write a snapshot of the live catalog as JSON.
-  discover  Rank the rarest families that match the given filters.
+  discover  Rank the families that fit the brief, rarest tie broken first.
+  set       Fill every role of one design system as a paired set.
   verify    Check that each named family exists and clears the rarity bar.
 
 Exit codes:
@@ -15,7 +20,8 @@ Exit codes:
   2  usage or input error
 
 Examples:
-  python3 scripts/rare_google_fonts.py discover --category Serif --limit 5
+  python3 scripts/rare_google_fonts.py discover --skeleton Serif --need-weight 400
+  python3 scripts/rare_google_fonts.py set --brief assets/font-brief.json
   python3 scripts/rare_google_fonts.py verify --family "Rubik Puddles"
 """
 from __future__ import annotations
@@ -23,6 +29,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from pathlib import Path
 
 import font_selection
 from google_fonts_api import FEED_URL, FeedError, find, load_catalog, rarity_block
@@ -44,6 +51,17 @@ def add_filters(parser):
     parser.add_argument("--added-after", help="keep families added after YYYY-MM-DD")
     parser.add_argument("--include-noto", action="store_true", help="keep Noto families")
     parser.add_argument("--limit", type=int, default=font_selection.DEFAULT_LIMIT)
+    parser.add_argument("--skeleton", help="wanted skeleton, such as Serif")
+    parser.add_argument("--role", help="text, display, mono, or accent")
+    parser.add_argument("--need-weight", type=int, action="append", dest="weights",
+                        help="weight the reference needs, repeatable")
+    parser.add_argument("--need-italic", action="store_true", help="require italics")
+    parser.add_argument("--min-fit", type=float, help="lowest fit score. Default: 0.65")
+    parser.add_argument("--allow-common", action="store_true",
+                        help="allow an overexposed default, needs --common-reason")
+    parser.add_argument("--common-reason", help="why the common face is the true fit")
+    parser.add_argument("--show-rejected", action="store_true",
+                        help="list the candidates the fit bars dropped")
     parser.add_argument(
         "--min-rarity-percentile",
         type=float,
@@ -62,6 +80,9 @@ def build_parser():
     discover = commands.add_parser("discover", help="rank rare families")
     add_shared(discover)
     add_filters(discover)
+    chooser = commands.add_parser("set", help="fill every role as a paired set")
+    add_shared(chooser)
+    chooser.add_argument("--brief", required=True, help="path to the brief JSON")
     verify = commands.add_parser("verify", help="check named families")
     add_shared(verify)
     add_filters(verify)
@@ -73,6 +94,13 @@ def criteria_from(args):
     """Return selection criteria built from parsed flags."""
     return font_selection.build_criteria(
         category=args.category,
+        skeleton=args.skeleton,
+        role=args.role,
+        weights=args.weights,
+        italic=args.need_italic or None,
+        min_fit=args.min_fit,
+        allow_common=args.allow_common or None,
+        common_reason=args.common_reason,
         subset=args.subset,
         search=args.search,
         min_percentile=args.min_rarity_percentile,
@@ -99,21 +127,54 @@ def run_catalog(args, catalog):
     return 0
 
 
+def row_of(item, catalog):
+    """Return one candidate row with its fit verdict and rarity block."""
+    return {"family": item["family"], "category": item["category"],
+            "fit": item["fit"], "rarity": rarity_block(item, catalog)}
+
+
 def run_discover(args, catalog):
-    """Write the ranked rare candidates that match the filters."""
-    chosen = font_selection.select(catalog, criteria_from(args))
+    """Write the candidates that fit, ranked by fit then by rarity."""
+    criteria = criteria_from(args)
     payload = {
         "source": catalog["source"],
         "retrieved_at": catalog["retrieved_at"],
         "total_families": catalog["total_families"],
-        "candidates": [
-            {"family": item["family"], "category": item["category"],
-             "rarity": rarity_block(item, catalog)}
-            for item in chosen
-        ],
+        "ranked_by": "fit_band descending, then rarity_percentile, then rank",
+        "candidates": [row_of(item, catalog)
+                       for item in font_selection.rank(catalog, criteria)],
     }
+    if args.show_rejected:
+        payload["rejected"] = [
+            {"family": item["family"], "reason": item["reject_reason"],
+             "rarity_percentile": item["rarity_percentile"]}
+            for item in font_selection.rejected(catalog, criteria)[:args.limit]]
     emit(payload, args.output)
     return 0
+
+
+def briefs_from(path):
+    """Return the role briefs recorded in a brief file."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    roles = data.get("roles_to_fill")
+    if not isinstance(roles, list) or not roles:
+        raise ValueError("the brief needs a roles_to_fill list of role objects")
+    return [{"role": item["role"],
+             "criteria": font_selection.build_criteria(**item.get("criteria", {}))}
+            for item in roles]
+
+
+def run_set(args, catalog):
+    """Fill every role as one paired set and write the decision record."""
+    try:
+        briefs = briefs_from(args.brief)
+    except (OSError, ValueError, KeyError, json.JSONDecodeError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+    result = font_selection.choose_set(catalog, briefs)
+    result["retrieved_at"] = catalog["retrieved_at"]
+    emit(result, args.output)
+    return 1 if result["unfilled"] or not result["pairing"]["passes"] else 0
 
 
 def check_family(name, catalog, floor):
@@ -139,7 +200,8 @@ def run_verify(args, catalog):
     return 1 if failed else 0
 
 
-COMMANDS = {"catalog": run_catalog, "discover": run_discover, "verify": run_verify}
+COMMANDS = {"catalog": run_catalog, "discover": run_discover, "set": run_set,
+            "verify": run_verify}
 
 
 def main(argv=None):

@@ -7,10 +7,10 @@ SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 SCRIPTS = SKILL_DIR / "scripts"
 
 
-def run(script, *args, cwd=None):
+def run(script, *args, cwd=None, env=None):
     """Run a bundled script with real arguments and capture the result."""
     cmd = [sys.executable, str(SCRIPTS / script)]
     cmd.extend(str(arg) for arg in args)
     return subprocess.run(
-        cmd, capture_output=True, text=True, cwd=cwd, timeout=180
+        cmd, capture_output=True, text=True, cwd=cwd, env=env, timeout=180
     )

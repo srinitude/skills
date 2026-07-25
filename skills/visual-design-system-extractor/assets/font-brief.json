@@ -1,35 +1,66 @@
 {
-  "brief": "Map visible type evidence onto live catalog filters. Fill every field from the reference, not from taste, then pass the values to scripts/rare_google_fonts.py discover.",
+  "brief": "Map visible type evidence onto live catalog filters and fit targets. Fill every field from the reference, not from taste, then pass the file to scripts/rare_google_fonts.py set, which fills every role as one paired set.",
   "visual_evidence": {
     "letterforms": "",
     "stroke_contrast": "",
+    "terminals": "",
     "width_and_proportion": "",
+    "x_height_impression": "",
     "weight_range_seen": "",
     "language_coverage_seen": "",
+    "smallest_text_size_seen": "",
     "era_or_context_cues": ""
   },
-  "filters": {
-    "category": null,
-    "subset": null,
-    "search": null,
-    "variable_only": false,
-    "added_after": null,
-    "include_noto": false,
-    "min_rarity_percentile": 70.0,
-    "limit": 10
+  "roles_to_fill": [
+    {
+      "role": "display",
+      "criteria": {
+        "skeleton": "Serif",
+        "role": "display",
+        "min_percentile": 70.0,
+        "limit": 5
+      }
+    },
+    {
+      "role": "text",
+      "criteria": {
+        "skeleton": "Serif",
+        "role": "text",
+        "weights": [400, 700],
+        "scripts": ["latin"],
+        "min_percentile": 70.0,
+        "limit": 5
+      }
+    }
+  ],
+  "criteria_fields": {
+    "skeleton": "feed skeleton the reference shows, such as Serif, Sans Serif, or Monospace",
+    "width_class": "reported width from 1 to 10 when the reference is condensed or extended",
+    "weights": "weights the hierarchy needs, as integers",
+    "italic": "true when the reference shows an italic or oblique cut",
+    "scripts": "subsets the copy needs, such as latin and latin-ext",
+    "role": "text, display, mono, or accent, which sets the legibility floor",
+    "min_fit": "lowest fit score to keep. Default 0.65",
+    "min_legibility": "raises the role floor. It can never lower the hard floor",
+    "allow_common": "true only with common_reason naming the evidence",
+    "common_reason": "why an overexposed default is the true fit"
   },
-  "roles_to_fill": ["primary", "supporting", "rare_unique_candidates"],
   "record_for_each_selection": [
     "family",
+    "set_role",
     "google_fonts_family",
     "rarity.popularity_rank",
     "rarity.total_families",
+    "rarity.rank_ceiling",
     "rarity.rarity_percentile",
     "rarity.trending_rank",
     "rarity.date_added",
     "rarity.variable",
     "rarity.source",
     "rarity.retrieved_at",
+    "fit.fit_score",
+    "fit.legibility_score",
+    "fit.evidence",
     "classification",
     "fallback_stack",
     "visual_grounding",
@@ -37,5 +68,6 @@
     "inference_basis"
   ],
   "verification": "python3 scripts/rare_google_fonts.py verify --family \"<name>\"",
+  "pairing": "The set command runs the pairing check after the per role bars. A veto names the dimension that failed, and the next candidate takes the slot.",
   "on_feed_failure": "Stop and report. Do not fill a rarity block from memory or from an earlier snapshot."
 }

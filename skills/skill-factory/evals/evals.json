@@ -53,6 +53,16 @@
         "The reply cites the lowercase naming rule from the scaffolder error.",
         "The reply proposes a valid replacement name such as pdf-helper."
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "you scaffolded the skill an hour ago, is it done? all the checks were green",
+      "expected_output": "A refusal to call a scaffold done, the placeholder check run fresh, and the remaining seeded files named.",
+      "assertions": [
+        "The reply runs check_placeholders.py and quotes its count and exit code.",
+        "The reply names each file still holding seeded text.",
+        "The reply states the remaining work rather than claiming completion."
+      ]
     }
   ]
 }

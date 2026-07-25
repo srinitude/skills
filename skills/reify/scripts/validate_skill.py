@@ -20,8 +20,8 @@ from pathlib import Path
 ALLOWED_KEYS = {"name", "description", "license", "compatibility",
                 "metadata", "allowed-tools"}
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
-REQUIRED_DIRS = ["references", "assets", "scripts", "evals"]
-PATH_RE = re.compile(r"\b(?:references|assets|scripts|tests|evals)/[\w./-]+")
+REQUIRED_DIRS = ["references", "assets", "examples", "scripts", "evals"]
+PATH_RE = re.compile(r"\b(?:references|assets|examples|scripts|tests|evals)/[\w./-]+")
 MAX_BODY_LINES = 200
 MAX_FILE_CHARS = 100_000
 

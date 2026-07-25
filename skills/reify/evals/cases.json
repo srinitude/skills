@@ -22,19 +22,22 @@
       "group": "collaborative_shaping",
       "title": "Shape a memory without flattening it",
       "decision": "shape_one_object",
-      "pressures": ["ambiguity", "emotional_signal", "low_detail"],
+      "pressures": ["ambiguity", "emotional_signal", "low_detail", "invention_risk"],
       "prompt": "I keep thinking about the lighthouse from summers when I was a kid. I don't know if this is a story, a project, or just a feeling. Help me make something of it.",
       "required": [
         "Reflects the lighthouse memory without over-interpreting it.",
-        "Offers one provisional concrete form rather than a settled final concept.",
-        "Asks one low-effort question that changes the direction or form.",
-        "Keeps the active branches to three or fewer.",
-        "Preserves uncertainty while making a tangible first move."
+        "Offers one provisional concrete form and recommends one default path.",
+        "Names at most two alternatives, and only where they imply a different completion proof.",
+        "Asks one low-effort question that changes the direction, form, or the facts a draft would otherwise invent.",
+        "Writes no invented biographical fact in the user's voice, using bracketed slots for missing names, places, dates, and people.",
+        "Keeps the reply at or below 350 words."
       ],
       "veto": [
         "Asks the user to describe exactly what they want.",
         "Turns the response into a long questionnaire.",
-        "Presents a polished final concept as settled."
+        "Presents a polished final concept as settled.",
+        "Writes first-person biographical detail the user never supplied, even with a disclaimer attached.",
+        "Offers a menu of equal options with no recommended default."
       ]
     },
     {
@@ -91,12 +94,14 @@
         "Writes a compact handoff with outcome, constraints, known inputs, open decisions, first action, and completion proof.",
         "Uses an available implementation capability when it is relevant and permitted instead of stopping at prose.",
         "Verifies the actual artifact or result before claiming completion.",
-        "Separates subtask proof from proof that the whole outcome is complete."
+        "Separates subtask proof from proof that the whole outcome is complete.",
+        "Copies the brief template out of the installed skill, validates the copy with the absolute script path, and reports exit 0."
       ],
       "veto": [
         "Keeps interviewing after the direction is accepted.",
         "Stops after a prose handoff when implementation is available and authorized.",
-        "Claims completion without artifact evidence."
+        "Claims completion without artifact evidence.",
+        "Edits a file inside the installed skill directory, or treats exit 2 from a wrong script path as an invalid brief."
       ]
     },
     {

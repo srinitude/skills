@@ -6,8 +6,10 @@ family record keeps its popularity rank, trending rank, date added,
 variable-axis flag, subsets, and designers.
 
 Rarity percentile runs from 0.0 for the single most popular family to
-100.0 for the least popular one, computed from the live rank and the
-live family count.
+100.0 for the least popular one. The denominator is the rank ceiling:
+the highest rank the feed reports, which is at least the family count.
+Ranks above the family count therefore stay ordered instead of piling
+up at 100.0.
 """
 from __future__ import annotations
 
@@ -15,6 +17,8 @@ import json
 import urllib.error
 import urllib.request
 from datetime import date
+
+import font_metrics
 
 FEED_URL = "https://fonts.google.com/metadata/fonts"
 DEFAULT_TIMEOUT = 30
@@ -49,7 +53,7 @@ def parse_feed(raw):
 
 def record(entry):
     """Return one normalized family record from a feed entry."""
-    return {
+    normalized = {
         "family": entry.get("family", ""),
         "category": entry.get("category", ""),
         "popularity_rank": entry.get("popularity"),
@@ -60,19 +64,32 @@ def record(entry):
         "designers": entry.get("designers", []),
         "is_noto": bool(entry.get("isNoto")),
     }
+    normalized.update(font_metrics.style_record(entry))
+    return normalized
+
+
+def rank_ceiling(records):
+    """Return the highest rank present, never below the family count."""
+    ranks = [item["popularity_rank"] for item in records
+             if isinstance(item["popularity_rank"], int)]
+    return max(ranks + [len(records)])
 
 
 def build_catalog(families, url=FEED_URL, retrieved_at=None):
     """Return a catalog snapshot with normalized records and provenance."""
     records = [record(entry) for entry in families if entry.get("family")]
     total = len(records)
+    ceiling = rank_ceiling(records)
     for item in records:
         item["total_families"] = total
-        item["rarity_percentile"] = rarity_percentile(item["popularity_rank"], total)
+        item["rank_ceiling"] = ceiling
+        item["rarity_percentile"] = rarity_percentile(
+            item["popularity_rank"], total, ceiling)
     return {
         "source": url,
         "retrieved_at": retrieved_at or date.today().isoformat(),
         "total_families": total,
+        "rank_ceiling": ceiling,
         "families": records,
     }
 
@@ -82,12 +99,13 @@ def load_catalog(url=FEED_URL, timeout=DEFAULT_TIMEOUT):
     return build_catalog(fetch_feed(url, timeout), url)
 
 
-def rarity_percentile(popularity_rank, total):
-    """Return 0.0 for the most popular family and 100.0 for the least."""
-    if not isinstance(popularity_rank, int) or total < 2:
+def rarity_percentile(popularity_rank, total, ceiling=None):
+    """Return 0.0 for the most popular family and 100.0 for the rarest rank."""
+    scale = max(total, ceiling or 0)
+    if not isinstance(popularity_rank, int) or scale < 2:
         return 0.0
-    clamped = min(max(popularity_rank, 1), total)
-    return round((clamped - 1) / (total - 1) * 100, 1)
+    clamped = min(max(popularity_rank, 1), scale)
+    return round((clamped - 1) / (scale - 1) * 100, 1)
 
 
 def find(catalog, family):
@@ -104,6 +122,7 @@ def rarity_block(item, catalog):
     return {
         "popularity_rank": item["popularity_rank"],
         "total_families": catalog["total_families"],
+        "rank_ceiling": catalog.get("rank_ceiling", catalog["total_families"]),
         "rarity_percentile": item["rarity_percentile"],
         "trending_rank": item["trending_rank"],
         "date_added": item["date_added"],

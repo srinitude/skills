@@ -70,6 +70,18 @@ class SelectionTests(unittest.TestCase):
         chosen = sel.select(self.catalog, sel.build_criteria(limit=1))
         self.assertEqual(len(chosen), 1)
 
+    def test_a_tied_percentile_breaks_on_the_rarer_rank(self):
+        catalog = catalog_of(
+            entry("Common Face", 1),
+            entry("Alpha Tail", 40),
+            entry("Zeta Tail", 41),
+        )
+        for item in catalog["families"]:
+            item["rarity_percentile"] = 100.0
+        chosen = sel.select(catalog, sel.build_criteria())
+        self.assertEqual([item["family"] for item in chosen],
+                         ["Zeta Tail", "Alpha Tail", "Common Face"])
+
     def test_raising_the_floor_can_empty_the_list(self):
         self.assertEqual(sel.select(self.catalog, sel.build_criteria(min_percentile=100.5)), [])
 

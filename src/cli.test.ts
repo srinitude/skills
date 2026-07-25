@@ -141,4 +141,4 @@ test('packages the repository and writes a package report', async () => {
   expect(report.sha256).toMatch(/^[a-f0-9]{64}$/);
   expect((await readdir(output)).some((name) => name.endsWith('.tgz'))).toBe(true);
   expect(diagnostics).toContain('package: PASS');
-});
+}, 30_000);

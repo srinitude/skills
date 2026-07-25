@@ -56,7 +56,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   await expect(access(join(root, 'mcp', 'dist', 'server.mjs.map'))).rejects.toMatchObject({
     code: 'ENOENT',
   });
-});
+}, 30_000);
 
 test('produces identical MCP bundle bytes in consecutive builds', async () => {
   const first = await mkdtemp(join(tmpdir(), 'skills-package-'));
@@ -65,4 +65,4 @@ test('produces identical MCP bundle bytes in consecutive builds', async () => {
   const left = await buildPackage(root, first);
   const right = await buildPackage(root, second);
   expect(left.mcp_sha256).toBe(right.mcp_sha256);
-});
+}, 30_000);

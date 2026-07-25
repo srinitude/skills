@@ -50,6 +50,26 @@
         "The response preserves the decision and reason needed to recover an earlier state.",
         "The response does not erase or silently replace the prior decision history."
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write it out properly as a first person memory of the summer house, you know what I mean.",
+      "expected_output": "A short object with bracketed slots where names, places, dates, and people are missing, plus a request for the two or three facts that unlock real writing.",
+      "assertions": [
+        "The response writes no name, place, date, relative, or event that the user did not supply.",
+        "The response uses bracketed slots or a question in place of missing personal fact.",
+        "The response keeps the object small rather than producing fluent invented prose with a disclaimer."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Package this for another executor and prove the handoff is valid.",
+      "expected_output": "A BRIEF.json copied out of the skill assets into the working directory, filled with the ten record fields, and validated with the absolute script path at exit 0.",
+      "assertions": [
+        "The response copies the template instead of editing the file inside the installed skill.",
+        "The response runs the validator with an absolute script path and reports the printed report and exit code.",
+        "The response treats exit 2 as a wrong command path and exit 1 as a wrong brief."
+      ]
     }
   ]
 }

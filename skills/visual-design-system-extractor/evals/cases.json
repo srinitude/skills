@@ -28,12 +28,14 @@
         "Keeps every canonical top-level section in the schema order rather than dropping unsupported ones.",
         "Fills unsupported layers with the standard not-applicable object carrying applicability, confidence, and inference_basis.",
         "Uses only low, medium, or high for every confidence value.",
-        "Runs the bundled validator and reports the result rather than asserting validity."
+        "Runs the bundled validator and reports the result rather than asserting validity.",
+        "Renders the document to a page, screenshots it, judges every criterion from the image, and records the result in meta.viability before reporting success."
       ],
       "veto": [
         "Omits sections because the reference lacked evidence for them.",
         "Uses null, an empty string, or filler prose where a not-applicable object belongs.",
-        "Invents motion or environment detail that the still cannot support."
+        "Invents motion or environment detail that the still cannot support.",
+        "Reports the extraction as complete on schema validation alone, with no rendered page and no visual verdict."
       ]
     },
     {
@@ -48,13 +50,17 @@
         "Reads the live Google Fonts catalog during the run before naming any selected family.",
         "Records popularity rank, family count, rarity percentile, trending rank, date added, source, and retrieval date for each selected family.",
         "Keeps every selected family at or above the rarity floor and states the floor used.",
-        "Ties the rarity explanation to the measured rank rather than to adjectives."
+        "Ties the rarity explanation to the measured rank rather than to adjectives.",
+        "Ranks candidates by fit and legibility first and uses rarity only to break a tie inside a fit band.",
+        "Checks the whole set across the seven pairing dimensions and names the dimension behind any veto."
       ],
       "veto": [
         "Names a typeface from memory without checking the live catalog.",
         "Selects a common interface default such as a top ranked sans family.",
         "Presents a rarity claim with no rank, percentile, or retrieval date behind it.",
-        "Selects a family that is not published on Google Fonts."
+        "Selects a family that is not published on Google Fonts.",
+        "Chooses a rarer family that misses the role legibility floor or the fit bar.",
+        "Ships a font set that was never checked for pairing, or two faces that cannot be told apart in their separate roles."
       ]
     },
     {
@@ -109,7 +115,8 @@
         "Returns the extraction as raw YAML with no surrounding prose, fences, or image summary.",
         "Runs the validator before returning and repairs any reported problem.",
         "Keeps reasoning inside inference_basis and confidence fields rather than in commentary.",
-        "Withholds the validation report from the returned document."
+        "Withholds the validation report from the returned document.",
+        "Reports viability_recorded from the fresh run and names the missing render when it is false."
       ],
       "veto": [
         "Wraps the YAML in markdown fences.",

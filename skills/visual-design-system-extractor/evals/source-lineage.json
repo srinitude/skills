@@ -1,28 +1,68 @@
 {
   "schema_version": 1,
-  "native_version": "0.1.0",
-  "native_manifest_sha256": "fa2d313d4a3dfc4df7a94bdbf62d458f404a7e194c44af2da2fff36c9661f30e",
-  "public_version": "0.1.0",
+  "native_version": "0.2.0",
+  "native_manifest_sha256": "50aa77f87ff6f70886efea8b53d730e0de81448e045e5c2336d383da8614c688",
+  "public_version": "0.2.0",
   "source_files": [
     {
       "path": "SKILL.md",
-      "sha256": "99a233fae40333336831bfe440fb7825cd721192022b49dc2d6a9bf8a4d1763d"
+      "sha256": "b2e26747034824dcb660b40bbc787fb502f9633a8fdc0d013d93b788ebb0c118"
     },
     {
-      "path": "references/extraction-schema.md",
-      "sha256": "17636216c42fc6ea658fe56dd69e75d42bfd26787b58230f765173891e1773ce"
+      "path": "references/extraction-schema.yaml",
+      "sha256": "f7c40ebecc53ae9d7c020af8e50c574ea18bc6b1f54485870d247f73ed6c6782"
     },
     {
-      "path": "references/agent-skills-compliance.md",
-      "sha256": "6b69d40616e9fd09da1e8cd5e826c4864ba696b93add8a151f4df5f1959410e4"
+      "path": "references/font-sourcing.md",
+      "sha256": "29e633bfff1e4241f38938ae7bcfef82e4e061cc98439fd3153c87ab69b4f76c"
+    },
+    {
+      "path": "references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
     },
     {
       "path": "scripts/schema_tools.py",
-      "sha256": "baf7dee67f167e56a1b901664f3da188ca96459837f5309f99c3e710353c1fb9"
+      "sha256": "930012c5413ccc8187b64d4342415a4325a0306183f5c51de613278744b1bac9"
     },
     {
       "path": "scripts/validate_design_system_yaml.py",
-      "sha256": "6ffbc439e6a707e77b2162413adacadd3a778eb15a5b201482dfd058d2b625a5"
+      "sha256": "df2af9213b461244ecceb7a5508ec847ec1bf809bb50d7fd439272dd25a18e4b"
+    },
+    {
+      "path": "scripts/rare_google_fonts.py",
+      "sha256": "5447d13f73f45ade89f3a5059b17cc6a3e34593950c4819885abfb31834ec547"
+    },
+    {
+      "path": "scripts/font_fit.py",
+      "sha256": "9e560834500803e312e0664e535efb28cbf81dae457fad4116237e3677a49278"
+    },
+    {
+      "path": "scripts/font_pairing.py",
+      "sha256": "f15326dc926e6c64c2a035929d8e59be7e3d02872b818e5360767ec6a4a91ca3"
+    },
+    {
+      "path": "scripts/render_preview.py",
+      "sha256": "d1759722810a63654ca6d79d1f07bedfabe406943e12713ece2c74e91717581c"
+    },
+    {
+      "path": "scripts/screenshot_preview.py",
+      "sha256": "bb2833a43c6287d3eac5f1cdd681f8141ea3b8a5233972e048802e44beae7212"
+    },
+    {
+      "path": "scripts/viability_rules.py",
+      "sha256": "653e167dad04a933ca3f0173680be4a9355fd904c6ee4ccb12a23f160f10622c"
+    },
+    {
+      "path": "assets/schema-skeleton.yaml",
+      "sha256": "469a9c0ad92b8226d4c4e273339353518dfb3d9317d246cac01a70462b096f60"
+    },
+    {
+      "path": "assets/minimal-extraction.yaml",
+      "sha256": "76b3a4562c4bb0e2b8456185253e2aebd8a4b8524112226155b36cc65ee6c617"
+    },
+    {
+      "path": "assets/font-brief.json",
+      "sha256": "00922af12b4563656a0983c14f44bb45ccdd5fe1ad33192ddb89d282fabefdd9"
     }
   ],
   "public_files": [
@@ -31,39 +71,72 @@
       "source_paths": ["SKILL.md"]
     },
     {
-      "path": "references/extraction-schema.yaml",
-      "source_paths": ["references/extraction-schema.md"]
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "references/font-sourcing.md",
-      "source_paths": ["SKILL.md", "references/extraction-schema.md"]
+      "path": "evals/evals.json",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "assets/schema-skeleton.yaml",
-      "source_paths": ["references/extraction-schema.md"]
+      "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "scripts/schema_tools.py",
-      "source_paths": ["scripts/schema_tools.py"]
+      "path": "evals/contract.md",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "scripts/validate_design_system_yaml.py",
-      "source_paths": ["scripts/validate_design_system_yaml.py"]
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "scripts/extraction_rules.py",
-      "source_paths": ["scripts/validate_design_system_yaml.py"]
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "scripts/extraction_schema.py",
-      "source_paths": ["scripts/validate_design_system_yaml.py"]
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["SKILL.md"]
     },
     {
-      "path": "scripts/font_rules.py",
-      "source_paths": [
-        "scripts/validate_design_system_yaml.py",
-        "references/extraction-schema.md"
-      ]
+      "path": "examples/extract-output.yaml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/extract.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/failure-section-order.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/fonts-brief.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/help.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/maintain.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/make-it-rarer.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/pairing-veto.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/validate.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/viability-loop.md",
+      "source_paths": ["SKILL.md"]
     }
   ],
   "source_case_ids": ["VDS-001", "VDS-002", "VDS-003", "VDS-004", "VDS-005"]

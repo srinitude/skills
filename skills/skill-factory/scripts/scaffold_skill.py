@@ -13,7 +13,11 @@ Exit codes:
 Example:
   python3 scripts/scaffold_skill.py --name release-notes \\
     --description "Use when release notes are needed from a git log." \\
-    --dest ~/skills
+    --dest /path/to/skills
+
+The destination is the skills directory holding this factory when it is
+writable, so the new skill sits beside the other registry skills. Pass
+another directory when that one is read only.
 """
 import argparse
 import datetime
@@ -26,11 +30,12 @@ from pathlib import Path
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
-DIRS = ["references", "assets", "scripts", "scripts/tests", "evals",
-        ".github/workflows"]
+DIRS = ["references", "assets", "examples", "scripts",
+        "scripts/tests", "evals", ".github/workflows"]
 FILLED = [
     ("SKILL.md", "skill-template.md"),
     ("references/decisions.md", "decisions-template.md"),
+    ("examples/example-first-run.md", "example-template.md"),
     ("evals/evals.json", "evals-template.json"),
     ("evals/trigger-queries.json", "trigger-template.json"),
 ]
@@ -39,10 +44,12 @@ COPIED = [
     (".github/workflows/ci.yml", "ci/ci.yml"),
     ("scripts/skill_info.py", "starter-script.py"),
     ("scripts/tests/test_scripts.py", "starter-test.py"),
+    ("scripts/tests/test_ci_contract.py", "starter-ci-test.py"),
     ("assets/eval-case-template.json", "eval-case-template.json"),
 ]
 CHECKERS = ["lint_writing.py", "validate_skill.py",
-            "check_code_rules.py", "check_evals.py"]
+            "check_code_rules.py", "check_evals.py",
+            "check_placeholders.py"]
 
 
 def fill(template, tokens):
@@ -105,7 +112,10 @@ def main(argv=None):
               "DATE": datetime.date.today().isoformat()}
     count = build(target, tokens)
     print(json.dumps({"created": str(target), "files": count,
-                      "next": "run mise run ci inside the new skill"}))
+                      "next": "run mise run ci inside the new skill",
+                      "blocked_until": "every SCAFFOLD placeholder is "
+                                       "replaced; check_placeholders.py "
+                                       "exits 1 until then"}))
     return 0
 
 

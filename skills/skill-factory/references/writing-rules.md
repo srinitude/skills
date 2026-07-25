@@ -17,7 +17,7 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 
 ## Human prose
 
-- The banned word and frame lists live in scripts/lint_writing.py. Run the lint rather than memorizing them; it prints file and line for every hit.
+- The banned word and frame lists live in scripts/lint_writing.py as WORDS and PHRASES. Read them once before drafting, then run the lint; it prints file and line for every hit.
 - No em or en dashes anywhere. Use a comma, a period, or parentheses.
 - Vary sentence length on purpose. A four word sentence lands. Then let a longer one carry the detail that needs the room.
 - Cut hedges: somewhat, fairly, arguably, very, quite.
@@ -32,6 +32,10 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 - Blank lines between markdown elements (headings, paragraphs, lists, code fences, tables) stay exactly as normal markdown readability requires.
 - Exempt from the one line rule: YAML frontmatter, headings, table rows, code fence delimiters and everything inside fences, indented code blocks, and blank lines.
 - The lint reports any block spanning more than one physical line as path:line; join the block into one line with single spaces.
+
+## How do I avoid the banned list on the first draft?
+
+Open scripts/lint_writing.py and read the two lists at the top, WORDS and PHRASES, before drafting. That is the one time reading a script beats running it: the lists are data, they change, and copying them into prose here would fail this file's own lint. Draft, then run the lint on the file alone, then fix. Typical rewrites keep the concrete word: "checked" or "tested" for a quality claim, "use" for a verb of applying something, "with no extra step" for a smoothness claim.
 
 ## How do I check a document?
 

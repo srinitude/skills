@@ -57,8 +57,29 @@ class TestScaffoldOutput(unittest.TestCase):
         for rel in ["SKILL.md", "mise.toml", ".github/workflows/ci.yml",
                     "references/generation-contract.md", "assets",
                     "scripts/skill_info.py", "scripts/tests/test_scripts.py",
+                    "scripts/tests/test_ci_contract.py",
+                    "examples/example-first-run.md",
+                    "scripts/check_placeholders.py",
                     "evals/evals.json", "evals/trigger-queries.json"]:
             self.assertTrue((self.skill / rel).exists(), f"missing {rel}")
+
+    def test_body_points_at_examples_with_a_load_condition(self):
+        body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("examples/", body)
+        self.assertIn("examples/example-first-run.md", body)
+
+    def test_untouched_scaffold_fails_the_placeholder_gate(self):
+        result = run("check_placeholders.py", self.skill)
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertIn("SKILL.md", result.stdout)
+        self.assertIn("examples/example-first-run.md", result.stdout)
+        self.assertIn("evals.json", result.stdout)
+
+    def test_seed_evals_do_not_assert_scaffolder_behavior(self):
+        text = (self.skill / "evals" / "evals.json").read_text(
+            encoding="utf-8").lower()
+        for leftover in ["skill_info.py", "help, info, and check"]:
+            self.assertNotIn(leftover, text)
 
     def test_generated_skill_passes_validation(self):
         result = run("validate_skill.py", self.skill)

@@ -4,7 +4,7 @@ import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
-import context  # noqa: F401
+import context
 import schema_tools
 import yaml
 
@@ -32,6 +32,27 @@ class SkeletonTests(unittest.TestCase):
         _, skeleton, _ = call(["skeleton"])
         _, sections, _ = call(["sections"])
         self.assertEqual(list(yaml.safe_load(skeleton)), sections.split())
+
+    def test_the_skeleton_meta_carries_the_recorded_floor(self):
+        _, skeleton, _ = call(["skeleton"])
+        self.assertIn("rarity_floor", yaml.safe_load(skeleton)["meta"])
+
+    def test_the_minimal_example_shares_the_skeleton_meta_keys(self):
+        _, skeleton, _ = call(["skeleton"])
+        example = yaml.safe_load(context.FIXTURE.read_text(encoding="utf-8"))
+        self.assertEqual(list(example["meta"]), list(yaml.safe_load(skeleton)["meta"]))
+
+    def test_the_minimal_example_matches_the_skeleton_section_order(self):
+        _, sections, _ = call(["sections"])
+        example = yaml.safe_load(context.FIXTURE.read_text(encoding="utf-8"))
+        self.assertEqual(list(example), sections.split())
+
+    def test_the_minimal_example_fills_one_token_of_each_kind(self):
+        example = yaml.safe_load(context.FIXTURE.read_text(encoding="utf-8"))
+        self.assertIn("hex", example["color_system"]["primary"]["ink_900"])
+        self.assertIn("visual_grounding", example["spacing"]["scale"]["space_200"])
+        self.assertIn("line_height", example["typography"]["type_scale"]["display_1"])
+        self.assertIn("easing", example["motion"]["durations"]["base"])
 
 
 class ContractTests(unittest.TestCase):

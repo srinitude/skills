@@ -23,6 +23,11 @@ Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference only when 
 - The same route has produced no progress across repeated attempts.
 - A component passes while the parent outcome remains unproved.
 - A familiar procedure is repeated after conditions changed.
+- The requested route is causally plausible but the expected effect size, sample size, traffic, budget, or elapsed time makes its proof unreachable. Compute the requirement before agreeing, and show the computation in three lines or fewer.
+
+## Evidence you generate
+
+You may create the evidence that justifies a review. Arithmetic you can show, a retrieved number, and a reproducible measurement all count. A recalled prior does not carry the same weight: label it as a rough expectation, keep it out of any table of computed values, and let the user overturn it with their own data. When the review rests on a prior you cannot source, ask for the one number that settles it rather than arguing the prior.
 
 ## Stop conditions
 

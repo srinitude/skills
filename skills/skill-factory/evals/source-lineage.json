@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.1.0",
   "native_version": "0.1.0",
-  "native_manifest_sha256": "98aaa681eb690d87a7668632d481cd895e29afe09efe2af2540f0de61f87a56e",
+  "native_manifest_sha256": "1ca9caa100f0017dc223a052ed80b31de8787c184b953c225fec42a1dd84f7c2",
   "public_files": [
     {
       "path": "SKILL.md",
@@ -35,6 +35,12 @@
       ]
     },
     {
+      "path": "assets/example-template.md",
+      "source_paths": [
+        "assets/example-template.md"
+      ]
+    },
+    {
       "path": "assets/mise-template.toml",
       "source_paths": [
         "assets/mise-template.toml"
@@ -44,6 +50,12 @@
       "path": "assets/skill-template.md",
       "source_paths": [
         "assets/skill-template.md"
+      ]
+    },
+    {
+      "path": "assets/starter-ci-test.py",
+      "source_paths": [
+        "assets/starter-ci-test.py"
       ]
     },
     {
@@ -113,6 +125,42 @@
       ]
     },
     {
+      "path": "examples/example-doctor.md",
+      "source_paths": [
+        "examples/example-doctor.md"
+      ]
+    },
+    {
+      "path": "examples/example-eval.md",
+      "source_paths": [
+        "examples/example-eval.md"
+      ]
+    },
+    {
+      "path": "examples/example-help.md",
+      "source_paths": [
+        "examples/example-help.md"
+      ]
+    },
+    {
+      "path": "examples/example-new-skill.md",
+      "source_paths": [
+        "examples/example-new-skill.md"
+      ]
+    },
+    {
+      "path": "examples/example-placeholder-scaffold-caught.md",
+      "source_paths": [
+        "examples/example-placeholder-scaffold-caught.md"
+      ]
+    },
+    {
+      "path": "examples/example-validate.md",
+      "source_paths": [
+        "examples/example-validate.md"
+      ]
+    },
+    {
       "path": "mise.toml",
       "source_paths": [
         "mise.toml"
@@ -161,6 +209,12 @@
       ]
     },
     {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": [
+        "scripts/check_placeholders.py"
+      ]
+    },
+    {
       "path": "scripts/doctor.py",
       "source_paths": [
         "scripts/doctor.py"
@@ -194,6 +248,12 @@
       "path": "scripts/tests/test_check_evals.py",
       "source_paths": [
         "scripts/tests/test_check_evals.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_check_placeholders.py",
+      "source_paths": [
+        "scripts/tests/test_check_placeholders.py"
       ]
     },
     {
@@ -236,7 +296,7 @@
   "source_files": [
     {
       "path": "SKILL.md",
-      "sha256": "98aaa681eb690d87a7668632d481cd895e29afe09efe2af2540f0de61f87a56e"
+      "sha256": "1ca9caa100f0017dc223a052ed80b31de8787c184b953c225fec42a1dd84f7c2"
     },
     {
       "path": "assets/ci/ci.yml",
@@ -252,15 +312,23 @@
     },
     {
       "path": "assets/evals-template.json",
-      "sha256": "2879ada9f29b93a87835c6f9525213bb7471ab2e646e19a5f9ed2109d578840d"
+      "sha256": "a64f8a36324e3c3a618edcf5c53c65082efd620d6177c794776dc07bc81fcdc7"
+    },
+    {
+      "path": "assets/example-template.md",
+      "sha256": "edfec70a8d738ff4193739e891104a1cf091d2cd4da43ec65dfb5c971ccd1dcf"
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "003e384371ea52b2a4196ace22342d8cc0fa311580af58af1d21dba78a944a7f"
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558"
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "2535b84023cc8457984cd1fc119cae4e6ec9a3fee3e40ce83a4c6553bfa585af"
+      "sha256": "0624d5cb6b941e8e7205585274cd0570bb3ed31a0c7340f42184ac53e82815df"
+    },
+    {
+      "path": "assets/starter-ci-test.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652"
     },
     {
       "path": "assets/starter-script.py",
@@ -272,7 +340,7 @@
     },
     {
       "path": "assets/trigger-template.json",
-      "sha256": "33895d371cdd84fc32624df0b92bd92c46dc4acaa609858a8adc33463ab2ccb5"
+      "sha256": "9840fcf70c70b61005e4b1fe5965d1655ab91decaa511001318e2c5cd086c99f"
     },
     {
       "path": "evals/cases.json",
@@ -284,7 +352,7 @@
     },
     {
       "path": "evals/evals.json",
-      "sha256": "a4c159fe6fd12beddf500627834a6be1ded2f4ad3d1c7f4b6e632356c692dab7"
+      "sha256": "876d19735cbb69c2e631a0d98d15462cb467857d1eab816c70a4b773c5ec2c10"
     },
     {
       "path": "evals/manifest.json",
@@ -304,23 +372,47 @@
     },
     {
       "path": "evals/trigger-queries.json",
-      "sha256": "c0d142044647e89e55d2b4a3e46d5771bff08f28700bf9af319e357021255cf0"
+      "sha256": "0af3006564d1e00d45e13b0556adfb16513d78e477f54c4268083fb50179c009"
+    },
+    {
+      "path": "examples/example-doctor.md",
+      "sha256": "2a24d9d7f424e1deb6f642a3b3fe45463cc035b4d472bab3bef1d2d1f6b7e143"
+    },
+    {
+      "path": "examples/example-eval.md",
+      "sha256": "3cbdc38172b37bfae6e2233616e1cf64c8068ebce5d30fedda88931740c5f43f"
+    },
+    {
+      "path": "examples/example-help.md",
+      "sha256": "abd56eb04731b517472a63f7411a5244db35ac3a540d93fa45d40353627868b0"
+    },
+    {
+      "path": "examples/example-new-skill.md",
+      "sha256": "3bf0163f09f6152517b38c6c791e445744ecc0c781b639349588c23934acb88e"
+    },
+    {
+      "path": "examples/example-placeholder-scaffold-caught.md",
+      "sha256": "8bfd48b5f8b9ec5edbb1533b02eb137bc4a93806f001d5bae532cefed32d8999"
+    },
+    {
+      "path": "examples/example-validate.md",
+      "sha256": "0102653c1a16266d1f7b264fc0c366ec4f9548b82e12b4beffa573874edd214b"
     },
     {
       "path": "mise.toml",
-      "sha256": "47354d3ad3caff7467ac039607e9c369dd4baea7d3bbc133edd8f4c1e429712e"
+      "sha256": "26aaf0eeb09182bdf645a9bd06be28291676760bcd658dd599e86f43d1ae8820"
     },
     {
       "path": "references/code-rules.md",
-      "sha256": "11586f95165a42e9f14d1f2f8a3f6748155aafa49209365a99287fa93e484e33"
+      "sha256": "8c1c3a269ac3cb9dccd2481ac8f22751f35795028a2cf76fcf18405da632d114"
     },
     {
       "path": "references/eval-authoring.md",
-      "sha256": "d6232a521c4f193c59d20ededd6618302b24c977e8d72b348d18da4ba79afcf7"
+      "sha256": "4db49b22610114c6b9b3d78f6fc6ff3e08c94a800e5d18648261a70cc121348a"
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "9a0db275cee17ea8738d767324dd9e1c79f4823b18c369e847398b58ec92ad6a"
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
     },
     {
       "path": "references/registry.md",
@@ -328,7 +420,7 @@
     },
     {
       "path": "references/writing-rules.md",
-      "sha256": "9ab8e269a1a015ce489d35b7509e96d25c50d499ec93c25698fa6c53bde0b72a"
+      "sha256": "c9e5ed46fd355a8bb9d19cd5bc98128db8f9b32ae3c0099389030758a40ec5e0"
     },
     {
       "path": "scripts/check_code_rules.py",
@@ -339,8 +431,12 @@
       "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
     },
     {
+      "path": "scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+    },
+    {
       "path": "scripts/doctor.py",
-      "sha256": "fea21971e2f7030df7f3c647017226e72cd40b5ee486daa99f46a27840daa65f"
+      "sha256": "4245f89bb4cdfe513c898bd327c673a18871c207809796e1cba73121aae9ddea"
     },
     {
       "path": "scripts/lint_writing.py",
@@ -348,11 +444,11 @@
     },
     {
       "path": "scripts/scaffold_skill.py",
-      "sha256": "ec84ae7fda0173d542b4a866e9505be3005bea1b6a7a6a9e19b124671789d35d"
+      "sha256": "e1963832193dfc25895cf26c760920dde53d9b302806bd5b8cd4ef2da3173490"
     },
     {
       "path": "scripts/tests/cli.py",
-      "sha256": "ef0c71323f436dc481f55a1aa94e14b6840340350f46d4a9643b2d2c6b6aa6dd"
+      "sha256": "9e4239c5995eedcbe9581a46ef6358ef688cf709d5d888c343a9931cbf6f9b54"
     },
     {
       "path": "scripts/tests/test_check_code_rules.py",
@@ -363,12 +459,16 @@
       "sha256": "721db209c50835c25fbc748b0a5e8631504e2f402592a1c242424368dd5a15b9"
     },
     {
+      "path": "scripts/tests/test_check_placeholders.py",
+      "sha256": "421336afe2ab9f8449d373c2b285eee82fae06b2118581dc614d49f7706e59d1"
+    },
+    {
       "path": "scripts/tests/test_ci_contract.py",
-      "sha256": "a94b14c4271cd2e5ebe264a00a4c48808c01447d9b5c6e6410b74e06e6da9345"
+      "sha256": "1047522c5cae17283b2b733543849097af8c34c71ad3f7fda0b4ce4b2b30814f"
     },
     {
       "path": "scripts/tests/test_doctor.py",
-      "sha256": "de07b36d020f605e101954da6adde0493548272dbd459d87590f2e118e795be9"
+      "sha256": "4078ef745af4dd33c0e4beb1bf4695cb9dbd1461c35137a2390c7996369fcfb9"
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
@@ -376,15 +476,15 @@
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "66cdd7d4fec480afe303ead8fe025bf9668d78c6d0ea528a65035a22d12c8878"
+      "sha256": "3a2472c56790a77f34798727664aee4a92704497738662ee87a56bdffae66668"
     },
     {
       "path": "scripts/tests/test_validate_skill.py",
-      "sha256": "83117db8893d26f724a0b15f77ef5217a909f8d8e285ea53d8586a9bf4b75d1a"
+      "sha256": "d2bb28689ef6fd10de80ac5b9f2544e23d96503fc1babae8cfba2a5ae8f8a045"
     },
     {
       "path": "scripts/validate_skill.py",
-      "sha256": "df16706c8949cf2ae40a2bf2e09709dbf94d4550339f95c4f8075afe370bad0d"
+      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a"
     }
   ],
   "source_case_ids": [

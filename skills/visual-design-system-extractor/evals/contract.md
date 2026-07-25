@@ -20,15 +20,16 @@ A changed case, criterion, threshold, image, prompt, route, or skill byte invali
 
 Require all of the following:
 
-- valid frontmatter with `metadata.version: "0.1.0"`;
+- valid frontmatter with `metadata.version: "0.2.0"`;
 - a description that starts with `Use when` and stays at or below 1024 characters;
 - exactly five unique `VDS-###` cases across every declared group;
 - one frozen native `source_id` per case;
+- one worked example per command in `examples/`, each with real command output and exit codes;
 - required and veto criteria on every case;
 - no unresolved local links;
 - governed Markdown below 200 lines;
 - current source-lineage hashes;
-- `mise run ci` exiting 0 inside the skill directory.
+- the five bundled checks exiting 0 inside the skill directory: the unittest suite, `validate_skill.py`, `lint_writing.py`, `check_code_rules.py`, and `check_evals.py`.
 
 ## Trigger gate
 

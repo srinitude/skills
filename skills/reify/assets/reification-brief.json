@@ -1,10 +1,20 @@
 {
+  "signal": "",
   "outcome": "",
   "done_means": "",
   "first_milestone": "",
   "next_action": "",
   "constraints": [],
   "sources_checked": [],
-  "decisions": [],
-  "open_questions": []
+  "decisions": [
+    {
+      "id": "D-001",
+      "choice": "",
+      "reason": "",
+      "dependents": [],
+      "reversible": true
+    }
+  ],
+  "open_questions": [],
+  "status": "active"
 }

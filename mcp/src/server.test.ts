@@ -95,7 +95,7 @@ test('exposes only the approved read-only tools', async () => {
   });
 
   const searched = await client.callTool({
-    arguments: { query: 'outcome hidden' },
+    arguments: { query: 'wrong metric' },
     name: 'search_skills',
   });
   expect(JSON.parse(text(searched))).toMatchObject({

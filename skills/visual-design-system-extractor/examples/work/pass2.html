@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design system viability preview</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epunda+Slab&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ramsina&display=swap">
+    <style>
+      :root {
+        --color-system-neutrals-paper-0: #f6f2ea;
+  --color-system-primary-ink-900: #141210;
+  --motion-durations-base: 300ms;
+  --radii-scale-radius-sm: 4px;
+  --spacing-scale-space-200: 16px;
+  --typography-leading-display: 1.05;
+  --typography-tracking-display: -0.01em;
+  --typography-type-scale-body-1: 17px;
+  --typography-type-scale-caption: 16px;
+  --typography-type-scale-display-1: 64px;
+  --typography-type-scale-heading-2: 40px;
+  --typography-type-scale-heading-3: 28px;
+  --typography-type-scale-heading-4: 22px;
+  --typography-weights-regular: 400;
+  --typography-weights-text-bold: 700;
+  --role-accent: var(--color-system-primary-ink-900, #151515);
+  --role-accent-dark: #f2f2f2;
+  --role-bg: var(--color-system-neutrals-paper-0, #ffffff);
+  --role-bg-dark: #131313;
+  --role-border: #d8d8d8;
+  --role-border-width: 1px;
+  --role-duration: var(--motion-durations-base, 200ms);
+  --role-easing: cubic-bezier(0.25, 1, 0.5, 1);
+  --role-fg: var(--color-system-primary-ink-900, #151515);
+  --role-fg-dark: #f2f2f2;
+  --role-leading-body: 1.55;
+  --role-leading-display: var(--typography-leading-display, 1.1);
+  --role-radius: var(--radii-scale-radius-sm, 0px);
+  --role-shadow: none;
+  --role-size-body: var(--typography-type-scale-body-1, 1rem);
+  --role-size-display: var(--typography-type-scale-display-1, 3rem);
+  --role-size-h2: var(--typography-type-scale-heading-2, calc(var(--typography-type-scale-display-1, 3rem) * 0.55));
+  --role-size-h3: var(--typography-type-scale-heading-3, calc(var(--typography-type-scale-display-1, 3rem) * 0.38));
+  --role-size-h4: var(--typography-type-scale-heading-4, calc(var(--typography-type-scale-display-1, 3rem) * 0.28));
+  --role-size-small: var(--typography-type-scale-caption, calc(var(--typography-type-scale-body-1, 1rem) * 0.85));
+  --role-space-lg: calc(var(--spacing-scale-space-200, 8px) * 4);
+  --role-space-md: calc(var(--spacing-scale-space-200, 8px) * 2);
+  --role-space-sm: var(--spacing-scale-space-200, 8px);
+  --role-space-xl: calc(var(--spacing-scale-space-200, 8px) * 6);
+  --role-tracking-display: var(--typography-tracking-display, 0em);
+  --role-weight-display: var(--typography-weights-regular, 600);
+  --role-font-display: "Ramsina", Georgia, serif;
+  --role-font-text: "Epunda Slab", Georgia, serif;
+  --role-font-mono: "ui-monospace", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--role-bg); color: var(--role-fg);
+        font-family: var(--role-font-text); font-size: var(--role-size-body);
+        line-height: var(--role-leading-body); }
+      section[data-mode] { padding: var(--role-space-lg) var(--role-space-lg) var(--role-space-xl); }
+      section[data-mode="dark"] { background: var(--role-bg-dark); color: var(--role-fg-dark); }
+      section[data-mode] a, section[data-mode] .accent { color: var(--role-accent); }
+      section[data-mode="dark"] a, section[data-mode="dark"] .accent { color: var(--role-accent-dark); }
+      header[data-component="page-header"] { display: flex; justify-content: space-between;
+        align-items: baseline; border-bottom: var(--role-border-width) solid var(--role-border);
+        padding-bottom: var(--role-space-sm); }
+      nav[data-component="nav"] a { margin-left: var(--role-space-md); color: inherit;
+        text-decoration: none; border-bottom: var(--role-border-width) solid transparent;
+        transition: border-color var(--role-duration) var(--role-easing); }
+      nav[data-component="nav"] a:hover { border-bottom-color: var(--role-accent); }
+      div[data-component="hero"] { padding: var(--role-space-xl) 0; }
+      div[data-component="hero"] p { max-width: 34em; }
+      h1, h2, h3, h4 { font-family: var(--role-font-display); font-weight: var(--role-weight-display);
+        letter-spacing: var(--role-tracking-display); line-height: var(--role-leading-display);
+        margin: 0 0 var(--role-space-sm); }
+      h1 { font-size: var(--role-size-display); }
+      h2 { font-size: var(--role-size-h2); }
+      h3 { font-size: var(--role-size-h3); }
+      h4 { font-size: var(--role-size-h4); }
+      p[data-component="body-copy"] { max-width: 34em; }
+      button { font-family: inherit; font-size: var(--role-size-body);
+        padding: var(--role-space-sm) var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-accent); background: var(--role-accent);
+        color: var(--role-bg); box-shadow: var(--role-shadow);
+        transition: opacity var(--role-duration) var(--role-easing); }
+      button.secondary { background: transparent; color: var(--role-fg); }
+      button:hover { opacity: 0.86; }
+      button:focus-visible { outline: 3px solid var(--role-accent); outline-offset: 3px; }
+      button[disabled] { opacity: 0.4; }
+      form[data-component="form"] { display: grid; gap: var(--role-space-sm); max-width: 26em; }
+      input, select, textarea { font-family: inherit; font-size: var(--role-size-body);
+        padding: var(--role-space-sm); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); background: var(--role-bg);
+        color: var(--role-fg); }
+      input:focus-visible { outline: 3px solid var(--role-accent); outline-offset: 2px; }
+      table[data-component="table"] { border-collapse: collapse; width: 100%; }
+      th, td { text-align: left; padding: var(--role-space-sm);
+        border-bottom: var(--role-border-width) solid var(--role-border); }
+      th { font-family: var(--role-font-display); }
+      div[data-component="card-grid"] { display: grid; gap: var(--role-space-md);
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); }
+      article.card { padding: var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); box-shadow: var(--role-shadow); }
+      pre[data-component="code-block"] { font-family: var(--role-font-mono); overflow-x: auto;
+        padding: var(--role-space-md); border-radius: var(--role-radius);
+        border: var(--role-border-width) solid var(--role-border); }
+      footer[data-component="footer"] { margin-top: var(--role-space-xl);
+        padding-top: var(--role-space-md);
+        border-top: var(--role-border-width) solid var(--role-border);
+        font-size: var(--role-size-small); }
+      table[data-component="token-inventory"] td:first-child { font-family: var(--role-font-mono);
+        font-size: var(--role-size-small); white-space: nowrap; }
+      .swatch { display: inline-block; width: 4rem; height: 1.6rem; vertical-align: middle;
+        border: var(--role-border-width) solid var(--role-border); }
+      .bar { display: inline-block; height: 1rem; background: var(--role-accent); }
+      .box { display: inline-block; width: 3rem; height: 1.6rem; background: var(--role-accent); }
+    </style>
+  </head>
+  <body>
+    <section data-mode="light">
+  <header data-component="page-header">
+    <strong class="accent">Extracted System</strong>
+    <nav data-component="nav">
+      <a href="#work">Work</a><a href="#studio">Studio</a><a href="#index">Index</a
+      ><a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div data-component="hero">
+    <h1>The rendered system, judged by eye</h1>
+    <p data-component="body-copy">This page applies every token in the extraction so the result can be screenshotted and read at real sizes.</p>
+    <button>Primary action</button>
+    <button class="secondary">Secondary</button>
+    <button disabled>Disabled</button>
+  </div>
+  <h2>Heading level two</h2>
+  <p data-component="body-copy">
+    The quick brown fox jumps over a lazy dog while the printer warms up in the next room.
+    Reading length matters here: this paragraph runs long enough to test measure, leading,
+    and the optical color of the text face at its real size. Numbers behave too, 0123456789,
+    alongside punctuation, quotation marks, and an ampersand.
+  </p>
+  <h3>Heading level three</h3>
+  <p data-component="body-copy">
+    A second paragraph confirms paragraph spacing and the rhythm between headings and body
+    copy. Inline <a href="#link">links</a> and <strong>bold runs</strong> appear where a
+    reader expects them.
+  </p>
+  <h4>Heading level four</h4>
+  <form data-component="form">
+    <label>Email<br /><input type="email" value="reader@example.com" /></label>
+    <label
+      >Subject<br /><select>
+        <option>Studio enquiry</option>
+        <option>Press</option>
+      </select></label
+    >
+    <label
+      >Message<br /><textarea rows="3">Typed into a field at the real size.</textarea>
+    </label>
+  </form>
+  <table data-component="table">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Family</th>
+        <th>Rarity percentile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Display</td>
+        <td>Ramsina</td>
+        <td>98.1</td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Epunda Slab</td>
+        <td>88.4</td>
+      </tr>
+    </tbody>
+  </table>
+  <div data-component="card-grid">
+    <article class="card">
+      <h4>Card one</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+    <article class="card">
+      <h4>Card two</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+    <article class="card">
+      <h4>Card three</h4>
+      <p>Short supporting copy inside a card.</p>
+    </article>
+  </div>
+  <pre
+    data-component="code-block"
+  ><code>:root { --display: "Ramsina"; --text: "Epunda Slab"; }</code></pre>
+  <footer data-component="footer">
+    Rendered from the extracted design system on 2026-07-25.
+  </footer>
+</section>
+ 
+    <section data-mode="inventory">
+      <h2>Token inventory</h2>
+      <p data-component="body-copy">
+        Every token the document defines, applied to a live sample.
+      </p>
+      <table data-component="token-inventory">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Value</th>
+            <th>Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>--color-system-neutrals-paper-0</td><td>#f6f2ea</td><td><span class="swatch" style="background: var(--color-system-neutrals-paper-0)"></span></td></tr>
+<tr><td>--color-system-primary-ink-900</td><td>#141210</td><td><span class="swatch" style="background: var(--color-system-primary-ink-900)"></span></td></tr>
+<tr><td>--motion-durations-base</td><td>300ms</td><td><span class="box" style="transition: opacity var(--motion-durations-base)"></span></td></tr>
+<tr><td>--radii-scale-radius-sm</td><td>4px</td><td><span class="box" style="border-radius: var(--radii-scale-radius-sm)"></span></td></tr>
+<tr><td>--spacing-scale-space-200</td><td>16px</td><td><span class="bar" style="width: var(--spacing-scale-space-200)"></span></td></tr>
+<tr><td>--typography-leading-display</td><td>1.05</td><td><span style="font-size: var(--typography-leading-display)">Aa</span></td></tr>
+<tr><td>--typography-tracking-display</td><td>-0.01em</td><td><span style="font-size: var(--typography-tracking-display)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-body-1</td><td>17px</td><td><span style="font-size: var(--typography-type-scale-body-1)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-caption</td><td>16px</td><td><span style="font-size: var(--typography-type-scale-caption)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-display-1</td><td>64px</td><td><span style="font-size: var(--typography-type-scale-display-1)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-heading-2</td><td>40px</td><td><span style="font-size: var(--typography-type-scale-heading-2)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-heading-3</td><td>28px</td><td><span style="font-size: var(--typography-type-scale-heading-3)">Aa</span></td></tr>
+<tr><td>--typography-type-scale-heading-4</td><td>22px</td><td><span style="font-size: var(--typography-type-scale-heading-4)">Aa</span></td></tr>
+<tr><td>--typography-weights-regular</td><td>400</td><td><span style="font-size: var(--typography-weights-regular)">Aa</span></td></tr>
+<tr><td>--typography-weights-text-bold</td><td>700</td><td><span style="font-size: var(--typography-weights-text-bold)">Aa</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

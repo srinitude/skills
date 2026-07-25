@@ -1,0 +1,113 @@
+{
+  "chosen": [
+    {
+      "family": "Ramsina",
+      "fit": {
+        "common_default": false,
+        "family": "Ramsina",
+        "fit_band": 1.0,
+        "fit_score": 1.0,
+        "legibility_floor": 0.55,
+        "legibility_score": 0.7,
+        "passes": true,
+        "reject_reason": "",
+        "role": "display",
+        "script_score": 1.0,
+        "skeleton_score": 1.0,
+        "style_score": 1.0,
+        "weight_score": 1.0,
+        "width_score": 1.0
+      },
+      "rarity_percentile": 98.1,
+      "role": "display"
+    },
+    {
+      "family": "Epunda Slab",
+      "fit": {
+        "common_default": false,
+        "family": "Epunda Slab",
+        "fit_band": 1.0,
+        "fit_score": 1.0,
+        "legibility_floor": 0.7,
+        "legibility_score": 1.0,
+        "passes": true,
+        "reject_reason": "",
+        "role": "text",
+        "script_score": 1.0,
+        "skeleton_score": 1.0,
+        "style_score": 1.0,
+        "weight_score": 1.0,
+        "width_score": 1.0
+      },
+      "rarity_percentile": 88.4,
+      "role": "text"
+    }
+  ],
+  "pairing": {
+    "dimensions": [
+      {
+        "dimension": "skeleton_relationship",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "vertical_proportion",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "stroke_modulation",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "width_compatibility",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "weight_capacity",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "optical_color",
+        "reason": "",
+        "status": "pass"
+      },
+      {
+        "dimension": "role_distinction",
+        "reason": "",
+        "status": "pass"
+      }
+    ],
+    "failed_dimensions": [],
+    "failures": [],
+    "members": [
+      {
+        "family": "Ramsina",
+        "role": "display"
+      },
+      {
+        "family": "Epunda Slab",
+        "role": "text"
+      }
+    ],
+    "passes": true
+  },
+  "retrieved_at": "2026-07-25",
+  "unfilled": [],
+  "vetoes": [
+    {
+      "failed_dimensions": [
+        "role_distinction"
+      ],
+      "family": "Namdhinggo",
+      "fit_score": 1.0,
+      "reasons": [
+        "Ramsina and Namdhinggo share a skeleton and match on width, vertical proportion, and stroke, so the display and text roles read as one face"
+      ],
+      "role": "text"
+    }
+  ]
+}

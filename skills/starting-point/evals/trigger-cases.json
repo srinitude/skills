@@ -5,19 +5,19 @@
     {
       "id": "TR-001",
       "kind": "positive",
-      "prompt": "The requested launch checklist is busywork and the stated goal is fewer failed releases. What should we prove first?",
+      "prompt": "Add pagination to the users endpoint in our API docs, then ping the team.",
       "should_trigger": true
     },
     {
       "id": "TR-002",
       "kind": "positive",
-      "prompt": "We keep repeating the same fix but the outage returns. Help choose a better starting point and proof threshold.",
+      "prompt": "Our onboarding conversion is bad. Can you A/B test the signup button color this week?",
       "should_trigger": true
     },
     {
       "id": "TR-003",
       "kind": "positive",
-      "prompt": "My request includes an exact method, but I am not sure whether the method is binding or only one possible route.",
+      "prompt": "Write a python script that renames all the files in a folder to snake case. Use regex only, no libraries.",
       "should_trigger": true
     },
     {
@@ -53,15 +53,15 @@
     {
       "id": "TR-009",
       "kind": "near_neighbor",
-      "pair_id": "simple-vs-route",
-      "prompt": "Copy notes.md to notes-edited.md and preserve the original.",
+      "pair_id": "vague-vs-prescribed",
+      "prompt": "I have a half-formed thought about our support workflow and I do not know what I want built yet.",
       "should_trigger": false
     },
     {
       "id": "TR-010",
       "kind": "near_neighbor",
-      "pair_id": "simple-vs-route",
-      "prompt": "Copy notes.md, but first decide whether editing it can prove the stated incident outcome.",
+      "pair_id": "vague-vs-prescribed",
+      "prompt": "Support is drowning, so build the macro library first. I want fewer repeat contacts by quarter end.",
       "should_trigger": true
     }
   ]

@@ -3,6 +3,9 @@
 
 Checks the interpreter version, the mise task runner, the git tool,
 and the bundled scripts and templates. Prints a JSON report to stdout.
+The task runner is optional: without it the report stays ready and
+switches mode to degraded, and the fallback list holds the literal
+commands that replace `mise run ci`.
 
 Exit codes:
   0  every required check passed
@@ -20,10 +23,19 @@ from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 SCRIPTS = ["lint_writing.py", "validate_skill.py", "check_code_rules.py",
-           "check_evals.py", "scaffold_skill.py", "doctor.py"]
-TEMPLATES = ["skill-template.md", "mise-template.toml",
+           "check_evals.py", "check_placeholders.py",
+           "scaffold_skill.py", "doctor.py"]
+FALLBACK = [
+    "python3 -m unittest discover -s scripts/tests -p 'test_*.py'",
+    "python3 scripts/validate_skill.py .",
+    "python3 scripts/lint_writing.py .",
+    "python3 scripts/check_code_rules.py .",
+    "python3 scripts/check_placeholders.py .",
+    "python3 scripts/check_evals.py .",
+]
+TEMPLATES = ["skill-template.md", "mise-template.toml", "example-template.md",
              "evals-template.json", "trigger-template.json",
-             "starter-script.py", "starter-test.py",
+             "starter-script.py", "starter-test.py", "starter-ci-test.py",
              "decisions-template.md", "eval-case-template.json",
              "ci/ci.yml"]
 
@@ -55,13 +67,17 @@ def main(argv=None):
     parser.parse_args(argv)
     checks = [
         check_python(),
-        check_command("mise", required=True),
+        check_command("mise", required=False),
         check_command("git", required=False),
         check_files("scripts", SKILL_DIR / "scripts", SCRIPTS),
         check_files("templates", SKILL_DIR / "assets", TEMPLATES),
     ]
     ready = all(c["ok"] for c in checks if c["required"])
-    print(json.dumps({"ready": ready, "checks": checks}, indent=2))
+    runner = [c for c in checks if c["name"] == "mise"][0]
+    degraded = not runner["ok"]
+    report = {"ready": ready, "mode": "degraded" if degraded else "full",
+              "fallback": FALLBACK if degraded else [], "checks": checks}
+    print(json.dumps(report, indent=2))
     return 0 if ready else 1
 
 

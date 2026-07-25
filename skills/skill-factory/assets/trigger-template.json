@@ -1,6 +1,6 @@
 [
-  {"query": "Use the {{NAME}} skill for this.", "should_trigger": true},
-  {"query": "Run the {{NAME}} checks and show me the report.", "should_trigger": true},
-  {"query": "What is the weather in Lisbon right now?", "should_trigger": false},
-  {"query": "Translate good morning into Spanish.", "should_trigger": false}
+  {"query": "SCAFFOLD-PLACEHOLDER a real request that must load {{NAME}}, in the user's words.", "should_trigger": true},
+  {"query": "SCAFFOLD-PLACEHOLDER a second real request with a file path in it.", "should_trigger": true},
+  {"query": "SCAFFOLD-PLACEHOLDER a near miss that shares keywords with {{NAME}} yet needs a different skill.", "should_trigger": false},
+  {"query": "SCAFFOLD-PLACEHOLDER an unrelated request, such as a weather question.", "should_trigger": false}
 ]

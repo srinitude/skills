@@ -88,6 +88,26 @@ source_analysis:
 font_rules:
   feed_url: https://fonts.google.com/metadata/fonts
   min_rarity_percentile: 70.0
+  recorded_floor_field: meta.rarity_floor
+  rarity_tie_break: popularity_rank descending
+  ranking_order: fit_band descending, then rarity_percentile, then popularity_rank
+  min_fit_score: 0.65
+  hard_legibility_floor: 0.5
+  fit_band_step: 0.05
+  role_legibility_floors:
+    text: 0.7
+    display: 0.55
+    mono: 0.7
+    accent: 0.55
+  common_face_exception_field: common_face_reason
+  pairing_dimensions:
+    - skeleton_relationship
+    - vertical_proportion
+    - stroke_modulation
+    - width_compatibility
+    - weight_capacity
+    - optical_color
+    - role_distinction
   bound_paths:
     - typography.font_families.primary
     - typography.font_families.supporting
@@ -98,6 +118,10 @@ font_rules:
     - family
     - google_fonts_family
     - rarity
+  fit_fields:
+    - fit.fit_score
+    - fit.legibility_score
+    - fit.evidence
   entry_fields:
     - classification
     - fallback_stack
@@ -195,11 +219,29 @@ field_details:
       mode only when the user requests a partial extraction.
     meta.source_count: Count the analyzed visual references.
     meta.source_types:
-      List media types such as `screenshot`, `moodboard`, `photographic_still`, `cinematic_frame`,
-      `brand_board`, or `ui_capture`.
+      List one entry per analyzed reference, using only these values. `screenshot`, `rendered_screenshot`,
+      `moodboard`, `photographic_still`, `cinematic_frame`, `brand_board`, `ui_capture`,
+      `live_stylesheet`, or `pdf_page`. A live URL counts as two references when it yields both a
+      rendered capture and a stylesheet, so `meta.source_count` is 2 and both types are listed.
     meta.generated_for:
       Name the intended downstream uses, keeping `ui_ux_brand_motion_creative_direction`
       for comprehensive outputs.
+    meta.rarity_floor:
+      Record the rarity percentile floor the run enforced, `70.0` unless the user set another value.
+      The validator reads this number and raises its own floor to match, so a recorded floor is a
+      binding claim rather than a note. It never lowers the floor the contract or the
+      `--min-rarity-percentile` flag sets.
+    meta.extracted_at: Record the run date as `YYYY-MM-DD`, matching every rarity `retrieved_at`.
+    meta.viability:
+      Record the judgment of the rendered preview, which is the proof the system works. `rendered_file` and
+      `screenshot_file` hold the paths that were produced, `iterations` counts the render and judge passes
+      up to the cap of 3, `verdict` is `pass` or `fail`, and `criteria` lists one entry per criterion with
+      `criterion`, `verdict`, and `observed`. `observed` describes what the screenshot shows. A verdict
+      written without looking at the image is a defect, and a passing verdict is the only state that allows a
+      success report.
+    meta.viability.criteria:
+      Cover all eight names once each. `legibility`, `contrast`, `hierarchy`, `font_pairing`,
+      `spacing_rhythm`, `color_harmony`, `state_distinction`, and `reference_fidelity`.
     meta.validation.yaml_only: Set `true` when the response contains only YAML.
     meta.validation.parser_validated:
       Set `true` only after `scripts/validate_design_system_yaml.py` or
@@ -325,18 +367,32 @@ field_details:
     typography.font_families.catalog_snapshot:
       Record the live feed URL, the retrieval date, and the family
       count the run measured against. Every rarity number in the document must come from this one snapshot.
+    typography.font_families.rarity:
+      Copy the block the font tool returned, including `rank_ceiling`, the highest rank the feed
+      reported, which is the denominator behind `rarity_percentile`. When two families report the same
+      percentile, the higher `popularity_rank` is the rarer one.
     typography.font_families.observed_or_implied:
       List the families visible in the reference with role,
       confidence, and evidence. This field records observation, so a licensed or custom face belongs here
       and is not bound by the Google Fonts rule.
     typography.font_families.primary:
       Define the main family for body and interface use with `family`,
-      `google_fonts_family`, `rarity`, `classification`, `fallback_stack`, `visual_grounding`, `confidence`,
-      and `inference_basis`.
+      `google_fonts_family`, `rarity`, `fit`, `classification`, `fallback_stack`, `visual_grounding`,
+      `confidence`, and `inference_basis`. Add `set_role` as `display`, `text`, `mono`, or `accent` when the
+      family does not hold the text role, since the role sets the legibility floor it has to clear.
     typography.font_families.supporting: Define the complementary family with the same fields plus `pairing_logic`.
+    typography.font_families.fit:
+      Record `fit_score` from 0.0 to 1.0, `legibility_score` from 0.0 to 1.0, and `evidence` naming what in
+      the reference the score rests on. Fit decides first, the role floor is a veto, and rarity only orders
+      candidates that already fit. A score copied from an earlier run is a defect.
+    typography.font_families.common_face_reason:
+      State why an overexposed default is the true fit, naming the visible evidence. Without this field a
+      common family is rejected by name; with it the family is accepted and the reason ships in the document.
     typography.font_families.rare_unique_candidates:
       Provide rare, evidence-grounded candidates carrying
       every primary field plus `role`, `pairs_well_with`, `rarity_reason`, `pairing_logic`, and `use_constraints`.
+      When a candidate lost a slot to the set level pairing check, name the failing dimension in
+      `pairing_logic` so the rejection stays visible.
     typography.weights: Map semantic weights such as `regular`, `medium`, `semibold`, `bold`, or `display`.
     typography.leading: Map line-height tokens by text role.
     typography.tracking:
@@ -568,6 +624,9 @@ self_check:
     grounding, pairing logic, rarity reason, fallback stacks, and confidence.'
   - Every selected family is a Google Fonts family confirmed against the live catalog during this run, and
     each one carries a `rarity` record whose `rarity_percentile` sits at or above the floor.
-  - No selected family is a common interface default, and no rarity claim rests on prose alone.
+  - No selected family is a common interface default without a stated `common_face_reason`, and no rarity claim rests on prose alone.
+  - Every selected family carries a `fit` record whose `fit_score` reaches 0.65 and whose `legibility_score` clears the floor for its role.
+  - The whole font set passes the seven pairing dimensions, and any vetoed candidate names the dimension that vetoed it.
+  - '`meta.viability` records a rendered file, a screenshot file, the iteration count, and one observed verdict per criterion, all of them `pass`.'
   - The system reads like a reusable design system, not a caption or image description.
   - The output is internally consistent across brand, UI, motion, cinematic, and generation sections.

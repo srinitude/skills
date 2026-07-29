@@ -33,6 +33,14 @@ _SKILLS = (
         " for generating images or for ordinary frontend work where no"
         " reference has to be decoded first.",
     ),
+    (
+        "would-agents-actually",
+        "Use when a claim depends on an agent taking a real action.",
+    ),
+    (
+        "would-humans-actually",
+        "Use when a claim depends on people taking a real action.",
+    ),
 )
 
 

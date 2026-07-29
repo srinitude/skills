@@ -1,0 +1,34 @@
+[
+  { "query": "Would users actually pay after the trial?", "should_trigger": true },
+  { "query": "Research whether teachers repeat this workflow.", "should_trigger": true },
+  { "query": "People say they like it. Will they switch?", "should_trigger": true },
+  { "query": "Validate this human adoption claim.", "should_trigger": true },
+  {
+    "query": "Would patients complete this action despite the effort?",
+    "should_trigger": true
+  },
+  { "query": "Do interviews predict real retention here?", "should_trigger": true },
+  {
+    "query": "Estimate whether renters will opt into this service.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn these survey intentions into an action verdict.",
+    "should_trigger": true
+  },
+  { "query": "Would people disclose this information publicly?", "should_trigger": true },
+  {
+    "query": "Test whether this group persists after novelty fades.",
+    "should_trigger": true
+  },
+  { "query": "Summarize the interview transcript.", "should_trigger": false },
+  { "query": "Write a survey about preferences.", "should_trigger": false },
+  { "query": "Which phone should I buy?", "should_trigger": false },
+  { "query": "Check the arithmetic in this report.", "should_trigger": false },
+  { "query": "Debug this Python exception.", "should_trigger": false },
+  { "query": "Will this function return JSON?", "should_trigger": false },
+  { "query": "Explain planned behavior theory.", "should_trigger": false },
+  { "query": "Rewrite this paragraph in plain language.", "should_trigger": false },
+  { "query": "List the stated preferences in this spreadsheet.", "should_trigger": false },
+  { "query": "Create a personal pros and cons list.", "should_trigger": false }
+]

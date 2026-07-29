@@ -20,7 +20,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 4,
+    skillCount: 6,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
@@ -33,6 +33,16 @@ test('validates every skill and all frozen specification pages', async () => {
       name: 'visual-design-system-extractor',
       status: 'PASS',
       version: '0.2.0',
+    }),
+    expect.objectContaining({
+      name: 'would-agents-actually',
+      status: 'PASS',
+      version: '0.1.0',
+    }),
+    expect.objectContaining({
+      name: 'would-humans-actually',
+      status: 'PASS',
+      version: '0.1.0',
     }),
   ]);
 });

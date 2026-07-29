@@ -27,11 +27,15 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain(
     'package/skills/visual-design-system-extractor/SKILL.md',
   );
+  expect(result.entries).toContain('package/skills/would-agents-actually/SKILL.md');
+  expect(result.entries).toContain('package/skills/would-humans-actually/SKILL.md');
   expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
     'package/skills/reify/SKILL.md',
     'package/skills/skill-factory/SKILL.md',
     'package/skills/starting-point/SKILL.md',
     'package/skills/visual-design-system-extractor/SKILL.md',
+    'package/skills/would-agents-actually/SKILL.md',
+    'package/skills/would-humans-actually/SKILL.md',
   ]);
   expect(result.entries).toEqual(
     expect.arrayContaining([

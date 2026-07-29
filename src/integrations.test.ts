@@ -124,6 +124,16 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
       name: 'visual-design-system-extractor',
       path: resolve(root, 'skills', 'visual-design-system-extractor', 'SKILL.md'),
     },
+    {
+      description: 'Use when a claim depends on an agent taking a real action.',
+      name: 'would-agents-actually',
+      path: resolve(root, 'skills', 'would-agents-actually', 'SKILL.md'),
+    },
+    {
+      description: 'Use when a claim depends on people taking a real action.',
+      name: 'would-humans-actually',
+      path: resolve(root, 'skills', 'would-humans-actually', 'SKILL.md'),
+    },
   ]);
 });
 

@@ -111,4 +111,10 @@ test('keeps the root guide concise and the Aider route portable', async () => {
   expect(aider).toContain(
     '--read /absolute/path/to/skills/skills/visual-design-system-extractor/SKILL.md',
   );
+  expect(aider).toContain(
+    '--read /absolute/path/to/skills/skills/would-agents-actually/SKILL.md',
+  );
+  expect(aider).toContain(
+    '--read /absolute/path/to/skills/skills/would-humans-actually/SKILL.md',
+  );
 });

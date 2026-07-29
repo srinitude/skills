@@ -88,3 +88,51 @@ test('binds reify to the frozen native v1.0.0 packet', async () => {
     lineage.public_files.map((entry) => access(join(root, 'skills', 'reify', entry.path))),
   );
 });
+
+const behaviorPorts = [
+  {
+    slug: 'would-agents-actually',
+    nativeVersion: '1.1.1',
+    manifest: 'ddd927a9144f4c202f4574d74cf23ab3e1df1c4bd925df78171ad0ae5fc9f9e5',
+    sourcePrefix: 'WAA',
+  },
+  {
+    slug: 'would-humans-actually',
+    nativeVersion: '2.2.0',
+    manifest: 'a3bfaf67b9f3d9f6fcd72ccae713664924efb4d233e188b0ef541f542f072613',
+    sourcePrefix: 'WHA',
+  },
+];
+
+test.each(behaviorPorts)('binds $slug to its frozen native packet', async (port) => {
+  const directory = join(root, 'skills', port.slug, 'evals');
+  const lineage = JSON.parse(
+    await readFile(join(directory, 'source-lineage.json'), 'utf8'),
+  ) as {
+    native_manifest_sha256: string;
+    native_version: string;
+    public_files: Array<{ path: string }>;
+    public_version: string;
+    source_case_ids: string[];
+  };
+  const cases = JSON.parse(await readFile(join(directory, 'cases.json'), 'utf8')) as {
+    cases: Array<{ id: string }>;
+  };
+  expect(lineage).toMatchObject({
+    native_manifest_sha256: port.manifest,
+    native_version: port.nativeVersion,
+    public_version: '0.1.0',
+  });
+  expect(lineage.source_case_ids).toEqual(
+    Array.from(
+      { length: 8 },
+      (_, index) => `${port.sourcePrefix}-${String(index + 1).padStart(3, '0')}`,
+    ),
+  );
+  expect(cases.cases.map((entry) => entry.id)).toEqual(lineage.source_case_ids);
+  await Promise.all(
+    lineage.public_files.map((entry) =>
+      access(join(root, 'skills', port.slug, entry.path)),
+    ),
+  );
+});

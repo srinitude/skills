@@ -39,6 +39,19 @@ test('loads the complete reify eval definition', async () => {
   expect(definition.triggers.cases.some((entry) => !entry.should_trigger)).toBe(true);
 });
 
+test.each(['would-agents-actually', 'would-humans-actually'])(
+  'loads the complete %s eval definition',
+  async (name) => {
+    const definition = await loadEvalDefinition(root, name);
+
+    expect(definition.manifest.test_classes).toEqual(requiredClasses);
+    expect(definition.cases.cases).toHaveLength(8);
+    expect(new Set(definition.cases.cases.map((entry) => entry.source_id))).toHaveLength(8);
+    expect(definition.triggers.cases.some((entry) => entry.should_trigger)).toBe(true);
+    expect(definition.triggers.cases.some((entry) => !entry.should_trigger)).toBe(true);
+  },
+);
+
 test('accepts portable skill case identifiers', () => {
   expect(
     evalCaseSchema.parse({

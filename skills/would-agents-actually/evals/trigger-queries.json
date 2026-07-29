@@ -1,0 +1,37 @@
+[
+  { "query": "Would this agent actually use the tool?", "should_trigger": true },
+  {
+    "query": "Validate whether the system sends and verifies the message.",
+    "should_trigger": true
+  },
+  {
+    "query": "Does this benchmark prove the target agent will finish?",
+    "should_trigger": true
+  },
+  { "query": "Would the agent spend the delegated budget?", "should_trigger": true },
+  { "query": "Test whether the agent recovers and stops safely.", "should_trigger": true },
+  { "query": "Will this system persist across repeated trials?", "should_trigger": true },
+  {
+    "query": "Would the agent abstain when permission is missing?",
+    "should_trigger": true
+  },
+  { "query": "Turn these traces into an agent-action verdict.", "should_trigger": true },
+  {
+    "query": "Will the agent resume after a checkpoint without duplicate work?",
+    "should_trigger": true
+  },
+  {
+    "query": "Verify whether this handoff changes external state.",
+    "should_trigger": true
+  },
+  { "query": "Will this function return the expected object?", "should_trigger": false },
+  { "query": "Would users trust an autonomous assistant?", "should_trigger": false },
+  { "query": "Review this policy for security gaps.", "should_trigger": false },
+  { "query": "Summarize this evaluation paper.", "should_trigger": false },
+  { "query": "Fix the worker timeout bug.", "should_trigger": false },
+  { "query": "Explain pass at k.", "should_trigger": false },
+  { "query": "Write a system prompt for a support bot.", "should_trigger": false },
+  { "query": "List available tools in this runtime.", "should_trigger": false },
+  { "query": "Compare two agent frameworks at a high level.", "should_trigger": false },
+  { "query": "Create a diagram of the execution loop.", "should_trigger": false }
+]

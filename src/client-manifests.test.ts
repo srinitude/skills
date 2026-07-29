@@ -111,12 +111,16 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/starting-point/SKILL.md',
       'skills/skill-factory/SKILL.md',
       'skills/visual-design-system-extractor/SKILL.md',
+      'skills/would-agents-actually/SKILL.md',
+      'skills/would-humans-actually/SKILL.md',
     ],
   });
   await expectInside('skills/reify/SKILL.md');
   await expectInside('skills/starting-point/SKILL.md');
   await expectInside('skills/skill-factory/SKILL.md');
   await expectInside('skills/visual-design-system-extractor/SKILL.md');
+  await expectInside('skills/would-agents-actually/SKILL.md');
+  await expectInside('skills/would-humans-actually/SKILL.md');
 });
 
 test('publishes Claude Code and Codex marketplace indexes', async () => {
@@ -143,6 +147,10 @@ test('groups canonical skills for skills-hub clients', async () => {
   expect(await json('skills.sh.json')).toEqual({
     $schema: 'https://skills.sh/schemas/skills.sh.schema.json',
     groupings: [
+      {
+        skills: ['would-agents-actually', 'would-humans-actually'],
+        title: 'Behavioral Research',
+      },
       { skills: ['visual-design-system-extractor'], title: 'Design Systems' },
       { skills: ['reify'], title: 'Ideation' },
       { skills: ['starting-point'], title: 'Planning' },

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "skill": "would-agents-actually",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Would this agent actually use the tool when the trigger fires?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Validate whether the pinned system will send the message and verify delivery.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Does this benchmark prove our agent will finish the production workflow?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Would the agent spend the delegated budget rather than only propose it?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "Test whether this agent recovers from a denied permission and stops safely.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Will this deterministic function return the expected object?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Would people trust an autonomous assistant with their data?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Review this policy document for security gaps.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "hard_negative",
+      "prompt": "Summarize this agent evaluation paper.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "hard_negative",
+      "prompt": "Fix the timeout bug in this worker process.",
+      "should_trigger": false
+    }
+  ]
+}

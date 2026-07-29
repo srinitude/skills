@@ -28,23 +28,13 @@ run = "npm test"
 run = "npm run build:mcp"
 
 [tasks.validate-skills]
-run = "npm run skills -- validate --all --report .artifacts/skill-validation.json && uvx --from skills-ref==0.1.1 agentskills validate skills/starting-point && uvx --from skills-ref==0.1.1 agentskills validate skills/skill-factory && uvx --from skills-ref==0.1.1 agentskills validate skills/reify && uvx --from skills-ref==0.1.1 agentskills validate skills/visual-design-system-extractor"
+run = "set -eu; npm run skills -- validate --all --report .artifacts/skill-validation.json; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; uvx --from skills-ref==0.1.1 agentskills validate \"$skill_dir\"; done"
 
 [tasks.eval-offline]
-run = [
-  "npm run skills -- eval --skill starting-point --transport fixture --report .artifacts/eval/starting-point",
-  "npm run skills -- eval --skill skill-factory --transport fixture --report .artifacts/eval/skill-factory",
-  "npm run skills -- eval --skill reify --transport fixture --report .artifacts/eval/reify",
-  "npm run skills -- eval --skill visual-design-system-extractor --transport fixture --report .artifacts/eval/visual-design-system-extractor",
-]
+run = "set -eu; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; skill=${skill_dir#skills/}; npm run skills -- eval --skill \"$skill\" --transport fixture --report \".artifacts/eval/$skill\"; done"
 
 [tasks.benchmark-offline]
-run = [
-  "npm run skills -- benchmark --skill starting-point --transport fixture --report .artifacts/benchmark/starting-point.json",
-  "npm run skills -- benchmark --skill skill-factory --transport fixture --report .artifacts/benchmark/skill-factory.json",
-  "npm run skills -- benchmark --skill reify --transport fixture --report .artifacts/benchmark/reify.json",
-  "npm run skills -- benchmark --skill visual-design-system-extractor --transport fixture --report .artifacts/benchmark/visual-design-system-extractor.json",
-]
+run = "set -eu; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; skill=${skill_dir#skills/}; npm run skills -- benchmark --skill \"$skill\" --transport fixture --report \".artifacts/benchmark/$skill.json\"; done"
 
 [tasks.test-mcp]
 run = "npm test -- --run mcp/src"

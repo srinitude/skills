@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "2.2.0",
+  "native_manifest_sha256": "a3bfaf67b9f3d9f6fcd72ccae713664924efb4d233e188b0ef541f542f072613",
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/evidence-base.md",
+      "source_paths": ["references/evidence-base.md"]
+    },
+    {
+      "path": "references/frameworks.md",
+      "source_paths": ["references/frameworks.md"]
+    },
+    {
+      "path": "references/output-template.md",
+      "source_paths": ["references/output-template.md"]
+    },
+    {
+      "path": "references/recent-public-signal.md",
+      "source_paths": ["references/recent-public-signal.md"]
+    },
+    {
+      "path": "references/verdict-protocol.md",
+      "source_paths": ["references/verdict-protocol.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md", "references/verdict-protocol.md"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/verdict-template.md",
+      "source_paths": ["references/output-template.md"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "cc2bc704c02d6e97ca6a6963049c2ee4a535c7131419fd64f0b4db550a81dc25"
+    },
+    {
+      "path": "references/evidence-base.md",
+      "sha256": "721d9d4c5af66c98fe3bf56f1358775f0881593c499e69daabf1fd7be0306b6e"
+    },
+    {
+      "path": "references/frameworks.md",
+      "sha256": "cbef5523f6fef40168e6d22506df2cf32bd7a3ad52b408f351e9f6197c73f5d7"
+    },
+    {
+      "path": "references/output-template.md",
+      "sha256": "9a4b248c11931b67e17554c22eb1e7773322f5c1620f3491a088ecb5437dd7e2"
+    },
+    {
+      "path": "references/recent-public-signal.md",
+      "sha256": "88265442a82bd9a51ea50988ab11f6034a699abf9a32c5dda36f1df764de7641"
+    },
+    {
+      "path": "references/verdict-protocol.md",
+      "sha256": "793f08c0b3b3e89e6210ed1875d82ff9900f0dc3bd1bfa3400fd07b9b4374319"
+    }
+  ],
+  "source_case_ids": [
+    "WHA-001",
+    "WHA-002",
+    "WHA-003",
+    "WHA-004",
+    "WHA-005",
+    "WHA-006",
+    "WHA-007",
+    "WHA-008"
+  ]
+}

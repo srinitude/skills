@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "skill": "would-humans-actually",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Would trial users actually pay for this after the free month?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Validate whether nurses would repeat this workflow during a normal shift.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "People say they like it. Would they really switch from the current tool?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Research whether this population will complete the action despite privacy and effort costs.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "Turn these interviews into an evidence-backed human behavior verdict.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Summarize what respondents said in these interviews.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Help me decide which phone to buy for myself.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Audit the arithmetic in this conversion report.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "hard_negative",
+      "prompt": "Will this script return the expected JSON?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "hard_negative",
+      "prompt": "Write friendly survey questions about product preferences.",
+      "should_trigger": false
+    }
+  ]
+}

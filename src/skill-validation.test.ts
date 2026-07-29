@@ -33,3 +33,20 @@ test('validates the public reify release and native lineage', async () => {
     version: '0.1.0',
   });
 });
+
+test.each([
+  ['would-agents-actually', 8],
+  ['would-humans-actually', 8],
+])('validates the public %s release and source lineage', async (name, caseCount) => {
+  const report = await validateSkill(root, name);
+
+  expect(report).toMatchObject({
+    caseCount,
+    errors: [],
+    name,
+    skillPath: join('skills', name, 'SKILL.md'),
+    status: 'PASS',
+    version: '0.1.0',
+  });
+  expect(report.manifestSha256).toMatch(/^[a-f0-9]{64}$/);
+});

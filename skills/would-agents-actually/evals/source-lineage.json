@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "1.1.1",
+  "native_manifest_sha256": "ddd927a9144f4c202f4574d74cf23ab3e1df1c4bd925df78171ad0ae5fc9f9e5",
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/evidence-base.md",
+      "source_paths": ["references/evidence-base.md"]
+    },
+    {
+      "path": "references/frameworks.md",
+      "source_paths": ["references/frameworks.md"]
+    },
+    {
+      "path": "references/output-template.md",
+      "source_paths": ["references/output-template.md"]
+    },
+    {
+      "path": "references/recent-public-signal.md",
+      "source_paths": ["references/recent-public-signal.md"]
+    },
+    {
+      "path": "references/verdict-protocol.md",
+      "source_paths": ["references/verdict-protocol.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md", "references/verdict-protocol.md"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/verdict-template.md",
+      "source_paths": ["references/output-template.md"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "c1a7fc429b2d56b2e0d22b6a55b15bbec0fc00413a2502b4c68d9111ee364cc1"
+    },
+    {
+      "path": "references/evidence-base.md",
+      "sha256": "faf87c8a40a33632ef69e57dca5ee25fce792081de2dd6010f9c2ae9220110ed"
+    },
+    {
+      "path": "references/frameworks.md",
+      "sha256": "d5f9666cbd7663048e17ec0f31ed1f9953e1f96ce4618b32b2e57abea2f510c3"
+    },
+    {
+      "path": "references/output-template.md",
+      "sha256": "4265a0633ebb6a012141da543a1c348809fe0a9c5c401a45004ece26fadcc2d5"
+    },
+    {
+      "path": "references/recent-public-signal.md",
+      "sha256": "3f284825c35395282e5f91e4f835a9238f6234f35d25c4db98b22c64d3b5ebaf"
+    },
+    {
+      "path": "references/verdict-protocol.md",
+      "sha256": "b6c62d939a7d1d1acff8e29453572f7633c08374e7536e495219438a39a1bc36"
+    }
+  ],
+  "source_case_ids": [
+    "WAA-001",
+    "WAA-002",
+    "WAA-003",
+    "WAA-004",
+    "WAA-005",
+    "WAA-006",
+    "WAA-007",
+    "WAA-008"
+  ]
+}

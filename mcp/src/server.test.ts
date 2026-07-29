@@ -55,6 +55,8 @@ test('exposes canonical skill bytes as a fixed read-only resource', async () => 
     'skill://skill-factory/SKILL.md',
     'skill://starting-point/SKILL.md',
     'skill://visual-design-system-extractor/SKILL.md',
+    'skill://would-agents-actually/SKILL.md',
+    'skill://would-humans-actually/SKILL.md',
   ]);
 
   const result = await client.readResource({ uri: 'skill://starting-point/SKILL.md' });
@@ -91,6 +93,8 @@ test('exposes only the approved read-only tools', async () => {
       { name: 'skill-factory' },
       { name: 'starting-point' },
       { name: 'visual-design-system-extractor' },
+      { name: 'would-agents-actually' },
+      { name: 'would-humans-actually' },
     ],
   });
 

@@ -4,7 +4,7 @@ description: 'Use when replying. Refresh date through starting-point.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
 ---
 
 # Always current date
@@ -31,25 +31,26 @@ Run before every reply to a direct user message, even when the message has no da
 Before interpreting or acting on the newest direct user message:
 
 1. Load `starting-point` through the host's skill-loading capability.
-2. Set `SKILL_DIR` to this skill's absolute directory and run the bundled script exactly once through an available process runner.
-3. Parse the JSON and require every field in `references/eval-contract.md`.
-4. Add the anchor to the private `starting-point` map as `as_of`.
-5. Resolve temporal language before any date-sensitive tool call.
-6. Write the visible date prefix in the actual assistant response so session history stores it.
+2. Read this skill's concrete absolute directory from the host's load result.
+3. Set that directory as the process runner's working directory and run the bundled script exactly once.
+4. Parse the JSON and require every field in `references/eval-contract.md`.
+5. Add the anchor to the private `starting-point` map as `as_of`.
+6. Resolve temporal language before any date-sensitive tool call.
+7. Write the visible date prefix in the actual assistant response so session history stores it.
 
-Run on macOS or Linux:
+Run on macOS or Linux with that working directory:
 
 ```bash
-python3 "$SKILL_DIR/scripts/current_anchor.py"
+python3 scripts/current_anchor.py
 ```
 
-Run on Windows PowerShell:
+Run on Windows with that working directory:
 
 ```powershell
-python "$env:SKILL_DIR\scripts\current_anchor.py"
+python scripts/current_anchor.py
 ```
 
-Use `python` or `py -3` only when it is the installed interpreter. Never guess a path or pass a fabricated timestamp. Reuse an anchor only when its process result occurs after the newest direct user message.
+Use `python` or `py -3` only when it is the installed interpreter. Do not use a skill-directory shell variable or guess an installation path. If the load result does not supply a concrete skill directory, report `temporal-anchor-unavailable: skill directory missing` and stop date-dependent work. Never pass a fabricated timestamp. Reuse an anchor only when its process result occurs after the newest direct user message.
 
 The portable script accepts `--timezone <IANA-zone>`, then checks `PROFILE_TIMEZONE`, then uses system-local time. An explicit argument represents a profile configuration supplied by the host and wins over the environment.
 
@@ -123,6 +124,7 @@ Read `references/eval-contract.md` and `evals/cases.json` before testing or chan
 - Do not silently choose one meaning for an ambiguous weekday phrase.
 - Do not prefix tool calls or internal notes.
 - Do not silently fall back after an invalid configured timezone.
+- Do not put an unresolved skill-directory variable in the clock command.
 - Do not claim hook parity when either route misses a case.
 
 ## Limitations

@@ -18,12 +18,13 @@
     "ACD-007",
     "ACD-008",
     "ACD-009",
-    "ACD-010"
+    "ACD-010",
+    "ACD-011"
   ],
   "adaptations": [
     {
-      "source_concept": "Profile-specific skill loader and absolute installed path",
-      "portable_concept": "Host skill loader and absolute SKILL_DIR",
+      "source_concept": "Source loader supplies a concrete absolute skill directory",
+      "portable_concept": "Host skill loader supplies a concrete process working directory",
       "preserved": ["load order", "one clock call per direct turn", "no guessed path"]
     },
     {
@@ -73,8 +74,8 @@
     {
       "id": "ACD-MAP-003",
       "source_path": "SKILL.md",
-      "source_lines": "31-49",
-      "meaning": "Load starting-point, call the clock once after the newest direct message, parse all fields, bind as_of, resolve before tools, store the prefix, use installed interpreters, and fail closed",
+      "source_lines": "31-53",
+      "meaning": "Load starting-point, use the loader's concrete skill directory as process working directory, call the relative bundled clock once, parse all fields, bind as_of, resolve before tools, store the prefix, use installed interpreters, and fail closed",
       "targets": [
         "SKILL.md per-turn contract",
         "scripts/current_anchor.py",
@@ -85,7 +86,7 @@
     {
       "id": "ACD-MAP-004",
       "source_path": "SKILL.md",
-      "source_lines": "51-64",
+      "source_lines": "55-69",
       "meaning": "Private as_of structure and its Outcome, Proof, Constraints, Starting path, and Unknowns bindings",
       "targets": ["SKILL.md starting-point binding", "examples/fresh-direct-turn.md"],
       "action": "keep"
@@ -93,7 +94,7 @@
     {
       "id": "ACD-MAP-005",
       "source_path": "SKILL.md",
-      "source_lines": "66-77",
+      "source_lines": "71-79",
       "meaning": "Preserve authorship, expose consequential absolute dates, keep temporal direction, use absolute tool arguments, clarify ambiguous weekday phrases, and reacquire after midnight",
       "targets": ["SKILL.md temporal interpretation", "evals/cases.json"],
       "action": "keep"
@@ -101,7 +102,7 @@
     {
       "id": "ACD-MAP-006",
       "source_path": "SKILL.md",
-      "source_lines": "79-98",
+      "source_lines": "81-97",
       "meaning": "Daily TODAY header, dated reply prefix with zone abbreviation, retained-message inspection, compaction preference, clarification prefix, no internal prefix, and failure marker",
       "targets": [
         "SKILL.md visible response",
@@ -114,7 +115,7 @@
     {
       "id": "ACD-MAP-007",
       "source_path": "SKILL.md",
-      "source_lines": "100-108",
+      "source_lines": "99-105",
       "meaning": "Fresh clock after resume or compaction, reload unavailable skill context, prior prefixes remain historical, and eval support stays conditional",
       "targets": ["SKILL.md resume", "SKILL.md progressive disclosure"],
       "action": "clarify"
@@ -135,7 +136,7 @@
       "id": "ACD-MAP-009",
       "source_path": "references/eval-contract.md",
       "source_lines": "24-36",
-      "meaning": "Code shape, UTC, invalid zone, system-local, skill loading, client discovery, concise description, and relevant-skill loading acceptance",
+      "meaning": "Code shape, UTC, invalid zone, system-local, skill loading, client discovery, concise description, relevant-skill loading, and variable-free relative command acceptance",
       "targets": [
         "references/eval-contract.md",
         "mise.toml",
@@ -147,7 +148,7 @@
     {
       "id": "ACD-MAP-010",
       "source_path": "references/eval-contract.md",
-      "source_lines": "37-45",
+      "source_lines": "38-46",
       "meaning": "Every case passes, parity blockers stay explicit, statuses remain separate, and hook comparisons use the same cases",
       "targets": ["evals/contract.md", "evals/rubric.md", "evals/manifest.json"],
       "action": "keep"
@@ -155,8 +156,8 @@
     {
       "id": "ACD-MAP-011",
       "source_path": "references/eval-cases.json",
-      "source_lines": "1-81",
-      "meaning": "Acceptance rules, separate statuses, and every prompt, condition, expected behavior, and forbidden behavior for ACD-001 through ACD-010",
+      "source_lines": "1-88",
+      "meaning": "Acceptance rules, separate statuses, and every prompt, condition, expected behavior, and forbidden behavior for ACD-001 through ACD-011",
       "targets": ["evals/cases.json", "evals/evals.json", "evals/manifest.json"],
       "action": "keep"
     },

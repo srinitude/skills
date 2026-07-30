@@ -29,7 +29,7 @@ test('validates every skill and all frozen specification pages', async () => {
     expect.objectContaining({
       name: 'always-current-date',
       status: 'PASS',
-      version: '0.1.0',
+      version: '0.1.1',
     }),
     expect.objectContaining({
       name: 'outcome-bounded-work',

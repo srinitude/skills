@@ -1,7 +1,7 @@
 ---
 name: always-current-date
 description: "Use when replying. Refresh date through starting-point."
-version: 1.0.0
+version: 1.0.1
 author: Kiren Srinivasan
 license: MIT
 platforms: [linux, macos, windows]
@@ -29,25 +29,26 @@ This skill applies before every reply to a direct user message, even when the me
 Before interpreting or acting on the newest direct user message:
 
 1. Load `starting-point` with `skill_view`.
-2. Acquire the clock once for this direct turn by running the bundled script through `terminal`.
-3. Parse the JSON and require every field named in [the evaluation contract](references/eval-contract.md).
-4. Add the anchor to the private starting-point map as `as_of`.
-5. Resolve temporal language before any date-sensitive tool call.
-6. Write the visible date prefix in the actual assistant response so session persistence includes it.
+2. Read this skill's concrete absolute directory from the loaded skill context.
+3. Set that directory as the process runner's working directory and acquire the clock once for this direct turn.
+4. Parse the JSON and require every field named in [the evaluation contract](references/eval-contract.md).
+5. Add the anchor to the private starting-point map as `as_of`.
+6. Resolve temporal language before any date-sensitive tool call.
+7. Write the visible date prefix in the actual assistant response so session persistence includes it.
 
-Run on macOS or Linux:
+Run on macOS or Linux with that working directory:
 
 ```bash
-python3 "${HERMES_SKILL_DIR}/scripts/current_anchor.py"
+python3 scripts/current_anchor.py
 ```
 
-Run on Windows with the interpreter command available to Hermes:
+Run on Windows with that working directory and the interpreter command available to Hermes:
 
 ```powershell
-python "${HERMES_SKILL_DIR}/scripts/current_anchor.py"
+python scripts/current_anchor.py
 ```
 
-Use `py -3` instead of `python` when that is the installed command. Never pass a fabricated timestamp to the script. Reuse an anchor only when its tool result occurs after the newest direct user message.
+Use `py -3` instead of `python` when that is the installed command. Do not use a skill-directory shell variable or guess an installation path. If the loaded context does not supply a concrete skill directory, report `temporal-anchor-unavailable: skill directory missing` and stop date-dependent work. Never pass a fabricated timestamp to the script. Reuse an anchor only when its tool result occurs after the newest direct user message.
 
 If the command fails, returns invalid JSON, or omits a required field, stop date-dependent work and report `temporal-anchor-unavailable:` followed by the short error. Do not guess, reuse an earlier date, or fall back to the conversation-start date.
 

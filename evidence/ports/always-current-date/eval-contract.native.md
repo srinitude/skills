@@ -33,6 +33,7 @@ Require all of these:
 6. `/always-current-date` appears in the active slash-command map and loads the runtime contract.
 7. The description is under 60 characters and the Markdown limits pass.
 8. The stock Hermes prompt contains mandatory relevant-skill loading.
+9. The raw clock command is relative to the supplied skill working directory and contains no unresolved skill-directory variable.
 
 ## Behavioral acceptance
 

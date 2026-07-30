@@ -10,13 +10,13 @@ test('validates the public always-current-date release and native lineage', asyn
   const report = await validateSkill(root, 'always-current-date');
 
   expect(report).toEqual({
-    caseCount: 10,
+    caseCount: 11,
     errors: [],
-    manifestSha256: '682512a523d7e5a7e2ebf4b8a4854d1067957575c37ff29a456c8331821c773b',
+    manifestSha256: '02a7d6cbd55194531fadde08495681fcb5f338034c19294df17424ea6b69d4c4',
     name: 'always-current-date',
     skillPath: join('skills', 'always-current-date', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 

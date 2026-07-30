@@ -102,6 +102,17 @@
         "The current as_of anchor is available to the outcome map.",
         "The response does not present old evidence as current proof."
       ]
+    },
+    {
+      "id": 11,
+      "prompt": "Continue with the task while no skill-directory shell variable is set.",
+      "expected_output": "The host-supplied skill directory becomes the process working directory and the bundled script runs by its relative path.",
+      "assertions": [
+        "The process working directory is the concrete skill directory supplied by the loader.",
+        "The clock command uses the relative bundled script path.",
+        "The response does not guess an installation path or execute an unresolved variable."
+      ],
+      "files": ["SKILL.md", "scripts/current_anchor.py"]
     }
   ]
 }

@@ -5,12 +5,12 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 EXPECTED_FILES = {
-    "SKILL.md": "c11d50e7a48723c89702af27e198676528c0679578c9e000aac6e5c929bd5153",
-    "references/eval-contract.md": "4d9547ebcd41ea83187c4379b2958cc01785e43d227d606fedbe03f48a3a6e05",
-    "references/eval-cases.json": "4341b1d29523bb349abd31d45afcfa7f245fe0ad75c62ce88e62a0694bc516d5",
+    "SKILL.md": "7dd1bcbb16f862f426214b10b05e192413d6b7fcac3a9dced7ef272b25254204",
+    "references/eval-contract.md": "efd3b5e05e68846e229bff376c71bf0081e831984bba1f199d7dc9578da46aa3",
+    "references/eval-cases.json": "613c3c83e67f922dae4d8ed21bdd0055065cbbe42d98910b341272186866e20b",
     "scripts/current_anchor.py": "dc2e2ff4edc302ed26b2b194ab6db31c5a6badf2223f42efd2d9ef088819b68f",
 }
-EXPECTED_CASES = [f"ACD-{number:03d}" for number in range(1, 11)]
+EXPECTED_CASES = [f"ACD-{number:03d}" for number in range(1, 12)]
 
 
 def load(relative):
@@ -26,7 +26,7 @@ class TestSourceMapping(unittest.TestCase):
         self.assertEqual(lineage["source_case_ids"], EXPECTED_CASES)
         self.assertEqual(
             lineage["native_manifest_sha256"],
-            "682512a523d7e5a7e2ebf4b8a4854d1067957575c37ff29a456c8331821c773b",
+            "02a7d6cbd55194531fadde08495681fcb5f338034c19294df17424ea6b69d4c4",
         )
 
     def test_mapping_has_no_drop_and_covers_every_source_section(self):

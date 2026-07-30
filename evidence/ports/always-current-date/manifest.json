@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "skill": "always-current-date",
-  "native_version": "1.0.0",
+  "native_version": "1.0.1",
   "source_commit": "41f2196c530b3359d9a7fc9c7bd41e9ddd7882c5",
-  "native_manifest_sha256": "682512a523d7e5a7e2ebf4b8a4854d1067957575c37ff29a456c8331821c773b",
+  "native_manifest_sha256": "02a7d6cbd55194531fadde08495681fcb5f338034c19294df17424ea6b69d4c4",
   "manifest_algorithm": "SHA-256 of compact sorted-key JSON containing native_version, source_case_ids, and source_files with path, sha256, and bytes",
   "source_case_ids": [
     "ACD-001",
@@ -15,26 +15,27 @@
     "ACD-007",
     "ACD-008",
     "ACD-009",
-    "ACD-010"
+    "ACD-010",
+    "ACD-011"
   ],
   "source_files": [
     {
       "source_path": "SKILL.md",
       "packet_path": "SKILL.native.md",
-      "sha256": "c11d50e7a48723c89702af27e198676528c0679578c9e000aac6e5c929bd5153",
-      "bytes": 4766
+      "sha256": "7dd1bcbb16f862f426214b10b05e192413d6b7fcac3a9dced7ef272b25254204",
+      "bytes": 5106
     },
     {
       "source_path": "references/eval-contract.md",
       "packet_path": "eval-contract.native.md",
-      "sha256": "4d9547ebcd41ea83187c4379b2958cc01785e43d227d606fedbe03f48a3a6e05",
-      "bytes": 2107
+      "sha256": "efd3b5e05e68846e229bff376c71bf0081e831984bba1f199d7dc9578da46aa3",
+      "bytes": 2237
     },
     {
       "source_path": "references/eval-cases.json",
       "packet_path": "eval-cases.native.json",
-      "sha256": "4341b1d29523bb349abd31d45afcfa7f245fe0ad75c62ce88e62a0694bc516d5",
-      "bytes": 3347
+      "sha256": "613c3c83e67f922dae4d8ed21bdd0055065cbbe42d98910b341272186866e20b",
+      "bytes": 3781
     },
     {
       "source_path": "scripts/current_anchor.py",

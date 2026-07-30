@@ -30,7 +30,7 @@ Each command in the grammar needs a complete example. Keep at least one failure 
 
 ## Eval contract
 
-Keep all ten native source case IDs in `evals/cases.json`, `evals/evals.json`, `evals/manifest.json`, and `evals/source-lineage.json`. Trigger cases must cover ordinary direct messages, date questions, unrelated requests, second turns, resume, tool results, background events, and assistant commentary. Behavioral criteria must test freshness, prefix placement, daily-header suppression, temporal math, stale-anchor blocking, and hook equivalence.
+Keep all eleven native source case IDs in `evals/cases.json`, `evals/evals.json`, `evals/manifest.json`, and `evals/source-lineage.json`. Trigger cases must cover ordinary direct messages, date questions, unrelated requests, second turns, resume, tool results, background events, and assistant commentary. Behavioral criteria must test freshness, prefix placement, daily-header suppression, temporal math, stale-anchor blocking, relative script execution, and hook equivalence.
 
 ## Completion proof
 

@@ -34,6 +34,7 @@ Require all of these:
 7. The trigger description stays concise and the Markdown limits pass.
 8. A host that requires relevant-skill loading can discover this skill before a direct user reply.
 9. `--timezone` overrides `PROFILE_TIMEZONE`, which overrides system-local time.
+10. The clock command is relative to the supplied skill working directory and contains no unresolved skill-directory variable.
 
 ## Behavioral acceptance
 

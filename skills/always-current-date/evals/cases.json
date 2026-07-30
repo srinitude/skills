@@ -17,7 +17,8 @@
     "block_without_anchor",
     "acquire_before_tools",
     "reload_after_compaction",
-    "separate_old_from_current"
+    "separate_old_from_current",
+    "run_relative_clock"
   ],
   "cases": [
     {
@@ -141,6 +142,24 @@
         "distinguish old evidence from current state"
       ],
       "veto": ["present old evidence as current proof"]
+    },
+    {
+      "id": "ACD-011",
+      "source_id": "ACD-011",
+      "group": "failure_handling",
+      "title": "Concrete skill directory without a shell variable",
+      "decision": "run_relative_clock",
+      "pressures": [
+        "the skill loader supplied a concrete skill directory",
+        "no skill-directory shell variable is set"
+      ],
+      "prompt": "Continue with the task.",
+      "required": [
+        "use the concrete skill directory as the process working directory",
+        "run the relative bundled clock script",
+        "fresh clock call"
+      ],
+      "veto": ["unresolved variable in the command", "guess an installation path"]
     }
   ]
 }

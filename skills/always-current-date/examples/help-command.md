@@ -12,8 +12,10 @@ help
 
 ## Command
 
+Run with the skill directory as the process working directory.
+
 ```bash
-python3 "$SKILL_DIR/scripts/current_anchor.py" --timezone UTC
+python3 scripts/current_anchor.py --timezone UTC
 ```
 
 ## Real output

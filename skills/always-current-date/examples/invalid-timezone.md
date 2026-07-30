@@ -6,8 +6,10 @@ Prove that an invalid configured timezone fails closed instead of producing a gu
 
 ## Command
 
+Run with the skill directory as the process working directory.
+
 ```bash
-python3 "$SKILL_DIR/scripts/current_anchor.py" --timezone Not/A_Zone
+python3 scripts/current_anchor.py --timezone Not/A_Zone
 ```
 
 ## Real result

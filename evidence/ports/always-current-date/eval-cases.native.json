@@ -76,6 +76,13 @@
       "conditions": ["evidence has an older observation date"],
       "expect": ["bind current as_of to the outcome map", "distinguish old evidence from current state"],
       "forbid": ["present old evidence as current proof"]
+    },
+    {
+      "id": "ACD-011",
+      "prompt": "Continue with the task.",
+      "conditions": ["the skill loader supplied a concrete skill directory", "no skill-directory shell variable is set"],
+      "expect": ["use the concrete skill directory as the process working directory", "run the relative bundled clock script", "fresh clock call"],
+      "forbid": ["unresolved variable in the command", "guess an installation path"]
     }
   ]
 }

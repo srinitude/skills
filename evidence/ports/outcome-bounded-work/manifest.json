@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "skill": "outcome-bounded-work",
+  "source_category": "general",
+  "source_version": "1.0.0",
+  "source_profile": "default",
+  "installed_hermes_commit": "41f2196c530b3359d9a7fc9c7bd41e9ddd7882c5",
+  "source_manifest_sha256": "75d2a9fad3962caf9f1f1e05f8783522c3481e8a9c2c2d36a75899762e61a2f2",
+  "source_case_ids": [
+    "conversation-candidate-path",
+    "exact-method-is-deliverable",
+    "imperative-method-ambiguous",
+    "better-route-drops-scope",
+    "safety-rule-sounds-procedural",
+    "evidence-not-recipe",
+    "privacy-forbidden-outcome",
+    "simple-request-no-meta-work",
+    "audit-does-not-mutate",
+    "mode-consistency"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "SKILL.native.md",
+      "bytes": 6398,
+      "lines": 116,
+      "nonblank_lines": 86,
+      "sha256": "4f9b92967f57925205ece279186616cb417cc060b89ffbedafc70dffd77a8a79"
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "evidence_path": "eval-cases.native.json",
+      "bytes": 5502,
+      "lines": 142,
+      "nonblank_lines": 142,
+      "sha256": "3bab97f9a03a07e97c544113f8ada34ea699d209d74481f53e48a30f82918aa3"
+    }
+  ],
+  "excluded_entries": []
+}

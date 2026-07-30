@@ -4,9 +4,11 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added the `outcome-bounded-work` Agent Skill at `metadata.version: "0.1.0"` with portable conversation and artifact-audit modes, all ten native pressure cases, complete nonblank-line coverage, and a byte-exact native source packet under `evidence/ports/`.
+- Updated Python plugin, skills.sh, Aider, and Hermes Agent discovery routes for `outcome-bounded-work`.
 - Added the `always-current-date` Agent Skill at `metadata.version: "0.1.0"` with a portable timezone script, the full registry eval artifact set, source-lineage hashes, a complete semantic mapping, and a byte-exact native source packet under `evidence/ports/`.
 - Updated package, Python plugin, MCP, skills.sh, Aider, Continue, and Hermes Agent discovery routes for `always-current-date`.
-- Excluded the local Claude settings file and frozen source packet from Prettier so local CI does not inspect private machine settings or rewrite source evidence.
+- Excluded the local Claude settings file and frozen source packets from Prettier so local CI does not inspect private machine settings or rewrite source evidence.
 
 ## GitHub release 0.1.4
 

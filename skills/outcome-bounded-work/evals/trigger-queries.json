@@ -1,0 +1,50 @@
+[
+  {
+    "query": "Help me separate fixed requirements from implementation choices in this launch plan.",
+    "should_trigger": true
+  },
+  {
+    "query": "I need first-time account setup completed in under two minutes, with no personal data in logs. Start with three screens and a REST endpoint. Help me make it concrete.",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit this policy for unnecessary implementation constraints without editing it.",
+    "should_trigger": true
+  },
+  {
+    "query": "This spec says to try caching first, but acceptance is p95 below 200 ms. Which parts are fixed?",
+    "should_trigger": true
+  },
+  {
+    "query": "Teach me SQL joins by writing raw SQL. Do not use an ORM.",
+    "should_trigger": true
+  },
+  {
+    "query": "Translate this sentence to French: The door is open.",
+    "should_trigger": false
+  },
+  {
+    "query": "Convert 5 kilometers to miles.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this paragraph in one sentence.",
+    "should_trigger": false
+  },
+  {
+    "query": "Copy this policy exactly without analysis.",
+    "should_trigger": false
+  },
+  {
+    "query": "What files are in this directory?",
+    "should_trigger": false
+  },
+  {
+    "query": "Audit this deployment policy for fixed approval rules and replaceable tools.",
+    "should_trigger": true
+  },
+  {
+    "query": "Copy this deployment policy verbatim.",
+    "should_trigger": false
+  }
+]

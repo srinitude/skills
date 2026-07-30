@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "native_version": "1.0.0",
+  "native_manifest_sha256": "75d2a9fad3962caf9f1f1e05f8783522c3481e8a9c2c2d36a75899762e61a2f2",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "4f9b92967f57925205ece279186616cb417cc060b89ffbedafc70dffd77a8a79"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "3bab97f9a03a07e97c544113f8ada34ea699d209d74481f53e48a30f82918aa3"
+    }
+  ],
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/eval-cases.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/contract-template.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/conversation-candidate-path.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/artifact-audit.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/simple-request-bypass.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_source_mapping.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/source-lineage.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": ["SKILL.md"]
+    }
+  ],
+  "source_case_ids": [
+    "NOBW-001",
+    "NOBW-002",
+    "NOBW-003",
+    "NOBW-004",
+    "NOBW-005",
+    "NOBW-006",
+    "NOBW-007",
+    "NOBW-008",
+    "NOBW-009",
+    "NOBW-010"
+  ]
+}

@@ -52,6 +52,7 @@ test('exposes canonical skill bytes as a fixed read-only resource', async () => 
   const resources = await client.listResources();
   expect(resources.resources.map((resource) => resource.uri)).toEqual([
     'skill://always-current-date/SKILL.md',
+    'skill://outcome-bounded-work/SKILL.md',
     'skill://reify/SKILL.md',
     'skill://skill-factory/SKILL.md',
     'skill://starting-point/SKILL.md',
@@ -91,6 +92,7 @@ test('exposes only the approved read-only tools', async () => {
   expect(JSON.parse(text(listed))).toMatchObject({
     skills: [
       { name: 'always-current-date' },
+      { name: 'outcome-bounded-work' },
       { name: 'reify' },
       { name: 'skill-factory' },
       { name: 'starting-point' },

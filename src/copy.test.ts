@@ -22,6 +22,7 @@ test('passes the current public repository copy', async () => {
   expect(report.inspected_files).toBeGreaterThan(10);
   expect(report.skill_files).toEqual([
     'skills/always-current-date/SKILL.md',
+    'skills/outcome-bounded-work/SKILL.md',
     'skills/reify/SKILL.md',
     'skills/skill-factory/SKILL.md',
     'skills/starting-point/SKILL.md',

@@ -108,6 +108,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
   expect(await yaml('.aider.conf.yml')).toEqual({
     read: [
       'skills/always-current-date/SKILL.md',
+      'skills/outcome-bounded-work/SKILL.md',
       'skills/reify/SKILL.md',
       'skills/starting-point/SKILL.md',
       'skills/skill-factory/SKILL.md',
@@ -117,6 +118,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
     ],
   });
   await expectInside('skills/always-current-date/SKILL.md');
+  await expectInside('skills/outcome-bounded-work/SKILL.md');
   await expectInside('skills/reify/SKILL.md');
   await expectInside('skills/starting-point/SKILL.md');
   await expectInside('skills/skill-factory/SKILL.md');
@@ -155,7 +157,7 @@ test('groups canonical skills for skills-hub clients', async () => {
       },
       { skills: ['visual-design-system-extractor'], title: 'Design Systems' },
       { skills: ['reify'], title: 'Ideation' },
-      { skills: ['starting-point'], title: 'Planning' },
+      { skills: ['outcome-bounded-work', 'starting-point'], title: 'Planning' },
       { skills: ['skill-factory'], title: 'Skill Authoring' },
       { skills: ['always-current-date'], title: 'Temporal Context' },
     ],

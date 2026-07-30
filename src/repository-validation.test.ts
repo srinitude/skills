@@ -20,7 +20,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 7,
+    skillCount: 8,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
@@ -28,6 +28,11 @@ test('validates every skill and all frozen specification pages', async () => {
   expect(report.skills).toEqual([
     expect.objectContaining({
       name: 'always-current-date',
+      status: 'PASS',
+      version: '0.1.0',
+    }),
+    expect.objectContaining({
+      name: 'outcome-bounded-work',
       status: 'PASS',
       version: '0.1.0',
     }),

@@ -91,6 +91,11 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
       path: resolve(root, 'skills', 'always-current-date', 'SKILL.md'),
     },
     {
+      description: 'Use when instructions mix outcomes with recipes.',
+      name: 'outcome-bounded-work',
+      path: resolve(root, 'skills', 'outcome-bounded-work', 'SKILL.md'),
+    },
+    {
       description:
         'Use when a vague idea, stray thought, remembered fragment, or uncertain' +
         ' direction needs to become a concrete outcome, tested design, decision' +

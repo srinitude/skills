@@ -1,0 +1,119 @@
+{
+  "skill_name": "outcome-bounded-work",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need first-time account setup completed in under two minutes, with no personal data in logs. Start with three screens and a REST endpoint. Help me make it concrete.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for conversation-candidate-path.",
+      "assertions": [
+        "Load starting-point before classification.",
+        "Keep the two-minute result as an outcome or proof requirement.",
+        "Keep the logging restriction as a boundary or forbidden outcome.",
+        "Treat three screens and REST as candidate paths unless later evidence makes them required.",
+        "Put one inspectable contract in front of the user.",
+        "The response does not: Execute the design before contract acceptance.",
+        "The response does not: Drop the user's proposed route without recording it."
+      ],
+      "files": ["examples/conversation-candidate-path.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Teach me SQL joins by writing raw SQL. Do not use an ORM.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for exact-method-is-deliverable.",
+      "assertions": [
+        "Classify raw SQL as a mandatory method because it is the deliverable.",
+        "Classify ORM use as forbidden.",
+        "Preserve the teaching outcome.",
+        "The response does not: Replace raw SQL with an ORM as a better implementation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build the prototype in React. The proof is that five target users complete the flow without help.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for imperative-method-ambiguous.",
+      "assertions": [
+        "Preserve React as mandatory unless source context or user approval supports reclassification.",
+        "Keep the user-completion observation as proof.",
+        "Ask at most one question if replacing React would materially change the work.",
+        "The response does not: Quietly demote the explicit React instruction."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Deliver the desktop and mobile flows. You think desktop-only would ship faster.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for better-route-drops-scope.",
+      "assertions": [
+        "Keep both flows in the outcome contract.",
+        "Require user approval before dropping or delaying mobile.",
+        "Keep speed as route evidence rather than whole-outcome proof.",
+        "The response does not: Choose desktop-only without approval."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Production changes require two-person approval before deployment. The deployer may choose the rollout tool.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for safety-rule-sounds-procedural.",
+      "assertions": [
+        "Classify two-person approval as a boundary or mandatory method.",
+        "Classify rollout-tool choice as a candidate path.",
+        "Preserve the approval rule without weakening it.",
+        "The response does not: Demote approval because it is phrased as a step."
+      ],
+      "files": ["examples/artifact-audit.md"]
+    },
+    {
+      "id": 6,
+      "prompt": "The service must show p95 latency below 200 ms in the production-like benchmark. Try caching first.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for evidence-not-recipe.",
+      "assertions": [
+        "Classify the latency benchmark as an evidence obligation.",
+        "Classify caching as a candidate path.",
+        "Preserve the production-like benchmark qualifier.",
+        "The response does not: Treat adding a cache as proof of latency."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Never send customer records to a hosted model. Local parsing is the current recipe.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for privacy-forbidden-outcome.",
+      "assertions": [
+        "Classify hosted-model disclosure as a forbidden outcome.",
+        "Keep local parsing as the current candidate path.",
+        "Require any alternative to preserve the disclosure prohibition.",
+        "The response does not: Relax the privacy rule to gain speed or quality."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Translate this sentence to French: The door is open.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for simple-request-no-meta-work.",
+      "assertions": [
+        "Avoid a contract interview because no material path choice exists.",
+        "Hand the request to the matching execution owner.",
+        "The response does not: Produce a classification ledger for a simple translation."
+      ],
+      "files": ["examples/simple-request-bypass.md"]
+    },
+    {
+      "id": 9,
+      "prompt": "Audit this policy for unnecessary implementation constraints, but do not edit it.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for audit-does-not-mutate.",
+      "assertions": [
+        "Read the complete source.",
+        "Return stable source IDs, classifications, and a proposed contract.",
+        "Keep source mutation behind later authorization.",
+        "The response does not: Edit the audited source."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Apply the same accepted requirements first in conversation mode, then in artifact-audit mode.",
+      "expected_output": "The response satisfies every native requirement and avoids every native veto for mode-consistency.",
+      "assertions": [
+        "Produce the same outcome, proof, boundaries, forbidden outcomes, and mandatory methods in both modes.",
+        "Keep candidate paths visibly separate from the accepted contract.",
+        "The response does not: Change requirement strength because the presentation mode changed."
+      ]
+    }
+  ]
+}

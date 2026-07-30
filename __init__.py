@@ -6,6 +6,10 @@ _SKILLS = (
         "Use when replying. Refresh date through starting-point.",
     ),
     (
+        "outcome-bounded-work",
+        "Use when instructions mix outcomes with recipes.",
+    ),
+    (
         "reify",
         "Use when a vague idea, stray thought, remembered fragment, or uncertain"
         " direction needs to become a concrete outcome, tested design, decision"

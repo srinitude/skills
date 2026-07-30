@@ -20,6 +20,20 @@ test('validates the public always-current-date release and native lineage', asyn
   });
 });
 
+test('validates the public outcome-bounded-work release and native lineage', async () => {
+  const report = await validateSkill(root, 'outcome-bounded-work');
+
+  expect(report).toEqual({
+    caseCount: 10,
+    errors: [],
+    manifestSha256: '75d2a9fad3962caf9f1f1e05f8783522c3481e8a9c2c2d36a75899762e61a2f2',
+    name: 'outcome-bounded-work',
+    skillPath: join('skills', 'outcome-bounded-work', 'SKILL.md'),
+    status: 'PASS',
+    version: '0.1.0',
+  });
+});
+
 test('validates the public starting-point release and native lineage', async () => {
   const report = await validateSkill(root, 'starting-point');
 

@@ -20,12 +20,17 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 6,
+    skillCount: 7,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
   });
   expect(report.skills).toEqual([
+    expect.objectContaining({
+      name: 'always-current-date',
+      status: 'PASS',
+      version: '0.1.0',
+    }),
     expect.objectContaining({ name: 'reify', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'skill-factory', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'starting-point', status: 'PASS', version: '0.1.0' }),

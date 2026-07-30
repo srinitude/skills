@@ -2,6 +2,10 @@ from pathlib import Path
 
 _SKILLS = (
     (
+        "always-current-date",
+        "Use when replying. Refresh date through starting-point.",
+    ),
+    (
         "reify",
         "Use when a vague idea, stray thought, remembered fragment, or uncertain"
         " direction needs to become a concrete outcome, tested design, decision"

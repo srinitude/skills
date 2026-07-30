@@ -1,4 +1,6 @@
 .artifacts/
+.claude/settings.local.json
+evidence/ports/always-current-date/
 mcp/dist/
 skills/skill-factory/
 

@@ -6,6 +6,20 @@ import { validateSkill } from './skill-validation.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 
+test('validates the public always-current-date release and native lineage', async () => {
+  const report = await validateSkill(root, 'always-current-date');
+
+  expect(report).toEqual({
+    caseCount: 10,
+    errors: [],
+    manifestSha256: '682512a523d7e5a7e2ebf4b8a4854d1067957575c37ff29a456c8331821c773b',
+    name: 'always-current-date',
+    skillPath: join('skills', 'always-current-date', 'SKILL.md'),
+    status: 'PASS',
+    version: '0.1.0',
+  });
+});
+
 test('validates the public starting-point release and native lineage', async () => {
   const report = await validateSkill(root, 'starting-point');
 

@@ -105,6 +105,9 @@ test('keeps the root guide concise and the Aider route portable', async () => {
   const readme = await readable('README.md');
   const aider = await readable('adapters/aider/README.md');
   expect(readme.split('\n').length).toBeLessThan(150);
+  expect(aider).toContain(
+    '--read /absolute/path/to/skills/skills/always-current-date/SKILL.md',
+  );
   expect(aider).toContain('--read /absolute/path/to/skills/skills/reify/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/starting-point/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/skill-factory/SKILL.md');

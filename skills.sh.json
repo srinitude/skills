@@ -20,6 +20,10 @@
     {
       "title": "Skill Authoring",
       "skills": ["skill-factory"]
+    },
+    {
+      "title": "Temporal Context",
+      "skills": ["always-current-date"]
     }
   ]
 }

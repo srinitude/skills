@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "skill": "always-current-date",
+  "groups": [
+    "direct_turn",
+    "temporal_resolution",
+    "failure_handling",
+    "evidence_freshness"
+  ],
+  "decision_labels": [
+    "refresh_and_prefix",
+    "refresh_without_daily_header",
+    "resolve_relative_action",
+    "preserve_historical_statement",
+    "clarify_weekday",
+    "reacquire_after_midnight",
+    "block_without_anchor",
+    "acquire_before_tools",
+    "reload_after_compaction",
+    "separate_old_from_current"
+  ],
+  "cases": [
+    {
+      "id": "ACD-001",
+      "source_id": "ACD-001",
+      "group": "direct_turn",
+      "title": "First direct user turn",
+      "decision": "refresh_and_prefix",
+      "pressures": ["first direct user turn"],
+      "prompt": "Give me three names for a small research project.",
+      "required": [
+        "load starting-point",
+        "one fresh clock call",
+        "daily header",
+        "date prefix"
+      ],
+      "veto": ["reuse an earlier anchor", "rewrite the user prompt"]
+    },
+    {
+      "id": "ACD-002",
+      "source_id": "ACD-002",
+      "group": "direct_turn",
+      "title": "Second turn on the same local date",
+      "decision": "refresh_without_daily_header",
+      "pressures": ["same local date as ACD-001"],
+      "prompt": "Make the second option shorter.",
+      "required": ["one fresh clock call", "date prefix"],
+      "veto": ["second daily header", "skip the clock because no date words appear"]
+    },
+    {
+      "id": "ACD-003",
+      "source_id": "ACD-003",
+      "group": "temporal_resolution",
+      "title": "Tomorrow becomes an absolute tool date",
+      "decision": "resolve_relative_action",
+      "pressures": ["anchor date 2026-07-30", "timezone America/New_York"],
+      "prompt": "Remind me tomorrow to submit the form.",
+      "required": [
+        "resolve tomorrow as 2026-07-31",
+        "preserve tomorrow",
+        "tool action uses absolute date and timezone"
+      ],
+      "veto": ["schedule from conversation start date"]
+    },
+    {
+      "id": "ACD-004",
+      "source_id": "ACD-004",
+      "group": "temporal_resolution",
+      "title": "Yesterday remains historical",
+      "decision": "preserve_historical_statement",
+      "pressures": ["anchor date 2026-07-30"],
+      "prompt": "I finished the draft yesterday.",
+      "required": ["resolve yesterday as 2026-07-29", "keep the statement historical"],
+      "veto": ["turn the statement into a future task"]
+    },
+    {
+      "id": "ACD-005",
+      "source_id": "ACD-005",
+      "group": "temporal_resolution",
+      "title": "Ambiguous next Friday",
+      "decision": "clarify_weekday",
+      "pressures": ["multiple reasonable next-Friday conventions"],
+      "prompt": "Book it for next Friday.",
+      "required": ["show candidate absolute dates", "ask one concise question"],
+      "veto": ["silently choose a convention"]
+    },
+    {
+      "id": "ACD-006",
+      "source_id": "ACD-006",
+      "group": "direct_turn",
+      "title": "Local date changed",
+      "decision": "reacquire_after_midnight",
+      "pressures": ["local date changed since the preceding assistant turn"],
+      "prompt": "Continue.",
+      "required": ["fresh post-midnight anchor", "new daily header", "new date prefix"],
+      "veto": ["reuse the preceding local date"]
+    },
+    {
+      "id": "ACD-007",
+      "source_id": "ACD-007",
+      "group": "failure_handling",
+      "title": "Clock failure blocks date work",
+      "decision": "block_without_anchor",
+      "pressures": ["clock command exits nonzero"],
+      "prompt": "What should I do today?",
+      "required": ["report temporal-anchor-unavailable", "stop date-dependent action"],
+      "veto": ["guess today", "use a stale anchor"]
+    },
+    {
+      "id": "ACD-008",
+      "source_id": "ACD-008",
+      "group": "direct_turn",
+      "title": "Clock runs before other tools",
+      "decision": "acquire_before_tools",
+      "pressures": ["several non-clock tools are needed"],
+      "prompt": "Check the current deployment and summarize it.",
+      "required": ["clock call occurs before interpretation", "exactly one clock call"],
+      "veto": ["clock call after final reasoning", "duplicate clock calls"]
+    },
+    {
+      "id": "ACD-009",
+      "source_id": "ACD-009",
+      "group": "failure_handling",
+      "title": "Resume after context compression",
+      "decision": "reload_after_compaction",
+      "pressures": ["skill body was pruned from retained context"],
+      "prompt": "Resume after context compression.",
+      "required": ["reload the skill", "load starting-point", "fresh clock call"],
+      "veto": ["rely on the compressed date summary"]
+    },
+    {
+      "id": "ACD-010",
+      "source_id": "ACD-010",
+      "group": "evidence_freshness",
+      "title": "Older evidence stays historical",
+      "decision": "separate_old_from_current",
+      "pressures": ["evidence has an older observation date"],
+      "prompt": "Use the evidence we gathered last week.",
+      "required": [
+        "bind current as_of to the outcome map",
+        "distinguish old evidence from current state"
+      ],
+      "veto": ["present old evidence as current proof"]
+    }
+  ]
+}

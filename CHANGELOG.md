@@ -4,7 +4,9 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
-Nothing yet.
+- Added the `always-current-date` Agent Skill at `metadata.version: "0.1.0"` with a portable timezone script, the full registry eval artifact set, source-lineage hashes, a complete semantic mapping, and a byte-exact native source packet under `evidence/ports/`.
+- Updated package, Python plugin, MCP, skills.sh, Aider, Continue, and Hermes Agent discovery routes for `always-current-date`.
+- Excluded the local Claude settings file and frozen source packet from Prettier so local CI does not inspect private machine settings or rewrite source evidence.
 
 ## GitHub release 0.1.4
 

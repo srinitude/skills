@@ -1,8 +1,9 @@
 # Aider adapter
 
-Read a canonical [`SKILL.md`](../../skills/starting-point/SKILL.md) by absolute path from the project where Aider is running. The same route works for [`reify`](../../skills/reify/SKILL.md) and [`skill-factory`](../../skills/skill-factory/SKILL.md), and for [`visual-design-system-extractor`](../../skills/visual-design-system-extractor/SKILL.md):
+Read a canonical [`SKILL.md`](../../skills/always-current-date/SKILL.md) by absolute path from the project where Aider is running. The same route works for every skill in the collection:
 
 ```sh
+aider --read /absolute/path/to/skills/skills/always-current-date/SKILL.md
 aider --read /absolute/path/to/skills/skills/reify/SKILL.md
 aider --read /absolute/path/to/skills/skills/starting-point/SKILL.md
 aider --read /absolute/path/to/skills/skills/skill-factory/SKILL.md

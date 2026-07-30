@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "1.0.0",
+  "native_manifest_sha256": "682512a523d7e5a7e2ebf4b8a4854d1067957575c37ff29a456c8331821c773b",
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/eval-contract.md",
+      "source_paths": ["SKILL.md", "references/eval-contract.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/eval-contract.md",
+        "references/eval-cases.json",
+        "scripts/current_anchor.py"
+      ]
+    },
+    {
+      "path": "assets/response-prefixes.txt",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/help-command.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "examples/fresh-direct-turn.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/eval-contract.md",
+        "scripts/current_anchor.py"
+      ]
+    },
+    {
+      "path": "examples/invalid-timezone.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/eval-contract.md",
+        "references/eval-cases.json",
+        "scripts/current_anchor.py"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["references/eval-contract.md"]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": [
+        "SKILL.md",
+        "references/eval-contract.md",
+        "references/eval-cases.json",
+        "scripts/current_anchor.py"
+      ]
+    },
+    {
+      "path": "scripts/current_anchor.py",
+      "source_paths": ["scripts/current_anchor.py"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "c11d50e7a48723c89702af27e198676528c0679578c9e000aac6e5c929bd5153"
+    },
+    {
+      "path": "references/eval-contract.md",
+      "sha256": "4d9547ebcd41ea83187c4379b2958cc01785e43d227d606fedbe03f48a3a6e05"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "4341b1d29523bb349abd31d45afcfa7f245fe0ad75c62ce88e62a0694bc516d5"
+    },
+    {
+      "path": "scripts/current_anchor.py",
+      "sha256": "dc2e2ff4edc302ed26b2b194ab6db31c5a6badf2223f42efd2d9ef088819b68f"
+    }
+  ],
+  "source_case_ids": [
+    "ACD-001",
+    "ACD-002",
+    "ACD-003",
+    "ACD-004",
+    "ACD-005",
+    "ACD-006",
+    "ACD-007",
+    "ACD-008",
+    "ACD-009",
+    "ACD-010"
+  ]
+}

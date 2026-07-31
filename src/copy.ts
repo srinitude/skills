@@ -24,6 +24,7 @@ const ignoredDirectories = new Set([
   'src',
 ]);
 const publicExtensions = new Set(['.json', '.md', '.py', '.toml', '.yaml', '.yml']);
+const frozenEvidencePrefix = 'evidence/ports/';
 const bannedTerms = /\b(herdr|humanize-writing|leverage)\b/i;
 const audienceLabels =
   /\b(beginner|beginners|expert|experts|non-technical|novice|novices)\b/i;
@@ -119,6 +120,7 @@ export async function validateCopy(root: string): Promise<CopyReport> {
       const source = await readFile(absolute, 'utf8');
       bodies.push({ hash: createHash('sha256').update(source).digest('hex'), path });
     }
+    if (path.startsWith(frozenEvidencePrefix)) continue;
     if (!publicExtensions.has(extname(path))) continue;
     inspected += 1;
     findings.push(...scanText(path, await readFile(absolute, 'utf8')));

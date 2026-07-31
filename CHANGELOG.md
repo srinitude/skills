@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added the `prime-vector` Agent Skill at `metadata.version: "0.1.0"` with a self-contained strategy loop, 22 behavior cases, all 25 material video-learning clusters classified, complete nonblank-line coverage, and a byte-exact source packet under `evidence/ports/`.
+- Updated Python plugin, skills.sh, Aider, package, and repository discovery routes for `prime-vector`.
 - Fixed `always-current-date` at `metadata.version: "0.1.1"` so the clock runs from the concrete skill working directory without relying on a shell variable, and added a regression case for loaders that supply no directory variable.
 - Added the `outcome-bounded-work` Agent Skill at `metadata.version: "0.1.0"` with portable conversation and artifact-audit modes, all ten native pressure cases, complete nonblank-line coverage, and a byte-exact native source packet under `evidence/ports/`.
 - Updated Python plugin, skills.sh, Aider, and Hermes Agent discovery routes for `outcome-bounded-work`.

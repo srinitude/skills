@@ -53,6 +53,7 @@ test('exposes canonical skill bytes as a fixed read-only resource', async () => 
   expect(resources.resources.map((resource) => resource.uri)).toEqual([
     'skill://always-current-date/SKILL.md',
     'skill://outcome-bounded-work/SKILL.md',
+    'skill://prime-vector/SKILL.md',
     'skill://reify/SKILL.md',
     'skill://skill-factory/SKILL.md',
     'skill://starting-point/SKILL.md',
@@ -93,6 +94,7 @@ test('exposes only the approved read-only tools', async () => {
     skills: [
       { name: 'always-current-date' },
       { name: 'outcome-bounded-work' },
+      { name: 'prime-vector' },
       { name: 'reify' },
       { name: 'skill-factory' },
       { name: 'starting-point' },

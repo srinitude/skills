@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "6de25e5099680a3bc691b6b03f91258b3d04474211b50272c5e1f1ab71f7b29d",
+  "native_version": "1.0.0",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816"
+    }
+  ],
+  "source_case_ids": [
+    "PV-001",
+    "PV-002",
+    "PV-003",
+    "PV-004",
+    "PV-005",
+    "PV-006",
+    "PV-007",
+    "PV-008",
+    "PV-009",
+    "PV-010",
+    "PV-011",
+    "PV-012",
+    "PVV-004",
+    "PVV-008",
+    "PVV-009",
+    "PVV-013",
+    "PVV-014",
+    "PVV-015",
+    "PVV-016",
+    "PVV-017",
+    "PVV-018",
+    "PVV-019"
+  ],
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/decision-checklist.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/practice-loop.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/strategy-packet-template.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/high-stakes-decision.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/simple-task-bypass.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/unsafe-stakeholder-model.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md"]
+    }
+  ]
+}

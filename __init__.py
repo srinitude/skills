@@ -10,6 +10,10 @@ _SKILLS = (
         "Use when instructions mix outcomes with recipes.",
     ),
     (
+        "prime-vector",
+        "Use when a high-stakes problem needs a strategy.",
+    ),
+    (
         "reify",
         "Use when a vague idea, stray thought, remembered fragment, or uncertain"
         " direction needs to become a concrete outcome, tested design, decision"

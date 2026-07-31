@@ -28,7 +28,7 @@ test('writes a repository validation report and returns PASS', async () => {
 
   expect(code).toBe(0);
   expect(JSON.parse(await readFile(report, 'utf8'))).toMatchObject({
-    skillCount: 8,
+    skillCount: 9,
     sourcePageCount: 13,
     status: 'PASS',
   });

@@ -1,4 +1,4 @@
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, expect, test } from 'vitest';
@@ -23,6 +23,7 @@ test('passes the current public repository copy', async () => {
   expect(report.skill_files).toEqual([
     'skills/always-current-date/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',
+    'skills/prime-vector/SKILL.md',
     'skills/reify/SKILL.md',
     'skills/skill-factory/SKILL.md',
     'skills/starting-point/SKILL.md',
@@ -43,4 +44,19 @@ test('reports banned wording and duplicate skill locations', async () => {
   expect(report.findings.map((finding) => finding.code)).toEqual(
     expect.arrayContaining(['BANNED_TERM', 'DUPLICATE_SKILL_LOCATION']),
   );
+});
+
+test('does not style-check byte-exact frozen source evidence', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'copy-evidence-gate-'));
+  temporary.push(root);
+  const evidence = join(root, 'evidence', 'ports', 'sample');
+  await mkdir(evidence, { recursive: true });
+  await writeFile(
+    join(evidence, 'SKILL.native.md'),
+    'A beginner can leverage this source.\n',
+  );
+
+  const report = await validateCopy(root);
+
+  expect(report).toMatchObject({ findings: [], inspected_files: 0, status: 'PASS' });
 });

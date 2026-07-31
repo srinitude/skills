@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "skill": "prime-vector",
+  "source_category": "profile-local",
+  "source_version": "1.0.0",
+  "source_profile": "prime-vector",
+  "installed_hermes_commit": "41f2196c530b3359d9a7fc9c7bd41e9ddd7882c5",
+  "source_case_ids": [],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "SKILL.native.md",
+      "bytes": 13216,
+      "lines": 150,
+      "nonblank_lines": 107,
+      "sha256": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816"
+    }
+  ],
+  "excluded_entries": []
+}

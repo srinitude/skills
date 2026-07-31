@@ -21,6 +21,7 @@ interface VideoLearningMap {
   candidate_map?: Record<string, string>;
   coverage: Record<string, number>;
   learnings: unknown[];
+  video: Record<string, unknown>;
 }
 
 async function json<T>(path: string): Promise<T> {
@@ -124,6 +125,14 @@ test('ships one source-bound, video-informed, fallback-capable Prime Vector port
     ratio: 1,
   });
   expect(Object.keys(video.candidate_map ?? {})).toHaveLength(25);
+  expect(video.video).toMatchObject({
+    media_duration_seconds: 3927.774,
+    media_sha256: '67385c5bc5bd0dba9e1ad4e76fd66a8c3f83ce8242d007d6d09541d19ccb62cc',
+    sampled_visual_frame_count: 3928,
+    visual_frame_rows_sha256:
+      '2f001ca37a735153b75a895c61d28398da143aa21defef421cb21224c84bf66b',
+  });
   expect(videoEvidence.coverage).toEqual(video.coverage);
   expect(videoEvidence.learnings).toEqual(video.learnings);
+  expect(videoEvidence.video).toEqual(video.video);
 });

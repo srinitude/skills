@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill": "prime-vector",
-  "public_version": "0.2.2",
+  "public_version": "0.2.3",
   "test_classes": [
     "positive_activation",
     "rejection",

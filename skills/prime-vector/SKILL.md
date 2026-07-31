@@ -3,7 +3,7 @@ name: prime-vector
 description: 'Use when a high-stakes problem needs a strategy.'
 license: MIT
 metadata:
-  version: '0.2.2'
+  version: '0.2.3'
   author: 'Kiren Srinivasan'
 ---
 

@@ -6,7 +6,7 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 BASELINE_PUBLIC_SHA256 = "c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
-CURRENT_PUBLIC_VERSION = "0.2.2"
+CURRENT_PUBLIC_VERSION = "0.2.3"
 EXPECTED_FILES = {
     "SKILL.md": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816",
 }
@@ -31,7 +31,7 @@ def load(relative: str) -> dict:
 
 def assert_interval_coverage(test_case, intervals, valid_ids):
     test_case.assertEqual(intervals[0]["start_second"], 0)
-    test_case.assertEqual(intervals[-1]["end_second_exclusive"], 3924)
+    test_case.assertEqual(intervals[-1]["end_second_exclusive"], 3928)
     cursor = 0
     transcript_indices = set()
     for interval in intervals:
@@ -49,8 +49,24 @@ def assert_interval_coverage(test_case, intervals, valid_ids):
         else:
             test_case.assertTrue(interval["learning_ids"])
         transcript_indices.update(interval["transcript_segment_indices"])
-    test_case.assertEqual(cursor, 3924)
+    test_case.assertEqual(cursor, 3928)
     test_case.assertEqual(transcript_indices, set(range(1848)))
+
+
+def assert_video_audit_metadata(test_case, second_map):
+    video = second_map["video"]
+    test_case.assertEqual(video["transcript_duration_seconds"], 3924)
+    test_case.assertEqual(video["media_duration_seconds"], 3927.774)
+    test_case.assertEqual(video["audited_duration_seconds"], 3928)
+    test_case.assertEqual(video["sampled_visual_frame_count"], 3928)
+    test_case.assertEqual(
+        video["media_sha256"],
+        "67385c5bc5bd0dba9e1ad4e76fd66a8c3f83ce8242d007d6d09541d19ccb62cc",
+    )
+    test_case.assertEqual(
+        video["visual_frame_rows_sha256"],
+        "2f001ca37a735153b75a895c61d28398da143aa21defef421cb21224c84bf66b",
+    )
 
 
 class TestSourceMapping(unittest.TestCase):
@@ -102,13 +118,16 @@ class TestSourceMapping(unittest.TestCase):
             second_map["video"]["transcript_full_text_sha256"],
             video["video"]["transcript_full_text_sha256"],
         )
-        self.assertEqual(second_map["audit_summary"]["duration_seconds"], 3924)
-        self.assertEqual(second_map["audit_summary"]["seconds_reviewed"], 3924)
+        assert_video_audit_metadata(self, second_map)
+        self.assertEqual(second_map["audit_summary"]["duration_seconds"], 3928)
+        self.assertEqual(second_map["audit_summary"]["seconds_reviewed"], 3928)
         self.assertEqual(second_map["audit_summary"]["transcript_segments_reviewed"], 1848)
+        self.assertEqual(second_map["audit_summary"]["visual_frames_reviewed"], 3928)
         self.assertEqual(second_map["audit_summary"]["material_clusters"], 25)
         self.assertEqual(second_map["audit_summary"]["unclassified_seconds"], 0)
         self.assertEqual(second_map["audit_summary"]["unclassified_segments"], 0)
         self.assertEqual(second_map["audit_summary"]["uncovered_material_segments"], 0)
+        self.assertEqual(second_map["audit_summary"]["uncovered_visual_material"], 0)
         assert_interval_coverage(self, second_map["intervals"], set(video["candidate_map"]))
 
     def test_video_and_companion_contracts_are_fully_integrated(self):

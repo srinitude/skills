@@ -31,7 +31,7 @@
     "PVV-019"
   ],
   "native_version": "1.0.0",
-  "public_version": "0.2.2",
+  "public_version": "0.2.3",
   "source_files": [
     {
       "path": "SKILL.md",

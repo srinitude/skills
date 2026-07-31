@@ -3,17 +3,23 @@
   "video": {
     "url": "https://www.youtube.com/watch?v=vodeYl5DkJE",
     "video_id": "vodeYl5DkJE",
-    "duration": "1:05:24",
+    "transcript_duration_seconds": 3924,
+    "media_duration_seconds": 3927.774,
+    "audited_duration_seconds": 3928,
     "transcript_full_text_sha256": "2ed6f87c5342ffd8ee1cee9cebbd7f6491b61d39acee301ca6e513947ae43ce3",
-    "transcript_segment_count": 1848
+    "transcript_segment_count": 1848,
+    "media_sha256": "67385c5bc5bd0dba9e1ad4e76fd66a8c3f83ce8242d007d6d09541d19ccb62cc",
+    "sampled_visual_frame_count": 3928,
+    "visual_frame_rows_sha256": "2f001ca37a735153b75a895c61d28398da143aa21defef421cb21224c84bf66b"
   },
   "method": {
     "granularity_seconds": 1,
     "interval_semantics": "Half-open [start_second, end_second_exclusive); expanding the intervals classifies each source second exactly once.",
     "material_rule": "Every second containing a reusable instruction, claim, anecdote, forecast, advertisement, or safety-relevant example links to one or more PVV learning IDs.",
     "context_rule": "Only introductions, interview transitions, reactions, and sentence fragments without independent procedural or evidentiary content may be context_only.",
-    "source_binding": "The transcript hash binds this map to the fetched source without republishing the transcript.",
-    "review_note": "All 1,848 timestamped segments were replayed in source order. The 299 segments outside the original learning windows were inspected manually; 260 were added to material windows and 39 remained context-only."
+    "source_binding": "The transcript and media hashes bind this map to the fetched source without republishing either source.",
+    "visual_rule": "One decoded frame at every whole media second was hashed and OCR-scanned. All 300 periodic or high-change review frames were inspected in timestamped contact sheets; detected intro text matched the spoken conductor instruction, sponsor frames stayed advertisement context, and the final four seconds stayed outro branding context.",
+    "review_note": "All 1,848 timestamped segments and all 3,928 one-second visual samples were replayed in source order. The 299 segments outside the original learning windows were inspected manually; 260 were added to material windows and 39 remained context-only."
   },
   "material_gap_remediations": [
     {
@@ -176,26 +182,37 @@
       "end_second_exclusive": 3892,
       "timestamp": "1:04:51-1:04:52",
       "reason": "Question-tail fragment before the mapped closing claim and promotion."
+    },
+    {
+      "context_id": "CTX-013",
+      "start_second": 3924,
+      "end_second_exclusive": 3928,
+      "timestamp": "1:05:24-1:05:28",
+      "reason": "Logo animation and outro audio after the transcript ends; no reusable procedure or factual operating claim."
     }
   ],
   "audit_summary": {
-    "duration_seconds": 3924,
-    "seconds_reviewed": 3924,
+    "duration_seconds": 3928,
+    "seconds_reviewed": 3928,
     "transcript_segments_reviewed": 1848,
+    "visual_frames_reviewed": 3928,
+    "visual_ocr_nonempty_frames": 110,
+    "visual_review_frames": 300,
     "material_clusters": 25,
     "originally_unmapped_segments_reviewed": 299,
     "material_segments_added_to_learning_windows": 260,
     "context_only_segments": 39,
-    "interval_count": 86,
+    "interval_count": 87,
     "classification_seconds": {
       "operating": 3069,
       "claim_boundary": 365,
       "mixed": 417,
-      "context_only": 73
+      "context_only": 77
     },
     "unclassified_seconds": 0,
     "unclassified_segments": 0,
     "uncovered_material_segments": 0,
+    "uncovered_visual_material": 0,
     "result": "PASS"
   },
   "intervals": [
@@ -1234,6 +1251,16 @@
       "learning_ids": ["PVV-023"],
       "context_id": null,
       "transcript_segment_indices": [1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847]
+    },
+    {
+      "start_second": 3924,
+      "end_second_exclusive": 3928,
+      "start_timestamp": "1:05:24",
+      "end_timestamp_exclusive": "1:05:28",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-013",
+      "transcript_segment_indices": []
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill": "prime-vector",
-  "public_version": "0.2.0",
+  "public_version": "0.2.1",
   "test_classes": [
     "positive_activation",
     "rejection",
@@ -11,6 +11,7 @@
     "speed",
     "ordered_bindings",
     "authorized_loss",
+    "logical_consistency",
     "video_learning_coverage"
   ],
   "conditions": ["with_skill", "without_skill"],

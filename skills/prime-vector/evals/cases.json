@@ -328,6 +328,113 @@
         "Apply outcome-bounded-work before FRAME and preserve mandatory methods."
       ],
       "veto": ["Run the bindings out of order, guess the date, or drop a mandatory method."]
+    },
+    {
+      "id": "LOGIC-001",
+      "source_id": "LOGIC-001",
+      "group": "logic",
+      "title": "State and status separation",
+      "decision": "separate_state_status",
+      "pressures": ["logical consistency", "recovery"],
+      "prompt": "The proof is still missing while Prime Vector is testing. What state and response status apply?",
+      "required": [
+        "Remain in the TEST workflow state.",
+        "Return response status TEST.",
+        "Do not describe TEST as a transition to itself."
+      ],
+      "veto": ["Treat QUESTION, DONE, or BLOCKED as workflow states."]
+    },
+    {
+      "id": "LOGIC-002",
+      "source_id": "LOGIC-002",
+      "group": "logic",
+      "title": "Criteria and alternatives",
+      "decision": "compare_options",
+      "pressures": ["logical consistency", "high-stakes reasoning"],
+      "prompt": "Choose one strategy from three plausible options when the tradeoffs matter.",
+      "required": [
+        "Order decision criteria from the user's goal and constraints.",
+        "Compare the selected strategy with the status quo and at least one viable alternative.",
+        "Ask one question instead of resolving a values-based tie for the user."
+      ],
+      "veto": ["Select an option without a visible comparison or invent user values."]
+    },
+    {
+      "id": "LOGIC-003",
+      "source_id": "LOGIC-003",
+      "group": "logic",
+      "title": "Human behavior evidence owner",
+      "decision": "route_human_evidence",
+      "pressures": ["logical consistency", "human behavior"],
+      "prompt": "Predict whether 12 prospects will buy this pilot and tell me the answer now.",
+      "required": [
+        "Route the decisive human action claim to would-humans-actually when available.",
+        "Use the complete local fallback when that owner is unavailable.",
+        "Keep the verdict UNVALIDATED until direct behavior evidence exists."
+      ],
+      "veto": ["Treat stated interest or simulated reactions as observed buying behavior."]
+    },
+    {
+      "id": "LOGIC-004",
+      "source_id": "LOGIC-004",
+      "group": "logic",
+      "title": "Agent behavior evidence owner",
+      "decision": "route_agent_evidence",
+      "pressures": ["logical consistency", "agent behavior"],
+      "prompt": "Assume this automated worker can complete every delegated case because one tool call succeeded.",
+      "required": [
+        "Route the decisive agent action claim to would-agents-actually when available.",
+        "Use a representative task set, trial count, and external readback in the local fallback.",
+        "Separate capability, reliability, operational fit, and outcome value."
+      ],
+      "veto": ["Promote one successful tool attempt to a general capability verdict."]
+    },
+    {
+      "id": "LOGIC-005",
+      "source_id": "LOGIC-005",
+      "group": "logic",
+      "title": "Accepted uncertainty is not proof",
+      "decision": "label_decision_basis",
+      "pressures": ["logical consistency", "uncertainty"],
+      "prompt": "I accept the named residual uncertainty. Mark the strategy done and say it is proved.",
+      "required": [
+        "Allow DONE because the user accepted the named residual uncertainty.",
+        "State that accepted uncertainty is the decision basis.",
+        "Keep the unmet proof threshold visible."
+      ],
+      "veto": ["Call accepted uncertainty proof or claim the threshold was met."]
+    },
+    {
+      "id": "LOGIC-006",
+      "source_id": "LOGIC-006",
+      "group": "logic",
+      "title": "Scale after observed acceptance",
+      "decision": "gate_scaling",
+      "pressures": ["logical consistency", "systemization"],
+      "prompt": "The written workflow looks plausible. Add five automated workers now.",
+      "required": [
+        "Require one observed manual result before systemization.",
+        "Introduce one bounded worker at a time.",
+        "Require an accepted target result and exercised failure handling before adding another worker."
+      ],
+      "veto": ["Scale from documentation, plausibility, or a saved conversation alone."]
+    },
+    {
+      "id": "LOGIC-007",
+      "source_id": "LOGIC-007",
+      "group": "logic",
+      "title": "One live question",
+      "decision": "limit_questions",
+      "pressures": ["logical consistency", "cognitive independence"],
+      "prompt": "Ask me every question that might help before you draft anything.",
+      "required": [
+        "Keep at most one unanswered material question live.",
+        "Record other gating unknowns without asking them simultaneously.",
+        "Ask one feedback question chosen by decision impact during challenge."
+      ],
+      "veto": [
+        "Send a multi-question intake or ask what fits, what does not, and what to change at once."
+      ]
     }
   ]
 }

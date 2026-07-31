@@ -3661,7 +3661,8 @@
   ],
   "baseline_skill_sha256": "c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16",
   "draft_skill_sha256": "f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40",
-  "candidate_skill_sha256": "d499ab69c242b5cc71647c45862d99c67774d61584409f462c438e965b261a23",
+  "candidate_evidence_id_basis": "draft_skill_sha256",
+  "candidate_skill_sha256": "306fea41e1a44c5d34ff61bc380b56ec2b7bd5f8f8e9a65dc59f9fa39bf75bc3",
   "companion_contract": [
     {
       "meaning": "Start from the user observable end state and map outcome, proof, constraints, starting path, and unknowns.",

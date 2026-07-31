@@ -4,6 +4,7 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Corrected `prime-vector` at `metadata.version: "0.2.1"`: workflow states and response statuses are now distinct, strategy selection compares explicit criteria and alternatives, human and agent action claims route to their evidence owners, accepted uncertainty no longer masquerades as proof, scaling waits for observed acceptance and failure handling, worked examples no longer claim missing writes or request contradictory questionnaires, and lineage plus dual-format evals have regression coverage.
 - Refocused `prime-vector` at `metadata.version: "0.2.0"` on the 25 source-traced video learnings, ordered `starting-point`, `always-current-date`, and `outcome-bounded-work` bindings, one deterministic strategy state machine, and explicit authorized-loss evidence for removed profile-generic behavior.
 - Added the `prime-vector` Agent Skill at `metadata.version: "0.1.0"` with a self-contained strategy loop, 22 behavior cases, all 25 material video-learning clusters classified, complete nonblank-line coverage, and a byte-exact source packet under `evidence/ports/`.
 - Updated Python plugin, skills.sh, Aider, package, and repository discovery routes for `prime-vector`.

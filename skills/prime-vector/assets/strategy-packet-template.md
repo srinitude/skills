@@ -3,6 +3,7 @@
 ## Status and anchor
 
 - Status: `QUESTION | DRAFT | TEST | DONE | BLOCKED`
+- Workflow state: `FRAME | DRAFT | CHALLENGE | TEST | DECIDE`
 - Date and timezone:
 - Source of current time:
 
@@ -43,8 +44,11 @@
 
 ## Strategy
 
-- Selected route:
-- Why this route:
+- Decision criteria in precedence order:
+- Selected strategy:
+- Status quo:
+- Viable or rejected alternative:
+- Selection reason:
 - Weakest assumption:
 - Strongest counterargument:
 - Likely failure mode:
@@ -53,15 +57,21 @@
 ## Test
 
 - Smallest reversible action:
+- Evidence owner or local fallback:
+- Actor, population, or representative task set:
+- Comparator and denominator:
 - Visible behavior:
-- Observation window:
-- Success threshold:
+- Observation window and trial count:
+- Success threshold and external readback:
+- Permission boundary:
 - Stop condition:
+- Rollback:
 - Update rule:
 
 ## Result
 
 - Evidence obtained:
+- Decision basis: proof threshold met | named residual uncertainty accepted
 - Remaining uncertainty:
 - Test or next reversible action:
 - User decision:

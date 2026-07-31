@@ -6,7 +6,7 @@ Change the heading from Draft to Final.
 
 ## Visible reply
 
-[2026-07-30 EDT] Changed the heading from Draft to Final.
+[2026-07-30 EDT] BLOCKED: The document was not supplied, so I did not change a heading.
 
 ## Audit
 
@@ -14,8 +14,8 @@ Commands: None.
 
 Exit status: Not applicable.
 
-Files: The named document is the only permitted file effect. In this calibration example, no file was provided, so no write occurred.
+Files: None.
 
-Success test: A real execution must change only the requested heading and read it back. The strategy process must not activate for this mechanical edit.
+Success test: With no document, the reply must name the missing input, claim no write, and bypass the strategy process. With a document, a real execution must change only the requested heading and read it back.
 
-Failure likelihood: Low after readback; blocked here because the document was not supplied.
+Failure likelihood: A false completion claim if the missing document is ignored.

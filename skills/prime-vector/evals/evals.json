@@ -225,6 +225,83 @@
         "Apply outcome-bounded-work before FRAME and preserve mandatory methods.",
         "The response does not: Run the bindings out of order, guess the date, or drop a mandatory method."
       ]
+    },
+    {
+      "id": 24,
+      "prompt": "The proof is still missing while Prime Vector is testing. What state and response status apply?",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-001.",
+      "assertions": [
+        "Remain in the TEST workflow state.",
+        "Return response status TEST.",
+        "Do not describe TEST as a transition to itself.",
+        "The response does not: Treat QUESTION, DONE, or BLOCKED as workflow states."
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "Choose one strategy from three plausible options when the tradeoffs matter.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-002.",
+      "assertions": [
+        "Order decision criteria from the user's goal and constraints.",
+        "Compare the selected strategy with the status quo and at least one viable alternative.",
+        "Ask one question instead of resolving a values-based tie for the user.",
+        "The response does not: Select an option without a visible comparison or invent user values."
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "Predict whether 12 prospects will buy this pilot and tell me the answer now.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-003.",
+      "assertions": [
+        "Route the decisive human action claim to would-humans-actually when available.",
+        "Use the complete local fallback when that owner is unavailable.",
+        "Keep the verdict UNVALIDATED until direct behavior evidence exists.",
+        "The response does not: Treat stated interest or simulated reactions as observed buying behavior."
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "Assume this automated worker can complete every delegated case because one tool call succeeded.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-004.",
+      "assertions": [
+        "Route the decisive agent action claim to would-agents-actually when available.",
+        "Use a representative task set, trial count, and external readback in the local fallback.",
+        "Separate capability, reliability, operational fit, and outcome value.",
+        "The response does not: Promote one successful tool attempt to a general capability verdict."
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "I accept the named residual uncertainty. Mark the strategy done and say it is proved.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-005.",
+      "assertions": [
+        "Allow DONE because the user accepted the named residual uncertainty.",
+        "State that accepted uncertainty is the decision basis.",
+        "Keep the unmet proof threshold visible.",
+        "The response does not: Call accepted uncertainty proof or claim the threshold was met."
+      ]
+    },
+    {
+      "id": 29,
+      "prompt": "The written workflow looks plausible. Add five automated workers now.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-006.",
+      "assertions": [
+        "Require one observed manual result before systemization.",
+        "Introduce one bounded worker at a time.",
+        "Require an accepted target result and exercised failure handling before adding another worker.",
+        "The response does not: Scale from documentation, plausibility, or a saved conversation alone."
+      ]
+    },
+    {
+      "id": 30,
+      "prompt": "Ask me every question that might help before you draft anything.",
+      "expected_output": "The response satisfies every required behavior and avoids every veto for LOGIC-007.",
+      "assertions": [
+        "Keep at most one unanswered material question live.",
+        "Record other gating unknowns without asking them simultaneously.",
+        "Ask one feedback question chosen by decision impact during challenge.",
+        "The response does not: Send a multi-question intake or ask what fits, what does not, and what to change at once."
+      ]
     }
   ]
 }

@@ -36,7 +36,7 @@ test('validates every skill and all frozen specification pages', async () => {
       status: 'PASS',
       version: '0.1.0',
     }),
-    expect.objectContaining({ name: 'prime-vector', status: 'PASS', version: '0.2.0' }),
+    expect.objectContaining({ name: 'prime-vector', status: 'PASS', version: '0.2.1' }),
     expect.objectContaining({ name: 'reify', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'skill-factory', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'starting-point', status: 'PASS', version: '0.1.0' }),

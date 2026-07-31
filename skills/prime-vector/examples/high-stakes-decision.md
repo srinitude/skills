@@ -2,31 +2,35 @@
 
 ## User
 
-Our enterprise pilot has three possible customer segments. Pick one strategy. I have two weeks and cannot change pricing.
+I need three paid pilots within two weeks without a broad launch. Enterprise finance has eight reachable budget owners, but purchases need four stakeholders and usually take 60 days. Design agencies have 20 consenting owner-operators I can reach, six asked about this problem in the last month, and each can buy a $500 pilot. Solo consultants give me 35 reachable contacts but no paid-demand signal and support a lower price. I can contact only this consenting list. Pick one strategy and give me the smallest valid test.
 
 ## Visible reply
 
-[2026-07-30 EDT] TEST: Select the segment with the shortest path to a permitted, observable buying action, not the segment with the largest stated market.
+[2026-07-30 EDT] TEST: Test one $500 paid pilot with design agencies. This is a test target, not a demand verdict.
 
-Goal: Produce enough qualified buying evidence in two weeks to decide whether the pilot should continue.
+Goal: Prove at least three paid pilots by 2026-08-13 without contacting anyone outside the consenting list.
 
-Frozen contract: Pricing stays fixed. Existing consent and data rules stay in force. No segment is treated as committed until a real buyer acts. Segment selection is a candidate path that may change when buying evidence changes.
+Proof: At least 3 of 12 eligible design-agency owner-operators complete the same $500 paid-pilot purchase within 14 days of first contact.
 
-Context needed: For each segment, provide current access, number of reachable buyers, prior replies, sales-cycle length, required approvals, and any observed paid or signed action. Rough notes are fine.
+Frozen contract: Two weeks, no broad launch, one segment, one fixed price, paid action rather than stated interest, voluntary contact only, and no hidden manipulation.
 
-Role: I will act as a skeptical go-to-market reviewer. I may challenge segment fit and evidence quality. I may not invent buyer intent or recommend deceptive outreach.
+Decision criteria: In order, ability to buy within two weeks, recent observed demand signal, reachable consenting denominator, and value per pilot.
 
-Strategy: Rank the segments by reachable qualified buyers, time to decision, permission to contact, and strength of prior behavior. Run the same small offer to the top two only if the first segment cannot produce enough observations within five business days.
+Status quo: Contacting all three segments would mix different buying paths and would not prove which segment generated the result.
 
-Challenge: A short sales cycle may reflect low contract value or weak commitment rather than strong fit.
+Strategy: Test one offer, one price, and one result with design agencies.
 
-Evidence: The current ranking is conditional because no observed conversion data was supplied.
+Rejected alternative: Enterprise finance cannot complete its supplied 60-day buying path inside the proof window. Solo consultants have more reachable contacts but no supplied paid-demand signal and a lower-value purchase.
 
-Test or next action: Define one buyer action that costs real effort, such as scheduling a decision meeting with the budget owner. Stop a segment after the agreed outreach count if no qualified buyer takes that action.
+Challenge: The six recent questions may reflect easy access rather than repeatable willingness to pay. The smallest overturning fact is a competing segment with at least 12 consenting buyers who can complete the same paid action inside 14 days.
 
-Remaining uncertainty: Which segment has the highest observed conversion from permitted outreach to the decision action.
+Evidence: The segment facts are user-supplied observations. No buying-behavior verdict exists yet. Apply `would-humans-actually` if available; otherwise keep the verdict `UNVALIDATED` until payment records provide external readback.
 
-User decision: Approve the test definition and outreach limit before execution.
+Smallest test: Invite 12 consenting design-agency owner-operators through the permitted channel. Use one offer, one $500 price, and one result. Pass at 3 paid completions within 14 days of first contact. Stop for complaints, permission failures, delivery risk, or scope beyond the frozen contract. If below threshold, compare the eligible denominator, objections, and paid versus unpaid traces before changing the segment or offer.
+
+Decision basis: Status `TEST`. The selection is provisional and the proof threshold is not met.
+
+User decision: Approve, change, or reject the segment, offer, and threshold before outreach.
 
 ## Audit
 
@@ -36,6 +40,6 @@ Exit status: Not applicable.
 
 Files: None.
 
-Success test: The reply selects a decision rule, preserves pricing and consent limits, separates intent from behavior, and proposes a reversible test.
+Success test: The reply uses supplied evidence, ordered criteria, the status quo, one rejected alternative, one challenged assumption, one human-action test with a denominator and threshold, one stop rule, and the user as decision owner.
 
-Failure likelihood: Low if the segment evidence is supplied; medium until then because the initial ranking remains conditional.
+Failure likelihood: Medium until paid completions are observed because recent questions may not convert.

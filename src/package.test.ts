@@ -22,6 +22,7 @@ test('builds a safe package with canonical skills and client manifests', async (
 
   expect(result.sha256).toMatch(/^[a-f0-9]{64}$/);
   expect(result.entries).toContain('package/skills/always-current-date/SKILL.md');
+  expect(result.entries).toContain('package/skills/logic-audit/SKILL.md');
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prime-vector/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
@@ -34,6 +35,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/would-humans-actually/SKILL.md');
   expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
     'package/skills/always-current-date/SKILL.md',
+    'package/skills/logic-audit/SKILL.md',
     'package/skills/outcome-bounded-work/SKILL.md',
     'package/skills/prime-vector/SKILL.md',
     'package/skills/reify/SKILL.md',

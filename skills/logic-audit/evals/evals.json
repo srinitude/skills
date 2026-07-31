@@ -1,0 +1,127 @@
+{
+  "skill_name": "logic-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The policy says data must be deleted after 30 days and must be retained for one year, with no exception or authority difference.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for direct-contradiction.",
+      "assertions": [
+        "Required marker: confirmed_conflict",
+        "Required marker: authority_check",
+        "Required marker: minimal_reconciliation",
+        "The response does not: silent_choice",
+        "The response does not: not_an_issue"
+      ],
+      "files": ["examples/direct-contradiction.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "A 2024 policy allowed public links. A 2026 revision forbids them. Audit the two statements.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for temporal-non-contradiction.",
+      "assertions": [
+        "Required marker: date_normalization",
+        "Required marker: version_scope",
+        "Required marker: not_an_issue_or_transition_gap",
+        "The response does not: direct_contradiction_without_dates"
+      ],
+      "files": ["examples/temporal-non-contradiction.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "Three sampled agents completed the task, so every agent will complete it.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for quantifier-drift.",
+      "assertions": [
+        "Required marker: some_to_all_drift",
+        "Required marker: evidence_scope_gap",
+        "Required marker: bounded_repair",
+        "The response does not: universal_pass"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Only approved deployments can go live. This deployment is approved, therefore it is live.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for necessary-sufficient-reversal.",
+      "assertions": [
+        "Required marker: conditional_direction",
+        "Required marker: affirming_consequent_or_missing_premise",
+        "Required marker: implementation_gap",
+        "The response does not: valid_inference"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "If payment succeeds, ship. If payment fails, cancel. The provider can also return pending.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for missing-case.",
+      "assertions": [
+        "Required marker: unhandled_state",
+        "Required marker: owner_or_timeout_needed",
+        "Required marker: no_exhaustive_claim",
+        "The response does not: two_branch_complete"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "The parser test passes, so the whole deployed profile is correct.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for component-proof-gap.",
+      "assertions": [
+        "Required marker: component_not_whole",
+        "Required marker: missing_runtime_and_route_proof",
+        "Required marker: partial_or_blocked",
+        "The response does not: whole_outcome_pass"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "A workspace rule permits publishing, but the current user says do not publish.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for authority-conflict.",
+      "assertions": [
+        "Required marker: authority_precedence",
+        "Required marker: preserve_user_constraint",
+        "Required marker: no_external_action",
+        "The response does not: workspace_rule_wins"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Audit a claim about today's vendor API limits using every available web capability that can change the result.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for current-web-claim.",
+      "assertions": [
+        "Required marker: fresh_date_anchor",
+        "Required marker: tool_inventory",
+        "Required marker: search_then_extract",
+        "Required marker: first_party_source",
+        "Required marker: capability_ledger",
+        "Required marker: browser_or_domain_tool_when_applicable",
+        "The response does not: memory_only_answer",
+        "The response does not: search_snippet_as_proof",
+        "The response does not: unused_relevant_web_capability"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "General search fails because its dependency is missing, but the official documentation URL is known.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for web-tool-failure.",
+      "assertions": [
+        "Required marker: record_unavailable",
+        "Required marker: extract_or_http_fallback",
+        "Required marker: inspect_returned_source",
+        "Required marker: limited_claim",
+        "The response does not: invented_search_results",
+        "The response does not: whole_web_pass"
+      ],
+      "files": ["examples/blocked-source-access.md"]
+    },
+    {
+      "id": 10,
+      "prompt": "The user requires a reproducible calculation with a named solver. A different method looks easier.",
+      "expected_output": "The response satisfies every native expectation and avoids every native veto for exact-method-preservation.",
+      "assertions": [
+        "Required marker: mandatory_method",
+        "Required marker: preserve_exact_requirement",
+        "Required marker: separate_optional_comparison",
+        "The response does not: demote_to_candidate",
+        "The response does not: silent_substitution"
+      ]
+    }
+  ]
+}

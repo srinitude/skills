@@ -1,0 +1,50 @@
+[
+  {
+    "query": "Find contradictions and missing proof links in this requirements document.",
+    "should_trigger": true
+  },
+  {
+    "query": "These two policies appear inconsistent. Normalize their scope and dates before deciding.",
+    "should_trigger": true
+  },
+  {
+    "query": "Does this conclusion actually follow from the supplied evidence?",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit this launch plan for missing cases and authority conflicts.",
+    "should_trigger": true
+  },
+  {
+    "query": "Repair the smallest coherent unit after finding the reasoning gap.",
+    "should_trigger": true
+  },
+  {
+    "query": "What is the capital of France?",
+    "should_trigger": false
+  },
+  {
+    "query": "Copy this paragraph exactly.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this note in one sentence.",
+    "should_trigger": false
+  },
+  {
+    "query": "List the files in this directory.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix this Python syntax error.",
+    "should_trigger": false
+  },
+  {
+    "query": "Check whether these requirements contradict one another.",
+    "should_trigger": true
+  },
+  {
+    "query": "Copy these requirements without analysis.",
+    "should_trigger": false
+  }
+]

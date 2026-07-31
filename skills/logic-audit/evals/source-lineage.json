@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384",
+  "active_case_ids": [
+    "NLA-001",
+    "NLA-002",
+    "NLA-003",
+    "NLA-004",
+    "NLA-005",
+    "NLA-006",
+    "NLA-007",
+    "NLA-008",
+    "NLA-009",
+    "NLA-010"
+  ],
+  "native_version": "1.0.1",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "2454abc677c73b8ba0fff6932a6301dedeeda36538957d0bf40fe84d74891bbb"
+    },
+    {
+      "path": "references/check-catalog.md",
+      "sha256": "e9a7fe8dfa4f145fb61d3e82117bf3406d5cd95fd1ee95b774b35406b8b3360f"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "456c3019f38b2009aba52125efb7036ead79f382ec91c10262218a16d4d82af8"
+    }
+  ],
+  "source_case_ids": [
+    "NLA-001",
+    "NLA-002",
+    "NLA-003",
+    "NLA-004",
+    "NLA-005",
+    "NLA-006",
+    "NLA-007",
+    "NLA-008",
+    "NLA-009",
+    "NLA-010"
+  ],
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/check-catalog.md",
+      "source_paths": ["references/check-catalog.md"]
+    },
+    {
+      "path": "references/eval-cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "assets/finding-ledger-template.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "examples/direct-contradiction.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "examples/temporal-non-contradiction.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "examples/blocked-source-access.md",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/source-lineage.json",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": [
+        "SKILL.md",
+        "references/check-catalog.md",
+        "references/eval-cases.json"
+      ]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["references/eval-cases.json"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_source_mapping.py",
+      "source_paths": ["SKILL.md"]
+    }
+  ]
+}

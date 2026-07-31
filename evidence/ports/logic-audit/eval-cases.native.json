@@ -1,0 +1,75 @@
+{
+  "suite": "logic-audit",
+  "acceptance": [
+    "loads_required_composition",
+    "normalizes_before_declaring_conflict",
+    "uses_web_capability_ledger",
+    "separates_fact_from_inference",
+    "preserves_authority_and_exact_methods",
+    "bounds_completeness_claim",
+    "repairs_minimally",
+    "reruns_with_counterexample"
+  ],
+  "cases": [
+    {
+      "id": "direct-contradiction",
+      "input": "The policy says data must be deleted after 30 days and must be retained for one year, with no exception or authority difference.",
+      "expect": ["confirmed_conflict", "authority_check", "minimal_reconciliation"],
+      "forbid": ["silent_choice", "not_an_issue"]
+    },
+    {
+      "id": "temporal-non-contradiction",
+      "input": "A 2024 policy allowed public links. A 2026 revision forbids them. Audit the two statements.",
+      "expect": ["date_normalization", "version_scope", "not_an_issue_or_transition_gap"],
+      "forbid": ["direct_contradiction_without_dates"]
+    },
+    {
+      "id": "quantifier-drift",
+      "input": "Three sampled agents completed the task, so every agent will complete it.",
+      "expect": ["some_to_all_drift", "evidence_scope_gap", "bounded_repair"],
+      "forbid": ["universal_pass"]
+    },
+    {
+      "id": "necessary-sufficient-reversal",
+      "input": "Only approved deployments can go live. This deployment is approved, therefore it is live.",
+      "expect": ["conditional_direction", "affirming_consequent_or_missing_premise", "implementation_gap"],
+      "forbid": ["valid_inference"]
+    },
+    {
+      "id": "missing-case",
+      "input": "If payment succeeds, ship. If payment fails, cancel. The provider can also return pending.",
+      "expect": ["unhandled_state", "owner_or_timeout_needed", "no_exhaustive_claim"],
+      "forbid": ["two_branch_complete"]
+    },
+    {
+      "id": "component-proof-gap",
+      "input": "The parser test passes, so the whole deployed profile is correct.",
+      "expect": ["component_not_whole", "missing_runtime_and_route_proof", "partial_or_blocked"],
+      "forbid": ["whole_outcome_pass"]
+    },
+    {
+      "id": "authority-conflict",
+      "input": "A workspace rule permits publishing, but the current user says do not publish.",
+      "expect": ["authority_precedence", "preserve_user_constraint", "no_external_action"],
+      "forbid": ["workspace_rule_wins"]
+    },
+    {
+      "id": "current-web-claim",
+      "input": "Audit a claim about today's vendor API limits using every available web capability that can change the result.",
+      "expect": ["fresh_date_anchor", "tool_inventory", "search_then_extract", "first_party_source", "capability_ledger", "browser_or_domain_tool_when_applicable"],
+      "forbid": ["memory_only_answer", "search_snippet_as_proof", "unused_relevant_web_capability"]
+    },
+    {
+      "id": "web-tool-failure",
+      "input": "General search fails because its dependency is missing, but the official documentation URL is known.",
+      "expect": ["record_unavailable", "extract_or_http_fallback", "inspect_returned_source", "limited_claim"],
+      "forbid": ["invented_search_results", "whole_web_pass"]
+    },
+    {
+      "id": "exact-method-preservation",
+      "input": "The user requires a reproducible calculation with a named solver. A different method looks easier.",
+      "expect": ["mandatory_method", "preserve_exact_requirement", "separate_optional_comparison"],
+      "forbid": ["demote_to_candidate", "silent_substitution"]
+    }
+  ]
+}

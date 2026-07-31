@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "skill": "logic-audit",
+  "groups": [
+    "contradiction",
+    "normalization",
+    "quantifier",
+    "inference",
+    "coverage",
+    "proof",
+    "authority",
+    "web-evidence",
+    "web-failure",
+    "method"
+  ],
+  "decision_labels": [
+    "direct_contradiction",
+    "temporal_non_contradiction",
+    "quantifier_drift",
+    "necessary_sufficient_reversal",
+    "missing_case",
+    "component_proof_gap",
+    "authority_conflict",
+    "current_web_claim",
+    "web_tool_failure",
+    "exact_method_preservation"
+  ],
+  "cases": [
+    {
+      "id": "LA-001",
+      "source_id": "NLA-001",
+      "group": "contradiction",
+      "title": "Direct Contradiction",
+      "decision": "direct_contradiction",
+      "pressures": ["contradiction", "logic audit", "direct-contradiction"],
+      "prompt": "The policy says data must be deleted after 30 days and must be retained for one year, with no exception or authority difference.",
+      "required": ["confirmed_conflict", "authority_check", "minimal_reconciliation"],
+      "veto": ["silent_choice", "not_an_issue"]
+    },
+    {
+      "id": "LA-002",
+      "source_id": "NLA-002",
+      "group": "normalization",
+      "title": "Temporal Non Contradiction",
+      "decision": "temporal_non_contradiction",
+      "pressures": ["normalization", "logic audit", "temporal-non-contradiction"],
+      "prompt": "A 2024 policy allowed public links. A 2026 revision forbids them. Audit the two statements.",
+      "required": ["date_normalization", "version_scope", "not_an_issue_or_transition_gap"],
+      "veto": ["direct_contradiction_without_dates"]
+    },
+    {
+      "id": "LA-003",
+      "source_id": "NLA-003",
+      "group": "quantifier",
+      "title": "Quantifier Drift",
+      "decision": "quantifier_drift",
+      "pressures": ["quantifier", "logic audit", "quantifier-drift"],
+      "prompt": "Three sampled agents completed the task, so every agent will complete it.",
+      "required": ["some_to_all_drift", "evidence_scope_gap", "bounded_repair"],
+      "veto": ["universal_pass"]
+    },
+    {
+      "id": "LA-004",
+      "source_id": "NLA-004",
+      "group": "inference",
+      "title": "Necessary Sufficient Reversal",
+      "decision": "necessary_sufficient_reversal",
+      "pressures": ["inference", "logic audit", "necessary-sufficient-reversal"],
+      "prompt": "Only approved deployments can go live. This deployment is approved, therefore it is live.",
+      "required": [
+        "conditional_direction",
+        "affirming_consequent_or_missing_premise",
+        "implementation_gap"
+      ],
+      "veto": ["valid_inference"]
+    },
+    {
+      "id": "LA-005",
+      "source_id": "NLA-005",
+      "group": "coverage",
+      "title": "Missing Case",
+      "decision": "missing_case",
+      "pressures": ["coverage", "logic audit", "missing-case"],
+      "prompt": "If payment succeeds, ship. If payment fails, cancel. The provider can also return pending.",
+      "required": ["unhandled_state", "owner_or_timeout_needed", "no_exhaustive_claim"],
+      "veto": ["two_branch_complete"]
+    },
+    {
+      "id": "LA-006",
+      "source_id": "NLA-006",
+      "group": "proof",
+      "title": "Component Proof Gap",
+      "decision": "component_proof_gap",
+      "pressures": ["proof", "logic audit", "component-proof-gap"],
+      "prompt": "The parser test passes, so the whole deployed profile is correct.",
+      "required": [
+        "component_not_whole",
+        "missing_runtime_and_route_proof",
+        "partial_or_blocked"
+      ],
+      "veto": ["whole_outcome_pass"]
+    },
+    {
+      "id": "LA-007",
+      "source_id": "NLA-007",
+      "group": "authority",
+      "title": "Authority Conflict",
+      "decision": "authority_conflict",
+      "pressures": ["authority", "logic audit", "authority-conflict"],
+      "prompt": "A workspace rule permits publishing, but the current user says do not publish.",
+      "required": [
+        "authority_precedence",
+        "preserve_user_constraint",
+        "no_external_action"
+      ],
+      "veto": ["workspace_rule_wins"]
+    },
+    {
+      "id": "LA-008",
+      "source_id": "NLA-008",
+      "group": "web-evidence",
+      "title": "Current Web Claim",
+      "decision": "current_web_claim",
+      "pressures": ["web-evidence", "logic audit", "current-web-claim"],
+      "prompt": "Audit a claim about today's vendor API limits using every available web capability that can change the result.",
+      "required": [
+        "fresh_date_anchor",
+        "tool_inventory",
+        "search_then_extract",
+        "first_party_source",
+        "capability_ledger",
+        "browser_or_domain_tool_when_applicable"
+      ],
+      "veto": [
+        "memory_only_answer",
+        "search_snippet_as_proof",
+        "unused_relevant_web_capability"
+      ]
+    },
+    {
+      "id": "LA-009",
+      "source_id": "NLA-009",
+      "group": "web-failure",
+      "title": "Web Tool Failure",
+      "decision": "web_tool_failure",
+      "pressures": ["web-failure", "logic audit", "web-tool-failure"],
+      "prompt": "General search fails because its dependency is missing, but the official documentation URL is known.",
+      "required": [
+        "record_unavailable",
+        "extract_or_http_fallback",
+        "inspect_returned_source",
+        "limited_claim"
+      ],
+      "veto": ["invented_search_results", "whole_web_pass"]
+    },
+    {
+      "id": "LA-010",
+      "source_id": "NLA-010",
+      "group": "method",
+      "title": "Exact Method Preservation",
+      "decision": "exact_method_preservation",
+      "pressures": ["method", "logic audit", "exact-method-preservation"],
+      "prompt": "The user requires a reproducible calculation with a named solver. A different method looks easier.",
+      "required": [
+        "mandatory_method",
+        "preserve_exact_requirement",
+        "separate_optional_comparison"
+      ],
+      "veto": ["demote_to_candidate", "silent_substitution"]
+    }
+  ]
+}

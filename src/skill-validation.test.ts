@@ -20,6 +20,20 @@ test('validates the public always-current-date release and native lineage', asyn
   });
 });
 
+test('validates the public logic-audit release and native lineage', async () => {
+  const report = await validateSkill(root, 'logic-audit');
+
+  expect(report).toEqual({
+    caseCount: 10,
+    errors: [],
+    manifestSha256: 'f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384',
+    name: 'logic-audit',
+    skillPath: join('skills', 'logic-audit', 'SKILL.md'),
+    status: 'PASS',
+    version: '0.1.0',
+  });
+});
+
 test('validates the public outcome-bounded-work release and native lineage', async () => {
   const report = await validateSkill(root, 'outcome-bounded-work');
 

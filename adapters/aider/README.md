@@ -4,6 +4,7 @@ Read a canonical [`SKILL.md`](../../skills/always-current-date/SKILL.md) by abso
 
 ```sh
 aider --read /absolute/path/to/skills/skills/always-current-date/SKILL.md
+aider --read /absolute/path/to/skills/skills/logic-audit/SKILL.md
 aider --read /absolute/path/to/skills/skills/outcome-bounded-work/SKILL.md
 aider --read /absolute/path/to/skills/skills/prime-vector/SKILL.md
 aider --read /absolute/path/to/skills/skills/reify/SKILL.md

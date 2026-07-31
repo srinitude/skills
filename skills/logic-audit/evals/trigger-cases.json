@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "skill": "logic-audit",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Find contradictions and missing proof links in this requirements document.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "These two policies appear inconsistent. Normalize their scope and dates before deciding.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Does this conclusion actually follow from the supplied evidence?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Audit this launch plan for missing cases and authority conflicts.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "Repair the smallest coherent unit after finding the reasoning gap.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "What is the capital of France?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Copy this paragraph exactly.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Summarize this note in one sentence.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "hard_negative",
+      "prompt": "List the files in this directory.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "hard_negative",
+      "prompt": "Fix this Python syntax error.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-011",
+      "kind": "near_neighbor",
+      "prompt": "Check whether these requirements contradict one another.",
+      "should_trigger": true,
+      "pair_id": "audit-vs-copy"
+    },
+    {
+      "id": "TR-012",
+      "kind": "near_neighbor",
+      "prompt": "Copy these requirements without analysis.",
+      "should_trigger": false,
+      "pair_id": "audit-vs-copy"
+    }
+  ]
+}

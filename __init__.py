@@ -6,6 +6,10 @@ _SKILLS = (
         "Use when replying. Refresh date through starting-point.",
     ),
     (
+        "logic-audit",
+        "Use when finding contradictions or reasoning gaps.",
+    ),
+    (
         "outcome-bounded-work",
         "Use when instructions mix outcomes with recipes.",
     ),

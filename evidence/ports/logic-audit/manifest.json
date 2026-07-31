@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "skill": "logic-audit",
+  "source_category": "reasoning",
+  "source_version": "1.0.1",
+  "source_profile": "default",
+  "installed_hermes_commit": "f3cda0ceb18d8ba7465a6d223098ef0e56c8fee1",
+  "source_manifest_sha256": "f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384",
+  "manifest_algorithm": "SHA-256 of ordered source_path NUL sha256 NUL byte_count LF records",
+  "source_case_ids": [
+    "direct-contradiction",
+    "temporal-non-contradiction",
+    "quantifier-drift",
+    "necessary-sufficient-reversal",
+    "missing-case",
+    "component-proof-gap",
+    "authority-conflict",
+    "current-web-claim",
+    "web-tool-failure",
+    "exact-method-preservation"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "SKILL.native.md",
+      "bytes": 9122,
+      "lines": 136,
+      "nonblank_lines": 100,
+      "sha256": "2454abc677c73b8ba0fff6932a6301dedeeda36538957d0bf40fe84d74891bbb"
+    },
+    {
+      "source_path": "references/check-catalog.md",
+      "evidence_path": "check-catalog.native.md",
+      "bytes": 6207,
+      "lines": 76,
+      "nonblank_lines": 65,
+      "sha256": "e9a7fe8dfa4f145fb61d3e82117bf3406d5cd95fd1ee95b774b35406b8b3360f"
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "evidence_path": "eval-cases.native.json",
+      "bytes": 3491,
+      "lines": 75,
+      "nonblank_lines": 75,
+      "sha256": "456c3019f38b2009aba52125efb7036ead79f382ec91c10262218a16d4d82af8"
+    }
+  ],
+  "excluded_entries": []
+}

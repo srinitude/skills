@@ -91,6 +91,11 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
       path: resolve(root, 'skills', 'always-current-date', 'SKILL.md'),
     },
     {
+      description: 'Use when finding contradictions or reasoning gaps.',
+      name: 'logic-audit',
+      path: resolve(root, 'skills', 'logic-audit', 'SKILL.md'),
+    },
+    {
       description: 'Use when instructions mix outcomes with recipes.',
       name: 'outcome-bounded-work',
       path: resolve(root, 'skills', 'outcome-bounded-work', 'SKILL.md'),

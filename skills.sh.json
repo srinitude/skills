@@ -18,6 +18,10 @@
       "skills": ["outcome-bounded-work", "prime-vector", "starting-point"]
     },
     {
+      "title": "Reasoning",
+      "skills": ["logic-audit"]
+    },
+    {
       "title": "Skill Authoring",
       "skills": ["skill-factory"]
     },

@@ -27,20 +27,27 @@ export const casesSchema = z
   })
   .strict();
 
-const testClassesSchema = z.tuple([
-  z.literal('positive_activation'),
-  z.literal('rejection'),
-  z.literal('behavior'),
-  z.literal('failure_handling'),
-  z.literal('recovery'),
-  z.literal('speed'),
-]);
+const testClassesSchema = z
+  .tuple([
+    z.literal('positive_activation'),
+    z.literal('rejection'),
+    z.literal('behavior'),
+    z.literal('failure_handling'),
+    z.literal('recovery'),
+    z.literal('speed'),
+  ])
+  .rest(z.string().min(1));
 
 export const evalManifestSchema = z
   .object({
     case_source: z.literal('cases.json'),
     conditions: z.tuple([z.literal('with_skill'), z.literal('without_skill')]),
+    centrality_mapping: z.literal('centrality-mapping.json').optional(),
     contract: z.literal('contract.md'),
+    public_version: z
+      .string()
+      .regex(/^\d+\.\d+\.\d+$/)
+      .optional(),
     repetitions: z.literal(2),
     rubric: z.literal('rubric.md'),
     schema_version: z.literal(1),
@@ -48,6 +55,7 @@ export const evalManifestSchema = z
     speed_budgets: z.literal('speed-budgets.json'),
     test_classes: testClassesSchema,
     trigger_source: z.literal('trigger-cases.json'),
+    video_learning_map: z.literal('video-learning-map.json').optional(),
   })
   .strict();
 

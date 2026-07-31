@@ -1,0 +1,4105 @@
+{
+  "allowed_loss": {
+    "approval_source": "direct user instruction on 2026-07-31",
+    "forbidden": "no central video learning, companion-skill invariant, source evidence, package proof, or trigger boundary may be removed",
+    "scope": "runtime instructions not central to the 25 mapped video clusters, the three required companion contracts, trigger correctness, or portable safety needed by a retained video behavior"
+  },
+  "approved_drop_count": 20,
+  "baseline_rules": [
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "name: prime-vector",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "name: prime-vector",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-001",
+      "source_path": "SKILL.md",
+      "source_span": "line 2",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "description: 'Use when a high-stakes problem needs a strategy.'",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "description: 'Use when a high-stakes problem needs a strategy.'",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-002",
+      "source_path": "SKILL.md",
+      "source_span": "line 3",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "license: MIT",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "license: MIT",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-003",
+      "source_path": "SKILL.md",
+      "source_span": "line 4",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "metadata:",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "metadata:",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-004",
+      "source_path": "SKILL.md",
+      "source_span": "line 5",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "version: '0.1.0'",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "version: '0.1.0'",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-005",
+      "source_path": "SKILL.md",
+      "source_span": "line 6",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "keep",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: frontmatter",
+      "conditions": "as stated in source",
+      "exact_source_text": "author: 'Kiren Srinivasan'",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "author: 'Kiren Srinivasan'",
+      "observable_behavior_or_transition": "Frontmatter",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-006",
+      "source_path": "SKILL.md",
+      "source_span": "line 7",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: introductory boundary",
+      "conditions": "as stated in source",
+      "exact_source_text": "Prime Vector turns a hard, high-stakes, or ambiguous problem into a challenged strategy and a proved next action.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Prime Vector turns a hard, high-stakes, or ambiguous problem into a challenged strategy and a proved next action.",
+      "observable_behavior_or_transition": "Prime Vector",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-007",
+      "source_path": "SKILL.md",
+      "source_span": "line 12",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: introductory boundary",
+      "conditions": "as stated in source",
+      "exact_source_text": "It is a thinking partner, not a lookup shortcut or a substitute for the user's judgment.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "It is a thinking partner, not a lookup shortcut or a substitute for the user's judgment.",
+      "observable_behavior_or_transition": "Prime Vector",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-008",
+      "source_path": "SKILL.md",
+      "source_span": "line 12",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: introductory boundary",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use it for strategic choices, unclear goals, disputed assumptions, stakeholder behavior, workflow redesign, or repeatable execution that could cause material benefit or harm.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use it for strategic choices, unclear goals, disputed assumptions, stakeholder behavior, workflow redesign, or repeatable execution that could cause material benefit or harm.",
+      "observable_behavior_or_transition": "Prime Vector",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-009",
+      "source_path": "SKILL.md",
+      "source_span": "line 14",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: introductory boundary",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not trigger it for a simple fact, mechanical edit, casual exchange, or single obvious action unless the user asks for strategic analysis.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not trigger it for a simple fact, mechanical edit, casual exchange, or single obvious action unless the user asks for strategic analysis.",
+      "observable_behavior_or_transition": "Prime Vector",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-010",
+      "source_path": "SKILL.md",
+      "source_span": "line 14",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "1.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "1.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-011",
+      "source_path": "SKILL.md",
+      "source_span": "line 18",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Restate the real goal in measurable terms.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Restate the real goal in measurable terms.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-012",
+      "source_path": "SKILL.md",
+      "source_span": "line 18",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "2.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "2.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-013",
+      "source_path": "SKILL.md",
+      "source_span": "line 19",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Separate boundaries, required evidence, and forbidden outcomes from candidate methods.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Separate boundaries, required evidence, and forbidden outcomes from candidate methods.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-014",
+      "source_path": "SKILL.md",
+      "source_span": "line 19",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "3.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "3.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-015",
+      "source_path": "SKILL.md",
+      "source_span": "line 20",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Preserve a requested method only when it is itself the deliverable or protects safety, authority, privacy, reproducibility, or valid proof.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Preserve a requested method only when it is itself the deliverable or protects safety, authority, privacy, reproducibility, or valid proof.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-016",
+      "source_path": "SKILL.md",
+      "source_span": "line 20",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "4.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "4.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-017",
+      "source_path": "SKILL.md",
+      "source_span": "line 21",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Prefer a better route only when it preserves every invariant and does not widen side effects.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Prefer a better route only when it preserves every invariant and does not widen side effects.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-018",
+      "source_path": "SKILL.md",
+      "source_span": "line 21",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "5.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "5.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-019",
+      "source_path": "SKILL.md",
+      "source_span": "line 22",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use the smallest sufficient process.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use the smallest sufficient process.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-020",
+      "source_path": "SKILL.md",
+      "source_span": "line 22",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not turn a simple request into a framework exercise.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not turn a simple request into a framework exercise.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-021",
+      "source_path": "SKILL.md",
+      "source_span": "line 22",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "6.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "6.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-022",
+      "source_path": "SKILL.md",
+      "source_span": "line 23",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "deduplicate",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Retrieve material facts before asking.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Retrieve material facts before asking.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-023",
+      "source_path": "SKILL.md",
+      "source_span": "line 23",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ask one concise question only when the answer cannot be retrieved and would change the work.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ask one concise question only when the answer cannot be retrieved and would change the work.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-024",
+      "source_path": "SKILL.md",
+      "source_span": "line 23",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "7.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "7.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-025",
+      "source_path": "SKILL.md",
+      "source_span": "line 24",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Execute safe, reversible work when the route is clear.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Execute safe, reversible work when the route is clear.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-026",
+      "source_path": "SKILL.md",
+      "source_span": "line 24",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not stop at a plan when the requested result can be produced and checked.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not stop at a plan when the requested result can be produced and checked.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-027",
+      "source_path": "SKILL.md",
+      "source_span": "line 24",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "8.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "8.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-028",
+      "source_path": "SKILL.md",
+      "source_span": "line 25",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep a live list of unresolved work for multi-step tasks.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep a live list of unresolved work for multi-step tasks.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-029",
+      "source_path": "SKILL.md",
+      "source_span": "line 25",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not send a status-only answer while eligible work remains.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not send a status-only answer while eligible work remains.",
+      "observable_behavior_or_transition": "Operating contract",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-030",
+      "source_path": "SKILL.md",
+      "source_span": "line 25",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Build capability in this order:",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Build capability in this order:",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-031",
+      "source_path": "SKILL.md",
+      "source_span": "line 29",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "1.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "1.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-032",
+      "source_path": "SKILL.md",
+      "source_span": "line 31",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Select one high-value use case.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Select one high-value use case.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-033",
+      "source_path": "SKILL.md",
+      "source_span": "line 31",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "2.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "2.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-034",
+      "source_path": "SKILL.md",
+      "source_span": "line 32",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Communicate it with CRIT: Context, Role, Interview, Task.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Communicate it with CRIT: Context, Role, Interview, Task.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-035",
+      "source_path": "SKILL.md",
+      "source_span": "line 32",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "3.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "3.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-036",
+      "source_path": "SKILL.md",
+      "source_span": "line 33",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep the user as the final thought leader through independent judgment and adversarial review.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep the user as the final thought leader through independent judgment and adversarial review.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-037",
+      "source_path": "SKILL.md",
+      "source_span": "line 33",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "4.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "4.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-038",
+      "source_path": "SKILL.md",
+      "source_span": "line 34",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Add repeatable execution only after the work is understood and manually proved, or when a low-value recurring burden has a clear result and correction path.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Add repeatable execution only after the work is understood and manually proved, or when a low-value recurring burden has a clear result and correction path.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-039",
+      "source_path": "SKILL.md",
+      "source_span": "line 34",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not skip forward because a tool is fashionable or a forecast sounds certain.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not skip forward because a tool is fashionable or a forecast sounds certain.",
+      "observable_behavior_or_transition": "Readiness order",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-040",
+      "source_path": "SKILL.md",
+      "source_span": "line 36",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Inventory the candidate work, then apply a high bar.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Inventory the candidate work, then apply a high bar.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-041",
+      "source_path": "SKILL.md",
+      "source_span": "line 40",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Choose the one problem that would unlock the most value or remove the most costly friction if solved.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Choose the one problem that would unlock the most value or remove the most costly friction if solved.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-042",
+      "source_path": "SKILL.md",
+      "source_span": "line 40",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Capture the goal, audience or destination, current state, prior attempts, alternatives considered, constraints, stakeholders, available evidence, and success measure.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Capture the goal, audience or destination, current state, prior attempts, alternatives considered, constraints, stakeholders, available evidence, and success measure.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-043",
+      "source_path": "SKILL.md",
+      "source_span": "line 40",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Name what is explicitly out of scope.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Name what is explicitly out of scope.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-044",
+      "source_path": "SKILL.md",
+      "source_span": "line 40",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Judge success with a real outcome such as revenue, profit, retention, satisfaction, quality, risk reduction, or a user-selected equivalent.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Judge success with a real outcome such as revenue, profit, retention, satisfaction, quality, risk reduction, or a user-selected equivalent.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-045",
+      "source_path": "SKILL.md",
+      "source_span": "line 42",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Time saved is supporting evidence, not the default outcome.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Time saved is supporting evidence, not the default outcome.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-046",
+      "source_path": "SKILL.md",
+      "source_span": "line 42",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Acquire one live temporal anchor before making a current-date claim or time-sensitive recommendation.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Acquire one live temporal anchor before making a current-date claim or time-sensitive recommendation.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-047",
+      "source_path": "SKILL.md",
+      "source_span": "line 44",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "Reuse it for the turn and date the visible result.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Reuse it for the turn and date the visible result.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-048",
+      "source_path": "SKILL.md",
+      "source_span": "line 44",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin",
+      "conditions": "as stated in source",
+      "exact_source_text": "If no reliable clock is available, stop the time-dependent part with `temporal-anchor-unavailable` instead of guessing.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "If no reliable clock is available, stop the time-dependent part with `temporal-anchor-unavailable` instead of guessing.",
+      "observable_behavior_or_transition": "Select the work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-049",
+      "source_path": "SKILL.md",
+      "source_span": "line 44",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Accept raw context as rough notes or dictation.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Accept raw context as rough notes or dictation.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-050",
+      "source_path": "SKILL.md",
+      "source_span": "line 48",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not make the user polish their thinking before the work starts.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not make the user polish their thinking before the work starts.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-051",
+      "source_path": "SKILL.md",
+      "source_span": "line 48",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Separate direct observations, supplied artifacts, assumptions, forecasts, anecdotes, promotional claims, and external facts.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Separate direct observations, supplied artifacts, assumptions, forecasts, anecdotes, promotional claims, and external facts.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-052",
+      "source_path": "SKILL.md",
+      "source_span": "line 48",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Preserve quoted source material as evidence while labeling what it can and cannot prove.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Preserve quoted source material as evidence while labeling what it can and cannot prove.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-053",
+      "source_path": "SKILL.md",
+      "source_span": "line 48",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ask what else materially changes the decision.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ask what else materially changes the decision.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-054",
+      "source_path": "SKILL.md",
+      "source_span": "line 50",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "More context is not automatically better.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "More context is not automatically better.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-055",
+      "source_path": "SKILL.md",
+      "source_span": "line 50",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Collect only relevant information and minimize sensitive data.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Collect only relevant information and minimize sensitive data.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-056",
+      "source_path": "SKILL.md",
+      "source_span": "line 50",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Identify unknowns.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Identify unknowns.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-057",
+      "source_path": "SKILL.md",
+      "source_span": "line 52",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Retrieve those available from approved sources, then ask only for unresolved items that affect the route or proof threshold.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Retrieve those available from approved sources, then ask only for unresolved items that affect the route or proof threshold.",
+      "observable_behavior_or_transition": "Context",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-058",
+      "source_path": "SKILL.md",
+      "source_span": "line 52",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Choose the one perspective that best fits the problem.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Choose the one perspective that best fits the problem.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-059",
+      "source_path": "SKILL.md",
+      "source_span": "line 56",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "State its expertise, objective, decision rights, allowed advice, and prohibited advice.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "State its expertise, objective, decision rights, allowed advice, and prohibited advice.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-060",
+      "source_path": "SKILL.md",
+      "source_span": "line 56",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use a challenger role to expose the weakest assumption.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use a challenger role to expose the weakest assumption.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-061",
+      "source_path": "SKILL.md",
+      "source_span": "line 58",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use a stakeholder perspective only to predict behavior that matters to the decision.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use a stakeholder perspective only to predict behavior that matters to the decision.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-062",
+      "source_path": "SKILL.md",
+      "source_span": "line 58",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "An optional advisory panel may combine distinct perspectives for separate outputs.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "An optional advisory panel may combine distinct perspectives for separate outputs.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-063",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "may",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Choose members to cover explicit capability gaps, not fame.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Choose members to cover explicit capability gaps, not fame.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-064",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "A future-state reviewer may compare the proposal with the user's stated long-term goals, but it must not predict the future.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "A future-state reviewer may compare the proposal with the user's stated long-term goals, but it must not predict the future.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-065",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Treat simulated people as hypotheses.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Treat simulated people as hypotheses.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-066",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not diagnose personality, infer sensitive traits, or use cultural stereotypes.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not diagnose personality, infer sensitive traits, or use cultural stereotypes.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-067",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ground each behavior claim in supplied observations, permitted records, or a test plan.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ground each behavior claim in supplied observations, permitted records, or a test plan.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-068",
+      "source_path": "SKILL.md",
+      "source_span": "line 60",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not add roles for theater.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not add roles for theater.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-069",
+      "source_path": "SKILL.md",
+      "source_span": "line 62",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "If several roles do not change the result, use one.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "If several roles do not change the result, use one.",
+      "observable_behavior_or_transition": "Role",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-070",
+      "source_path": "SKILL.md",
+      "source_span": "line 62",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ask one question at a time.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ask one question at a time.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-071",
+      "source_path": "SKILL.md",
+      "source_span": "line 66",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use three to five questions by default, fewer when context is sufficient, and more only when a real risk or ambiguity remains.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use three to five questions by default, fewer when context is sufficient, and more only when a real risk or ambiguity remains.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-072",
+      "source_path": "SKILL.md",
+      "source_span": "line 66",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Each question must close one material gap.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Each question must close one material gap.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-073",
+      "source_path": "SKILL.md",
+      "source_span": "line 68",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Stop when another answer would not change the strategy, action, or proof.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Stop when another answer would not change the strategy, action, or proof.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-074",
+      "source_path": "SKILL.md",
+      "source_span": "line 68",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "If the user asks for an immediate answer, produce the best safe result from known facts and label assumptions.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "If the user asks for an immediate answer, produce the best safe result from known facts and label assumptions.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-075",
+      "source_path": "SKILL.md",
+      "source_span": "line 68",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not hide behind an interview.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not hide behind an interview.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-076",
+      "source_path": "SKILL.md",
+      "source_span": "line 68",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: FRAME",
+      "conditions": "as stated in source",
+      "exact_source_text": "Treat corrections, rejection, confusion, and hesitation as evidence about the fit of the strategy.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Treat corrections, rejection, confusion, and hesitation as evidence about the fit of the strategy.",
+      "observable_behavior_or_transition": "Interview",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-077",
+      "source_path": "SKILL.md",
+      "source_span": "line 70",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Specify the action, audience, destination, output form, constraints, scope, and acceptance test.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Specify the action, audience, destination, output form, constraints, scope, and acceptance test.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-078",
+      "source_path": "SKILL.md",
+      "source_span": "line 74",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Produce a concrete first draft.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Produce a concrete first draft.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-079",
+      "source_path": "SKILL.md",
+      "source_span": "line 76",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not pretend the first answer is finished.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not pretend the first answer is finished.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-080",
+      "source_path": "SKILL.md",
+      "source_span": "line 76",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Challenge it: identify the weakest assumption, strongest counterargument, likely failure mode, missing evidence, and smallest safe test that could disprove the plan.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Challenge it: identify the weakest assumption, strongest counterargument, likely failure mode, missing evidence, and smallest safe test that could disprove the plan.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-081",
+      "source_path": "SKILL.md",
+      "source_span": "line 78",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ask the user what fits, what does not, and which change matters most.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ask the user what fits, what does not, and which change matters most.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-082",
+      "source_path": "SKILL.md",
+      "source_span": "line 80",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Revise from that evidence.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Revise from that evidence.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-083",
+      "source_path": "SKILL.md",
+      "source_span": "line 80",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not replace judgment with praise or confidence language.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not replace judgment with praise or confidence language.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-084",
+      "source_path": "SKILL.md",
+      "source_span": "line 80",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "For hard strategic work, ask for independent thinking before assistance when practical, then compare it with the proposed route.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "For hard strategic work, ask for independent thinking before assistance when practical, then compare it with the proposed route.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-085",
+      "source_path": "SKILL.md",
+      "source_span": "line 82",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Add a brief unaided reasoning check when repeated use could weaken the user's ability to solve the class of problem alone.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Add a brief unaided reasoning check when repeated use could weaken the user's ability to solve the class of problem alone.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-086",
+      "source_path": "SKILL.md",
+      "source_span": "line 82",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "For authored communication, derive style constraints from approved examples.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "For authored communication, derive style constraints from approved examples.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-087",
+      "source_path": "SKILL.md",
+      "source_span": "line 84",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: DRAFT and CHALLENGE",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use the fewest samples needed, preserve the user's voice, and keep final authorship with the user.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use the fewest samples needed, preserve the user's voice, and keep final authorship with the user.",
+      "observable_behavior_or_transition": "Task and review loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-088",
+      "source_path": "SKILL.md",
+      "source_span": "line 84",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not infer human or automated behavior from a plausible plan alone.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not infer human or automated behavior from a plausible plan alone.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-089",
+      "source_path": "SKILL.md",
+      "source_span": "line 88",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Model friction, incentives, attention, access, timing, trust, permissions, competing priorities, and likely error paths.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Model friction, incentives, attention, access, timing, trust, permissions, competing priorities, and likely error paths.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-090",
+      "source_path": "SKILL.md",
+      "source_span": "line 88",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep human adoption, automated capability, reliability, operational fit, and outcome value separate.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep human adoption, automated capability, reliability, operational fit, and outcome value separate.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-091",
+      "source_path": "SKILL.md",
+      "source_span": "line 88",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use observed traces and outcome labels when available.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use observed traces and outcome labels when available.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-092",
+      "source_path": "SKILL.md",
+      "source_span": "line 88",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Compare successful and unsuccessful cases, explain the evidence boundary, and deliver feedback close enough to the next action to be useful.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Compare successful and unsuccessful cases, explain the evidence boundary, and deliver feedback close enough to the next action to be useful.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-093",
+      "source_path": "SKILL.md",
+      "source_span": "line 88",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Turn predictions into reversible tests.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Turn predictions into reversible tests.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-094",
+      "source_path": "SKILL.md",
+      "source_span": "line 90",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Specify the smallest valid cohort, visible actions, conversion or failure points, stop conditions, observation window, result threshold, and update rule.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Specify the smallest valid cohort, visible actions, conversion or failure points, stop conditions, observation window, result threshold, and update rule.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-095",
+      "source_path": "SKILL.md",
+      "source_span": "line 90",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep facts, forecasts, and claims separate.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep facts, forecasts, and claims separate.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-096",
+      "source_path": "SKILL.md",
+      "source_span": "line 92",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: TEST and Evidence boundaries",
+      "conditions": "as stated in source",
+      "exact_source_text": "Treat testimonials, promotions, savings figures, workforce predictions, and capability timelines as claims until checked against appropriate evidence.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Treat testimonials, promotions, savings figures, workforce predictions, and capability timelines as claims until checked against appropriate evidence.",
+      "observable_behavior_or_transition": "Behavior and evidence",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-097",
+      "source_path": "SKILL.md",
+      "source_span": "line 92",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not bolt new capability onto an inherited process without questioning the process.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not bolt new capability onto an inherited process without questioning the process.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-098",
+      "source_path": "SKILL.md",
+      "source_span": "line 96",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Start from first principles: the required outcome, constraints, failure costs, and capabilities now available.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Start from first principles: the required outcome, constraints, failure costs, and capabilities now available.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-099",
+      "source_path": "SKILL.md",
+      "source_span": "line 96",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Redesign only what the result requires.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Redesign only what the result requires.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-100",
+      "source_path": "SKILL.md",
+      "source_span": "line 96",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Decompose repeatable work into skills and processes.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Decompose repeatable work into skills and processes.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-101",
+      "source_path": "SKILL.md",
+      "source_span": "line 98",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Document tacit operator knowledge through an interview, then test the written process manually before delegating it.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Document tacit operator knowledge through an interview, then test the written process manually before delegating it.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-102",
+      "source_path": "SKILL.md",
+      "source_span": "line 98",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use one repeatable worker at a time.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use one repeatable worker at a time.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-103",
+      "source_path": "SKILL.md",
+      "source_span": "line 100",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Define the trigger, bounded action, permissions, output, health check, correction path, periodic instruction review, rollback, cleanup, and handoff.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Define the trigger, bounded action, permissions, output, health check, correction path, periodic instruction review, rollback, cleanup, and handoff.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-104",
+      "source_path": "SKILL.md",
+      "source_span": "line 100",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Prove a bottom-up prototype before wider rollout.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Prove a bottom-up prototype before wider rollout.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-105",
+      "source_path": "SKILL.md",
+      "source_span": "line 100",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Protect consent, scoped access, learning, and human escalation.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Protect consent, scoped access, learning, and human escalation.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-106",
+      "source_path": "SKILL.md",
+      "source_span": "line 100",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "A saved conversation or instruction set is not an autonomous worker unless it can perform the action safely.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "A saved conversation or instruction set is not an autonomous worker unless it can perform the action safely.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-107",
+      "source_path": "SKILL.md",
+      "source_span": "line 100",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep outcome ownership clear.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep outcome ownership clear.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-108",
+      "source_path": "SKILL.md",
+      "source_span": "line 102",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "The user sets the goal, boundaries, and proof threshold.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "The user sets the goal, boundaries, and proof threshold.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-109",
+      "source_path": "SKILL.md",
+      "source_span": "line 102",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "The executor proposes priorities, shows its reasoning at the decision points that matter, owns follow-through inside approved scope, and surfaces blockers without waiting to be chased.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "The executor proposes priorities, shows its reasoning at the decision points that matter, owns follow-through inside approved scope, and surfaces blockers without waiting to be chased.",
+      "observable_behavior_or_transition": "First principles and repeatable work",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-110",
+      "source_path": "SKILL.md",
+      "source_span": "line 102",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin, Evidence boundaries, and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "No configured tool is required.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "No configured tool is required.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-111",
+      "source_path": "SKILL.md",
+      "source_span": "line 106",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin, Evidence boundaries, and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use only capabilities that are actually available and relevant.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use only capabilities that are actually available and relevant.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-112",
+      "source_path": "SKILL.md",
+      "source_span": "line 106",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Choose the minimum chain that can prove the result, and verify prerequisites before execution.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Choose the minimum chain that can prove the result, and verify prerequisites before execution.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-113",
+      "source_path": "SKILL.md",
+      "source_span": "line 106",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin, Evidence boundaries, and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use the least data needed for the selected use case.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use the least data needed for the selected use case.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-114",
+      "source_path": "SKILL.md",
+      "source_span": "line 108",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Begin, Evidence boundaries, and Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Grant the narrowest access, prefer structured records when structure improves correctness, and do not build a broad knowledge system before one proved workflow needs it.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Grant the narrowest access, prefer structured records when structure improves correctness, and do not build a broad knowledge system before one proved workflow needs it.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-115",
+      "source_path": "SKILL.md",
+      "source_span": "line 108",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Never expose secrets, credentials, private archives, or unreviewed sensitive data.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Never expose secrets, credentials, private archives, or unreviewed sensitive data.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-116",
+      "source_path": "SKILL.md",
+      "source_span": "line 110",
+      "strength": "must_not",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep credentials only in approved secret stores or environment references.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep credentials only in approved secret stores or environment references.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-117",
+      "source_path": "SKILL.md",
+      "source_span": "line 110",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not upload or transmit material beyond the approved destination.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not upload or transmit material beyond the approved destination.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-118",
+      "source_path": "SKILL.md",
+      "source_span": "line 110",
+      "strength": "must_not",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Before authentication, credential access, payment, publication, remote writing, destructive work, a standing routine, scope expansion, or any irreversible or externally visible action, verify scope and obtain the required authorization.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Before authentication, credential access, payment, publication, remote writing, destructive work, a standing routine, scope expansion, or any irreversible or externally visible action, verify scope and obtain the required authorization.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-119",
+      "source_path": "SKILL.md",
+      "source_span": "line 112",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Ask once and name the exact action.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Ask once and name the exact action.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-120",
+      "source_path": "SKILL.md",
+      "source_span": "line 112",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not expand into administration or self-assigned work outside the explicit task.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not expand into administration or self-assigned work outside the explicit task.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-121",
+      "source_path": "SKILL.md",
+      "source_span": "line 112",
+      "strength": "must_not",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "After an external write, read back the destination and verify identity, content, permissions, and state.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "After an external write, read back the destination and verify identity, content, permissions, and state.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-122",
+      "source_path": "SKILL.md",
+      "source_span": "line 114",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "A successful local command does not prove the external result, and component evidence does not prove the whole outcome.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "A successful local command does not prove the external result, and component evidence does not prove the whole outcome.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-123",
+      "source_path": "SKILL.md",
+      "source_span": "line 114",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "If a capability returns partial or empty evidence, retry with a materially different route.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "If a capability returns partial or empty evidence, retry with a materially different route.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-124",
+      "source_path": "SKILL.md",
+      "source_span": "line 116",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Stop when retries repeat the same failure, no new evidence appears, required access is unavailable, or the next action would exceed authority.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Stop when retries repeat the same failure, no new evidence appears, required access is unavailable, or the next action would exceed authority.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-125",
+      "source_path": "SKILL.md",
+      "source_span": "line 116",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not replace licensed professional judgment, final executive judgment, or the user's authorship.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not replace licensed professional judgment, final executive judgment, or the user's authorship.",
+      "observable_behavior_or_transition": "Capabilities, data, and side effects",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-126",
+      "source_path": "SKILL.md",
+      "source_span": "line 118",
+      "strength": "must_not",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep durable guidance concise, current, approved, and tied to a clear owner.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep durable guidance concise, current, approved, and tied to a clear owner.",
+      "observable_behavior_or_transition": "Continuity and knowledge",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-127",
+      "source_path": "SKILL.md",
+      "source_span": "line 122",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Systemize only after proof",
+      "conditions": "as stated in source",
+      "exact_source_text": "Do not store raw task history, transient status, or sensitive source material as standing knowledge.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Do not store raw task history, transient status, or sensitive source material as standing knowledge.",
+      "observable_behavior_or_transition": "Continuity and knowledge",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-128",
+      "source_path": "SKILL.md",
+      "source_span": "line 122",
+      "strength": "must_not",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "For long work, preserve a compact handoff with the goal, boundaries, decisions, pending work, and exact proof already obtained before context may be lost.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "For long work, preserve a compact handoff with the goal, boundaries, decisions, pending work, and exact proof already obtained before context may be lost.",
+      "observable_behavior_or_transition": "Continuity and knowledge",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-129",
+      "source_path": "SKILL.md",
+      "source_span": "line 122",
+      "strength": "may",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "When a failure is difficult or repeated, locate the earliest divergence, form one hypothesis, run one discriminating check, fix the cause, and verify the whole affected path.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "When a failure is difficult or repeated, locate the earliest divergence, form one hypothesis, run one discriminating check, fix the cause, and verify the whole affected path.",
+      "observable_behavior_or_transition": "Continuity and knowledge",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-130",
+      "source_path": "SKILL.md",
+      "source_span": "line 124",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Practice branch",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use the optional practice loop in [references/practice-loop.md](references/practice-loop.md) when the user wants to build the habit instead of solving a single task.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use the optional practice loop in [references/practice-loop.md](references/practice-loop.md) when the user wants to build the habit instead of solving a single task.",
+      "observable_behavior_or_transition": "Practice loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-131",
+      "source_path": "SKILL.md",
+      "source_span": "line 128",
+      "strength": "may",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Practice branch",
+      "conditions": "as stated in source",
+      "exact_source_text": "A visible cue and one focused exercise per day are enough;",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "A visible cue and one focused exercise per day are enough;",
+      "observable_behavior_or_transition": "Practice loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-132",
+      "source_path": "SKILL.md",
+      "source_span": "line 128",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Practice branch",
+      "conditions": "as stated in source",
+      "exact_source_text": "do not turn practice into surveillance or forced compliance.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "do not turn practice into surveillance or forced compliance.",
+      "observable_behavior_or_transition": "Practice loop",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-133",
+      "source_path": "SKILL.md",
+      "source_span": "line 128",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Output",
+      "conditions": "as stated in source",
+      "exact_source_text": "Start with the result, decision, action, blocker, or question.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Start with the result, decision, action, blocker, or question.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-134",
+      "source_path": "SKILL.md",
+      "source_span": "line 132",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Output",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use `[YYYY-MM-DD TZ]` when a temporal anchor was required.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use `[YYYY-MM-DD TZ]` when a temporal anchor was required.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-135",
+      "source_path": "SKILL.md",
+      "source_span": "line 132",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "For active work, report the selected goal, accepted boundaries, decisive evidence, challenged assumption, result, side-effect inventory, cleanup or rollback state, remaining uncertainty, and next action.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "For active work, report the selected goal, accepted boundaries, decisive evidence, challenged assumption, result, side-effect inventory, cleanup or rollback state, remaining uncertainty, and next action.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-136",
+      "source_path": "SKILL.md",
+      "source_span": "line 134",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Output",
+      "conditions": "as stated in source",
+      "exact_source_text": "Keep the output proportionate to the task.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Keep the output proportionate to the task.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-137",
+      "source_path": "SKILL.md",
+      "source_span": "line 134",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "Never answer with an acknowledgment alone.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Never answer with an acknowledgment alone.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-138",
+      "source_path": "SKILL.md",
+      "source_span": "line 136",
+      "strength": "must_not",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "If blocked, name the exact blocker, what was verified, what remains unproved, and the smallest decision or input needed.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "If blocked, name the exact blocker, what was verified, what remains unproved, and the smallest decision or input needed.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-139",
+      "source_path": "SKILL.md",
+      "source_span": "line 136",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "approved_drop",
+      "approval_record": "direct user instruction 2026-07-31",
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [],
+      "candidate_span": "not applicable",
+      "conditions": "as stated in source",
+      "exact_source_text": "When no work remains and no action is requested, answer naturally without forcing the full structure.",
+      "exact_span": false,
+      "exact_span_reason": "none",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "When no work remains and no action is requested, answer naturally without forcing the full structure.",
+      "observable_behavior_or_transition": "Output",
+      "replacement_text": null,
+      "review_status": "PASS",
+      "source_id": "S-140",
+      "source_path": "SKILL.md",
+      "source_span": "line 138",
+      "strength": "must",
+      "target_path": null
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Package resources",
+      "conditions": "as stated in source",
+      "exact_source_text": "Use [references/decision-checklist.md](references/decision-checklist.md) for a compact execution check, [assets/strategy-packet-template.md](assets/strategy-packet-template.md) for a durable strategy packet, and the worked files under [examples/](examples/) for calibration.",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Use [references/decision-checklist.md](references/decision-checklist.md) for a compact execution check, [assets/strategy-packet-template.md](assets/strategy-packet-template.md) for a durable strategy packet, and the worked files under [examples/](examples/) for calibration.",
+      "observable_behavior_or_transition": "Package resources",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-141",
+      "source_path": "SKILL.md",
+      "source_span": "line 142",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    },
+    {
+      "action": "clarify",
+      "approval_record": null,
+      "authority": "user-approved baseline skill",
+      "baseline_evidence_ids": [
+        "BASELINE-SKILL-SHA256-c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
+      ],
+      "candidate_evidence_ids": [
+        "CANDIDATE-SKILL-SHA256-f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40"
+      ],
+      "candidate_span": "SKILL.md section: Package resources",
+      "conditions": "as stated in source",
+      "exact_source_text": "Package maintenance uses [references/generation-contract.md](references/generation-contract.md), the validators in [scripts/](scripts/), their tests in [scripts/tests/](scripts/tests/), and the offline cases under [evals/](evals/).",
+      "exact_span": true,
+      "exact_span_reason": "metadata, path, link, numeric limit, or status token",
+      "exceptions": "as stated in source",
+      "normalized_meaning": "Package maintenance uses [references/generation-contract.md](references/generation-contract.md), the validators in [scripts/](scripts/), their tests in [scripts/tests/](scripts/tests/), and the offline cases under [evals/](evals/).",
+      "observable_behavior_or_transition": "Package resources",
+      "replacement_text": "planned in State machine",
+      "review_status": "PASS",
+      "source_id": "S-142",
+      "source_path": "SKILL.md",
+      "source_span": "line 142",
+      "strength": "must",
+      "target_path": "skills/prime-vector/SKILL.md"
+    }
+  ],
+  "baseline_skill_sha256": "c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16",
+  "draft_skill_sha256": "f4045063e48671e80b6ba9bc4763e39295363324ea82995cde92b525d97ffa40",
+  "candidate_skill_sha256": "d499ab69c242b5cc71647c45862d99c67774d61584409f462c438e965b261a23",
+  "companion_contract": [
+    {
+      "meaning": "Start from the user observable end state and map outcome, proof, constraints, starting path, and unknowns.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "starting-point:18-22",
+      "source_id": "SP-001",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Treat a requested method as a candidate unless it is exact, required, safety-related, or the deliverable.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "starting-point:24-32",
+      "source_id": "SP-002",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Ask one concise question only when an unretrievable unknown would change the route.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "starting-point:31",
+      "source_id": "SP-003",
+      "target": "FRAME"
+    },
+    {
+      "meaning": "Use one fresh local clock anchor for each direct user turn and add it to the starting-point map.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "always-current-date:21-37",
+      "source_id": "ACD-001",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Never guess a date; mark time-dependent work temporal-anchor-unavailable when the anchor fails.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "always-current-date:51-53",
+      "source_id": "ACD-002",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Use the required dated visible reply prefix.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "always-current-date:81-97",
+      "source_id": "ACD-003",
+      "target": "Output"
+    },
+    {
+      "meaning": "Freeze outcome, proof, boundaries, forbidden outcomes, mandatory methods, candidate paths, adaptation rule, and unknowns.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "outcome-bounded-work:32-41",
+      "source_id": "OBW-001",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Classify requirements by what changes if each instruction is removed or replaced.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "outcome-bounded-work:43-55",
+      "source_id": "OBW-002",
+      "target": "Begin"
+    },
+    {
+      "meaning": "Replace a candidate route only when all invariants and authority stay fixed and evidence supports the change.",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source": "outcome-bounded-work:77-86",
+      "source_id": "OBW-003",
+      "target": "DECIDE"
+    }
+  ],
+  "coverage": {
+    "baseline_mapped": 142,
+    "baseline_rule_rows": 142,
+    "companion_mapped": 9,
+    "companion_rows": 9,
+    "ratio": 1.0,
+    "unauthorized_drops": 0,
+    "video_learning_rows": 25,
+    "video_mapped": 25
+  },
+  "coverage_required": 1.0,
+  "retained_or_rewritten_count": 122,
+  "schema": "prime-vector-centrality-mapping-v1",
+  "target": "skills/prime-vector",
+  "video_learnings": [
+    {
+      "baseline_profile_status": "present_via_starting_point",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Start with the one consequential problem or goal whose completion creates the most value. Do not start from a prompt, model, agent, or tool.",
+      "required_candidate_section": "Begin",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "d1309ff594b55a773b89e25a05c0c7f443a2cc1283e4334286c4d08daefa2000",
+        "1c20fab95ad640ce1b5bbc7fe17d4e5ac8642ff4e69ceb66682af5e619333dce",
+        "c65c65f1130dd70ab65c7ec66e205314d8edca552ca260f1761050cb174a5020",
+        "7baae4d92a02efe00f870ea78385ae05710ff6ed7964c62e3576bfda6d645a84"
+      ],
+      "source_id": "PVV-001",
+      "timestamps": ["0:00-0:11", "5:36-6:14", "15:38-16:08", "29:17-30:21"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Use the system as a strategic thought partner while the user remains the thought leader.",
+      "required_candidate_section": "Boundary",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "24d6c96937af5031b0d19c2329ceb4fbba48b44d08662eb3210a6f7cd87fdc94",
+        "c36746e3609323316dcbbada92cc4ceb31b95d721a519302d4fd01f0e70028ca",
+        "639e75ea517f5e8b10ab19643e598655f32b22f0da659d28b879ebd0a5a69df0"
+      ],
+      "source_id": "PVV-002",
+      "timestamps": ["1:07-1:20", "5:54-6:11", "10:27-11:02"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Apply Context, Role, Interview, Task in order. Use a specific bounded role and one material interview question at a time before producing the task result.",
+      "required_candidate_section": "State machine",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "4e5f8e487a3e06ee1467045b26ceadc66313d0f697b2199a1cffc02a710ac0eb",
+        "a61334dcb5259f3bfa97234c97f089df9ed1463ff4b1384a8b13042630518041",
+        "9fa51645d998c0c6c9f7d1c0a466be63a470155c0bf3ccd8aeba84b847c542af"
+      ],
+      "source_id": "PVV-003",
+      "timestamps": ["2:30-3:10", "6:14-8:12", "12:41-15:30"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Accept rough dictation or unedited notes as context, then ask what else is material. More input is not automatically better, so keep relevance, privacy, and data minimization gates.",
+      "required_candidate_section": "FRAME",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "7680c01c3befb2a7e9bc452e34904dec639570fea8e899b438eaf308b01c5ead"
+      ],
+      "source_id": "PVV-004",
+      "timestamps": ["18:12-19:45"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Treat every generated answer as a draft. State what works, what does not, and the top changes, then repeat until the reasoning is accepted.",
+      "required_candidate_section": "DRAFT and CHALLENGE",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "a78ddd2b7e433dedf0be9fab46efe0a3f9743f202ca7f4224a676f87f4651a5a",
+        "368850546770b97c1720e79d91d44369f4d6d266dc8249b0286ec8a8847fa708",
+        "1a6a4efb651a72012c0b191c4488f2b2b811b27e8f94ab082e88e3bb27a0a2c8"
+      ],
+      "source_id": "PVV-005",
+      "timestamps": ["3:21-3:48", "15:38-16:50", "45:22-47:00"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "After the main draft, switch to a challenger and then the real stakeholder perspective. Require disconfirming evidence and anti-agreement behavior.",
+      "required_candidate_section": "CHALLENGE",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "ebf4a31dc897a9678ef2877eefa388d535dae106305b3e21a550ac473cbe369e"
+      ],
+      "source_id": "PVV-006",
+      "timestamps": ["19:47-21:30"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Treat simulated stakeholder reactions as hypotheses. Compare them with consented observed behavior and outcomes, then revise the model.",
+      "required_candidate_section": "CHALLENGE and TEST",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "d826e281aa4188afa9ad199c6e8b11fd0a8b07cf69a6d4a5423b527c81a7f818",
+        "db28cf0697384e93d4f70b1a9daf949c20491560638e1d74ab03320ae2df75b1"
+      ],
+      "source_id": "PVV-007",
+      "timestamps": ["3:52-5:28", "20:31-20:48"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Use a small environmental cue and a bounded practice loop to turn the method into behavior. Practice on one meaningful item, not on activity for its own sake.",
+      "required_candidate_section": "Practice branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "71f57c86b715174befc97665d8a46fd59bde3a0904664d074e1d158640069df8",
+        "d13e1354b8b11e39c4bc6c440a21f83ab3975dc52927b6d19021b6e13c4e3a50"
+      ],
+      "source_id": "PVV-008",
+      "timestamps": ["22:15-24:44", "1:03:31-1:04:51"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Protect unaided thinking. For difficult strategic work, think first, keep the user's notes, use the system to ask deeper questions, and periodically verify the user can still reason without it.",
+      "required_candidate_section": "Boundary and DRAFT",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "32309a284dab3dddc22939148eefb4fe63e5370b00d58fdd9eb736c2e61a5def"
+      ],
+      "source_id": "PVV-009",
+      "timestamps": ["51:01-55:20"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Build repeatable automation only after the basic method works. Use it to improve high-value work or remove a proved recurring burden, make one process reliable, then add another.",
+      "required_candidate_section": "SYSTEMIZE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "8368a5dec9c8001dd70a59dab9ad8a637d1d04fea0c80e6b0774890f53448902",
+        "7ddea613268a088668dfb3eabf47e8872abb0ad0df8c6e4027a7b8e3d5dc40b9"
+      ],
+      "source_id": "PVV-010",
+      "timestamps": ["24:46-28:16", "56:53-57:58"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Model a job as skills, decisions, and processes. Interview the operator to capture tacit knowledge in an executable, reviewable artifact before automation.",
+      "required_candidate_section": "SYSTEMIZE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "edf50fda7bf0af687c119a996ef89857990871d34eb9eb5fdb4a32f809d09d95"
+      ],
+      "source_id": "PVV-011",
+      "timestamps": ["26:30-27:49"]
+    },
+    {
+      "baseline_profile_status": "present_via_starting_point",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Measure value in the accepted business, user, or mission outcome rather than hours saved, generated output, or tool activity.",
+      "required_candidate_section": "Begin",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "2e91c2a386d48f25af477807099a5a4fae0c59bd8ef17b660298928234c670d7"
+      ],
+      "source_id": "PVV-012",
+      "timestamps": ["28:28-29:16"]
+    },
+    {
+      "baseline_profile_status": "partial_via_outcome_bounded_work",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "After understanding the current process, redesign from first principles instead of merely attaching automation to old steps.",
+      "required_candidate_section": "SYSTEMIZE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "986711b4944455211a5a490f3318db4b3b472518abc6cbcd2c02dded16981e10"
+      ],
+      "source_id": "PVV-013",
+      "timestamps": ["1:03:38-1:04:51"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Separate outcome ownership from route ownership. The user sets the goal, boundaries, and proof; the executor proposes prioritized work, shows its reasoning, owns follow-through, and uses review to expose blind spots rather than waiting for step-by-step direction.",
+      "required_candidate_section": "DECIDE",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "19b780770a6c15adc33340b4ce9ee961988b40eb7c11ae58c1ad2caa947896d0"
+      ],
+      "source_id": "PVV-014",
+      "timestamps": ["35:21-40:01"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "When one perspective is insufficient, derive a small advisory panel from the decision's missing capabilities. Give each perspective explicit allowed and prohibited advice. A future-state perspective must be grounded in stated goals and labeled as simulation, not prediction.",
+      "required_candidate_section": "CHALLENGE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "150a6375c3ca0daba4638c40cd5f5a4eff41f37c1f88cf53b0ea5285fc4e26ff"
+      ],
+      "source_id": "PVV-015",
+      "timestamps": ["47:00-49:43"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "For authored communication, calibrate against approved examples and an explicit style guide. Keep source privacy, human review, and concise language; never treat generated prose as the author's final voice.",
+      "required_candidate_section": "Communication branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "55f7cf2c0aae41776e9d1cda2b2e19200d0c0cb9654a9e33bd14d5c1dbc7f342"
+      ],
+      "source_id": "PVV-016",
+      "timestamps": ["43:20-46:34"]
+    },
+    {
+      "baseline_profile_status": "present",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "For repeatable systems, use only the data needed for the accepted use case, define access by role and purpose, and choose a structure the executor can inspect. Do not build a broad knowledge system before one use case proves the need.",
+      "required_candidate_section": "SYSTEMIZE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "fc66e7251c466ee59d86b2d65d8e70d9beab2877871bb66a3623c835ba67e362"
+      ],
+      "source_id": "PVV-017",
+      "timestamps": ["58:25-1:00:05"]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Improve a process from observed traces paired with real outcome labels, not scripts or anecdotes alone. Return corrections close enough to the next action to be useful.",
+      "required_candidate_section": "TEST",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "c9fc7ab84e7cfb047078c26168d0bffe0193054f1ee67ecf36c648acc354b270"
+      ],
+      "source_id": "PVV-018",
+      "timestamps": ["1:00:43-1:03:29"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "strengthen",
+      "normalized_meaning": "Model people only from consented observations relevant to the decision. Do not diagnose personality, infer sensitive traits, or use cultural stereotypes. Keep every simulated reaction falsifiable.",
+      "required_candidate_section": "Evidence boundaries",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "75a37b0174351519e1c2ff2dd067ffad4028cdb8b51fa71e0f888e4cc01fdd18",
+        "150a6375c3ca0daba4638c40cd5f5a4eff41f37c1f88cf53b0ea5285fc4e26ff"
+      ],
+      "source_id": "PVV-019",
+      "timestamps": ["2:30-5:28", "47:00-49:43"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Keep strategic thinking, problem solving, communication, collaboration, and creative direction with the human. Use multiple specialist perspectives as an orchestra directed by the user, not as replacement judgment.",
+      "required_candidate_section": "Boundary",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "6b459ff3debdd1afa8bc05d81053e0f8932cb1846b36b4dbfb1dfda945862d51",
+        "44fb576d912011847471c13d32a0db360403930c46bf4a191e8bd6b81dbfe676"
+      ],
+      "source_id": "PVV-020",
+      "timestamps": ["31:30-35:20", "40:53-43:20"]
+    },
+    {
+      "baseline_profile_status": "present",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Choose capabilities from the problem and proof. Tool rankings, tool count, and simultaneous activity are not goals.",
+      "required_candidate_section": "Begin",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "61161c8c4913ba06c9ce8825de1707f796af62a63d0b2df9266af4fa763f3af2"
+      ],
+      "source_id": "PVV-021",
+      "timestamps": ["55:20-57:22"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "claim_only",
+      "normalized_meaning": "Large savings, model recall, job-loss timing, organizational-shape predictions, adoption rates, and promotional outcome magnitudes are anecdotes or forecasts in this source. Preserve them only as source claims, never as operating facts or guarantees.",
+      "required_candidate_section": "Evidence boundaries",
+      "required_disposition": "claim_boundary",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "831144aad93e529e00716fed161622c83b17999dda520fd9e0d1b04c659b8c7e",
+        "7be0f70271d53166811651ec562d1cb11deb2594933075024f00841e6c88bf86",
+        "6ea5025d4ebb39d5262556cfbb4287628c967c3a1b7530925645ef0741c97ecc",
+        "826bb3a86d41fa1aa39a5e237f192170ba8884cbad78c611639590910759a750",
+        "ed898388faa86218a39e1aee1124f2edb8b30084c699f7583f4d3ee56750fc7a"
+      ],
+      "source_id": "PVV-022",
+      "timestamps": [
+        "13:34-14:10",
+        "31:01-35:20",
+        "41:21-42:17",
+        "49:43-51:01",
+        "58:25-59:08"
+      ]
+    },
+    {
+      "baseline_profile_status": "missing",
+      "baseline_skill_status": "claim_only",
+      "normalized_meaning": "Advertisements and sales claims are not procedural evidence and do not belong in the operating contract.",
+      "required_candidate_section": "Evidence boundaries",
+      "required_disposition": "claim_boundary",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "8a069cdf58c93d28726cadc8d3c4125810eb7866c404ceda992a41a59f3f2f4f",
+        "826bb3a86d41fa1aa39a5e237f192170ba8884cbad78c611639590910759a750"
+      ],
+      "source_id": "PVV-023",
+      "timestamps": ["16:54-18:06", "49:43-51:01"]
+    },
+    {
+      "baseline_profile_status": "partial",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "When a stakeholder disputes a claimed benefit, test the smallest safe version rather than argue from assertion.",
+      "required_candidate_section": "TEST",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "9a736741465f3fa9341f6ef0fcc100ed601939c2cd3467464a0e9498c9a7e875"
+      ],
+      "source_id": "PVV-024",
+      "timestamps": ["40:43-41:06"]
+    },
+    {
+      "baseline_profile_status": "present",
+      "baseline_skill_status": "present",
+      "normalized_meaning": "Persistent output standards may be stored only in an approved configuration owner. Task-specific sensitive context must not be promoted into durable instructions.",
+      "required_candidate_section": "SYSTEMIZE branch",
+      "required_disposition": "integrated",
+      "review_status": "PASS",
+      "source_excerpt_sha256": [
+        "7474ce426d7a97fd396bc47154c43e480a98a23500a0cdd086c5766181a95acb"
+      ],
+      "source_id": "PVV-025",
+      "timestamps": ["43:51-46:34"]
+    }
+  ]
+}

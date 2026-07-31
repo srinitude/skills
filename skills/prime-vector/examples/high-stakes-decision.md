@@ -6,23 +6,27 @@ Our enterprise pilot has three possible customer segments. Pick one strategy. I 
 
 ## Visible reply
 
-[2026-07-30 EDT] Select the segment with the shortest path to a permitted, observable buying action, not the segment with the largest stated market.
+[2026-07-30 EDT] TEST: Select the segment with the shortest path to a permitted, observable buying action, not the segment with the largest stated market.
 
 Goal: Produce enough qualified buying evidence in two weeks to decide whether the pilot should continue.
 
-Boundaries: Pricing stays fixed. Existing consent and data rules stay in force. No segment is treated as committed until a real buyer acts.
+Frozen contract: Pricing stays fixed. Existing consent and data rules stay in force. No segment is treated as committed until a real buyer acts. Segment selection is a candidate path that may change when buying evidence changes.
 
 Context needed: For each segment, provide current access, number of reachable buyers, prior replies, sales-cycle length, required approvals, and any observed paid or signed action. Rough notes are fine.
 
 Role: I will act as a skeptical go-to-market reviewer. I may challenge segment fit and evidence quality. I may not invent buyer intent or recommend deceptive outreach.
 
-First strategy: Rank the segments by reachable qualified buyers, time to decision, permission to contact, and strength of prior behavior. Run the same small offer to the top two only if the first segment cannot produce enough observations within five business days.
+Strategy: Rank the segments by reachable qualified buyers, time to decision, permission to contact, and strength of prior behavior. Run the same small offer to the top two only if the first segment cannot produce enough observations within five business days.
 
-Weakest assumption: A short sales cycle may reflect low contract value or weak commitment rather than strong fit.
+Challenge: A short sales cycle may reflect low contract value or weak commitment rather than strong fit.
 
-Disconfirming test: Define one buyer action that costs real effort, such as scheduling a decision meeting with the budget owner. Stop a segment after the agreed outreach count if no qualified buyer takes that action.
+Evidence: The current ranking is conditional because no observed conversion data was supplied.
 
-What evidence would change this choice most: observed conversion from permitted outreach to the decision action.
+Test or next action: Define one buyer action that costs real effort, such as scheduling a decision meeting with the budget owner. Stop a segment after the agreed outreach count if no qualified buyer takes that action.
+
+Remaining uncertainty: Which segment has the highest observed conversion from permitted outreach to the decision action.
+
+User decision: Approve the test definition and outreach limit before execution.
 
 ## Audit
 

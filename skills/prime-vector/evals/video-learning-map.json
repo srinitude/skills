@@ -12,10 +12,43 @@
     "source": "frozen source skill",
     "sha256": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816"
   },
-  "dispositions": {
-    "present": "The current profile already carries the material behavior.",
-    "strengthen": "The public port must add or make the learning explicit without adding a product dependency.",
+  "disposition_definitions": {
+    "present": "The frozen source already carries the operational behavior.",
+    "strengthen": "The source has a partial or generic rule; the public target adds a source-supported behavior or boundary.",
     "claim_only": "The video presents an anecdote, forecast, advertisement, or magnitude that must not become an asserted operating fact."
+  },
+  "candidate_coverage": {
+    "claim_boundary": 2,
+    "integrated": 23,
+    "missing": 0,
+    "ratio": 1.0
+  },
+  "candidate_map": {
+    "PVV-001": "integrated",
+    "PVV-002": "integrated",
+    "PVV-003": "integrated",
+    "PVV-004": "integrated",
+    "PVV-005": "integrated",
+    "PVV-006": "integrated",
+    "PVV-007": "integrated",
+    "PVV-008": "integrated",
+    "PVV-009": "integrated",
+    "PVV-010": "integrated",
+    "PVV-011": "integrated",
+    "PVV-012": "integrated",
+    "PVV-013": "integrated",
+    "PVV-014": "integrated",
+    "PVV-015": "integrated",
+    "PVV-016": "integrated",
+    "PVV-017": "integrated",
+    "PVV-018": "integrated",
+    "PVV-019": "integrated",
+    "PVV-020": "integrated",
+    "PVV-021": "integrated",
+    "PVV-022": "claim_boundary",
+    "PVV-023": "claim_boundary",
+    "PVV-024": "integrated",
+    "PVV-025": "integrated"
   },
   "learnings": [
     {

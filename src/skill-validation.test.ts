@@ -38,13 +38,13 @@ test('validates the public prime-vector release and source lineage', async () =>
   const report = await validateSkill(root, 'prime-vector');
 
   expect(report).toEqual({
-    caseCount: 22,
+    caseCount: 20,
     errors: [],
     manifestSha256: '6de25e5099680a3bc691b6b03f91258b3d04474211b50272c5e1f1ab71f7b29d',
     name: 'prime-vector',
     skillPath: join('skills', 'prime-vector', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.2.0',
   });
 });
 

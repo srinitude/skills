@@ -1,33 +1,36 @@
 # Decision checklist
 
-Load this checklist before a high-stakes strategy pass or when the main procedure is too long to hold in working context.
+Load this checklist before a high-stakes strategy pass or when a state transition is unclear.
 
-## Contract
+## Begin
 
-- [ ] The real goal is measurable.
-- [ ] Scope, authority, privacy, required evidence, and forbidden outcomes are explicit.
-- [ ] Requested methods are separated from true invariants.
-- [ ] The selected problem clears a high-value threshold.
-- [ ] Success is measured by a real outcome, not activity alone.
+- [ ] `starting-point` mapped outcome, proof, constraints, starting path, and unknowns.
+- [ ] `always-current-date` supplied one turn anchor or the date-dependent branch stopped with `temporal-anchor-unavailable`.
+- [ ] `outcome-bounded-work` froze boundaries, forbidden outcomes, mandatory methods, candidate paths, and the adaptation rule.
+- [ ] The selected problem clears a high-value threshold measured by a real result rather than time saved or activity.
 
-## CRIT
+## FRAME
 
-- [ ] Context separates observations, artifacts, assumptions, forecasts, and claims.
-- [ ] One role has an objective, decision rights, allowed advice, and prohibited advice.
-- [ ] Every interview question closes a material gap.
-- [ ] The task names the action, audience, output, constraints, and acceptance test.
+- [ ] Context accepts rough input and separates observations, assumptions, forecasts, claims, and unknowns.
+- [ ] One bounded role owns one result.
+- [ ] Every interview question closes one material gap, and at most one question is live.
+- [ ] The task names the artifact or action, audience, constraints, acceptance test, and downstream use.
 
-## Challenge
+## DRAFT and CHALLENGE
 
+- [ ] One concrete draft exists and the user keeps authorship and judgment.
 - [ ] The weakest assumption and strongest counterargument are visible.
 - [ ] Stakeholder claims are grounded in observations or labeled as hypotheses.
-- [ ] A reversible test has a threshold, stop condition, and update rule.
-- [ ] The user keeps final authorship and judgment.
+- [ ] Simulated roles avoid personality diagnosis, sensitive-trait inference, stereotypes, and hidden manipulation.
 
-## Execution
+## TEST and DECIDE
 
-- [ ] The route uses only available capabilities and the least data needed.
-- [ ] Side effects are authorized at the exact scope.
-- [ ] External writes are read back from the destination.
-- [ ] Repeatable work was understood and manually proved first.
-- [ ] The next action is owned, bounded, and verifiable.
+- [ ] The reversible test names the cohort, visible action, friction, window, threshold, stop condition, and update rule.
+- [ ] Human adoption, automated capability, reliability, operational fit, and outcome value stay separate.
+- [ ] The output status is `QUESTION`, `DRAFT`, `TEST`, `DONE`, or `BLOCKED`.
+- [ ] The strategy, challenge, evidence, uncertainty, next action, and user decision are visible when applicable.
+
+## Optional branches
+
+- [ ] Practice uses one cue, one real problem, an unaided baseline, and observed weekly results.
+- [ ] Systemization starts only after manual proof, questions inherited steps, captures operator knowledge, and introduces one bounded worker.

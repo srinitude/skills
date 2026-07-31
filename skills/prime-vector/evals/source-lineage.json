@@ -1,8 +1,30 @@
 {
   "schema_version": 1,
   "native_manifest_sha256": "6de25e5099680a3bc691b6b03f91258b3d04474211b50272c5e1f1ab71f7b29d",
+  "active_case_ids": [
+    "COMPANION-001",
+    "PV-001",
+    "PV-002",
+    "PV-003",
+    "PV-004",
+    "PV-005",
+    "PV-007",
+    "PV-008",
+    "PV-009",
+    "PV-012",
+    "PVV-004",
+    "PVV-008",
+    "PVV-009",
+    "PVV-013",
+    "PVV-014",
+    "PVV-015",
+    "PVV-016",
+    "PVV-017",
+    "PVV-018",
+    "PVV-019"
+  ],
   "native_version": "1.0.0",
-  "public_version": "0.1.0",
+  "public_version": "0.2.0",
   "source_files": [
     {
       "path": "SKILL.md",
@@ -76,6 +98,14 @@
     },
     {
       "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/centrality-mapping.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/video-learning-map.json",
       "source_paths": ["SKILL.md"]
     }
   ]

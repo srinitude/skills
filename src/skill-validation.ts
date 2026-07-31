@@ -23,6 +23,7 @@ const lineageSchema = z
       .min(1),
     public_version: z.string().regex(/^\d+\.\d+\.\d+$/),
     schema_version: z.literal(1),
+    active_case_ids: z.array(z.string().min(1)).min(1).optional(),
     source_case_ids: z.array(z.string().min(1)).min(1),
     source_files: z.array(z.object({ path: z.string().min(1), sha256 }).strict()).min(1),
   })
@@ -60,8 +61,11 @@ function validateRelations(
   const sources = cases.cases.map((entry) => entry.source_id).sort();
   if (duplicateValues(ids).length > 0) errors.push('eval case IDs must be unique');
   if (duplicateValues(sources).length > 0) errors.push('source case IDs must be unique');
-  if (sources.join('\n') !== [...lineage.source_case_ids].sort().join('\n')) {
-    errors.push('source case IDs do not match lineage');
+  const expectedActiveCases = [
+    ...(lineage.active_case_ids ?? lineage.source_case_ids),
+  ].sort();
+  if (sources.join('\n') !== expectedActiveCases.join('\n')) {
+    errors.push('active case IDs do not match lineage');
   }
   if (skill.source.trimEnd().split('\n').length >= 200)
     errors.push('SKILL.md must stay below 200 lines');

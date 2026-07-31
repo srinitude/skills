@@ -52,6 +52,20 @@ test.each(['would-agents-actually', 'would-humans-actually'])(
   },
 );
 
+test('loads prime-vector manifest extensions without losing required classes', async () => {
+  const definition = await loadEvalDefinition(root, 'prime-vector');
+
+  expect(definition.manifest.test_classes).toEqual([
+    ...requiredClasses,
+    'ordered_bindings',
+    'authorized_loss',
+    'video_learning_coverage',
+  ]);
+  expect(definition.manifest.public_version).toBe('0.2.0');
+  expect(definition.manifest.centrality_mapping).toBe('centrality-mapping.json');
+  expect(definition.manifest.video_learning_map).toBe('video-learning-map.json');
+});
+
 test('accepts portable skill case identifiers', () => {
   expect(
     evalCaseSchema.parse({

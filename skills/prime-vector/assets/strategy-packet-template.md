@@ -1,7 +1,8 @@
 # Strategy packet template
 
-## Temporal anchor
+## Status and anchor
 
+- Status: `QUESTION | DRAFT | TEST | DONE | BLOCKED`
 - Date and timezone:
 - Source of current time:
 
@@ -18,6 +19,9 @@
 - Authority:
 - Privacy and data limits:
 - Forbidden outcomes:
+- Mandatory methods:
+- Candidate paths:
+- Adaptation rule:
 
 ## Context
 
@@ -44,6 +48,7 @@
 - Weakest assumption:
 - Strongest counterargument:
 - Likely failure mode:
+- Missing evidence:
 
 ## Test
 
@@ -56,8 +61,7 @@
 
 ## Result
 
-- Action taken:
 - Evidence obtained:
-- External readback:
 - Remaining uncertainty:
-- Next owned action:
+- Test or next reversible action:
+- User decision:

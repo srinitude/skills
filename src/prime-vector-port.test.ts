@@ -17,6 +17,8 @@ interface SourceMapping {
 }
 
 interface VideoLearningMap {
+  candidate_coverage?: Record<string, number>;
+  candidate_map?: Record<string, string>;
   coverage: Record<string, number>;
   learnings: unknown[];
 }
@@ -36,7 +38,7 @@ async function files(path: string): Promise<string[]> {
   return nested.flat();
 }
 
-test('ships one source-bound, video-informed, dependency-free Prime Vector port', async () => {
+test('ships one source-bound, video-informed, fallback-capable Prime Vector port', async () => {
   const source = await readFile(
     join(root, 'evidence', 'ports', 'prime-vector', 'SKILL.native.md'),
   );
@@ -68,12 +70,12 @@ test('ships one source-bound, video-informed, dependency-free Prime Vector port'
   expect(skill.split('\n').length).toBeLessThan(200);
   for (const phrase of [
     'rough notes or dictation',
-    'practice loop',
-    'unaided reasoning',
+    'Practice loop',
+    'unaided view',
     'first principles',
-    'outcome ownership',
+    'owns the goal',
     'advisory panel',
-    'approved examples',
+    'approved samples',
     'least data needed',
     'observed traces',
     'Do not diagnose personality',
@@ -83,8 +85,7 @@ test('ships one source-bound, video-informed, dependency-free Prime Vector port'
   expect(skill).not.toContain('(evals/video-learning-map.json)');
 
   const publicFiles = await files(skillRoot);
-  const forbidden =
-    /\b(?:hermes|herdr|mcp|starting-point|outcome-bounded-work|would-humans-actually|would-agents-actually|computer-user|claude|codex|chatgpt|openai)\b/i;
+  const forbidden = /\b(?:hermes|herdr|mcp|computer-user|claude|codex|chatgpt|openai)\b/i;
   for (const path of publicFiles) {
     const bytes = await readFile(path);
     expect(bytes.includes(0), relative(skillRoot, path)).toBe(false);
@@ -116,6 +117,13 @@ test('ships one source-bound, video-informed, dependency-free Prime Vector port'
     strengthen: 10,
   });
   expect(video.learnings).toHaveLength(25);
+  expect(video.candidate_coverage).toEqual({
+    claim_boundary: 2,
+    integrated: 23,
+    missing: 0,
+    ratio: 1,
+  });
+  expect(Object.keys(video.candidate_map ?? {})).toHaveLength(25);
   expect(videoEvidence.coverage).toEqual(video.coverage);
   expect(videoEvidence.learnings).toEqual(video.learnings);
 });

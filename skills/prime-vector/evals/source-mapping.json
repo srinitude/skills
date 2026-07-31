@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "skill": "prime-vector",
+  "purpose": "historical native-to-public port evidence",
+  "current_transformation_contract": "centrality-mapping.json",
   "coverage": {
     "source_nonblank_lines": 107,
     "mapped_nonblank_lines": 107,

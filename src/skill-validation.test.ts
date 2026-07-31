@@ -44,7 +44,7 @@ test('validates the public prime-vector release and source lineage', async () =>
     name: 'prime-vector',
     skillPath: join('skills', 'prime-vector', 'SKILL.md'),
     status: 'PASS',
-    version: '0.2.1',
+    version: '0.2.2',
   });
 });
 

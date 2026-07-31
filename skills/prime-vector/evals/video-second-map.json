@@ -1,0 +1,1239 @@
+{
+  "schema": "prime-vector-video-second-map-v1",
+  "video": {
+    "url": "https://www.youtube.com/watch?v=vodeYl5DkJE",
+    "video_id": "vodeYl5DkJE",
+    "duration": "1:05:24",
+    "transcript_full_text_sha256": "2ed6f87c5342ffd8ee1cee9cebbd7f6491b61d39acee301ca6e513947ae43ce3",
+    "transcript_segment_count": 1848
+  },
+  "method": {
+    "granularity_seconds": 1,
+    "interval_semantics": "Half-open [start_second, end_second_exclusive); expanding the intervals classifies each source second exactly once.",
+    "material_rule": "Every second containing a reusable instruction, claim, anecdote, forecast, advertisement, or safety-relevant example links to one or more PVV learning IDs.",
+    "context_rule": "Only introductions, interview transitions, reactions, and sentence fragments without independent procedural or evidentiary content may be context_only.",
+    "source_binding": "The transcript hash binds this map to the fetched source without republishing the transcript.",
+    "review_note": "All 1,848 timestamped segments were replayed in source order. The 299 segments outside the original learning windows were inspected manually; 260 were added to material windows and 39 remained context-only."
+  },
+  "material_gap_remediations": [
+    {
+      "timestamp": "0:26-0:49",
+      "learning_ids": ["PVV-016", "PVV-020"],
+      "reason": "Preserve human creative direction and reject generic authored output."
+    },
+    {
+      "timestamp": "1:20-2:30",
+      "learning_ids": ["PVV-001", "PVV-019", "PVV-022"],
+      "reason": "Separate the high-value problem rule from anecdote and unsafe personality inference."
+    },
+    {
+      "timestamp": "8:14-10:16",
+      "learning_ids": ["PVV-001", "PVV-003", "PVV-016", "PVV-022"],
+      "reason": "Map context depth, output quality, high-value work selection, and anecdotal outcome claims."
+    },
+    {
+      "timestamp": "11:02-15:30",
+      "learning_ids": ["PVV-001", "PVV-003", "PVV-019", "PVV-021", "PVV-022"],
+      "reason": "Map tool indifference, consequential problem selection, CRIT, cultural-model safety, and the magnitude claim boundary."
+    },
+    {
+      "timestamp": "15:30-15:38",
+      "learning_ids": ["PVV-002"],
+      "reason": "Preserve thought-partner use instead of immediate output generation."
+    },
+    {
+      "timestamp": "16:50-16:54",
+      "learning_ids": ["PVV-022"],
+      "reason": "Keep the speed and thinking-improvement magnitude as a source claim."
+    },
+    {
+      "timestamp": "16:54-18:12",
+      "learning_ids": ["PVV-023"],
+      "reason": "Cover the full advertisement through its explicit paid-partnership disclosure."
+    },
+    {
+      "timestamp": "19:45-22:15",
+      "learning_ids": ["PVV-006", "PVV-016", "PVV-025"],
+      "reason": "Map challenger persistence, communication calibration, and safe durable instruction storage."
+    },
+    {
+      "timestamp": "24:44-24:46",
+      "learning_ids": ["PVV-010"],
+      "reason": "Attach the automation transition to the systemization rule."
+    },
+    {
+      "timestamp": "28:21-28:28",
+      "learning_ids": ["PVV-022"],
+      "reason": "Classify the agent-count and income magnitude as promotional claims."
+    },
+    {
+      "timestamp": "30:22-31:01",
+      "learning_ids": ["PVV-022"],
+      "reason": "Keep technology and job-value predictions out of operating facts."
+    },
+    {
+      "timestamp": "40:01-40:43",
+      "learning_ids": ["PVV-022", "PVV-023"],
+      "reason": "Classify growth anecdotes and customer-positioning promotion rather than operationalize them."
+    },
+    {
+      "timestamp": "57:59-58:25",
+      "learning_ids": ["PVV-017"],
+      "reason": "Include the centralized-versus-decentralized knowledge-system question in the data boundary."
+    },
+    {
+      "timestamp": "1:00:05-1:00:43",
+      "learning_ids": ["PVV-001", "PVV-018", "PVV-021"],
+      "reason": "Map first-use-case selection and observed sales-call feedback before automation."
+    },
+    {
+      "timestamp": "1:04:52-1:05:24",
+      "learning_ids": ["PVV-022", "PVV-023"],
+      "reason": "Classify closing transformation claims and book promotion."
+    }
+  ],
+  "manual_context_reviews": [
+    {
+      "context_id": "CTX-001",
+      "start_second": 11,
+      "end_second_exclusive": 26,
+      "timestamp": "0:11-0:26",
+      "reason": "Host and guest introduction; no reusable procedure or operating claim."
+    },
+    {
+      "context_id": "CTX-002",
+      "start_second": 49,
+      "end_second_exclusive": 67,
+      "timestamp": "0:49-1:07",
+      "reason": "Interview question requesting an anecdote; the answer is classified in later intervals."
+    },
+    {
+      "context_id": "CTX-003",
+      "start_second": 328,
+      "end_second_exclusive": 336,
+      "timestamp": "5:28-5:36",
+      "reason": "Section transition into the rapid-fire use-case discussion."
+    },
+    {
+      "context_id": "CTX-004",
+      "start_second": 492,
+      "end_second_exclusive": 494,
+      "timestamp": "8:12-8:14",
+      "reason": "Carry-over sentence fragment from the preceding mapped explanation."
+    },
+    {
+      "context_id": "CTX-005",
+      "start_second": 566,
+      "end_second_exclusive": 574,
+      "timestamp": "9:26-9:34",
+      "reason": "Interview question transitioning from output quality to high-value work selection."
+    },
+    {
+      "context_id": "CTX-006",
+      "start_second": 616,
+      "end_second_exclusive": 627,
+      "timestamp": "10:16-10:27",
+      "reason": "Personal anecdote fragment that continues into the mapped thought-partner section."
+    },
+    {
+      "context_id": "CTX-007",
+      "start_second": 1696,
+      "end_second_exclusive": 1701,
+      "timestamp": "28:16-28:21",
+      "reason": "Conversational reaction before the mapped promotional-claim boundary."
+    },
+    {
+      "context_id": "CTX-008",
+      "start_second": 1756,
+      "end_second_exclusive": 1757,
+      "timestamp": "29:16-29:17",
+      "reason": "One-word question fragment at a section boundary."
+    },
+    {
+      "context_id": "CTX-009",
+      "start_second": 2120,
+      "end_second_exclusive": 2121,
+      "timestamp": "35:20-35:21",
+      "reason": "One-word conversational fragment at a section boundary."
+    },
+    {
+      "context_id": "CTX-010",
+      "start_second": 3478,
+      "end_second_exclusive": 3479,
+      "timestamp": "57:58-57:59",
+      "reason": "Carry-over sentence fragment from the preceding mapped automation section."
+    },
+    {
+      "context_id": "CTX-011",
+      "start_second": 3809,
+      "end_second_exclusive": 3811,
+      "timestamp": "1:03:29-1:03:31",
+      "reason": "Conversational reaction between two mapped sections."
+    },
+    {
+      "context_id": "CTX-012",
+      "start_second": 3891,
+      "end_second_exclusive": 3892,
+      "timestamp": "1:04:51-1:04:52",
+      "reason": "Question-tail fragment before the mapped closing claim and promotion."
+    }
+  ],
+  "audit_summary": {
+    "duration_seconds": 3924,
+    "seconds_reviewed": 3924,
+    "transcript_segments_reviewed": 1848,
+    "material_clusters": 25,
+    "originally_unmapped_segments_reviewed": 299,
+    "material_segments_added_to_learning_windows": 260,
+    "context_only_segments": 39,
+    "interval_count": 86,
+    "classification_seconds": {
+      "operating": 3069,
+      "claim_boundary": 365,
+      "mixed": 417,
+      "context_only": 73
+    },
+    "unclassified_seconds": 0,
+    "unclassified_segments": 0,
+    "uncovered_material_segments": 0,
+    "result": "PASS"
+  },
+  "intervals": [
+    {
+      "start_second": 0,
+      "end_second_exclusive": 11,
+      "start_timestamp": "0:00",
+      "end_timestamp_exclusive": "0:11",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [0, 1, 2, 3, 4, 5, 6]
+    },
+    {
+      "start_second": 11,
+      "end_second_exclusive": 26,
+      "start_timestamp": "0:11",
+      "end_timestamp_exclusive": "0:26",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-001",
+      "transcript_segment_indices": [7, 8, 9, 10, 11, 12, 13]
+    },
+    {
+      "start_second": 26,
+      "end_second_exclusive": 39,
+      "start_timestamp": "0:26",
+      "end_timestamp_exclusive": "0:39",
+      "classification": "operating",
+      "learning_ids": ["PVV-020"],
+      "context_id": null,
+      "transcript_segment_indices": [14, 15, 16, 17, 18, 19, 20]
+    },
+    {
+      "start_second": 39,
+      "end_second_exclusive": 49,
+      "start_timestamp": "0:39",
+      "end_timestamp_exclusive": "0:49",
+      "classification": "operating",
+      "learning_ids": ["PVV-016"],
+      "context_id": null,
+      "transcript_segment_indices": [21, 22, 23, 24, 25]
+    },
+    {
+      "start_second": 49,
+      "end_second_exclusive": 67,
+      "start_timestamp": "0:49",
+      "end_timestamp_exclusive": "1:07",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-002",
+      "transcript_segment_indices": [26, 27, 28, 29, 30, 31, 32, 33]
+    },
+    {
+      "start_second": 67,
+      "end_second_exclusive": 80,
+      "start_timestamp": "1:07",
+      "end_timestamp_exclusive": "1:20",
+      "classification": "operating",
+      "learning_ids": ["PVV-002"],
+      "context_id": null,
+      "transcript_segment_indices": [34, 35, 36, 37, 38, 39, 40]
+    },
+    {
+      "start_second": 80,
+      "end_second_exclusive": 123,
+      "start_timestamp": "1:20",
+      "end_timestamp_exclusive": "2:03",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60
+      ]
+    },
+    {
+      "start_second": 123,
+      "end_second_exclusive": 135,
+      "start_timestamp": "2:03",
+      "end_timestamp_exclusive": "2:15",
+      "classification": "mixed",
+      "learning_ids": ["PVV-019", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [61, 62, 63, 64, 65, 66, 67]
+    },
+    {
+      "start_second": 135,
+      "end_second_exclusive": 150,
+      "start_timestamp": "2:15",
+      "end_timestamp_exclusive": "2:30",
+      "classification": "operating",
+      "learning_ids": ["PVV-001", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [68, 69, 70, 71, 72, 73, 74]
+    },
+    {
+      "start_second": 150,
+      "end_second_exclusive": 190,
+      "start_timestamp": "2:30",
+      "end_timestamp_exclusive": "3:10",
+      "classification": "operating",
+      "learning_ids": ["PVV-003", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90
+      ]
+    },
+    {
+      "start_second": 190,
+      "end_second_exclusive": 201,
+      "start_timestamp": "3:10",
+      "end_timestamp_exclusive": "3:21",
+      "classification": "operating",
+      "learning_ids": ["PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [91, 92, 93, 94]
+    },
+    {
+      "start_second": 201,
+      "end_second_exclusive": 228,
+      "start_timestamp": "3:21",
+      "end_timestamp_exclusive": "3:48",
+      "classification": "operating",
+      "learning_ids": ["PVV-005", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107
+      ]
+    },
+    {
+      "start_second": 228,
+      "end_second_exclusive": 232,
+      "start_timestamp": "3:48",
+      "end_timestamp_exclusive": "3:52",
+      "classification": "operating",
+      "learning_ids": ["PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [108, 109, 110]
+    },
+    {
+      "start_second": 232,
+      "end_second_exclusive": 328,
+      "start_timestamp": "3:52",
+      "end_timestamp_exclusive": "5:28",
+      "classification": "operating",
+      "learning_ids": ["PVV-007", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127,
+        128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144,
+        145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158
+      ]
+    },
+    {
+      "start_second": 328,
+      "end_second_exclusive": 336,
+      "start_timestamp": "5:28",
+      "end_timestamp_exclusive": "5:36",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-003",
+      "transcript_segment_indices": [159, 160, 161, 162]
+    },
+    {
+      "start_second": 336,
+      "end_second_exclusive": 354,
+      "start_timestamp": "5:36",
+      "end_timestamp_exclusive": "5:54",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [163, 164, 165, 166, 167, 168, 169]
+    },
+    {
+      "start_second": 354,
+      "end_second_exclusive": 371,
+      "start_timestamp": "5:54",
+      "end_timestamp_exclusive": "6:11",
+      "classification": "operating",
+      "learning_ids": ["PVV-001", "PVV-002"],
+      "context_id": null,
+      "transcript_segment_indices": [170, 171, 172, 173, 174, 175, 176]
+    },
+    {
+      "start_second": 371,
+      "end_second_exclusive": 374,
+      "start_timestamp": "6:11",
+      "end_timestamp_exclusive": "6:14",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [177]
+    },
+    {
+      "start_second": 374,
+      "end_second_exclusive": 492,
+      "start_timestamp": "6:14",
+      "end_timestamp_exclusive": "8:12",
+      "classification": "operating",
+      "learning_ids": ["PVV-003"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194,
+        195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+        212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228,
+        229, 230, 231
+      ]
+    },
+    {
+      "start_second": 492,
+      "end_second_exclusive": 494,
+      "start_timestamp": "8:12",
+      "end_timestamp_exclusive": "8:14",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-004",
+      "transcript_segment_indices": [232]
+    },
+    {
+      "start_second": 494,
+      "end_second_exclusive": 504,
+      "start_timestamp": "8:14",
+      "end_timestamp_exclusive": "8:24",
+      "classification": "operating",
+      "learning_ids": ["PVV-016"],
+      "context_id": null,
+      "transcript_segment_indices": [233, 234, 235, 236, 237]
+    },
+    {
+      "start_second": 504,
+      "end_second_exclusive": 526,
+      "start_timestamp": "8:24",
+      "end_timestamp_exclusive": "8:46",
+      "classification": "operating",
+      "learning_ids": ["PVV-003", "PVV-016"],
+      "context_id": null,
+      "transcript_segment_indices": [238, 239, 240, 241, 242, 243, 244, 245, 246, 247]
+    },
+    {
+      "start_second": 526,
+      "end_second_exclusive": 566,
+      "start_timestamp": "8:46",
+      "end_timestamp_exclusive": "9:26",
+      "classification": "mixed",
+      "learning_ids": ["PVV-016", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264,
+        265, 266
+      ]
+    },
+    {
+      "start_second": 566,
+      "end_second_exclusive": 574,
+      "start_timestamp": "9:26",
+      "end_timestamp_exclusive": "9:34",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-005",
+      "transcript_segment_indices": [267, 268, 269, 270, 271]
+    },
+    {
+      "start_second": 574,
+      "end_second_exclusive": 616,
+      "start_timestamp": "9:34",
+      "end_timestamp_exclusive": "10:16",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288,
+        289, 290
+      ]
+    },
+    {
+      "start_second": 616,
+      "end_second_exclusive": 627,
+      "start_timestamp": "10:16",
+      "end_timestamp_exclusive": "10:27",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-006",
+      "transcript_segment_indices": [291, 292, 293, 294, 295]
+    },
+    {
+      "start_second": 627,
+      "end_second_exclusive": 662,
+      "start_timestamp": "10:27",
+      "end_timestamp_exclusive": "11:02",
+      "classification": "operating",
+      "learning_ids": ["PVV-002"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309
+      ]
+    },
+    {
+      "start_second": 662,
+      "end_second_exclusive": 672,
+      "start_timestamp": "11:02",
+      "end_timestamp_exclusive": "11:12",
+      "classification": "operating",
+      "learning_ids": ["PVV-021"],
+      "context_id": null,
+      "transcript_segment_indices": [310, 311, 312]
+    },
+    {
+      "start_second": 672,
+      "end_second_exclusive": 685,
+      "start_timestamp": "11:12",
+      "end_timestamp_exclusive": "11:25",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [313, 314, 315, 316, 317]
+    },
+    {
+      "start_second": 685,
+      "end_second_exclusive": 715,
+      "start_timestamp": "11:25",
+      "end_timestamp_exclusive": "11:55",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331
+      ]
+    },
+    {
+      "start_second": 715,
+      "end_second_exclusive": 761,
+      "start_timestamp": "11:55",
+      "end_timestamp_exclusive": "12:41",
+      "classification": "operating",
+      "learning_ids": ["PVV-001", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348,
+        349, 350, 351
+      ]
+    },
+    {
+      "start_second": 761,
+      "end_second_exclusive": 814,
+      "start_timestamp": "12:41",
+      "end_timestamp_exclusive": "13:34",
+      "classification": "operating",
+      "learning_ids": ["PVV-003", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368,
+        369, 370, 371, 372, 373, 374
+      ]
+    },
+    {
+      "start_second": 814,
+      "end_second_exclusive": 850,
+      "start_timestamp": "13:34",
+      "end_timestamp_exclusive": "14:10",
+      "classification": "mixed",
+      "learning_ids": ["PVV-003", "PVV-019", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390
+      ]
+    },
+    {
+      "start_second": 850,
+      "end_second_exclusive": 930,
+      "start_timestamp": "14:10",
+      "end_timestamp_exclusive": "15:30",
+      "classification": "operating",
+      "learning_ids": ["PVV-003", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407,
+        408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424,
+        425, 426, 427, 428
+      ]
+    },
+    {
+      "start_second": 930,
+      "end_second_exclusive": 938,
+      "start_timestamp": "15:30",
+      "end_timestamp_exclusive": "15:38",
+      "classification": "operating",
+      "learning_ids": ["PVV-002"],
+      "context_id": null,
+      "transcript_segment_indices": [429, 430, 431, 432]
+    },
+    {
+      "start_second": 938,
+      "end_second_exclusive": 968,
+      "start_timestamp": "15:38",
+      "end_timestamp_exclusive": "16:08",
+      "classification": "operating",
+      "learning_ids": ["PVV-001", "PVV-005"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449
+      ]
+    },
+    {
+      "start_second": 968,
+      "end_second_exclusive": 1010,
+      "start_timestamp": "16:08",
+      "end_timestamp_exclusive": "16:50",
+      "classification": "operating",
+      "learning_ids": ["PVV-005"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466,
+        467, 468
+      ]
+    },
+    {
+      "start_second": 1010,
+      "end_second_exclusive": 1014,
+      "start_timestamp": "16:50",
+      "end_timestamp_exclusive": "16:54",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [469, 470, 471]
+    },
+    {
+      "start_second": 1014,
+      "end_second_exclusive": 1092,
+      "start_timestamp": "16:54",
+      "end_timestamp_exclusive": "18:12",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-023"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488,
+        489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505,
+        506, 507, 508, 509, 510, 511, 512
+      ]
+    },
+    {
+      "start_second": 1092,
+      "end_second_exclusive": 1185,
+      "start_timestamp": "18:12",
+      "end_timestamp_exclusive": "19:45",
+      "classification": "operating",
+      "learning_ids": ["PVV-004"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529,
+        530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546,
+        547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558
+      ]
+    },
+    {
+      "start_second": 1185,
+      "end_second_exclusive": 1231,
+      "start_timestamp": "19:45",
+      "end_timestamp_exclusive": "20:31",
+      "classification": "operating",
+      "learning_ids": ["PVV-006"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575,
+        576, 577, 578
+      ]
+    },
+    {
+      "start_second": 1231,
+      "end_second_exclusive": 1248,
+      "start_timestamp": "20:31",
+      "end_timestamp_exclusive": "20:48",
+      "classification": "operating",
+      "learning_ids": ["PVV-006", "PVV-007"],
+      "context_id": null,
+      "transcript_segment_indices": [579, 580, 581, 582, 583, 584, 585]
+    },
+    {
+      "start_second": 1248,
+      "end_second_exclusive": 1292,
+      "start_timestamp": "20:48",
+      "end_timestamp_exclusive": "21:32",
+      "classification": "operating",
+      "learning_ids": ["PVV-006"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602,
+        603, 604, 605, 606, 607, 608, 609
+      ]
+    },
+    {
+      "start_second": 1292,
+      "end_second_exclusive": 1335,
+      "start_timestamp": "21:32",
+      "end_timestamp_exclusive": "22:15",
+      "classification": "operating",
+      "learning_ids": ["PVV-006", "PVV-016", "PVV-025"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626,
+        627, 628, 629
+      ]
+    },
+    {
+      "start_second": 1335,
+      "end_second_exclusive": 1484,
+      "start_timestamp": "22:15",
+      "end_timestamp_exclusive": "24:44",
+      "classification": "operating",
+      "learning_ids": ["PVV-008"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646,
+        647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663,
+        664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680,
+        681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694
+      ]
+    },
+    {
+      "start_second": 1484,
+      "end_second_exclusive": 1590,
+      "start_timestamp": "24:44",
+      "end_timestamp_exclusive": "26:30",
+      "classification": "operating",
+      "learning_ids": ["PVV-010"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711,
+        712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728,
+        729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745
+      ]
+    },
+    {
+      "start_second": 1590,
+      "end_second_exclusive": 1669,
+      "start_timestamp": "26:30",
+      "end_timestamp_exclusive": "27:49",
+      "classification": "operating",
+      "learning_ids": ["PVV-010", "PVV-011"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762,
+        763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779,
+        780, 781, 782
+      ]
+    },
+    {
+      "start_second": 1669,
+      "end_second_exclusive": 1696,
+      "start_timestamp": "27:49",
+      "end_timestamp_exclusive": "28:16",
+      "classification": "operating",
+      "learning_ids": ["PVV-010"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799
+      ]
+    },
+    {
+      "start_second": 1696,
+      "end_second_exclusive": 1701,
+      "start_timestamp": "28:16",
+      "end_timestamp_exclusive": "28:21",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-007",
+      "transcript_segment_indices": [800, 801, 802]
+    },
+    {
+      "start_second": 1701,
+      "end_second_exclusive": 1708,
+      "start_timestamp": "28:21",
+      "end_timestamp_exclusive": "28:28",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [803, 804, 805, 806]
+    },
+    {
+      "start_second": 1708,
+      "end_second_exclusive": 1756,
+      "start_timestamp": "28:28",
+      "end_timestamp_exclusive": "29:16",
+      "classification": "operating",
+      "learning_ids": ["PVV-012"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823,
+        824, 825, 826, 827, 828, 829, 830
+      ]
+    },
+    {
+      "start_second": 1756,
+      "end_second_exclusive": 1757,
+      "start_timestamp": "29:16",
+      "end_timestamp_exclusive": "29:17",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-008",
+      "transcript_segment_indices": [831]
+    },
+    {
+      "start_second": 1757,
+      "end_second_exclusive": 1822,
+      "start_timestamp": "29:17",
+      "end_timestamp_exclusive": "30:22",
+      "classification": "operating",
+      "learning_ids": ["PVV-001"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848,
+        849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860
+      ]
+    },
+    {
+      "start_second": 1822,
+      "end_second_exclusive": 1890,
+      "start_timestamp": "30:22",
+      "end_timestamp_exclusive": "31:30",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877,
+        878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888
+      ]
+    },
+    {
+      "start_second": 1890,
+      "end_second_exclusive": 2120,
+      "start_timestamp": "31:30",
+      "end_timestamp_exclusive": "35:20",
+      "classification": "mixed",
+      "learning_ids": ["PVV-020", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905,
+        906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922,
+        923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939,
+        940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956,
+        957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973,
+        974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990,
+        991, 992, 993, 994, 995, 996, 997, 998
+      ]
+    },
+    {
+      "start_second": 2120,
+      "end_second_exclusive": 2121,
+      "start_timestamp": "35:20",
+      "end_timestamp_exclusive": "35:21",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-009",
+      "transcript_segment_indices": [999]
+    },
+    {
+      "start_second": 2121,
+      "end_second_exclusive": 2401,
+      "start_timestamp": "35:21",
+      "end_timestamp_exclusive": "40:01",
+      "classification": "operating",
+      "learning_ids": ["PVV-014"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013,
+        1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027,
+        1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041,
+        1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055,
+        1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069,
+        1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
+        1084, 1085, 1086, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097,
+        1098, 1099, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111,
+        1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125,
+        1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134
+      ]
+    },
+    {
+      "start_second": 2401,
+      "end_second_exclusive": 2420,
+      "start_timestamp": "40:01",
+      "end_timestamp_exclusive": "40:20",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142]
+    },
+    {
+      "start_second": 2420,
+      "end_second_exclusive": 2443,
+      "start_timestamp": "40:20",
+      "end_timestamp_exclusive": "40:43",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-023"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154
+      ]
+    },
+    {
+      "start_second": 2443,
+      "end_second_exclusive": 2453,
+      "start_timestamp": "40:43",
+      "end_timestamp_exclusive": "40:53",
+      "classification": "operating",
+      "learning_ids": ["PVV-024"],
+      "context_id": null,
+      "transcript_segment_indices": [1155, 1156, 1157, 1158]
+    },
+    {
+      "start_second": 2453,
+      "end_second_exclusive": 2466,
+      "start_timestamp": "40:53",
+      "end_timestamp_exclusive": "41:06",
+      "classification": "operating",
+      "learning_ids": ["PVV-020", "PVV-024"],
+      "context_id": null,
+      "transcript_segment_indices": [1159, 1160, 1161, 1162, 1163, 1164]
+    },
+    {
+      "start_second": 2466,
+      "end_second_exclusive": 2481,
+      "start_timestamp": "41:06",
+      "end_timestamp_exclusive": "41:21",
+      "classification": "operating",
+      "learning_ids": ["PVV-020"],
+      "context_id": null,
+      "transcript_segment_indices": [1165, 1166, 1167, 1168]
+    },
+    {
+      "start_second": 2481,
+      "end_second_exclusive": 2537,
+      "start_timestamp": "41:21",
+      "end_timestamp_exclusive": "42:17",
+      "classification": "mixed",
+      "learning_ids": ["PVV-020", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182,
+        1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190
+      ]
+    },
+    {
+      "start_second": 2537,
+      "end_second_exclusive": 2600,
+      "start_timestamp": "42:17",
+      "end_timestamp_exclusive": "43:20",
+      "classification": "operating",
+      "learning_ids": ["PVV-020"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204,
+        1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218,
+        1219
+      ]
+    },
+    {
+      "start_second": 2600,
+      "end_second_exclusive": 2631,
+      "start_timestamp": "43:20",
+      "end_timestamp_exclusive": "43:51",
+      "classification": "operating",
+      "learning_ids": ["PVV-016"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233
+      ]
+    },
+    {
+      "start_second": 2631,
+      "end_second_exclusive": 2722,
+      "start_timestamp": "43:51",
+      "end_timestamp_exclusive": "45:22",
+      "classification": "operating",
+      "learning_ids": ["PVV-016", "PVV-025"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247,
+        1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260, 1261,
+        1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271
+      ]
+    },
+    {
+      "start_second": 2722,
+      "end_second_exclusive": 2794,
+      "start_timestamp": "45:22",
+      "end_timestamp_exclusive": "46:34",
+      "classification": "operating",
+      "learning_ids": ["PVV-005", "PVV-016", "PVV-025"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285,
+        1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294, 1295, 1296, 1297, 1298, 1299,
+        1300, 1301, 1302, 1303, 1304
+      ]
+    },
+    {
+      "start_second": 2794,
+      "end_second_exclusive": 2820,
+      "start_timestamp": "46:34",
+      "end_timestamp_exclusive": "47:00",
+      "classification": "operating",
+      "learning_ids": ["PVV-005"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318,
+        1319, 1320, 1321, 1322
+      ]
+    },
+    {
+      "start_second": 2820,
+      "end_second_exclusive": 2983,
+      "start_timestamp": "47:00",
+      "end_timestamp_exclusive": "49:43",
+      "classification": "operating",
+      "learning_ids": ["PVV-015", "PVV-019"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1323, 1324, 1325, 1326, 1327, 1328, 1329, 1330, 1331, 1332, 1333, 1334, 1335, 1336,
+        1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350,
+        1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364,
+        1365, 1366, 1367, 1368, 1369, 1370, 1371, 1372, 1373, 1374, 1375, 1376, 1377, 1378,
+        1379, 1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387, 1388, 1389, 1390, 1391, 1392
+      ]
+    },
+    {
+      "start_second": 2983,
+      "end_second_exclusive": 3061,
+      "start_timestamp": "49:43",
+      "end_timestamp_exclusive": "51:01",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022", "PVV-023"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406,
+        1407, 1408, 1409, 1410, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420,
+        1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430
+      ]
+    },
+    {
+      "start_second": 3061,
+      "end_second_exclusive": 3320,
+      "start_timestamp": "51:01",
+      "end_timestamp_exclusive": "55:20",
+      "classification": "operating",
+      "learning_ids": ["PVV-009"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1431, 1432, 1433, 1434, 1435, 1436, 1437, 1438, 1439, 1440, 1441, 1442, 1443, 1444,
+        1445, 1446, 1447, 1448, 1449, 1450, 1451, 1452, 1453, 1454, 1455, 1456, 1457, 1458,
+        1459, 1460, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1469, 1470, 1471, 1472,
+        1473, 1474, 1475, 1476, 1477, 1478, 1479, 1480, 1481, 1482, 1483, 1484, 1485, 1486,
+        1487, 1488, 1489, 1490, 1491, 1492, 1493, 1494, 1495, 1496, 1497, 1498, 1499, 1500,
+        1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1512, 1513, 1514,
+        1515, 1516, 1517, 1518, 1519, 1520, 1521, 1522, 1523, 1524, 1525, 1526, 1527, 1528,
+        1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1541, 1542,
+        1543, 1544, 1545, 1546, 1547, 1548
+      ]
+    },
+    {
+      "start_second": 3320,
+      "end_second_exclusive": 3413,
+      "start_timestamp": "55:20",
+      "end_timestamp_exclusive": "56:53",
+      "classification": "operating",
+      "learning_ids": ["PVV-021"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1549, 1550, 1551, 1552, 1553, 1554, 1555, 1556, 1557, 1558, 1559, 1560, 1561, 1562,
+        1563, 1564, 1565, 1566, 1567, 1568, 1569, 1570, 1571, 1572, 1573, 1574, 1575, 1576,
+        1577, 1578, 1579, 1580, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590,
+        1591, 1592, 1593, 1594, 1595, 1596
+      ]
+    },
+    {
+      "start_second": 3413,
+      "end_second_exclusive": 3442,
+      "start_timestamp": "56:53",
+      "end_timestamp_exclusive": "57:22",
+      "classification": "operating",
+      "learning_ids": ["PVV-010", "PVV-021"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608
+      ]
+    },
+    {
+      "start_second": 3442,
+      "end_second_exclusive": 3478,
+      "start_timestamp": "57:22",
+      "end_timestamp_exclusive": "57:58",
+      "classification": "operating",
+      "learning_ids": ["PVV-010"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1609, 1610, 1611, 1612, 1613, 1614, 1615, 1616, 1617, 1618, 1619, 1620, 1621, 1622,
+        1623, 1624, 1625
+      ]
+    },
+    {
+      "start_second": 3478,
+      "end_second_exclusive": 3479,
+      "start_timestamp": "57:58",
+      "end_timestamp_exclusive": "57:59",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-010",
+      "transcript_segment_indices": [1626]
+    },
+    {
+      "start_second": 3479,
+      "end_second_exclusive": 3505,
+      "start_timestamp": "57:59",
+      "end_timestamp_exclusive": "58:25",
+      "classification": "operating",
+      "learning_ids": ["PVV-017"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1627, 1628, 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636
+      ]
+    },
+    {
+      "start_second": 3505,
+      "end_second_exclusive": 3548,
+      "start_timestamp": "58:25",
+      "end_timestamp_exclusive": "59:08",
+      "classification": "mixed",
+      "learning_ids": ["PVV-017", "PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1637, 1638, 1639, 1640, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650,
+        1651, 1652, 1653, 1654, 1655, 1656
+      ]
+    },
+    {
+      "start_second": 3548,
+      "end_second_exclusive": 3605,
+      "start_timestamp": "59:08",
+      "end_timestamp_exclusive": "1:00:05",
+      "classification": "operating",
+      "learning_ids": ["PVV-017"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1657, 1658, 1659, 1660, 1661, 1662, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670,
+        1671, 1672, 1673, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1681, 1682, 1683, 1684
+      ]
+    },
+    {
+      "start_second": 3605,
+      "end_second_exclusive": 3622,
+      "start_timestamp": "1:00:05",
+      "end_timestamp_exclusive": "1:00:22",
+      "classification": "operating",
+      "learning_ids": ["PVV-001", "PVV-021"],
+      "context_id": null,
+      "transcript_segment_indices": [1685, 1686, 1687, 1688, 1689, 1690, 1691, 1692]
+    },
+    {
+      "start_second": 3622,
+      "end_second_exclusive": 3809,
+      "start_timestamp": "1:00:22",
+      "end_timestamp_exclusive": "1:03:29",
+      "classification": "operating",
+      "learning_ids": ["PVV-018"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1693, 1694, 1695, 1696, 1697, 1698, 1699, 1700, 1701, 1702, 1703, 1704, 1705, 1706,
+        1707, 1708, 1709, 1710, 1711, 1712, 1713, 1714, 1715, 1716, 1717, 1718, 1719, 1720,
+        1721, 1722, 1723, 1724, 1725, 1726, 1727, 1728, 1729, 1730, 1731, 1732, 1733, 1734,
+        1735, 1736, 1737, 1738, 1739, 1740, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1748,
+        1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761, 1762,
+        1763, 1764, 1765, 1766, 1767, 1768, 1769, 1770, 1771, 1772, 1773, 1774, 1775, 1776,
+        1777, 1778, 1779, 1780, 1781, 1782, 1783, 1784, 1785, 1786, 1787, 1788, 1789
+      ]
+    },
+    {
+      "start_second": 3809,
+      "end_second_exclusive": 3811,
+      "start_timestamp": "1:03:29",
+      "end_timestamp_exclusive": "1:03:31",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-011",
+      "transcript_segment_indices": [1790, 1791]
+    },
+    {
+      "start_second": 3811,
+      "end_second_exclusive": 3818,
+      "start_timestamp": "1:03:31",
+      "end_timestamp_exclusive": "1:03:38",
+      "classification": "operating",
+      "learning_ids": ["PVV-008"],
+      "context_id": null,
+      "transcript_segment_indices": [1792, 1793, 1794]
+    },
+    {
+      "start_second": 3818,
+      "end_second_exclusive": 3891,
+      "start_timestamp": "1:03:38",
+      "end_timestamp_exclusive": "1:04:51",
+      "classification": "operating",
+      "learning_ids": ["PVV-008", "PVV-013"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808,
+        1809, 1810, 1811, 1812, 1813, 1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822,
+        1823, 1824, 1825, 1826, 1827, 1828
+      ]
+    },
+    {
+      "start_second": 3891,
+      "end_second_exclusive": 3892,
+      "start_timestamp": "1:04:51",
+      "end_timestamp_exclusive": "1:04:52",
+      "classification": "context_only",
+      "learning_ids": [],
+      "context_id": "CTX-012",
+      "transcript_segment_indices": [1829]
+    },
+    {
+      "start_second": 3892,
+      "end_second_exclusive": 3910,
+      "start_timestamp": "1:04:52",
+      "end_timestamp_exclusive": "1:05:10",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-022"],
+      "context_id": null,
+      "transcript_segment_indices": [
+        1830, 1831, 1832, 1833, 1834, 1835, 1836, 1837, 1838, 1839
+      ]
+    },
+    {
+      "start_second": 3910,
+      "end_second_exclusive": 3924,
+      "start_timestamp": "1:05:10",
+      "end_timestamp_exclusive": "1:05:24",
+      "classification": "claim_boundary",
+      "learning_ids": ["PVV-023"],
+      "context_id": null,
+      "transcript_segment_indices": [1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847]
+    }
+  ]
+}

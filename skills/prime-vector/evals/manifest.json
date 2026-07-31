@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill": "prime-vector",
-  "public_version": "0.2.1",
+  "public_version": "0.2.2",
   "test_classes": [
     "positive_activation",
     "rejection",
@@ -22,5 +22,6 @@
   "contract": "contract.md",
   "speed_budgets": "speed-budgets.json",
   "centrality_mapping": "centrality-mapping.json",
-  "video_learning_map": "video-learning-map.json"
+  "video_learning_map": "video-learning-map.json",
+  "video_second_map": "video-second-map.json"
 }

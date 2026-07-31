@@ -31,12 +31,23 @@ class TestRuntimeContract(unittest.TestCase):
         self.assertIn("status quo and at least one viable alternative", text)
         self.assertIn("user accepts the named residual uncertainty", text)
 
-    def test_behavior_claims_route_to_evidence_owners(self):
+    def test_behavior_claims_use_the_local_proof_contract(self):
         text = read_skill()
-        self.assertIn("`would-humans-actually`", text)
-        self.assertIn("`would-agents-actually`", text)
+        shipped_text = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in SKILL_DIR.rglob("*")
+            if path.is_file() and "__pycache__" not in path.parts
+        )
+        for removed_companion in ["would-" + "humans-actually", "would-" + "agents-actually"]:
+            self.assertNotIn(removed_companion, shipped_text)
+        self.assertIn("For a human-action claim", text)
+        self.assertIn("eligible population", text)
+        self.assertIn("observed target action", text)
+        self.assertIn("For an automated-action claim", text)
+        self.assertIn("exact system", text)
         self.assertIn("representative task set", text)
-        self.assertIn("external readback", text)
+        self.assertIn("external state readback", text)
+        self.assertIn("Keep the verdict `UNVALIDATED`", text)
 
 
 class TestExecutionContract(unittest.TestCase):
@@ -62,6 +73,17 @@ class TestExecutionContract(unittest.TestCase):
 
 
 class TestEvidenceIntegrity(unittest.TestCase):
+    def test_video_source_and_every_learning_cluster_are_bound(self):
+        video = read_json("video-learning-map.json")
+        self.assertEqual(
+            video["video"]["transcript_full_text_sha256"],
+            "2ed6f87c5342ffd8ee1cee9cebbd7f6491b61d39acee301ca6e513947ae43ce3",
+        )
+        self.assertEqual(len(video["learnings"]), 25)
+        self.assertEqual(set(video["candidate_map"]), {item["id"] for item in video["learnings"]})
+        self.assertNotIn("missing", set(video["candidate_map"].values()))
+        self.assertTrue(all(item["timestamps"] for item in video["learnings"]))
+
     def test_candidate_evidence_ids_match_candidate_hash(self):
         data = read_json("centrality-mapping.json")
         candidate = hashlib.sha256((SKILL_DIR / "SKILL.md").read_bytes()).hexdigest()
@@ -84,6 +106,13 @@ class TestEvidenceIntegrity(unittest.TestCase):
 
 
 class TestDualFormatParity(unittest.TestCase):
+    def test_case_taxonomy_declares_every_used_value(self):
+        data = read_json("cases.json")
+        self.assertTrue(all(item["group"] in data["groups"] for item in data["cases"]))
+        self.assertTrue(
+            all(item["decision"] in data["decision_labels"] for item in data["cases"])
+        )
+
     def test_behavior_formats_match(self):
         cases = read_json("cases.json")["cases"]
         portable = read_json("evals.json")["evals"]

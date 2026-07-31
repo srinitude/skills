@@ -57,12 +57,12 @@
 ## Test
 
 - Smallest reversible action:
-- Evidence owner or local fallback:
-- Actor, population, or representative task set:
+- Claim type: human action | automated action | other
+- Actor, eligible population, exact system, or representative task set:
 - Comparator and denominator:
 - Visible behavior:
 - Observation window and trial count:
-- Success threshold and external readback:
+- Success threshold and external outcome or state readback:
 - Permission boundary:
 - Stop condition:
 - Rollback:

@@ -24,7 +24,7 @@ Rejected alternative: Enterprise finance cannot complete its supplied 60-day buy
 
 Challenge: The six recent questions may reflect easy access rather than repeatable willingness to pay. The smallest overturning fact is a competing segment with at least 12 consenting buyers who can complete the same paid action inside 14 days.
 
-Evidence: The segment facts are user-supplied observations. No buying-behavior verdict exists yet. Apply `would-humans-actually` if available; otherwise keep the verdict `UNVALIDATED` until payment records provide external readback.
+Evidence: The segment facts are user-supplied observations. No buying-behavior verdict exists yet. Keep the verdict `UNVALIDATED` until payment records show the target action for the eligible denominator inside the observation window.
 
 Smallest test: Invite 12 consenting design-agency owner-operators through the permitted channel. Use one offer, one $500 price, and one result. Pass at 3 paid completions within 14 days of first contact. Stop for complaints, permission failures, delivery risk, or scope beyond the frozen contract. If below threshold, compare the eligible denominator, objections, and paid versus unpaid traces before changing the segment or offer.
 

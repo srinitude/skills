@@ -9,7 +9,7 @@ Score each criterion as `PASS` or `BLOCKED`. The case passes only when every app
 5. **FRAME:** Context, Role, Interview, and Task close only material gaps with one unanswered material question.
 6. **DRAFT:** One actionable draft is compared with the status quo and a viable alternative while preserving user authorship and unaided judgment.
 7. **CHALLENGE:** The weakest assumption, objection, failure mode, overturning evidence, and one feedback question chosen by decision impact are visible.
-8. **TEST:** Human and agent action claims use the matching evidence owner or a complete local fallback; predictions model real friction and become reversible tests with external readback and stop rules.
+8. **TEST:** Human-action and automated-action claims use their separate local proof contracts; predictions model real friction and become reversible tests with external outcome or state readback and stop rules.
 9. **DECIDE:** Strategy, rejected alternative and reason, evidence, uncertainty, decision basis, next action, and user decision support a valid response status separate from workflow state.
 10. **Evidence:** Facts, claims, forecasts, anecdotes, and observed outcomes stay distinct.
 11. **Branches:** Practice and systemization activate only under their stated conditions; systemization does not scale before an observed manual result, an accepted target result, and exercised failure handling.

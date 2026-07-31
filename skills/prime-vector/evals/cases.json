@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill": "prime-vector",
-  "groups": ["strategy", "behavior", "execution", "supplemental", "companion"],
+  "groups": ["strategy", "behavior", "execution", "supplemental", "companion", "logic"],
   "decision_labels": [
     "select_high_value",
     "run_crit",
@@ -22,7 +22,14 @@
     "bound_data",
     "calibrate_feedback",
     "avoid_personality_inference",
-    "bind_companions"
+    "bind_companions",
+    "separate_state_status",
+    "compare_options",
+    "test_human_action",
+    "test_automated_action",
+    "label_decision_basis",
+    "gate_scaling",
+    "limit_questions"
   ],
   "cases": [
     {
@@ -363,13 +370,13 @@
       "id": "LOGIC-003",
       "source_id": "LOGIC-003",
       "group": "logic",
-      "title": "Human behavior evidence owner",
-      "decision": "route_human_evidence",
+      "title": "Local human behavior proof",
+      "decision": "test_human_action",
       "pressures": ["logical consistency", "human behavior"],
       "prompt": "Predict whether 12 prospects will buy this pilot and tell me the answer now.",
       "required": [
-        "Route the decisive human action claim to would-humans-actually when available.",
-        "Use the complete local fallback when that owner is unavailable.",
+        "Pin the eligible population, denominator, comparator, observed target action, window, threshold, consent boundary, and external outcome record.",
+        "Treat stated interest and simulated reactions as leads rather than observed buying behavior.",
         "Keep the verdict UNVALIDATED until direct behavior evidence exists."
       ],
       "veto": ["Treat stated interest or simulated reactions as observed buying behavior."]
@@ -378,13 +385,13 @@
       "id": "LOGIC-004",
       "source_id": "LOGIC-004",
       "group": "logic",
-      "title": "Agent behavior evidence owner",
-      "decision": "route_agent_evidence",
+      "title": "Local automated behavior proof",
+      "decision": "test_automated_action",
       "pressures": ["logical consistency", "agent behavior"],
       "prompt": "Assume this automated worker can complete every delegated case because one tool call succeeded.",
       "required": [
-        "Route the decisive agent action claim to would-agents-actually when available.",
-        "Use a representative task set, trial count, and external readback in the local fallback.",
+        "Pin the exact system, configuration, tools, permissions, environment, representative task set, trial count, threshold, failure classes, and external state readback.",
+        "Treat one successful tool attempt as one trace rather than proof of general capability or reliability.",
         "Separate capability, reliability, operational fit, and outcome value."
       ],
       "veto": ["Promote one successful tool attempt to a general capability verdict."]

@@ -3,7 +3,7 @@ name: prime-vector
 description: 'Use when a high-stakes problem needs a strategy.'
 license: MIT
 metadata:
-  version: '0.2.1'
+  version: '0.2.2'
   author: 'Kiren Srinivasan'
 ---
 
@@ -57,9 +57,13 @@ Enter `TEST` when the revised strategy and its strongest challenge are both visi
 
 ### TEST
 
-Do not infer human or automated behavior from preference, intention, a plausible plan, a click, a waitlist, or a tool attempt. Keep human adoption, automated capability, reliability, operational fit, and outcome value separate.
+Do not infer human or automated behavior from preference, intention, a plausible plan, a click, a waitlist, a generated answer, or a tool attempt. Keep human adoption, automated capability, reliability, operational fit, and outcome value separate.
 
-When the decisive prediction is a human action, apply `would-humans-actually` if available. When it is an agent action, apply `would-agents-actually` if available. If the matching owner is unavailable, locally pin the visible target action, actor or system, comparator, eligible denominator or representative task set, observation window, trial count, threshold, external readback, permission boundary, stop condition, rollback, and update rule. Keep the verdict `UNVALIDATED` without direct evidence.
+For a human-action claim, pin the eligible population, denominator, comparator, observed target action, observation window, threshold, consent and contact boundary, and external outcome record. Treat stated preference, survey intent, waitlists, clicks, and simulated reactions as leads, not observed behavior.
+
+For an automated-action claim, pin the exact system version, configuration, tools, permissions, environment, representative task set, trial count, success threshold, failure classes, and external state readback. A generated answer, planned tool call, attempted action, or one successful trace does not prove general capability or reliability.
+
+For either claim, name the stop condition, rollback, and update rule. Keep the verdict `UNVALIDATED` until direct evidence meets the stated threshold.
 
 Turn the decisive prediction into the smallest reversible test. Prefer observed traces with outcome labels, compare successful and unsuccessful cases, and deliver feedback close to the next action. Remain in `TEST` with status `TEST` while evidence is missing. Enter `DECIDE` only when the proof threshold is met or the user accepts the named residual uncertainty.
 

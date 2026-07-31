@@ -56,6 +56,7 @@ export const evalManifestSchema = z
     test_classes: testClassesSchema,
     trigger_source: z.literal('trigger-cases.json'),
     video_learning_map: z.literal('video-learning-map.json').optional(),
+    video_second_map: z.literal('video-second-map.json').optional(),
   })
   .strict();
 

@@ -25,8 +25,9 @@ Load this checklist before a high-stakes strategy pass or when a state transitio
 
 ## TEST and DECIDE
 
-- [ ] Human action claims route to `would-humans-actually` and agent action claims route to `would-agents-actually` when available.
-- [ ] The reversible test or local fallback names the actor or system, action, comparator, denominator or representative task set, window, trial count, threshold, external readback, permissions, stop condition, rollback, and update rule.
+- [ ] A human-action test names the eligible population, denominator, comparator, observed target action, window, threshold, consent boundary, and external outcome record.
+- [ ] An automated-action test pins the exact system, configuration, tools, permissions, environment, representative task set, trials, threshold, failure classes, and external state readback.
+- [ ] Either test names its stop condition, rollback, and update rule and stays `UNVALIDATED` until direct evidence meets the threshold.
 - [ ] Human adoption, automated capability, reliability, operational fit, and outcome value stay separate.
 - [ ] Workflow state and response status are separate; the status is `QUESTION`, `DRAFT`, `TEST`, `DONE`, or `BLOCKED`.
 - [ ] The strategy, rejected alternative and reason, challenge, evidence, uncertainty, decision basis, next action, and user decision are visible when applicable.

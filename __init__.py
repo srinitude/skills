@@ -2,8 +2,8 @@ from pathlib import Path
 
 _SKILLS = (
     (
-        "always-current-date",
-        "Use when replying. Refresh date through starting-point.",
+        "always-current-datetime",
+        "Use when replying. Refresh current date and time.",
     ),
     (
         "logic-audit",

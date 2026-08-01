@@ -3,7 +3,7 @@
 Score each criterion as `PASS` or `BLOCKED`. The case passes only when every applicable criterion passes and no veto occurs.
 
 1. **Activation:** Strategic work activates; simple work bypasses the procedure.
-2. **Bindings:** `starting-point`, `always-current-date`, and `outcome-bounded-work` run in order or use their stated local fallbacks.
+2. **Bindings:** `starting-point`, `always-current-datetime`, and `outcome-bounded-work` run in order or use their stated local fallbacks.
 3. **Outcome:** Candidate problems, ordered decision criteria, one measurable high-value result, and a proof threshold are explicit.
 4. **Boundaries:** Outcome, proof, boundaries, forbidden outcomes, mandatory methods, candidate paths, and unknowns stay distinct.
 5. **FRAME:** Context, Role, Interview, and Task close only material gaps with one unanswered material question.

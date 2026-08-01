@@ -107,7 +107,7 @@ test('opencode adapter starts the bundled read-only server', async () => {
 test('Aider adapter reads the canonical skill without copying it', async () => {
   expect(await yaml('.aider.conf.yml')).toEqual({
     read: [
-      'skills/always-current-date/SKILL.md',
+      'skills/always-current-datetime/SKILL.md',
       'skills/logic-audit/SKILL.md',
       'skills/outcome-bounded-work/SKILL.md',
       'skills/prime-vector/SKILL.md',
@@ -119,7 +119,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/would-humans-actually/SKILL.md',
     ],
   });
-  await expectInside('skills/always-current-date/SKILL.md');
+  await expectInside('skills/always-current-datetime/SKILL.md');
   await expectInside('skills/logic-audit/SKILL.md');
   await expectInside('skills/outcome-bounded-work/SKILL.md');
   await expectInside('skills/prime-vector/SKILL.md');
@@ -167,7 +167,7 @@ test('groups canonical skills for skills-hub clients', async () => {
       },
       { skills: ['logic-audit'], title: 'Reasoning' },
       { skills: ['skill-factory'], title: 'Skill Authoring' },
-      { skills: ['always-current-date'], title: 'Temporal Context' },
+      { skills: ['always-current-datetime'], title: 'Temporal Context' },
     ],
   });
 });

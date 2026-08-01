@@ -4,7 +4,7 @@ description: 'Use when finding contradictions or reasoning gaps.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
 ---
 
 # Logic audit
@@ -25,7 +25,7 @@ A full audit is bounded by the named source set and outcome. Never claim that an
 
 Before auditing:
 
-1. Load `always-current-date` and acquire its clock anchor.
+1. Load `always-current-datetime` and acquire its clock anchor.
 2. Load `starting-point` and build its private outcome map.
 3. Load `outcome-bounded-work` and classify fixed requirements, proof duties, boundaries, forbidden outcomes, mandatory methods, candidate routes, and unknowns.
 4. Keep the same `as_of` anchor throughout the audit. Reacquire only after a new direct user turn or local midnight.

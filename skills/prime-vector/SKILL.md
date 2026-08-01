@@ -3,7 +3,7 @@ name: prime-vector
 description: 'Use when a high-stakes problem needs a strategy.'
 license: MIT
 metadata:
-  version: '0.2.3'
+  version: '0.2.4'
   author: 'Kiren Srinivasan'
 ---
 
@@ -18,7 +18,7 @@ Use it for strategic choices, disputed assumptions, stakeholder behavior, workfl
 Run these bindings in order before the strategy method:
 
 1. Apply `starting-point`. Map the observable outcome, proof, constraints, starting path, and unknowns. Treat a requested method as a candidate unless it is exact, required, safety-related, reproducibility-related, or the deliverable.
-2. Apply `always-current-date`. Acquire one fresh local clock anchor for the direct turn, attach it to the starting-point map, resolve relative dates, and use the required visible date prefix. If acquisition fails, use `temporal-anchor-unavailable` and stop only the date-dependent part.
+2. Apply `always-current-datetime`. Acquire one fresh local clock anchor for the direct turn, attach it to the starting-point map, resolve relative dates, and use the required visible date prefix. If acquisition fails, use `temporal-anchor-unavailable` and stop only the date-dependent part.
 3. Apply `outcome-bounded-work`. Freeze the outcome, proof, boundaries, forbidden outcomes, mandatory methods, candidate paths, adaptation rule, and unknowns. Replace a candidate path only when evidence supports the change and every invariant remains fixed.
 4. Inventory candidate problems, define decision criteria in precedence order from the user's goal and constraints, and choose the one problem that would create the most value or remove the most costly friction. If a tie depends on user values rather than evidence, ask one question instead of breaking it for the user. Measure a real result such as revenue, retention, quality, satisfaction, risk reduction, or a user-selected equivalent. Time saved and tool activity are supporting evidence, not the result.
 
@@ -93,7 +93,7 @@ Load [references/practice-loop.md](references/practice-loop.md) only when the us
 
 ## Output
 
-Start with the dated result or question required by `always-current-date`, then show only the applicable fields: goal and proof, frozen contract, strategy, challenge, evidence, test or next action, remaining uncertainty, decision basis, and user decision.
+Start with the dated result or question required by `always-current-datetime`, then show only the applicable fields: goal and proof, frozen contract, strategy, challenge, evidence, test or next action, remaining uncertainty, decision basis, and user decision.
 
 Use `QUESTION` for one required answer, `DRAFT` for an actionable strategy not yet proved, `TEST` for a bounded test or missing evidence, `DONE` for a completed strategy under one stated decision basis, and `BLOCKED` for an exact missing gate. Ask only one question in `QUESTION`. Do not force this schema onto bypassed simple work.
 

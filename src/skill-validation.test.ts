@@ -6,17 +6,17 @@ import { validateSkill } from './skill-validation.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 
-test('validates the public always-current-date release and native lineage', async () => {
-  const report = await validateSkill(root, 'always-current-date');
+test('validates the public always-current-datetime release and native lineage', async () => {
+  const report = await validateSkill(root, 'always-current-datetime');
 
   expect(report).toEqual({
-    caseCount: 11,
+    caseCount: 12,
     errors: [],
-    manifestSha256: '02a7d6cbd55194531fadde08495681fcb5f338034c19294df17424ea6b69d4c4',
-    name: 'always-current-date',
-    skillPath: join('skills', 'always-current-date', 'SKILL.md'),
+    manifestSha256: 'b647248569c7664ae8dcba5161a748ccfc7eafa33c5d9bb6d5378fed63c9bc86',
+    name: 'always-current-datetime',
+    skillPath: join('skills', 'always-current-datetime', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.1',
+    version: '0.1.0',
   });
 });
 
@@ -26,11 +26,11 @@ test('validates the public logic-audit release and native lineage', async () => 
   expect(report).toEqual({
     caseCount: 10,
     errors: [],
-    manifestSha256: 'f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384',
+    manifestSha256: 'fe949512d2fd091a39606dab3e1644289032231d2ba27fc929a2efbb1fae8b18',
     name: 'logic-audit',
     skillPath: join('skills', 'logic-audit', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 
@@ -58,7 +58,7 @@ test('validates the public prime-vector release and source lineage', async () =>
     name: 'prime-vector',
     skillPath: join('skills', 'prime-vector', 'SKILL.md'),
     status: 'PASS',
-    version: '0.2.3',
+    version: '0.2.4',
   });
 });
 

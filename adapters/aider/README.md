@@ -1,9 +1,9 @@
 # Aider adapter
 
-Read a canonical [`SKILL.md`](../../skills/always-current-date/SKILL.md) by absolute path from the project where Aider is running. The same route works for every skill in the collection:
+Read a canonical [`SKILL.md`](../../skills/always-current-datetime/SKILL.md) by absolute path from the project where Aider is running. The same route works for every skill in the collection:
 
 ```sh
-aider --read /absolute/path/to/skills/skills/always-current-date/SKILL.md
+aider --read /absolute/path/to/skills/skills/always-current-datetime/SKILL.md
 aider --read /absolute/path/to/skills/skills/logic-audit/SKILL.md
 aider --read /absolute/path/to/skills/skills/outcome-bounded-work/SKILL.md
 aider --read /absolute/path/to/skills/skills/prime-vector/SKILL.md

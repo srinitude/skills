@@ -6,7 +6,7 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 BASELINE_PUBLIC_SHA256 = "c1889016d6e33868f3346986336dd5938a089a8af96ffcc9cb9ee280a1766a16"
-CURRENT_PUBLIC_VERSION = "0.2.3"
+CURRENT_PUBLIC_VERSION = "0.2.4"
 EXPECTED_FILES = {
     "SKILL.md": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816",
 }
@@ -166,7 +166,7 @@ class TestSourceMapping(unittest.TestCase):
         lineage = load("evals/source-lineage.json")
         self.assertIn(f"version: '{CURRENT_PUBLIC_VERSION}'", skill)
         self.assertEqual(lineage["public_version"], CURRENT_PUBLIC_VERSION)
-        ordered = ["`starting-point`", "`always-current-date`", "`outcome-bounded-work`"]
+        ordered = ["`starting-point`", "`always-current-datetime`", "`outcome-bounded-work`"]
         positions = [skill.index(token) for token in ordered]
         self.assertEqual(positions, sorted(positions))
         self.assertIn("Workflow states are `FRAME | DRAFT | CHALLENGE | TEST | DECIDE`", skill)

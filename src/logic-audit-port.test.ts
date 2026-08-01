@@ -7,9 +7,9 @@ import { expect, test } from 'vitest';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const packetRoot = join(root, 'evidence', 'ports', 'logic-audit');
 const skillRoot = join(root, 'skills', 'logic-audit');
-const manifestHash = 'f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384';
+const manifestHash = 'fe949512d2fd091a39606dab3e1644289032231d2ba27fc929a2efbb1fae8b18';
 const sourceHashes = {
-  'SKILL.md': '2454abc677c73b8ba0fff6932a6301dedeeda36538957d0bf40fe84d74891bbb',
+  'SKILL.md': '30111ea612803022da7575bb6deaf5bf5b9a1d34325b6c873135777c4eab56bf',
   'references/check-catalog.md':
     'e9a7fe8dfa4f145fb61d3e82117bf3406d5cd95fd1ee95b774b35406b8b3360f',
   'references/eval-cases.json':
@@ -113,8 +113,8 @@ test('binds every public file and native case to the packet', async () => {
   );
   expect(lineage).toMatchObject({
     native_manifest_sha256: manifestHash,
-    native_version: '1.0.1',
-    public_version: '0.1.0',
+    native_version: '1.0.2',
+    public_version: '0.1.1',
     source_case_ids: lineageCases,
     source_files: Object.entries(sourceHashes).map(([path, hash]) => ({
       path,

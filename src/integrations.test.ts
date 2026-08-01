@@ -86,9 +86,9 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
 
   expect(skills).toEqual([
     {
-      description: 'Use when replying. Refresh date through starting-point.',
-      name: 'always-current-date',
-      path: resolve(root, 'skills', 'always-current-date', 'SKILL.md'),
+      description: 'Use when replying. Refresh current date and time.',
+      name: 'always-current-datetime',
+      path: resolve(root, 'skills', 'always-current-datetime', 'SKILL.md'),
     },
     {
       description: 'Use when finding contradictions or reasoning gaps.',

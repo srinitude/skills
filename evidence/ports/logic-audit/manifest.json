@@ -2,10 +2,10 @@
   "schema_version": 1,
   "skill": "logic-audit",
   "source_category": "reasoning",
-  "source_version": "1.0.1",
+  "source_version": "1.0.2",
   "source_profile": "default",
-  "installed_hermes_commit": "f3cda0ceb18d8ba7465a6d223098ef0e56c8fee1",
-  "source_manifest_sha256": "f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384",
+  "installed_hermes_commit": "e444d165807f489b5c1ab8e4a612c8d09c2e67a2",
+  "source_manifest_sha256": "fe949512d2fd091a39606dab3e1644289032231d2ba27fc929a2efbb1fae8b18",
   "manifest_algorithm": "SHA-256 of ordered source_path NUL sha256 NUL byte_count LF records",
   "source_case_ids": [
     "direct-contradiction",
@@ -23,10 +23,10 @@
     {
       "source_path": "SKILL.md",
       "evidence_path": "SKILL.native.md",
-      "bytes": 9122,
+      "bytes": 9130,
       "lines": 136,
       "nonblank_lines": 100,
-      "sha256": "2454abc677c73b8ba0fff6932a6301dedeeda36538957d0bf40fe84d74891bbb"
+      "sha256": "30111ea612803022da7575bb6deaf5bf5b9a1d34325b6c873135777c4eab56bf"
     },
     {
       "source_path": "references/check-catalog.md",

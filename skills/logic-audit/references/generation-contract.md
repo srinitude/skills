@@ -20,7 +20,7 @@ The repository keeps byte-exact native source files under `evidence/ports/logic-
 
 - Replace native host metadata with portable frontmatter while preserving every original byte in evidence.
 - Express web tools as search, source extraction, rendered browser, social-source, academic, and domain-source capabilities. Keep the original tool-specific contract in evidence and preserve every use condition, fallback rule, and proof limit.
-- Keep `always-current-date`, `starting-point`, and `outcome-bounded-work` as named skill dependencies because they own required behavior rather than one host implementation.
+- Keep `always-current-datetime`, `starting-point`, and `outcome-bounded-work` as named skill dependencies because they own required behavior rather than one host implementation.
 - Map native case slugs to lineage IDs `NLA-001` through `NLA-010` and public IDs `LA-001` through `LA-010`. Preserve every native prompt, required behavior, and veto.
 - Add package scaffolding, examples, and evaluations only as proof and distribution support. They do not replace native meaning.
 

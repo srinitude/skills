@@ -5,7 +5,7 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 EXPECTED_FILES = {
-    "SKILL.md": "2454abc677c73b8ba0fff6932a6301dedeeda36538957d0bf40fe84d74891bbb",
+    "SKILL.md": "30111ea612803022da7575bb6deaf5bf5b9a1d34325b6c873135777c4eab56bf",
     "references/check-catalog.md":
         "e9a7fe8dfa4f145fb61d3e82117bf3406d5cd95fd1ee95b774b35406b8b3360f",
     "references/eval-cases.json":
@@ -41,7 +41,7 @@ class TestSourceMapping(unittest.TestCase):
         self.assertEqual(lineage["source_case_ids"], LINEAGE_CASES)
         self.assertEqual(
             lineage["native_manifest_sha256"],
-            "f0a292579948abd9c7aefb18c18124d207fb19d7c4a94cc971470ce1cfb93384",
+            "fe949512d2fd091a39606dab3e1644289032231d2ba27fc929a2efbb1fae8b18",
         )
 
     def test_mapping_covers_every_nonblank_line_without_drop(self):
@@ -91,7 +91,7 @@ class TestSourceMapping(unittest.TestCase):
     def test_portable_skill_preserves_required_order_and_boundaries(self):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         ordered = [
-            "`always-current-date`",
+            "`always-current-datetime`",
             "`starting-point`",
             "`outcome-bounded-work`",
         ]

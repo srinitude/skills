@@ -27,7 +27,7 @@
     },
     {
       "title": "Temporal Context",
-      "skills": ["always-current-date"]
+      "skills": ["always-current-datetime"]
     }
   ]
 }

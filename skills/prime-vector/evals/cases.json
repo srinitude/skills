@@ -331,7 +331,7 @@
       "prompt": "Use Prime Vector to choose a strategy for this dated, method-heavy decision.",
       "required": [
         "Apply starting-point before the strategy method.",
-        "Acquire the direct-turn anchor through always-current-date.",
+        "Acquire the direct-turn anchor through always-current-datetime.",
         "Apply outcome-bounded-work before FRAME and preserve mandatory methods."
       ],
       "veto": ["Run the bindings out of order, guess the date, or drop a mandatory method."]

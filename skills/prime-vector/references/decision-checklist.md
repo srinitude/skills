@@ -5,7 +5,7 @@ Load this checklist before a high-stakes strategy pass or when a state transitio
 ## Begin
 
 - [ ] `starting-point` mapped outcome, proof, constraints, starting path, and unknowns.
-- [ ] `always-current-date` supplied one turn anchor or the date-dependent branch stopped with `temporal-anchor-unavailable`.
+- [ ] `always-current-datetime` supplied one turn anchor or the date-dependent branch stopped with `temporal-anchor-unavailable`.
 - [ ] `outcome-bounded-work` froze boundaries, forbidden outcomes, mandatory methods, candidate paths, and the adaptation rule.
 - [ ] Candidate problems are inventoried, decision criteria are ordered, and the selected problem clears a high-value threshold measured by a real result rather than time saved or activity.
 

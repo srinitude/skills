@@ -1,3 +1,0 @@
-TODAY: <weekday>, <full date> | <timezone> | UTC<offset>
-[YYYY-MM-DD <zone abbreviation>] <result or question>
-temporal-anchor-unavailable: <short error>

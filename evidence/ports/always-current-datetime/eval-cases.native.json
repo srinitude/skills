@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "skill": "always-current-datetime",
+  "acceptance": {
+    "case_rule": "Every required token is present and every forbidden behavior is absent.",
+    "suite_rule": "All cases pass. One miss blocks behavioral parity.",
+    "separate_statuses": ["native", "activation", "behavior", "enrollment"]
+  },
+  "cases": [
+    {
+      "id": "ACDT-001",
+      "prompt": "Give me three names for a small research project.",
+      "conditions": ["first direct user turn"],
+      "expect": ["load starting-point", "one fresh clock call", "daily header", "date-time prefix"],
+      "forbid": ["reuse an earlier anchor", "rewrite the user prompt"]
+    },
+    {
+      "id": "ACDT-002",
+      "prompt": "Make the second option shorter.",
+      "conditions": ["same local date as ACDT-001"],
+      "expect": ["one fresh clock call", "date-time prefix with acquired seconds"],
+      "forbid": ["second daily header", "skip the clock because no date or time words appear"]
+    },
+    {
+      "id": "ACDT-003",
+      "prompt": "Remind me tomorrow to submit the form.",
+      "conditions": ["anchor date 2026-07-30", "timezone America/New_York"],
+      "expect": ["resolve tomorrow as 2026-07-31", "preserve tomorrow", "tool action uses absolute date and timezone"],
+      "forbid": ["schedule from conversation start date"]
+    },
+    {
+      "id": "ACDT-004",
+      "prompt": "I finished the draft yesterday.",
+      "conditions": ["anchor date 2026-07-30"],
+      "expect": ["resolve yesterday as 2026-07-29", "keep the statement historical"],
+      "forbid": ["turn the statement into a future task"]
+    },
+    {
+      "id": "ACDT-005",
+      "prompt": "Book it for next Friday.",
+      "conditions": ["multiple reasonable next-Friday conventions"],
+      "expect": ["show candidate absolute dates", "ask one concise question"],
+      "forbid": ["silently choose a convention"]
+    },
+    {
+      "id": "ACDT-006",
+      "prompt": "Continue.",
+      "conditions": ["local date changed since the preceding assistant turn"],
+      "expect": ["fresh post-midnight anchor", "new daily header", "new date-time prefix"],
+      "forbid": ["reuse the preceding local date or time"]
+    },
+    {
+      "id": "ACDT-007",
+      "prompt": "What should I do today?",
+      "conditions": ["clock command exits nonzero"],
+      "expect": ["report temporal-anchor-unavailable", "stop date-dependent and time-dependent action"],
+      "forbid": ["guess today", "use a stale anchor"]
+    },
+    {
+      "id": "ACDT-008",
+      "prompt": "Check the current deployment and summarize it.",
+      "conditions": ["several non-clock tools are needed"],
+      "expect": ["clock call occurs before interpretation", "exactly one clock call"],
+      "forbid": ["clock call after final reasoning", "duplicate clock calls"]
+    },
+    {
+      "id": "ACDT-009",
+      "prompt": "Resume after context compression.",
+      "conditions": ["skill body was pruned from retained context"],
+      "expect": ["reload the skill", "load starting-point", "fresh clock call"],
+      "forbid": ["rely on the compressed date-time summary"]
+    },
+    {
+      "id": "ACDT-010",
+      "prompt": "Use the evidence we gathered last week.",
+      "conditions": ["evidence has an older observation date"],
+      "expect": ["bind current as_of to the outcome map", "distinguish old evidence from current state"],
+      "forbid": ["present old evidence as current proof"]
+    },
+    {
+      "id": "ACDT-011",
+      "prompt": "Continue with the task.",
+      "conditions": ["the skill loader supplied a concrete skill directory", "no skill-directory shell variable is set"],
+      "expect": ["use the concrete skill directory as the process working directory", "run the relative bundled clock script", "fresh clock call"],
+      "forbid": ["unresolved variable in the command", "guess an installation path"]
+    },
+    {
+      "id": "ACDT-012",
+      "prompt": "Remind me in two hours to check the oven.",
+      "conditions": ["anchor timestamp 2026-07-30T14:15:00-04:00", "timezone America/New_York"],
+      "expect": ["resolve in two hours as 2026-07-30T16:15:00-04:00", "preserve in two hours", "tool action uses absolute date-time and timezone"],
+      "forbid": ["resolve from conversation start time", "drop the UTC offset"]
+    }
+  ]
+}

@@ -108,6 +108,7 @@ test('keeps the root guide concise and the Aider route portable', async () => {
   expect(aider).toContain(
     '--read /absolute/path/to/skills/skills/always-current-datetime/SKILL.md',
   );
+  expect(aider).toContain('--read /absolute/path/to/skills/skills/dedupe/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/logic-audit/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/prime-vector/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/reify/SKILL.md');

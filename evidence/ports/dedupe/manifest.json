@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "skill": "dedupe",
+  "source_category": "general",
+  "source_version": "1.0.0",
+  "source_profile": "default",
+  "installed_hermes_commit": "a991dfc25daf68994c21d6adcdfbafb1b3dc23cf",
+  "source_manifest_sha256": "f955a6135f547637dc49fb5caa226d6c430344640b51ecb01de90e20e61896c8",
+  "manifest_algorithm": "SHA-256 of ordered source_path NUL sha256 LF records",
+  "source_case_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "trigger_case_count": 16,
+  "file_count": 36,
+  "files": [
+    {
+      "bytes": 423,
+      "evidence_path": "native/.github/workflows/ci.yml",
+      "lines": 17,
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0",
+      "source_path": ".github/workflows/ci.yml"
+    },
+    {
+      "bytes": 7309,
+      "evidence_path": "native/SKILL.native.md",
+      "lines": 120,
+      "sha256": "d34ba6892ad1a02bf0e3b3a94f759c737424008af192d0c91efcb70118b55176",
+      "source_path": "SKILL.md"
+    },
+    {
+      "bytes": 286,
+      "evidence_path": "native/assets/eval-case-template.json",
+      "lines": 10,
+      "sha256": "cad41448c13d208bb9ca4bcbfb77ceb71bdd73d91be4d5782d7c2050537f59f1",
+      "source_path": "assets/eval-case-template.json"
+    },
+    {
+      "bytes": 163,
+      "evidence_path": "native/assets/request-template.json",
+      "lines": 10,
+      "sha256": "6e34e0458aa13754b98310d45a75ad015f869e713b26f9c02a20b3651cc06bca",
+      "source_path": "assets/request-template.json"
+    },
+    {
+      "bytes": 3942,
+      "evidence_path": "native/evals/evals.json",
+      "lines": 85,
+      "sha256": "864be6a0a95e1c23221d887617bc20813677f13f4c9b49a0af7d2593d46ee6d0",
+      "source_path": "evals/evals.json"
+    },
+    {
+      "bytes": 1846,
+      "evidence_path": "native/evals/trigger-queries.json",
+      "lines": 66,
+      "sha256": "205256e953da2498debb0ef204a0715335ed9ee9334940037c0a71e1d24e8de0",
+      "source_path": "evals/trigger-queries.json"
+    },
+    {
+      "bytes": 909,
+      "evidence_path": "native/examples/apply.md",
+      "lines": 46,
+      "sha256": "4e931250b5a13e8721ed9e738c7a6b531b5913eace9a35dc64a2bd1d02d77b29",
+      "source_path": "examples/apply.md"
+    },
+    {
+      "bytes": 341,
+      "evidence_path": "native/examples/example-first-run.md",
+      "lines": 10,
+      "sha256": "f39caf5cb46c6fd63450e17e36f6a5444309c99cf2f5b1ecd0f85cb07436320a",
+      "source_path": "examples/example-first-run.md"
+    },
+    {
+      "bytes": 605,
+      "evidence_path": "native/examples/failure.md",
+      "lines": 31,
+      "sha256": "8a9a29746dad5108fa040ce7d351859d17d9b513be3ac0f2ca62f2164a70b82d",
+      "source_path": "examples/failure.md"
+    },
+    {
+      "bytes": 943,
+      "evidence_path": "native/examples/help.md",
+      "lines": 39,
+      "sha256": "a25094f67d0d63747255f87350100d3eeeb63c4c23f84a1bd693d0847c6fd08b",
+      "source_path": "examples/help.md"
+    },
+    {
+      "bytes": 1282,
+      "evidence_path": "native/examples/inspect.md",
+      "lines": 35,
+      "sha256": "6eba5dd71f26b491584651750006d9c45112a330557d9f0a047040d37afb7b10",
+      "source_path": "examples/inspect.md"
+    },
+    {
+      "bytes": 66,
+      "evidence_path": "native/examples/invalid-request.json",
+      "lines": 5,
+      "sha256": "ed1b07b2bf6a56c57a21c325c18341a5d7eb7a37fe2814ba4e687fe4a6a887c3",
+      "source_path": "examples/invalid-request.json"
+    },
+    {
+      "bytes": 158,
+      "evidence_path": "native/examples/list-request.json",
+      "lines": 9,
+      "sha256": "80b4e4366e23631fb0586223cf8f2ea204033d8f9fe3479dd9999d16585044f3",
+      "source_path": "examples/list-request.json"
+    },
+    {
+      "bytes": 1155,
+      "evidence_path": "native/mise.toml",
+      "lines": 37,
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558",
+      "source_path": "mise.toml"
+    },
+    {
+      "bytes": 4894,
+      "evidence_path": "native/references/core-contract.md",
+      "lines": 123,
+      "sha256": "5b5e32d333b41ffd0cf9af30a09c467a172c94755beee626aac991dbf20c1e6b",
+      "source_path": "references/core-contract.md"
+    },
+    {
+      "bytes": 2014,
+      "evidence_path": "native/references/decisions.md",
+      "lines": 14,
+      "sha256": "3ebc890ecb68cde74f0244f0b22bfb4d5491d2a4f3b79c1f7efd09d285567ecd",
+      "source_path": "references/decisions.md"
+    },
+    {
+      "bytes": 3722,
+      "evidence_path": "native/references/file-record.md",
+      "lines": 118,
+      "sha256": "f616a2922ca5949639cbedac76602abab0d9a163cc37a3e164ea824842b1053b",
+      "source_path": "references/file-record.md"
+    },
+    {
+      "bytes": 5517,
+      "evidence_path": "native/references/generation-contract.md",
+      "lines": 58,
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "source_path": "references/generation-contract.md"
+    },
+    {
+      "bytes": 4500,
+      "evidence_path": "native/references/report-mutation.md",
+      "lines": 140,
+      "sha256": "2066a725666a228f8efc32bd592fa01a4d2fff3009e96c99dc3f65ee4d04081a",
+      "source_path": "references/report-mutation.md"
+    },
+    {
+      "bytes": 3161,
+      "evidence_path": "native/references/text-list.md",
+      "lines": 113,
+      "sha256": "34881f1154d8bc06758a97a8012c665440da615422f1c824e45079eac8b88a39",
+      "source_path": "references/text-list.md"
+    },
+    {
+      "bytes": 4652,
+      "evidence_path": "native/references/url-skill.md",
+      "lines": 140,
+      "sha256": "93a9f11d7b5b52c2d06020d75e32f608e83a8dd972b1519d8aa90c53abbcef15",
+      "source_path": "references/url-skill.md"
+    },
+    {
+      "bytes": 4197,
+      "evidence_path": "native/scripts/check_code_rules.py",
+      "lines": 139,
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
+      "source_path": "scripts/check_code_rules.py"
+    },
+    {
+      "bytes": 4444,
+      "evidence_path": "native/scripts/check_evals.py",
+      "lines": 119,
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec",
+      "source_path": "scripts/check_evals.py"
+    },
+    {
+      "bytes": 3496,
+      "evidence_path": "native/scripts/check_placeholders.py",
+      "lines": 115,
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a",
+      "source_path": "scripts/check_placeholders.py"
+    },
+    {
+      "bytes": 4818,
+      "evidence_path": "native/scripts/dedupe.py",
+      "lines": 126,
+      "sha256": "49abc491edf9c70ce6110b2de7ff281d4b840dd7e75b2aa976a201ff905dd772",
+      "source_path": "scripts/dedupe.py"
+    },
+    {
+      "bytes": 58,
+      "evidence_path": "native/scripts/lib/__init__.py",
+      "lines": 1,
+      "sha256": "b7fc4f0d1aab44a744387913cc3b3c66703aa14f2ed4893e78c4a31e97c44fd2",
+      "source_path": "scripts/lib/__init__.py"
+    },
+    {
+      "bytes": 5657,
+      "evidence_path": "native/scripts/lib/adapters.py",
+      "lines": 142,
+      "sha256": "e78205a89d9827cc5ddad7991bb722e140cab402e151cf5f5f582607b2d21096",
+      "source_path": "scripts/lib/adapters.py"
+    },
+    {
+      "bytes": 2348,
+      "evidence_path": "native/scripts/lib/core.py",
+      "lines": 68,
+      "sha256": "2e94874d5d65dc6eb1fe6b242e08873fb4c6a456cf444d4811e6ee549b209302",
+      "source_path": "scripts/lib/core.py"
+    },
+    {
+      "bytes": 5481,
+      "evidence_path": "native/scripts/lint_writing.py",
+      "lines": 168,
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399",
+      "source_path": "scripts/lint_writing.py"
+    },
+    {
+      "bytes": 1586,
+      "evidence_path": "native/scripts/skill_info.py",
+      "lines": 60,
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28",
+      "source_path": "scripts/skill_info.py"
+    },
+    {
+      "bytes": 2394,
+      "evidence_path": "native/scripts/tests/test_ci_contract.py",
+      "lines": 68,
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652",
+      "source_path": "scripts/tests/test_ci_contract.py"
+    },
+    {
+      "bytes": 9441,
+      "evidence_path": "native/scripts/tests/test_dedupe.py",
+      "lines": 196,
+      "sha256": "47abb474f5d8d0f60864aa021b14d70d0209191f31aa14698020a50c9451e562",
+      "source_path": "scripts/tests/test_dedupe.py"
+    },
+    {
+      "bytes": 1214,
+      "evidence_path": "native/scripts/tests/test_scripts.py",
+      "lines": 37,
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73",
+      "source_path": "scripts/tests/test_scripts.py"
+    },
+    {
+      "bytes": 1713,
+      "evidence_path": "native/scripts/tests/test_skill_cache.py",
+      "lines": 43,
+      "sha256": "cec66692fd7e833acd7bdb05c94ce3cb30a8471aed69078fc0131ba9cb0b63bd",
+      "source_path": "scripts/tests/test_skill_cache.py"
+    },
+    {
+      "bytes": 1192,
+      "evidence_path": "native/scripts/tests/test_validate_skill.py",
+      "lines": 31,
+      "sha256": "19854af7ca731a9a3d26a7046e8bd1bda483c4c4c492890c25edf7fa19dd9076",
+      "source_path": "scripts/tests/test_validate_skill.py"
+    },
+    {
+      "bytes": 4328,
+      "evidence_path": "native/scripts/validate_skill.py",
+      "lines": 121,
+      "sha256": "e6cea35aef68f6bde16776fa2112cf2d5c17e8ae2642163f6fb61b65ba48deb8",
+      "source_path": "scripts/validate_skill.py"
+    }
+  ],
+  "excluded_entries": []
+}

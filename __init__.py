@@ -6,6 +6,10 @@ _SKILLS = (
         "Use when replying. Refresh current date and time.",
     ),
     (
+        "dedupe",
+        "Use when deduplicating bounded collections.",
+    ),
+    (
         "logic-audit",
         "Use when finding contradictions or reasoning gaps.",
     ),

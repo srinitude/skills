@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added the `dedupe` Agent Skill at `metadata.version: "0.1.0"` with six adapters, eight native behavior cases, sixteen trigger cases, complete nonblank-line coverage, and a byte-exact 36-file native source packet under `evidence/ports/`.
+- Updated Python plugin, skills.sh, Aider, package, repository, and MCP discovery routes for `dedupe`.
 - Renamed the prior date-only skill to `always-current-datetime` at `metadata.version: "0.1.0"`, added the acquired local time to every visible reply prefix, preserved the fail-closed clock helper, and expanded native lineage to all twelve date-time pressure cases.
 - Updated every published skill body and active collection discovery surface to use `always-current-datetime`; raised `logic-audit` to `metadata.version: "0.1.1"` and `prime-vector` to `metadata.version: "0.2.4"` for their renamed dependency.
 - Rebuilt the byte-exact native evidence packet, source lineage, examples, offline evals, package registration, adapters, and MCP catalogs for `always-current-datetime`.

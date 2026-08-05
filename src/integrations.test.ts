@@ -91,6 +91,11 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
       path: resolve(root, 'skills', 'always-current-datetime', 'SKILL.md'),
     },
     {
+      description: 'Use when deduplicating bounded collections.',
+      name: 'dedupe',
+      path: resolve(root, 'skills', 'dedupe', 'SKILL.md'),
+    },
+    {
       description: 'Use when finding contradictions or reasoning gaps.',
       name: 'logic-audit',
       path: resolve(root, 'skills', 'logic-audit', 'SKILL.md'),

@@ -1,5 +1,6 @@
 read:
   - skills/always-current-datetime/SKILL.md
+  - skills/dedupe/SKILL.md
   - skills/logic-audit/SKILL.md
   - skills/outcome-bounded-work/SKILL.md
   - skills/prime-vector/SKILL.md

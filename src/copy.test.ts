@@ -22,6 +22,7 @@ test('passes the current public repository copy', async () => {
   expect(report.inspected_files).toBeGreaterThan(10);
   expect(report.skill_files).toEqual([
     'skills/always-current-datetime/SKILL.md',
+    'skills/dedupe/SKILL.md',
     'skills/logic-audit/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',
     'skills/prime-vector/SKILL.md',

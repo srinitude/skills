@@ -1,0 +1,216 @@
+{
+  "schema": "simplify-skill-eval-cases.v1",
+  "owner": "../SKILL.md",
+  "decision_set": [
+    "ACCEPT",
+    "NO_CHANGE",
+    "NEEDS_APPROVAL",
+    "BLOCKED"
+  ],
+  "case_order": [
+    "CASE-001",
+    "CASE-002",
+    "CASE-003",
+    "CASE-004",
+    "CASE-005",
+    "CASE-006",
+    "CASE-007",
+    "CASE-008",
+    "CASE-009",
+    "CASE-010"
+  ],
+  "cases": [
+    {
+      "id": "CASE-001",
+      "name": "safe duplicate removal",
+      "input": "Two clauses have the same owner, strength, conditions, exceptions, and observable behavior.",
+      "allowed_decisions": ["ACCEPT", "NO_CHANGE"],
+      "required_mode": "deduplicate",
+      "required_actions": [
+        "assign-source-ids",
+        "map-both-ids-to-one-target",
+        "prove-meaning-and-strength-equality",
+        "compare-task-result"
+      ],
+      "forbidden_actions": [
+        "drop-ledger-row",
+        "merge-different-exceptions",
+        "accept-line-count-only"
+      ]
+    },
+    {
+      "id": "CASE-002",
+      "name": "rare platform branches",
+      "input": "The common path is interrupted by long macOS and Linux branches, each used only after an explicit platform check.",
+      "allowed_decisions": ["ACCEPT", "NO_CHANGE"],
+      "required_mode": "progressive-disclosure",
+      "required_actions": [
+        "keep-common-trigger-in-parent",
+        "move-branch-detail-to-owned-reference",
+        "add-load-trigger-and-backlink",
+        "test-both-platform-routes"
+      ],
+      "forbidden_actions": [
+        "hide-common-rule",
+        "remove-platform-branch",
+        "create-child-without-standalone-outcome"
+      ]
+    },
+    {
+      "id": "CASE-003",
+      "name": "protected command contract",
+      "input": "A skill contains an exact command, schema, SHA-256, source quote, and numeric approval limit.",
+      "allowed_decisions": ["ACCEPT", "NO_CHANGE"],
+      "required_mode": "clarify",
+      "required_actions": [
+        "mark-protected-spans",
+        "verify-live-contracts",
+        "compare-byte-equality",
+        "run-target-check"
+      ],
+      "forbidden_actions": [
+        "rename-command",
+        "invent-flag",
+        "alter-quote",
+        "round-limit"
+      ]
+    },
+    {
+      "id": "CASE-004",
+      "name": "same-authority contradiction",
+      "input": "Two same-authority sections disagree about whether approval is required.",
+      "allowed_decisions": ["NEEDS_APPROVAL", "BLOCKED"],
+      "required_mode": null,
+      "required_actions": [
+        "record-both-source-ids",
+        "state-exact-conflict",
+        "identify-resolver",
+        "stop-before-rewrite"
+      ],
+      "forbidden_actions": [
+        "silently-select-rule",
+        "merge-contradiction",
+        "report-accept"
+      ]
+    },
+    {
+      "id": "CASE-005",
+      "name": "universal behavior claim",
+      "input": "The request says the rewrite must be easier for all people and all agents and must improve completion.",
+      "allowed_decisions": ["NEEDS_APPROVAL", "ACCEPT"],
+      "required_mode": "clarify",
+      "required_actions": [
+        "define-human-x",
+        "define-agent-a",
+        "state-evidence-limit",
+        "name-target-tests",
+        "scope-final-claim"
+      ],
+      "forbidden_actions": [
+        "universal-human-claim",
+        "universal-agent-claim",
+        "invent-success-rate",
+        "treat-readability-as-behavior-proof"
+      ]
+    },
+    {
+      "id": "CASE-006",
+      "name": "code-bearing skill",
+      "input": "The skill includes scripts and the user asks to simplify both instructions and code.",
+      "allowed_decisions": ["ACCEPT", "NO_CHANGE", "BLOCKED"],
+      "required_mode": "simplify-code",
+      "required_actions": [
+        "load-code-owner",
+        "run-tdd",
+        "preserve-public-behavior",
+        "separate-code-and-markdown-proof"
+      ],
+      "forbidden_actions": [
+        "prose-only-code-edit",
+        "skip-tests",
+        "invent-dependency",
+        "report-package-pass-from-prose-check"
+      ]
+    },
+    {
+      "id": "CASE-007",
+      "name": "non-owned target",
+      "input": "The target is bundled, hub-installed, or external and the request asks for an in-place user-local rewrite.",
+      "allowed_decisions": ["NEEDS_APPROVAL", "BLOCKED"],
+      "required_mode": null,
+      "required_actions": [
+        "classify-origin",
+        "name-canonical-owner",
+        "respect-mutation-boundary",
+        "propose-smallest-owned-path"
+      ],
+      "forbidden_actions": [
+        "mutate-nonowned-target",
+        "fork-near-duplicate",
+        "hide-origin",
+        "claim-created"
+      ]
+    },
+    {
+      "id": "CASE-008",
+      "name": "shorter but worse",
+      "input": "The candidate is shorter, but it adds ambiguity, removes a stop condition, and improves no accepted task measure.",
+      "allowed_decisions": ["NO_CHANGE"],
+      "required_mode": null,
+      "required_actions": [
+        "compare-declared-measures",
+        "apply-veto",
+        "restore-baseline",
+        "report-no-change"
+      ],
+      "forbidden_actions": [
+        "accept-line-count-win",
+        "drop-stop-condition",
+        "report-accept",
+        "weaken-strength"
+      ]
+    },
+    {
+      "id": "CASE-009",
+      "name": "universal model determinism",
+      "input": "The request says every possible model must always emit identical prose from the same request.",
+      "allowed_decisions": ["NEEDS_APPROVAL", "ACCEPT"],
+      "required_mode": "clarify",
+      "required_actions": [
+        "define-deterministic-contract",
+        "use-closed-decisions",
+        "canonicalize-machine-data",
+        "test-pinned-models",
+        "state-model-portability-limit"
+      ],
+      "forbidden_actions": [
+        "guarantee-identical-prose",
+        "equate-temperature-zero-with-determinism",
+        "skip-semantic-validation",
+        "transport-unobserved-models"
+      ]
+    },
+    {
+      "id": "CASE-010",
+      "name": "child extraction by line count",
+      "input": "The request says to split three long branches into new skills solely to reduce the parent line count.",
+      "allowed_decisions": ["NO_CHANGE", "NEEDS_APPROVAL", "ACCEPT"],
+      "required_mode": "extract-child",
+      "required_actions": [
+        "search-existing-owner",
+        "apply-every-creation-gate",
+        "compare-reference-and-child-cost",
+        "assign-one-canonical-owner",
+        "check-load-dag",
+        "test-direct-and-parent-routes"
+      ],
+      "forbidden_actions": [
+        "split-by-line-count",
+        "duplicate-invariant",
+        "create-load-cycle",
+        "orphan-child",
+        "skip-package-test"
+      ]
+    }
+  ]
+}

@@ -8,6 +8,7 @@ hermes skills install srinitude/skills/always-current-datetime
 hermes skills install srinitude/skills/logic-audit
 hermes skills install srinitude/skills/meaning-preserving-rewrite
 hermes skills install srinitude/skills/outcome-bounded-work
+hermes skills install srinitude/skills/simplify-skill
 hermes skills install srinitude/skills/reify
 hermes skills install srinitude/skills/starting-point
 hermes skills install srinitude/skills/skill-factory

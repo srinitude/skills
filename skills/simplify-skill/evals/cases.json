@@ -1,0 +1,250 @@
+{
+  "cases": [
+    {
+      "decision": "simplify_with_ledger",
+      "group": "behavior",
+      "id": "SIM-001",
+      "pressures": ["source", "behavior"],
+      "prompt": "Two clauses have the same owner, strength, conditions, exceptions, and observable behavior.",
+      "required": [
+        "assign-source-ids",
+        "map-both-ids-to-one-target",
+        "prove-meaning-and-strength-equality",
+        "compare-task-result"
+      ],
+      "source_id": "CASE-001",
+      "title": "safe duplicate removal",
+      "veto": ["drop-ledger-row", "merge-different-exceptions", "accept-line-count-only"]
+    },
+    {
+      "decision": "progressive_disclosure",
+      "group": "behavior",
+      "id": "SIM-002",
+      "pressures": ["source", "behavior"],
+      "prompt": "The common path is interrupted by long macOS and Linux branches, each used only after an explicit platform check.",
+      "required": [
+        "keep-common-trigger-in-parent",
+        "move-branch-detail-to-owned-reference",
+        "add-load-trigger-and-backlink",
+        "test-both-platform-routes"
+      ],
+      "source_id": "CASE-002",
+      "title": "rare platform branches",
+      "veto": [
+        "hide-common-rule",
+        "remove-platform-branch",
+        "create-child-without-standalone-outcome"
+      ]
+    },
+    {
+      "decision": "protect_exact_spans",
+      "group": "behavior",
+      "id": "SIM-003",
+      "pressures": ["source", "behavior"],
+      "prompt": "A skill contains an exact command, schema, SHA-256, source quote, and numeric approval limit.",
+      "required": [
+        "mark-protected-spans",
+        "verify-live-contracts",
+        "compare-byte-equality",
+        "run-target-check"
+      ],
+      "source_id": "CASE-003",
+      "title": "protected command contract",
+      "veto": ["rename-command", "invent-flag", "alter-quote", "round-limit"]
+    },
+    {
+      "decision": "needs_approval",
+      "group": "failure",
+      "id": "SIM-004",
+      "pressures": ["source", "failure"],
+      "prompt": "Two same-authority sections disagree about whether approval is required.",
+      "required": [
+        "record-both-source-ids",
+        "state-exact-conflict",
+        "identify-resolver",
+        "stop-before-rewrite"
+      ],
+      "source_id": "CASE-004",
+      "title": "same-authority contradiction",
+      "veto": ["silently-select-rule", "merge-contradiction", "report-accept"]
+    },
+    {
+      "decision": "scope_behavior_claim",
+      "group": "behavior",
+      "id": "SIM-005",
+      "pressures": ["source", "behavior"],
+      "prompt": "The request says the rewrite must be easier for all people and all agents and must improve completion.",
+      "required": [
+        "define-human-x",
+        "define-agent-a",
+        "state-evidence-limit",
+        "name-target-tests",
+        "scope-final-claim"
+      ],
+      "source_id": "CASE-005",
+      "title": "universal behavior claim",
+      "veto": [
+        "universal-human-claim",
+        "universal-agent-claim",
+        "invent-success-rate",
+        "treat-readability-as-behavior-proof"
+      ]
+    },
+    {
+      "decision": "simplify_code_with_tests",
+      "group": "behavior",
+      "id": "SIM-006",
+      "pressures": ["source", "behavior"],
+      "prompt": "The skill includes scripts and the user asks to simplify both instructions and code.",
+      "required": [
+        "load-code-owner",
+        "run-tdd",
+        "preserve-public-behavior",
+        "separate-code-and-markdown-proof"
+      ],
+      "source_id": "CASE-006",
+      "title": "code-bearing skill",
+      "veto": [
+        "prose-only-code-edit",
+        "skip-tests",
+        "invent-dependency",
+        "report-package-pass-from-prose-check"
+      ]
+    },
+    {
+      "decision": "blocked_owner",
+      "group": "failure",
+      "id": "SIM-007",
+      "pressures": ["source", "failure"],
+      "prompt": "The target is bundled, hub-installed, or external and the request asks for an in-place user-local rewrite.",
+      "required": [
+        "classify-origin",
+        "name-canonical-owner",
+        "respect-mutation-boundary",
+        "propose-smallest-owned-path"
+      ],
+      "source_id": "CASE-007",
+      "title": "non-owned target",
+      "veto": [
+        "mutate-nonowned-target",
+        "fork-near-duplicate",
+        "hide-origin",
+        "claim-created"
+      ]
+    },
+    {
+      "decision": "no_change",
+      "group": "recovery",
+      "id": "SIM-008",
+      "pressures": ["source", "recovery"],
+      "prompt": "The candidate is shorter, but it adds ambiguity, removes a stop condition, and improves no accepted task measure.",
+      "required": [
+        "compare-declared-measures",
+        "apply-veto",
+        "restore-baseline",
+        "report-no-change"
+      ],
+      "source_id": "CASE-008",
+      "title": "shorter but worse",
+      "veto": [
+        "accept-line-count-win",
+        "drop-stop-condition",
+        "report-accept",
+        "weaken-strength"
+      ]
+    },
+    {
+      "decision": "scope_determinism",
+      "group": "behavior",
+      "id": "SIM-009",
+      "pressures": ["source", "behavior"],
+      "prompt": "The request says every possible model must always emit identical prose from the same request.",
+      "required": [
+        "define-deterministic-contract",
+        "use-closed-decisions",
+        "canonicalize-machine-data",
+        "test-pinned-models",
+        "state-model-portability-limit"
+      ],
+      "source_id": "CASE-009",
+      "title": "universal model determinism",
+      "veto": [
+        "guarantee-identical-prose",
+        "equate-temperature-zero-with-determinism",
+        "skip-semantic-validation",
+        "transport-unobserved-models"
+      ]
+    },
+    {
+      "decision": "no_change",
+      "group": "recovery",
+      "id": "SIM-010",
+      "pressures": ["source", "recovery"],
+      "prompt": "The request says to split three long branches into new skills solely to reduce the parent line count.",
+      "required": [
+        "search-existing-owner",
+        "apply-every-creation-gate",
+        "compare-reference-and-child-cost",
+        "assign-one-canonical-owner",
+        "check-load-dag",
+        "test-direct-and-parent-routes"
+      ],
+      "source_id": "CASE-010",
+      "title": "child extraction by line count",
+      "veto": [
+        "split-by-line-count",
+        "duplicate-invariant",
+        "create-load-cycle",
+        "orphan-child",
+        "skip-package-test"
+      ]
+    },
+    {
+      "decision": "simplify_with_ledger",
+      "group": "activation",
+      "id": "SIMT-001",
+      "pressures": ["target-only", "activation"],
+      "prompt": "Simplify this skill without losing behavior.",
+      "required": ["name-actor", "name-task", "name-cost", "freeze-baseline"],
+      "source_id": "SIMT-001",
+      "title": "direct trigger",
+      "veto": ["line-count-only"]
+    },
+    {
+      "decision": "no_change",
+      "group": "rejection",
+      "id": "SIMT-002",
+      "pressures": ["target-only", "rejection"],
+      "prompt": "Refactor this TypeScript function only.",
+      "required": ["route-code-owner"],
+      "source_id": "SIMT-002",
+      "title": "code-only rejection",
+      "veto": ["activate-skill-rewrite"]
+    },
+    {
+      "decision": "simplify_with_ledger",
+      "group": "speed",
+      "id": "SIMT-003",
+      "pressures": ["target-only", "speed"],
+      "prompt": "Clarify one local skill rule with no package split.",
+      "required": ["focused-baseline", "focused-check"],
+      "source_id": "SIMT-003",
+      "title": "bounded common path",
+      "veto": ["unneeded-full-inventory"]
+    }
+  ],
+  "decision_labels": [
+    "blocked_owner",
+    "needs_approval",
+    "no_change",
+    "progressive_disclosure",
+    "protect_exact_spans",
+    "scope_behavior_claim",
+    "scope_determinism",
+    "simplify_code_with_tests",
+    "simplify_with_ledger"
+  ],
+  "groups": ["activation", "rejection", "behavior", "failure", "recovery", "speed"],
+  "schema_version": 1,
+  "skill": "simplify-skill"
+}

@@ -1,0 +1,6 @@
+[
+  { "query": "Simplify this skill without losing behavior.", "should_trigger": true },
+  { "query": "Reduce accidental complexity and keep every rule.", "should_trigger": true },
+  { "query": "Refactor this TypeScript function only.", "should_trigger": false },
+  { "query": "Summarize this skill without editing it.", "should_trigger": false }
+]

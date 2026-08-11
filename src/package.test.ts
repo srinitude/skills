@@ -36,6 +36,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prime-vector/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
+  expect(result.entries).toContain('package/skills/simplify-skill/SKILL.md');
   expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
   expect(result.entries).toContain('package/skills/skill-factory/SKILL.md');
   expect(result.entries).toContain(
@@ -51,6 +52,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/outcome-bounded-work/SKILL.md',
     'package/skills/prime-vector/SKILL.md',
     'package/skills/reify/SKILL.md',
+    'package/skills/simplify-skill/SKILL.md',
     'package/skills/skill-factory/SKILL.md',
     'package/skills/starting-point/SKILL.md',
     'package/skills/visual-design-system-extractor/SKILL.md',

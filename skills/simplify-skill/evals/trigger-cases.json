@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Simplify this skill without losing behavior.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Reduce accidental complexity and keep every rule.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Can these skill branches move to linked references safely?",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "hard_negative",
+      "prompt": "Refactor this TypeScript function only.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "hard_negative",
+      "prompt": "Write a short product slogan.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "prompt": "Summarize this skill without editing it.",
+      "should_trigger": false
+    }
+  ],
+  "schema_version": 1,
+  "skill": "simplify-skill"
+}

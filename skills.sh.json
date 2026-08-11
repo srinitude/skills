@@ -27,7 +27,7 @@
     },
     {
       "title": "Skill Authoring",
-      "skills": ["skill-factory"]
+      "skills": ["simplify-skill", "skill-factory"]
     },
     {
       "title": "Temporal Context",

@@ -1,0 +1,129 @@
+{
+  "skill_name": "simplify-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Two clauses have the same owner, strength, conditions, exceptions, and observable behavior.",
+      "expected_output": "Decision follows CASE-001: assign-source-ids, map-both-ids-to-one-target, prove-meaning-and-strength-equality, compare-task-result",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "assign source ids",
+        "map both ids to one target",
+        "prove meaning and strength equality",
+        "compare task result"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The common path is interrupted by long macOS and Linux branches, each used only after an explicit platform check.",
+      "expected_output": "Decision follows CASE-002: keep-common-trigger-in-parent, move-branch-detail-to-owned-reference, add-load-trigger-and-backlink, test-both-platform-routes",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "keep common trigger in parent",
+        "move branch detail to owned reference",
+        "add load trigger and backlink",
+        "test both platform routes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A skill contains an exact command, schema, SHA-256, source quote, and numeric approval limit.",
+      "expected_output": "Decision follows CASE-003: mark-protected-spans, verify-live-contracts, compare-byte-equality, run-target-check",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "mark protected spans",
+        "verify live contracts",
+        "compare byte equality",
+        "run target check"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Two same-authority sections disagree about whether approval is required.",
+      "expected_output": "Decision follows CASE-004: record-both-source-ids, state-exact-conflict, identify-resolver, stop-before-rewrite",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "record both source ids",
+        "state exact conflict",
+        "identify resolver",
+        "stop before rewrite"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The request says the rewrite must be easier for all people and all agents and must improve completion.",
+      "expected_output": "Decision follows CASE-005: define-human-x, define-agent-a, state-evidence-limit, name-target-tests, scope-final-claim",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "define human x",
+        "define agent a",
+        "state evidence limit",
+        "name target tests",
+        "scope final claim"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "The skill includes scripts and the user asks to simplify both instructions and code.",
+      "expected_output": "Decision follows CASE-006: load-code-owner, run-tdd, preserve-public-behavior, separate-code-and-markdown-proof",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "load code owner",
+        "run tdd",
+        "preserve public behavior",
+        "separate code and markdown proof"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The target is bundled, hub-installed, or external and the request asks for an in-place user-local rewrite.",
+      "expected_output": "Decision follows CASE-007: classify-origin, name-canonical-owner, respect-mutation-boundary, propose-smallest-owned-path",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "classify origin",
+        "name canonical owner",
+        "respect mutation boundary",
+        "propose smallest owned path"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "The candidate is shorter, but it adds ambiguity, removes a stop condition, and improves no accepted task measure.",
+      "expected_output": "Decision follows CASE-008: compare-declared-measures, apply-veto, restore-baseline, report-no-change",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "compare declared measures",
+        "apply veto",
+        "restore baseline",
+        "report no change"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "The request says every possible model must always emit identical prose from the same request.",
+      "expected_output": "Decision follows CASE-009: define-deterministic-contract, use-closed-decisions, canonicalize-machine-data, test-pinned-models, state-model-portability-limit",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "define deterministic contract",
+        "use closed decisions",
+        "canonicalize machine data",
+        "test pinned models",
+        "state model portability limit"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "The request says to split three long branches into new skills solely to reduce the parent line count.",
+      "expected_output": "Decision follows CASE-010: search-existing-owner, apply-every-creation-gate, compare-reference-and-child-cost, assign-one-canonical-owner, check-load-dag, test-direct-and-parent-routes",
+      "files": ["SKILL.md", "evals/cases.json"],
+      "assertions": [
+        "search existing owner",
+        "apply every creation gate",
+        "compare reference and child cost",
+        "assign one canonical owner",
+        "check load dag",
+        "test direct and parent routes"
+      ]
+    }
+  ]
+}

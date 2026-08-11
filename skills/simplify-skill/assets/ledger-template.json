@@ -1,0 +1,12 @@
+{
+  "action": "clarify",
+  "authority": "workspace",
+  "conditions": [],
+  "evidence": [],
+  "exceptions": [],
+  "protected": false,
+  "source_id": "S-001",
+  "source_text": "Exact source rule",
+  "strength": "must",
+  "target": "SKILL.md#procedure"
+}

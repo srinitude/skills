@@ -58,6 +58,13 @@ test('keeps the root guide skill-neutral', async () => {
   expect(readme).not.toContain('starting-point');
 });
 
+test('records every dependency-campaign unit under Unreleased', async () => {
+  const changelog = (await readable('CHANGELOG.md')).split('## GitHub release')[0]!;
+  for (const skill of ['goal-prompt', 'meaning-preserving-rewrite', 'simplify-skill']) {
+    expect(changelog).toContain(`\`${skill}\``);
+  }
+});
+
 test('publishes the canonical skills.sh source and applicable guidance', async () => {
   const readme = await readable('README.md');
   const guidance = await readable('docs/skills-sh.md');

@@ -1,5 +1,5 @@
 import { execFile } from 'node:child_process';
-import { access, readFile, realpath, rm } from 'node:fs/promises';
+import { access, readFile, readdir, realpath, rm } from 'node:fs/promises';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -59,7 +59,7 @@ test('the OpenClaw plugin loads the canonical skills directory', async () => {
   }
 });
 
-test('the repository-root Python plugin registers canonical skill bytes', async () => {
+async function registeredPluginSkills() {
   const source = await readFile(resolve(root, 'plugin.yaml'), 'utf8');
   pluginManifestSchema.parse(parse(source));
   const script = [
@@ -78,88 +78,30 @@ test('the repository-root Python plugin registers canonical skill bytes', async 
   const { stdout } = await run('python3', ['-c', script, root], {
     env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
   });
-  const skills = z
+  return z
     .array(
       z.object({ description: z.string(), name: z.string(), path: z.string() }).strict(),
     )
     .parse(JSON.parse(stdout));
+}
 
-  expect(skills).toEqual([
-    {
-      description: 'Use when replying. Refresh current date and time.',
-      name: 'always-current-datetime',
-      path: resolve(root, 'skills', 'always-current-datetime', 'SKILL.md'),
-    },
-    {
-      description: 'Use when deduplicating bounded collections.',
-      name: 'dedupe',
-      path: resolve(root, 'skills', 'dedupe', 'SKILL.md'),
-    },
-    {
-      description: 'Use when finding contradictions or reasoning gaps.',
-      name: 'logic-audit',
-      path: resolve(root, 'skills', 'logic-audit', 'SKILL.md'),
-    },
-    {
-      description: 'Use when instructions mix outcomes with recipes.',
-      name: 'outcome-bounded-work',
-      path: resolve(root, 'skills', 'outcome-bounded-work', 'SKILL.md'),
-    },
-    {
-      description: 'Use when a high-stakes problem needs a strategy.',
-      name: 'prime-vector',
-      path: resolve(root, 'skills', 'prime-vector', 'SKILL.md'),
-    },
-    {
-      description:
-        'Use when a vague idea, stray thought, remembered fragment, or uncertain' +
-        ' direction needs to become a concrete outcome, tested design, decision' +
-        ' record, artifact, or executable handoff.',
-      name: 'reify',
-      path: resolve(root, 'skills', 'reify', 'SKILL.md'),
-    },
-    {
-      description:
-        'Use when a workflow, recipe, or capability needs to be packaged as an' +
-        ' agent skill, or when an existing skill needs scaffolding, validation,' +
-        ' linting, or evals. Covers requests to build, create, generate,' +
-        ' scaffold, check, or evaluate a skill: a folder holding SKILL.md,' +
-        ' scripts, tests, a task graph, CI, and eval cases. Applies even when' +
-        ' the request says playbook, runbook, or reusable workflow instead of' +
-        ' skill.',
-      name: 'skill-factory',
-      path: resolve(root, 'skills', 'skill-factory', 'SKILL.md'),
-    },
-    {
-      description: 'Use when an outcome is stated, inferred, or hidden.',
-      name: 'starting-point',
-      path: resolve(root, 'skills', 'starting-point', 'SKILL.md'),
-    },
-    {
-      description:
-        'Use when reference images, screenshots, moodboards, style frames,' +
-        ' brand boards, cinematic stills, or product interface shots must' +
-        ' become a production design system, design tokens, art direction,' +
-        ' motion rules, or a YAML style specification. Covers reverse' +
-        ' engineering visual references into a deterministic YAML contract' +
-        ' with graded confidence, evidence boundaries, and typefaces drawn' +
-        ' from the live Google Fonts catalog and ranked as rarely used. Not' +
-        ' for generating images or for ordinary frontend work where no' +
-        ' reference has to be decoded first.',
-      name: 'visual-design-system-extractor',
-      path: resolve(root, 'skills', 'visual-design-system-extractor', 'SKILL.md'),
-    },
-    {
-      description: 'Use when a claim depends on an agent taking a real action.',
-      name: 'would-agents-actually',
-      path: resolve(root, 'skills', 'would-agents-actually', 'SKILL.md'),
-    },
-    {
-      description: 'Use when a claim depends on people taking a real action.',
-      name: 'would-humans-actually',
-      path: resolve(root, 'skills', 'would-humans-actually', 'SKILL.md'),
-    },
-  ]);
+async function canonicalPluginSkills() {
+  const entries = await readdir(resolve(root, 'skills'), { withFileTypes: true });
+  const names = entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
+  return Promise.all(
+    names.map(async (name) => {
+      const path = resolve(root, 'skills', name, 'SKILL.md');
+      const frontmatter = parse((await readFile(path, 'utf8')).split('---', 3)[1] ?? '');
+      return { description: z.string().parse(frontmatter.description), name, path };
+    }),
+  );
+}
+
+test('the repository-root Python plugin registers every canonical skill', async () => {
+  expect(await registeredPluginSkills()).toEqual(await canonicalPluginSkills());
 });
 
 test('integration checks do not leave Python bytecode in the repository', async () => {

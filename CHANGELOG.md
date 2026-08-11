@@ -4,6 +4,9 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added `meaning-preserving-rewrite`, `simplify-skill`, and `goal-prompt` at `metadata.version: "0.1.0"` with byte-exact native evidence, complete source mappings, portable dependency reconciliation, package-local CI, and repository evaluation coverage.
+- Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for the three dependency-campaign units.
+- Added a regression that requires the Python plugin to register every canonical skill with its current frontmatter description.
 - Added the `dedupe` Agent Skill at `metadata.version: "0.1.0"` with six adapters, eight native behavior cases, sixteen trigger cases, complete nonblank-line coverage, and a byte-exact 36-file native source packet under `evidence/ports/`.
 - Updated Python plugin, skills.sh, Aider, package, repository, and MCP discovery routes for `dedupe`.
 - Renamed the prior date-only skill to `always-current-datetime` at `metadata.version: "0.1.0"`, added the acquired local time to every visible reply prefix, preserved the fail-closed clock helper, and expanded native lineage to all twelve date-time pressure cases.

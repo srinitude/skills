@@ -10,8 +10,16 @@ _SKILLS = (
         "Use when deduplicating bounded collections.",
     ),
     (
+        "goal-prompt",
+        "Use when packaging source input for a standing goal.",
+    ),
+    (
         "logic-audit",
         "Use when finding contradictions or reasoning gaps.",
+    ),
+    (
+        "meaning-preserving-rewrite",
+        "Use when rewriting rules without meaning loss.",
     ),
     (
         "outcome-bounded-work",
@@ -28,6 +36,10 @@ _SKILLS = (
         " record, artifact, or executable handoff.",
     ),
     (
+        "simplify-skill",
+        "Use when simplifying a skill without losing behavior.",
+    ),
+    (
         "skill-factory",
         "Use when a workflow, recipe, or capability needs to be packaged as an"
         " agent skill, or when an existing skill needs scaffolding, validation,"
@@ -39,18 +51,31 @@ _SKILLS = (
     ),
     (
         "starting-point",
-        "Use when an outcome is stated, inferred, or hidden.",
+        "Use when a request prescribes a method, tool, metric, or artifact that"
+        " may not reach the result the user described, or when doing the request"
+        " as written would leave that result unproved: \"A/B test the signup"
+        " button color\" for a conversion problem, \"add a cache\" for a slow"
+        " page, \"the focused tests passed, announce the release\". Also use when"
+        " a stated constraint contradicts itself, when an unknown fact would have"
+        " to be invented to finish, or when an external or irreversible step"
+        " needs an authorization decision. Keywords: right approach, wrong"
+        " metric, root cause, outcome versus output, what counts as done, proof,"
+        " is this worth doing. Not for a literal edit, format, translation, or"
+        " lookup whose method is the deliverable. Not a replacement for the"
+        " design, debugging, research, or writing method that performs the work."
+        " Use the reify skill instead when the request is still too vague to have"
+        " any method or outcome yet.",
     ),
     (
         "visual-design-system-extractor",
         "Use when reference images, screenshots, moodboards, style frames,"
-        " brand boards, cinematic stills, or product interface shots must"
-        " become a production design system, design tokens, art direction,"
-        " motion rules, or a YAML style specification. Covers reverse"
-        " engineering visual references into a deterministic YAML contract"
-        " with graded confidence, evidence boundaries, and typefaces drawn"
-        " from the live Google Fonts catalog and ranked as rarely used. Not"
-        " for generating images or for ordinary frontend work where no"
+        " brand boards, cinematic stills, product interface shots, or a live"
+        " site URL must become a production design system, design tokens, art"
+        " direction, motion rules, or a YAML style specification. Covers"
+        " reverse engineering visual references into a deterministic YAML"
+        " contract with graded confidence, evidence boundaries, and typefaces"
+        " drawn from the live Google Fonts catalog and ranked as rarely used."
+        " Not for generating images or for ordinary frontend work where no"
         " reference has to be decoded first.",
     ),
     (

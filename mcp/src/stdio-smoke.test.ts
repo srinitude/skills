@@ -38,6 +38,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://always-current-datetime/SKILL.md',
       'skill://dedupe/SKILL.md',
       'skill://logic-audit/SKILL.md',
+      'skill://meaning-preserving-rewrite/SKILL.md',
       'skill://outcome-bounded-work/SKILL.md',
       'skill://prime-vector/SKILL.md',
       'skill://reify/SKILL.md',

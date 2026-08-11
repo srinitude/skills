@@ -32,6 +32,10 @@
     {
       "title": "Temporal Context",
       "skills": ["always-current-datetime"]
+    },
+    {
+      "title": "Writing",
+      "skills": ["meaning-preserving-rewrite"]
     }
   ]
 }

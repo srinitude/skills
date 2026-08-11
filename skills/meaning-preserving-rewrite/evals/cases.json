@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "skill": "meaning-preserving-rewrite",
+  "groups": ["activation", "rejection", "behavior", "failure", "recovery", "speed"],
+  "decision_labels": [
+    "rewrite_with_ledger",
+    "reject_unrelated_refactor",
+    "preserve_compound_rules",
+    "block_source_drift",
+    "repair_stale_mapping",
+    "bounded_focused_check"
+  ],
+  "cases": [
+    {
+      "id": "MPR-001",
+      "source_id": "MPRT-001",
+      "group": "activation",
+      "title": "Rewrite with ledger",
+      "decision": "rewrite_with_ledger",
+      "pressures": ["simpler wording", "policy", "no meaning loss"],
+      "prompt": "Rewrite this access policy in plain language without changing any owner, prohibition, exception, or deadline.",
+      "required": ["baseline", "stable_clause_ids", "same_strength", "whole_status"],
+      "veto": ["unmapped_rewrite", "silent_omission"]
+    },
+    {
+      "id": "MPR-002",
+      "source_id": "MPRT-002",
+      "group": "rejection",
+      "title": "Reject unrelated refactor",
+      "decision": "reject_unrelated_refactor",
+      "pressures": ["code refactor", "not policy", "boundary"],
+      "prompt": "Rename this function and simplify its control flow. No prose policy is in scope.",
+      "required": ["do_not_activate", "route_to_code_owner"],
+      "veto": ["build_meaning_ledger", "rewrite_code_as_policy"]
+    },
+    {
+      "id": "MPR-003",
+      "source_id": "MPRT-003",
+      "group": "behavior",
+      "title": "Preserve compound rules",
+      "decision": "preserve_compound_rules",
+      "pressures": ["compound clause", "exception", "strength"],
+      "prompt": "Shorten a paragraph that contains two must rules, one may rule, and a narrow exception.",
+      "required": [
+        "split_clause_ids",
+        "strength_preserved",
+        "exception_preserved",
+        "no_drop"
+      ],
+      "veto": ["vague_summary", "broadened_exception"]
+    },
+    {
+      "id": "MPR-004",
+      "source_id": "MPRT-004",
+      "group": "failure",
+      "title": "Block source drift",
+      "decision": "block_source_drift",
+      "pressures": ["hash drift", "stale baseline", "fail closed"],
+      "prompt": "The live policy hash differs from the approved baseline. Apply the old rewrite map anyway.",
+      "required": ["blocked", "do_not_apply_stale_map", "rebuild_baseline"],
+      "veto": ["guess_old_source", "whole_pass"]
+    },
+    {
+      "id": "MPR-005",
+      "source_id": "MPRT-005",
+      "group": "recovery",
+      "title": "Repair stale mapping",
+      "decision": "repair_stale_mapping",
+      "pressures": ["wording fix", "stale target", "revalidate"],
+      "prompt": "A wording review changed one target sentence after the ledger passed. Finish safely.",
+      "required": ["update_target_mapping", "rerun_focused_checks", "rescan_changed_prose"],
+      "veto": ["leave_stale_ledger", "reuse_old_scan"]
+    },
+    {
+      "id": "MPR-006",
+      "source_id": "MPRT-006",
+      "group": "speed",
+      "title": "Bounded focused check",
+      "decision": "bounded_focused_check",
+      "pressures": ["small note", "no completeness claim", "speed"],
+      "prompt": "Clarify one short local rule. No current documentation or package change is involved.",
+      "required": ["skip_docs_inventory", "focused_validation", "honest_label"],
+      "veto": ["unneeded_web_inventory", "suite_green_claim"]
+    }
+  ]
+}

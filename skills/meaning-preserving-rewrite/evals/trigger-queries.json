@@ -1,0 +1,22 @@
+[
+  {
+    "query": "Rewrite this policy in simpler language without losing any rule.",
+    "should_trigger": true
+  },
+  {
+    "query": "Build a clause ledger before shortening this standards document.",
+    "should_trigger": true
+  },
+  {
+    "query": "Shorten this plan but preserve every condition and exception.",
+    "should_trigger": true
+  },
+  {
+    "query": "The source hash drifted. Can the approved rewrite still be applied?",
+    "should_trigger": true
+  },
+  { "query": "Summarize this article and omit minor detail.", "should_trigger": false },
+  { "query": "Refactor this TypeScript function.", "should_trigger": false },
+  { "query": "Write a playful product slogan.", "should_trigger": false },
+  { "query": "List the files in this directory.", "should_trigger": false }
+]

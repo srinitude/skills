@@ -110,6 +110,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/always-current-datetime/SKILL.md',
       'skills/dedupe/SKILL.md',
       'skills/logic-audit/SKILL.md',
+      'skills/meaning-preserving-rewrite/SKILL.md',
       'skills/outcome-bounded-work/SKILL.md',
       'skills/prime-vector/SKILL.md',
       'skills/reify/SKILL.md',
@@ -123,6 +124,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
   await expectInside('skills/always-current-datetime/SKILL.md');
   await expectInside('skills/dedupe/SKILL.md');
   await expectInside('skills/logic-audit/SKILL.md');
+  await expectInside('skills/meaning-preserving-rewrite/SKILL.md');
   await expectInside('skills/outcome-bounded-work/SKILL.md');
   await expectInside('skills/prime-vector/SKILL.md');
   await expectInside('skills/reify/SKILL.md');
@@ -171,6 +173,7 @@ test('groups canonical skills for skills-hub clients', async () => {
       { skills: ['logic-audit'], title: 'Reasoning' },
       { skills: ['skill-factory'], title: 'Skill Authoring' },
       { skills: ['always-current-datetime'], title: 'Temporal Context' },
+      { skills: ['meaning-preserving-rewrite'], title: 'Writing' },
     ],
   });
 });

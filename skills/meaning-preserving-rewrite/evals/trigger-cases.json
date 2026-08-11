@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "skill": "meaning-preserving-rewrite",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Rewrite this policy in simpler language without losing any rule.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Build a clause ledger before shortening this standards document.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "near_neighbor",
+      "prompt": "Summarize this article and omit minor detail.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-004",
+      "kind": "hard_negative",
+      "prompt": "Refactor this TypeScript function.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "prompt": "Write a playful product slogan.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "positive",
+      "prompt": "Shorten this plan but preserve every condition, exception, and decision.",
+      "should_trigger": true
+    }
+  ]
+}

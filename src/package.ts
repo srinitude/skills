@@ -12,6 +12,22 @@ interface PackOutput {
   filename: string;
 }
 
+export function packOutput(payload: unknown): PackOutput | undefined {
+  const candidates = Array.isArray(payload)
+    ? payload
+    : payload && typeof payload === 'object'
+      ? Object.values(payload)
+      : [];
+  return candidates.find((candidate): candidate is PackOutput =>
+    Boolean(
+      candidate &&
+      typeof candidate === 'object' &&
+      'filename' in candidate &&
+      typeof candidate.filename === 'string',
+    ),
+  );
+}
+
 export interface PackageResult {
   entries: string[];
   mcp_sha256: string;
@@ -63,8 +79,7 @@ async function npmPack(root: string, destination: string): Promise<string> {
     ['pack', '--json', '--pack-destination', destination],
     { cwd: root, env: { ...process.env, NODE_ENV: 'development' } },
   );
-  const payload = JSON.parse(result.stdout) as PackOutput[];
-  const first = payload[0];
+  const first = packOutput(JSON.parse(result.stdout) as unknown);
   if (!first?.filename) throw new Error('npm pack did not return a filename');
   return join(destination, first.filename);
 }

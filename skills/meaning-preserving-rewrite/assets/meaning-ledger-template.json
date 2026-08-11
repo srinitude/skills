@@ -1,0 +1,11 @@
+{
+  "action": "clarify",
+  "id": "SRC-001",
+  "meaning": "State the source rule without changing its force or scope.",
+  "original": "Exact source clause",
+  "public_target": "SKILL.md#procedure",
+  "review_state": "approved",
+  "source_file": "/absolute/source.md",
+  "strength": "must",
+  "target_text": "Plain replacement with the same force and scope."
+}

@@ -24,6 +24,7 @@ test('passes the current public repository copy', async () => {
     'skills/always-current-datetime/SKILL.md',
     'skills/dedupe/SKILL.md',
     'skills/logic-audit/SKILL.md',
+    'skills/meaning-preserving-rewrite/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',
     'skills/prime-vector/SKILL.md',
     'skills/reify/SKILL.md',
@@ -61,4 +62,19 @@ test('does not style-check byte-exact frozen source evidence', async () => {
   const report = await validateCopy(root);
 
   expect(report).toMatchObject({ findings: [], inspected_files: 0, status: 'PASS' });
+});
+
+test('allows exact client names only in machine-readable source provenance', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'copy-provenance-gate-'));
+  temporary.push(root);
+  const provenance = join(root, 'skills', 'sample', 'evals');
+  await mkdir(provenance, { recursive: true });
+  await writeFile(
+    join(provenance, 'source-lineage.json'),
+    JSON.stringify({ source_path: 'references/hermes-docs-inventory.md' }),
+  );
+
+  const report = await validateCopy(root);
+
+  expect(report).toMatchObject({ findings: [], inspected_files: 1, status: 'PASS' });
 });

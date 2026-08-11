@@ -4,10 +4,18 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, expect, test } from 'vitest';
 
-import { buildPackage } from './package.js';
+import { buildPackage, packOutput } from './package.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const temporary: string[] = [];
+
+test('accepts npm pack array and keyed-object payloads', () => {
+  expect(packOutput([{ filename: 'legacy.tgz' }])).toEqual({ filename: 'legacy.tgz' });
+  expect(packOutput({ '@srinitude/skills': { filename: 'current.tgz' } })).toEqual({
+    filename: 'current.tgz',
+  });
+  expect(packOutput({})).toBeUndefined();
+});
 
 afterEach(async () => {
   await Promise.all(
@@ -24,6 +32,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/always-current-datetime/SKILL.md');
   expect(result.entries).toContain('package/skills/dedupe/SKILL.md');
   expect(result.entries).toContain('package/skills/logic-audit/SKILL.md');
+  expect(result.entries).toContain('package/skills/meaning-preserving-rewrite/SKILL.md');
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prime-vector/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
@@ -38,6 +47,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/always-current-datetime/SKILL.md',
     'package/skills/dedupe/SKILL.md',
     'package/skills/logic-audit/SKILL.md',
+    'package/skills/meaning-preserving-rewrite/SKILL.md',
     'package/skills/outcome-bounded-work/SKILL.md',
     'package/skills/prime-vector/SKILL.md',
     'package/skills/reify/SKILL.md',

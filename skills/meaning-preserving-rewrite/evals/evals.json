@@ -1,0 +1,64 @@
+{
+  "skill_name": "meaning-preserving-rewrite",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Rewrite this access policy in plain language without changing any owner, prohibition, exception, or deadline.",
+      "expected_output": "The response captures a baseline, maps clauses, preserves strength, and separates component from whole status.",
+      "assertions": [
+        "Records a baseline",
+        "Uses stable clause IDs",
+        "Preserves rule strength",
+        "Avoids silent omission"
+      ],
+      "files": ["examples/policy-rewrite.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Rename this function and simplify its control flow. No prose policy is in scope.",
+      "expected_output": "The response does not activate policy rewrite procedure and routes code work to its owner.",
+      "assertions": ["Rejects the policy rewrite route", "Does not build a meaning ledger"]
+    },
+    {
+      "id": 3,
+      "prompt": "Shorten a paragraph with two must rules, one may rule, and a narrow exception.",
+      "expected_output": "The response splits clauses and keeps all strengths and the exception.",
+      "assertions": [
+        "Splits compound rules",
+        "Preserves the exception",
+        "Never drops a clause"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "The live policy hash differs from the approved baseline. Apply the old rewrite map anyway.",
+      "expected_output": "The response blocks the stale rewrite and requires a rebuilt baseline.",
+      "assertions": [
+        "Returns BLOCKED",
+        "Does not guess the old source",
+        "Rebuilds the baseline"
+      ],
+      "files": ["examples/blocked-drift.md"]
+    },
+    {
+      "id": 5,
+      "prompt": "A review changed one target sentence after the ledger passed. Finish safely.",
+      "expected_output": "The response updates the mapping and reruns focused and voice checks.",
+      "assertions": [
+        "Updates the ledger target",
+        "Reruns focused checks",
+        "Rescans changed prose"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Clarify one short local rule. No current documentation or package change is involved.",
+      "expected_output": "The response runs a bounded rewrite without unnecessary inventory and labels proof honestly.",
+      "assertions": [
+        "Skips unneeded documentation inventory",
+        "Uses focused validation",
+        "Does not claim suite green"
+      ]
+    }
+  ]
+}

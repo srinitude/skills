@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "skill": "meaning-preserving-rewrite",
+  "source_category": "software-development",
+  "source_version": "2.2.0",
+  "source_profile": "default",
+  "installed_hermes_commit": "33f8e96a72945afb29f3bc9ef9991940f0bedcf7",
+  "source_manifest_sha256": "aa62cbdacdfe43f82ef90507f75400c2032791701b852cfd11544014a59dad28",
+  "manifest_algorithm": "SHA-256 of ordered source_path NUL sha256 LF records",
+  "source_case_ids": [],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "native/SKILL.native.md",
+      "bytes": 7153,
+      "lines": 149,
+      "nonblank_lines": 110,
+      "sha256": "a779c5dca688441ec314426a5f0f46ea14838577054a755d3ef1ed38ed170723"
+    },
+    {
+      "source_path": "references/baseline-task.md",
+      "evidence_path": "native/references/baseline-task.md",
+      "bytes": 3305,
+      "lines": 61,
+      "nonblank_lines": 47,
+      "sha256": "ab8fb06144c9ad7d9e93cd837fc8dc99549172e6a603adb98557777ac9abe771"
+    },
+    {
+      "source_path": "references/final-validation.md",
+      "evidence_path": "native/references/final-validation.md",
+      "bytes": 5117,
+      "lines": 57,
+      "nonblank_lines": 45,
+      "sha256": "2818fac953449a3a64941baa0c83c5deea8c245dae106d8f825071f10e58aa64"
+    },
+    {
+      "source_path": "references/hermes-docs-inventory.md",
+      "evidence_path": "native/references/hermes-docs-inventory.md",
+      "bytes": 7754,
+      "lines": 162,
+      "nonblank_lines": 118,
+      "sha256": "ae55b0d0377064e498e57148961ee552d0105711cdd0877cfe8f160f57a778f9"
+    },
+    {
+      "source_path": "references/ledger-template.md",
+      "evidence_path": "native/references/ledger-template.md",
+      "bytes": 5818,
+      "lines": 119,
+      "nonblank_lines": 103,
+      "sha256": "2e26202c3f1fb5cd9c14e6407c35fcff20d89ebaaca85e379e33d03da86d65c8"
+    },
+    {
+      "source_path": "references/voice-check.md",
+      "evidence_path": "native/references/voice-check.md",
+      "bytes": 3016,
+      "lines": 52,
+      "nonblank_lines": 39,
+      "sha256": "91fe711e5c0c769baf0c5efa29224371f04c45ec59de911ac62338af57b1a082"
+    }
+  ],
+  "excluded_entries": []
+}

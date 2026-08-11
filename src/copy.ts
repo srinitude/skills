@@ -30,6 +30,10 @@ const audienceLabels =
   /\b(beginner|beginners|expert|experts|non-technical|novice|novices)\b/i;
 const modelNames = /\b(Claude|DeepSeek|Gemini|GPT|Grok|Llama|Mistral|Qwen)\b/;
 
+function isSourceProvenance(path: string): boolean {
+  return /\/evals\/source-(lineage|mapping)\.json$/.test(path);
+}
+
 function portable(root: string, path: string): string {
   return relative(root, path).split('\\').join('/');
 }
@@ -67,6 +71,7 @@ function scanText(path: string, source: string): CopyFinding[] {
   }
   if (
     (path.startsWith('skills/') || path === 'AGENTS.md' || path === 'CLAUDE.md') &&
+    !isSourceProvenance(path) &&
     /hermes/i.test(source)
   ) {
     found.push(

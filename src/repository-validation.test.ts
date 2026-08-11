@@ -20,7 +20,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 13,
+    skillCount: 14,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
@@ -32,6 +32,7 @@ test('validates every skill and all frozen specification pages', async () => {
       version: '0.1.0',
     }),
     expect.objectContaining({ name: 'dedupe', status: 'PASS', version: '0.1.0' }),
+    expect.objectContaining({ name: 'goal-prompt', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'logic-audit', status: 'PASS', version: '0.1.1' }),
     expect.objectContaining({
       name: 'meaning-preserving-rewrite',

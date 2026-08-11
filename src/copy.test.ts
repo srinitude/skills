@@ -23,6 +23,7 @@ test('passes the current public repository copy', async () => {
   expect(report.skill_files).toEqual([
     'skills/always-current-datetime/SKILL.md',
     'skills/dedupe/SKILL.md',
+    'skills/goal-prompt/SKILL.md',
     'skills/logic-audit/SKILL.md',
     'skills/meaning-preserving-rewrite/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',

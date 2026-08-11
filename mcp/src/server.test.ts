@@ -53,6 +53,7 @@ test('exposes canonical skill bytes as a fixed read-only resource', async () => 
   expect(resources.resources.map((resource) => resource.uri)).toEqual([
     'skill://always-current-datetime/SKILL.md',
     'skill://dedupe/SKILL.md',
+    'skill://goal-prompt/SKILL.md',
     'skill://logic-audit/SKILL.md',
     'skill://meaning-preserving-rewrite/SKILL.md',
     'skill://outcome-bounded-work/SKILL.md',
@@ -98,6 +99,7 @@ test('exposes only the approved read-only tools', async () => {
     skills: [
       { name: 'always-current-datetime' },
       { name: 'dedupe' },
+      { name: 'goal-prompt' },
       { name: 'logic-audit' },
       { name: 'meaning-preserving-rewrite' },
       { name: 'outcome-bounded-work' },

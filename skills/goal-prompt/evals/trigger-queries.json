@@ -1,0 +1,6 @@
+[
+  { "query": "Package this request for a standing goal.", "should_trigger": true },
+  { "query": "Turn this plan package into goal input.", "should_trigger": true },
+  { "query": "Execute this plan now.", "should_trigger": false },
+  { "query": "Summarize this goal without packaging it.", "should_trigger": false }
+]

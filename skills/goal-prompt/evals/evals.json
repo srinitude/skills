@@ -1,0 +1,41 @@
+{
+  "skill_name": "goal-prompt",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Package this policy as a standing goal without changing it.",
+      "expected_output": "Snapshot, map, goal file, and six-line command.",
+      "assertions": ["Preserves source", "Uses six lines", "Keeps command under cap"]
+    },
+    {
+      "id": 2,
+      "prompt": "Implement the goal now.",
+      "expected_output": "Packages only and does not execute.",
+      "assertions": ["Keeps packaging boundary"]
+    },
+    {
+      "id": 3,
+      "prompt": "Package an existing plan package.",
+      "expected_output": "Reuses IDs and completion contract.",
+      "assertions": ["Preserves plan authority", "Writes sorted manifest"]
+    },
+    {
+      "id": 4,
+      "prompt": "Package unreadable binary credentials.",
+      "expected_output": "Blocks without output.",
+      "assertions": ["Does not copy secrets", "Returns blocker"]
+    },
+    {
+      "id": 5,
+      "prompt": "Repair a five-line command with an incomplete review gate.",
+      "expected_output": "Restores all lines and thresholds.",
+      "assertions": ["Restores six lines", "Restores five turns", "Restores 20 calls"]
+    },
+    {
+      "id": 6,
+      "prompt": "Package one short local request.",
+      "expected_output": "Uses bounded ordinary-input path.",
+      "assertions": ["Skips plan inventory", "Validates source hash"]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "skill": "goal-prompt",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Package this request for a standing goal.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Turn this plan package into goal input.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Create the six-line goal command from this source.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "hard_negative",
+      "prompt": "Execute this plan now.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "hard_negative",
+      "prompt": "Write a product slogan.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "prompt": "Summarize this goal without packaging it.",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "skill": "goal-prompt",
+  "groups": ["activation", "rejection", "behavior", "failure", "recovery", "speed"],
+  "decision_labels": [
+    "package_goal",
+    "reject_execution",
+    "preserve_plan",
+    "blocked_input",
+    "repair_partial",
+    "bounded_package"
+  ],
+  "cases": [
+    {
+      "id": "GOL-001",
+      "source_id": "GOALT-001",
+      "title": "ordinary input",
+      "group": "activation",
+      "pressures": ["target-only", "activation"],
+      "prompt": "Package this policy as a standing goal without changing it.",
+      "decision": "package_goal",
+      "required": ["source-snapshot", "requirement-map", "six-line-command"],
+      "veto": ["execute-source"]
+    },
+    {
+      "id": "GOL-002",
+      "source_id": "GOALT-002",
+      "title": "execution rejection",
+      "group": "rejection",
+      "pressures": ["target-only", "rejection"],
+      "prompt": "Implement this goal now instead of packaging it.",
+      "decision": "reject_execution",
+      "required": ["package-only-boundary"],
+      "veto": ["implement-goal"]
+    },
+    {
+      "id": "GOL-003",
+      "source_id": "GOALT-003",
+      "title": "plan package",
+      "group": "behavior",
+      "pressures": ["target-only", "behavior"],
+      "prompt": "Package an existing same-slug plan and companion directory.",
+      "decision": "preserve_plan",
+      "required": ["reuse-plan-ids", "sorted-manifest", "preserve-gates"],
+      "veto": ["wrapper-requirements"]
+    },
+    {
+      "id": "GOL-004",
+      "source_id": "GOALT-004",
+      "title": "unsafe input",
+      "group": "failure",
+      "pressures": ["target-only", "failure"],
+      "prompt": "Package unreadable binary input containing credentials.",
+      "decision": "blocked_input",
+      "required": ["block", "remove-partial-output"],
+      "veto": ["copy-secret", "return-command"]
+    },
+    {
+      "id": "GOL-005",
+      "source_id": "GOALT-005",
+      "title": "partial validation recovery",
+      "group": "recovery",
+      "pressures": ["target-only", "recovery"],
+      "prompt": "The command has five lines and the review gate is incomplete.",
+      "decision": "repair_partial",
+      "required": [
+        "restore-six-lines",
+        "restore-five-turn-gate",
+        "restore-20-call-threshold"
+      ],
+      "veto": ["accept-partial"]
+    },
+    {
+      "id": "GOL-006",
+      "source_id": "GOALT-006",
+      "title": "bounded local input",
+      "group": "speed",
+      "pressures": ["target-only", "speed"],
+      "prompt": "Package one short local text request with no plan input.",
+      "decision": "bounded_package",
+      "required": ["skip-plan-inventory", "focused-validation"],
+      "veto": ["unneeded-plan-scan"]
+    }
+  ]
+}

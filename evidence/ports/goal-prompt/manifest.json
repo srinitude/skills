@@ -1,0 +1,29 @@
+{
+  "excluded_entries": [],
+  "files": [
+    {
+      "bytes": 14863,
+      "evidence_path": "native/SKILL.native.md",
+      "lines": 149,
+      "nonblank_lines": 122,
+      "sha256": "5a27d47bc07ddd68a60a09e26e774cfa487c20853a569c502f9d5f5b5addac59",
+      "source_path": "SKILL.md"
+    },
+    {
+      "bytes": 4766,
+      "evidence_path": "native/references/plan-package-input.md",
+      "lines": 74,
+      "nonblank_lines": 49,
+      "sha256": "3b657d32a7e8f7ee4a9af0b91895605fd52b5e57d1b42eb653d5e6fa217be955",
+      "source_path": "references/plan-package-input.md"
+    }
+  ],
+  "native_name": "goal-prompt",
+  "native_version": "1.5.1",
+  "public_version": "0.1.0",
+  "schema": "srinitude-skill-source-manifest.v1",
+  "skill": "goal-prompt",
+  "source_case_ids": [],
+  "source_manifest_algorithm": "sha256(concat(source_path, NUL, file_sha256, LF))",
+  "source_manifest_sha256": "8c1269a76a5ad57e785f4968a4ca71ccd8d15ee5a22e4955573dfcfb6b182243"
+}

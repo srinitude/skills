@@ -1,0 +1,8 @@
+{
+  "derived": "Source-derived wording",
+  "proof_target": "Validator or state readback",
+  "result": "same_meaning",
+  "source_id": "REQ-001",
+  "source_location": "line 1",
+  "strength": "must"
+}

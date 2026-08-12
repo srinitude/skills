@@ -32,6 +32,10 @@ Each `skills/<name>/SKILL.md` must:
 - point to optional detail one level below the skill root;
 - include positive, rejection, behavior, failure, recovery, and speed tests.
 
+Each `skills/<name>/evals/source-lineage.json` must list every public file except itself and every source claim. Bind those claims in `evidence/ports/<name>/source-manifest.json`. Use byte-exact evidence for archived source. When historical source bytes are unavailable, bind the complete public tree as an explicit `repository_baseline` instead of retaining unverifiable historical hashes.
+
+Fixture evaluation reports are deterministic contract checks. They must state that they do not prove skill effectiveness. A PASS also requires the complete expected record and trigger identity sets, not just successful records that happen to be present.
+
 Update `evidence/agentskills-pages.json` only after reading every page listed by the live Agent Skills sitemap.
 
 ## Integrations

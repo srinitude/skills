@@ -17,6 +17,10 @@ export interface CatalogEntry {
   version: string;
 }
 
+interface CatalogCandidate extends CatalogEntry {
+  directory: string;
+}
+
 function parseFrontmatter(source: string): z.infer<typeof frontmatterSchema> {
   if (!source.startsWith('---\n'))
     throw new Error('SKILL.md must start with YAML frontmatter');
@@ -25,11 +29,12 @@ function parseFrontmatter(source: string): z.infer<typeof frontmatterSchema> {
   return frontmatterSchema.parse(parse(source.slice(4, end)));
 }
 
-async function readEntry(root: string, directory: string): Promise<CatalogEntry> {
+async function readEntry(root: string, directory: string): Promise<CatalogCandidate> {
   const relative = posix.join('skills', directory, 'SKILL.md');
   const metadata = parseFrontmatter(await readFile(join(root, relative), 'utf8'));
   return {
     description: metadata.description,
+    directory,
     name: metadata.name,
     path: relative,
     version: metadata.metadata.version,
@@ -40,5 +45,23 @@ export async function loadCatalog(root: string): Promise<CatalogEntry[]> {
   const entries = await readdir(join(root, 'skills'), { withFileTypes: true });
   const names = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
   const catalog = await Promise.all(names.map((name) => readEntry(root, name)));
-  return catalog.sort((left, right) => left.name.localeCompare(right.name));
+  for (const entry of catalog) {
+    if (entry.name !== entry.directory) {
+      throw new Error(
+        `skill directory ${entry.directory} does not match name ${entry.name}`,
+      );
+    }
+  }
+  const declaredNames = catalog.map((entry) => entry.name);
+  if (new Set(declaredNames).size !== declaredNames.length) {
+    throw new Error('skill names must be unique');
+  }
+  return catalog
+    .map((entry) => ({
+      description: entry.description,
+      name: entry.name,
+      path: entry.path,
+      version: entry.version,
+    }))
+    .sort((left, right) => left.name.localeCompare(right.name));
 }

@@ -38,15 +38,25 @@ function portable(root: string, path: string): string {
   return relative(root, path).split('\\').join('/');
 }
 
-async function files(root: string, directory = root): Promise<string[]> {
+interface FileInventory {
+  files: string[];
+  special: string[];
+}
+
+async function files(root: string, directory = root): Promise<FileInventory> {
   const found: string[] = [];
+  const special: string[] = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
     const path = join(directory, entry.name);
-    if (entry.isDirectory()) found.push(...(await files(root, path)));
-    else if (entry.isFile()) found.push(path);
+    if (entry.isDirectory()) {
+      const nested = await files(root, path);
+      found.push(...nested.files);
+      special.push(...nested.special);
+    } else if (entry.isFile()) found.push(path);
+    else special.push(path);
   }
-  return found.sort();
+  return { files: found.sort(), special: special.sort() };
 }
 
 function finding(code: string, message: string, path: string): CopyFinding {
@@ -108,11 +118,21 @@ function duplicateBodies(entries: Array<{ hash: string; path: string }>): CopyFi
 }
 
 export async function validateCopy(root: string): Promise<CopyReport> {
-  const paths = await files(root);
+  const inventory = await files(root);
+  const paths = inventory.files;
   const findings: CopyFinding[] = [];
   const skillFiles: string[] = [];
   const bodies: Array<{ hash: string; path: string }> = [];
   let inspected = 0;
+  for (const absolute of inventory.special) {
+    findings.push(
+      finding(
+        'SPECIAL_ENTRY',
+        'public copy contains a symlink or unsupported filesystem entry',
+        portable(root, absolute),
+      ),
+    );
+  }
   for (const absolute of paths) {
     const path = portable(root, absolute);
     if (absolute.endsWith('/SKILL.md') || path === 'SKILL.md') {

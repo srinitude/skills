@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "skill": "starting-point",
+  "source_manifest_sha256": "ef10e9c27dec7b9cb594b1bdd7f7a3bdec50caaeb663a21016d8cc483f8cc5f0",
+  "manifest_algorithm": "legacy claim retained from source-lineage.json; exact source bytes are authoritative",
+  "files": [],
+  "source_files_expected": 5,
+  "source_files_archived": 0,
+  "proof_status": "BLOCKED_MISSING_SOURCE_BYTES"
+}

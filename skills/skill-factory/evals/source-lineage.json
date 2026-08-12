@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.1.0",
   "native_version": "0.1.0",
-  "native_manifest_sha256": "1ca9caa100f0017dc223a052ed80b31de8787c184b953c225fec42a1dd84f7c2",
+  "native_manifest_sha256": "68ad79b1e86b044b33ba4a10599adf0661eab832c85b6ef9ffefa7e225aa4557",
   "public_files": [
     {
       "path": "SKILL.md",

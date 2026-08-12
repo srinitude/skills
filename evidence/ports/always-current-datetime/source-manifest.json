@@ -1,0 +1,37 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "always-current-datetime",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "b647248569c7664ae8dcba5161a748ccfc7eafa33c5d9bb6d5378fed63c9bc86",
+  "evidence_packet_sha256": "76646ae90d6e5936f6b69fa147c8a80b5ddb5b1567610fb842ffd94da7ddecc0",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "SKILL.native.md",
+      "sha256": "dac89519a06ca944c0a14e2b0a46fdc1687627cb80014d55d6efbb2e31143e4c",
+      "bytes": 5345
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "location_kind": "evidence",
+      "location_path": "eval-cases.native.json",
+      "sha256": "1245c83719bd94418654567f23f4dade91b6226eab400c9e79f2b893e695b8aa",
+      "bytes": 4297
+    },
+    {
+      "source_path": "references/eval-contract.md",
+      "location_kind": "evidence",
+      "location_path": "eval-contract.native.md",
+      "sha256": "e20a0622b583f2c9c78e6d21cf335a5dbf886c9b3a352bac1376c65f3058b97e",
+      "bytes": 2402
+    },
+    {
+      "source_path": "scripts/current_anchor.py",
+      "location_kind": "evidence",
+      "location_path": "current-anchor.native.py",
+      "sha256": "dc2e2ff4edc302ed26b2b194ab6db31c5a6badf2223f42efd2d9ef088819b68f",
+      "bytes": 2627
+    }
+  ]
+}

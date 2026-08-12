@@ -121,8 +121,11 @@ export async function validateRepository(
       ),
     ];
     for (const report of skills) {
-      if (report.status !== 'PASS')
-        errors.push(`${report.name} validation is ${report.status}`);
+      if (report.status !== 'PASS') {
+        errors.push(
+          `${report.name} validation is ${report.status}: ${report.errors.join('; ')}`,
+        );
+      }
     }
     const status = errors.length === 0 ? 'PASS' : 'FAIL';
     return {

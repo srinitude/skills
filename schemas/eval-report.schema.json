@@ -6,6 +6,8 @@
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "claim_limit",
+    "evidence_class",
     "skill",
     "transport",
     "status",
@@ -16,6 +18,10 @@
   ],
   "properties": {
     "schema_version": { "const": 1 },
+    "claim_limit": { "type": "string", "minLength": 1 },
+    "evidence_class": {
+      "enum": ["deterministic_contract_check", "live_behavior_evaluation"]
+    },
     "skill": { "type": "string", "minLength": 1 },
     "transport": { "type": "string", "minLength": 1 },
     "status": { "$ref": "#/definitions/status" },

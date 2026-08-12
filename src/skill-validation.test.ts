@@ -68,7 +68,7 @@ test('validates the public starting-point release and native lineage', async () 
   expect(report).toEqual({
     caseCount: 18,
     errors: [],
-    manifestSha256: 'ef10e9c27dec7b9cb594b1bdd7f7a3bdec50caaeb663a21016d8cc483f8cc5f0',
+    manifestSha256: '56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156',
     name: 'starting-point',
     skillPath: join('skills', 'starting-point', 'SKILL.md'),
     status: 'PASS',

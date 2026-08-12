@@ -18,7 +18,7 @@
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "SKILL.md",
@@ -26,91 +26,87 @@
     },
     {
       "path": "assets/timebox-record.json",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/cases.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/contract.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/evals.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/manifest.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/rubric.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
-    },
-    {
-      "path": "evals/source-lineage.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/source-mapping.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/speed-budgets.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/trigger-cases.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/trigger-queries.json",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/help.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/not-started.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/pass.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "mise.toml",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/timebox-record.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_code_rules.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_evals.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/lint_writing.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_source_mapping.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/validate_skill.py",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     }
   ]
 }

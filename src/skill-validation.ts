@@ -5,10 +5,12 @@ import { z } from 'zod';
 
 import { casesSchema, type EvalCases } from './eval/schema.js';
 import { readSkillDocument, type SkillDocument } from './skill-document.js';
+import { validateSourceEvidence } from './source-evidence.js';
 
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
 const lineageSchema = z
   .object({
+    active_case_ids: z.array(z.string().min(1)).min(1).optional(),
     native_manifest_sha256: sha256,
     native_version: z.string().min(1),
     public_files: z
@@ -23,7 +25,6 @@ const lineageSchema = z
       .min(1),
     public_version: z.string().regex(/^\d+\.\d+\.\d+$/),
     schema_version: z.literal(1),
-    active_case_ids: z.array(z.string().min(1)).min(1).optional(),
     source_case_ids: z.array(z.string().min(1)).min(1),
     source_files: z.array(z.object({ path: z.string().min(1), sha256 }).strict()).min(1),
   })
@@ -122,6 +123,24 @@ export async function validateSkill(
     const errors = [...validateRelations(skill, lineage, cases)];
     if (skill.name !== name) errors.push('skill name does not match its directory');
     errors.push(...(await validateReferences(skillDir, skill)));
+    try {
+      const triggers = JSON.parse(
+        await readFile(join(skillDir, 'evals', 'trigger-cases.json'), 'utf8'),
+      ) as { cases?: unknown[] };
+      if (!Array.isArray(triggers.cases) || triggers.cases.length === 0) {
+        errors.push('trigger cases must not be empty');
+      }
+    } catch (error) {
+      errors.push(
+        `trigger cases are unreadable: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+    const evidenceErrors = await validateSourceEvidence(root, name, {
+      nativeManifestSha256: lineage.native_manifest_sha256,
+      publicFiles: lineage.public_files,
+      sourceFiles: lineage.source_files,
+    });
+    errors.push(...evidenceErrors);
     return {
       caseCount: cases.cases.length,
       errors,

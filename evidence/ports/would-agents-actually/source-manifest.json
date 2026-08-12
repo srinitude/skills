@@ -1,0 +1,212 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "would-agents-actually",
+  "source_kind": "repository_baseline",
+  "native_manifest_sha256": "d5d3f6ecb83857a3cdb4426b477c8b7657155f3355099a0d5d22e9dbbfdf1194",
+  "evidence_packet_sha256": "d5d3f6ecb83857a3cdb4426b477c8b7657155f3355099a0d5d22e9dbbfdf1194",
+  "files": [
+    {
+      "source_path": ".github/workflows/ci.yml",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/.github/workflows/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0",
+      "bytes": 423
+    },
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/SKILL.md",
+      "sha256": "ff64e747b01fb7443ec83c00b1db3a271455e560972ee31837cd54af53d087f3",
+      "bytes": 6606
+    },
+    {
+      "source_path": "assets/verdict-template.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/assets/verdict-template.md",
+      "sha256": "41f9e60fe9500bcf62480994042d9ba6356b368a7cd700a711e3144fb8780c82",
+      "bytes": 1484
+    },
+    {
+      "source_path": "evals/cases.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/cases.json",
+      "sha256": "9a05b14444c32259d9fcbcb4232ab4a373c104b70bce67dab438a1f6a43d4573",
+      "bytes": 5835
+    },
+    {
+      "source_path": "evals/contract.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/contract.md",
+      "sha256": "f18ac1a4280d6ab4b865b4527dd25b20111002ceda979450d66288a5b401f7ea",
+      "bytes": 1597
+    },
+    {
+      "source_path": "evals/evals.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/evals.json",
+      "sha256": "9705c1818b4addf6234765c836d30d06ea074955df88a087976e9fcbf30d7602",
+      "bytes": 1961
+    },
+    {
+      "source_path": "evals/manifest.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/manifest.json",
+      "sha256": "975c7c00bc0c367a00686328a2c968f8af794f6e667a57487d2b1847fa339db8",
+      "bytes": 436
+    },
+    {
+      "source_path": "evals/rubric.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/rubric.md",
+      "sha256": "bd507616281e50183621a1a8af43987ec7813b3eebd2119d7385110bbe0f246b",
+      "bytes": 1074
+    },
+    {
+      "source_path": "evals/speed-budgets.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/speed-budgets.json",
+      "sha256": "e321b9af842af7e86063c70c000b1c29e31287050ceef5fe90f4d56f406bf165",
+      "bytes": 337
+    },
+    {
+      "source_path": "evals/trigger-cases.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/trigger-cases.json",
+      "sha256": "3d5995c3a7229c63e35298a3085e1e33e2788faa2c1a55d4f4b49be1cb326c4e",
+      "bytes": 1812
+    },
+    {
+      "source_path": "evals/trigger-queries.json",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/evals/trigger-queries.json",
+      "sha256": "9ff79a6f4ec3bb8175f48d2afa2cbf2fe0f1d8b7d257a029e95a597ad5b40861",
+      "bytes": 1792
+    },
+    {
+      "source_path": "examples/failure-unvalidated.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/examples/failure-unvalidated.md",
+      "sha256": "9a487dc746c144b222171676201cec35ba853f63030a4ee4ad88e9059c16338c",
+      "bytes": 3121
+    },
+    {
+      "source_path": "examples/help.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/examples/help.md",
+      "sha256": "2c1f1988e1cdf06a5e07a60c3e511982d527c3eb955e8ac46e16909b98a0aae2",
+      "bytes": 1114
+    },
+    {
+      "source_path": "examples/verdict-insufficient-evidence.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/examples/verdict-insufficient-evidence.md",
+      "sha256": "f5ca4825444f5b7c34fb2a77bce490af7349297dda460fde81c2ac8dc0cd7124",
+      "bytes": 6524
+    },
+    {
+      "source_path": "mise.toml",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/mise.toml",
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558",
+      "bytes": 1155
+    },
+    {
+      "source_path": "references/evidence-base.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/evidence-base.md",
+      "sha256": "10dbbc1fcca78624f11c3e005af818ca53764b64e7d600d8b064cfa7a1db6e1f",
+      "bytes": 4283
+    },
+    {
+      "source_path": "references/frameworks.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/frameworks.md",
+      "sha256": "91d7c41cdf4e00d0d14b0b1f7435e6941c15b598ddf5a181125f787566c2cd04",
+      "bytes": 4404
+    },
+    {
+      "source_path": "references/generation-contract.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "bytes": 5517
+    },
+    {
+      "source_path": "references/output-template.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/output-template.md",
+      "sha256": "d05fcb676fadcb1817c016c929d51c2509c4a6e74412b09e1918a482e63e5f31",
+      "bytes": 3959
+    },
+    {
+      "source_path": "references/recent-public-signal.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/recent-public-signal.md",
+      "sha256": "a7d23321b62722a28d8fc017e773c5905b135ed7485689dc07e466003ea5a870",
+      "bytes": 3258
+    },
+    {
+      "source_path": "references/verdict-protocol.md",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/references/verdict-protocol.md",
+      "sha256": "4ac222c97f38884088bc3c2197c364d25723c81351616f75a95b124dcfa5724b",
+      "bytes": 6606
+    },
+    {
+      "source_path": "scripts/check_code_rules.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
+      "bytes": 4197
+    },
+    {
+      "source_path": "scripts/check_evals.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec",
+      "bytes": 4444
+    },
+    {
+      "source_path": "scripts/check_placeholders.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a",
+      "bytes": 3496
+    },
+    {
+      "source_path": "scripts/lint_writing.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399",
+      "bytes": 5481
+    },
+    {
+      "source_path": "scripts/tests/test_ci_contract.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/tests/test_ci_contract.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652",
+      "bytes": 2394
+    },
+    {
+      "source_path": "scripts/tests/test_validate_verdict.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/tests/test_validate_verdict.py",
+      "sha256": "aa6c3d09dc320e7570708576bcd14db9e7a95f166fdb50c2d1fbc915f9fe4848",
+      "bytes": 2086
+    },
+    {
+      "source_path": "scripts/validate_skill.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/validate_skill.py",
+      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a",
+      "bytes": 4310
+    },
+    {
+      "source_path": "scripts/validate_verdict.py",
+      "location_kind": "repository",
+      "location_path": "skills/would-agents-actually/scripts/validate_verdict.py",
+      "sha256": "cb91223a7965dce4f9c3aeb3a916672ac4bf8b51c4f97d13c20aef75341adbba",
+      "bytes": 2613
+    }
+  ]
+}

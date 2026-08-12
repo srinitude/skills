@@ -1,0 +1,261 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "dedupe",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "f955a6135f547637dc49fb5caa226d6c430344640b51ecb01de90e20e61896c8",
+  "evidence_packet_sha256": "f955a6135f547637dc49fb5caa226d6c430344640b51ecb01de90e20e61896c8",
+  "files": [
+    {
+      "source_path": ".github/workflows/ci.yml",
+      "location_kind": "evidence",
+      "location_path": "native/.github/workflows/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0",
+      "bytes": 423
+    },
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "d34ba6892ad1a02bf0e3b3a94f759c737424008af192d0c91efcb70118b55176",
+      "bytes": 7309
+    },
+    {
+      "source_path": "assets/eval-case-template.json",
+      "location_kind": "evidence",
+      "location_path": "native/assets/eval-case-template.json",
+      "sha256": "cad41448c13d208bb9ca4bcbfb77ceb71bdd73d91be4d5782d7c2050537f59f1",
+      "bytes": 286
+    },
+    {
+      "source_path": "assets/request-template.json",
+      "location_kind": "evidence",
+      "location_path": "native/assets/request-template.json",
+      "sha256": "6e34e0458aa13754b98310d45a75ad015f869e713b26f9c02a20b3651cc06bca",
+      "bytes": 163
+    },
+    {
+      "source_path": "evals/evals.json",
+      "location_kind": "evidence",
+      "location_path": "native/evals/evals.json",
+      "sha256": "864be6a0a95e1c23221d887617bc20813677f13f4c9b49a0af7d2593d46ee6d0",
+      "bytes": 3942
+    },
+    {
+      "source_path": "evals/trigger-queries.json",
+      "location_kind": "evidence",
+      "location_path": "native/evals/trigger-queries.json",
+      "sha256": "205256e953da2498debb0ef204a0715335ed9ee9334940037c0a71e1d24e8de0",
+      "bytes": 1846
+    },
+    {
+      "source_path": "examples/apply.md",
+      "location_kind": "evidence",
+      "location_path": "native/examples/apply.md",
+      "sha256": "4e931250b5a13e8721ed9e738c7a6b531b5913eace9a35dc64a2bd1d02d77b29",
+      "bytes": 909
+    },
+    {
+      "source_path": "examples/example-first-run.md",
+      "location_kind": "evidence",
+      "location_path": "native/examples/example-first-run.md",
+      "sha256": "f39caf5cb46c6fd63450e17e36f6a5444309c99cf2f5b1ecd0f85cb07436320a",
+      "bytes": 341
+    },
+    {
+      "source_path": "examples/failure.md",
+      "location_kind": "evidence",
+      "location_path": "native/examples/failure.md",
+      "sha256": "8a9a29746dad5108fa040ce7d351859d17d9b513be3ac0f2ca62f2164a70b82d",
+      "bytes": 605
+    },
+    {
+      "source_path": "examples/help.md",
+      "location_kind": "evidence",
+      "location_path": "native/examples/help.md",
+      "sha256": "a25094f67d0d63747255f87350100d3eeeb63c4c23f84a1bd693d0847c6fd08b",
+      "bytes": 943
+    },
+    {
+      "source_path": "examples/inspect.md",
+      "location_kind": "evidence",
+      "location_path": "native/examples/inspect.md",
+      "sha256": "6eba5dd71f26b491584651750006d9c45112a330557d9f0a047040d37afb7b10",
+      "bytes": 1282
+    },
+    {
+      "source_path": "examples/invalid-request.json",
+      "location_kind": "evidence",
+      "location_path": "native/examples/invalid-request.json",
+      "sha256": "ed1b07b2bf6a56c57a21c325c18341a5d7eb7a37fe2814ba4e687fe4a6a887c3",
+      "bytes": 66
+    },
+    {
+      "source_path": "examples/list-request.json",
+      "location_kind": "evidence",
+      "location_path": "native/examples/list-request.json",
+      "sha256": "80b4e4366e23631fb0586223cf8f2ea204033d8f9fe3479dd9999d16585044f3",
+      "bytes": 158
+    },
+    {
+      "source_path": "mise.toml",
+      "location_kind": "evidence",
+      "location_path": "native/mise.toml",
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558",
+      "bytes": 1155
+    },
+    {
+      "source_path": "references/core-contract.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/core-contract.md",
+      "sha256": "5b5e32d333b41ffd0cf9af30a09c467a172c94755beee626aac991dbf20c1e6b",
+      "bytes": 4894
+    },
+    {
+      "source_path": "references/decisions.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/decisions.md",
+      "sha256": "3ebc890ecb68cde74f0244f0b22bfb4d5491d2a4f3b79c1f7efd09d285567ecd",
+      "bytes": 2014
+    },
+    {
+      "source_path": "references/file-record.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/file-record.md",
+      "sha256": "f616a2922ca5949639cbedac76602abab0d9a163cc37a3e164ea824842b1053b",
+      "bytes": 3722
+    },
+    {
+      "source_path": "references/generation-contract.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "bytes": 5517
+    },
+    {
+      "source_path": "references/report-mutation.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/report-mutation.md",
+      "sha256": "2066a725666a228f8efc32bd592fa01a4d2fff3009e96c99dc3f65ee4d04081a",
+      "bytes": 4500
+    },
+    {
+      "source_path": "references/text-list.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/text-list.md",
+      "sha256": "34881f1154d8bc06758a97a8012c665440da615422f1c824e45079eac8b88a39",
+      "bytes": 3161
+    },
+    {
+      "source_path": "references/url-skill.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/url-skill.md",
+      "sha256": "93a9f11d7b5b52c2d06020d75e32f608e83a8dd972b1519d8aa90c53abbcef15",
+      "bytes": 4652
+    },
+    {
+      "source_path": "scripts/check_code_rules.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
+      "bytes": 4197
+    },
+    {
+      "source_path": "scripts/check_evals.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec",
+      "bytes": 4444
+    },
+    {
+      "source_path": "scripts/check_placeholders.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a",
+      "bytes": 3496
+    },
+    {
+      "source_path": "scripts/dedupe.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/dedupe.py",
+      "sha256": "49abc491edf9c70ce6110b2de7ff281d4b840dd7e75b2aa976a201ff905dd772",
+      "bytes": 4818
+    },
+    {
+      "source_path": "scripts/lib/__init__.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/lib/__init__.py",
+      "sha256": "b7fc4f0d1aab44a744387913cc3b3c66703aa14f2ed4893e78c4a31e97c44fd2",
+      "bytes": 58
+    },
+    {
+      "source_path": "scripts/lib/adapters.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/lib/adapters.py",
+      "sha256": "e78205a89d9827cc5ddad7991bb722e140cab402e151cf5f5f582607b2d21096",
+      "bytes": 5657
+    },
+    {
+      "source_path": "scripts/lib/core.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/lib/core.py",
+      "sha256": "2e94874d5d65dc6eb1fe6b242e08873fb4c6a456cf444d4811e6ee549b209302",
+      "bytes": 2348
+    },
+    {
+      "source_path": "scripts/lint_writing.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399",
+      "bytes": 5481
+    },
+    {
+      "source_path": "scripts/skill_info.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/skill_info.py",
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28",
+      "bytes": 1586
+    },
+    {
+      "source_path": "scripts/tests/test_ci_contract.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/tests/test_ci_contract.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652",
+      "bytes": 2394
+    },
+    {
+      "source_path": "scripts/tests/test_dedupe.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/tests/test_dedupe.py",
+      "sha256": "47abb474f5d8d0f60864aa021b14d70d0209191f31aa14698020a50c9451e562",
+      "bytes": 9441
+    },
+    {
+      "source_path": "scripts/tests/test_scripts.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/tests/test_scripts.py",
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73",
+      "bytes": 1214
+    },
+    {
+      "source_path": "scripts/tests/test_skill_cache.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/tests/test_skill_cache.py",
+      "sha256": "cec66692fd7e833acd7bdb05c94ce3cb30a8471aed69078fc0131ba9cb0b63bd",
+      "bytes": 1713
+    },
+    {
+      "source_path": "scripts/tests/test_validate_skill.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/tests/test_validate_skill.py",
+      "sha256": "19854af7ca731a9a3d26a7046e8bd1bda483c4c4c492890c25edf7fa19dd9076",
+      "bytes": 1192
+    },
+    {
+      "source_path": "scripts/validate_skill.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/validate_skill.py",
+      "sha256": "e6cea35aef68f6bde16776fa2112cf2d5c17e8ae2642163f6fb61b65ba48deb8",
+      "bytes": 4328
+    }
+  ]
+}

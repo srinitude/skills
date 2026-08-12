@@ -1,12 +1,68 @@
 {
   "schema_version": 1,
   "public_version": "0.1.0",
-  "native_version": "2.2.0",
-  "native_manifest_sha256": "a3bfaf67b9f3d9f6fcd72ccae713664924efb4d233e188b0ef541f542f072613",
+  "native_version": "0.1.0",
+  "native_manifest_sha256": "6e9e8e59f5a8524f9339697dcd21af6c620166f57ef1cd3f09157aa9ee76a65c",
   "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [".github/workflows/ci.yml"]
+    },
     {
       "path": "SKILL.md",
       "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/verdict-template.md",
+      "source_paths": ["assets/verdict-template.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["evals/cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["evals/contract.md"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["evals/evals.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["evals/manifest.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["evals/rubric.md"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["evals/speed-budgets.json"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["evals/trigger-cases.json"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["evals/trigger-queries.json"]
+    },
+    {
+      "path": "examples/failure-unvalidated.md",
+      "source_paths": ["examples/failure-unvalidated.md"]
+    },
+    {
+      "path": "examples/help.md",
+      "source_paths": ["examples/help.md"]
+    },
+    {
+      "path": "examples/verdict-insufficient-evidence.md",
+      "source_paths": ["examples/verdict-insufficient-evidence.md"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["mise.toml"]
     },
     {
       "path": "references/evidence-base.md",
@@ -15,6 +71,10 @@
     {
       "path": "references/frameworks.md",
       "source_paths": ["references/frameworks.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["references/generation-contract.md"]
     },
     {
       "path": "references/output-template.md",
@@ -29,42 +89,154 @@
       "source_paths": ["references/verdict-protocol.md"]
     },
     {
-      "path": "evals/cases.json",
-      "source_paths": ["SKILL.md", "references/verdict-protocol.md"]
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["scripts/check_code_rules.py"]
     },
     {
-      "path": "evals/trigger-cases.json",
-      "source_paths": ["SKILL.md"]
+      "path": "scripts/check_evals.py",
+      "source_paths": ["scripts/check_evals.py"]
     },
     {
-      "path": "assets/verdict-template.md",
-      "source_paths": ["references/output-template.md"]
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["scripts/check_placeholders.py"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["scripts/lint_writing.py"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["scripts/tests/test_ci_contract.py"]
+    },
+    {
+      "path": "scripts/tests/test_validate_verdict.py",
+      "source_paths": ["scripts/tests/test_validate_verdict.py"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["scripts/validate_skill.py"]
+    },
+    {
+      "path": "scripts/validate_verdict.py",
+      "source_paths": ["scripts/validate_verdict.py"]
     }
   ],
   "source_files": [
     {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0"
+    },
+    {
       "path": "SKILL.md",
-      "sha256": "cc2bc704c02d6e97ca6a6963049c2ee4a535c7131419fd64f0b4db550a81dc25"
+      "sha256": "8fb2e6b8c20e1ae608f48cf39860b9b869e9b38ee0994fc4dda71f47e9937bc4"
+    },
+    {
+      "path": "assets/verdict-template.md",
+      "sha256": "62b4a770d09e1e567dde05f32680fdbcbf63c7ccf6ded28c1dc35b685a21dc15"
+    },
+    {
+      "path": "evals/cases.json",
+      "sha256": "3dc45b4959892c5194565a0c123d0e53602cd012daa9d790f431bc8e3b431407"
+    },
+    {
+      "path": "evals/contract.md",
+      "sha256": "46e2e24a727c1a67b1c787fedcb3f8f4b05868f2424175d685257863def00ae2"
+    },
+    {
+      "path": "evals/evals.json",
+      "sha256": "72bd185d1dae155bb29d7dda77ba4b24696521175349aa4fa001d8698e291fd6"
+    },
+    {
+      "path": "evals/manifest.json",
+      "sha256": "9a1fececcc76231d5aa443c04f154d23d89ae988db1301a785c90dbb4b574256"
+    },
+    {
+      "path": "evals/rubric.md",
+      "sha256": "72964f7e4c45b2996f53abd4fc5713defcba7d985992b2b9ce47a1518d700809"
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "sha256": "625335671963d81e9bb30b07773fa640e9b8b89ab1730bc801ce887baccb884d"
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "sha256": "e6d3763bf0f604b704a84a5840bee81e1dd22013eb33af7e03ddc5d0a5d8ee34"
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "sha256": "f49e2cb66b803dfe2b7214bbb016d9d2bcb23e016da9c566cddb02e4c0a40c29"
+    },
+    {
+      "path": "examples/failure-unvalidated.md",
+      "sha256": "d2c4dcdc4b56b000a61c32e99f6475166038b7f8e5111ed92ef36203a4d49b04"
+    },
+    {
+      "path": "examples/help.md",
+      "sha256": "a53511ae2b5be3f965cc55d03b68e427ba7aa8b46bf5aa3a449a0d3cd2cad74a"
+    },
+    {
+      "path": "examples/verdict-insufficient-evidence.md",
+      "sha256": "3a95d6648e8c8b5d9fc62c597570f9356ba645beb58698eb000d01d35afe5294"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558"
     },
     {
       "path": "references/evidence-base.md",
-      "sha256": "721d9d4c5af66c98fe3bf56f1358775f0881593c499e69daabf1fd7be0306b6e"
+      "sha256": "61fa820a169f98f13001373dbed991c4d43e88ee770c561a8f44cdfccb0d3ce9"
     },
     {
       "path": "references/frameworks.md",
-      "sha256": "cbef5523f6fef40168e6d22506df2cf32bd7a3ad52b408f351e9f6197c73f5d7"
+      "sha256": "117717b18d801c11e7aaf3d2473d41a3a4e31ba7a05c6a0633f4be4e8e48e9af"
+    },
+    {
+      "path": "references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
     },
     {
       "path": "references/output-template.md",
-      "sha256": "9a4b248c11931b67e17554c22eb1e7773322f5c1620f3491a088ecb5437dd7e2"
+      "sha256": "0876fb90295e4639404d418e99a6000f71f4db5f66ee85621ce0d4553943a947"
     },
     {
       "path": "references/recent-public-signal.md",
-      "sha256": "88265442a82bd9a51ea50988ab11f6034a699abf9a32c5dda36f1df764de7641"
+      "sha256": "ff59006be48080aab68cab82406fa2177dc7380b23798d7da1e0384e4d4d2f37"
     },
     {
       "path": "references/verdict-protocol.md",
-      "sha256": "793f08c0b3b3e89e6210ed1875d82ff9900f0dc3bd1bfa3400fd07b9b4374319"
+      "sha256": "d1058c591ab16f55e382735f7e7fb79476be2219682c1c61a0706d489922442e"
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399"
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652"
+    },
+    {
+      "path": "scripts/tests/test_validate_verdict.py",
+      "sha256": "c26ba9459124f3bb72f2cb8d3d8c197015766001c109d464cdcc76d762488531"
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a"
+    },
+    {
+      "path": "scripts/validate_verdict.py",
+      "sha256": "137dfb208cf5a5daabf39b0620503946126ffc53d64c7ae421d608c3d1107852"
     }
   ],
   "source_case_ids": [

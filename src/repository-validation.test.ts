@@ -93,6 +93,12 @@ test('validates package and skill versions independently', async () => {
     join(fixture, 'skills', 'independent-skill'),
     { recursive: true },
   );
+  await mkdir(join(fixture, 'evidence', 'ports'), { recursive: true });
+  await cp(
+    join(root, 'evidence', 'ports', 'starting-point'),
+    join(fixture, 'evidence', 'ports', 'starting-point'),
+    { recursive: true },
+  );
   await writeFile(
     join(fixture, 'package.json'),
     JSON.stringify({ name: 'version-fixture', version: '9.9.9' }),
@@ -119,6 +125,31 @@ test('validates package and skill versions independently', async () => {
     join(independent, 'evals', 'source-lineage.json'),
     JSON.stringify(lineage),
   );
+  await cp(
+    join(root, 'evidence', 'ports', 'starting-point'),
+    join(fixture, 'evidence', 'ports', 'independent-skill'),
+    { recursive: true },
+  );
+  const independentEvidence = join(
+    fixture,
+    'evidence',
+    'ports',
+    'independent-skill',
+    'source-manifest.json',
+  );
+  const sourceManifest = JSON.parse(await readFile(independentEvidence, 'utf8'));
+  sourceManifest.skill = 'independent-skill';
+  await writeFile(independentEvidence, JSON.stringify(sourceManifest));
+  const independentArchive = join(
+    fixture,
+    'evidence',
+    'ports',
+    'independent-skill',
+    'source-archive.json',
+  );
+  const sourceArchive = JSON.parse(await readFile(independentArchive, 'utf8'));
+  sourceArchive.skill = 'independent-skill';
+  await writeFile(independentArchive, JSON.stringify(sourceArchive));
 
   const report = await validateRepository(fixture);
 
@@ -146,6 +177,12 @@ test('fails when the frozen skills.sh documentation set is incomplete', async ()
   await cp(
     join(root, 'skills', 'starting-point'),
     join(fixture, 'skills', 'starting-point'),
+    { recursive: true },
+  );
+  await mkdir(join(fixture, 'evidence', 'ports'), { recursive: true });
+  await cp(
+    join(root, 'evidence', 'ports', 'starting-point'),
+    join(fixture, 'evidence', 'ports', 'starting-point'),
     { recursive: true },
   );
   await writeFile(

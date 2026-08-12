@@ -1,0 +1,114 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "visual-design-system-extractor",
+  "source_kind": "repository_baseline",
+  "native_manifest_sha256": "50aa77f87ff6f70886efea8b53d730e0de81448e045e5c2336d383da8614c688",
+  "evidence_packet_sha256": "39c3607ab7a69447941e8518f903efbe993593a720b5e44aab6ab83de511c7fa",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "99a233fae40333336831bfe440fb7825cd721192022b49dc2d6a9bf8a4d1763d",
+      "bytes": 9551
+    },
+    {
+      "source_path": "assets/font-brief.json",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/assets/font-brief.json",
+      "sha256": "00922af12b4563656a0983c14f44bb45ccdd5fe1ad33192ddb89d282fabefdd9",
+      "bytes": 2593
+    },
+    {
+      "source_path": "assets/minimal-extraction.yaml",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/assets/minimal-extraction.yaml",
+      "sha256": "76b3a4562c4bb0e2b8456185253e2aebd8a4b8524112226155b36cc65ee6c617",
+      "bytes": 18932
+    },
+    {
+      "source_path": "assets/schema-skeleton.yaml",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/assets/schema-skeleton.yaml",
+      "sha256": "469a9c0ad92b8226d4c4e273339353518dfb3d9317d246cac01a70462b096f60",
+      "bytes": 8273
+    },
+    {
+      "source_path": "references/extraction-schema.yaml",
+      "location_kind": "evidence",
+      "location_path": "native/references/extraction-schema.yaml",
+      "sha256": "f7c40ebecc53ae9d7c020af8e50c574ea18bc6b1f54485870d247f73ed6c6782",
+      "bytes": 32677
+    },
+    {
+      "source_path": "references/font-sourcing.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/font-sourcing.md",
+      "sha256": "29e633bfff1e4241f38938ae7bcfef82e4e061cc98439fd3153c87ab69b4f76c",
+      "bytes": 9602
+    },
+    {
+      "source_path": "references/generation-contract.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "bytes": 5517
+    },
+    {
+      "source_path": "scripts/font_fit.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/font_fit.py",
+      "sha256": "9e560834500803e312e0664e535efb28cbf81dae457fad4116237e3677a49278",
+      "bytes": 6736
+    },
+    {
+      "source_path": "scripts/font_pairing.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/font_pairing.py",
+      "sha256": "f15326dc926e6c64c2a035929d8e59be7e3d02872b818e5360767ec6a4a91ca3",
+      "bytes": 6116
+    },
+    {
+      "source_path": "scripts/rare_google_fonts.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/rare_google_fonts.py",
+      "sha256": "5447d13f73f45ade89f3a5059b17cc6a3e34593950c4819885abfb31834ec547",
+      "bytes": 8944
+    },
+    {
+      "source_path": "scripts/render_preview.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/render_preview.py",
+      "sha256": "d1759722810a63654ca6d79d1f07bedfabe406943e12713ece2c74e91717581c",
+      "bytes": 7986
+    },
+    {
+      "source_path": "scripts/schema_tools.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/schema_tools.py",
+      "sha256": "930012c5413ccc8187b64d4342415a4325a0306183f5c51de613278744b1bac9",
+      "bytes": 4280
+    },
+    {
+      "source_path": "scripts/screenshot_preview.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/screenshot_preview.py",
+      "sha256": "bb2833a43c6287d3eac5f1cdd681f8141ea3b8a5233972e048802e44beae7212",
+      "bytes": 2645
+    },
+    {
+      "source_path": "scripts/validate_design_system_yaml.py",
+      "location_kind": "evidence",
+      "location_path": "native/scripts/validate_design_system_yaml.py",
+      "sha256": "df2af9213b461244ecceb7a5508ec847ec1bf809bb50d7fd439272dd25a18e4b",
+      "bytes": 6095
+    },
+    {
+      "source_path": "scripts/viability_rules.py",
+      "location_kind": "repository",
+      "location_path": "skills/visual-design-system-extractor/scripts/viability_rules.py",
+      "sha256": "653e167dad04a933ca3f0173680be4a9355fd904c6ee4ccb12a23f160f10622c",
+      "bytes": 3869
+    }
+  ]
+}

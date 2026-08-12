@@ -6,7 +6,7 @@
   "source_files": [
     {
       "path": "SKILL.md",
-      "sha256": "b2e26747034824dcb660b40bbc787fb502f9633a8fdc0d013d93b788ebb0c118"
+      "sha256": "99a233fae40333336831bfe440fb7825cd721192022b49dc2d6a9bf8a4d1763d"
     },
     {
       "path": "references/extraction-schema.yaml",
@@ -67,76 +67,292 @@
   ],
   "public_files": [
     {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "SKILL.md",
       "source_paths": ["SKILL.md"]
     },
     {
+      "path": "assets/font-brief.json",
+      "source_paths": ["assets/font-brief.json"]
+    },
+    {
+      "path": "assets/minimal-extraction.yaml",
+      "source_paths": ["assets/minimal-extraction.yaml"]
+    },
+    {
+      "path": "assets/preview-body.html",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/preview-template.html",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/schema-skeleton.yaml",
+      "source_paths": ["assets/schema-skeleton.yaml"]
+    },
+    {
       "path": "evals/cases.json",
-      "source_paths": ["SKILL.md"]
-    },
-    {
-      "path": "evals/evals.json",
-      "source_paths": ["SKILL.md"]
-    },
-    {
-      "path": "evals/rubric.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/contract.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
-      "path": "evals/trigger-cases.json",
-      "source_paths": ["SKILL.md"]
+      "path": "evals/evals.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
-      "path": "evals/trigger-queries.json",
-      "source_paths": ["SKILL.md"]
+      "path": "evals/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/speed-budgets.json",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/extract-output.yaml",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/extract.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/failure-section-order.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/fonts-brief.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/help.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/maintain.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/make-it-rarer.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/pairing-veto.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/validate.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "examples/viability-loop.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/common-fail.yaml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/log1.txt",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/no-viability.yaml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/order-fail.yaml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pairing-fail.yaml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pass1-input.yaml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pass1.html",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pass1.png",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pass2.html",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/pass2.png",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/work/set.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/extraction-schema.yaml",
+      "source_paths": ["references/extraction-schema.yaml"]
+    },
+    {
+      "path": "references/font-sourcing.md",
+      "source_paths": ["references/font-sourcing.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["references/generation-contract.md"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/extraction_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/extraction_schema.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/font_fit.py",
+      "source_paths": ["scripts/font_fit.py"]
+    },
+    {
+      "path": "scripts/font_metrics.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/font_pairing.py",
+      "source_paths": ["scripts/font_pairing.py"]
+    },
+    {
+      "path": "scripts/font_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/font_selection.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/google_fonts_api.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/preview_roles.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/rare_google_fonts.py",
+      "source_paths": ["scripts/rare_google_fonts.py"]
+    },
+    {
+      "path": "scripts/render_preview.py",
+      "source_paths": ["scripts/render_preview.py"]
+    },
+    {
+      "path": "scripts/schema_tools.py",
+      "source_paths": ["scripts/schema_tools.py"]
+    },
+    {
+      "path": "scripts/screenshot_preview.py",
+      "source_paths": ["scripts/screenshot_preview.py"]
+    },
+    {
+      "path": "scripts/tests/context.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_font_fit.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_font_pairing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_font_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_font_selection.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_font_set.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_google_fonts_api.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_rare_google_fonts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_render_preview.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_schema_tools.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_validate_extraction.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_viability_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/validate_design_system_yaml.py",
+      "source_paths": ["scripts/validate_design_system_yaml.py"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/viability_rules.py",
+      "source_paths": ["scripts/viability_rules.py"]
     }
   ],
   "source_case_ids": ["VDS-001", "VDS-002", "VDS-003", "VDS-004", "VDS-005"]

@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Closed repository-wide logic gaps in evaluation completeness, fixture claim scope, source evidence verification, public-file lineage coverage, special-entry rejection, catalog identity, empty trigger rejection, and dependency audit state.
+- Added committed source-evidence manifests for all 15 skills. Historical native packets stay byte-bound where available; legacy packages without recoverable source bytes now declare a complete `repository_baseline` instead of unverifiable historical hashes.
 - Added `timebox` at `metadata.version: "0.1.0"` with byte-exact native evidence, complete source-line coverage, all six source eval cases, deadline-bound validation, package-local CI, and collection integration.
 - Added `meaning-preserving-rewrite`, `simplify-skill`, and `goal-prompt` at `metadata.version: "0.1.0"` with byte-exact native evidence, complete source mappings, portable dependency reconciliation, package-local CI, and repository evaluation coverage.
 - Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for the three dependency-campaign units.

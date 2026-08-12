@@ -1,0 +1,51 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "meaning-preserving-rewrite",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "aa62cbdacdfe43f82ef90507f75400c2032791701b852cfd11544014a59dad28",
+  "evidence_packet_sha256": "aa62cbdacdfe43f82ef90507f75400c2032791701b852cfd11544014a59dad28",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "a779c5dca688441ec314426a5f0f46ea14838577054a755d3ef1ed38ed170723",
+      "bytes": 7153
+    },
+    {
+      "source_path": "references/baseline-task.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/baseline-task.md",
+      "sha256": "ab8fb06144c9ad7d9e93cd837fc8dc99549172e6a603adb98557777ac9abe771",
+      "bytes": 3305
+    },
+    {
+      "source_path": "references/final-validation.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/final-validation.md",
+      "sha256": "2818fac953449a3a64941baa0c83c5deea8c245dae106d8f825071f10e58aa64",
+      "bytes": 5117
+    },
+    {
+      "source_path": "references/hermes-docs-inventory.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/hermes-docs-inventory.md",
+      "sha256": "ae55b0d0377064e498e57148961ee552d0105711cdd0877cfe8f160f57a778f9",
+      "bytes": 7754
+    },
+    {
+      "source_path": "references/ledger-template.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/ledger-template.md",
+      "sha256": "2e26202c3f1fb5cd9c14e6407c35fcff20d89ebaaca85e379e33d03da86d65c8",
+      "bytes": 5818
+    },
+    {
+      "source_path": "references/voice-check.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/voice-check.md",
+      "sha256": "91fe711e5c0c769baf0c5efa29224371f04c45ec59de911ac62338af57b1a082",
+      "bytes": 3016
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "timebox",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "b2c2f242431a613f7001db2e9fef5d72e24b8899bceddb39e2452ad3d96994d5",
+  "evidence_packet_sha256": "b2c2f242431a613f7001db2e9fef5d72e24b8899bceddb39e2452ad3d96994d5",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "08109011d0ab6b98102768e4e9644059bf3aad8c600391715b5d03d1a025ae40",
+      "bytes": 6522
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "location_kind": "evidence",
+      "location_path": "native/references/eval-cases.json",
+      "sha256": "9f341462234e7365ac5f4895881035df07d0e7a8912aab7153788b27ca95a82f",
+      "bytes": 2479
+    }
+  ]
+}

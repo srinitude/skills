@@ -69,6 +69,8 @@ export interface TriggerRecord {
 }
 
 export interface EvalReport {
+  claim_limit: string;
+  evidence_class: 'deterministic_contract_check' | 'live_behavior_evaluation';
   judge_packets: Array<{ order: 'forward' | 'reverse'; record_ids: string[] }>;
   records: EvalRecord[];
   schema_version: 1;

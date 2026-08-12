@@ -1,0 +1,23 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "reify",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "d9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a",
+  "evidence_packet_sha256": "d9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "af0c63a584eb4f36f6095bb973dc85823543e80fbe1ab8f18b8f1c3640c709f8",
+      "bytes": 7918
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "location_kind": "evidence",
+      "location_path": "native/references/eval-cases.json",
+      "sha256": "c562a3a86b949cfc9ffdd67985213565eb21a6245162347ab4debe5d8d7323b7",
+      "bytes": 5706
+    }
+  ]
+}

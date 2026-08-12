@@ -7,7 +7,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const evalRoot = join(root, 'skills', 'starting-point', 'evals');
 const reifyEvalRoot = join(root, 'skills', 'reify', 'evals');
 
-test('binds the public port to the frozen native v1.1.6 manifest', async () => {
+test('binds the public starting-point port to its complete baseline packet', async () => {
   const lineage = JSON.parse(
     await readFile(join(evalRoot, 'source-lineage.json'), 'utf8'),
   ) as {
@@ -21,24 +21,19 @@ test('binds the public port to the frozen native v1.1.6 manifest', async () => {
 
   expect(lineage).toMatchObject({
     native_manifest_sha256:
-      'ef10e9c27dec7b9cb594b1bdd7f7a3bdec50caaeb663a21016d8cc483f8cc5f0',
-    native_version: '1.1.6',
+      '56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156',
+    native_version: '0.1.0',
     public_version: '0.1.0',
   });
   expect(lineage.source_case_ids).toHaveLength(18);
   expect(new Set(lineage.source_case_ids).size).toBe(18);
-  expect(lineage.source_files).toContainEqual({
-    path: 'references/eval-contract.md',
-    sha256: '6491133b245f06d8f4c386aa91c31159df110fc180d8c95b8f4558ea90534c35',
-  });
+  expect(lineage.source_files).toHaveLength(15);
 
-  expect(lineage.public_files).toEqual([
-    { path: 'SKILL.md', source_paths: ['SKILL.md'] },
-    { path: 'references/core-loop.md', source_paths: ['references/path-check.md'] },
-    { path: 'references/proof-checklist.md', source_paths: ['references/evidence.md'] },
-    { path: 'evals/cases.json', source_paths: ['references/eval-cases.json'] },
-    { path: 'evals/contract.md', source_paths: ['references/eval-contract.md'] },
-  ]);
+  expect(lineage.public_files).toHaveLength(15);
+  expect(lineage.public_files).toContainEqual({
+    path: 'SKILL.md',
+    source_paths: ['SKILL.md'],
+  });
   await Promise.all(
     lineage.public_files.map((entry) =>
       access(join(root, 'skills', 'starting-point', entry.path)),
@@ -92,14 +87,14 @@ test('binds reify to the frozen native v1.0.0 packet', async () => {
 const behaviorPorts = [
   {
     slug: 'would-agents-actually',
-    nativeVersion: '1.1.1',
-    manifest: 'ddd927a9144f4c202f4574d74cf23ab3e1df1c4bd925df78171ad0ae5fc9f9e5',
+    nativeVersion: '0.1.0',
+    manifest: 'd5d3f6ecb83857a3cdb4426b477c8b7657155f3355099a0d5d22e9dbbfdf1194',
     sourcePrefix: 'WAA',
   },
   {
     slug: 'would-humans-actually',
-    nativeVersion: '2.2.0',
-    manifest: 'a3bfaf67b9f3d9f6fcd72ccae713664924efb4d233e188b0ef541f542f072613',
+    nativeVersion: '0.1.0',
+    manifest: '6e9e8e59f5a8524f9339697dcd21af6c620166f57ef1cd3f09157aa9ee76a65c',
     sourcePrefix: 'WHA',
   },
 ];

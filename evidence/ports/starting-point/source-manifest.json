@@ -1,0 +1,114 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "starting-point",
+  "source_kind": "repository_baseline",
+  "native_manifest_sha256": "56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156",
+  "evidence_packet_sha256": "56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "2fcba55f9feb7a69fd903e1f1f4d03c87502f9e32f7c0bd2cd679ec150bbc600",
+      "bytes": 7869
+    },
+    {
+      "source_path": "evals/cases.json",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "a5add41e0988785fb1b4a29cc0498fd90496ae1a00f0e26fe922cbd1c6a29afc",
+      "bytes": 18594
+    },
+    {
+      "source_path": "evals/contract.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "aa403d992fec253c68db5bd3f2a9f951802e96a1ed0eaa2346118e6c9e27a4b3",
+      "bytes": 3425
+    },
+    {
+      "source_path": "evals/manifest.json",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "09b943add39c43ed1af94d7d75f5285e4d340bc5c1ce6e900ed28dee8caa88fd",
+      "bytes": 429
+    },
+    {
+      "source_path": "evals/rubric.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "c40c39cb991febbdd33554f8611f4d1f634559029d42747ccb66bbb1de7c99dc",
+      "bytes": 2085
+    },
+    {
+      "source_path": "evals/speed-budgets.json",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "35aadc47380454a3886f86bd2b2c48fa2092e7ca8233289768a64afab6897aa2",
+      "bytes": 330
+    },
+    {
+      "source_path": "evals/trigger-cases.json",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "65a9e97e5905efbfd666dad050bd6c3c4db856b87e0c4c78ff42335111f66d90",
+      "bytes": 2055
+    },
+    {
+      "source_path": "examples/README.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "89195382f6746e305863bed0424f445acae2fdbc7500fa0a3d99fe72dc4bbefc",
+      "bytes": 1767
+    },
+    {
+      "source_path": "examples/constrained-rename-script.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "857477f0aea903c510b74a17b1a7afef339dd5f484463293fbc83160f488ac5a",
+      "bytes": 6959
+    },
+    {
+      "source_path": "examples/reply-budget-compression.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "b2408961b89bd9ee32dae6b53cc6bc057f48859113f5b13425ff0b5415e7b48e",
+      "bytes": 5128
+    },
+    {
+      "source_path": "examples/underpowered-experiment.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "8c0ee450ff05347be5e4e6fb689449c94b5af95132025493d36e9e53759a3400",
+      "bytes": 4655
+    },
+    {
+      "source_path": "examples/unknown-contract-docs-change.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "944a06e1972c30f440c1b4af2818d3a66c530615282512331f240069a192180d",
+      "bytes": 4914
+    },
+    {
+      "source_path": "references/constraint-classes.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "e9d84f72c1c4aa282a078933231088957f2b394e73261be98aff943b527d54b0",
+      "bytes": 6803
+    },
+    {
+      "source_path": "references/core-loop.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "0fc13e9182be6ec0d26043a3cd254f3a4dd8f27ae5fcf14ef1cbc7951951343e",
+      "bytes": 2499
+    },
+    {
+      "source_path": "references/proof-checklist.md",
+      "location_kind": "archive",
+      "location_path": "source-archive.json",
+      "sha256": "2b762808d08a0460d92a4b94a572c7b3f6efd06ce009ef935c0d10d7a318c27a",
+      "bytes": 3156
+    }
+  ]
+}

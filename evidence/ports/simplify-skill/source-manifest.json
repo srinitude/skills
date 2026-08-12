@@ -1,0 +1,37 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "simplify-skill",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "0061515853b8d4bf3075b7db9d1a70d0e055b573a95cd87f560cad1ade1656dc",
+  "evidence_packet_sha256": "0061515853b8d4bf3075b7db9d1a70d0e055b573a95cd87f560cad1ade1656dc",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "40e5fb7120ee0f12d88b1a3e746d4b5a2fbccab27e24df09a10c471931c45744",
+      "bytes": 8416
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "location_kind": "evidence",
+      "location_path": "native/references/eval-cases.json",
+      "sha256": "255f8fd2faeee23517d7bf3ece71ef589c0b5740c97fd32b3da05aa876a37eb6",
+      "bytes": 6629
+    },
+    {
+      "source_path": "references/preservation-contract.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/preservation-contract.md",
+      "sha256": "8c5e1e6bb47f2d6be3d10bbd794992dd45ac2e11f1a51534f69a9f54d69cba75",
+      "bytes": 6659
+    },
+    {
+      "source_path": "references/simplification-model.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/simplification-model.md",
+      "sha256": "190898eda63f44af800c1c0cb4b18a5fab592b6c7b329d2dd3715cec88294598",
+      "bytes": 8675
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "prime-vector",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "6de25e5099680a3bc691b6b03f91258b3d04474211b50272c5e1f1ab71f7b29d",
+  "evidence_packet_sha256": "d2b18175c588a3d60cc3a828f48e24c8edf34d9bcbedb63f02560461a8e77332",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "SKILL.native.md",
+      "sha256": "b358ac94da13b083a6459a76e8de0262f1cb4e7e0f6be6460e80d616b02b9816",
+      "bytes": 13216
+    }
+  ]
+}

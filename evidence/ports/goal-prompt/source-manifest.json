@@ -1,0 +1,23 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "goal-prompt",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "8c1269a76a5ad57e785f4968a4ca71ccd8d15ee5a22e4955573dfcfb6b182243",
+  "evidence_packet_sha256": "8c1269a76a5ad57e785f4968a4ca71ccd8d15ee5a22e4955573dfcfb6b182243",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "5a27d47bc07ddd68a60a09e26e774cfa487c20853a569c502f9d5f5b5addac59",
+      "bytes": 14863
+    },
+    {
+      "source_path": "references/plan-package-input.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/plan-package-input.md",
+      "sha256": "3b657d32a7e8f7ee4a9af0b91895605fd52b5e57d1b42eb653d5e6fa217be955",
+      "bytes": 4766
+    }
+  ]
+}

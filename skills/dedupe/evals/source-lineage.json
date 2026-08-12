@@ -177,8 +177,40 @@
       "source_paths": ["assets/request-template.json"]
     },
     {
+      "path": "evals/cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "evals/evals.json",
       "source_paths": ["evals/evals.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/native-case-mapping.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/trigger-queries.json",
@@ -303,79 +335,6 @@
     {
       "path": "scripts/validate_skill.py",
       "source_paths": ["scripts/validate_skill.py"]
-    },
-    {
-      "path": "evals/cases.json",
-      "source_paths": ["evals/evals.json"]
-    },
-    {
-      "path": "evals/contract.md",
-      "source_paths": ["SKILL.md", "evals/evals.json"]
-    },
-    {
-      "path": "evals/manifest.json",
-      "source_paths": ["evals/evals.json", "evals/trigger-queries.json"]
-    },
-    {
-      "path": "evals/native-case-mapping.json",
-      "source_paths": ["evals/evals.json"]
-    },
-    {
-      "path": "evals/rubric.md",
-      "source_paths": ["SKILL.md", "evals/evals.json"]
-    },
-    {
-      "path": "evals/source-lineage.json",
-      "source_paths": ["SKILL.md", "evals/evals.json"]
-    },
-    {
-      "path": "evals/source-mapping.json",
-      "source_paths": [
-        ".github/workflows/ci.yml",
-        "SKILL.md",
-        "assets/eval-case-template.json",
-        "assets/request-template.json",
-        "evals/evals.json",
-        "evals/trigger-queries.json",
-        "examples/apply.md",
-        "examples/example-first-run.md",
-        "examples/failure.md",
-        "examples/help.md",
-        "examples/inspect.md",
-        "examples/invalid-request.json",
-        "examples/list-request.json",
-        "mise.toml",
-        "references/core-contract.md",
-        "references/decisions.md",
-        "references/file-record.md",
-        "references/generation-contract.md",
-        "references/report-mutation.md",
-        "references/text-list.md",
-        "references/url-skill.md",
-        "scripts/check_code_rules.py",
-        "scripts/check_evals.py",
-        "scripts/check_placeholders.py",
-        "scripts/dedupe.py",
-        "scripts/lib/__init__.py",
-        "scripts/lib/adapters.py",
-        "scripts/lib/core.py",
-        "scripts/lint_writing.py",
-        "scripts/skill_info.py",
-        "scripts/tests/test_ci_contract.py",
-        "scripts/tests/test_dedupe.py",
-        "scripts/tests/test_scripts.py",
-        "scripts/tests/test_skill_cache.py",
-        "scripts/tests/test_validate_skill.py",
-        "scripts/validate_skill.py"
-      ]
-    },
-    {
-      "path": "evals/speed-budgets.json",
-      "source_paths": ["mise.toml"]
-    },
-    {
-      "path": "evals/trigger-cases.json",
-      "source_paths": ["evals/trigger-queries.json"]
     }
   ]
 }

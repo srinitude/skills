@@ -5,67 +5,108 @@
   "native_manifest_sha256": "b647248569c7664ae8dcba5161a748ccfc7eafa33c5d9bb6d5378fed63c9bc86",
   "public_files": [
     {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "SKILL.md",
       "source_paths": ["SKILL.md"]
     },
     {
-      "path": "references/eval-contract.md",
-      "source_paths": ["SKILL.md", "references/eval-contract.md"]
-    },
-    {
-      "path": "references/generation-contract.md",
-      "source_paths": [
-        "SKILL.md",
-        "references/eval-contract.md",
-        "references/eval-cases.json",
-        "scripts/current_anchor.py"
-      ]
-    },
-    {
       "path": "assets/response-prefixes.txt",
-      "source_paths": ["SKILL.md"]
-    },
-    {
-      "path": "examples/help-command.md",
-      "source_paths": ["SKILL.md", "references/eval-cases.json"]
-    },
-    {
-      "path": "examples/fresh-direct-turn.md",
-      "source_paths": [
-        "SKILL.md",
-        "references/eval-contract.md",
-        "scripts/current_anchor.py"
-      ]
-    },
-    {
-      "path": "examples/invalid-timezone.md",
-      "source_paths": [
-        "SKILL.md",
-        "references/eval-contract.md",
-        "references/eval-cases.json",
-        "scripts/current_anchor.py"
-      ]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/cases.json",
-      "source_paths": ["references/eval-cases.json"]
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/contract.md",
-      "source_paths": ["references/eval-contract.md"]
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/source-mapping.json",
-      "source_paths": [
-        "SKILL.md",
-        "references/eval-contract.md",
-        "references/eval-cases.json",
-        "scripts/current_anchor.py"
-      ]
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/fresh-direct-turn.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/help-command.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/invalid-timezone.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/eval-contract.md",
+      "source_paths": ["references/eval-contract.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/current_anchor.py",
       "source_paths": ["scripts/current_anchor.py"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_current_anchor.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_source_mapping.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["target-scaffolding"]
     }
   ],
   "source_files": [

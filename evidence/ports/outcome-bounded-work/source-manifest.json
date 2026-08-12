@@ -1,0 +1,23 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "outcome-bounded-work",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "75d2a9fad3962caf9f1f1e05f8783522c3481e8a9c2c2d36a75899762e61a2f2",
+  "evidence_packet_sha256": "305729e3e249184ba19d2a07ba1c7afef73f84195e09553827a7fcfbfb641ba3",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "SKILL.native.md",
+      "sha256": "4f9b92967f57925205ece279186616cb417cc060b89ffbedafc70dffd77a8a79",
+      "bytes": 6398
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "location_kind": "evidence",
+      "location_path": "eval-cases.native.json",
+      "sha256": "3bab97f9a03a07e97c544113f8ada34ea699d209d74481f53e48a30f82918aa3",
+      "bytes": 5502
+    }
+  ]
+}

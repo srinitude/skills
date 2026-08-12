@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "skill": "reify",
+  "source_manifest_sha256": "d9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a",
+  "manifest_algorithm": "legacy claim retained from source-lineage.json; exact source bytes are authoritative",
+  "files": [
+    {
+      "source_path": "references/eval-cases.json",
+      "evidence_path": "native/references/eval-cases.json",
+      "sha256": "c562a3a86b949cfc9ffdd67985213565eb21a6245162347ab4debe5d8d7323b7",
+      "bytes": 5706,
+      "provenance": "frozen-foreground-corpus"
+    }
+  ],
+  "source_files_expected": 2,
+  "source_files_archived": 1,
+  "proof_status": "BLOCKED_MISSING_SOURCE_BYTES"
+}

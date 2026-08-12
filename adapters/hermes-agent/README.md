@@ -13,6 +13,7 @@ hermes skills install srinitude/skills/simplify-skill
 hermes skills install srinitude/skills/reify
 hermes skills install srinitude/skills/starting-point
 hermes skills install srinitude/skills/skill-factory
+hermes skills install srinitude/skills/timebox
 ```
 
 The repository root is also a native Python plugin. [`plugin.yaml`](../../plugin.yaml) declares it, and [`__init__.py`](../../__init__.py) registers the canonical skill path.

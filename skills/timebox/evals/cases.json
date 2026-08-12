@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "skill": "timebox",
+  "groups": ["success", "rejection", "failure_handling", "recovery"],
+  "decision_labels": ["run_and_validate", "not_started", "failed", "reject_action"],
+  "cases": [
+    {
+      "id": "TB-001",
+      "source_id": "TB-001",
+      "group": "success",
+      "title": "Admitted work and validation finish in time",
+      "prompt": "/timebox 10 minutes fix and test the parser",
+      "decision": "run_and_validate",
+      "pressures": ["success", "deadline"],
+      "required": [
+        "fresh clock anchor",
+        "absolute deadline",
+        "protected validation reserve",
+        "full fix and decisive tests finish before the deadline",
+        "completion timestamp at or before the deadline"
+      ],
+      "veto": ["implementation-only success", "validation after the deadline"]
+    },
+    {
+      "id": "TB-002",
+      "source_id": "TB-002",
+      "group": "rejection",
+      "title": "Observed bound cannot fit",
+      "prompt": "/timebox 2 minutes run a test suite whose observed bound is 8 minutes",
+      "decision": "not_started",
+      "pressures": ["rejection", "deadline"],
+      "required": [
+        "TIMEBOX_NOT_STARTED",
+        "failed admission condition",
+        "request a longer limit or explicit scope change"
+      ],
+      "veto": ["begin execution", "silently reduce the requested tests"]
+    },
+    {
+      "id": "TB-003",
+      "source_id": "TB-003",
+      "group": "failure_handling",
+      "title": "Validation finishes late",
+      "prompt": "Implementation finishes before the deadline, but decisive validation finishes after it.",
+      "decision": "failed",
+      "pressures": ["failure_handling", "deadline"],
+      "required": [
+        "TIMEBOX_FAILED",
+        "late validation disclosed",
+        "remaining or late evidence listed"
+      ],
+      "veto": ["TIMEBOX_PASS", "late success described as on-time completion"]
+    },
+    {
+      "id": "TB-004",
+      "source_id": "TB-004",
+      "group": "rejection",
+      "title": "Unbounded approval blocks admission",
+      "prompt": "/timebox 5 minutes deploy a change that still needs an unbounded human approval",
+      "decision": "not_started",
+      "pressures": ["rejection", "deadline"],
+      "required": [
+        "TIMEBOX_NOT_STARTED",
+        "unbounded approval identified as an admission failure"
+      ],
+      "veto": ["wait indefinitely", "assume approval"]
+    },
+    {
+      "id": "TB-005",
+      "source_id": "TB-005",
+      "group": "recovery",
+      "title": "Action can cross the work cutoff",
+      "prompt": "A proposed command can run for 6 minutes, but the remaining work budget is 4 minutes.",
+      "decision": "reject_action",
+      "pressures": ["recovery", "deadline"],
+      "required": [
+        "do not start the command",
+        "use only a faster route that preserves the full contract or fail"
+      ],
+      "veto": ["start an action that can cross the work cutoff"]
+    },
+    {
+      "id": "TB-006",
+      "source_id": "TB-006",
+      "group": "failure_handling",
+      "title": "Queued work completes after the deadline",
+      "prompt": "A background job is queued inside the limit and completes after it.",
+      "decision": "failed",
+      "pressures": ["failure_handling", "deadline"],
+      "required": ["TIMEBOX_FAILED", "queueing is not completion"],
+      "veto": ["TIMEBOX_PASS", "dispatch acknowledgment used as final evidence"]
+    }
+  ]
+}

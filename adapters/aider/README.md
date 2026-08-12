@@ -14,6 +14,7 @@ aider --read /absolute/path/to/skills/skills/reify/SKILL.md
 aider --read /absolute/path/to/skills/skills/simplify-skill/SKILL.md
 aider --read /absolute/path/to/skills/skills/starting-point/SKILL.md
 aider --read /absolute/path/to/skills/skills/skill-factory/SKILL.md
+aider --read /absolute/path/to/skills/skills/timebox/SKILL.md
 aider --read /absolute/path/to/skills/skills/visual-design-system-extractor/SKILL.md
 aider --read /absolute/path/to/skills/skills/would-agents-actually/SKILL.md
 aider --read /absolute/path/to/skills/skills/would-humans-actually/SKILL.md

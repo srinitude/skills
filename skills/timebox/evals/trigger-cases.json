@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "skill": "timebox",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Finish and validate this parser fix within ten minutes.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "By 16:00 EDT, verify the release artifact and give me the final evidence.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "/timebox 5 minutes inspect and validate this configuration.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "near_neighbor",
+      "prompt": "Spend about ten minutes making progress, then stop wherever you are.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "prompt": "Estimate how long the parser fix will take.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Run the parser tests with no deadline.",
+      "should_trigger": false
+    }
+  ]
+}

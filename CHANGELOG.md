@@ -4,6 +4,7 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added `timebox` at `metadata.version: "0.1.0"` with byte-exact native evidence, complete source-line coverage, all six source eval cases, deadline-bound validation, package-local CI, and collection integration.
 - Added `meaning-preserving-rewrite`, `simplify-skill`, and `goal-prompt` at `metadata.version: "0.1.0"` with byte-exact native evidence, complete source mappings, portable dependency reconciliation, package-local CI, and repository evaluation coverage.
 - Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for the three dependency-campaign units.
 - Added a regression that requires the Python plugin to register every canonical skill with its current frontmatter description.

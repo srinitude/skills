@@ -1,0 +1,75 @@
+{
+  "skill_name": "timebox",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/timebox 10 minutes fix and test the parser",
+      "expected_output": "fresh clock anchor; absolute deadline; protected validation reserve; full fix and decisive tests finish before the deadline; completion timestamp at or before the deadline",
+      "assertions": [
+        "fresh clock anchor",
+        "absolute deadline",
+        "protected validation reserve",
+        "full fix and decisive tests finish before the deadline",
+        "completion timestamp at or before the deadline",
+        "Must not: implementation-only success",
+        "Must not: validation after the deadline"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/timebox 2 minutes run a test suite whose observed bound is 8 minutes",
+      "expected_output": "TIMEBOX_NOT_STARTED; failed admission condition; request a longer limit or explicit scope change",
+      "assertions": [
+        "TIMEBOX_NOT_STARTED",
+        "failed admission condition",
+        "request a longer limit or explicit scope change",
+        "Must not: begin execution",
+        "Must not: silently reduce the requested tests"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Implementation finishes before the deadline, but decisive validation finishes after it.",
+      "expected_output": "TIMEBOX_FAILED; late validation disclosed; remaining or late evidence listed",
+      "assertions": [
+        "TIMEBOX_FAILED",
+        "late validation disclosed",
+        "remaining or late evidence listed",
+        "Must not: TIMEBOX_PASS",
+        "Must not: late success described as on-time completion"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "/timebox 5 minutes deploy a change that still needs an unbounded human approval",
+      "expected_output": "TIMEBOX_NOT_STARTED; unbounded approval identified as an admission failure",
+      "assertions": [
+        "TIMEBOX_NOT_STARTED",
+        "unbounded approval identified as an admission failure",
+        "Must not: wait indefinitely",
+        "Must not: assume approval"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "A proposed command can run for 6 minutes, but the remaining work budget is 4 minutes.",
+      "expected_output": "do not start the command; use only a faster route that preserves the full contract or fail",
+      "assertions": [
+        "do not start the command",
+        "use only a faster route that preserves the full contract or fail",
+        "Must not: start an action that can cross the work cutoff"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "A background job is queued inside the limit and completes after it.",
+      "expected_output": "TIMEBOX_FAILED; queueing is not completion",
+      "assertions": [
+        "TIMEBOX_FAILED",
+        "queueing is not completion",
+        "Must not: TIMEBOX_PASS",
+        "Must not: dispatch acknowledgment used as final evidence"
+      ]
+    }
+  ]
+}

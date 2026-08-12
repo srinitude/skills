@@ -118,6 +118,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/simplify-skill/SKILL.md',
       'skills/starting-point/SKILL.md',
       'skills/skill-factory/SKILL.md',
+      'skills/timebox/SKILL.md',
       'skills/visual-design-system-extractor/SKILL.md',
       'skills/would-agents-actually/SKILL.md',
       'skills/would-humans-actually/SKILL.md',
@@ -134,6 +135,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
   await expectInside('skills/simplify-skill/SKILL.md');
   await expectInside('skills/starting-point/SKILL.md');
   await expectInside('skills/skill-factory/SKILL.md');
+  await expectInside('skills/timebox/SKILL.md');
   await expectInside('skills/visual-design-system-extractor/SKILL.md');
   await expectInside('skills/would-agents-actually/SKILL.md');
   await expectInside('skills/would-humans-actually/SKILL.md');
@@ -178,6 +180,7 @@ test('groups canonical skills for skills-hub clients', async () => {
       { skills: ['logic-audit'], title: 'Reasoning' },
       { skills: ['simplify-skill', 'skill-factory'], title: 'Skill Authoring' },
       { skills: ['always-current-datetime'], title: 'Temporal Context' },
+      { skills: ['timebox'], title: 'Timeboxed Execution' },
       { skills: ['meaning-preserving-rewrite'], title: 'Writing' },
     ],
   });

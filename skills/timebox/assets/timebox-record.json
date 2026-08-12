@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "start": "",
+  "deadline": "",
+  "work_cutoff": "",
+  "validation_reserve_seconds": 0,
+  "outcome": "",
+  "proof": [],
+  "action_bounds": [],
+  "decision": "",
+  "completion_timestamp": null,
+  "evidence": [],
+  "remaining_work": [],
+  "side_effects": []
+}

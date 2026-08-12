@@ -32,6 +32,7 @@ test('passes the current public repository copy', async () => {
     'skills/simplify-skill/SKILL.md',
     'skills/skill-factory/SKILL.md',
     'skills/starting-point/SKILL.md',
+    'skills/timebox/SKILL.md',
     'skills/visual-design-system-extractor/SKILL.md',
     'skills/would-agents-actually/SKILL.md',
     'skills/would-humans-actually/SKILL.md',

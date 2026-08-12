@@ -38,6 +38,10 @@
       "skills": ["always-current-datetime"]
     },
     {
+      "title": "Timeboxed Execution",
+      "skills": ["timebox"]
+    },
+    {
       "title": "Writing",
       "skills": ["meaning-preserving-rewrite"]
     }

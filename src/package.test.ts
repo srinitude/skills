@@ -40,6 +40,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/simplify-skill/SKILL.md');
   expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
   expect(result.entries).toContain('package/skills/skill-factory/SKILL.md');
+  expect(result.entries).toContain('package/skills/timebox/SKILL.md');
   expect(result.entries).toContain(
     'package/skills/visual-design-system-extractor/SKILL.md',
   );
@@ -57,6 +58,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/simplify-skill/SKILL.md',
     'package/skills/skill-factory/SKILL.md',
     'package/skills/starting-point/SKILL.md',
+    'package/skills/timebox/SKILL.md',
     'package/skills/visual-design-system-extractor/SKILL.md',
     'package/skills/would-agents-actually/SKILL.md',
     'package/skills/would-humans-actually/SKILL.md',

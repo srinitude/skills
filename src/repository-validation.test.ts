@@ -20,7 +20,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 14,
+    skillCount: 15,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',
@@ -49,6 +49,7 @@ test('validates every skill and all frozen specification pages', async () => {
     expect.objectContaining({ name: 'simplify-skill', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'skill-factory', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({ name: 'starting-point', status: 'PASS', version: '0.1.0' }),
+    expect.objectContaining({ name: 'timebox', status: 'PASS', version: '0.1.0' }),
     expect.objectContaining({
       name: 'visual-design-system-extractor',
       status: 'PASS',

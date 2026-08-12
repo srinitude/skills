@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "skill": "timebox",
+  "native_version": "1.0.2",
+  "source_commit": "33f8e96a72945afb29f3bc9ef9991940f0bedcf7",
+  "native_manifest_sha256": "b2c2f242431a613f7001db2e9fef5d72e24b8899bceddb39e2452ad3d96994d5",
+  "manifest_algorithm": "SHA-256 of source-path, NUL, file SHA-256, and newline rows in manifest order",
+  "source_case_ids": [
+    "TB-001",
+    "TB-002",
+    "TB-003",
+    "TB-004",
+    "TB-005",
+    "TB-006"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "native/SKILL.native.md",
+      "sha256": "08109011d0ab6b98102768e4e9644059bf3aad8c600391715b5d03d1a025ae40",
+      "bytes": 6522
+    },
+    {
+      "source_path": "references/eval-cases.json",
+      "evidence_path": "native/references/eval-cases.json",
+      "sha256": "9f341462234e7365ac5f4895881035df07d0e7a8912aab7153788b27ca95a82f",
+      "bytes": 2479
+    }
+  ],
+  "excluded_entries": [],
+  "private_scan_findings": [],
+  "portable_skill": "skills/timebox"
+}

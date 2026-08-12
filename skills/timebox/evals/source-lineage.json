@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "b2c2f242431a613f7001db2e9fef5d72e24b8899bceddb39e2452ad3d96994d5",
+  "active_case_ids": ["TB-001", "TB-002", "TB-003", "TB-004", "TB-005", "TB-006"],
+  "native_version": "1.0.2",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "08109011d0ab6b98102768e4e9644059bf3aad8c600391715b5d03d1a025ae40"
+    },
+    {
+      "path": "references/eval-cases.json",
+      "sha256": "9f341462234e7365ac5f4895881035df07d0e7a8912aab7153788b27ca95a82f"
+    }
+  ],
+  "source_case_ids": ["TB-001", "TB-002", "TB-003", "TB-004", "TB-005", "TB-006"],
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/timebox-record.json",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/source-lineage.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "examples/help.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "examples/not-started.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "examples/pass.md",
+      "source_paths": ["SKILL.md", "references/eval-cases.json"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/timebox-record.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/tests/test_source_mapping.py",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["SKILL.md"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "query": "Finish and validate this parser fix within ten minutes.",
+    "should_trigger": true
+  },
+  {
+    "query": "By 16:00 EDT, verify the release artifact and give me the final evidence.",
+    "should_trigger": true
+  },
+  {
+    "query": "/timebox 5 minutes inspect and validate this configuration.",
+    "should_trigger": true
+  },
+  {
+    "query": "Spend about ten minutes making progress, then stop wherever you are.",
+    "should_trigger": false
+  },
+  {
+    "query": "Estimate how long the parser fix will take.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run the parser tests with no deadline.",
+    "should_trigger": false
+  }
+]

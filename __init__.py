@@ -67,6 +67,10 @@ _SKILLS = (
         " any method or outcome yet.",
     ),
     (
+        "timebox",
+        "Use when work must finish within a stated time limit.",
+    ),
+    (
         "visual-design-system-extractor",
         "Use when reference images, screenshots, moodboards, style frames,"
         " brand boards, cinematic stills, product interface shots, or a live"

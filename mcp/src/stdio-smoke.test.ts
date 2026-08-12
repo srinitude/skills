@@ -46,6 +46,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://simplify-skill/SKILL.md',
       'skill://skill-factory/SKILL.md',
       'skill://starting-point/SKILL.md',
+      'skill://timebox/SKILL.md',
       'skill://visual-design-system-extractor/SKILL.md',
       'skill://would-agents-actually/SKILL.md',
       'skill://would-humans-actually/SKILL.md',

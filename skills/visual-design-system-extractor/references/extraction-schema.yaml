@@ -86,7 +86,7 @@ source_analysis:
     - inferred_from_visual_cues
     - low_confidence_extrapolations
 font_rules:
-  feed_url: https://fonts.google.com/metadata/fonts
+  feed_url: https://fonts.google.com/metadata/fonts?sort=popularity
   min_rarity_percentile: 70.0
   recorded_floor_field: meta.rarity_floor
   rarity_tie_break: popularity_rank descending

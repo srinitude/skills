@@ -1,7 +1,7 @@
 {
   "schema": "source-evidence/v1",
   "skill": "starting-point",
-  "source_kind": "repository_baseline",
+  "source_kind": "archived_source",
   "native_manifest_sha256": "56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156",
   "evidence_packet_sha256": "56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156",
   "files": [

@@ -60,7 +60,7 @@ A selected entry carries `family`, `google_fonts_family: true`, a complete `rari
 
 Stop and report. Do not fill a rarity block from memory, do not copy an older snapshot, and do not present the extraction as verified. State that the live catalog was unreachable, return the rest of the document with `typography.font_families` marked using the standard not-applicable object, and name the exact command that failed. The user can then rerun once the network is available.
 
-A worked brief, the command it produces, and a follow-up run that has to find something rarer live in [the examples](../examples/fonts-brief.md) and [the rarer run](../examples/make-it-rarer.md). A set level veto is worked in [the pairing example](../examples/pairing-veto.md).
+A worked brief, the command it produces, and a follow-up run that finds no usable family above a stricter floor are in [the examples](../examples/fonts-brief.md) and [the rarer run](../examples/make-it-rarer.md). The set-level veto path remains covered by the executable pairing tests because live candidate order can change.
 
 ## Rejected patterns
 

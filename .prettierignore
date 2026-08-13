@@ -1,4 +1,5 @@
 .artifacts/
+.hermes/
 .claude/settings.local.json
 evidence/ports/
 mcp/dist/

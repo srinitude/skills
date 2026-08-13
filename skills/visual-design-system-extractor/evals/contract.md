@@ -20,7 +20,7 @@ A changed case, criterion, threshold, image, prompt, route, or skill byte invali
 
 Require all of the following:
 
-- valid frontmatter with `metadata.version: "0.2.0"`;
+- valid frontmatter with `metadata.version: "0.2.1"`;
 - a description that starts with `Use when` and stays at or below 1024 characters;
 - exactly five unique `VDS-###` cases across every declared group;
 - one frozen native `source_id` per case;

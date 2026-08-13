@@ -18,6 +18,7 @@ export interface CopyReport {
 const ignoredDirectories = new Set([
   '.artifacts',
   '.git',
+  '.hermes',
   'mcp',
   'node_modules',
   'scripts',

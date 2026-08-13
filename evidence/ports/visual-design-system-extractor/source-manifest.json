@@ -1,9 +1,9 @@
 {
   "schema": "source-evidence/v1",
   "skill": "visual-design-system-extractor",
-  "source_kind": "repository_baseline",
-  "native_manifest_sha256": "50aa77f87ff6f70886efea8b53d730e0de81448e045e5c2336d383da8614c688",
-  "evidence_packet_sha256": "39c3607ab7a69447941e8518f903efbe993593a720b5e44aab6ab83de511c7fa",
+  "source_kind": "hybrid_archived_and_repository_baseline",
+  "native_manifest_sha256": "acc44a101c35a9ba28d467ec1b1111abcb2ca603067eacb200f0d0ee7f1781ce",
+  "evidence_packet_sha256": "acc44a101c35a9ba28d467ec1b1111abcb2ca603067eacb200f0d0ee7f1781ce",
   "files": [
     {
       "source_path": "SKILL.md",
@@ -16,15 +16,15 @@
       "source_path": "assets/font-brief.json",
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/assets/font-brief.json",
-      "sha256": "00922af12b4563656a0983c14f44bb45ccdd5fe1ad33192ddb89d282fabefdd9",
-      "bytes": 2593
+      "sha256": "a0a3ab03e5b6331b1a96c8be557f40e5786beed8f2eecb3aa62dea01ade916b8",
+      "bytes": 2657
     },
     {
       "source_path": "assets/minimal-extraction.yaml",
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/assets/minimal-extraction.yaml",
-      "sha256": "76b3a4562c4bb0e2b8456185253e2aebd8a4b8524112226155b36cc65ee6c617",
-      "bytes": 18932
+      "sha256": "6544ef5b3bf504a5a9d6eccc446c44cc99f0085490dd98ec64dc3ad29e8edf1e",
+      "bytes": 18237
     },
     {
       "source_path": "assets/schema-skeleton.yaml",

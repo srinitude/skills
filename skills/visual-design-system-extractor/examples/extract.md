@@ -8,7 +8,7 @@ Guess removed: that a document which validates against the schema is a finished 
 
 ## The reply
 
-I read the crop, wrote the document in schema order, ranked fonts by fit before rarity, checked the set for pairing, then rendered the whole system to a page, screenshotted it, and judged the screenshot. The first render failed legibility and hierarchy, so I revised the type scale and rendered again. The second render passes all eight criteria, so the extraction is complete.
+I read the crop, wrote the document in schema order, ranked fonts by fit before rarity, checked the set for pairing, rendered the whole system, captured the full page, and sent the current pixels to the visual owner. The verified render passes all eight criteria, so the extraction is complete.
 
 ## Commands run
 
@@ -23,8 +23,8 @@ With `--output` the command writes the record to the file and keeps stdout empty
 
 ```
 $ python3 -c "import json;d=json.load(open('examples/work/set.json'));print([c['family'] for c in d['chosen']]);print([(v['family'],v['failed_dimensions']) for v in d['vetoes']]);print(d['pairing']['passes'])"
-['Ramsina', 'Epunda Slab']
-[('Namdhinggo', ['role_distinction'])]
+['Wittgenstein', 'Parastoo']
+[]
 True
 exit=0
 ```
@@ -45,7 +45,7 @@ $ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_syste
 exit=0
 ```
 
-Render, screenshot, look. The full loop with both passes is in examples/viability-loop.md.
+Render, capture, and judge the pixels. The full gate is in examples/viability-loop.md.
 
 ```
 $ uv run --no-project --with 'PyYAML>=6,<7' python scripts/render_preview.py examples/extract-output.yaml --output examples/work/pass2.html

@@ -18,7 +18,8 @@
         "skeleton": "Serif",
         "role": "display",
         "min_percentile": 70.0,
-        "limit": 5
+        "limit": 5,
+        "search": "Wittgenstein"
       }
     },
     {
@@ -29,7 +30,8 @@
         "weights": [400, 700],
         "scripts": ["latin"],
         "min_percentile": 70.0,
-        "limit": 5
+        "limit": 5,
+        "search": "Parastoo"
       }
     }
   ],

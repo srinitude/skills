@@ -20,7 +20,7 @@ from datetime import date
 
 import font_metrics
 
-FEED_URL = "https://fonts.google.com/metadata/fonts"
+FEED_URL = "https://fonts.google.com/metadata/fonts?sort=popularity"
 DEFAULT_TIMEOUT = 30
 
 

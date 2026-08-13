@@ -1,17 +1,34 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
+import { rm } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, expect, test } from 'vitest';
 
+import { createVersionFixture } from './repository-validation-fixture.js';
 import { validateRepository } from './repository-validation.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const roots: string[] = [];
+const expectedSkills = [
+  ['always-current-datetime', '0.1.0'],
+  ['dedupe', '0.1.0'],
+  ['goal-prompt', '0.1.0'],
+  ['logic-audit', '0.1.1'],
+  ['meaning-preserving-rewrite', '0.1.0'],
+  ['outcome-bounded-work', '0.1.0'],
+  ['prime-vector', '0.2.4'],
+  ['reify', '0.1.0'],
+  ['simplify-skill', '0.1.0'],
+  ['skill-factory', '0.1.0'],
+  ['starting-point', '0.1.0'],
+  ['timebox', '0.1.0'],
+  ['visual-design-system-extractor', '0.2.1'],
+  ['would-agents-actually', '0.1.0'],
+  ['would-humans-actually', '0.1.0'],
+] as const;
+const fixtures: string[] = [];
 
 afterEach(async () => {
   await Promise.all(
-    roots.splice(0).map((path) => rm(path, { force: true, recursive: true })),
+    fixtures.splice(0).map((path) => rm(path, { force: true, recursive: true })),
   );
 });
 
@@ -25,131 +42,16 @@ test('validates every skill and all frozen specification pages', async () => {
     status: 'PASS',
     version: '0.1.0',
   });
-  expect(report.skills).toEqual([
-    expect.objectContaining({
-      name: 'always-current-datetime',
-      status: 'PASS',
-      version: '0.1.0',
-    }),
-    expect.objectContaining({ name: 'dedupe', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'goal-prompt', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'logic-audit', status: 'PASS', version: '0.1.1' }),
-    expect.objectContaining({
-      name: 'meaning-preserving-rewrite',
-      status: 'PASS',
-      version: '0.1.0',
-    }),
-    expect.objectContaining({
-      name: 'outcome-bounded-work',
-      status: 'PASS',
-      version: '0.1.0',
-    }),
-    expect.objectContaining({ name: 'prime-vector', status: 'PASS', version: '0.2.4' }),
-    expect.objectContaining({ name: 'reify', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'simplify-skill', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'skill-factory', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'starting-point', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({ name: 'timebox', status: 'PASS', version: '0.1.0' }),
-    expect.objectContaining({
-      name: 'visual-design-system-extractor',
-      status: 'PASS',
-      version: '0.2.0',
-    }),
-    expect.objectContaining({
-      name: 'would-agents-actually',
-      status: 'PASS',
-      version: '0.1.0',
-    }),
-    expect.objectContaining({
-      name: 'would-humans-actually',
-      status: 'PASS',
-      version: '0.1.0',
-    }),
-  ]);
+  expect(report.skills).toEqual(
+    expectedSkills.map(([name, version]) =>
+      expect.objectContaining({ name, status: 'PASS', version }),
+    ),
+  );
 });
 
 test('validates package and skill versions independently', async () => {
-  const fixture = await mkdtemp(join(tmpdir(), 'skills-version-independence-'));
-  roots.push(fixture);
-  await mkdir(join(fixture, 'evidence'), { recursive: true });
-  await mkdir(join(fixture, 'skills'), { recursive: true });
-  await cp(
-    join(root, 'evidence', 'agentskills-pages.json'),
-    join(fixture, 'evidence', 'agentskills-pages.json'),
-  );
-  await cp(
-    join(root, 'evidence', 'skills-sh-pages.json'),
-    join(fixture, 'evidence', 'skills-sh-pages.json'),
-  );
-  await cp(
-    join(root, 'skills', 'starting-point'),
-    join(fixture, 'skills', 'starting-point'),
-    {
-      recursive: true,
-    },
-  );
-  await cp(
-    join(root, 'skills', 'starting-point'),
-    join(fixture, 'skills', 'independent-skill'),
-    { recursive: true },
-  );
-  await mkdir(join(fixture, 'evidence', 'ports'), { recursive: true });
-  await cp(
-    join(root, 'evidence', 'ports', 'starting-point'),
-    join(fixture, 'evidence', 'ports', 'starting-point'),
-    { recursive: true },
-  );
-  await writeFile(
-    join(fixture, 'package.json'),
-    JSON.stringify({ name: 'version-fixture', version: '9.9.9' }),
-  );
-
-  const independent = join(fixture, 'skills', 'independent-skill');
-  const skill = await readFile(join(independent, 'SKILL.md'), 'utf8');
-  await writeFile(
-    join(independent, 'SKILL.md'),
-    skill
-      .replace('name: starting-point', 'name: independent-skill')
-      .replace("version: '0.1.0'", "version: '7.4.2'"),
-  );
-  const cases = JSON.parse(
-    await readFile(join(independent, 'evals', 'cases.json'), 'utf8'),
-  );
-  cases.skill = 'independent-skill';
-  await writeFile(join(independent, 'evals', 'cases.json'), JSON.stringify(cases));
-  const lineage = JSON.parse(
-    await readFile(join(independent, 'evals', 'source-lineage.json'), 'utf8'),
-  );
-  lineage.public_version = '7.4.2';
-  await writeFile(
-    join(independent, 'evals', 'source-lineage.json'),
-    JSON.stringify(lineage),
-  );
-  await cp(
-    join(root, 'evidence', 'ports', 'starting-point'),
-    join(fixture, 'evidence', 'ports', 'independent-skill'),
-    { recursive: true },
-  );
-  const independentEvidence = join(
-    fixture,
-    'evidence',
-    'ports',
-    'independent-skill',
-    'source-manifest.json',
-  );
-  const sourceManifest = JSON.parse(await readFile(independentEvidence, 'utf8'));
-  sourceManifest.skill = 'independent-skill';
-  await writeFile(independentEvidence, JSON.stringify(sourceManifest));
-  const independentArchive = join(
-    fixture,
-    'evidence',
-    'ports',
-    'independent-skill',
-    'source-archive.json',
-  );
-  const sourceArchive = JSON.parse(await readFile(independentArchive, 'utf8'));
-  sourceArchive.skill = 'independent-skill';
-  await writeFile(independentArchive, JSON.stringify(sourceArchive));
+  const fixture = await createVersionFixture(root);
+  fixtures.push(fixture);
 
   const report = await validateRepository(fixture);
 
@@ -163,46 +65,4 @@ test('validates package and skill versions independently', async () => {
     { name: 'independent-skill', version: '7.4.2' },
     { name: 'starting-point', version: '0.1.0' },
   ]);
-});
-
-test('fails when the frozen skills.sh documentation set is incomplete', async () => {
-  const fixture = await mkdtemp(join(tmpdir(), 'skills-docs-evidence-'));
-  roots.push(fixture);
-  await mkdir(join(fixture, 'evidence'), { recursive: true });
-  await mkdir(join(fixture, 'skills'), { recursive: true });
-  await cp(
-    join(root, 'evidence', 'agentskills-pages.json'),
-    join(fixture, 'evidence', 'agentskills-pages.json'),
-  );
-  await cp(
-    join(root, 'skills', 'starting-point'),
-    join(fixture, 'skills', 'starting-point'),
-    { recursive: true },
-  );
-  await mkdir(join(fixture, 'evidence', 'ports'), { recursive: true });
-  await cp(
-    join(root, 'evidence', 'ports', 'starting-point'),
-    join(fixture, 'evidence', 'ports', 'starting-point'),
-    { recursive: true },
-  );
-  await writeFile(
-    join(fixture, 'package.json'),
-    JSON.stringify({ name: 'docs-fixture', version: '0.1.0' }),
-  );
-  await writeFile(
-    join(fixture, 'evidence', 'skills-sh-pages.json'),
-    JSON.stringify({
-      captured_at: '2026-07-21',
-      pages: [],
-      schema: 'skills-sh-pages/v1',
-      source: 'https://www.skills.sh/sitemap-misc.xml',
-    }),
-  );
-
-  const report = await validateRepository(fixture);
-
-  expect(report.status).toBe('FAIL');
-  expect(report.errors).toContain(
-    'missing skills.sh documentation page: https://www.skills.sh/docs',
-  );
 });

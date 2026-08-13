@@ -1,14 +1,14 @@
 {
   "chosen": [
     {
-      "family": "Ramsina",
+      "family": "Wittgenstein",
       "fit": {
         "common_default": false,
-        "family": "Ramsina",
+        "family": "Wittgenstein",
         "fit_band": 1.0,
         "fit_score": 1.0,
         "legibility_floor": 0.55,
-        "legibility_score": 0.7,
+        "legibility_score": 1.0,
         "passes": true,
         "reject_reason": "",
         "role": "display",
@@ -18,18 +18,18 @@
         "weight_score": 1.0,
         "width_score": 1.0
       },
-      "rarity_percentile": 98.1,
+      "rarity_percentile": 70.2,
       "role": "display"
     },
     {
-      "family": "Epunda Slab",
+      "family": "Parastoo",
       "fit": {
         "common_default": false,
-        "family": "Epunda Slab",
+        "family": "Parastoo",
         "fit_band": 1.0,
         "fit_score": 1.0,
         "legibility_floor": 0.7,
-        "legibility_score": 1.0,
+        "legibility_score": 0.8,
         "passes": true,
         "reject_reason": "",
         "role": "text",
@@ -39,7 +39,7 @@
         "weight_score": 1.0,
         "width_score": 1.0
       },
-      "rarity_percentile": 88.4,
+      "rarity_percentile": 81.5,
       "role": "text"
     }
   ],
@@ -85,29 +85,17 @@
     "failures": [],
     "members": [
       {
-        "family": "Ramsina",
+        "family": "Wittgenstein",
         "role": "display"
       },
       {
-        "family": "Epunda Slab",
+        "family": "Parastoo",
         "role": "text"
       }
     ],
     "passes": true
   },
-  "retrieved_at": "2026-07-25",
+  "retrieved_at": "2026-08-12",
   "unfilled": [],
-  "vetoes": [
-    {
-      "failed_dimensions": [
-        "role_distinction"
-      ],
-      "family": "Namdhinggo",
-      "fit_score": 1.0,
-      "reasons": [
-        "Ramsina and Namdhinggo share a skeleton and match on width, vertical proportion, and stroke, so the display and text roles read as one face"
-      ],
-      "role": "text"
-    }
-  ]
+  "vetoes": []
 }

@@ -73,7 +73,10 @@ class ContractTests(unittest.TestCase):
     def test_rules_carries_the_live_feed_and_floor(self):
         _, text, _ = call(["rules"])
         parsed = yaml.safe_load(text)["font_rules"]
-        self.assertEqual(parsed["feed_url"], "https://fonts.google.com/metadata/fonts")
+        self.assertEqual(
+            parsed["feed_url"],
+            "https://fonts.google.com/metadata/fonts?sort=popularity",
+        )
         self.assertEqual(parsed["min_rarity_percentile"], 70.0)
 
     def test_a_missing_group_exits_one(self):

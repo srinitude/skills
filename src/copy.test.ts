@@ -67,6 +67,18 @@ test('does not style-check byte-exact frozen source evidence', async () => {
   expect(report).toMatchObject({ findings: [], inspected_files: 0, status: 'PASS' });
 });
 
+test('ignores repository-local execution artifacts', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'copy-local-artifacts-'));
+  temporary.push(root);
+  const packet = join(root, '.hermes', 'reports', 'candidate');
+  await mkdir(packet, { recursive: true });
+  await writeFile(join(packet, 'SKILL.md'), 'frozen candidate\n');
+
+  const report = await validateCopy(root);
+
+  expect(report).toMatchObject({ findings: [], inspected_files: 0, status: 'PASS' });
+});
+
 test('allows exact client names only in machine-readable source provenance', async () => {
   const root = await mkdtemp(join(tmpdir(), 'copy-provenance-gate-'));
   temporary.push(root);

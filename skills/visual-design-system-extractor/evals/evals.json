@@ -61,7 +61,7 @@
     {
       "id": 6,
       "prompt": "Extract the system from this poster crop and prove it actually works before you tell me it is done.",
-      "expected_output": "A rendered page generated from the document, a screenshot of it, a per criterion verdict written from the image, at least one revision when a criterion fails, and a meta.viability record whose verdict is pass.",
+      "expected_output": "A rendered page generated from the document, a screenshot of it, a per criterion verdict written from the image, a revision whenever a criterion fails, and a meta.viability record whose verdict is pass.",
       "files": [
         "scripts/render_preview.py",
         "scripts/screenshot_preview.py",
@@ -83,7 +83,7 @@
       "files": [
         "scripts/font_fit.py",
         "scripts/font_pairing.py",
-        "examples/pairing-veto.md",
+        "scripts/tests/test_font_selection.py",
         "examples/make-it-rarer.md"
       ],
       "assertions": [

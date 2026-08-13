@@ -4,7 +4,7 @@ description: 'Use when reference images, screenshots, moodboards, style frames, 
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.2.0'
+  version: '0.2.1'
 ---
 
 # Visual Design System Extractor
@@ -109,8 +109,7 @@ Load one file from `examples/` when you are about to run the matching command, s
 - [examples/validate.md](examples/validate.md) before validating a file someone else wrote.
 - [examples/maintain.md](examples/maintain.md) before editing this package.
 - [examples/make-it-rarer.md](examples/make-it-rarer.md) when a user asks for rarer typefaces after a document already exists.
-- [examples/viability-loop.md](examples/viability-loop.md) before the first render, for a real failing pass, the token revision, and the passing second pass.
-- [examples/pairing-veto.md](examples/pairing-veto.md) when a set level veto blocks the highest scoring candidate.
+- [examples/viability-loop.md](examples/viability-loop.md) before rendering, for the current capture, eight-criterion judgment, and retry rule.
 - [examples/failure-section-order.md](examples/failure-section-order.md) when the validator reports a section order problem, which is the failure this skill causes most often.
 
 ## How is this package maintained?

@@ -1,22 +1,10 @@
-# Smallest document that clears every gate, and the shape reference for one
-# filled token of each kind. Its meta block and key order match
-# assets/schema-skeleton.yaml. Sections with no evidence use the collapsed
-# not-applicable object, which is legal; examples/failure-section-order.md
-# shows the expanded form that keeps a section's own keys.
-# Verified on 2026-07-25 from the skill root:
-#   uv run --no-project --with 'PyYAML>=6,<7' python \
-#     scripts/validate_design_system_yaml.py assets/minimal-extraction.yaml
-#   -> {"confidence_markers": 62, "errors": [], "font_entries": 3,
-#       "live_fonts_checked": true, "rarity_floor": 70.0, "valid": true,
-#       "viability_recorded": true}  exit 0
-# Rerun it after any font rule change: recorded ranks drift with the live feed.
 meta:
   schema_version: '1.0'
-  extraction_mode: 'comprehensive_visual_design_system'
+  extraction_mode: comprehensive_visual_design_system
   source_count: 1
   source_types:
-    - 'screenshot'
-  generated_for: 'ui_ux_brand_motion_creative_direction'
+    - screenshot
+  generated_for: ui_ux_brand_motion_creative_direction
   rarity_floor: 70.0
   extracted_at: '2026-07-25'
   validation:
@@ -24,58 +12,58 @@ meta:
     parser_validated: true
     markdown_fences: false
   viability:
-    rendered_file: 'examples/work/pass2.html'
-    screenshot_file: 'examples/work/pass2.png'
-    iterations: 2
+    rendered_file: examples/work/pass2.html
+    screenshot_file: examples/work/pass2.png
+    iterations: 1
     verdict: pass
     criteria:
       - criterion: legibility
         verdict: pass
-        observed: 'Body copy sets at 17px in Epunda Slab with open counters and no fallback face; the smallest text on the page, nav, table headers, and footer, holds at 16px, which is the floor the accessibility note states.'
+        observed: The Wittgenstein display face is clean and readable from the 64px hero through the 22px heading and card uses. Parastoo body, label, navigation, form, table, and footer text remains readable at the shown sizes. No chart grid, pixel artifact, clipping, or overlap is visible.
       - criterion: contrast
         verdict: pass
-        observed: 'Ink 141210 on paper f6f2ea measures about 15.6 to 1 for body copy, and the filled button inverts the same pair.'
+        observed: Near-black type and rules remain clear on the warm cream canvas. The filled primary button, outlined secondary button, disabled gray button, and token swatches are visibly separated without low-contrast text.
       - criterion: hierarchy
         verdict: pass
-        observed: 'The steps 64, 40, 28, 22, 17, and 16 are each visibly apart in the screenshot, and heading level four now sits above body copy instead of below it.'
+        observed: The 64px hero, descending heading levels, body copy, labels, tables, cards, code sample, and token inventory form an unambiguous visual order. Scale and whitespace separate sections without competing focal points.
       - criterion: font_pairing
         verdict: pass
-        observed: 'Ramsina in the headline and Epunda Slab in the body share a serif skeleton but differ in leading, 1.05 against 1.55, and in stroke weight, so the two roles never read as one face.'
+        observed: Wittgenstein supplies expressive high-contrast display forms while Parastoo supplies calmer reading text. Their roles are applied consistently and the two serif textures remain distinguishable without visual conflict.
       - criterion: spacing_rhythm
         verdict: pass
-        observed: 'The 16px base drives 32, 64, and 96 steps, and the gaps between header, hero, sections, cards, and footer step evenly down the page.'
+        observed: The page keeps stable outer margins and left edges, even button and card padding, consistent table rows, and larger section breaks. No crowding, collision, or broken alignment is visible.
       - criterion: color_harmony
         verdict: pass
-        observed: 'Two warm values carry the whole page, paper for surface and ink for text, rules, and the filled button, so roles stay separate without a third hue.'
+        observed: Warm cream, near-black, pale cool-gray rules, and neutral disabled gray form a coherent restrained palette. The visible swatches agree with the rendered page and no clashing hue appears.
       - criterion: state_distinction
         verdict: pass
-        observed: 'Filled, outlined, and disabled buttons are distinct in the screenshot, and the focus ring is a 3px accent outline offset from the control. Hover cannot appear in a still capture, so it was read in the stylesheet.'
+        observed: The static specimen clearly distinguishes a dark filled primary action, a light outlined secondary action, and a gray disabled action. Hover and focus states are not shown and are not inferred.
       - criterion: reference_fidelity
         verdict: pass
-        observed: 'The headline keeps the wedge terminals and the thick to thin transition seen in the poster crop at 64px, and the page reads as the same editorial voice.'
+        observed: The updated display face reads as a clean high-contrast editorial serif with crisp terminals and controlled proportions. The prior charted, jagged, pixel-like treatment is absent throughout the hero, headings, cards, table headers, and token samples.
 source_analysis:
   observed:
-    - 'One editorial poster crop with a high contrast serif headline.'
+    - One editorial poster crop with a high contrast serif headline.
   inferred:
-    - 'A two family system with a serif display voice and a quieter text face.'
+    - A two family system with a serif display voice and a quieter text face.
   speculative:
-    - 'Motion behaviour is not visible in a still reference.'
+    - Motion behaviour is not visible in a still reference.
   source_inventory:
     images:
-      - 'poster-crop.png'
+      - poster-crop.png
     visible_text:
-      - 'Headline set in a high contrast serif.'
+      - Headline set in a high contrast serif.
     visible_interfaces: []
     visible_people_or_characters: []
     visible_environments: []
     visible_brand_marks: []
   evidence_boundaries:
     directly_observed:
-      - 'Letterform contrast and headline scale.'
+      - Letterform contrast and headline scale.
     inferred_from_visual_cues:
-      - 'Text face pairing derived from the caption weight.'
+      - Text face pairing derived from the caption weight.
     low_confidence_extrapolations:
-      - 'Interface behaviour beyond the crop.'
+      - Interface behaviour beyond the crop.
 confidence_scores:
   typography: high
   color_system: medium
@@ -83,414 +71,414 @@ confidence_scores:
 design_principles:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 brand_identity:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 character_identity:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 art_direction:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 visual_language:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 color_system:
   primary:
     ink_900:
       value: '#141210'
       hex: '#141210'
-      rgb: 'rgb(20, 18, 16)'
-      hsl: 'hsl(30, 11%, 7%)'
-      usage: 'Headline and body text on paper.'
-      visual_grounding: 'Darkest value in the headline strokes of the crop.'
+      rgb: rgb(20, 18, 16)
+      hsl: hsl(30, 11%, 7%)
+      usage: Headline and body text on paper.
+      visual_grounding: Darkest value in the headline strokes of the crop.
       confidence: high
-      inference_basis: 'Sampled from the headline stems in poster-crop.png.'
+      inference_basis: Sampled from the headline stems in poster-crop.png.
   neutrals:
     paper_0:
       value: '#f6f2ea'
       hex: '#f6f2ea'
-      rgb: 'rgb(246, 242, 234)'
-      hsl: 'hsl(40, 33%, 94%)'
-      usage: 'Page canvas.'
-      visual_grounding: 'Warm off white behind the headline.'
+      rgb: rgb(246, 242, 234)
+      hsl: hsl(40, 33%, 94%)
+      usage: Page canvas.
+      visual_grounding: Warm off white behind the headline.
       confidence: high
-      inference_basis: 'Sampled from the margin of poster-crop.png.'
+      inference_basis: Sampled from the margin of poster-crop.png.
   contrast_hierarchy:
-    - 'ink_900 on paper_0 for headline and body text.'
+    - ink_900 on paper_0 for headline and body text.
 typography:
   font_families:
     catalog_snapshot:
-      source: 'https://fonts.google.com/metadata/fonts'
-      retrieved_at: '2026-07-25'
+      source: https://fonts.google.com/metadata/fonts?sort=popularity
+      retrieved_at: '2026-08-12'
       total_families: 1942
     observed_or_implied:
-      - family: 'Unidentified high contrast serif'
+      - family: Unidentified high contrast serif
         role: display
         confidence: medium
-        inference_basis: 'Sharp thin to thick transition in the headline.'
+        inference_basis: Sharp thin to thick transition in the headline.
     primary:
-      family: 'Ramsina'
+      family: Wittgenstein
       set_role: display
       google_fonts_family: true
       rarity:
-        popularity_rank: 2073
+        popularity_rank: 1483
         total_families: 1942
         rank_ceiling: 2113
-        rarity_percentile: 98.1
-        trending_rank: 275
-        date_added: '2026-02-12'
-        variable: false
-        source: 'https://fonts.google.com/metadata/fonts'
-        retrieved_at: '2026-07-25'
-      fit:
-        fit_score: 1.0
-        legibility_score: 0.7
-        evidence: 'Serif skeleton, wedge terminals, and a 1.1 default leading match the headline in the crop. Display role only: the family ships one weight and its Latin cut is secondary to Syriac.'
-      classification: 'serif'
-      fallback_stack:
-        - 'Georgia'
-        - 'serif'
-      visual_grounding: 'Matches the headline stroke contrast and narrow counters.'
-      confidence: medium
-      inference_basis: 'Ranked first by fit against the serif brief, then by rarity.'
-    supporting:
-      family: 'Epunda Slab'
-      set_role: text
-      google_fonts_family: true
-      rarity:
-        popularity_rank: 1867
-        total_families: 1942
-        rank_ceiling: 2113
-        rarity_percentile: 88.4
-        trending_rank: 2000
-        date_added: '2025-08-25'
+        rarity_percentile: 70.2
+        trending_rank: 357
+        date_added: '2024-06-04'
         variable: true
-        source: 'https://fonts.google.com/metadata/fonts'
-        retrieved_at: '2026-07-25'
+        source: https://fonts.google.com/metadata/fonts?sort=popularity
+        retrieved_at: '2026-08-12'
       fit:
         fit_score: 1.0
         legibility_score: 1.0
-        evidence: 'Seven weights from 300 to 900, Latin as the primary script, and 1.3 default leading carry body copy at 17px without the fallback the display face needs.'
-      classification: 'serif'
+        evidence: Serif skeleton, wedge terminals, six weights, and a readable Latin cut match the editorial headline without the chart grid of the rejected face.
+      classification: serif
       fallback_stack:
-        - 'Georgia'
-        - 'serif'
-      pairing_logic: 'Vertical proportion 1.3 against the display face 1.1 keeps the roles apart, and the weight range carries the hierarchy the display face cannot.'
-      visual_grounding: 'Caption weight sits far below the headline weight.'
+        - Georgia
+        - serif
+      visual_grounding: Matches the headline stroke contrast and narrow counters.
       confidence: medium
-      inference_basis: 'Highest fit among rare serifs that pass the text legibility floor.'
+      inference_basis: Ranked first by fit against the serif brief, then by rarity.
+    supporting:
+      family: Parastoo
+      set_role: text
+      google_fonts_family: true
+      rarity:
+        popularity_rank: 1723
+        total_families: 1942
+        rank_ceiling: 2113
+        rarity_percentile: 81.5
+        trending_rank: 2388
+        date_added: '2025-05-21'
+        variable: true
+        source: https://fonts.google.com/metadata/fonts?sort=popularity
+        retrieved_at: '2026-08-12'
+      fit:
+        fit_score: 1.0
+        legibility_score: 1.0
+        evidence: Four weights from 400 to 700, a Latin subset, and 1.406 default leading carry body copy at 17px without synthetic emphasis.
+      classification: serif
+      fallback_stack:
+        - Georgia
+        - serif
+      pairing_logic: Default leading 1.406 against the display face at 1.5 keeps the roles apart, and four text weights support reading sizes.
+      visual_grounding: Caption weight sits far below the headline weight.
+      confidence: medium
+      inference_basis: Highest fit among rare serifs that pass the text legibility floor.
     rare_unique_candidates:
-      - family: 'Namdhinggo'
+      - family: Namdhinggo
         google_fonts_family: true
         rarity:
-          popularity_rank: 1872
+          popularity_rank: 1891
           total_families: 1942
           rank_ceiling: 2113
-          rarity_percentile: 88.6
-          trending_rank: 357
+          rarity_percentile: 89.5
+          trending_rank: 2198
           date_added: '2024-02-14'
           variable: false
-          source: 'https://fonts.google.com/metadata/fonts'
-          retrieved_at: '2026-07-25'
+          source: https://fonts.google.com/metadata/fonts?sort=popularity
+          retrieved_at: '2026-08-12'
         fit:
           fit_score: 1.0
           legibility_score: 0.8
-          evidence: 'Five weights and a serif skeleton fit the brief, and the Latin cut reads at text sizes.'
+          evidence: Five weights and a serif skeleton fit the brief, and the Latin cut remains available for display-sized alternatives.
         role: display
-        classification: 'serif'
+        classification: serif
         fallback_stack:
-          - 'Georgia'
-          - 'serif'
+          - Georgia
+          - serif
         pairs_well_with:
-          - 'Epunda Slab'
-        visual_grounding: 'Shares the wedge serif terminals seen in the crop.'
-        rarity_reason: 'Rank 1872 against a rank ceiling of 2113 puts it at percentile 88.6.'
-        pairing_logic: 'Held as the display alternative. It won the text slot on fit and was vetoed on role_distinction against Ramsina, whose leading sits 0.048 away, so it only ships if Ramsina is dropped.'
-        use_constraints: 'Display sizes only while Ramsina holds the display role.'
+          - Parastoo
+        visual_grounding: Shares the wedge serif terminals seen in the crop.
+        rarity_reason: Rank 1891 against a rank ceiling of 2113 puts it at percentile 89.5.
+        pairing_logic: Held as the display alternative. Its 1.05 default leading is farther from Parastoo, but Wittgenstein better matches the readable editorial reference.
+        use_constraints: Use only if the display face changes and visual review preserves the same hierarchy.
         confidence: medium
-        inference_basis: 'Ranked by fit under the serif brief, then by rarity.'
+        inference_basis: Ranked by fit under the serif brief, then by rarity.
   type_scale:
     display_1:
-      value: '64px'
-      usage: 'Poster headline.'
-      family: 'Ramsina'
-      size: '64px'
+      value: 64px
+      usage: Poster headline.
+      family: Wittgenstein
+      size: 64px
       line_height: '1.05'
       weight: '400'
-      tracking: '-0.01em'
+      tracking: -0.01em
       fallback_stack:
-        - 'Georgia'
-        - 'serif'
-      visual_grounding: 'Cap height of the headline measured against the crop width.'
+        - Georgia
+        - serif
+      visual_grounding: Cap height of the headline measured against the crop width.
       confidence: medium
-      inference_basis: 'Ratio of headline cap height to the 1200px crop width.'
+      inference_basis: Ratio of headline cap height to the 1200px crop width.
     heading_2:
-      value: '40px'
-      usage: 'Section heading.'
-      family: 'Ramsina'
-      size: '40px'
+      value: 40px
+      usage: Section heading.
+      family: Wittgenstein
+      size: 40px
       line_height: '1.15'
       weight: '400'
-      tracking: '-0.005em'
-      visual_grounding: 'Second largest line in the crop, the standfirst rule above the caption.'
+      tracking: -0.005em
+      visual_grounding: Second largest line in the crop, the standfirst rule above the caption.
       confidence: medium
-      inference_basis: 'Stepped down from the headline by the ratio measured in the crop.'
+      inference_basis: Stepped down from the headline by the ratio measured in the crop.
     heading_3:
-      value: '28px'
-      usage: 'Subsection heading.'
-      family: 'Ramsina'
-      size: '28px'
+      value: 28px
+      usage: Subsection heading.
+      family: Wittgenstein
+      size: 28px
       line_height: '1.2'
       weight: '400'
-      visual_grounding: 'Caption lead-in size in the crop.'
+      visual_grounding: Caption lead-in size in the crop.
       confidence: low
-      inference_basis: 'Interpolated between the standfirst and the body step.'
+      inference_basis: Interpolated between the standfirst and the body step.
     heading_4:
-      value: '22px'
-      usage: 'Smallest heading, still larger than body copy.'
-      family: 'Ramsina'
-      size: '22px'
+      value: 22px
+      usage: Smallest heading, still larger than body copy.
+      family: Wittgenstein
+      size: 22px
       line_height: '1.25'
       weight: '400'
-      visual_grounding: 'Not visible in the crop; sized to stay above the body step.'
+      visual_grounding: Not visible in the crop; sized to stay above the body step.
       confidence: low
-      inference_basis: 'Set above the body step so a heading never reads as fine print.'
+      inference_basis: Set above the body step so a heading never reads as fine print.
     body_1:
-      value: '17px'
-      usage: 'Body copy and form fields.'
-      family: 'Epunda Slab'
-      size: '17px'
+      value: 17px
+      usage: Body copy and form fields.
+      family: Parastoo
+      size: 17px
       line_height: '1.55'
       weight: '400'
-      visual_grounding: 'Caption size in the crop scaled to a reading measure.'
+      visual_grounding: Caption size in the crop scaled to a reading measure.
       confidence: medium
-      inference_basis: 'Set above the 16px floor the accessibility note states.'
+      inference_basis: Set above the 16px floor the accessibility note states.
     caption:
-      value: '16px'
-      usage: 'Nav, table headers, and footer.'
-      family: 'Epunda Slab'
-      size: '16px'
+      value: 16px
+      usage: Nav, table headers, and footer.
+      family: Parastoo
+      size: 16px
       line_height: '1.4'
       weight: '400'
-      visual_grounding: 'Smallest legible text in the crop.'
+      visual_grounding: Smallest legible text in the crop.
       confidence: low
-      inference_basis: 'Held at the 16px floor rather than below it.'
+      inference_basis: Held at the 16px floor rather than below it.
   hierarchy:
     headline_rules:
-      - 'One headline per view.'
+      - One headline per view.
   weights:
     regular:
       value: '400'
-      usage: 'Headline and body text.'
-      visual_grounding: 'Single weight visible across the crop.'
+      usage: Headline and body text.
+      visual_grounding: Single weight visible across the crop.
       confidence: medium
-      inference_basis: 'No bold or light cut appears in the reference.'
+      inference_basis: No bold or light cut appears in the reference.
     text_bold:
       value: '700'
-      usage: 'Inline emphasis and table headers in the text face.'
-      visual_grounding: 'Not visible in the crop; carried because the text face ships the cut.'
+      usage: Inline emphasis and table headers in the text face.
+      visual_grounding: Not visible in the crop; carried because the text face ships the cut.
       confidence: low
-      inference_basis: 'Epunda Slab ships 300 to 900, so emphasis needs no synthetic bold.'
+      inference_basis: Parastoo ships 400 to 700, so emphasis needs no synthetic bold.
   leading:
     display:
       value: '1.05'
-      usage: 'Headline blocks of two or three lines.'
-      visual_grounding: 'Baseline gap of the two headline lines.'
+      usage: Headline blocks of two or three lines.
+      visual_grounding: Baseline gap of the two headline lines.
       confidence: medium
-      inference_basis: 'Measured baseline distance against cap height.'
+      inference_basis: Measured baseline distance against cap height.
   tracking:
     display:
-      value: '-0.01em'
-      usage: 'Headline only.'
-      visual_grounding: 'Tight sidebearings between headline letters.'
+      value: -0.01em
+      usage: Headline only.
+      visual_grounding: Tight sidebearings between headline letters.
       confidence: low
-      inference_basis: 'Estimated from letter gaps at headline size.'
-  editorial_tone: 'Measured and editorial.'
+      inference_basis: Estimated from letter gaps at headline size.
+  editorial_tone: Measured and editorial.
   accessibility:
-    - 'Keep body text at or above 16px.'
+    - Keep body text at or above 16px.
 spacing:
-  base_unit: '8px'
+  base_unit: 8px
   scale:
     space_200:
-      value: '16px'
-      usage: 'Gap between headline and caption.'
-      visual_grounding: 'Vertical gap under the headline in the crop.'
+      value: 16px
+      usage: Gap between headline and caption.
+      visual_grounding: Vertical gap under the headline in the crop.
       confidence: medium
-      inference_basis: 'Measured gap divided by the 8px base unit.'
+      inference_basis: Measured gap divided by the 8px base unit.
 layout:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 grid_system:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 sizing:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 borders:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 radii:
   scale:
     radius_sm:
-      value: '4px'
-      usage: 'Caption rule ends and image corners.'
-      visual_grounding: 'Softened corners of the image plate in the crop.'
+      value: 4px
+      usage: Caption rule ends and image corners.
+      visual_grounding: Softened corners of the image plate in the crop.
       confidence: low
-      inference_basis: 'Corner arc measured at the plate edge.'
+      inference_basis: Corner arc measured at the plate edge.
 shadows:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 gradients:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 materials:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 textures:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 lighting:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 motion:
   durations:
     base:
-      value: '300ms'
-      usage: 'Colour and outline transitions.'
-      duration: '300ms'
-      easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
-      trigger: 'hover and focus'
-      visual_grounding: 'Not visible in a still reference; carried as speculation.'
+      value: 300ms
+      usage: Colour and outline transitions.
+      duration: 300ms
+      easing: cubic-bezier(0.25, 1, 0.5, 1)
+      trigger: hover and focus
+      visual_grounding: Not visible in a still reference; carried as speculation.
       confidence: low
-      inference_basis: 'Speculative default for an editorial print system.'
+      inference_basis: Speculative default for an editorial print system.
 animation:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 camera:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 composition:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 environment:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 setting:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 wardrobe:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 props:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 iconography:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 illustration_style:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 photography_style:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 cinematic_style:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 rendering_style:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 surface_treatment:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 accessibility:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 interaction_design:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 ui_patterns:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 sound_design:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 narrative_tone:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 emotional_palette:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 worldbuilding:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 styling_rules:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 dos_and_donts:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 token_dependencies:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 dynamic_tokens:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 responsive_rules:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 state_variants:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 platform_adaptations:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 ai_generation_prompts:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.
 implementation_notes:
   applicability: not_applicable
   confidence: low
-  inference_basis: 'No evidence for this layer in the supplied reference.'
+  inference_basis: No evidence for this layer in the supplied reference.

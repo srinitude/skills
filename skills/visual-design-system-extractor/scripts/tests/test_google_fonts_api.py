@@ -4,6 +4,11 @@ import context  # noqa: F401
 import google_fonts_api as api
 
 
+class EndpointContractTests(unittest.TestCase):
+    def test_live_catalog_requests_the_explicit_popularity_order(self):
+        self.assertEqual(api.FEED_URL, "https://fonts.google.com/metadata/fonts?sort=popularity")
+
+
 class RarityMathTests(unittest.TestCase):
     def test_most_popular_family_scores_zero(self):
         self.assertEqual(api.rarity_percentile(1, 1000), 0.0)

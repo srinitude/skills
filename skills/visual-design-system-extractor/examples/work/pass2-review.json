@@ -1,0 +1,52 @@
+{
+  "job_id": "vdse-ui-review-v2",
+  "input_sha256": "908631a82e345d2e6d5e5b5a20c0627c6b152a122d1d737c294debb5034eac64",
+  "verdict": "PASS",
+  "criteria": [
+    {
+      "criterion": "legibility",
+      "verdict": "PASS",
+      "observed": "The Wittgenstein display face is clean and readable from the 64px hero through the 22px heading and card uses. Parastoo body, label, navigation, form, table, and footer text remains readable at the shown sizes. No chart grid, pixel artifact, clipping, or overlap is visible."
+    },
+    {
+      "criterion": "contrast",
+      "verdict": "PASS",
+      "observed": "Near-black type and rules remain clear on the warm cream canvas. The filled primary button, outlined secondary button, disabled gray button, and token swatches are visibly separated without low-contrast text."
+    },
+    {
+      "criterion": "hierarchy",
+      "verdict": "PASS",
+      "observed": "The 64px hero, descending heading levels, body copy, labels, tables, cards, code sample, and token inventory form an unambiguous visual order. Scale and whitespace separate sections without competing focal points."
+    },
+    {
+      "criterion": "font_pairing",
+      "verdict": "PASS",
+      "observed": "Wittgenstein supplies expressive high-contrast display forms while Parastoo supplies calmer reading text. Their roles are applied consistently and the two serif textures remain distinguishable without visual conflict."
+    },
+    {
+      "criterion": "spacing_rhythm",
+      "verdict": "PASS",
+      "observed": "The page keeps stable outer margins and left edges, even button and card padding, consistent table rows, and larger section breaks. No crowding, collision, or broken alignment is visible."
+    },
+    {
+      "criterion": "color_harmony",
+      "verdict": "PASS",
+      "observed": "Warm cream, near-black, pale cool-gray rules, and neutral disabled gray form a coherent restrained palette. The visible swatches agree with the rendered page and no clashing hue appears."
+    },
+    {
+      "criterion": "state_distinction",
+      "verdict": "PASS",
+      "observed": "The static specimen clearly distinguishes a dark filled primary action, a light outlined secondary action, and a gray disabled action. Hover and focus states are not shown and are not inferred."
+    },
+    {
+      "criterion": "reference_fidelity",
+      "verdict": "PASS",
+      "observed": "The updated display face reads as a clean high-contrast editorial serif with crisp terminals and controlled proportions. The prior charted, jagged, pixel-like treatment is absent throughout the hero, headings, cards, table headers, and token samples."
+    }
+  ],
+  "problems": [],
+  "proof_path": "examples/work/pass2.png",
+  "reviewer_profile": "computer-user",
+  "reviewed_at": "2026-08-12T20:23:25-04:00",
+  "provenance": "computer-user visual review of the hash-bound screenshot"
+}

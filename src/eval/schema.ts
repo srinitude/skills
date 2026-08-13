@@ -19,6 +19,11 @@ export const evalCaseSchema = z
 
 export const casesSchema = z
   .object({
+    acceptance: z.string().min(1).optional(),
+    backlink: z
+      .string()
+      .regex(/^\.\.\/SKILL\.md#[a-z0-9-]+$/)
+      .optional(),
     cases: z.array(evalCaseSchema).min(1),
     decision_labels: z.array(z.string().min(1)).min(1),
     groups: z.array(z.string().min(1)).min(1),
@@ -27,16 +32,24 @@ export const casesSchema = z
   })
   .strict();
 
+const requiredTestClasses = [
+  'positive_activation',
+  'rejection',
+  'behavior',
+  'failure_handling',
+  'recovery',
+  'speed',
+] as const;
+
 const testClassesSchema = z
-  .tuple([
-    z.literal('positive_activation'),
-    z.literal('rejection'),
-    z.literal('behavior'),
-    z.literal('failure_handling'),
-    z.literal('recovery'),
-    z.literal('speed'),
-  ])
-  .rest(z.string().min(1));
+  .array(z.string().min(1))
+  .min(requiredTestClasses.length)
+  .refine((classes) => new Set(classes).size === classes.length, {
+    message: 'test classes must be unique',
+  })
+  .refine((classes) => requiredTestClasses.every((name) => classes.includes(name)), {
+    message: 'test classes must include every required class',
+  });
 
 export const evalManifestSchema = z
   .object({
@@ -51,7 +64,7 @@ export const evalManifestSchema = z
     repetitions: z.literal(2),
     rubric: z.literal('rubric.md'),
     schema_version: z.literal(1),
-    skill: z.string().min(1),
+    skill: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
     speed_budgets: z.literal('speed-budgets.json'),
     test_classes: testClassesSchema,
     trigger_source: z.literal('trigger-cases.json'),

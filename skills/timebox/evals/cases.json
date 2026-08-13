@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "skill": "timebox",
+  "acceptance": "all applicable required outcomes must hold; any forbidden outcome blocks the case",
+  "backlink": "../SKILL.md#progressive-disclosure",
   "groups": ["success", "rejection", "failure_handling", "recovery"],
   "decision_labels": ["run_and_validate", "not_started", "failed", "reject_action"],
   "cases": [

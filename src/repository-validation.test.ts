@@ -19,7 +19,7 @@ const expectedSkills = [
   ['simplify-skill', '0.1.0'],
   ['skill-factory', '0.1.0'],
   ['starting-point', '0.1.0'],
-  ['timebox', '0.1.0'],
+  ['timebox', '0.1.1'],
   ['visual-design-system-extractor', '0.2.1'],
   ['would-agents-actually', '0.1.0'],
   ['would-humans-actually', '0.1.0'],

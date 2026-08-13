@@ -2,7 +2,12 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from 'vitest';
 
-import { evalCaseSchema, evalManifestSchema, loadEvalDefinition } from './schema.js';
+import {
+  casesSchema,
+  evalCaseSchema,
+  evalManifestSchema,
+  loadEvalDefinition,
+} from './schema.js';
 
 const root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
 
@@ -68,6 +73,61 @@ test('loads prime-vector manifest extensions without losing required classes', a
   expect(definition.manifest.video_second_map).toBe('video-second-map.json');
 });
 
+test('accepts reordered required test classes and rejects omissions', () => {
+  const manifest = {
+    case_source: 'cases.json',
+    conditions: ['with_skill', 'without_skill'],
+    contract: 'contract.md',
+    repetitions: 2,
+    rubric: 'rubric.md',
+    schema_version: 1,
+    skill: 'starting-point',
+    speed_budgets: 'speed-budgets.json',
+    test_classes: [
+      'rejection',
+      'positive_activation',
+      'behavior',
+      'failure_handling',
+      'recovery',
+      'speed',
+    ],
+    trigger_source: 'trigger-cases.json',
+  };
+
+  expect(evalManifestSchema.parse(manifest).test_classes).toEqual(manifest.test_classes);
+  expect(() =>
+    evalManifestSchema.parse({
+      ...manifest,
+      test_classes: manifest.test_classes.filter((name) => name !== 'failure_handling'),
+    }),
+  ).toThrow();
+});
+
+test('rejects invalid manifest skill names and filenames', () => {
+  const manifest = {
+    case_source: 'cases.json',
+    conditions: ['with_skill', 'without_skill'],
+    contract: 'contract.md',
+    repetitions: 2,
+    rubric: 'rubric.md',
+    schema_version: 1,
+    skill: 'starting-point',
+    speed_budgets: 'speed-budgets.json',
+    test_classes: requiredClasses,
+    trigger_source: 'trigger-cases.json',
+  };
+
+  for (const invalid of [
+    { ...manifest, case_source: 'other.json' },
+    { ...manifest, trigger_source: 'other.json' },
+    { ...manifest, contract: 'other.md' },
+    { ...manifest, rubric: 'other.md' },
+    { ...manifest, skill: 'Starting_Point' },
+  ]) {
+    expect(() => evalManifestSchema.parse(invalid)).toThrow();
+  }
+});
+
 test('accepts portable skill case identifiers', () => {
   expect(
     evalCaseSchema.parse({
@@ -82,6 +142,35 @@ test('accepts portable skill case identifiers', () => {
       veto: ['Ask a questionnaire.'],
     }),
   ).toMatchObject({ id: 'RFY-001', source_id: 'RFY-001' });
+});
+
+test('accepts source-owned case acceptance and backlink fields', () => {
+  const cases = casesSchema.parse({
+    acceptance: 'Every required outcome must hold.',
+    backlink: '../SKILL.md#progressive-disclosure',
+    cases: [
+      {
+        decision: 'failed',
+        group: 'failure_handling',
+        id: 'TB-001',
+        pressures: ['deadline'],
+        prompt: 'Validation finishes late.',
+        required: ['TIMEBOX_FAILED'],
+        source_id: 'TB-001',
+        title: 'Late validation',
+        veto: ['TIMEBOX_PASS'],
+      },
+    ],
+    decision_labels: ['failed'],
+    groups: ['failure_handling'],
+    schema_version: 1,
+    skill: 'timebox',
+  });
+
+  expect(cases).toMatchObject({
+    acceptance: 'Every required outcome must hold.',
+    backlink: '../SKILL.md#progressive-disclosure',
+  });
 });
 
 test('rejects unknown manifest fields', () => {

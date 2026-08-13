@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/srinitude/skills/v0.1.0/schemas/eval-manifest.schema.json",
+  "$id": "https://raw.githubusercontent.com/srinitude/skills/main/schemas/eval-manifest.schema.json",
   "title": "Agent Skill evaluation manifest",
   "type": "object",
   "additionalProperties": false,
@@ -22,37 +22,32 @@
     "test_classes": {
       "type": "array",
       "minItems": 6,
-      "maxItems": 6,
       "uniqueItems": true,
-      "items": {
-        "enum": [
-          "positive_activation",
-          "rejection",
-          "behavior",
-          "failure_handling",
-          "recovery",
-          "speed"
-        ]
-      }
+      "items": { "type": "string", "minLength": 1 },
+      "allOf": [
+        { "contains": { "const": "positive_activation" } },
+        { "contains": { "const": "rejection" } },
+        { "contains": { "const": "behavior" } },
+        { "contains": { "const": "failure_handling" } },
+        { "contains": { "const": "recovery" } },
+        { "contains": { "const": "speed" } }
+      ]
     },
     "conditions": {
       "type": "array",
       "minItems": 2,
       "maxItems": 2,
-      "uniqueItems": true,
-      "items": { "enum": ["with_skill", "without_skill"] }
+      "items": [{ "const": "with_skill" }, { "const": "without_skill" }]
     },
     "repetitions": { "type": "integer", "const": 2 },
-    "case_source": { "$ref": "#/definitions/file" },
-    "trigger_source": { "$ref": "#/definitions/file" },
-    "contract": { "$ref": "#/definitions/file" },
-    "rubric": { "$ref": "#/definitions/file" },
-    "speed_budgets": { "$ref": "#/definitions/file" }
-  },
-  "definitions": {
-    "file": {
-      "type": "string",
-      "pattern": "^[a-z0-9][a-z0-9.-]*$"
-    }
+    "case_source": { "const": "cases.json" },
+    "trigger_source": { "const": "trigger-cases.json" },
+    "contract": { "const": "contract.md" },
+    "rubric": { "const": "rubric.md" },
+    "speed_budgets": { "const": "speed-budgets.json" },
+    "public_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "centrality_mapping": { "const": "centrality-mapping.json" },
+    "video_learning_map": { "const": "video-learning-map.json" },
+    "video_second_map": { "const": "video-second-map.json" }
   }
 }

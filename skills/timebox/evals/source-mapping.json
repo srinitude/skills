@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "skill": "timebox",
   "source_files": ["SKILL.md", "references/eval-cases.json"],
   "source_case_ids": ["TB-001", "TB-002", "TB-003", "TB-004", "TB-005", "TB-006"],
@@ -17,8 +17,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "---"
+        }
+      ]
     },
     {
       "id": "TB-MAP-002",
@@ -28,8 +34,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "name: timebox"
+        }
+      ]
     },
     {
       "id": "TB-MAP-003",
@@ -39,19 +51,31 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "description: 'Use when work must finish within a stated time limit.'"
+        }
+      ]
     },
     {
       "id": "TB-MAP-004",
       "source_path": "SKILL.md",
       "source_line": 4,
       "source_text_sha256": "457c924e795914b91e39abfe997a70b9a57333fb9b193ca1f28c4f17a803f31e",
-      "public_targets": ["SKILL.md"],
+      "public_targets": ["evals/source-lineage.json"],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/source-lineage.json",
+          "contains": "\"native_version\": \"1.0.2\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-005",
@@ -61,8 +85,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "author: Kiren Srinivasan"
+        }
+      ]
     },
     {
       "id": "TB-MAP-006",
@@ -72,18 +102,24 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "license: MIT"
+        }
+      ]
     },
     {
       "id": "TB-MAP-007",
       "source_path": "SKILL.md",
       "source_line": 7,
       "source_text_sha256": "a05780619f8fb853d897a4929f3b237262839daa7dcb6104fe60e60177f1b176",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -94,18 +130,24 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "metadata:"
+        }
+      ]
     },
     {
       "id": "TB-MAP-009",
       "source_path": "SKILL.md",
       "source_line": 9,
       "source_text_sha256": "ee9f0b798965a3d37bcf32241a7f448927c2e307ab53b4581db7286188c1f3a4",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -113,10 +155,10 @@
       "source_path": "SKILL.md",
       "source_line": 10,
       "source_text_sha256": "31ab65acd75acead0ad75bf0ff8dc4057b43eb83ef0dbd1af0b9931949c041bd",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -124,10 +166,10 @@
       "source_path": "SKILL.md",
       "source_line": 11,
       "source_text_sha256": "3dc1c2f28b01837ab22258d9b761fe90958cab6edaa15b38fdcd612d14878c1d",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -135,10 +177,10 @@
       "source_path": "SKILL.md",
       "source_line": 12,
       "source_text_sha256": "271476b9bdab80621a6ab6272efa2a311c3185393eca4c08b2285114c3d1b361",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -146,10 +188,10 @@
       "source_path": "SKILL.md",
       "source_line": 13,
       "source_text_sha256": "4ded321029a3ed58a437c2c474ad15f1077ee2637c082928275cb15a8edf8169",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -157,10 +199,10 @@
       "source_path": "SKILL.md",
       "source_line": 14,
       "source_text_sha256": "9a1ea8817347f9bf35a2f0224112d9e6a27b6ee4462dee1f1d66f7ad23716280",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -168,10 +210,10 @@
       "source_path": "SKILL.md",
       "source_line": 15,
       "source_text_sha256": "4bab6c85cc6715e810156daa943e9872f9b8a7751ba4955f882b50706a64f551",
-      "public_targets": ["SKILL.md"],
+      "public_targets": [],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
+      "action": "clarify",
+      "preservation_judgment": "Intentional portable omission: host-only metadata remains in byte-exact evidence and is not part of the portable runtime contract.",
       "review_state": "approved"
     },
     {
@@ -182,8 +224,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "---"
+        }
+      ]
     },
     {
       "id": "TB-MAP-017",
@@ -193,8 +241,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "# Timebox"
+        }
+      ]
     },
     {
       "id": "TB-MAP-018",
@@ -204,8 +258,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Outcome"
+        }
+      ]
     },
     {
       "id": "TB-MAP-019",
@@ -215,8 +275,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Complete the user's full requested work and its decisive validation within the stated limit. This is a hard acceptance constraint, not a request to make partial progress for a while. Only work that is complete, validated, and timestamped before the deadline may pass."
+        }
+      ]
     },
     {
       "id": "TB-MAP-020",
@@ -226,8 +292,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## When to use"
+        }
+      ]
     },
     {
       "id": "TB-MAP-021",
@@ -237,8 +309,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Use when the user invokes `/timebox` with both a task and a duration or exact deadline, for example `/timebox 10 minutes fix and test the parser` or `/timebox by 16:00 EDT verify the release artifact`."
+        }
+      ]
     },
     {
       "id": "TB-MAP-022",
@@ -248,8 +326,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "If the task or limit is missing, ask one concise question before starting. Resolve ambiguous dates or times through `always-current-datetime`. The limit must be positive and precise enough to compute one absolute deadline."
+        }
+      ]
     },
     {
       "id": "TB-MAP-023",
@@ -259,8 +343,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Required composition"
+        }
+      ]
     },
     {
       "id": "TB-MAP-024",
@@ -270,8 +360,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Before admitting the work:"
+        }
+      ]
     },
     {
       "id": "TB-MAP-025",
@@ -281,8 +377,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "1. Load `always-current-datetime` and acquire its fresh local clock anchor. Its `captured_at` value is the timebox start. Compute the absolute deadline from that anchor with a tool, not mental arithmetic."
+        }
+      ]
     },
     {
       "id": "TB-MAP-026",
@@ -292,8 +394,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "2. Load `starting-point`. Define the complete outcome, decisive proof, scope, authority, unknowns, and forbidden outcomes."
+        }
+      ]
     },
     {
       "id": "TB-MAP-027",
@@ -303,8 +411,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "3. Load `outcome-bounded-work`. Keep the full outcome and proof fixed while allowing a faster safe route."
+        }
+      ]
     },
     {
       "id": "TB-MAP-028",
@@ -314,8 +428,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "4. Load `logic-audit`. Check for conflicting scope, an impossible deadline, missing proof, and dependencies that cannot fit."
+        }
+      ]
     },
     {
       "id": "TB-MAP-029",
@@ -325,8 +445,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Stop with `contract-unavailable: <skill-name>` if a required skill cannot load. Never replace its current instructions with remembered text."
+        }
+      ]
     },
     {
       "id": "TB-MAP-030",
@@ -336,8 +462,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Admission gate"
+        }
+      ]
     },
     {
       "id": "TB-MAP-031",
@@ -347,8 +479,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Admit the timebox only when all of these are true:"
+        }
+      ]
     },
     {
       "id": "TB-MAP-032",
@@ -358,8 +496,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The task, acceptance criteria, and deadline are unambiguous."
+        }
+      ]
     },
     {
       "id": "TB-MAP-033",
@@ -369,8 +513,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Every required permission, input, credential, dependency, and human decision is already available or has a proven bound that fits."
+        }
+      ]
     },
     {
       "id": "TB-MAP-034",
@@ -380,8 +530,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The chosen route preserves the full requested scope, safety rules, and decisive validation."
+        }
+      ]
     },
     {
       "id": "TB-MAP-035",
@@ -391,8 +547,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Each tool call, command, retry, and external wait has an explicit maximum duration."
+        }
+      ]
     },
     {
       "id": "TB-MAP-036",
@@ -402,8 +564,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- A protected validation reserve covers the decisive checks, result inspection, and completion timestamp."
+        }
+      ]
     },
     {
       "id": "TB-MAP-037",
@@ -413,8 +581,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The bounded execution plan plus the validation reserve fits before the deadline."
+        }
+      ]
     },
     {
       "id": "TB-MAP-038",
@@ -424,8 +598,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "If any condition fails, do not begin. Return `TIMEBOX_NOT_STARTED`, name the failed admission condition, and request either a longer limit or an explicit scope change. Never promise guaranteed completion from an unbounded estimate."
+        }
+      ]
     },
     {
       "id": "TB-MAP-039",
@@ -435,8 +615,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Execution contract"
+        }
+      ]
     },
     {
       "id": "TB-MAP-040",
@@ -446,8 +632,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "1. Record the start, absolute deadline, work cutoff, validation reserve, outcome, and proof before the first work action."
+        }
+      ]
     },
     {
       "id": "TB-MAP-041",
@@ -457,8 +649,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "2. Work backward from the deadline. The work cutoff is the deadline minus the protected validation reserve."
+        }
+      ]
     },
     {
       "id": "TB-MAP-042",
@@ -468,8 +666,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "3. Choose the fastest route that preserves every accepted requirement. Do not silently reduce scope, quality, safety, or proof."
+        }
+      ]
     },
     {
       "id": "TB-MAP-043",
@@ -479,8 +683,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "4. Before each action, compare its maximum duration with the remaining work budget. Do not start an action that can cross the work cutoff."
+        }
+      ]
     },
     {
       "id": "TB-MAP-044",
@@ -490,8 +700,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "5. Set command and tool timeouts no later than the applicable cutoff. Avoid open-ended retries, waits, polls, and background work."
+        }
+      ]
     },
     {
       "id": "TB-MAP-045",
@@ -501,8 +717,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "6. Count subagents, queued jobs, approvals, restarts, and remote processing as incomplete until their final evidence is available inside the timebox."
+        }
+      ]
     },
     {
       "id": "TB-MAP-046",
@@ -512,8 +734,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "7. If a required step no longer fits, use a faster route only when it preserves the full contract. Otherwise stop and report `TIMEBOX_FAILED` immediately."
+        }
+      ]
     },
     {
       "id": "TB-MAP-047",
@@ -523,8 +751,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "8. Begin decisive validation at the work cutoff or earlier. No implementation work may consume the protected validation reserve."
+        }
+      ]
     },
     {
       "id": "TB-MAP-048",
@@ -534,8 +768,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "9. Capture a completion timestamp after every decisive check passes. Do not reset or extend the deadline because of retries, clarification, tool latency, or failure."
+        }
+      ]
     },
     {
       "id": "TB-MAP-049",
@@ -545,8 +785,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Completion decision"
+        }
+      ]
     },
     {
       "id": "TB-MAP-050",
@@ -556,8 +802,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Return `TIMEBOX_PASS` only when all of these are proved:"
+        }
+      ]
     },
     {
       "id": "TB-MAP-051",
@@ -567,8 +819,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The full accepted outcome is complete."
+        }
+      ]
     },
     {
       "id": "TB-MAP-052",
@@ -578,8 +836,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Every decisive validation check passed."
+        }
+      ]
     },
     {
       "id": "TB-MAP-053",
@@ -589,8 +853,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Final evidence was available before the absolute deadline."
+        }
+      ]
     },
     {
       "id": "TB-MAP-054",
@@ -600,8 +870,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The completion timestamp is at or before the deadline."
+        }
+      ]
     },
     {
       "id": "TB-MAP-055",
@@ -611,8 +887,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- No required work remains queued, delegated, pending approval, or unverified."
+        }
+      ]
     },
     {
       "id": "TB-MAP-056",
@@ -622,8 +904,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Return `TIMEBOX_FAILED` when execution began but any condition is unproved by the deadline. State completed work, validation run, remaining work, side effects, and the exact time result without describing partial progress as completion."
+        }
+      ]
     },
     {
       "id": "TB-MAP-057",
@@ -633,8 +921,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "Return `TIMEBOX_NOT_STARTED` when admission fails. This is the correct result when the requested guarantee cannot be supported within the limit."
+        }
+      ]
     },
     {
       "id": "TB-MAP-058",
@@ -644,8 +938,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Failure and safety rules"
+        }
+      ]
     },
     {
       "id": "TB-MAP-059",
@@ -655,8 +955,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Never claim success because the main edit finished while tests or inspection remained."
+        }
+      ]
     },
     {
       "id": "TB-MAP-060",
@@ -666,8 +972,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Never count queue submission, dispatch, a tool acknowledgment, or a background process as completed work."
+        }
+      ]
     },
     {
       "id": "TB-MAP-061",
@@ -677,8 +989,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Never skip, weaken, or move validation beyond the deadline to manufacture a pass."
+        }
+      ]
     },
     {
       "id": "TB-MAP-062",
@@ -688,8 +1006,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Never conceal a deadline miss. Late success is still `TIMEBOX_FAILED` for that invocation."
+        }
+      ]
     },
     {
       "id": "TB-MAP-063",
@@ -699,8 +1023,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Preserve safe intermediate state and report it when stopping. Do not rush irreversible or sensitive actions to beat the clock."
+        }
+      ]
     },
     {
       "id": "TB-MAP-064",
@@ -710,8 +1040,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- A new or changed task invalidates admission. Start a new timebox only from a fresh user-specified limit."
+        }
+      ]
     },
     {
       "id": "TB-MAP-065",
@@ -721,8 +1057,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Output"
+        }
+      ]
     },
     {
       "id": "TB-MAP-066",
@@ -732,8 +1074,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "At admission, state the start, deadline, full outcome, decisive validation, and protected validation reserve. At closeout, lead with `TIMEBOX_PASS`, `TIMEBOX_FAILED`, or `TIMEBOX_NOT_STARTED`, then give the completion timestamp, deadline, evidence, and any remaining work."
+        }
+      ]
     },
     {
       "id": "TB-MAP-067",
@@ -743,8 +1091,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Progressive disclosure"
+        }
+      ]
     },
     {
       "id": "TB-MAP-068",
@@ -753,9 +1107,15 @@
       "source_text_sha256": "8fc691372557334166a36568a8ead4201819529e61ca49e37a0dbe6d5910c6bd",
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "`PD-101`: `evals/cases.json` owns objective pressure cases and acceptance."
+        }
+      ]
     },
     {
       "id": "TB-MAP-069",
@@ -765,8 +1125,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "## Verification"
+        }
+      ]
     },
     {
       "id": "TB-MAP-070",
@@ -776,8 +1142,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The clock anchor came from the current `always-current-datetime` instructions."
+        }
+      ]
     },
     {
       "id": "TB-MAP-071",
@@ -787,8 +1159,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Admission covered the full task and validation, not implementation alone."
+        }
+      ]
     },
     {
       "id": "TB-MAP-072",
@@ -798,8 +1176,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- The absolute deadline and validation reserve were computed before work."
+        }
+      ]
     },
     {
       "id": "TB-MAP-073",
@@ -809,8 +1193,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Every action was bounded to finish before its cutoff."
+        }
+      ]
     },
     {
       "id": "TB-MAP-074",
@@ -820,8 +1210,14 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- PASS requires completion, decisive validation, and final evidence inside the limit."
+        }
+      ]
     },
     {
       "id": "TB-MAP-075",
@@ -831,953 +1227,1458 @@
       "public_targets": ["SKILL.md"],
       "evidence_target": "native/SKILL.native.md",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "SKILL.md",
+          "contains": "- Partial, queued, late, or unvalidated work cannot pass."
+        }
+      ]
     },
     {
       "id": "TB-MAP-076",
       "source_path": "references/eval-cases.json",
       "source_line": 1,
       "source_text_sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-077",
       "source_path": "references/eval-cases.json",
       "source_line": 2,
       "source_text_sha256": "c5bb1883d2e23ccf131636c19781d0f890dfdf1686c69f01973fd37343c507f7",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"schema_version\": 1"
+        }
+      ]
     },
     {
       "id": "TB-MAP-078",
       "source_path": "references/eval-cases.json",
       "source_line": 3,
       "source_text_sha256": "8c80f6c5db0529039834a57b40a0acf6ab11f40dfa27fe1711714e48524bee17",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"skill\": \"timebox\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-079",
       "source_path": "references/eval-cases.json",
       "source_line": 4,
       "source_text_sha256": "37d0ac501843a001f972b5548650088b6c97270ed61157d44420e3eb4bc5ffa6",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"acceptance\": \"all applicable required outcomes must hold; any forbidden outcome blocks the case\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-080",
       "source_path": "references/eval-cases.json",
       "source_line": 5,
       "source_text_sha256": "403260bc035618ff757f396d10d700f9b8636d6b1fb2e999582f3e72848e0f05",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"cases\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-081",
       "source_path": "references/eval-cases.json",
       "source_line": 6,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-082",
       "source_path": "references/eval-cases.json",
       "source_line": 7,
       "source_text_sha256": "d2647fae2bf03dae9cae848e4fe887362026e8d53caff75bc0176eafd3d52423",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-001\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-083",
       "source_path": "references/eval-cases.json",
       "source_line": 8,
       "source_text_sha256": "1556df6796722ecf580f5d6cc6d961b777baeab268acf9802173f26446d80e14",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"/timebox 10 minutes fix and test the parser\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-084",
       "source_path": "references/eval-cases.json",
       "source_line": 9,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-085",
       "source_path": "references/eval-cases.json",
       "source_line": 10,
       "source_text_sha256": "9b44963ae7fe7cf8e400bb070aa0972d6d7ea3a9a215a98a0992a92de501a8d1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"fresh clock anchor\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-086",
       "source_path": "references/eval-cases.json",
       "source_line": 11,
       "source_text_sha256": "785d70cebd3130f2b9795e09d145614cd763dbc364f212708cd28dd43845a114",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"absolute deadline\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-087",
       "source_path": "references/eval-cases.json",
       "source_line": 12,
       "source_text_sha256": "fe3d91ab6f381c297ba0b1ee571890a763578040263dcd482984b7e576766444",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"protected validation reserve\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-088",
       "source_path": "references/eval-cases.json",
       "source_line": 13,
       "source_text_sha256": "44116030b75a76ac98e27aec662519a24900f37bd38ba8dd904e5aa94312a83a",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"full fix and decisive tests finish before the deadline\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-089",
       "source_path": "references/eval-cases.json",
       "source_line": 14,
       "source_text_sha256": "401807954237d35344cd096de0bfb630c43cdb7535c9552f989bf0e13944e068",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"completion timestamp at or before the deadline\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-090",
       "source_path": "references/eval-cases.json",
       "source_line": 15,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-091",
       "source_path": "references/eval-cases.json",
       "source_line": 16,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-092",
       "source_path": "references/eval-cases.json",
       "source_line": 17,
       "source_text_sha256": "f1eae1146dde4921c23e87f5ff3cd5fce54553ed88b2e7c0cf0ff58b06347fac",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"implementation-only success\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-093",
       "source_path": "references/eval-cases.json",
       "source_line": 18,
       "source_text_sha256": "ae09b3e5fe0ae4a99c2a5997b7c2f7a650e897a7aab099b9315955c0e0b8c2d3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"validation after the deadline\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-094",
       "source_path": "references/eval-cases.json",
       "source_line": 19,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-095",
       "source_path": "references/eval-cases.json",
       "source_line": 20,
       "source_text_sha256": "58636dd91683339092f700bf39dd97cef08ab7e1a75e5ae24bdc7de2ecf16d40",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "},"
+        }
+      ]
     },
     {
       "id": "TB-MAP-096",
       "source_path": "references/eval-cases.json",
       "source_line": 21,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-097",
       "source_path": "references/eval-cases.json",
       "source_line": 22,
       "source_text_sha256": "a6a3ea5dfaa08a1502c5230b8438b2cffb9861ee97ba3d921528e431facf7113",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-002\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-098",
       "source_path": "references/eval-cases.json",
       "source_line": 23,
       "source_text_sha256": "d0dc4cc48b92ff740c40198977f1434aec4fbf2e53c199d2601777696dd5b5d5",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"/timebox 2 minutes run a test suite whose observed bound is 8 minutes\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-099",
       "source_path": "references/eval-cases.json",
       "source_line": 24,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-100",
       "source_path": "references/eval-cases.json",
       "source_line": 25,
       "source_text_sha256": "00d2ed105cdff8be1a907ce1c1e88116a07baf4dfb535f6c2c192868bf7d46c0",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_NOT_STARTED\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-101",
       "source_path": "references/eval-cases.json",
       "source_line": 26,
       "source_text_sha256": "47c6935b4a3fd4c16da36589bd07a38d699417bc27539e3d6a5755d6bb6c1434",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"failed admission condition\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-102",
       "source_path": "references/eval-cases.json",
       "source_line": 27,
       "source_text_sha256": "85083ec6efd32d72beb11d5e76a41de1c608d751eba8be439d139688807cd8f0",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"request a longer limit or explicit scope change\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-103",
       "source_path": "references/eval-cases.json",
       "source_line": 28,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-104",
       "source_path": "references/eval-cases.json",
       "source_line": 29,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-105",
       "source_path": "references/eval-cases.json",
       "source_line": 30,
       "source_text_sha256": "5bf05c111a74638c49fc2f4867ccc4e8b227f743ddbf75402a494df3460ee4b9",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"begin execution\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-106",
       "source_path": "references/eval-cases.json",
       "source_line": 31,
       "source_text_sha256": "927275bce6b0339c7ca89742a309d691725d9a66497873837ee9dd0ca9a5e6c1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"silently reduce the requested tests\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-107",
       "source_path": "references/eval-cases.json",
       "source_line": 32,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-108",
       "source_path": "references/eval-cases.json",
       "source_line": 33,
       "source_text_sha256": "58636dd91683339092f700bf39dd97cef08ab7e1a75e5ae24bdc7de2ecf16d40",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "},"
+        }
+      ]
     },
     {
       "id": "TB-MAP-109",
       "source_path": "references/eval-cases.json",
       "source_line": 34,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-110",
       "source_path": "references/eval-cases.json",
       "source_line": 35,
       "source_text_sha256": "fd79847fa385bb951f53d134c4ebd8256e10d9ccfb433382f591b654e261f6ad",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-003\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-111",
       "source_path": "references/eval-cases.json",
       "source_line": 36,
       "source_text_sha256": "93664b1f96cd69e515be99eb87c67a5a5c93de3680e89b1d2b4c9f4c691fed10",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"Implementation finishes before the deadline, but decisive validation finishes after it.\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-112",
       "source_path": "references/eval-cases.json",
       "source_line": 37,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-113",
       "source_path": "references/eval-cases.json",
       "source_line": 38,
       "source_text_sha256": "0abfbcd7f6352e8cf0cbf783830a17ce9174cba3be683aa859d2d8a6dbb6d64e",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_FAILED\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-114",
       "source_path": "references/eval-cases.json",
       "source_line": 39,
       "source_text_sha256": "ce46d93b400b78b95efd53e533a63fe73c7cb58fdd056320e5570d7ddec3eff1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"late validation disclosed\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-115",
       "source_path": "references/eval-cases.json",
       "source_line": 40,
       "source_text_sha256": "26a0311849cb6c7f579c5dbe33b433436c4f80fe808f1a4b371a0c6c92f0d9e0",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"remaining or late evidence listed\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-116",
       "source_path": "references/eval-cases.json",
       "source_line": 41,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-117",
       "source_path": "references/eval-cases.json",
       "source_line": 42,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-118",
       "source_path": "references/eval-cases.json",
       "source_line": 43,
       "source_text_sha256": "a5d5d3631def0cbdeef481a16ba38c93648f03a8fe7048ac8cf8796ea4b5a61d",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_PASS\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-119",
       "source_path": "references/eval-cases.json",
       "source_line": 44,
       "source_text_sha256": "dd21b7ce83e1ddcbea7ae100703fc3564488438faa7f163ae03f42d2df338b18",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"late success described as on-time completion\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-120",
       "source_path": "references/eval-cases.json",
       "source_line": 45,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-121",
       "source_path": "references/eval-cases.json",
       "source_line": 46,
       "source_text_sha256": "58636dd91683339092f700bf39dd97cef08ab7e1a75e5ae24bdc7de2ecf16d40",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "},"
+        }
+      ]
     },
     {
       "id": "TB-MAP-122",
       "source_path": "references/eval-cases.json",
       "source_line": 47,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-123",
       "source_path": "references/eval-cases.json",
       "source_line": 48,
       "source_text_sha256": "cdf6902c222a42ebcc8dfd79927b912ee62f58a98e25a96b0afaed9343278b75",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-004\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-124",
       "source_path": "references/eval-cases.json",
       "source_line": 49,
       "source_text_sha256": "93b2750deaa614a6b6d5b3b7a6f6cffc8bd37e43dc129982638af2331dc33d50",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"/timebox 5 minutes deploy a change that still needs an unbounded human approval\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-125",
       "source_path": "references/eval-cases.json",
       "source_line": 50,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-126",
       "source_path": "references/eval-cases.json",
       "source_line": 51,
       "source_text_sha256": "00d2ed105cdff8be1a907ce1c1e88116a07baf4dfb535f6c2c192868bf7d46c0",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_NOT_STARTED\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-127",
       "source_path": "references/eval-cases.json",
       "source_line": 52,
       "source_text_sha256": "d1c72881fa48142e570d2ffd90163ad0cdfa0cc7677181599733f247f0f942bc",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"unbounded approval identified as an admission failure\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-128",
       "source_path": "references/eval-cases.json",
       "source_line": 53,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-129",
       "source_path": "references/eval-cases.json",
       "source_line": 54,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-130",
       "source_path": "references/eval-cases.json",
       "source_line": 55,
       "source_text_sha256": "9f6168b539b43e580e2c8ee7bc93fa84a3a1435620cfb850cc531ef013df3edd",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"wait indefinitely\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-131",
       "source_path": "references/eval-cases.json",
       "source_line": 56,
       "source_text_sha256": "df2eb0908861e8c81ed4e221e63217e1314838bf96ae95b24ea246e1cce86763",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"assume approval\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-132",
       "source_path": "references/eval-cases.json",
       "source_line": 57,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-133",
       "source_path": "references/eval-cases.json",
       "source_line": 58,
       "source_text_sha256": "58636dd91683339092f700bf39dd97cef08ab7e1a75e5ae24bdc7de2ecf16d40",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "},"
+        }
+      ]
     },
     {
       "id": "TB-MAP-134",
       "source_path": "references/eval-cases.json",
       "source_line": 59,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-135",
       "source_path": "references/eval-cases.json",
       "source_line": 60,
       "source_text_sha256": "36d884f4f285876e1bd73c6acbb4775c4d93974043cd60f707c5584a19ad4060",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-005\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-136",
       "source_path": "references/eval-cases.json",
       "source_line": 61,
       "source_text_sha256": "02cf703cc79a5b1ffd26b0d6b7a477ee12e9a800dbea654de318bf748bbf9759",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"A proposed command can run for 6 minutes, but the remaining work budget is 4 minutes.\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-137",
       "source_path": "references/eval-cases.json",
       "source_line": 62,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-138",
       "source_path": "references/eval-cases.json",
       "source_line": 63,
       "source_text_sha256": "fd1027849c2d162209d55f74858b77bacd2484d469ab66d2d4065d081c72d9f3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"do not start the command\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-139",
       "source_path": "references/eval-cases.json",
       "source_line": 64,
       "source_text_sha256": "80b84a39c01b84817011be97b26ad37980a304d4044c180cfa0f607be7b774b9",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"use only a faster route that preserves the full contract or fail\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-140",
       "source_path": "references/eval-cases.json",
       "source_line": 65,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-141",
       "source_path": "references/eval-cases.json",
       "source_line": 66,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-142",
       "source_path": "references/eval-cases.json",
       "source_line": 67,
       "source_text_sha256": "208b2e69bf013eb4434def5ddc1ce6877fd8bf07c779d04960b15d031c9fde8b",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"start an action that can cross the work cutoff\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-143",
       "source_path": "references/eval-cases.json",
       "source_line": 68,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-144",
       "source_path": "references/eval-cases.json",
       "source_line": 69,
       "source_text_sha256": "58636dd91683339092f700bf39dd97cef08ab7e1a75e5ae24bdc7de2ecf16d40",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "},"
+        }
+      ]
     },
     {
       "id": "TB-MAP-145",
       "source_path": "references/eval-cases.json",
       "source_line": 70,
       "source_text_sha256": "0d3d2f5a8b2fc178b4e5ab7eb9c8c886e2e08b03608f0bd3200c3fb76b4aec0c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "{"
+        }
+      ]
     },
     {
       "id": "TB-MAP-146",
       "source_path": "references/eval-cases.json",
       "source_line": 71,
       "source_text_sha256": "058398d20a0dded8af09c4081aa4353b2a83818ba324daeea697b886d5fe1b96",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"id\": \"TB-006\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-147",
       "source_path": "references/eval-cases.json",
       "source_line": 72,
       "source_text_sha256": "f1db801df298f01096631883674cc59808022ddd23b4a17e65eaacd1d4139768",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"prompt\": \"A background job is queued inside the limit and completes after it.\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-148",
       "source_path": "references/eval-cases.json",
       "source_line": 73,
       "source_text_sha256": "910c18b1a215b9a619506ca8327959c8fe6d48a9dab8dfa93649db551c1f793c",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"required\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-149",
       "source_path": "references/eval-cases.json",
       "source_line": 74,
       "source_text_sha256": "0abfbcd7f6352e8cf0cbf783830a17ce9174cba3be683aa859d2d8a6dbb6d64e",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_FAILED\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-150",
       "source_path": "references/eval-cases.json",
       "source_line": 75,
       "source_text_sha256": "7b471401168afcbb169231a9c36040537312f6941a192f52a6e55246cd911136",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"queueing is not completion\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-151",
       "source_path": "references/eval-cases.json",
       "source_line": 76,
       "source_text_sha256": "f0af6bd36fad33eff77c3be24ce1f5f7d4958bdfca53e707c56abe15c985aed3",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-152",
       "source_path": "references/eval-cases.json",
       "source_line": 77,
       "source_text_sha256": "9c07fd2c53ab36b4c42d9afbfc0bc1c0c75ee528e3f1a036fd88ae28853a4127",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
-      "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "action": "move",
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"veto\": ["
+        }
+      ]
     },
     {
       "id": "TB-MAP-153",
       "source_path": "references/eval-cases.json",
       "source_line": 78,
       "source_text_sha256": "a5d5d3631def0cbdeef481a16ba38c93648f03a8fe7048ac8cf8796ea4b5a61d",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"TIMEBOX_PASS\","
+        }
+      ]
     },
     {
       "id": "TB-MAP-154",
       "source_path": "references/eval-cases.json",
       "source_line": 79,
       "source_text_sha256": "71bc11339ff062537e41f96839695c3dd342aec753becbf94fec28fe26e66ed7",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"dispatch acknowledgment used as final evidence\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-155",
       "source_path": "references/eval-cases.json",
       "source_line": 80,
       "source_text_sha256": "29822f05cc29320a2d83c8064e3f5c83b8248f7cbcc9edf69a1f035b54bd70e1",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "]"
+        }
+      ]
     },
     {
       "id": "TB-MAP-156",
       "source_path": "references/eval-cases.json",
       "source_line": 81,
       "source_text_sha256": "28d86778615f6af47bb1bc4f40face756749768e5111f114cfa234a5060c25af",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "}"
+        }
+      ]
     },
     {
       "id": "TB-MAP-157",
       "source_path": "references/eval-cases.json",
       "source_line": 82,
       "source_text_sha256": "ef545bc4ac485812527346e4ca6e9e6aa8589d8cafc5327ebf4d6e3a02c91536",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "],"
+        }
+      ]
     },
     {
       "id": "TB-MAP-158",
       "source_path": "references/eval-cases.json",
       "source_line": 83,
       "source_text_sha256": "133899ae1d161e05acedf2464c471fafdf9631ce627072b6c4cd752ebb9e6e67",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "\"backlink\": \"../SKILL.md#progressive-disclosure\""
+        }
+      ]
     },
     {
       "id": "TB-MAP-159",
       "source_path": "references/eval-cases.json",
       "source_line": 84,
       "source_text_sha256": "d10b36aa74a59bcf4a88185837f658afaf3646eff2bb16c3928d0e9335e945d2",
-      "public_targets": ["evals/cases.json", "evals/evals.json"],
+      "public_targets": ["evals/cases.json"],
       "evidence_target": "native/references/eval-cases.json",
       "action": "keep",
-      "preservation_judgment": "Meaning and requirement strength are preserved in the named public target and exact evidence file.",
-      "review_state": "approved"
+      "preservation_judgment": "Portable target preserves this source line or its exact semantic equivalent.",
+      "review_state": "approved",
+      "public_assertions": [
+        {
+          "target": "evals/cases.json",
+          "contains": "}"
+        }
+      ]
     }
   ],
   "adaptations": [
     {
-      "source_concept": "Slash-command execution inside one host",
-      "portable_concept": "Explicit invocation or description-based activation in any supporting client",
-      "preserved": [
-        "full task",
-        "hard deadline",
-        "validation reserve",
-        "three decision labels"
-      ]
+      "source_concept": "Host-specific frontmatter",
+      "portable_concept": "Collection frontmatter plus byte-exact evidence",
+      "preserved": ["name", "description", "author", "license", "native version lineage"],
+      "omitted": ["platform list", "host tags", "host commit compatibility fields"]
     },
     {
-      "source_concept": "Required named composition skills",
-      "portable_concept": "The same four portable skills from this collection",
+      "source_concept": "Native evaluation reference owner",
+      "portable_concept": "evals/cases.json as the public evaluation owner",
       "preserved": [
-        "clock ownership",
-        "outcome ownership",
-        "route classification",
-        "consistency checks"
+        "acceptance rule",
+        "six source cases",
+        "progressive-disclosure backlink"
       ]
     }
   ]

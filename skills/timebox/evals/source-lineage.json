@@ -3,7 +3,7 @@
   "native_manifest_sha256": "b2c2f242431a613f7001db2e9fef5d72e24b8899bceddb39e2452ad3d96994d5",
   "active_case_ids": ["TB-001", "TB-002", "TB-003", "TB-004", "TB-005", "TB-006"],
   "native_version": "1.0.2",
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_files": [
     {
       "path": "SKILL.md",

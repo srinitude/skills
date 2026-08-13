@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "skill": "timebox",
+  "public_version": "0.1.1",
   "test_classes": [
     "positive_activation",
     "rejection",

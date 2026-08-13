@@ -18,12 +18,66 @@ const sourceCases = Array.from(
   (_, index) => `TB-${String(index + 1).padStart(3, '0')}`,
 );
 
+interface MappingEntry {
+  action: string;
+  evidence_target: string;
+  preservation_judgment: string;
+  public_assertions?: Array<{ contains: string; target: string }>;
+  public_targets: string[];
+  review_state: string;
+  source_line: number;
+  source_path: string;
+  source_text_sha256: string;
+}
+
 function digest(value: Buffer | string): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
 async function json(path: string): Promise<Record<string, unknown>> {
   return JSON.parse(await readFile(path, 'utf8')) as Record<string, unknown>;
+}
+
+async function loadNativeLines(): Promise<Map<string, string[]>> {
+  const manifest = await json(join(evidence, 'manifest.json'));
+  const files = manifest.files as Array<{ evidence_path: string; source_path: string }>;
+  const lines = new Map<string, string[]>();
+  for (const sourcePath of Object.keys(sources)) {
+    const evidencePath = files.find(
+      (entry) => entry.source_path === sourcePath,
+    )?.evidence_path;
+    if (!evidencePath) throw new Error(`missing evidence path for ${sourcePath}`);
+    lines.set(
+      sourcePath,
+      (await readFile(join(evidence, evidencePath), 'utf8')).split('\n'),
+    );
+  }
+  return lines;
+}
+
+async function expectMappedEntry(
+  entry: MappingEntry,
+  nativeLines: Map<string, string[]>,
+): Promise<void> {
+  const sourceLine = nativeLines.get(entry.source_path)?.[entry.source_line - 1];
+  expect(sourceLine?.trim().length).toBeGreaterThan(0);
+  expect(digest(sourceLine ?? '')).toBe(entry.source_text_sha256);
+  expect(entry.action).not.toBe('drop');
+  expect(entry.evidence_target.length).toBeGreaterThan(0);
+  expect(entry.review_state).toBe('approved');
+  if (entry.action === 'clarify') {
+    expect(entry.public_targets).toEqual([]);
+    expect(entry.preservation_judgment).toContain('portable omission');
+    return;
+  }
+  expect(entry.public_targets.length).toBeGreaterThan(0);
+  expect(entry.public_assertions?.length).toBeGreaterThan(0);
+  for (const assertion of entry.public_assertions ?? []) {
+    expect(entry.public_targets).toContain(assertion.target);
+    expect(await readFile(join(skill, assertion.target), 'utf8')).toContain(
+      assertion.contains,
+    );
+  }
 }
 
 test('keeps an exact packet of both native source files', async () => {
@@ -52,22 +106,10 @@ test('maps every nonblank source line without loss', async () => {
     ratio: 1,
     source_nonblank_lines: 159,
   });
-  const entries = mapping.entries as Array<{
-    action: string;
-    evidence_target: string;
-    public_targets: string[];
-    review_state: string;
-  }>;
+  const entries = mapping.entries as MappingEntry[];
   expect(entries).toHaveLength(159);
-  expect(
-    entries.every(
-      (entry) =>
-        entry.action !== 'drop' &&
-        entry.evidence_target.length > 0 &&
-        entry.public_targets.length > 0 &&
-        entry.review_state === 'approved',
-    ),
-  ).toBe(true);
+  const nativeLines = await loadNativeLines();
+  for (const entry of entries) await expectMappedEntry(entry, nativeLines);
 });
 
 test('binds all source cases and public files to lineage', async () => {
@@ -76,7 +118,7 @@ test('binds all source cases and public files to lineage', async () => {
   expect(lineage).toMatchObject({
     native_manifest_sha256: packet,
     native_version: '1.0.2',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
     source_case_ids: sourceCases,
   });
   expect(
@@ -94,16 +136,40 @@ test('binds all source cases and public files to lineage', async () => {
 test('publishes the complete deadline and validation contract', async () => {
   const source = await readFile(join(skill, 'SKILL.md'), 'utf8');
   for (const marker of [
-    'fresh clock anchor',
+    'hard acceptance constraint',
+    'Only work that is complete, validated, and timestamped before the deadline may pass.',
+    'fresh local clock anchor',
     'absolute deadline',
     'protected validation reserve',
+    'has a proven bound that fits',
+    'The chosen route preserves the full requested scope, safety rules, and decisive validation.',
+    'subagents, queued jobs, approvals, restarts, and remote processing',
     'TIMEBOX_PASS',
     'TIMEBOX_FAILED',
     'TIMEBOX_NOT_STARTED',
     'queued, delegated, pending approval, or unverified',
     'completion timestamp',
+    '## Progressive disclosure',
+    '`evals/cases.json` owns objective pressure cases and acceptance.',
+    '## Verification',
+    'Partial, queued, late, or unvalidated work cannot pass.',
   ])
     expect(source).toContain(marker);
   expect(source).not.toMatch(/Hermes|skill_view|skill_manage/);
   expect(source.trimEnd().split('\n').length).toBeLessThan(200);
+});
+
+test('publishes source acceptance and backlink semantics', async () => {
+  const native = await json(join(evidence, 'native', 'references', 'eval-cases.json'));
+  const cases = await json(join(skill, 'evals', 'cases.json'));
+  expect(cases.acceptance).toBe(native.acceptance);
+  expect(cases.backlink).toBe(native.backlink);
+  expect(
+    (cases.cases as Array<Record<string, unknown>>).map((entry) => ({
+      forbidden: entry.veto,
+      id: entry.source_id,
+      prompt: entry.prompt,
+      required: entry.required,
+    })),
+  ).toEqual(native.cases);
 });

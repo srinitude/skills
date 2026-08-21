@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "skill": "prompt-enhancer",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Can you improve this prompt: summarize our churn data and put the result in a table.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Make this prompt better: write a scraper that collects product reviews.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Enhance my image prompt so the subject, style, and composition are clearer.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Refine and validate this system prompt before I ship it.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "prompt": "Write a better blog post about our launch.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "prompt": "Improve the structure of this essay.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Run this prompt and show me the output.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Which settings should I use to run my prompt cheaply?",
+      "should_trigger": false
+    }
+  ]
+}

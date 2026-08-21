@@ -28,6 +28,7 @@ test('passes the current public repository copy', async () => {
     'skills/meaning-preserving-rewrite/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',
     'skills/prime-vector/SKILL.md',
+    'skills/prompt-enhancer/SKILL.md',
     'skills/reify/SKILL.md',
     'skills/simplify-skill/SKILL.md',
     'skills/skill-factory/SKILL.md',

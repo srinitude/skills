@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "skill": "prompt-enhancer",
+  "native_version": "3.2",
+  "source_origin": "user-local skill directory installed outside version control; no source commit exists",
+  "native_manifest_sha256": "1b2dc4a3ba5b94812d22b9107291bd4dc88590daa23b2c36c8ce09d2b25ccbb2",
+  "manifest_algorithm": "SHA-256 of source-path, NUL, file SHA-256, and newline rows in manifest order",
+  "source_case_ids": [
+    "PE-001",
+    "PE-002",
+    "PE-003",
+    "PE-004",
+    "PE-005",
+    "PE-006",
+    "PE-007",
+    "PE-008",
+    "PE-009",
+    "PE-010",
+    "PE-011",
+    "PE-012",
+    "PE-013",
+    "PE-014",
+    "PE-015",
+    "PE-016"
+  ],
+  "native_case_ids": [
+    "direct-task-trap",
+    "request-to-author",
+    "handed-over-artifact",
+    "convergent-unsure",
+    "jailbreak-refusal",
+    "smuggled-side-effect",
+    "secret-in-prompt",
+    "already-excellent",
+    "hybrid-context",
+    "bare-question",
+    "non-english",
+    "execute-paraphrase",
+    "multiple-prompts",
+    "no-prompt-present",
+    "writing-substance",
+    "never-fake-substance"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "native/SKILL.native.md",
+      "sha256": "adb4e552faaa62157b0592667a2e89ddec27f75d1eb3e3ada48a52d1e4739bd6",
+      "bytes": 15557
+    },
+    {
+      "source_path": "assets/delivery-template.md",
+      "evidence_path": "native/assets/delivery-template.md",
+      "sha256": "a09fe1140f923564abc52795fb176b5ffe72f240e844a8449a3eaaaea9f547ef",
+      "bytes": 584
+    },
+    {
+      "source_path": "evals/cases.json",
+      "evidence_path": "native/evals/cases.json",
+      "sha256": "3137232f836be2f1b386dbab8dcc5c67bb7f496c45744079744ed83a1fce43ac",
+      "bytes": 5296
+    },
+    {
+      "source_path": "scripts/check_delivery.py",
+      "evidence_path": "native/scripts/check_delivery.py",
+      "sha256": "fec1cf0110bff568880cb180d55e9f75cafa15de4f52ca82efe3a428a1a50993",
+      "bytes": 3256
+    },
+    {
+      "source_path": "scripts/check_prompt.py",
+      "evidence_path": "native/scripts/check_prompt.py",
+      "sha256": "b1e8cc09ec3a8a4fee008f8e5c3e64834bd0a39c3f6ac324fd42444d52e54ea8",
+      "bytes": 4717
+    },
+    {
+      "source_path": "scripts/check_prose.py",
+      "evidence_path": "native/scripts/check_prose.py",
+      "sha256": "b916e0d27868e40b1573071e4beb9300738cd15c5e02dd931f139ccbc47d0a9a",
+      "bytes": 8056
+    },
+    {
+      "source_path": "scripts/context_checks.py",
+      "evidence_path": "native/scripts/context_checks.py",
+      "sha256": "21f513d8f9a7bb527c0bea49cab8983f526406d07cdf3372a09ec7c4ea18e23b",
+      "bytes": 3356
+    },
+    {
+      "source_path": "scripts/scan_secrets.py",
+      "evidence_path": "native/scripts/scan_secrets.py",
+      "sha256": "889d345d1b52e76bb9148277137ae2f78c2a864c11098a98d83231b10c53df9f",
+      "bytes": 3341
+    }
+  ],
+  "excluded_entries": [],
+  "private_scan_findings": [],
+  "portable_skill": "skills/prompt-enhancer"
+}

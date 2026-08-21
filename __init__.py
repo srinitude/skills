@@ -30,6 +30,19 @@ _SKILLS = (
         "Use when a high-stakes problem needs a strategy.",
     ),
     (
+        "prompt-enhancer",
+        "Use when the user asks to enhance, improve, refine, rewrite,"
+        " strengthen, or validate a prompt, or says \"make this prompt"
+        " better\". Returns a clearer, more specific, better structured"
+        " version of the prompt without executing it, picking validation"
+        " checks from the prompt's own context. Contexts include coding,"
+        " research, writing, image or video generation, agentic tasks, data"
+        " work, and system prompts. Flags ambiguity, contradictions, missing"
+        " constraints, missing success criteria, format gaps, and leaked"
+        " secrets. Do not use when the user wants the prompt's task"
+        " performed.",
+    ),
+    (
         "reify",
         "Use when a vague idea, stray thought, remembered fragment, or uncertain"
         " direction needs to become a concrete outcome, tested design, decision"

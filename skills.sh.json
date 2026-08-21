@@ -26,6 +26,10 @@
       "skills": ["outcome-bounded-work", "prime-vector", "starting-point"]
     },
     {
+      "title": "Prompt Quality",
+      "skills": ["prompt-enhancer"]
+    },
+    {
       "title": "Reasoning",
       "skills": ["logic-audit"]
     },

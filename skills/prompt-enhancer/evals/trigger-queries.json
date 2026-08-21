@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Can you improve this prompt: summarize our churn data and put the result in a table.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make this prompt better: write a scraper that collects product reviews.",
+    "should_trigger": true
+  },
+  {
+    "query": "Enhance my image prompt so the subject, style, and composition are clearer.",
+    "should_trigger": true
+  },
+  {
+    "query": "Refine and validate this system prompt before I ship it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write a better blog post about our launch.",
+    "should_trigger": false
+  },
+  {
+    "query": "Improve the structure of this essay.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run this prompt and show me the output.",
+    "should_trigger": false
+  },
+  {
+    "query": "Which settings should I use to run my prompt cheaply?",
+    "should_trigger": false
+  }
+]

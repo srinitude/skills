@@ -10,6 +10,7 @@ aider --read /absolute/path/to/skills/skills/logic-audit/SKILL.md
 aider --read /absolute/path/to/skills/skills/meaning-preserving-rewrite/SKILL.md
 aider --read /absolute/path/to/skills/skills/outcome-bounded-work/SKILL.md
 aider --read /absolute/path/to/skills/skills/prime-vector/SKILL.md
+aider --read /absolute/path/to/skills/skills/prompt-enhancer/SKILL.md
 aider --read /absolute/path/to/skills/skills/reify/SKILL.md
 aider --read /absolute/path/to/skills/skills/simplify-skill/SKILL.md
 aider --read /absolute/path/to/skills/skills/starting-point/SKILL.md

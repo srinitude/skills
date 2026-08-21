@@ -36,6 +36,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/meaning-preserving-rewrite/SKILL.md');
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prime-vector/SKILL.md');
+  expect(result.entries).toContain('package/skills/prompt-enhancer/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
   expect(result.entries).toContain('package/skills/simplify-skill/SKILL.md');
   expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
@@ -54,6 +55,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/meaning-preserving-rewrite/SKILL.md',
     'package/skills/outcome-bounded-work/SKILL.md',
     'package/skills/prime-vector/SKILL.md',
+    'package/skills/prompt-enhancer/SKILL.md',
     'package/skills/reify/SKILL.md',
     'package/skills/simplify-skill/SKILL.md',
     'package/skills/skill-factory/SKILL.md',

@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "1b2dc4a3ba5b94812d22b9107291bd4dc88590daa23b2c36c8ce09d2b25ccbb2",
+  "active_case_ids": [
+    "PE-001",
+    "PE-002",
+    "PE-003",
+    "PE-004",
+    "PE-005",
+    "PE-006",
+    "PE-007",
+    "PE-008",
+    "PE-009",
+    "PE-010",
+    "PE-011",
+    "PE-012",
+    "PE-013",
+    "PE-014",
+    "PE-015",
+    "PE-016"
+  ],
+  "native_version": "3.2",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "adb4e552faaa62157b0592667a2e89ddec27f75d1eb3e3ada48a52d1e4739bd6"
+    },
+    {
+      "path": "assets/delivery-template.md",
+      "sha256": "a09fe1140f923564abc52795fb176b5ffe72f240e844a8449a3eaaaea9f547ef"
+    },
+    {
+      "path": "evals/cases.json",
+      "sha256": "3137232f836be2f1b386dbab8dcc5c67bb7f496c45744079744ed83a1fce43ac"
+    },
+    {
+      "path": "scripts/check_delivery.py",
+      "sha256": "fec1cf0110bff568880cb180d55e9f75cafa15de4f52ca82efe3a428a1a50993"
+    },
+    {
+      "path": "scripts/check_prompt.py",
+      "sha256": "b1e8cc09ec3a8a4fee008f8e5c3e64834bd0a39c3f6ac324fd42444d52e54ea8"
+    },
+    {
+      "path": "scripts/check_prose.py",
+      "sha256": "b916e0d27868e40b1573071e4beb9300738cd15c5e02dd931f139ccbc47d0a9a"
+    },
+    {
+      "path": "scripts/context_checks.py",
+      "sha256": "21f513d8f9a7bb527c0bea49cab8983f526406d07cdf3372a09ec7c4ea18e23b"
+    },
+    {
+      "path": "scripts/scan_secrets.py",
+      "sha256": "889d345d1b52e76bb9148277137ae2f78c2a864c11098a98d83231b10c53df9f"
+    }
+  ],
+  "source_case_ids": [
+    "PE-001",
+    "PE-002",
+    "PE-003",
+    "PE-004",
+    "PE-005",
+    "PE-006",
+    "PE-007",
+    "PE-008",
+    "PE-009",
+    "PE-010",
+    "PE-011",
+    "PE-012",
+    "PE-013",
+    "PE-014",
+    "PE-015",
+    "PE-016"
+  ],
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/delivery-template.md",
+      "source_paths": ["assets/delivery-template.md"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["evals/cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["evals/cases.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/enhance-a-task-prompt.md",
+      "source_paths": [
+        "SKILL.md",
+        "evals/cases.json",
+        "assets/delivery-template.md",
+        "scripts/check_prompt.py",
+        "scripts/context_checks.py",
+        "scripts/check_delivery.py",
+        "scripts/check_prose.py"
+      ]
+    },
+    {
+      "path": "examples/execute-instead-of-enhance.md",
+      "source_paths": ["SKILL.md", "evals/cases.json", "scripts/check_delivery.py"]
+    },
+    {
+      "path": "examples/handed-over-artifact.md",
+      "source_paths": [
+        "SKILL.md",
+        "evals/cases.json",
+        "scripts/check_prompt.py",
+        "scripts/context_checks.py",
+        "scripts/check_delivery.py",
+        "scripts/check_prose.py"
+      ]
+    },
+    {
+      "path": "examples/no-prompt-present.md",
+      "source_paths": ["SKILL.md", "evals/cases.json"]
+    },
+    {
+      "path": "examples/refuse-extraction.md",
+      "source_paths": ["SKILL.md", "evals/cases.json"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/enhancement-moves.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/universal-checks.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "references/worked-example.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_delivery.py",
+      "source_paths": ["scripts/check_delivery.py"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_prompt.py",
+      "source_paths": ["scripts/check_prompt.py"]
+    },
+    {
+      "path": "scripts/check_prose.py",
+      "source_paths": ["scripts/check_prose.py"]
+    },
+    {
+      "path": "scripts/context_checks.py",
+      "source_paths": ["scripts/context_checks.py"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/scan_secrets.py",
+      "source_paths": ["scripts/scan_secrets.py"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_scripts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_source_mapping.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["target-scaffolding"]
+    }
+  ]
+}

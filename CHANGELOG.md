@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added the `prompt-enhancer` Agent Skill at `metadata.version: "0.1.0"` with all sixteen native behavior cases, five packaged validation scripts, worked examples with real script output, complete nonblank-line coverage of the eight-file native source packet under `evidence/ports/`, package-local CI, and repository evaluation coverage.
+- Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for `prompt-enhancer`.
 - Raised `timebox` to `0.1.1`, restored its native hard-acceptance, admission, incomplete-work, verification, and evaluation-owner semantics, replaced count-only source mapping with executable public-target assertions, and aligned the published evaluation-manifest schema with the live parser and all 15 manifests.
 - Closed final review follow-ups by splitting oversized validation code and regressions, documenting `target-scaffolding`, and labeling mixed visual-design source evidence explicitly.
 - Refreshed the visual-design live-font fixture and raised that skill to `0.2.1` after catalog drift invalidated its recorded ranks.

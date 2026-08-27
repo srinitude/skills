@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added an Agent Plugins 1.0.0 portable core with root `plugin.json`, root `mcp.json`, canonical Agent Skills discovery, and the existing read-only stdio server.
+- Added offline canonical-schema validation with source digests, path and symlink containment tests, a real portable MCP startup check, archive assertions, and public install and security guidance.
 - Added the `mobile-first-website-design` Agent Skill at `metadata.version: "0.1.0"` with a byte-exact 228-file native evidence packet, complete 12,029-line source mapping, all eight native cases, deterministic punctuation normalization for public prompt scalars, three worked examples, skill-local CI, and repository evaluation coverage.
 - Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for `mobile-first-website-design`.
 - Added the `prompt-enhancer` Agent Skill at `metadata.version: "0.1.0"` with all sixteen native behavior cases, five packaged validation scripts, worked examples with real script output, complete nonblank-line coverage of the eight-file native source packet under `evidence/ports/`, package-local CI, and repository evaluation coverage.

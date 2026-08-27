@@ -75,10 +75,15 @@ test('builds a safe package with canonical skills and client manifests', async (
       'package/.codex-plugin/plugin.json',
       'package/.cursor-plugin/plugin.json',
       'package/docs/openrouter-sweeps.md',
+      'package/evidence/agent-plugins-v1.json',
       'package/gemini-extension.json',
+      'package/mcp.json',
       'package/openclaw.plugin.json',
+      'package/plugin.json',
       'package/plugin.yaml',
       'package/mcp/dist/server.mjs',
+      'package/schemas/agent-plugins/1.0.0/mcp.schema.json',
+      'package/schemas/agent-plugins/1.0.0/plugin.schema.json',
     ]),
   );
   expect(result.entries.some((entry) => entry.includes('../'))).toBe(false);

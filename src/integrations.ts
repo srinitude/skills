@@ -6,6 +6,8 @@ import { promisify } from 'node:util';
 import { parse } from 'yaml';
 import { z } from 'zod';
 
+import { validateAgentPlugin } from './agent-plugin.js';
+
 const run = promisify(execFile);
 const clients = [
   'Aider',
@@ -30,8 +32,10 @@ const requiredPaths = [
   'adapters/continue/README.md',
   'gemini-extension.json',
   'mcp/dist/server.mjs',
+  'mcp.json',
   'openclaw.plugin.json',
   'opencode.json',
+  'plugin.json',
   'plugin.yaml',
   'skills.sh.json',
 ] as const;
@@ -123,9 +127,16 @@ async function checkPythonPlugin(root: string): Promise<void> {
   }
 }
 
+async function checkAgentPlugin(root: string): Promise<void> {
+  const report = await validateAgentPlugin(root);
+  if (report.status === 'FAIL')
+    throw new Error(report.findings.map((finding) => finding.message).join('; '));
+}
+
 export async function checkIntegrations(root: string): Promise<IntegrationReport> {
   const checks = await Promise.all([
     check('required-paths', () => checkRequiredPaths(root)),
+    check('agent-plugins-v1', () => checkAgentPlugin(root)),
     check('openclaw-paths', () => checkOpenClaw(root)),
     check('python-plugin', () => checkPythonPlugin(root)),
   ]);

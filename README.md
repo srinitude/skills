@@ -2,21 +2,28 @@
 
 Portable Agent Skills from one canonical source tree.
 
-This repository packages portable skills that follow the [Agent Skills specification](https://agentskills.io/specification).
+This repository is an [Agent Plugins 1.0.0](https://agent-plugins.org/specification) package of portable skills that follow the [Agent Skills specification](https://agentskills.io/specification), plus a read-only local MCP server.
 
 [![Install with skills.sh](https://img.shields.io/badge/skills.sh-install-111111)](https://www.skills.sh/srinitude)
 
 ## What ships
 
 - Canonical skill packages under [`skills/`](skills/).
+- Root [`plugin.json`](plugin.json) and [`mcp.json`](mcp.json) for Agent Plugins v1 clients.
 - Trigger, behavior, failure, recovery, and speed evaluations.
 - A bundled, read-only local MCP server.
-- Native plugin metadata or an honest adapter for ten clients.
+- Existing native plugin metadata and adapters for client-specific routes.
 - Strict JSON Schemas for manifests, reports, benchmarks, and checkpoints.
 
 No client integration contains a second skill body.
 
 GitHub release versions and skill metadata versions are independent. Skills don't depend on each other's versions.
+
+## Agent Plugins v1
+
+Compatible clients discover the root `plugin.json`, every immediate child in `skills/`, and the root `mcp.json`. Installation, permissions, and trust remain client-controlled.
+
+See [Agent Plugins v1](docs/agent-plugins.md) for the fixed package layout, current client registry, validation evidence, schema provenance, and security boundary. `PD-101`: that page owns portable-package operating detail, loads for Agent Plugins work, and links back here.
 
 ## Install
 
@@ -30,18 +37,19 @@ Clone the repository and run `npm ci --include=dev` plus `npm run build:mcp` whe
 
 ## Client support
 
-| Client       | Route                              | Local MCP   |
-| ------------ | ---------------------------------- | ----------- |
-| Claude Code  | Root plugin and marketplace        | Yes         |
-| Codex        | Root plugin and marketplace        | Yes         |
-| ChatGPT      | Codex plugin format                | Yes         |
-| Gemini CLI   | Root extension                     | Yes         |
-| Cursor       | Root local plugin                  | No claim    |
-| OpenClaw     | Root native plugin                 | Skills only |
-| Hermes Agent | Root Python plugin                 | Skills only |
-| opencode     | Project config plus skills install | Yes         |
-| Continue     | Skills CLI adapter                 | Optional    |
-| Aider        | Read-only config                   | No          |
+| Client                               | Route                              | Local MCP   |
+| ------------------------------------ | ---------------------------------- | ----------- |
+| MCP-capable Agent Plugins v1 clients | Root portable package              | Yes         |
+| Claude Code                          | Root plugin and marketplace        | Yes         |
+| Codex                                | Root plugin and marketplace        | Yes         |
+| ChatGPT                              | Codex plugin format                | Yes         |
+| Gemini CLI                           | Root extension                     | Yes         |
+| Cursor                               | Root local plugin                  | No claim    |
+| OpenClaw                             | Root native plugin                 | Skills only |
+| Hermes Agent                         | Root Python plugin                 | Skills only |
+| opencode                             | Project config plus skills install | Yes         |
+| Continue                             | Skills CLI adapter                 | Optional    |
+| Aider                                | Read-only config                   | No          |
 
 ### Claude Code
 

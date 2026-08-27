@@ -6,6 +6,7 @@ Include:
 
 - the repository version or commit;
 - the client and its version;
+- the Agent Plugins specification version when the portable route is involved;
 - the exact command;
 - the full error output with secrets removed;
 - whether `mise run ci` passes in the checkout.

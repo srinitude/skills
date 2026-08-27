@@ -3,6 +3,7 @@
 .claude/settings.local.json
 evidence/ports/
 mcp/dist/
+schemas/agent-plugins/
 skills/skill-factory/
 
 skills/mobile-first-website-design/assets/fixtures/

@@ -1,4 +1,4 @@
-import { rm } from 'node:fs/promises';
+import { readFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -52,6 +52,44 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://visual-design-system-extractor/SKILL.md',
       'skill://would-agents-actually/SKILL.md',
       'skill://would-humans-actually/SKILL.md',
+    ]);
+  } finally {
+    await client.close();
+  }
+});
+
+test('starts through the portable Agent Plugins MCP configuration', async () => {
+  const config = JSON.parse(await readFile(join(root, 'mcp.json'), 'utf8')) as {
+    mcpServers: Record<
+      string,
+      { args: string[]; command: string; cwd: string; type: string }
+    >;
+  };
+  const server = config.mcpServers['srinitude-skills'];
+  expect(server).toBeDefined();
+  if (!server) throw new Error('portable MCP server is missing');
+  const transport = new StdioClientTransport({
+    args: server.args.map((arg) => arg.replace('${PLUGIN_ROOT}', root)),
+    command: server.command,
+    cwd: server.cwd.replace('${PLUGIN_ROOT}', root),
+    stderr: 'pipe',
+  });
+  const client = new Client(
+    { name: 'portable-config-smoke', version: '0.1.0' },
+    { capabilities: {} },
+  );
+
+  expect(server.type).toBe('stdio');
+  try {
+    await client.connect(transport);
+    const tools = await client.listTools();
+    expect(tools.tools.map((tool) => tool.name).sort()).toEqual([
+      'get_eval_manifest',
+      'get_reference',
+      'get_skill',
+      'list_skills',
+      'search_skills',
+      'validate_skill',
     ]);
   } finally {
     await client.close();

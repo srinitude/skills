@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "srinitude-skills",
+  "version": "0.1.0",
+  "description": "Portable Agent Skills and read-only local tools.",
+  "author": {
+    "name": "Kiren Srinivasan",
+    "email": "kiren@fantasymetals.com",
+    "url": "https://github.com/srinitude"
+  },
+  "homepage": "https://github.com/srinitude/skills",
+  "repository": "https://github.com/srinitude/skills",
+  "license": "MIT",
+  "keywords": ["agent-plugins", "agent-skills", "mcp", "workflow"]
+}

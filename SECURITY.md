@@ -20,6 +20,8 @@ Do not include unrelated private data or active credentials.
 
 ## Security boundaries
 
+Agent Plugins is a package format, not a sandbox. A client applies its own trust, permission, and process-isolation model when it loads this package.
+
 The local MCP server is read-only. It rejects absolute paths, traversal, hidden paths, nested references, and symlink escapes. It has no network call, telemetry, credential field, or write tool.
 
-Client manifests contain no secret. Paid evaluation reads credentials from the process environment only after an explicit cost approval step.
+Client manifests contain no secret. The portable `mcp.json` does not override the client-owned `PLUGIN_ROOT` or `PLUGIN_DATA` variables. Paid evaluation reads credentials from the process environment only after an explicit cost approval step.

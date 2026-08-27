@@ -13,8 +13,8 @@ import tomllib
 import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
-CHECK_JOBS = ["validate-dtcg", "artifact-contract", "validate", "lint-writing", "lint-code",
-              "lint-placeholders", "evals"]
+CHECK_JOBS = ["validate-dtcg", "artifact-contract", "validate", "audit-files", "validate-exploration", "lint-writing",
+              "lint-code", "lint-placeholders", "evals"]
 REQUIRED_TASKS = ["ci", "test"] + CHECK_JOBS
 
 
@@ -45,11 +45,19 @@ class TestTaskGraph(unittest.TestCase):
 
     def test_each_check_job_runs_one_command(self):
         for job in CHECK_JOBS:
+            self.assertIn(job, self.tasks, f"missing task: {job}")
             run = self.tasks[job]["run"]
             self.assertIsInstance(run, str, f"{job} must run one command")
             self.assertIn("python3 scripts/", run)
             self.assertIn("PYTHONDONTWRITEBYTECODE=1", run, job)
         self.assertIn("PYTHONDONTWRITEBYTECODE=1", self.tasks["test"]["run"])
+
+    def test_direct_validation_fallback_names_every_check_script(self):
+        validation = (SKILL_DIR / "references" / "validation.md").read_text(encoding="utf-8")
+        for job in CHECK_JOBS:
+            command = self.tasks[job]["run"]
+            script = re.search(r"python3 (scripts/[^ ]+)", command).group(1)
+            self.assertIn(script, validation, f"validation fallback is missing {job}")
 
 
 class TestWorkflow(unittest.TestCase):
@@ -100,19 +108,6 @@ class TestCommandTable(unittest.TestCase):
             self.assertRegex(commands, rf"(?m)^\| {re.escape(command)}\s+\|")
 
 
-class TestOpenExtensionContract(unittest.TestCase):
-    def test_fixed_core_and_open_surface_are_both_explicit(self):
-        skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
-        relative = "references/extension-protocol.md"
-        self.assertIn(relative, skill)
-        reference = (SKILL_DIR / relative).read_text(encoding="utf-8")
-        for marker in ["## Fixed core", "## Open surface", "## Add one extension", "## Customization boundary"]:
-            self.assertIn(marker, reference)
-        for dimension in ["input", "intent", "token", "lens", "defect", "invariant", "experiment"]:
-            self.assertIn(dimension, reference.lower())
-        self.assertIn("No catalog is a ceiling", reference)
-
-
 class TestExecutionRouting(unittest.TestCase):
     def setUp(self):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
@@ -120,8 +115,8 @@ class TestExecutionRouting(unittest.TestCase):
         self.rows = []
         for line in self.execution.splitlines():
             cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-            if len(cells) == 5 and re.fullmatch(r"\d{2}", cells[0]):
-                self.rows.append((cells[0], cells[1], cells[2], cells[3], cells[4]))
+            if len(cells) == 4 and re.fullmatch(r"\d{2}", cells[0]):
+                self.rows.append((cells[0], cells[1], cells[2], cells[3]))
 
     def test_every_execution_step_routes_to_existing_support(self):
         self.assertEqual([number for number, *_ in self.rows], [f"{number:02d}" for number in range(1, 26)])
@@ -134,19 +129,19 @@ class TestExecutionRouting(unittest.TestCase):
 
     def test_execution_is_one_readable_row_per_step(self):
         header = next(line for line in self.execution.splitlines() if line.startswith("| #"))
-        self.assertEqual([cell.strip() for cell in header.strip("|").split("|")], ["#", "Step", "Start with", "Do and save", "Gate"])
+        self.assertEqual([cell.strip() for cell in header.strip("|").split("|")], ["#", "Step", "Use", "Produces"])
         self.assertEqual(len(self.rows), 25)
-        for number, step, start, work, gate in self.rows:
-            self.assertTrue(step and start and work and gate, f"Execution step {number} has an empty summary cell")
-            self.assertIn("PASS:", gate, f"Execution step {number} needs a plain PASS summary")
-            self.assertIn("BLOCKED:", gate, f"Execution step {number} needs a plain BLOCKED summary")
+        for number, step, use, output in self.rows:
+            self.assertTrue(step and use and output, f"Execution step {number} has an empty summary cell")
+            self.assertNotIn("PASS:", " ".join((step, use, output)))
+            self.assertNotIn("BLOCKED:", " ".join((step, use, output)))
 
     def test_execution_uses_one_shared_step_contract(self):
         relative = "assets/execution-step-contract.json"
         self.assertIn(relative, self.execution)
         contract = json.loads((SKILL_DIR / relative).read_text(encoding="utf-8"))
         self.assertEqual(contract["step_count"], 25)
-        self.assertEqual(contract["label_order"], ["Input", "Action", "Save", "PASS", "BLOCKED"])
+        self.assertEqual(contract["label_order"], ["Input", "Action", "Save", "Pass", "Blocked", "Feeds"])
         self.assertEqual(contract["statuses"], ["PENDING", "RUNNING", "PASS", "BLOCKED"])
 
     def test_execution_is_an_all_steps_pipeline(self):
@@ -176,7 +171,7 @@ class TestExecutionRouting(unittest.TestCase):
         for name in ["execution-intake.md", "execution-build.md", "execution-review.md"]:
             relative = f"references/{name}"
             guides[relative] = (SKILL_DIR / relative).read_text(encoding="utf-8")
-            self.assertNotIn("<br>", guides[relative], f"{relative} must use plain Markdown field lines")
+            self.assertNotIn("<" + "br>", guides[relative], f"{relative} must use plain Markdown field lines")
         headings = [
             number
             for guide in guides.values()
@@ -199,7 +194,7 @@ class TestExecutionRouting(unittest.TestCase):
             for section in re.split(r"(?=^## Step \d{2}:)", guide, flags=re.MULTILINE)[1:]
         ]
         for section in sections:
-            for marker in ["**Purpose:**", "**Consumes:**", "**Action:**", "**Produces:**", "**PASS when:**", "**BLOCKED when:**", "**Recovery:**"]:
+            for marker in ["**Input**", "**Action**", "**Save**", "**Pass**", "**Blocked**", "**Feeds**"]:
                 self.assertIn(marker, section)
 
     def test_vision_gate_has_dedicated_procedure(self):
@@ -219,11 +214,13 @@ class TestCompletionContract(unittest.TestCase):
         self.completion = skill.split("## Completion\n", 1)[1]
 
     def test_completion_has_inspectable_done_gates(self):
-        gates = [line for line in self.completion.splitlines() if line.startswith("- ")]
+        header = next(line for line in self.completion.splitlines() if line.startswith("| Gate"))
+        self.assertEqual([cell.strip() for cell in header.strip("|").split("|")], ["Gate", "Done only when", "Check with"])
+        gates = [line for line in self.completion.splitlines() if line.startswith("|")][2:]
         self.assertGreaterEqual(len(gates), 8)
         joined = "\n".join(gates)
         joined_lower = joined.lower()
-        for marker in ["tokens.json", "evidence.json", "proof.html", "run.json", "exit 0", "at least two", "at least five", "zero unresolved vetoes", "globally_unique", "mise run ci"]:
+        for marker in ["tokens.json", "evidence.json", "proof.html", "run.json", "exit 0", "at least three", "at least five", "zero unresolved vetoes", "globally_unique", "mise run ci", "audit_file_triggers.py"]:
             self.assertIn(marker, joined_lower)
         for number, gate in enumerate(gates, start=1):
             paths = re.findall(r"(?:references|assets|scripts|examples|evals)/[A-Za-z0-9._/-]+", gate)

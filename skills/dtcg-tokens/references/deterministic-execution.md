@@ -16,7 +16,7 @@ Use exactly these ordered stages: `inventory`, `observe`, `thesis`, `possibility
 2. `observe` writes atomic observations with source, locator, region, basis, confidence, and counterevidence.
 3. `thesis` writes one identity sentence and maps each clause to observations.
 4. `possibility-universe` expands every leaf in `assets/token-possibility-catalog.json`, every applicable input-intent branch, every review marker, and every invariant before exclusion.
-5. `narrow` loads `assets/exploration-strategy-catalog.json`, creates one candidate for every applicable strategy in fixed order, records all candidates, and applies the catalog's ordered gates. Each stage output is a subset of its input. At least two candidates from at least two strategies remain included.
+5. `narrow` loads `assets/exploration-strategy-catalog.json`, creates one candidate for every applicable strategy in fixed order, records all candidates, and applies the catalog's ordered gates. Each stage output is a subset of its input. At least three candidates from at least three strategies remain included, with at least one inversion or antithesis.
 6. `author` writes DTCG JSON in stable path order. Every token has a source, task, invariant, or explicitly bounded experimental reason. The final JSON includes the required top-level experimental partition and machine-readable identity, strategy, hypothesis, context, status, and invariant disposition on every experimental token.
 7. `validate` runs the DTCG checker and records complete output, exit code, schema version, and schema hash.
 8. `evidence` writes the full evidence schema with all accounting, review plans, claims, and limits. Judgment-dependent claims remain pending.
@@ -48,13 +48,13 @@ If the active model lacks strong native vision, delegate every judgment task to 
 
 Start from the full token, exploration-strategy, and invariant universe. Invariants protect minimum human outcomes in claimed use and do not impose familiar form. Unusual scales, unfamiliar composition, new extensions, speculative materials, and experimental states may remain in the token set.
 
-The six built-in exploration strategies are boundary probe, relationship reversal, cross-cue recombination, context transfer, access-equivalent alternative, and temporal-behavior probe. Consider each in that order, record applicability and rejection reasons, and retain the first candidates that pass every ordered gate until both minimums are met. Token paths, evidence paths, included possibility-ledger paths, visible specimen paths, and final reviewed paths must be exact sets with no extras or omissions.
+The six built-in exploration strategies are boundary probe, relationship reversal, cross-cue recombination, context transfer, access-equivalent alternative, and temporal-behavior probe. Consider each in that order, record applicability and rejection reasons, and retain the first candidates that pass every ordered gate until all minimums are met. Token paths, evidence paths, included possibility-ledger paths, visible specimen paths, and final reviewed paths must be exact sets with no extras or omissions.
 
 Use the creative exception protocol in `assets/perceptual-motor-invariant-catalog.json`. A failed experimental use blocks a clean pass for that context, not continued generation, comparison, or learning from the branch.
 
 ## Failures and recovery
 
-Use one stable code: `E_INPUT`, `E_VISION`, `E_EVIDENCE`, `E_DTCG`, `E_CLAIM`, `E_ASSEMBLY`, or `E_REVIEW`.
+Use one stable code from `assets/execution-step-contract.json`. Never invent an error code in a run record.
 
 Repair the cited source, token relation, evidence record, or authored artifact. Rerun the failed stage and every dependent stage. Never repair a failure by changing only its verdict. After three unsuccessful attempts at the same cause, keep the stage blocked and state the exact evidence or capability needed.
 

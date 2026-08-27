@@ -3,7 +3,7 @@
   "contract": "dtcg-tokens/execution-step",
   "step_count": 25,
   "completion_rule": "All 25 step records are PASS on current inputs and final bytes.",
-  "label_order": ["Input", "Action", "Save", "PASS", "BLOCKED"],
+  "label_order": ["Input", "Action", "Save", "Pass", "Blocked", "Feeds"],
   "statuses": ["PENDING", "RUNNING", "PASS", "BLOCKED"],
   "status_transitions": {
     "PENDING": ["RUNNING", "BLOCKED"],
@@ -17,6 +17,9 @@
     "E_EVIDENCE",
     "E_DTCG",
     "E_CLAIM",
+    "E_FONT_CURRENT",
+    "E_FONT_RARITY",
+    "E_FONT_ASSET",
     "E_ASSEMBLY",
     "E_REVIEW"
   ],
@@ -24,6 +27,9 @@
     "step_id",
     "title",
     "status",
+    "decision_owner",
+    "consumes",
+    "produces",
     "input_paths",
     "support_files",
     "actions",
@@ -31,6 +37,8 @@
     "checks",
     "evidence_locators",
     "error_code",
+    "reason",
+    "recovery",
     "retry_count"
   ],
   "rules": [

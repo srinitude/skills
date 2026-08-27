@@ -101,6 +101,9 @@ def final_evidence():
     document = load(FIXTURES / "sample.evidence.json")
     review_catalogs = catalogs()
     final_claims(document)
+    document["google_fonts"]["selection_review"] = {"status": "pass", "comparison": "Three eligible candidates were rendered side by side with source-specific operational text."}
+    for item in document["google_fonts"]["selected"]:
+        item["visual_review"] = {"status": "pass", "specimens": ["wide", "narrow", "small-text", "display"], "rationale": "Final pixels retained the intended hierarchy, source fit, script support, and legibility without fallback."}
     document["artifact_review"] = final_review(review_catalogs)
     return document
 

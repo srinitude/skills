@@ -10,6 +10,7 @@ REQUIRED_META = {
     "intended_context",
     "status",
     "invariant_disposition",
+    "inversion_or_antithesis",
 }
 STATUSES = {"retained_unproven", "active_experiment", "validated_candidate"}
 
@@ -32,31 +33,41 @@ def token_nodes(node, path=()):
     return records
 
 
+def check_token_record(path, node, allowed, errors):
+    metadata = node.get("$extensions", {}).get(NAMESPACE, {})
+    if not REQUIRED_META <= set(metadata):
+        errors.append(f"experimental token {path} needs experiment metadata")
+    if metadata.get("status") not in STATUSES:
+        errors.append(f"experimental token {path} has invalid experiment status")
+    strategy = metadata.get("exploration_strategy")
+    if strategy not in allowed:
+        errors.append(f"experimental token {path} has invalid exploration strategy")
+        return None
+    return strategy
+
+
 def experimental_records(tokens, errors):
     partition = tokens.get("experimental", {}) if isinstance(tokens, dict) else {}
     policy = partition.get("$extensions", {}).get(NAMESPACE, {})
-    expected_policy = {"required": True, "policy_version": "1.0", "strategy_catalog_version": "1.0.0", "minimum_retained_tokens": 2, "minimum_distinct_strategies": 2}
-    if any(policy.get(key) != value for key, value in expected_policy.items()):
+    expected = {"required": True, "policy_version": "1.0", "strategy_catalog_version": "1.0.0", "minimum_retained_tokens": 3, "minimum_distinct_strategies": 3, "require_inversion_or_antithesis": True}
+    if any(policy.get(key) != value for key, value in expected.items()):
         errors.append("experimental partition needs required policy metadata")
     records = token_nodes(partition, ("experimental",))
-    if len(records) < 2:
-        errors.append("final token output needs at least two experimental tokens")
-    allowed = strategy_ids()
-    strategies = set()
-    for path, node in records:
-        metadata = node.get("$extensions", {}).get(NAMESPACE, {})
-        if not REQUIRED_META <= set(metadata):
-            errors.append(f"experimental token {path} needs experiment metadata")
-        if metadata.get("status") not in STATUSES:
-            errors.append(f"experimental token {path} has invalid experiment status")
-        strategy = metadata.get("exploration_strategy")
-        if strategy not in allowed:
-            errors.append(f"experimental token {path} has invalid exploration strategy")
-        else:
-            strategies.add(strategy)
-    if len(strategies) < 2:
-        errors.append("experimental output needs two distinct exploration strategies")
-    return records, strategies
+    if len(records) < 3:
+        errors.append("final token output needs at least three experimental tokens")
+    strategies = {
+        strategy for path, node in records
+        if (strategy := check_token_record(path, node, strategy_ids(), errors))
+    }
+    if len(strategies) < 3:
+        errors.append("experimental output needs three distinct exploration strategies")
+    has_inversion = any(
+        node.get("$extensions", {}).get(NAMESPACE, {}).get("inversion_or_antithesis") is True
+        for _, node in records
+    )
+    if not has_inversion:
+        errors.append("experimental output needs an inversion or antithesis")
+    return records, strategies, has_inversion
 
 
 def ledger_paths(evidence, errors):
@@ -71,7 +82,7 @@ def ledger_paths(evidence, errors):
 
 def evidence_paths(evidence, errors):
     output = evidence.get("experimental_output", {})
-    expected_policy = {"required": True, "policy_version": "1.0", "strategy_catalog_version": "1.0.0", "minimum_retained_tokens": 2, "minimum_distinct_strategies": 2}
+    expected_policy = {"required": True, "policy_version": "1.0", "strategy_catalog_version": "1.0.0", "minimum_retained_tokens": 3, "minimum_distinct_strategies": 3, "require_inversion_or_antithesis": True}
     if any(output.get(key) != value for key, value in expected_policy.items()):
         errors.append("evidence needs required experimental output policy")
     entries = output.get("entries", [])
@@ -111,7 +122,7 @@ def final_review_paths(evidence, token_paths, errors):
 
 def validate_experimental_output(tokens, evidence, final=False):
     errors = []
-    records, strategies = experimental_records(tokens, errors)
+    records, strategies, has_inversion = experimental_records(tokens, errors)
     token_paths = {path for path, _ in records}
     recorded_paths = evidence_paths(evidence, errors)
     retained_paths = ledger_paths(evidence, errors)
@@ -125,6 +136,7 @@ def validate_experimental_output(tokens, evidence, final=False):
         "errors": errors,
         "token_count": len(token_paths),
         "strategies": sorted(strategies),
+        "has_inversion_or_antithesis": has_inversion,
         "token_paths": sorted(token_paths),
         "evidence_paths": sorted(recorded_paths),
     }

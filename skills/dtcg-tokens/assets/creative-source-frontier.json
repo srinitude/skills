@@ -1,0 +1,74 @@
+{
+  "version": "1.0.0",
+  "purpose": "Bound current and distant research before token selection.",
+  "mechanism_families": [
+    "structure_mapping",
+    "generative_constraints",
+    "combinatorial_search",
+    "inversion_and_contradiction",
+    "exploration_and_exploitation",
+    "quality_diversity",
+    "redundancy_and_feedback",
+    "selective_retention",
+    "experimental_controls",
+    "topology_and_movement",
+    "adversarial_testing",
+    "perceptual_motor_context"
+  ],
+  "source_domains": [
+    "cognitive_science",
+    "experimental_science",
+    "optimization",
+    "ecology",
+    "cybernetics",
+    "immunology",
+    "literature",
+    "music",
+    "movement_notation",
+    "weaving",
+    "food_pairing",
+    "architecture",
+    "aviation",
+    "engineering_trade_studies",
+    "organizational_learning"
+  ],
+  "coverage": {
+    "minimum_mechanism_families": 6,
+    "minimum_distant_domains": 3,
+    "require_antithetical_source": true,
+    "require_current_research_source": true,
+    "distance_fields": [
+      "input_domain_relation",
+      "shared_relational_structure",
+      "surface_differences",
+      "non_obvious_transfer",
+      "prediction",
+      "falsifier"
+    ]
+  },
+  "source_record_fields": [
+    "query",
+    "url",
+    "publisher",
+    "publication_date",
+    "retrieval_date",
+    "source_class",
+    "version",
+    "mechanism",
+    "counterevidence",
+    "access_limits"
+  ],
+  "stop_rule": {
+    "first_require_all_coverage": true,
+    "unchanged_additions": 2,
+    "unchanged_dimensions": [
+      "mechanism",
+      "variable",
+      "failure_condition",
+      "identity_relation",
+      "token_decision"
+    ]
+  },
+  "budget_exhaustion": "BLOCKED",
+  "extensions": "Use references/extension-protocol.md for a dated domain or mechanism addition."
+}

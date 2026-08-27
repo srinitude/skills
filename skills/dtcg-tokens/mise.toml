@@ -8,6 +8,8 @@ run = [
   "mise run validate-dtcg",
   "mise run artifact-contract",
   "mise run validate",
+  "mise run audit-files",
+  "mise run validate-exploration",
   "mise run lint-writing",
   "mise run lint-code",
   "mise run lint-placeholders",
@@ -29,6 +31,14 @@ run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -
 [tasks.validate]
 description = "Static structure checks against the generation contract"
 run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_skill.py ."
+
+[tasks.audit-files]
+description = "Read every skill file and prove its activation or consumption route"
+run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/audit_file_triggers.py ."
+
+[tasks.validate-exploration]
+description = "Validate source-frontier and exploration contract assets"
+run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_exploration.py ."
 
 [tasks.lint-writing]
 description = "Mechanical writing checks on every markdown file"

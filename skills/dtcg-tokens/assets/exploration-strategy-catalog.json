@@ -4,8 +4,9 @@
   "selection_policy": {
     "generate_candidate_for_every_applicable_strategy": true,
     "record_every_candidate_in_possibility_ledger": true,
-    "minimum_retained_tokens": 2,
-    "minimum_distinct_strategies": 2,
+    "minimum_retained_tokens": 3,
+    "minimum_distinct_strategies": 3,
+    "require_inversion_or_antithesis": true,
     "selection_order": [
       "boundary_probe",
       "relationship_reversal",

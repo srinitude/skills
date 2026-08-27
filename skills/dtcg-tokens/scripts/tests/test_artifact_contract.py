@@ -1,6 +1,8 @@
 """Contracts for vision-authored proof artifacts and script boundaries."""
+import base64
 import json
 import pathlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -33,14 +35,21 @@ def coverage_markup():
     return token_nodes + stress_nodes + variant_nodes
 
 
+def font_css():
+    galdeano = base64.b64encode(b"wOF2" + bytes(124)).decode("ascii")
+    victor = base64.b64encode(b"wOF2" + bytes([1]) * 124).decode("ascii")
+    return f"@font-face{{font-family:'Galdeano';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,{galdeano}) format('woff2')}}@font-face{{font-family:'Victor Mono';font-style:normal;font-weight:400 700;src:url(data:font/woff2;base64,{victor}) format('woff2')}}body{{font-family:'Galdeano',sans-serif;font-size:16px}}code{{font-family:'Victor Mono',monospace}}"
+
+
 def candidate(omit=None, external=False, missing_experiment=False, include_coverage=True):
     sections = "".join(f'<section data-proof-obligation="{name}"><h2>{name}</h2></section>' for name in OBLIGATIONS if name != omit)
     specimens = '<figure data-experimental-token="experimental.tokens.route-signal-softening">route</figure>'
     if not missing_experiment:
         specimens += '<figure data-experimental-token="experimental.tokens.risk-pulse-duration">risk</figure>'
+    specimens += '<figure data-experimental-token="experimental.tokens.lane-density-inversion">density</figure>'
     asset = '<script src="https://example.com/app.js"></script>' if external else ""
     coverage = coverage_markup() if include_coverage else ""
-    return f'<!doctype html><html lang="en" data-dtcg-proof="2.0" data-artifact-authorship="vision-authored" data-run-id="__DTCG_RUN_ID__" data-verdict="__DTCG_VERDICT_STATE__"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Structural fixture</title><style>body{{font:16px sans-serif}}</style></head><body><p>__DTCG_PROOF_VERDICT__</p>{sections}{specimens}{coverage}<script id="proof-data" type="application/json">__DTCG_PROOF_DATA__</script>{asset}</body></html>'
+    return f'<!doctype html><html lang="en" data-dtcg-proof="2.0" data-artifact-authorship="vision-authored" data-run-id="__DTCG_RUN_ID__" data-verdict="__DTCG_VERDICT_STATE__"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Structural fixture</title><style>{font_css()}</style></head><body><p>__DTCG_PROOF_VERDICT__</p>{sections}{specimens}{coverage}<script id="proof-data" type="application/json">__DTCG_PROOF_DATA__</script>{asset}</body></html>'
 
 
 def assemble(source, output, run_id="contract-run", evidence=None):
@@ -101,6 +110,29 @@ class TestArtifactBoundary(unittest.TestCase):
             result = assemble(source, output)
             self.assertEqual(result.returncode, 1)
             self.assertIn("external runtime asset", result.stderr)
+
+    def test_missing_embedded_selected_font_blocks_assembly(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = pathlib.Path(folder) / "candidate.html"
+            output = pathlib.Path(folder) / "artifact.html"
+            text = candidate()
+            faces = list(re.finditer(r"@font-face\{.*?\}", text))
+            source.write_text(text[:faces[1].start()] + text[faces[1].end():], encoding="utf-8")
+            result = assemble(source, output)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn("embedded Google Font hash mismatch", result.stderr)
+
+    def test_selected_font_token_path_mismatch_blocks_assembly(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            source, evidence, output = [root / name for name in ("candidate.html", "evidence.json", "artifact.html")]
+            document = json.loads((FIXTURES / "sample.evidence.json").read_text(encoding="utf-8"))
+            document["google_fonts"]["selected"][0]["token_paths"] = ["foundation.color.ink"]
+            source.write_text(candidate(), encoding="utf-8")
+            evidence.write_text(json.dumps(document), encoding="utf-8")
+            result = assemble(source, output, evidence=evidence)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn("font token path", result.stderr)
 
     def test_relative_runtime_assets_and_css_imports_also_block(self):
         for asset in ['<script src="./app.js"></script>', '<style>@import "theme.css";</style>', '<style>.hero{background:url(./hero.png)}</style>']:

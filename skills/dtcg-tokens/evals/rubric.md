@@ -22,5 +22,6 @@ Score each criterion as `PASS` or `BLOCKED`. A case passes only when every appli
 18. **Non-AI-slop:** Reasoning aligns with implementation; filler, generic shells, unsupported ornament, repetition, fake data, and unresolved details are absent.
 19. **Proof integrity:** Final wide and narrow readback, embedded data, hashes, visible status, failures, and limits agree.
 20. **Recovery:** Failed gates cause source, token, evidence, or artifact repair, never verdict-only editing.
+21. **Typography currency:** A same-date live Google Fonts capture proves at least three candidates outside the most popular 50%; selected families appear in tokens and final pixels, WOFF2 data and licenses are embedded and hashed, and comparative vision review finds no fallback or source-fit failure.
 
 The judge cites visible output or supplied trace for every pass. An unsupported assumption is `BLOCKED`.

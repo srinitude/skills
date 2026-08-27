@@ -1,83 +1,163 @@
 # Execution: review and completion
 
-Run Steps 18 through 25 in order. Use the exact fields defined in `references/execution-guide.md` and the handoffs in `assets/execution-io-map.json`.
+Run Steps 18 through 25 in order. Use the command table in `references/execution-guide.md`. `assets/execution-io-map.json` owns each step packet and `scripts/run_pipeline.py` owns run state, hashes, and handoffs.
 
 ## Step 18: Inspect final HTML
 
-- **Purpose:** Judge the assembled pixels and interactions, not source code or a pre-assembly candidate.
-- **Consumes:** `artifact.proof`, `proof.coverage-map`, `source.payload`, and `vision.execution`.
-- **Action:** The vision executor must use `references/visual-review.md` to inspect wide, narrow, whole-frame, detail, every applicable state, mode, motion, input, data condition, permutation, and corpus comparison after assembly. For a pending artifact, record the assembler's `reviewed_surface_sha256` only after this pass; after recorded-pass assembly, inspect the exact final HTML again and defer its full byte hash to Step 23.
-- **Produces:** `review.visual` with viewport, state, region, observation, countercheck, status, and repair.
-- **PASS when:** Every required surface has located final-pixel evidence on the final proof hash.
-- **BLOCKED when:** A required surface, state, or viewport is unseen; set `E_REVIEW`.
-- **Recovery:** Render and inspect the missing condition, then rerun Step 18 for the full surface set.
+**Input**
+`artifact.proof`, `proof.coverage-map`, `source.payload`, and `vision.execution`.
+
+**Action**
+Create and start the S18 packet with `scripts/run_pipeline.py`. The strong vision executor applies `assets/vision-probe-manifest.json`, `references/visual-review.md`, and `references/google-font-selection.md` to the assembled HTML. Inspect wide, narrow, whole-frame, detail, every applicable state, mode, motion, input, data, permutation, corpus comparison, and selected-font specimen. Confirm actual font rendering and fallback-sensitive line breaks.
+
+**Save**
+Save `review.visual` as `<name>.records/S18-review.visual.json`, with viewport, state, region, observation, countercheck, status, and required repair.
+
+**Pass**
+Every required surface and font specimen has located final-pixel evidence on the registered proof hash, with no unseen or fallback-dependent claim. Use `scripts/run_pipeline.py pass` with `review.visual`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_REVIEW` when a required surface, state, viewport, comparison, or font render is unseen or fails. Name the exact condition.
+
+**Feeds**
+Step 19 consumes `review.visual` and `artifact.proof`.
 
 ## Step 19: Resolve defects
 
-- **Purpose:** Reject harmful output such as overlap, clipping, illegibility, broken response, and false proof cues.
-- **Consumes:** `review.visual` and `artifact.proof`.
-- **Action:** Check every marker in `assets/visual-defect-catalog.json`; measure when possible; inspect overlap, clipping, typography, contrast, geometry, interaction, response, content, and proof integrity; record new harm as an unknown marker before deciding it.
-- **Produces:** `review.defects` with marker IDs, findings, severity, repairs, reruns, and final status.
-- **PASS when:** Every marker has one disposition and zero veto or major defects remain.
-- **BLOCKED when:** A veto, major defect, or applicable marker remains unresolved; set `E_REVIEW`.
-- **Recovery:** Fix the earliest visual or token cause, rebuild the proof, and rerun Steps 17 through 19.
+**Input**
+`review.visual` and `artifact.proof`.
+
+**Action**
+Create and start the S19 packet with `scripts/run_pipeline.py`. The strong vision executor checks every marker in `assets/visual-defect-catalog.json` under `references/visual-review.md`. Measure when possible; inspect overlap, clipping, illegibility, contrast, typography, fallback, geometry, interaction, response, content, hierarchy, false affordance, and proof integrity. Add a newly observed harm as a bounded unknown marker before deciding it.
+
+**Save**
+Save `review.defects` as `<name>.records/S19-review.defects.json`, with marker IDs, evidence, severity, repair, rerun set, and final status.
+
+**Pass**
+Every marker has one disposition and zero vetoes or major defects remain unresolved. Use `scripts/run_pipeline.py pass` with `review.defects`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_REVIEW` when a veto, major defect, or applicable marker remains unresolved. Name the region, harm, and earliest repair step.
+
+**Feeds**
+Step 20 consumes `review.defects`, `artifact.tokens`, and `artifact.proof`.
 
 ## Step 20: Resolve invariants
 
-- **Purpose:** Protect minimum perceptual and motor needs while allowing supported creative exceptions and unused experiments.
-- **Consumes:** `review.defects`, `artifact.tokens`, and `artifact.proof`.
-- **Action:** Test every entry in `assets/perceptual-motor-invariant-catalog.json` in token feasibility and rendered use; record pass or reasoned exception; use the creative exception protocol without imposing a house style; include touch targets when touch applies.
-- **Produces:** `review.invariants` with invariant ID, evidence, state, status, gain, cost, counterevidence, and claim boundary.
-- **PASS when:** Every invariant appears once and no claimed use fails.
-- **BLOCKED when:** An applicable invariant is missing, a claimed use fails, or an exception lacks evidence; set `E_REVIEW`.
-- **Recovery:** Fix the failing use or remove its claim while keeping unused experiments, then rerun Step 20.
+**Input**
+`review.defects`, `artifact.tokens`, and `artifact.proof`.
+
+**Action**
+Create and start the S20 packet with `scripts/run_pipeline.py`. The strong vision executor tests every entry in `assets/perceptual-motor-invariant-catalog.json` in token feasibility and rendered use, guided by `references/screen-decision.md`. Cover human-eye legibility, brain-level hierarchy and grouping, motion and cognitive load, reach and touch targets, focus, input, response, and error recovery. Apply the creative exception protocol without imposing a house style.
+
+**Save**
+Save `review.invariants` as `<name>.records/S20-review.invariants.json`, with invariant ID, evidence, state, status, gain, cost, counterevidence, exception, and claim boundary.
+
+**Pass**
+Every invariant appears once, no claimed use fails, and every exception has located evidence and an equal or better protected outcome. Use `scripts/run_pipeline.py pass` with `review.invariants`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_REVIEW` when an applicable invariant is missing, a claimed use fails, or an exception lacks evidence. Name the failing outcome rather than prescribing familiar form.
+
+**Feeds**
+Step 21 consumes `review.invariants`, `review.defects`, `artifact.proof`, `source.payload`, and `signature.decisions`.
 
 ## Step 21: Judge four tracks
 
-- **Purpose:** Keep taste, originality, corpus uniqueness, and non-AI-slop as separate claims.
-- **Consumes:** `review.invariants`, `review.defects`, `artifact.proof`, `source.payload`, and `signature.decisions`.
-- **Action:** Use `assets/judgment-review-catalog.json` and `references/qualitative-judgment.md`; start with all lenses, narrow to those that apply, add new lenses, keep competing readings, cite regions, compare alternatives and corpus neighbors, and record counterevidence; use `examples/failure-global-claim.md` for absolute uniqueness requests; never infer authorship from appearance.
-- **Produces:** `review.judgment` with separate taste, originality, corpus-uniqueness, and non-AI-slop records, each with uncertainty and limits.
-- **PASS when:** All four tracks pass within scope and `globally_unique` remains false.
-- **BLOCKED when:** A track fails, lacks located evidence, exceeds its corpus, or claims authorship from appearance; set `E_REVIEW` or `E_CLAIM`.
-- **Recovery:** Fix the cited source, token, or proof cause, expand only an authorized corpus, and rerun the affected track and dependents.
+**Input**
+`review.invariants`, `review.defects`, `artifact.proof`, `source.payload`, and `signature.decisions`.
+
+**Action**
+Create and start the S21 packet with `scripts/run_pipeline.py`. The strong vision executor applies `assets/judgment-review-catalog.json`, `references/qualitative-judgment.md`, and `references/multimodal-originality.md`. Judge taste, originality, named-corpus uniqueness, and non-AI-slop separately. Start with every lens, narrow by evidence, add emergent lenses, compare alternatives and corpus neighbors, record competing readings and counterevidence, and never infer authorship from appearance.
+
+**Save**
+Save `review.judgment` as `<name>.records/S21-review.judgment.json`, with four separate records, located evidence, uncertainty, competing readings, corpus scope, limitations, and claim wording.
+
+**Pass**
+All four tracks pass within their stated scope, all claims match evidence, and `globally_unique` remains false. Use `scripts/run_pipeline.py pass` with `review.judgment`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_REVIEW` or `E_CLAIM` when a track fails, lacks located evidence, exceeds its corpus, hides uncertainty, or claims authorship from appearance.
+
+**Feeds**
+Step 22 consumes `review.judgment`, `review.invariants`, and `review.defects`.
 
 ## Step 22: Repair causes
 
-- **Purpose:** Fix the earliest cause of failure instead of changing the latest artifact or verdict alone.
-- **Consumes:** `review.judgment`, `review.invariants`, `review.defects`, and all earlier failed gates.
-- **Action:** Follow `references/deterministic-execution.md`; find the earliest causal source, token relation, record, or proof region; fix it; set that step and all dependents to `RUNNING`; rerun them; stop after three failed attempts at the same cause.
-- **Produces:** `repair.result` with attempt number, cause, change, rerun set, fresh checks, and outcome.
-- **PASS when:** The cause and every dependent gate pass on current inputs, bytes, and pixels.
-- **BLOCKED when:** Three repair attempts at the same cause fail or required evidence or capability is missing; keep the original error.
-- **Recovery:** Name the exact missing evidence or capability and wait for it; never change only the verdict to `PASS`.
+**Input**
+`review.judgment`, `review.invariants`, `review.defects`, and every earlier failed gate.
+
+**Action**
+Create and start the S22 packet with `scripts/run_pipeline.py`. Apply `references/deterministic-execution.md`. Find the earliest causal source, token relation, record, or proof region; repair it; set that step and every dependent step back to `RUNNING`; rerun them in order. Stop after three failed attempts at the same cause.
+
+**Save**
+Save `repair.result` as `<name>.records/S22-repair.result.json`, with attempt number, cause, change, rerun set, fresh checks, and outcome.
+
+**Pass**
+The earliest cause and every dependent gate pass on current inputs, bytes, and pixels. Use `scripts/run_pipeline.py pass` with `repair.result`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with the original allowed error code after three failed attempts or when required evidence or capability is missing. State the exact recovery need; never change only the verdict.
+
+**Feeds**
+Step 23 consumes `repair.result`, `artifact.tokens`, `artifact.evidence`, `artifact.proof`, and `run.contract`.
 
 ## Step 23: Read back final bytes
 
-- **Purpose:** Confirm that all four deliverables, visible proof, embedded records, reviews, and claims agree after repairs.
-- **Consumes:** `repair.result`, `artifact.tokens`, `artifact.evidence`, `artifact.proof`, and `run.contract`.
-- **Action:** Apply `references/evidence-schema.md`; rehash all four deliverables; reopen the recorded-pass HTML; visually inspect its exact final pixels; compare the visible verdict, embedded records, run ID, viewports, coverage, claims, and limits; store the full HTML byte hash in `<name>.run.json`; build the completion matrix from current bytes; do not reassemble after this readback.
-- **Produces:** `final.readback` with hashes, locators, review time, and a criterion-to-evidence map.
-- **PASS when:** Every artifact and claim agrees after final assembly and each completion criterion has current evidence.
-- **BLOCKED when:** A hash, identifier, verdict, coverage record, claim, or limit differs; set the first matching `E_ASSEMBLY`, `E_REVIEW`, or `E_CLAIM`.
-- **Recovery:** Fix the earliest mismatch and rerun that step and every dependent step through Step 23.
+**Input**
+`repair.result`, `artifact.tokens`, `artifact.evidence`, `artifact.proof`, and `run.contract`.
+
+**Action**
+Create and start the S23 packet with `scripts/run_pipeline.py`. Apply `references/evidence-schema.md` and `references/google-font-selection.md`. Rehash all four deliverables, reopen the final HTML, visually inspect its exact pixels, and compare visible verdicts, embedded records, run ID, coverage, viewports, source claims, font ranks, catalog date and hash, WOFF2 hashes, licenses, uncertainty, and limits. Do not reassemble after this readback.
+
+**Save**
+Save `final.readback` as `<name>.records/S23-final.readback.json`, with hashes, locators, review time, and a criterion-to-evidence map. Store the full HTML byte hash in `<name>.run.json`.
+
+**Pass**
+Every artifact, font record, review, and claim agrees after final assembly, and each completion criterion has same-date evidence. Use `scripts/run_pipeline.py pass` with `final.readback`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with the first matching `E_FONT_CURRENT`, `E_FONT_ASSET`, `E_ASSEMBLY`, `E_REVIEW`, or `E_CLAIM` when any hash, ID, verdict, record, claim, or limit differs.
+
+**Feeds**
+Step 24 consumes `final.readback` and the current package tree.
 
 ## Step 24: Validate the package
 
-- **Purpose:** Prove that the current skill package, contracts, examples, and checks still agree.
-- **Consumes:** `final.readback` and the current package tree.
-- **Action:** Read `references/generation-contract.md`, `references/decisions.md`, `references/validation.md`, `evals/contract.md`, and `evals/rubric.md`; run `mise run ci`, or every listed direct check if unavailable; include `scripts/tests/test_ci_contract.py`; parse every JSON file; confirm removed visual generators remain absent.
-- **Produces:** `package.validation` with commands, exits, outputs, skill hash, and checked paths.
-- **PASS when:** Every current-byte check exits 0 and the recorded skill hash matches the checked tree.
-- **BLOCKED when:** A required check fails, is skipped, or uses older bytes; do not claim package health.
-- **Recovery:** Fix the failing package owner, rerun its focused check, then rerun the full Step 24 gate.
+**Input**
+`final.readback` and every persistent file in the current skill directory.
+
+**Action**
+Create and start the S24 packet with `scripts/run_pipeline.py`. Read `references/generation-contract.md`, `references/decisions.md`, `references/validation.md`, `references/file-trigger-audit.md`, `evals/contract.md`, `evals/rubric.md`, and `evals/source-lineage.json`. Run the task graph in `mise.toml`, including `scripts/validate_skill.py`, `scripts/audit_file_triggers.py`, `scripts/check_evals.py`, and every discovered file in `scripts/tests/`. Run the current official `skills-ref validate .` check in an isolated environment. Parse every JSON file, compile every Python file, run every script help path, inspect every Markdown file, and confirm negative fixtures remain negative.
+
+**Save**
+Save `package.validation` as `<name>.records/S24-package.validation.json`, with commands, exits, outputs, skill hash, file count, byte count, checked paths, trigger routes, and limitations of each check.
+
+**Pass**
+Every required current-byte check exits 0, every persistent file has a named activation or consumer route, and the recorded tree hash matches the checked package. Use `scripts/run_pipeline.py pass` with `package.validation`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with the applicable error code when a check fails, is skipped, uses stale bytes, or leaves a file without a real route. Name the canonical owner and focused recovery command.
+
+**Feeds**
+Step 25 consumes `package.validation`, `final.readback`, `run.contract`, and all 25 step records.
 
 ## Step 25: Return proved results
 
-- **Purpose:** Return only claims proved by the full pipeline and make failures and limits visible.
-- **Consumes:** `package.validation`, `final.readback`, `run.contract`, and all 25 step records.
-- **Action:** Follow `references/deterministic-execution.md`; check every `SKILL.md` Completion gate; return artifact paths, hashes, counts, universe and context coverage, corpus scope, visual review coverage, command exits, failed gates, and limits; never report one deliverable as the whole result.
-- **Produces:** `completion.disposition` with final status, artifacts, criterion map, failed gates, and recovery needs.
-- **PASS when:** All 25 step records and every Completion gate are `PASS` on current inputs and final bytes, and every claim has artifact, command, or located visual evidence.
-- **BLOCKED when:** Any step or Completion gate is unproved; return its ID and recovery need while withholding non-slop, originality, corpus uniqueness, and completion claims.
-- **Recovery:** Resume at the earliest failed step, rerun all dependents, rebuild the disposition, and return only after a fresh Step 25 check.
+**Input**
+`package.validation`, `final.readback`, `run.contract`, and every step record in `<name>.run.json`.
+
+**Action**
+Create and start the S25 packet with `scripts/run_pipeline.py`. Apply `references/deterministic-execution.md` and `references/evidence-schema.md`. Check every `SKILL.md` Completion row; return artifact paths, hashes, counts, universe and context coverage, corpus scope, visual-review coverage, command exits, failed gates, uncertainty, and limits. Never report one deliverable as the whole result.
+
+**Save**
+Save `completion.disposition` as `<name>.records/S25-completion.disposition.json` and include final status, artifacts, criterion map, failed gates, and recovery needs.
+
+**Pass**
+All 25 step records and every Completion gate are `PASS` on current inputs and final bytes, and every claim has artifact, command, or located visual evidence. Use `scripts/run_pipeline.py pass` with `completion.disposition`, then confirm `scripts/run_pipeline.py status` reports complete.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with the earliest failed gate's code when any step or Completion row is unproved. Return its ID and recovery need while withholding non-slop, originality, corpus uniqueness, and completion claims.
+
+**Feeds**
+The user receives only the proved artifacts, evidence, limitations, and exact recovery needs from `completion.disposition`.

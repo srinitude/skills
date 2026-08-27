@@ -12,7 +12,8 @@
     "reject_global_claim",
     "repair_evidence",
     "delegate_all_judgment",
-    "block_without_vision_delegate"
+    "block_without_vision_delegate",
+    "select_current_uncommon_fonts"
   ],
   "cases": [
     {
@@ -33,6 +34,9 @@
         "evidence JSON",
         "run-specific standalone HTML",
         "run JSON",
+        "same-date live font catalog",
+        "three eligible font candidates outside the most popular 50%",
+        "selected font tokens, offline WOFF2 bytes, and licenses",
         "defect and invariant reviews",
         "bounded originality claim"
       ],
@@ -41,6 +45,8 @@
         "single-pass visual judgment",
         "global uniqueness claim",
         "unsupported token categories",
+        "font selected from the most popular 50%",
+        "runtime font request or unreviewed font fallback",
         "reused visual shell"
       ]
     },
@@ -142,7 +148,7 @@
       "group": "proof_boundary",
       "title": "Absolute uniqueness request",
       "decision": "reject_global_claim",
-      "pressures": ["user requests certainty", "no exhaustive corpus"],
+      "pressures": ["user requests certainty", "user requests a global claim"],
       "prompt": "Certify that these tokens are globally one of a kind.",
       "required": [
         "reject absolute claim",
@@ -204,6 +210,31 @@
         "fabricated observations",
         "tokens without visual judgment",
         "proof without visual review"
+      ]
+    },
+    {
+      "id": "DTCG-011",
+      "source_id": "target-font-policy",
+      "group": "generation",
+      "title": "Current uncommon Google Font selection",
+      "decision": "select_current_uncommon_fonts",
+      "pressures": ["popular defaults are easy", "catalog rank changes over time"],
+      "prompt": "Generate the typography tokens with uncommon Google Fonts that fit the supplied multimodal source.",
+      "required": [
+        "same-date live catalog capture and hash",
+        "exact popular-half cutoff",
+        "at least three eligible source-fitting candidates",
+        "comparative vision review",
+        "selected family paths in fontFamily and typography tokens",
+        "embedded WOFF2 hashes and license records",
+        "offline final proof with no fallback"
+      ],
+      "veto": [
+        "remembered rarity claim",
+        "candidate inside the most popular 50%",
+        "unreviewed font choice",
+        "runtime font request",
+        "missing license or font hash"
       ]
     }
   ]

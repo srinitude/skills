@@ -225,10 +225,10 @@
       "severity": "major",
       "basis": "hybrid",
       "marker": "Font fallback changes hierarchy or layout",
-      "inspection": "Compare first render, settled render, and offline render; inspect line breaks, metrics, and role differentiation.",
-      "fail_when": "Fallback causes clipping, overlap, different information density, or collapse of intended typographic contrast.",
-      "allowed_exception": "System-font design may pass when fallback order is intentional and tested on required platforms.",
-      "required_evidence": "Font resolution log, screenshots, line-break comparison, and platform set."
+      "inspection": "Compare first render, settled render, offline render, and computed family names; match every selected Google Font data URL to its evidence SHA-256 and inspect line breaks, metrics, and role differentiation.",
+      "fail_when": "A selected font does not resolve from its embedded bytes, a runtime request is needed, or fallback causes clipping, overlap, different information density, or collapse of intended typographic contrast.",
+      "allowed_exception": "A source-mandated system font may coexist, but it does not satisfy the selected Google Font gate.",
+      "required_evidence": "Computed font resolution, embedded asset hashes, offline screenshots, line-break comparison, and platform set."
     },
     {
       "id": "TR-LINE-HEIGHT-001",

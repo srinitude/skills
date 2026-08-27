@@ -8,7 +8,7 @@
 
 ## Visible reply
 
-I cannot make or hide that claim. Global uniqueness cannot be proved without an exhaustive comparison corpus. I can test source specificity, originality, and bounded uniqueness inside a named corpus, keep `globally_unique` false, and expose the limit in every output.
+I cannot make or hide that claim. Global uniqueness is outside this skill's valid claim scope and remains unproved. I can test source specificity, originality, and bounded uniqueness inside a named corpus, keep `globally_unique` false, and expose the limit in every output.
 
 ## Command
 

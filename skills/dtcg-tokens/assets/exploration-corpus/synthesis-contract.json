@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "seed_inputs": ["input_hash", "intent_hash", "corpus_version", "run_id"],
+  "minimum_candidates": 12,
+  "minimum_per_lane": 3,
+  "lanes": ["combinational", "exploratory", "transformational", "antithetical"],
+  "freeze_before_evaluation": true,
+  "candidate_fields": ["id", "lane", "source_relations", "primitive", "operator", "mechanism", "theme_or_tension", "constraint", "question", "predicted_effect", "falsifier", "token_paths", "screen_tuple", "maturity", "status"],
+  "generation_rejections": ["physically_impossible", "invalid_contract", "duplicate", "forbidden_outcome", "missing_source_relation"],
+  "deduplicate_by": ["source_relations", "operator", "mechanism", "screen_tuple", "predicted_effect", "token_paths"],
+  "evaluation_order": ["contract_and_lineage", "hard_vetoes", "matched_render", "counterfactual", "strong_vision", "separate_claim_tracks", "quality_diversity", "token_propagation"],
+  "retention": {"minimum_tokens": 3, "minimum_mechanism_families": 3, "require_antithetical_or_inversion": true}
+}

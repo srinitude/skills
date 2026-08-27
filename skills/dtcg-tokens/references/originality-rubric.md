@@ -26,7 +26,7 @@ A novel flourish cannot substitute for an original system. Signature decisions m
 
 Freeze a named, nonempty, relevant comparison corpus and every threshold before computing results. Compare exact hashes, normalized token graphs, semantic graphs, layout skeletons, content grammar, specimens, full-color appearance, grayscale appearance, edge structure, hierarchy, and nearest neighbors.
 
-The artifact passes only within that declared corpus. Color-only or metadata-only distance cannot establish uniqueness. Keep `globally_unique` false and state: `Global uniqueness cannot be proved without an exhaustive comparison corpus.`
+The artifact passes only within that declared corpus. Color-only or metadata-only distance cannot establish uniqueness. Keep `globally_unique` false and state: `Global uniqueness is outside this skill's valid claim scope and remains unproved.`
 
 ## Non-AI-slop
 

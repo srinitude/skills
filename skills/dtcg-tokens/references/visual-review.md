@@ -12,6 +12,8 @@ The catalog covers render integrity, geometry, typography, contrast, interaction
 
 Machine measurements prove only the property measured. A width calculation can prove overflow, not good composition. A contrast calculation can prove a ratio, not readable hierarchy. Strong native vision performs the whole-frame and detail judgments after machine checks.
 
+For typography, also load `references/google-font-selection.md`. Confirm the catalog rank and cutoff from the saved same-date capture, then compare at least three eligible families in final-content specimens. Inspect computed family resolution, smallest and largest claimed text, numerals, punctuation, mixed case, required scripts, every selected weight and style, line breaks, fallback, collision, hierarchy, voice, and source relation. The final proof must work with network access blocked, and each embedded WOFF2 SHA-256 must match evidence.
+
 ## 2. Perceptual and motor invariants
 
 Load `assets/perceptual-motor-invariant-catalog.json`. Start with all invariants, then narrow each to `pass`, `not_applicable`, or `not_used_experimental` with a reason.

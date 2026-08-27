@@ -1,83 +1,163 @@
 # Execution: intake and discovery
 
-Run Steps 01 through 08 in order. Use the exact fields defined in `references/execution-guide.md` and the handoffs in `assets/execution-io-map.json`.
+Run Steps 01 through 08 in order. Use the command table in `references/execution-guide.md`. `assets/execution-io-map.json` owns each step packet and `scripts/run_pipeline.py` owns run state, hashes, and handoffs.
 
 ## Step 01: Freeze the run
 
-- **Purpose:** Fix the request, sources, outputs, and date so every later claim uses the same task.
-- **Consumes:** `request.packet` and `source.payload` from the user or an authorized source.
-- **Action:** Follow `references/deterministic-execution.md`; choose `<name>` and a run ID; run `scripts/current_anchor.py` once; record the command, source order, outputs, acceptance terms, limits, state, and retries before judgment.
-- **Produces:** `run.contract` in `<name>.run.json`, with source locators and the clock anchor.
-- **PASS when:** Every required field exists, each source has a locator, and the output set is explicit.
-- **BLOCKED when:** Any required request, source, output, or acceptance term is missing; set `E_INPUT` and stop judgment.
-- **Recovery:** Get the missing item, keep the run ID if scope did not change, and rerun Step 01.
+**Input**
+The user request as `request.packet`, every authorized source as `source.payload`, and one fresh clock record from `scripts/current_anchor.py`.
+
+**Action**
+Read `references/deterministic-execution.md`, `references/subagent-orchestration.md`, and `assets/subagent-task-contract.json`. Freeze the command, scope, source order, outputs, acceptance gates, claim limits, owner map, parallel work, dependencies, and retry rule. Use `scripts/run_pipeline.py init`, then create and start the S01 packet.
+
+**Save**
+Save `run.contract` as `<name>.records/S01-run.contract.json` and keep `<name>.run.json` as the runner-owned state record.
+
+**Pass**
+Every required field, source locator, owner, dependency, output, limit, and date is explicit. Use `scripts/run_pipeline.py pass` with `run.contract`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_INPUT` when task material, authority, source access, output scope, or an acceptance gate is missing. State exactly what must be supplied.
+
+**Feeds**
+Step 02 consumes `run.contract` and the same frozen `source.payload`.
 
 ## Step 02: Inventory input and intent
 
-- **Purpose:** Record what each source is and how it may influence the result before reading it as design direction.
-- **Consumes:** `run.contract` and the same `source.payload` frozen in Step 01.
-- **Action:** Check every format and intent facet in `assets/multimodal-input-catalog.json`; hash stable bytes; record locator, access, channels, role, authority, influence, scope, conflicts, and supported extensions; keep format separate from intent.
-- **Produces:** `source.inventory` with one format record, one intent record, and hashes for each source.
-- **PASS when:** Every source appears once in both inventories and each influence claim names its authority and scope.
-- **BLOCKED when:** A source cannot be accessed, hashed, or classified without guessing; set `E_INPUT`.
-- **Recovery:** Restore access or narrow the run with user authority, then rerun Step 02 and its dependents.
+**Input**
+`run.contract` and every frozen source in `source.payload`.
+
+**Action**
+Create and start the S02 packet with `scripts/run_pipeline.py`. Apply every format and intent facet in `assets/multimodal-input-catalog.json`, then use `references/multimodal-inspection.md` to record locator, access, channels, role, authority, influence, scope, conflict, and supported extension without mixing format with intent.
+
+**Save**
+Save `source.inventory` as `<name>.records/S02-source.inventory.json`, with one format record, one intent record, and stable-byte hash data for every source.
+
+**Pass**
+Every source appears exactly once in both inventories, and every influence claim names its authority and scope. Use `scripts/run_pipeline.py pass` with `source.inventory`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_INPUT` when a source cannot be accessed, hashed, or classified without guessing. Name the source and recovery action.
+
+**Feeds**
+Step 03 consumes `source.inventory` and `run.contract`.
 
 ## Step 03: Prove vision execution
 
-- **Purpose:** Put all visual interpretation, design decisions, proof authorship, and final judgment on one strong vision path.
-- **Consumes:** `source.inventory`, `run.contract`, and the source payloads they name.
-- **Action:** Run every probe in `references/vision-execution.md`; require direct whole-frame and detail inspection, located findings, comparison judgment, and rendered readback; if any probe fails, send the full packet to one strong vision-capable model and delegate every judgment task through Step 23 while keeping other work mechanical.
-- **Produces:** `vision.execution` with the executor, probe results, observations, counterchecks, delegation boundary, and allowed mechanical tasks.
-- **PASS when:** One strong vision executor owns source inspection, token decisions, HTML authorship, and final visual review, and all probes pass.
-- **BLOCKED when:** No qualified vision executor can inspect the sources and final renders; set `E_VISION` and do not generate tokens or proof.
-- **Recovery:** Provide a qualified vision route with the full frozen packet, then rerun Step 03.
+**Input**
+`source.inventory`, `run.contract`, and the source files they name.
+
+**Action**
+Create and start the S03 packet with `scripts/run_pipeline.py`. Run every probe in `assets/vision-probe-manifest.json` under `references/vision-execution.md`. Require direct whole-frame and detail inspection, located findings, comparison judgment, and rendered readback. If any probe fails, delegate every judgment through Step 23 to one strong vision-capable model while other executors remain mechanical.
+
+**Save**
+Save `vision.execution` as `<name>.records/S03-vision.execution.json`, including the executor, probe results, counterchecks, delegation boundary, and allowed mechanical work.
+
+**Pass**
+One strong vision executor owns source inspection, token decisions, proof authorship, and final visual review, and every probe passes. Use `scripts/run_pipeline.py pass` with `vision.execution`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_VISION` when no qualified vision executor can inspect both sources and final renders. Do not generate tokens or proof.
+
+**Feeds**
+Step 04 consumes `vision.execution`, `source.inventory`, and `source.payload`.
 
 ## Step 04: Observe visuals
 
-- **Purpose:** Turn each source into located facts without treating OCR, measurements, inference, or taste as direct observation.
-- **Consumes:** `vision.execution`, `source.inventory`, and `source.payload`.
-- **Action:** Apply `references/multimodal-inspection.md` at whole-frame, detail, and comparison scales; record source ID, locator, region, observation, confidence, counterevidence, and any OCR or measurement support for each fact.
-- **Produces:** `observation.register` with one located record per material fact.
-- **PASS when:** Every accessible visual and material source has all applicable passes and every fact points to a location.
-- **BLOCKED when:** A required surface is unseen or a fact has no located evidence; set `E_EVIDENCE`.
-- **Recovery:** Inspect the missing surface or remove the unsupported fact, then rerun Step 04.
+**Input**
+`vision.execution`, `source.inventory`, and every accessible source in `source.payload`.
+
+**Action**
+Create and start the S04 packet with `scripts/run_pipeline.py`. The strong vision executor applies `references/multimodal-inspection.md` and `references/multimodal-originality.md` at whole-frame, detail, sequence, comparison, and cross-source scales. Keep direct observation separate from OCR, measurements, inference, and taste.
+
+**Save**
+Save `observation.register` as `<name>.records/S04-observation.register.json`, with source ID, locator, region, observation, basis, confidence, counterevidence, and support for every material fact.
+
+**Pass**
+Every accessible visual and material source has all applicable passes, and every fact points to a location. Use `scripts/run_pipeline.py pass` with `observation.register`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_EVIDENCE` when a required surface is unseen or a fact lacks located evidence. Name the missing surface or unsupported fact.
+
+**Feeds**
+Step 05 consumes `observation.register` and `run.contract`.
 
 ## Step 05: Classify statements
 
-- **Purpose:** Keep source facts, interpretations, and assumptions distinct.
-- **Consumes:** `observation.register`, `run.contract`, and all material source clauses.
-- **Action:** Follow `references/evidence-schema.md`; mark each statement `observed`, `inferred`, or `assumed`; link its evidence; ask once only when a missing fact would change the system; otherwise limit the assumption and its influence.
-- **Produces:** `statement.register` with one basis, evidence link, confidence, limit, and affected outputs per statement.
-- **PASS when:** Every material statement has one basis and no assumption is presented as observation.
-- **BLOCKED when:** An unlimited unknown can change token architecture or proof claims; set `E_INPUT`.
-- **Recovery:** Resolve the unknown or limit its influence in the run contract, then rerun Step 05.
+**Input**
+`observation.register`, `run.contract`, and every material clause from the frozen sources.
+
+**Action**
+Create and start the S05 packet with `scripts/run_pipeline.py`. Apply `references/evidence-schema.md` and `references/decisions.md`. Mark each statement `observed`, `inferred`, or `assumed`; link its evidence, confidence, limit, and affected output. Ask once only when an unknown would change the system.
+
+**Save**
+Save `statement.register` as `<name>.records/S05-statement.register.json` with one basis and one bounded influence record per statement.
+
+**Pass**
+Every material statement has one basis and no assumption is presented as observation. Use `scripts/run_pipeline.py pass` with `statement.register`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_INPUT` when an unbounded unknown can change token architecture or proof claims. Name the smallest fact needed.
+
+**Feeds**
+Step 06 consumes `statement.register` and `observation.register`.
 
 ## Step 06: Falsify the thesis
 
-- **Purpose:** Create a source-specific thesis that does not fit unrelated work unchanged.
-- **Consumes:** `statement.register`, `observation.register`, audience evidence, and source constraints.
-- **Action:** Use `references/originality-rubric.md`; state the audience, use, intended feeling, and source-specific idea in one sentence; substitute two unrelated domains; revise until both substitutions fail for evidence-backed reasons.
-- **Produces:** `identity.thesis` with evidence IDs, substitutions, failures, revisions, and claim limits.
-- **PASS when:** Every clause is sourced and neither unrelated substitution remains credible.
-- **BLOCKED when:** The thesis is generic, unsupported, or portable; set `E_EVIDENCE`.
-- **Recovery:** Return to Step 04 or 05 for missing evidence, then rebuild and retest the thesis.
+**Input**
+`statement.register`, `observation.register`, audience evidence, and source constraints.
+
+**Action**
+Create and start the S06 packet with `scripts/run_pipeline.py`. The strong vision executor applies `assets/originality-analysis-contract.json`, `references/originality-rubric.md`, and `references/multimodal-originality.md`. Build a source identity graph, state the audience, use, intended feeling, and source-specific idea, then test unrelated-domain substitution, feature removal, nearest-neighbor similarity, and identifiability loss.
+
+**Save**
+Save `identity.thesis` as `<name>.records/S06-identity.thesis.json`, including identity claims, evidence IDs, substitutions, removals, nearest neighbors, failures, revisions, uncertainty, and claim limits.
+
+**Pass**
+Every clause is sourced, unrelated substitutions fail, removing signature relations reduces identifiability, and the thesis does not fit a generic neighbor unchanged. Use `scripts/run_pipeline.py pass` with `identity.thesis`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_EVIDENCE` when the thesis is generic, unsupported, portable, or not identifiable. Name the missing evidence or failed test.
+
+**Feeds**
+Step 07 consumes `identity.thesis` and `statement.register`.
 
 ## Step 07: Expand the token universe
 
-- **Purpose:** List the full token possibility surface before excluding anything.
-- **Consumes:** `identity.thesis` and `statement.register`.
-- **Action:** Read `assets/token-possibility-catalog.json`, `references/dtcg-2025.10.md`, and `references/category-taxonomy.md`; place every catalog leaf in the ledger before exclusions; add source- or intent-backed extensions with stable IDs.
-- **Produces:** `token.universe`, with every catalog leaf and extension represented once.
-- **PASS when:** Every leaf appears exactly once and every extension cites a source or intent record.
-- **BLOCKED when:** A leaf is missing, duplicated, or excluded before review; set `E_EVIDENCE`.
-- **Recovery:** Restore the full ledger, fix duplicate IDs, and rerun Step 07.
+**Input**
+`identity.thesis` and `statement.register`.
+
+**Action**
+Create and start the S07 packet with `scripts/run_pipeline.py`. Enumerate every leaf in `assets/token-possibility-catalog.json` and every screen primitive, behavior, condition, medium, input, and physical effect in `assets/screen-possibility-space.json` before exclusion. Apply `references/dtcg-2025.10.md`, `references/category-taxonomy.md`, and `references/screen-decision.md`; add source- or intent-backed extensions with stable IDs.
+
+**Save**
+Save `token.universe` as `<name>.records/S07-token.universe.json`, with every catalog leaf, screen possibility, extension, and later exclusion represented exactly once.
+
+**Pass**
+Every base possibility appears exactly once, every extension cites a source or intent record, and nothing was removed before review. Use `scripts/run_pipeline.py pass` with `token.universe`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_EVIDENCE` when a leaf is missing, duplicated, or excluded before review. Name the exact ID.
+
+**Feeds**
+Step 08 consumes `token.universe` and `identity.thesis`.
 
 ## Step 08: Generate experiments
 
-- **Purpose:** Reserve real token capacity for exploration without adding arbitrary novelty.
-- **Consumes:** `token.universe` and `identity.thesis`.
-- **Action:** Check `assets/exploration-strategy-catalog.json` in its fixed order; create one candidate for each applicable strategy; run its gates; keep at least two tokens from two strategies; record why any strategy does not apply.
-- **Produces:** `exploration.ledger` with each candidate, evidence, reason, hypothesis, context, status, boundary, and path.
-- **PASS when:** Every strategy has a disposition and sourced candidates meet the minimum.
-- **BLOCKED when:** A strategy lacks a reason, the minimum is missing, or a candidate is filler; set `E_EVIDENCE`.
-- **Recovery:** Revisit the thesis or universe, create only supported candidates, and rerun Step 08.
+**Input**
+`token.universe`, `identity.thesis`, current research records, and the exploration corpus named by `assets/exploration-corpus/manifest.json`.
+
+**Action**
+Create and start the S08 packet with `scripts/run_pipeline.py`. Run `scripts/prepare_creative_research.py` under `references/research-protocol.md`, then use `assets/creative-source-frontier.json`, every corpus shard, `references/creative-transfer.md`, `references/exploration-synthesis.md`, and `references/experimental-decision.md`. Produce at least 12 candidates across all four lanes in `assets/experiment-contract.json`, include at least one inversion or antithesis, and let the strong vision executor judge value after the broad search. Run `scripts/validate_exploration.py` before retention.
+
+**Save**
+Save `exploration.ledger` as `<name>.records/S08-exploration.ledger.json`, with sources, transfers, lanes, candidates, hypotheses, evidence, contexts, states, boundaries, rejections, and retained token paths.
+
+**Pass**
+Every frontier cell and corpus shard has a disposition; at least three supported tokens from at least three distinct strategies remain; inversion or antithesis is present; and no retained candidate is filler. Use `scripts/run_pipeline.py pass` with `exploration.ledger`.
+
+**Blocked**
+Use `scripts/run_pipeline.py block` with `E_EVIDENCE` when research is stale or untraceable, a lane is empty, fewer than 12 candidates exist, the retained minimum fails, or a candidate lacks a sourced reason. Name the failed contract field.
+
+**Feeds**
+Step 09 consumes `exploration.ledger`, `token.universe`, `statement.register`, and `observation.register`.

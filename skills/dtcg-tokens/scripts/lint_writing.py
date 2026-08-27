@@ -7,7 +7,7 @@ enforces the one line layout: every wrappable block, a paragraph or
 a list item plus its continuation lines, is exactly one physical
 line with no internal hard breaks and no maximum length. Frontmatter,
 headings, table rows, code fences and their content, indented code,
-and blank lines are exempt.
+blank lines, and the six exact execution-card labels are exempt.
 Prints one line per problem as path:line: message.
 
 Exit codes:
@@ -50,6 +50,10 @@ LATIN = [
 WORD_RES = [(w, re.compile(r"\b%s\b" % re.escape(w), re.I)) for w in WORDS]
 LIST_RE = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
+STEP_LABELS = {
+    "**Input**", "**Action**", "**Save**",
+    "**Pass**", "**Blocked**", "**Feeds**",
+}
 
 
 def check_words(line):
@@ -85,7 +89,8 @@ def breaks_block(line, fence):
     if FENCE_RE.match(line):
         return True, not fence
     stripped = line.strip()
-    if fence or not stripped or stripped.startswith(("#", "|", ">")):
+    if (fence or not stripped or stripped.startswith(("#", "|", ">"))
+            or stripped in STEP_LABELS):
         return True, fence
     return False, fence
 

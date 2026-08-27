@@ -1,4 +1,6 @@
 """Structural contract for one vision-authored standalone proof artifact."""
+import base64
+import binascii
 import hashlib
 import re
 from html.parser import HTMLParser
@@ -18,6 +20,8 @@ FORBIDDEN_MARKERS = {
 HIDDEN_TAGS = {"head", "script", "style", "template"}
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 RUNTIME_ATTRIBUTES = {"script": {"src"}, "img": {"src", "srcset"}, "iframe": {"src"}, "audio": {"src"}, "video": {"src", "poster"}, "source": {"src", "srcset"}, "link": {"href"}, "object": {"data"}, "embed": {"src"}, "image": {"href", "xlink:href"}, "use": {"href", "xlink:href"}}
+FONT_FACE_RE = re.compile(r"@font-face\s*\{.*?\}", re.IGNORECASE | re.DOTALL)
+FONT_DATA_RE = re.compile(r"url\((['\"]?)data:font/woff2;base64,([A-Za-z0-9+/=]+)\1\)", re.IGNORECASE)
 
 
 def element_hidden(tag, attributes, parent_hidden):
@@ -118,6 +122,67 @@ def check_candidate(text):
             errors.append(reason)
     check_obligations(text, errors)
     check_external_assets(text, errors)
+    return errors
+
+
+def css_value(block, name):
+    match = re.search(rf"{name}\s*:\s*(['\"]?)([^;'\"}}]+)\1\s*;?", block, re.IGNORECASE)
+    return match.group(2).strip() if match else ""
+
+
+def embedded_font_records(text, errors):
+    records = set()
+    for block in FONT_FACE_RE.findall(text):
+        family = css_value(block, "font-family")
+        for match in FONT_DATA_RE.finditer(block):
+            try:
+                data = base64.b64decode(match.group(2), validate=True)
+            except (binascii.Error, ValueError):
+                errors.append(f"embedded Google Font {family} has invalid base64")
+                continue
+            if len(data) < 64 or not data.startswith(b"wOF2"):
+                errors.append(f"embedded Google Font {family} is not a valid WOFF2 payload")
+                continue
+            records.add((family, hashlib.sha256(data).hexdigest()))
+    return records
+
+
+def check_embedded_google_fonts(text, evidence):
+    errors = []
+    selected = evidence.get("google_fonts", {}).get("selected", []) if isinstance(evidence, dict) else []
+    actual = embedded_font_records(text, errors)
+    selected = [item for item in selected if isinstance(item, dict)]
+    expected = {(item.get("family"), asset.get("sha256")) for item in selected for asset in item.get("assets", []) if isinstance(asset, dict)}
+    missing = sorted(expected - actual)
+    if missing:
+        errors.append("embedded Google Font hash mismatch: " + ", ".join(f"{family}:{digest}" for family, digest in missing))
+    style_without_faces = FONT_FACE_RE.sub("", text)
+    for family in sorted({item.get("family") for item in selected if item.get("family")}):
+        declarations = re.findall(r"font-family\s*:\s*([^;}}]+)", style_without_faces, re.IGNORECASE)
+        if not any(family.lower() in declaration.lower() for declaration in declarations):
+            errors.append(f"selected Google Font {family} is embedded but not visibly used")
+    return errors
+
+
+def check_google_font_token_paths(coverage, evidence):
+    errors = []
+    records = {item.get("path"): item for item in coverage.get("token_paths", []) if isinstance(item, dict)}
+    selected = evidence.get("google_fonts", {}).get("selected", []) if isinstance(evidence, dict) else []
+    for item in [entry for entry in selected if isinstance(entry, dict)]:
+        family = item.get("family")
+        kinds = set()
+        for path in item.get("token_paths", []):
+            record = records.get(path)
+            if not record or record.get("type") not in {"fontFamily", "typography"}:
+                errors.append(f"selected Google Font {family} font token path is missing or has the wrong type: {path}")
+                continue
+            kinds.add(record["type"])
+            value = record.get("resolved_value")
+            font_value = value.get("fontFamily") if record["type"] == "typography" and isinstance(value, dict) else value
+            if not (family == font_value or isinstance(font_value, list) and family in font_value):
+                errors.append(f"selected Google Font {family} does not resolve at font token path {path}")
+        if kinds != {"fontFamily", "typography"}:
+            errors.append(f"selected Google Font {family} needs fontFamily and typography font token paths")
     return errors
 
 

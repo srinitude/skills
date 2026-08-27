@@ -8,7 +8,7 @@
 
 ## Visible reply
 
-The token and evidence records are valid preflight inputs, but no strong-vision-authored HTML candidate was supplied. Proof remains blocked. The next required action is artifact authorship from the current sources and tokens, followed by assembly, wide and narrow visual review, repair, final assembly, and final readback.
+The token and evidence records are valid preflight inputs, but no strong-vision-authored HTML candidate was supplied. Proof remains blocked. The next required action is artifact authorship from the current sources and tokens, using the selected prepared WOFF2 bytes and their licenses, followed by assembly, candidate comparison, wide and narrow visual review, fallback inspection, repair, final assembly, and final readback.
 
 ## Command
 

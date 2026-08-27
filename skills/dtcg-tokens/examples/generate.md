@@ -8,7 +8,7 @@
 
 ## Visible reply
 
-The only source is text, so no visual-source inspection is claimed. I inventoried and hashed it, expanded the full possibility catalog, and narrowed each retained entry with a recorded reason. The committed fixture contains 44 tokens and 9 resolved references across all 13 standard types. Its required experimental partition contains two tokens from two different exploration strategies. Token structure passes. A completed run record and run-specific HTML remain blocked until a strong-vision reviewer authors and inspects the actual proof artifact.
+The only source is text, so no visual-source inspection is claimed. I inventoried and hashed it, expanded the full possibility catalog, and narrowed each retained entry with a recorded reason. The committed fixture contains 45 tokens and 9 resolved references across all 13 standard types. Its required experimental partition contains three tokens from three different exploration strategies, including one hierarchy inversion. Its typography evidence records a same-date live catalog, three candidates outside the most popular 50%, two selected font token paths, licenses, and fixture-only asset hashes. Token structure passes. A completed run record and run-specific HTML remain blocked until a strong-vision reviewer authors the proof with real prepared WOFF2 bytes, visually compares the candidates, and inspects the final artifact.
 
 ## Command
 
@@ -24,12 +24,12 @@ The only source is text, so no visual-source inspection is claimed. I inventorie
   "resolved_references": 9,
   "schema_sha256": "9b501b5666f7515bd0051ff0aec3566b78a3cbe82b0280c90d03660c2e02246e",
   "specification": "DTCG 2025.10",
-  "token_count": 44,
+  "token_count": 45,
   "types": {
     "border": 1,
     "color": 15,
     "cubicBezier": 2,
-    "dimension": 9,
+    "dimension": 10,
     "duration": 3,
     "fontFamily": 2,
     "fontWeight": 3,

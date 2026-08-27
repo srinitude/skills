@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.2.1",
+  "public_version": "0.2.2",
   "native_version": "0.2.1",
   "native_manifest_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
   "public_files": [
@@ -22,6 +22,10 @@
     },
     {
       "path": "assets/evidence-template.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/google-font-policy.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -129,6 +133,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "evals/source-lineage.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "evals/source-mapping.json",
       "source_paths": ["target-scaffolding"]
     },
@@ -210,6 +218,10 @@
     },
     {
       "path": "references/generation-contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/google-font-selection.md",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -297,6 +309,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/lib/google_fonts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/lib/proof.py",
       "source_paths": ["target-scaffolding"]
     },
@@ -306,6 +322,10 @@
     },
     {
       "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/prepare_google_fonts.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -338,6 +358,10 @@
     },
     {
       "path": "scripts/tests/test_experimental_output.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_google_fonts.py",
       "source_paths": ["target-scaffolding"]
     },
     {

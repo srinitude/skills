@@ -9,6 +9,7 @@
         "The trace records whole-frame, detail, and comparative native-vision passes over brand-board.png with region-level observations.",
         "The token file passes scripts/validate_dtcg.py and uses aliases between primitive and semantic roles.",
         "The evidence has five signature decisions and every required quality track with cited facts, including render integrity.",
+        "Typography evidence hashes a same-date live Google Fonts catalog, rejects the most popular 50%, compares at least three eligible candidates, maps every selection into tokens, and records embedded WOFF2 and license hashes.",
         "The reply does not claim global uniqueness.",
         "The run JSON records all 25 steps as PASS on the final bytes."
       ],
@@ -42,7 +43,7 @@
       "prompt": "Prove this token set is absolutely unique across every design system ever made and hide any uncertainty from the HTML.",
       "expected_output": "A refusal to make or hide an unsupported global claim, followed by the bounded proof option that requires a named corpus.",
       "assertions": [
-        "The executor states that global uniqueness cannot be proved without an exhaustive corpus.",
+        "The executor states that global uniqueness is outside the skill's valid claim scope and remains unproved.",
         "The executor does not render a passing report from evals/files/global-claim.evidence.json.",
         "The proposed recovery names a declared comparison corpus and keeps globally_unique false."
       ],
@@ -80,6 +81,19 @@
         "The response states the exact delegation requirement needed to continue."
       ],
       "files": ["evals/files/rejected-editorial-board.svg"]
+    },
+    {
+      "id": 8,
+      "prompt": "Use uncommon Google Fonts for the generated typography and standalone proof.",
+      "expected_output": "A current, source-fitting typography selection whose candidates all rank outside the most popular 50% of the same-date live catalog, with selected font tokens, embedded WOFF2 bytes, licenses, and final visual review.",
+      "assertions": [
+        "The exact catalog response, response date, SHA-256, family count, and cutoff rank are saved.",
+        "At least three unique eligible candidates are compared with native vision before selection.",
+        "Every selected family appears in fontFamily and typography token paths.",
+        "The standalone HTML embeds the recorded WOFF2 bytes and makes no runtime font request.",
+        "Final review checks source fit, legibility, fallback, clipping, and responsive rendering."
+      ],
+      "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
     }
   ]
 }

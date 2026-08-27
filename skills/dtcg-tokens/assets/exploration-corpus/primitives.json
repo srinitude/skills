@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "entries": [
+    {"id": "topology-continuity", "definition": "Whether parts remain connected across state or viewport change.", "axes": ["composition", "state", "viewport"], "effect": "Preserve identity while form changes.", "falsifier": "People lose the relation or reading order."},
+    {"id": "density-gradient", "definition": "A controlled change from sparse to dense regions.", "axes": ["composition", "perception"], "effect": "Direct attention without one fixed grid.", "falsifier": "Density hides required content or creates false priority."},
+    {"id": "temporal-cadence", "definition": "The ordered spacing of events and pauses.", "axes": ["time", "state", "audio"], "effect": "Make change and cause easier to follow.", "falsifier": "Timing obscures state or lacks a reduced-motion form."},
+    {"id": "contact-geometry", "definition": "The size, angle, and shape of physical contact.", "axes": ["input", "body", "touch"], "effect": "Match controls to real touch behavior.", "falsifier": "Error rises across posture, grip, or contact change."},
+    {"id": "crossmodal-offset", "definition": "A measured agreement or delay between sensory cues.", "axes": ["feedback", "time", "perception"], "effect": "Create agreement or deliberate tension between senses.", "falsifier": "The relation reads as accidental mismatch."}
+  ]
+}

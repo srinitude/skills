@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "grammar": ["proposition", "evidence", "antithesis", "tension", "entailments", "anti_signals", "cliches", "counterfactual"],
+  "entries": [
+    {"id": "controlled-drift", "proposition": "Identity can persist while local form changes.", "antithesis": "Identity requires exact repetition.", "tension": "variation versus recognition", "anti_signals": ["random mutation", "surface swap"], "counterfactual": "Flatten all changes to identical modules."},
+    {"id": "quiet-urgency", "proposition": "Urgent state can remain clear without constant maximum salience.", "antithesis": "Urgency must dominate every state.", "tension": "attention versus fatigue", "anti_signals": ["permanent alarm color", "continuous pulse"], "counterfactual": "Make all states equally loud."},
+    {"id": "porous-boundary", "proposition": "A boundary can guide movement while showing exchange across it.", "antithesis": "A boundary must fully separate.", "tension": "containment versus flow", "anti_signals": ["decorative divider"], "counterfactual": "Remove every cross-boundary relation."}
+  ]
+}

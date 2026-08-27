@@ -8,7 +8,7 @@
 
 ## Visible reply
 
-The file passed the bundled DTCG 2025.10 structure, value, reference, type-agreement, and cycle checks. It contains 44 tokens and 9 resolved references. This does not prove visual quality or downstream tool support.
+The file passed the bundled DTCG 2025.10 structure, value, reference, type-agreement, and cycle checks. It contains 45 tokens and 9 resolved references. This does not prove visual quality or downstream tool support.
 
 ## Command
 
@@ -24,12 +24,12 @@ The file passed the bundled DTCG 2025.10 structure, value, reference, type-agree
   "resolved_references": 9,
   "schema_sha256": "9b501b5666f7515bd0051ff0aec3566b78a3cbe82b0280c90d03660c2e02246e",
   "specification": "DTCG 2025.10",
-  "token_count": 44,
+  "token_count": 45,
   "types": {
     "border": 1,
     "color": 15,
     "cubicBezier": 2,
-    "dimension": 9,
+    "dimension": 10,
     "duration": 3,
     "fontFamily": 2,
     "fontWeight": 3,

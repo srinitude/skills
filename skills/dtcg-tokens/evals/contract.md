@@ -12,13 +12,15 @@ Activate for requests to derive, author, validate, or prove DTCG token files fro
 
 A passing generation inventories and hashes every source, enumerates its format and intent, performs all required native-vision passes, records located observations, separates inference, writes an input-specific identity thesis, expands the full token possibility universe, narrows every possibility with evidence, authors source-supported DTCG 2025.10 JSON, validates it, and creates a source- and token-specific standalone HTML artifact.
 
+Every generated typography system fetches and saves the live Google Fonts catalog, excludes its most popular 50%, visually compares at least three eligible source-fitting candidates, records the current rank and catalog hash, uses at least one selected family in font and typography tokens, embeds exact WOFF2 bytes in the proof, records its license, and confirms final rendering without fallback.
+
 The artifact is authored from scratch by the strong vision executor. Scripts may enforce stable proof obligations and embed data, but cannot choose layout, styling, copy, or verdict.
 
 Final review accounts for every objective visual defect marker, perceptual-motor invariant, and taste, originality, corpus-uniqueness, and non-AI-slop obligation. Wide and narrow readback of the final artifact is mandatory. Global uniqueness remains unproved.
 
 ## Failure and recovery
 
-Missing vision or delegation, invalid DTCG, incomplete universe accounting, missing hashes, failed quality tracks, unresolved veto or major defect, failed invariant, bad responsive output, evidence mismatch, external runtime dependency, stale current claim, or global claim blocks the affected output.
+Missing vision or delegation, invalid DTCG, incomplete universe accounting, missing hashes, failed quality tracks, unresolved veto or major defect, failed invariant, bad responsive output, evidence mismatch, missing or popular-half font selection, stale font rank, external font dependency, font hash mismatch, external runtime dependency, stale current claim, or global claim blocks the affected output.
 
 Recovery changes source interpretation, tokens, evidence, or the authored artifact, then reruns dependent validation and vision passes. Editing only a verdict is forbidden. Experimental token branches may remain recorded and unused; a failed experimental use blocks only its clean-use claim.
 

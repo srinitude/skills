@@ -1,0 +1,40 @@
+{
+  "policy_version": "1.0.0",
+  "catalog": {
+    "url": "https://fonts.google.com/metadata/fonts",
+    "maximum_age_seconds": 600,
+    "developer_api_docs": "https://developers.google.com/fonts/docs/developer_api",
+    "css_api_url": "https://fonts.googleapis.com/css2",
+    "repository_url": "https://github.com/google/fonts"
+  },
+  "uncommon_threshold": {
+    "excluded_top_fraction": 0.5,
+    "eligible_when": "popularity_rank > floor(total_families * excluded_top_fraction)",
+    "rank_order": "1 is most popular",
+    "tie_rule": "Use the live popularity rank supplied by the catalog; do not invent or average ranks."
+  },
+  "selection": {
+    "minimum_candidates": 3,
+    "minimum_selected": 1,
+    "require_open_source": true,
+    "exclude_brand_fonts": true,
+    "require_source_script_support": true,
+    "required_visual_passes": ["whole-frame", "detail", "comparative"],
+    "selected_family_must_appear_in": ["fontFamily tokens", "typography tokens", "standalone proof artifact"]
+  },
+  "artifact": {
+    "font_format": "woff2",
+    "embedding": "data-url",
+    "external_runtime_requests_allowed": false,
+    "asset_sha256_required": true,
+    "license_record_required": true
+  },
+  "error_codes": {
+    "catalog_unavailable": "E_FONT_CURRENT",
+    "catalog_schema_changed": "E_FONT_CURRENT",
+    "candidate_in_popular_half": "E_FONT_RARITY",
+    "candidate_count_too_small": "E_FONT_RARITY",
+    "font_or_license_unavailable": "E_FONT_ASSET",
+    "visual_review_failed": "E_REVIEW"
+  }
+}

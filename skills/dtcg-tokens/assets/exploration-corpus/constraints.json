@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "entries": [
+    {"id": "human-use-veto", "kind": "hard", "rule": "No experiment may require failed sight, perception, touch, access, or recovery.", "invertible": false},
+    {"id": "no-surface-copy", "kind": "hard", "rule": "A distant transfer preserves relations and forbids copied motifs.", "invertible": false},
+    {"id": "familiar-layout", "kind": "soft", "rule": "A familiar layout may be changed when the task stays operable and the source relation strengthens.", "invertible": true},
+    {"id": "single-sense-feedback", "kind": "hidden", "rule": "Do not assume one feedback sense is enough or always required.", "invertible": true},
+    {"id": "current-support", "kind": "technical", "rule": "Unverified capability remains experimental and keeps a fallback.", "invertible": false}
+  ]
+}

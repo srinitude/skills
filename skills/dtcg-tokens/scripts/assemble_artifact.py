@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from lib.accounting import validate_accounting
-from lib.artifact_contract import assemble, check_candidate, check_experimental_specimens, check_visible_coverage, reviewed_surface_sha256
+from lib.artifact_contract import assemble, check_candidate, check_embedded_google_fonts, check_experimental_specimens, check_google_font_token_paths, check_visible_coverage, reviewed_surface_sha256
 from lib.coverage import analyze_coverage
 from lib.dtcg import read_json, validate
 from lib.experiments import validate_experimental_output
@@ -126,7 +126,8 @@ def main(argv=None):
     evidence, evidence_errors = read_json(paths[2])
     root = Path(__file__).resolve().parents[1]
     conformance, accounting, coverage, experiments, review_catalogs, report_errors = evaluate(root, paths, tokens, evidence, token_errors + evidence_errors)
-    errors += report_errors
+    errors += report_errors + check_embedded_google_fonts(candidate, evidence)
+    errors += check_google_font_token_paths(coverage, evidence)
     errors += check_experimental_specimens(candidate, experiments["token_paths"])
     visible_coverage, visible_errors = check_visible_coverage(candidate, coverage)
     errors += visible_errors

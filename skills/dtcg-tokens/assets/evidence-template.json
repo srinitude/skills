@@ -82,6 +82,11 @@
       "evidence": "Add clock and current-source evidence."
     },
     {
+      "name": "font_selection",
+      "status": "pending_visual_review",
+      "evidence": "Add live popularity rank, candidate comparison, embedded font hash, license, token-path, and final-render evidence."
+    },
+    {
       "name": "taste",
       "status": "pending_visual_review",
       "evidence": "Add reasoned visual judgment and counterevidence."
@@ -148,8 +153,9 @@
     "policy_version": "1.0",
     "strategy_catalog_version": "1.0.0",
     "required": true,
-    "minimum_retained_tokens": 2,
-    "minimum_distinct_strategies": 2,
+    "minimum_retained_tokens": 3,
+    "minimum_distinct_strategies": 3,
+    "require_inversion_or_antithesis": true,
     "entries": [
       {
         "path": "experimental.tokens.replace-with-token",
@@ -185,6 +191,24 @@
     "pinned_specification": "DTCG 2025.10",
     "current_specification": "replace-after-current-primary-source-check",
     "current_sources": []
+  },
+  "google_fonts": {
+    "policy_version": "1.0.0",
+    "run_date": "YYYY-MM-DD",
+    "catalog_url": "https://fonts.google.com/metadata/fonts",
+    "catalog_response_date": "replace-with-live-server-date",
+    "catalog_sha256": "replace-with-lowercase-sha256",
+    "total_families": 0,
+    "cutoff_rank": 0,
+    "excluded_top_fraction": 0.5,
+    "required_subsets": [],
+    "candidates": [],
+    "selected_families": [],
+    "selected": [],
+    "selection_review": {
+      "status": "pending_visual_review",
+      "comparison": "Render and compare at least three eligible candidates with source-specific text."
+    }
   },
   "artifact_review": {
     "status": "pending_visual_review",
@@ -236,5 +260,5 @@
     "invariants_satisfied": "pending_visual_review",
     "globally_unique": false
   },
-  "limits": ["Global uniqueness cannot be proved without an exhaustive comparison corpus."]
+  "limits": ["Global uniqueness is outside this skill's valid claim scope and remains unproved."]
 }

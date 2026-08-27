@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "purpose": "Freeze experiments before confirmation and keep retained tokens traceable.",
+  "frozen_fields": [
+    "question",
+    "hypothesis",
+    "null",
+    "mechanism",
+    "source_relations",
+    "variables",
+    "controls",
+    "run_order",
+    "sample_contexts",
+    "token_paths",
+    "states",
+    "viewports",
+    "inputs",
+    "interactions",
+    "predictions",
+    "risks",
+    "measures",
+    "vision_questions",
+    "vetoes",
+    "thresholds",
+    "stop_rule",
+    "evidence_plan",
+    "rollback"
+  ],
+  "variable_groups": [
+    "independent",
+    "held_constant",
+    "nuisance",
+    "blocked"
+  ],
+  "methods": {
+    "few_interacting_factors": "full_factorial",
+    "many_early_factors": "screening_design",
+    "curved_continuous_space": "response_surface",
+    "large_unknown_continuous_space": "space_filling",
+    "context_changes_result": "blocked_comparison"
+  },
+  "retention": {
+    "minimum_tokens": 3,
+    "minimum_mechanism_families": 3,
+    "require_inversion_or_antithesis": true,
+    "required_lineage": [
+      "candidate",
+      "transfer",
+      "experiment",
+      "evidence",
+      "proof_specimen",
+      "visual_review",
+      "claim_boundary"
+    ]
+  },
+  "errors": {
+    "incomplete_or_changed_record": "E_EXPERIMENT",
+    "retention_or_lineage_failure": "E_EXPLORATION"
+  }
+}

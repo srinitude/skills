@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "purpose": "Test whether a visual reviewer can locate known failures and state the visible condition required to clear each failure.",
+  "fixture_role": "negative control with pass counterconditions",
+  "countercondition_notice": "A pass countercondition is a review distinction, not a positive design example or a reusable visual direction.",
+  "pairs": [
+    {
+      "id": "ring-module-collision",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "upper-right-ring-and-green-module",
+      "probe_family": "overlap_clipping",
+      "expected_failure": "The copper ring collides with and crowds the green module without a source-backed purpose.",
+      "pass_countercondition": "The elements are clearly separated, or the overlap is intentional, source-backed, readable, and safe at every tested size."
+    },
+    {
+      "id": "lower-module-alignment",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "lower-center-and-lower-right-modules",
+      "probe_family": "responsive",
+      "expected_failure": "The lower modules do not follow a clear shared alignment or responsive relation.",
+      "pass_countercondition": "The modules follow a clear optical relation at wide, narrow, sub-320, zoomed, and rotated states without overflow or lost content."
+    },
+    {
+      "id": "headline-information-hierarchy",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "headline-subhead-and-labels",
+      "probe_family": "typography",
+      "expected_failure": "The display headline dominates while the small labels carry unclear information and weak reading support.",
+      "pass_countercondition": "Type size, measure, spacing, and rank support the task, preserve all required text, and remain readable in every tested state."
+    },
+    {
+      "id": "decorative-symbol-meaning",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "green-and-black-line-symbols",
+      "probe_family": "hallucination_control",
+      "expected_failure": "The line symbols imply operational meaning that the source and visible content do not establish.",
+      "pass_countercondition": "Each symbol has an explicit source-backed role and visible relation to its content, or the unsupported symbol is omitted."
+    },
+    {
+      "id": "restaurant-operations-identity",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "full-board-content-model",
+      "probe_family": "source_identity",
+      "expected_failure": "The board names restaurant operations but shows no status, workflow, timing, role, inventory, or exception relation.",
+      "pass_countercondition": "The composition makes at least one source-specific operational relation visible and testable instead of relying on a title."
+    },
+    {
+      "id": "generic-brand-board-formula",
+      "negative_fixture": "evals/files/rejected-editorial-board.svg",
+      "region_id": "full-board-visual-system",
+      "probe_family": "taste_originality",
+      "expected_failure": "The paper grid, earthy palette, serif italic headline, swatch strip, and oversized geometry repeat a familiar brand-board formula.",
+      "pass_countercondition": "The visual system follows distinct source relations and loses important meaning if moved unchanged to an unrelated source."
+    }
+  ]
+}

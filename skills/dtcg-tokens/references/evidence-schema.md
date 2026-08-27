@@ -18,8 +18,9 @@ Start from `assets/evidence-template.json`. The evidence file is the canonical r
 - `possibility_ledger` starts from every leaf in `assets/token-possibility-catalog.json` and assigns exactly one disposition.
 - `context_requirements` maps source and intent requirements to retained possibilities and token paths.
 - `permutation_space` declares applicable type, role, state, mode, component, context, and value branches plus exclusions and equivalence classes.
-- `experimental_output` lists every token in the required top-level experimental partition. It contains at least two paths using at least two strategies from `assets/exploration-strategy-catalog.json`. Each entry exactly repeats the stable experiment identifier, exploration strategy, hypothesis, intended context, status, visible-specimen requirement, and invariant disposition.
+- `experimental_output` lists every token in the required top-level experimental partition. It contains at least three paths using at least three strategies from `assets/exploration-strategy-catalog.json`, including one inversion or antithesis. Each entry exactly repeats the stable experiment identifier, exploration strategy, hypothesis, intended context, status, visible-specimen requirement, invariant disposition, and inversion flag.
 - `temporal_context` stores exactly one fresh local clock anchor, the pinned conformance target, the current specification check, and every current primary source.
+- `google_fonts` follows `references/google-font-selection.md` and `assets/google-font-policy.json`. It stores the local run date, live catalog URL, server date, exact capture hash, total family count, popular-half cutoff, required subsets, at least three eligible candidates, selected families, token paths, exact WOFF2 asset hashes, license identifiers and text, and comparative vision review.
 
 ## Quality checks
 
@@ -35,6 +36,7 @@ Start from `assets/evidence-template.json`. The evidence file is the canonical r
 - `context_coverage`
 - `coverage_integrity`
 - `temporal_currency`
+- `font_selection`
 - `taste`
 - `originality`
 - `corpus_uniqueness`
@@ -63,6 +65,8 @@ Preliminary evidence may use `pending_visual_review`. Final evidence requires ev
 
 `experimental_review` lists every experimental token path exactly once and confirms that the final artifact contains a visible specimen and explicit use boundary. A raw embedded JSON path alone does not satisfy the visible-specimen requirement.
 
+`google_fonts.selection_review` stays `pending_visual_review` until the final assembled HTML has passed whole-frame, detail, and comparative review. Each selected family must have a live popularity rank greater than `floor(total_families * 0.5)`, appear in at least one `fontFamily` token path and each affected `typography` token, expose a recorded license, and list every embedded WOFF2 SHA-256. The assembler matches those hashes to font data URLs and confirms visible CSS use. A stylesheet link, `@import`, runtime fetch, remembered rarity claim, or selected family inside the popular half blocks the result.
+
 `final_readback` records pass status, the assembler-reported reviewed-surface SHA-256, exact artifact locator, and confirmation that review happened after assembly. The surface hash removes only the non-rendering embedded proof-data payload and normalizes the verdict marker so an evidence update cannot invalidate the inspected layout, style, copy, or specimens. Candidate CSS and scripts must not read either machine-only field. The surface hash is not the HTML file hash. After the recorded-pass assembly, Step 23 visually reads the exact final HTML and stores its full byte hash in `<name>.run.json` without reassembling again.
 
 `coverage_manifest` is planned until the assembler finds exactly one renderable, non-hidden `data-token-path` for every retained token, one `data-stress-cell` for every generated stress comparison, and one `data-permutation-cell` for every applicable or explicitly excluded permutation. Markers inside scripts, styles, templates, hidden controls, inert or hidden ancestors, or inline-hidden elements do not count. Only that candidate-specific equality check may change coverage status to `pass`; embedded JSON does not count as visible coverage.
@@ -81,7 +85,7 @@ Final `claims` may set these to true only after their matching review passes:
 - `unique_within_declared_corpus`
 - `invariants_satisfied`
 
-`globally_unique` remains false. `limits` includes `Global uniqueness cannot be proved without an exhaustive comparison corpus.`
+`globally_unique` remains false. `limits` includes `Global uniqueness is outside this skill's valid claim scope and remains unproved.`
 
 ## Evidence integrity
 

@@ -2,6 +2,8 @@
 
 Use this gate before any source interpretation, token judgment, proof authorship, or visual verdict. Read `references/qualitative-judgment.md` with it so the capability probe covers open-ended interpretation as well as spatial and defect checks. A capability label or self-description is not evidence. Prove the required operations on the supplied inputs and record the result in `<name>.run.json`.
 
+Load the fixture and pair paths from `assets/vision-probe-manifest.json`. Inspect each named region in the actual rendered pixels. Confirm that the reviewer can distinguish the known failure from its stated pass countercondition. The countercondition is a test distinction, not a positive artifact or a style to copy.
+
 ## Capability probe
 
 Run every check below against the actual source set. Record `pass`, `fail`, or `not_applicable`, the inspected locator, one observed fact, and one countercheck for each item.

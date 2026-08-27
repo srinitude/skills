@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "purpose": "Qualify the visual judgment path before source or artifact decisions.",
+  "requires_actual_pixels": true,
+  "requires_native_detail": true,
+  "requires_region_ids": true,
+  "families": {
+    "overlap_clipping": ["unintended_collision", "crop", "hidden_content", "unsafe_occlusion", "edge_loss", "purposeful_overlap"],
+    "typography": ["size", "measure", "spacing", "hierarchy", "fallback", "glyphs", "overflow"],
+    "contrast_perception": ["text_contrast", "non_text_contrast", "color_only_meaning", "grouping", "hierarchy", "forced_colors", "grayscale"],
+    "responsive": ["wide", "narrow", "sub_320", "zoom", "rotation", "segmentation", "reduced_motion"],
+    "interaction": ["focus", "target", "drag_alternative", "feedback", "interruption", "recovery", "touch"],
+    "source_identity": ["source_relation", "matched_distractor", "generic_surface_match", "counterfactual_loss"],
+    "taste_originality": ["fact", "inference", "judgment", "preference", "counterevidence"],
+    "hallucination_control": ["absent_element", "absent_relation", "unsupported_state"]
+  },
+  "fixtures": [
+    {
+      "id": "rejected-editorial-board",
+      "path": "evals/files/rejected-editorial-board.svg",
+      "role": "negative",
+      "truth": "evals/files/rejected-visual-precedents.json"
+    }
+  ],
+  "fixture_pairs": "evals/files/vision-probe-pairs.json",
+  "pass_rule": {
+    "hard_veto_recall": 1.0,
+    "major_defect_recall": 0.9,
+    "invented_elements": 0,
+    "fact_inference_judgment_separated": true,
+    "counterevidence_for_each_qualitative_decision": true
+  },
+  "delegate_all_judgment_when_active_path_fails": true,
+  "delegate_must_pass_same_probe": true,
+  "failure": "BLOCKED: E_VISION"
+}

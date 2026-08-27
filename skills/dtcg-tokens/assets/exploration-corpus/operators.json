@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "entries": [
+    {"id": "combine", "operations": ["pair", "layer", "interleave", "alternate", "synchronize", "counterpoint"], "invalid": "No shared decision or predicted effect."},
+    {"id": "separate", "operations": ["split", "isolate", "stagger", "gate", "reveal", "defer"], "invalid": "Separation loses required context."},
+    {"id": "transform", "operations": ["scale", "compress", "rotate", "translate", "warp", "quantize", "interpolate"], "invalid": "Change breaks the declared invariant."},
+    {"id": "reframe", "operations": ["change_objective", "change_agent", "change_granularity", "change_time_scale", "change_medium"], "invalid": "New frame no longer answers the task."},
+    {"id": "invert", "operations": ["reverse_hierarchy", "reverse_direction", "swap_figure_ground", "swap_control_response", "swap_default_exception"], "invalid": "Inversion is decorative or unsafe."},
+    {"id": "counterfactual", "operations": ["remove", "replace", "shuffle", "flatten", "transplant", "mask"], "invalid": "The test changes several unrelated causes."},
+    {"id": "temporalize", "operations": ["sequence", "accumulate", "decay", "branch", "pause", "interrupt", "replay"], "invalid": "Time adds noise without a state or task benefit."}
+  ]
+}

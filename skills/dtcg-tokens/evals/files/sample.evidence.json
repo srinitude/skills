@@ -169,7 +169,7 @@
     {
       "name": "context_coverage",
       "status": "pass",
-      "evidence": "Every one of the 44 token paths belongs to one source-linked or exploration-specific context requirement."
+      "evidence": "Every one of the 45 token paths belongs to one source-linked or exploration-specific context requirement."
     },
     {
       "name": "coverage_integrity",
@@ -180,6 +180,11 @@
       "name": "temporal_currency",
       "status": "pass",
       "evidence": "One local clock anchor precedes the recorded verification of the pinned DTCG 2025.10 specification."
+    },
+    {
+      "name": "font_selection",
+      "status": "pending_visual_review",
+      "evidence": "A saved live catalog places all three candidates outside the popular half; final embedded-font and comparative visual review is pending."
     },
     {
       "name": "taste",
@@ -938,6 +943,15 @@
         "evidence": "ref-brief plus exploration requirement",
         "stage": "tokens",
         "tokens": ["experimental.tokens.risk-pulse-duration"]
+      },
+      {
+        "id": "extension/experimental-lane-density-inversion",
+        "disposition": "included",
+        "experimental": true,
+        "reason": "Retain one hierarchy inversion candidate that tests isolation instead of added visual mass.",
+        "evidence": "ref-brief plus exploration requirement",
+        "stage": "tokens",
+        "tokens": ["experimental.tokens.lane-density-inversion"]
       }
     ]
   },
@@ -1064,16 +1078,18 @@
     },
     {
       "id": "req-experimental-output",
-      "statement": "Retain and visibly inspect at least one source-adjacent color experiment and one motion experiment without implying production approval.",
+      "statement": "Retain and visibly inspect source-adjacent color, motion, and hierarchy-inversion experiments without implying production approval.",
       "source_ids": ["ref-brief"],
       "confidence": "high",
       "possibilities": [
         "extension/experimental-route-softening",
-        "extension/experimental-risk-pulse"
+        "extension/experimental-risk-pulse",
+        "extension/experimental-lane-density-inversion"
       ],
       "tokens": [
         "experimental.tokens.route-signal-softening",
-        "experimental.tokens.risk-pulse-duration"
+        "experimental.tokens.risk-pulse-duration",
+        "experimental.tokens.lane-density-inversion"
       ]
     }
   ],
@@ -1095,8 +1111,9 @@
     "policy_version": "1.0",
     "strategy_catalog_version": "1.0.0",
     "required": true,
-    "minimum_retained_tokens": 2,
-    "minimum_distinct_strategies": 2,
+    "minimum_retained_tokens": 3,
+    "minimum_distinct_strategies": 3,
+    "require_inversion_or_antithesis": true,
     "entries": [
       {
         "path": "experimental.tokens.route-signal-softening",
@@ -1106,7 +1123,8 @@
         "intended_context": "Secondary monitoring only; not assigned to the primary active-route role.",
         "status": "retained_unproven",
         "artifact_disposition": "visible_specimen_required",
-        "invariant_disposition": "not_used_experimental"
+        "invariant_disposition": "not_used_experimental",
+        "inversion_or_antithesis": false
       },
       {
         "path": "experimental.tokens.risk-pulse-duration",
@@ -1116,7 +1134,19 @@
         "intended_context": "Experimental timed-risk comparison with reduced-motion fallback required.",
         "status": "active_experiment",
         "artifact_disposition": "visible_specimen_required",
-        "invariant_disposition": "not_used_experimental"
+        "invariant_disposition": "not_used_experimental",
+        "inversion_or_antithesis": false
+      },
+      {
+        "path": "experimental.tokens.lane-density-inversion",
+        "experiment_id": "exp-lane-density-inversion",
+        "exploration_strategy": "relationship_reversal",
+        "hypothesis": "Inverting the usual density relation by increasing isolation around the highest-risk lane may improve recognition without enlarging the risk marker.",
+        "intended_context": "Experimental high-risk lane comparison only; production use requires touch, grouping, and scan-time review.",
+        "status": "retained_unproven",
+        "artifact_disposition": "visible_specimen_required",
+        "invariant_disposition": "not_used_experimental",
+        "inversion_or_antithesis": true
       }
     ]
   },
@@ -1140,6 +1170,107 @@
         "status": "verified"
       }
     ]
+  },
+  "google_fonts": {
+    "policy_version": "1.0.0",
+    "run_date": "2026-08-27",
+    "catalog_url": "https://fonts.google.com/metadata/fonts",
+    "catalog_response_date": "Thu, 27 Aug 2026 17:42:11 GMT",
+    "catalog_sha256": "f916f9b4923b349fcac49022653415c10b891fd9d73bc53ff586d041a676c09d",
+    "total_families": 1946,
+    "cutoff_rank": 973,
+    "excluded_top_fraction": 0.5,
+    "required_subsets": ["latin"],
+    "candidates": [
+      {
+        "family": "Balthazar",
+        "popularity_rank": 1068,
+        "popularity_percentile": 0.548586,
+        "eligible": true,
+        "reasons": [],
+        "category": "Serif",
+        "subsets": ["menu", "latin"]
+      },
+      {
+        "family": "Galdeano",
+        "popularity_rank": 1550,
+        "popularity_percentile": 0.796401,
+        "eligible": true,
+        "reasons": [],
+        "category": "Sans Serif",
+        "subsets": ["menu", "latin"]
+      },
+      {
+        "family": "Victor Mono",
+        "popularity_rank": 1239,
+        "popularity_percentile": 0.636504,
+        "eligible": true,
+        "reasons": [],
+        "category": "Monospace",
+        "subsets": ["menu", "cyrillic", "cyrillic-ext", "greek", "latin", "latin-ext", "vietnamese"]
+      }
+    ],
+    "selected_families": ["Galdeano", "Victor Mono"],
+    "selected": [
+      {
+        "family": "Galdeano",
+        "token_paths": ["foundation.font.control", "foundation.typography.display"],
+        "license": {
+          "id": "OFL-1.1",
+          "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/galdeano/OFL.txt",
+          "sha256": "d102f22055cfa31a9659228483de3c726010f0b3b416b78e3cbefcb54816e812",
+          "text": "Copyright (c) 2011, Dario Manuel Muhafara, with Reserved Font Name Galdeano. Licensed under the SIL Open Font License, Version 1.1."
+        },
+        "assets": [
+          {
+            "family": "Galdeano",
+            "style": "normal",
+            "weight": "400",
+            "format": "woff2",
+            "source_url": "https://fonts.gstatic.com/s/galdeano/v23/uU9MCBoQ4YOqOW1boAP2-vE.woff2",
+            "sha256": "062e9ac84ef7bf116e2027a0b9f597b63f320e809b119eb226f9ca3cb7ffe5fc",
+            "bytes": 128,
+            "fixture_only": true
+          }
+        ],
+        "visual_review": {
+          "status": "pending_visual_review",
+          "specimens": [],
+          "rationale": ""
+        }
+      },
+      {
+        "family": "Victor Mono",
+        "token_paths": ["foundation.font.data", "foundation.typography.data"],
+        "license": {
+          "id": "OFL-1.1",
+          "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/victormono/OFL.txt",
+          "sha256": "493589852331b4ea83f1d6b0cbdc157b002ffdb995cf2429acf0c9863bc8f3df",
+          "text": "Copyright 2023 The Victor Mono Project Authors. Licensed under the SIL Open Font License, Version 1.1."
+        },
+        "assets": [
+          {
+            "family": "Victor Mono",
+            "style": "normal",
+            "weight": "400 700",
+            "format": "woff2",
+            "source_url": "https://fonts.gstatic.com/s/victormono/v5/Yq6Q-LGQWyfv-LGy7lEO0_ZdtxU.woff2",
+            "sha256": "a39ae9649c24aa8f8421592b3605690948af6151180925194f4fe259a063482f",
+            "bytes": 128,
+            "fixture_only": true
+          }
+        ],
+        "visual_review": {
+          "status": "pending_visual_review",
+          "specimens": [],
+          "rationale": ""
+        }
+      }
+    ],
+    "selection_review": {
+      "status": "pending_visual_review",
+      "comparison": "Three live-eligible candidates await final comparative specimen review."
+    }
   },
   "artifact_review": {
     "status": "pending_visual_review",
@@ -1188,5 +1319,5 @@
     "invariants_satisfied": "pending_visual_review",
     "globally_unique": false
   },
-  "limits": ["Global uniqueness cannot be proved without an exhaustive comparison corpus."]
+  "limits": ["Global uniqueness is outside this skill's valid claim scope and remains unproved."]
 }

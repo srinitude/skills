@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "entries": [
+    {"id": "identity-through-change", "primitives": ["topology-continuity", "temporal-cadence"], "prerequisites": ["stable source relation"], "effect": "Keep a source-identifying relation visible across form and state.", "risk": "Motion or continuity becomes a reusable shell.", "test": "Ablate the relation and measure identity loss."},
+    {"id": "adaptive-signal-band", "primitives": ["density-gradient", "crossmodal-offset"], "prerequisites": ["measurable context"], "effect": "Vary a signal within a bounded perceptual range.", "risk": "Adaptation hides state or makes comparison unstable.", "test": "Block by context and compare error and recognition."},
+    {"id": "touch-reveals-structure", "primitives": ["contact-geometry", "topology-continuity"], "prerequisites": ["touch context"], "effect": "Let physical contact expose a relation instead of only activating it.", "risk": "Occlusion, posture, or alternate input breaks the action.", "test": "Test contact changes and an equivalent non-touch path."}
+  ]
+}

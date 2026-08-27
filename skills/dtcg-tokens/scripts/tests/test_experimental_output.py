@@ -19,8 +19,9 @@ class ExperimentalOutputTests(unittest.TestCase):
         catalog = json.loads((ROOT / "assets" / "exploration-strategy-catalog.json").read_text(encoding="utf-8"))
         policy = catalog["selection_policy"]
         ids = [item["id"] for item in catalog["strategies"]]
-        self.assertEqual(policy["minimum_retained_tokens"], 2)
-        self.assertEqual(policy["minimum_distinct_strategies"], 2)
+        self.assertEqual(policy["minimum_retained_tokens"], 3)
+        self.assertEqual(policy["minimum_distinct_strategies"], 3)
+        self.assertTrue(policy["require_inversion_or_antithesis"])
         self.assertEqual(policy["selection_order"], ids)
         self.assertEqual(len(ids), len(set(ids)))
 
@@ -29,8 +30,9 @@ class ExperimentalOutputTests(unittest.TestCase):
 
         report = validate_experimental_output(load("sample.tokens.json"), load("sample.evidence.json"))
         self.assertEqual(report["errors"], [])
-        self.assertGreaterEqual(report["token_count"], 2)
-        self.assertGreaterEqual(len(report["strategies"]), 2)
+        self.assertGreaterEqual(report["token_count"], 3)
+        self.assertGreaterEqual(len(report["strategies"]), 3)
+        self.assertTrue(report["has_inversion_or_antithesis"])
         self.assertEqual(report["token_paths"], report["evidence_paths"])
 
     def test_one_experiment_cannot_satisfy_the_minimum(self):
@@ -44,7 +46,7 @@ class ExperimentalOutputTests(unittest.TestCase):
         evidence["experimental_output"]["entries"] = [item for item in evidence["experimental_output"]["entries"] if item["path"] == kept_path]
         evidence["possibility_ledger"]["extensions"] = [item for item in evidence["possibility_ledger"]["extensions"] if item.get("tokens") == [kept_path]]
         errors = validate_experimental_output(tokens, evidence)["errors"]
-        self.assertIn("at least two experimental tokens", " | ".join(errors))
+        self.assertIn("at least three experimental tokens", " | ".join(errors))
 
     def test_missing_experimental_token_blocks_output(self):
         from lib.experiments import validate_experimental_output
@@ -66,7 +68,7 @@ class ExperimentalOutputTests(unittest.TestCase):
         errors = validate_experimental_output(tokens, evidence)["errors"]
         self.assertIn("needs experiment metadata", " | ".join(errors))
 
-    def test_experiments_need_two_distinct_strategies(self):
+    def test_experiments_need_three_distinct_strategies(self):
         from lib.experiments import validate_experimental_output
 
         tokens = load("sample.tokens.json")
@@ -74,10 +76,25 @@ class ExperimentalOutputTests(unittest.TestCase):
         entries = list(tokens["experimental"]["tokens"].values())
         namespace = "org.dtcg-tokens.experimental"
         strategy = entries[0]["$extensions"][namespace]["exploration_strategy"]
-        entries[1]["$extensions"][namespace]["exploration_strategy"] = strategy
-        evidence["experimental_output"]["entries"][1]["exploration_strategy"] = strategy
+        for entry in entries[1:]:
+            entry["$extensions"][namespace]["exploration_strategy"] = strategy
+        for entry in evidence["experimental_output"]["entries"][1:]:
+            entry["exploration_strategy"] = strategy
         errors = validate_experimental_output(tokens, evidence)["errors"]
-        self.assertIn("two distinct exploration strategies", " | ".join(errors))
+        self.assertIn("three distinct exploration strategies", " | ".join(errors))
+
+    def test_experiments_need_an_inversion_or_antithesis(self):
+        from lib.experiments import validate_experimental_output
+
+        tokens = load("sample.tokens.json")
+        evidence = load("sample.evidence.json")
+        namespace = "org.dtcg-tokens.experimental"
+        for entry in tokens["experimental"]["tokens"].values():
+            entry["$extensions"][namespace]["inversion_or_antithesis"] = False
+        for entry in evidence["experimental_output"]["entries"]:
+            entry["inversion_or_antithesis"] = False
+        errors = validate_experimental_output(tokens, evidence)["errors"]
+        self.assertIn("inversion or antithesis", " | ".join(errors))
 
     def test_final_review_accounts_for_every_experiment(self):
         from lib.experiments import validate_experimental_output

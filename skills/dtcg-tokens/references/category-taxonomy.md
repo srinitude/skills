@@ -32,4 +32,4 @@ Use logical roles such as `inset-inline`, `surface-raised`, and `text-primary` i
 
 ## Experimental partition
 
-Every final token file contains a top-level `experimental` group with at least two tokens from two distinct strategies in `assets/exploration-strategy-catalog.json`. These values remain standard DTCG tokens or documented extensions, carry hypotheses and bounded contexts, and stay separate from production semantic aliases until validated. Omission, sidecar-only suggestions, raw-JSON-only artifact coverage, and silent deletion after a failed review are invalid.
+Every final token file contains a top-level `experimental` group with at least three tokens from three distinct strategies in `assets/exploration-strategy-catalog.json`, including one inversion or antithesis. These values remain standard DTCG tokens or documented extensions, carry hypotheses and bounded contexts, and stay separate from production semantic aliases until validated. Omission, sidecar-only suggestions, raw-JSON-only artifact coverage, and silent deletion after a failed review are invalid.

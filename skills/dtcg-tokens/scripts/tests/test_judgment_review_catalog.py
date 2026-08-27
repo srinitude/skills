@@ -46,6 +46,24 @@ class JudgmentReviewCatalogTests(unittest.TestCase):
         self.assertFalse(contract["authorship_detection_allowed"])
         self.assertTrue(contract["provenance_required_for_authorship_claims"])
 
+    def test_qualitative_policy_keeps_fixed_evidence_and_flexible_reading(self):
+        policy = self.catalog["qualitative_policy"]
+        self.assertEqual(policy["reference"], "references/qualitative-judgment.md")
+        self.assertEqual(policy["lens_selection"], "full_universe_then_narrow")
+        self.assertTrue(policy["open_findings_allowed"])
+        self.assertTrue(policy["multiple_readings_allowed"])
+        self.assertFalse(policy["numeric_score_required"])
+
+    def test_qualitative_reference_is_loaded_by_judgment_owners(self):
+        relative = "references/qualitative-judgment.md"
+        reference = ROOT / relative
+        self.assertTrue(reference.is_file())
+        text = reference.read_text(encoding="utf-8")
+        for heading in ["## Fixed evidence, flexible interpretation", "## Qualitative lens universe", "## Open findings", "## Judgment record"]:
+            self.assertIn(heading, text)
+        for owner in ["SKILL.md", "references/vision-execution.md", "references/visual-review.md", "references/originality-rubric.md", "references/evidence-schema.md"]:
+            self.assertIn(relative, (ROOT / owner).read_text(encoding="utf-8"), owner)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,23 +4,25 @@
     {
       "id": 1,
       "prompt": "Generate DTCG tokens from brand-board.png and the product brief. Use your vision, and give me the JSON plus proof that the result is specific to these references.",
-      "expected_output": "Three files: valid DTCG 2025.10 JSON, source-linked evidence JSON, and a self-contained proof HTML whose claims are bounded to a named corpus.",
+      "expected_output": "Four files: valid DTCG 2025.10 JSON, source-linked evidence JSON, a self-contained proof HTML whose claims are bounded to a named corpus, and a run JSON record covering all 25 execution steps.",
       "assertions": [
         "The trace records whole-frame, detail, and comparative native-vision passes over brand-board.png with region-level observations.",
         "The token file passes scripts/validate_dtcg.py and uses aliases between primitive and semantic roles.",
         "The evidence has five signature decisions and every required quality track with cited facts, including render integrity.",
-        "The reply does not claim global uniqueness."
+        "The reply does not claim global uniqueness.",
+        "The run JSON records all 25 steps as PASS on the final bytes."
       ],
       "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
     },
     {
       "id": 2,
       "prompt": "Turn this text-only restaurant operations brief into a DTCG token foundation. There are no images, so keep visual claims bounded to the written source.",
-      "expected_output": "A source-supported token system and proof report that mark the source as nonvisual, distinguish assumptions, and omit unsupported visual categories.",
+      "expected_output": "Four files containing a source-supported token system, evidence, proof artifact, and 25-step run JSON that mark the source as nonvisual, distinguish assumptions, and omit unsupported source claims.",
       "assertions": [
         "No source is falsely marked as vision inspected.",
         "The token categories match written evidence rather than a generic starter scale.",
-        "The evidence names the text brief as the comparison corpus and lists visual limitations."
+        "The evidence names the text brief as the comparison corpus and lists source limitations.",
+        "The run JSON records all 25 steps as PASS on the final bytes."
       ],
       "files": ["evals/files/sample.tokens.json"]
     },

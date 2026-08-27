@@ -2,15 +2,15 @@
   "schema": "source-evidence/v1",
   "skill": "dtcg-tokens",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "1249415c2a32473f1ff94fc71eb12cde3da632df7e021ffa4e2763410549b555",
-  "evidence_packet_sha256": "1249415c2a32473f1ff94fc71eb12cde3da632df7e021ffa4e2763410549b555",
+  "native_manifest_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
+  "evidence_packet_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
   "files": [
     {
       "source_path": "SKILL.md",
       "location_kind": "repository",
       "location_path": "skills/dtcg-tokens/SKILL.md",
-      "sha256": "2ec1be83f9ee8ce0383c21826cb5372a77a5f7028507f3c769a9b38917586f38",
-      "bytes": 11746
+      "sha256": "bb915d49ad9b3c80ca000c04dd8e5b3c4245a211a97960b9b97c01279f7f98c6",
+      "bytes": 14396
     }
   ]
 }

@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from lib.accounting import validate_accounting
-from lib.artifact_contract import assemble, check_candidate, check_experimental_specimens
+from lib.artifact_contract import assemble, check_candidate, check_experimental_specimens, check_visible_coverage, reviewed_surface_sha256
 from lib.coverage import analyze_coverage
 from lib.dtcg import read_json, validate
 from lib.experiments import validate_experimental_output
@@ -92,7 +92,7 @@ def proof_payload(tokens, evidence, paths, conformance, accounting, coverage, ex
     return result
 
 
-def recorded_verdict(tokens, evidence, review_catalogs):
+def recorded_verdict(tokens, evidence, review_catalogs, surface_sha256):
     catalogs_for_validation = {
         "defects": review_catalogs["defects"],
         "judgments": review_catalogs["judgments"],
@@ -100,7 +100,18 @@ def recorded_verdict(tokens, evidence, review_catalogs):
     }
     proof_errors = validate_evidence(evidence, final=True, review_catalogs=catalogs_for_validation)
     experiment_errors = validate_experimental_output(tokens, evidence, final=True)["errors"]
-    return "recorded-pass" if not proof_errors and not experiment_errors else "pending"
+    expected = evidence.get("artifact_review", {}).get("final_readback", {}).get("reviewed_surface_sha256")
+    return "recorded-pass" if not proof_errors and not experiment_errors and expected == surface_sha256 else "pending"
+
+
+def render_artifact(candidate, payload, run_id, tokens, evidence, review_catalogs):
+    packed = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    surface = reviewed_surface_sha256(assemble(candidate, packed, run_id, "pending"))
+    verdict = recorded_verdict(tokens, evidence, review_catalogs, surface)
+    payload["assembly_status"] = "recorded-visual-pass" if verdict == "recorded-pass" else "pending-visual-review"
+    packed = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    rendered = assemble(candidate, packed, run_id, verdict)
+    return rendered, surface, verdict
 
 
 def main(argv=None):
@@ -117,16 +128,20 @@ def main(argv=None):
     conformance, accounting, coverage, experiments, review_catalogs, report_errors = evaluate(root, paths, tokens, evidence, token_errors + evidence_errors)
     errors += report_errors
     errors += check_experimental_specimens(candidate, experiments["token_paths"])
+    visible_coverage, visible_errors = check_visible_coverage(candidate, coverage)
+    errors += visible_errors
     if errors:
         print("error: " + " | ".join(errors), file=sys.stderr)
         return 1
+    coverage["visible_coverage"] = visible_coverage
+    coverage["status"] = "pass"
     payload = proof_payload(tokens, evidence, paths, conformance, accounting, coverage, experiments, review_catalogs, args.run_id)
+    rendered, surface_sha256, verdict = render_artifact(candidate, payload, args.run_id, tokens, evidence, review_catalogs)
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    verdict = recorded_verdict(tokens, evidence, review_catalogs)
-    output.write_text(assemble(candidate, json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")), args.run_id, verdict), encoding="utf-8")
+    output.write_text(rendered, encoding="utf-8")
     status = "assembled-recorded-visual-pass" if verdict == "recorded-pass" else "assembled-pending-visual-review"
-    print(json.dumps({"status": status, "output": str(output), "sha256": file_hash(output), "run_id": args.run_id}, sort_keys=True))
+    print(json.dumps({"status": status, "output": str(output), "sha256": file_hash(output), "reviewed_surface_sha256": surface_sha256, "run_id": args.run_id}, sort_keys=True))
     return 0
 
 

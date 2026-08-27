@@ -206,7 +206,7 @@
       "status": "pending_visual_review",
       "entries": []
     },
-    "judgment_reviews": { "catalog_version": "1.0.0", "tracks": [] },
+    "judgment_reviews": { "catalog_version": "1.1.0", "tracks": [] },
     "experimental_review": {
       "status": "pending_visual_review",
       "reviewed_paths": [],

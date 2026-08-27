@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "contract": "dtcg-tokens/execution-step",
+  "step_count": 25,
+  "completion_rule": "All 25 step records are PASS on current inputs and final bytes.",
+  "label_order": ["Input", "Action", "Save", "PASS", "BLOCKED"],
+  "statuses": ["PENDING", "RUNNING", "PASS", "BLOCKED"],
+  "status_transitions": {
+    "PENDING": ["RUNNING", "BLOCKED"],
+    "RUNNING": ["PASS", "BLOCKED"],
+    "PASS": ["RUNNING"],
+    "BLOCKED": ["RUNNING"]
+  },
+  "error_codes": [
+    "E_INPUT",
+    "E_VISION",
+    "E_EVIDENCE",
+    "E_DTCG",
+    "E_CLAIM",
+    "E_ASSEMBLY",
+    "E_REVIEW"
+  ],
+  "required_record_fields": [
+    "step_id",
+    "title",
+    "status",
+    "input_paths",
+    "support_files",
+    "actions",
+    "output_paths",
+    "checks",
+    "evidence_locators",
+    "error_code",
+    "retry_count"
+  ],
+  "rules": [
+    "Create one record per numbered step before its action starts.",
+    "Set status to RUNNING before the first action and save after every material action.",
+    "Set PASS only from the step's stated PASS check against current bytes or current rendered pixels.",
+    "Set BLOCKED with one allowed error code, the failed check, and the exact recovery need.",
+    "A rerun changes PASS or BLOCKED to RUNNING, increments retry_count, and replaces stale checks with fresh results.",
+    "Never stop after producing or validating one deliverable; complete all 25 steps and the Completion gates.",
+    "Never skip a step, merge two step records, average checks, or infer a PASS from a later stage."
+  ]
+}

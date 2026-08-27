@@ -1,5 +1,5 @@
 {
-  "catalog_version": "1.0.0",
+  "catalog_version": "1.1.0",
   "as_of": "2026-08-27",
   "tracks": ["taste", "originality", "corpus_uniqueness", "non_ai_slop"],
   "decision_policy": {
@@ -7,6 +7,33 @@
     "rule": "Each track receives its own pass, fail, partial, or blocked verdict. One passing track cannot cancel a failure in another track.",
     "evidence_rule": "Every pass cites visible regions, source clauses, token paths, comparison items, or measured outputs. Unsupported praise is not evidence.",
     "disconfirmation_rule": "The reviewer records the strongest credible counterexample before passing a track."
+  },
+  "qualitative_policy": {
+    "reference": "references/qualitative-judgment.md",
+    "lens_selection": "full_universe_then_narrow",
+    "open_findings_allowed": true,
+    "multiple_readings_allowed": true,
+    "numeric_score_required": false,
+    "fixed_record_fields": [
+      "track",
+      "lens",
+      "applicability",
+      "claim",
+      "viewport",
+      "state",
+      "region",
+      "source_relation",
+      "visible_evidence",
+      "counterevidence",
+      "credible_alternative",
+      "competing_readings",
+      "uncertainty",
+      "confidence",
+      "verdict",
+      "rationale",
+      "limits"
+    ],
+    "rule": "Standardize evidence fields and verdict boundaries while allowing source-specific lenses, competing interpretations, emergent findings, and any expressive direction that fits the task and protected human outcomes."
   },
   "track_contracts": {
     "taste": {

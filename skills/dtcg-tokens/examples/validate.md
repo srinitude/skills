@@ -8,26 +8,42 @@
 
 ## Visible reply
 
-The file passed the bundled DTCG 2025.10 structure, value, reference, type-agreement, and cycle checks. It contains 15 tokens and four resolved references. This does not prove visual quality or downstream tool support.
+The file passed the bundled DTCG 2025.10 structure, value, reference, type-agreement, and cycle checks. It contains 44 tokens and 9 resolved references. This does not prove visual quality or downstream tool support.
 
-## Command and real output
+## Command
 
-```text
-$ python3 scripts/validate_dtcg.py evals/files/sample.tokens.json
+| Command                                                           | Purpose                                 |
+| ----------------------------------------------------------------- | --------------------------------------- |
+| `python3 scripts/validate_dtcg.py evals/files/sample.tokens.json` | Validate the sample without editing it. |
+
+## Verified output
+
+```json
 {
   "errors": [],
-  "resolved_references": 4,
-  "schema_sha256": "32e93b780e4e4bca778d0780cb797a560deedc470c608af16576223f7e42915f",
+  "resolved_references": 9,
+  "schema_sha256": "9b501b5666f7515bd0051ff0aec3566b78a3cbe82b0280c90d03660c2e02246e",
   "specification": "DTCG 2025.10",
-  "token_count": 14,
+  "token_count": 44,
   "types": {
-    "color": 7,
-    "dimension": 5,
-    "fontFamily": 2
+    "border": 1,
+    "color": 15,
+    "cubicBezier": 2,
+    "dimension": 9,
+    "duration": 3,
+    "fontFamily": 2,
+    "fontWeight": 3,
+    "gradient": 1,
+    "number": 3,
+    "shadow": 1,
+    "strokeStyle": 1,
+    "transition": 1,
+    "typography": 2
   },
   "valid": true
 }
-exit 0
 ```
+
+Exit code: `0`
 
 The command created no files.

@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "contract": "dtcg-tokens/execution-io-map",
+  "chain_rule": "A step may start only when every named input exists and its immediately preceding step is PASS. Its primary output must be saved before the next step starts.",
+  "steps": [
+    {
+      "id": "S01",
+      "consumes": ["request.packet", "source.payload"],
+      "produces": ["run.contract"],
+      "primary_output": "run.contract"
+    },
+    {
+      "id": "S02",
+      "consumes": ["run.contract", "source.payload"],
+      "produces": ["source.inventory"],
+      "primary_output": "source.inventory"
+    },
+    {
+      "id": "S03",
+      "consumes": ["source.inventory", "run.contract"],
+      "produces": ["vision.execution"],
+      "primary_output": "vision.execution"
+    },
+    {
+      "id": "S04",
+      "consumes": ["vision.execution", "source.inventory", "source.payload"],
+      "produces": ["observation.register"],
+      "primary_output": "observation.register"
+    },
+    {
+      "id": "S05",
+      "consumes": ["observation.register", "run.contract"],
+      "produces": ["statement.register"],
+      "primary_output": "statement.register"
+    },
+    {
+      "id": "S06",
+      "consumes": ["statement.register", "observation.register"],
+      "produces": ["identity.thesis"],
+      "primary_output": "identity.thesis"
+    },
+    {
+      "id": "S07",
+      "consumes": ["identity.thesis", "statement.register"],
+      "produces": ["token.universe"],
+      "primary_output": "token.universe"
+    },
+    {
+      "id": "S08",
+      "consumes": ["token.universe", "identity.thesis"],
+      "produces": ["exploration.ledger"],
+      "primary_output": "exploration.ledger"
+    },
+    {
+      "id": "S09",
+      "consumes": [
+        "exploration.ledger",
+        "token.universe",
+        "statement.register",
+        "observation.register"
+      ],
+      "produces": ["context.matrix"],
+      "primary_output": "context.matrix"
+    },
+    {
+      "id": "S10",
+      "consumes": ["context.matrix", "token.universe", "identity.thesis"],
+      "produces": ["signature.decisions"],
+      "primary_output": "signature.decisions"
+    },
+    {
+      "id": "S11",
+      "consumes": ["signature.decisions", "context.matrix", "token.universe"],
+      "produces": ["artifact.tokens"],
+      "primary_output": "artifact.tokens"
+    },
+    {
+      "id": "S12",
+      "consumes": ["artifact.tokens"],
+      "produces": ["validation.dtcg"],
+      "primary_output": "validation.dtcg"
+    },
+    {
+      "id": "S13",
+      "consumes": [
+        "validation.dtcg",
+        "artifact.tokens",
+        "run.contract",
+        "source.inventory",
+        "observation.register",
+        "statement.register",
+        "identity.thesis",
+        "token.universe",
+        "exploration.ledger",
+        "context.matrix",
+        "signature.decisions"
+      ],
+      "produces": ["artifact.evidence"],
+      "primary_output": "artifact.evidence"
+    },
+    {
+      "id": "S14",
+      "consumes": [
+        "artifact.evidence",
+        "artifact.tokens",
+        "vision.execution",
+        "source.payload"
+      ],
+      "produces": ["proof.candidate"],
+      "primary_output": "proof.candidate"
+    },
+    {
+      "id": "S15",
+      "consumes": ["proof.candidate", "identity.thesis", "source.inventory"],
+      "produces": ["proof.originality-review"],
+      "primary_output": "proof.originality-review"
+    },
+    {
+      "id": "S16",
+      "consumes": [
+        "proof.originality-review",
+        "proof.candidate",
+        "artifact.tokens",
+        "context.matrix",
+        "exploration.ledger"
+      ],
+      "produces": ["proof.coverage-map"],
+      "primary_output": "proof.coverage-map"
+    },
+    {
+      "id": "S17",
+      "consumes": [
+        "proof.coverage-map",
+        "proof.candidate",
+        "artifact.tokens",
+        "artifact.evidence",
+        "run.contract"
+      ],
+      "produces": ["artifact.proof"],
+      "primary_output": "artifact.proof"
+    },
+    {
+      "id": "S18",
+      "consumes": [
+        "artifact.proof",
+        "proof.coverage-map",
+        "source.payload",
+        "vision.execution"
+      ],
+      "produces": ["review.visual"],
+      "primary_output": "review.visual"
+    },
+    {
+      "id": "S19",
+      "consumes": ["review.visual", "artifact.proof"],
+      "produces": ["review.defects"],
+      "primary_output": "review.defects"
+    },
+    {
+      "id": "S20",
+      "consumes": ["review.defects", "artifact.tokens", "artifact.proof"],
+      "produces": ["review.invariants"],
+      "primary_output": "review.invariants"
+    },
+    {
+      "id": "S21",
+      "consumes": [
+        "review.invariants",
+        "review.defects",
+        "artifact.proof",
+        "source.payload",
+        "signature.decisions"
+      ],
+      "produces": ["review.judgment"],
+      "primary_output": "review.judgment"
+    },
+    {
+      "id": "S22",
+      "consumes": ["review.judgment", "review.invariants", "review.defects"],
+      "produces": ["repair.result"],
+      "primary_output": "repair.result"
+    },
+    {
+      "id": "S23",
+      "consumes": [
+        "repair.result",
+        "artifact.tokens",
+        "artifact.evidence",
+        "artifact.proof",
+        "run.contract"
+      ],
+      "produces": ["final.readback"],
+      "primary_output": "final.readback"
+    },
+    {
+      "id": "S24",
+      "consumes": ["final.readback"],
+      "produces": ["package.validation"],
+      "primary_output": "package.validation"
+    },
+    {
+      "id": "S25",
+      "consumes": ["package.validation", "final.readback", "run.contract"],
+      "produces": ["completion.disposition"],
+      "primary_output": "completion.disposition"
+    }
+  ]
+}

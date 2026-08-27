@@ -1,6 +1,6 @@
 # Taste, originality, uniqueness, and non-AI-slop
 
-Use `assets/judgment-review-catalog.json` as the canonical obligation list. Use `references/visual-review.md` for the execution method. Keep the four verdicts separate.
+Use `assets/judgment-review-catalog.json` as the canonical obligation list, `references/qualitative-judgment.md` for subjective and emergent lenses, and `references/visual-review.md` for the execution method. Keep the four verdicts separate.
 
 ## Taste
 

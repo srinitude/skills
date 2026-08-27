@@ -10,12 +10,18 @@
 
 The token and evidence records are valid preflight inputs, but no strong-vision-authored HTML candidate was supplied. Proof remains blocked. The next required action is artifact authorship from the current sources and tokens, followed by assembly, wide and narrow visual review, repair, final assembly, and final readback.
 
-## Command and real output
+## Command
+
+| Command                                                                                                                                                                                                                    | Purpose                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `python3 scripts/assemble_artifact.py --candidate does-not-exist.html --tokens evals/files/sample.tokens.json --evidence evals/files/sample.evidence.json --output .artifacts/sample-proof.html --run-id sample-preflight` | Confirm that proof assembly blocks when the required run-specific candidate is absent. |
+
+## Verified output
 
 ```text
-$ python3 scripts/assemble_artifact.py --candidate does-not-exist.html --tokens evals/files/sample.tokens.json --evidence evals/files/sample.evidence.json --output .artifacts/sample-proof.html --run-id sample-preflight
 error: candidate, tokens, and evidence must exist
-exit 2
 ```
+
+Exit code: `2`
 
 No file was created. This failure is intentional because a reusable proof shell would violate the run-specific artifact contract.

@@ -10,12 +10,22 @@
 
 I cannot make or hide that claim. Global uniqueness cannot be proved without an exhaustive comparison corpus. I can test source specificity, originality, and bounded uniqueness inside a named corpus, keep `globally_unique` false, and expose the limit in every output.
 
-## Command and real output
+## Command
+
+| Command                                                                                                                                    | Purpose                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `python3 scripts/tests/test_artifact_contract.py TestArtifactBoundary.test_global_uniqueness_claim_is_rejected_after_candidate_validation` | Supply an in-memory valid structural candidate, reach evidence validation, and assert that the global claim is rejected. |
+
+## Verified output
 
 ```text
-$ python3 scripts/assemble_artifact.py --candidate does-not-exist.html --tokens evals/files/sample.tokens.json --evidence evals/files/global-claim.evidence.json --output .artifacts/invalid-proof.html --run-id invalid-global
-error: candidate, tokens, and evidence must exist
-exit 2
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.068s
+
+OK
 ```
 
-No HTML file was created. Even with a candidate, the evidence gate rejects a global scope or a true `globally_unique` claim.
+Exit code: `0`
+
+The test confirms that candidate existence passes before the evidence gate rejects global scope and a true `globally_unique` claim. It also confirms that no HTML file is created.

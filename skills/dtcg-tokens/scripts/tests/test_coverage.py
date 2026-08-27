@@ -20,24 +20,26 @@ class TestCoverageManifest(unittest.TestCase):
         manifest, errors = analyze_coverage(load("sample.tokens.json"), load("sample.evidence.json"))
         self.assertEqual(errors, [])
         self.assertEqual(len(manifest["type_coverage"]), 13)
-        self.assertEqual(manifest["totals"]["tokens_expected"], manifest["totals"]["tokens_rendered"])
+        self.assertNotIn("tokens_rendered", manifest["totals"])
         self.assertEqual(manifest["totals"]["unexplained_skips"], 0)
-        self.assertEqual(manifest["status"], "pass")
+        self.assertEqual(manifest["status"], "planned")
 
     def test_all_types_fixture_supplies_every_standard_type(self):
         manifest, errors = analyze_coverage(load("all-types.tokens.json"), load("all-types.evidence.json"))
         self.assertEqual(errors, [])
         supplied = {item["type"] for item in manifest["type_coverage"] if item["supplied"]}
         self.assertEqual(len(supplied), 13)
-        self.assertTrue(all(item["rendered"] == item["supplied"] for item in manifest["type_coverage"]))
+        self.assertTrue(all(item["expected_specimens"] == item["supplied"] for item in manifest["type_coverage"]))
+        self.assertTrue(all("rendered" not in item for item in manifest["type_coverage"]))
 
     def test_two_axis_group_expands_full_cartesian_product(self):
         manifest, errors = analyze_coverage(load("sample.tokens.json"), load("sample.evidence.json"))
         self.assertEqual(errors, [])
         group = next(item for item in manifest["variant_groups"] if item["id"] == "surface-states")
         self.assertEqual(group["expected"], 4)
-        self.assertEqual(group["rendered"], 4)
+        self.assertNotIn("rendered", group)
         self.assertEqual(len(group["cells"]), 4)
+        self.assertEqual({item["status"] for item in group["cells"]}, {"expected"})
 
     def test_unknown_exclusion_cell_blocks(self):
         evidence = load("sample.evidence.json")

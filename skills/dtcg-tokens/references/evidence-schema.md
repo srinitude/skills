@@ -59,11 +59,13 @@ Preliminary evidence may use `pending_visual_review`. Final evidence requires ev
 - `not_applicable`: the context cannot produce this condition and the evidence states why;
 - `not_used_experimental`: the token branch remains available for exploration but no published use claims the invariant.
 
-`judgment_reviews` uses `assets/judgment-review-catalog.json`. It contains separate passing tracks for taste, originality, corpus uniqueness, and non-AI-slop. Each track lists every obligation, located evidence, and the strongest counterevidence.
+`judgment_reviews` uses `assets/judgment-review-catalog.json` and `references/qualitative-judgment.md`. It contains separate tracks for taste, originality, corpus uniqueness, and non-AI-slop. Each track lists every obligation, the full qualitative-lens disposition, emergent findings, competing readings, located evidence, strongest counterevidence, uncertainty, rationale, and limits.
 
 `experimental_review` lists every experimental token path exactly once and confirms that the final artifact contains a visible specimen and explicit use boundary. A raw embedded JSON path alone does not satisfy the visible-specimen requirement.
 
-`final_readback` records pass status, the reviewed surface hash, exact artifact locator, and confirmation that review happened after final assembly.
+`final_readback` records pass status, the assembler-reported reviewed-surface SHA-256, exact artifact locator, and confirmation that review happened after assembly. The surface hash removes only the non-rendering embedded proof-data payload and normalizes the verdict marker so an evidence update cannot invalidate the inspected layout, style, copy, or specimens. Candidate CSS and scripts must not read either machine-only field. The surface hash is not the HTML file hash. After the recorded-pass assembly, Step 23 visually reads the exact final HTML and stores its full byte hash in `<name>.run.json` without reassembling again.
+
+`coverage_manifest` is planned until the assembler finds exactly one renderable, non-hidden `data-token-path` for every retained token, one `data-stress-cell` for every generated stress comparison, and one `data-permutation-cell` for every applicable or explicitly excluded permutation. Markers inside scripts, styles, templates, hidden controls, inert or hidden ancestors, or inline-hidden elements do not count. Only that candidate-specific equality check may change coverage status to `pass`; embedded JSON does not count as visible coverage.
 
 ## Comparison and claims
 

@@ -33,12 +33,18 @@ def problem(path, message):
     return [f"{path}: {message}"]
 
 
+def object_properties(value, allowed, path):
+    extra = sorted(set(value) - set(allowed))
+    return problem(path, f"unsupported properties: {', '.join(extra)}") if extra else []
+
+
 def dimension(value, path):
     if not isinstance(value, dict):
         return problem(path, "dimension value must be an object")
+    errors = object_properties(value, {"value", "unit"}, path)
     if not is_number(value.get("value")) or value.get("unit") not in {"px", "rem"}:
-        return problem(path, "dimension needs numeric value and unit px or rem")
-    return []
+        errors += problem(path, "dimension needs numeric value and unit px or rem")
+    return errors
 
 
 def component(value, low=None, high=None, exclusive=False):
@@ -66,10 +72,12 @@ def component_rules(space):
 def color(value, path):
     if not isinstance(value, dict):
         return problem(path, "color value must be an object")
+    errors = object_properties(value, {"colorSpace", "components", "alpha", "hex"}, path)
     if value.get("colorSpace") not in COLOR_SPACES:
-        return problem(path, "colorSpace is not a DTCG 2025.10 value")
+        errors += problem(path, "colorSpace is not a DTCG 2025.10 value")
     parts = value.get("components")
-    errors = [] if isinstance(parts, list) and len(parts) == 3 else problem(path, "color components must hold three items")
+    if not isinstance(parts, list) or len(parts) != 3:
+        errors += problem(path, "color components must hold three items")
     if isinstance(parts, list) and len(parts) == 3:
         rules = component_rules(value.get("colorSpace"))
         if not all(component(item, *rule) for item, rule in zip(parts, rules)):
@@ -92,8 +100,11 @@ def font_weight(value, path):
 
 
 def duration(value, path):
-    valid = isinstance(value, dict) and is_number(value.get("value")) and value.get("value", -1) >= 0 and value.get("unit") in {"ms", "s"}
-    return [] if valid else problem(path, "duration needs nonnegative value and unit ms or s")
+    if not isinstance(value, dict):
+        return problem(path, "duration value must be an object")
+    errors = object_properties(value, {"value", "unit"}, path)
+    valid = is_number(value.get("value")) and value.get("value", -1) >= 0 and value.get("unit") in {"ms", "s"}
+    return errors if valid else errors + problem(path, "duration needs nonnegative value and unit ms or s")
 
 
 def bezier(value, path):
@@ -108,16 +119,18 @@ def stroke(value, path):
         return [] if value in STROKES else problem(path, "strokeStyle string is not standard")
     if not isinstance(value, dict) or value.get("lineCap") not in {"round", "butt", "square"}:
         return problem(path, "strokeStyle object needs a standard lineCap")
+    errors = object_properties(value, {"dashArray", "lineCap"}, path)
     dashes = value.get("dashArray")
     if not isinstance(dashes, list) or not dashes:
-        return problem(path, "strokeStyle dashArray must be nonempty")
-    return sum((dimension(item, f"{path}.dashArray[{index}]") for index, item in enumerate(dashes)), [])
+        return errors + problem(path, "strokeStyle dashArray must be nonempty")
+    return errors + sum((dimension(item, f"{path}.dashArray[{index}]") for index, item in enumerate(dashes)), [])
 
 
 def border(value, path):
     if not isinstance(value, dict):
         return problem(path, "border value must be an object")
-    errors = validate_value("color", value.get("color"), f"{path}.color")
+    errors = object_properties(value, {"color", "width", "style"}, path)
+    errors += validate_value("color", value.get("color"), f"{path}.color")
     errors += validate_value("dimension", value.get("width"), f"{path}.width")
     errors += validate_value("strokeStyle", value.get("style"), f"{path}.style")
     return errors
@@ -126,7 +139,8 @@ def border(value, path):
 def transition(value, path):
     if not isinstance(value, dict):
         return problem(path, "transition value must be an object")
-    errors = validate_value("duration", value.get("duration"), f"{path}.duration")
+    errors = object_properties(value, {"duration", "delay", "timingFunction"}, path)
+    errors += validate_value("duration", value.get("duration"), f"{path}.duration")
     errors += validate_value("duration", value.get("delay"), f"{path}.delay")
     errors += validate_value("cubicBezier", value.get("timingFunction"), f"{path}.timingFunction")
     return errors
@@ -135,7 +149,8 @@ def transition(value, path):
 def one_shadow(value, path):
     if not isinstance(value, dict):
         return problem(path, "shadow layer must be an object")
-    errors = validate_value("color", value.get("color"), f"{path}.color")
+    errors = object_properties(value, {"color", "offsetX", "offsetY", "blur", "spread", "inset"}, path)
+    errors += validate_value("color", value.get("color"), f"{path}.color")
     for key in ("offsetX", "offsetY", "blur", "spread"):
         errors += validate_value("dimension", value.get(key), f"{path}.{key}")
     if "inset" in value and not isinstance(value["inset"], bool):
@@ -151,17 +166,18 @@ def shadow(value, path):
 
 
 def gradient(value, path):
-    if not isinstance(value, list) or len(value) < 2:
-        return problem(path, "gradient must hold at least two stops")
+    if not isinstance(value, list) or not value:
+        return problem(path, "gradient must hold at least one stop")
     errors = []
     for index, stop in enumerate(value):
         here = f"{path}[{index}]"
         if not isinstance(stop, dict):
             errors += problem(here, "gradient stop must be an object")
             continue
+        errors += object_properties(stop, {"color", "position"}, here)
         errors += validate_value("color", stop.get("color"), f"{here}.color")
-        if not is_number(stop.get("position")) or not 0 <= stop["position"] <= 1:
-            errors += problem(here, "gradient position must be from 0 to 1")
+        if not is_number(stop.get("position")):
+            errors += problem(here, "gradient position must be numeric")
     return errors
 
 
@@ -169,7 +185,7 @@ def typography(value, path):
     if not isinstance(value, dict):
         return problem(path, "typography value must be an object")
     fields = {"fontFamily": "fontFamily", "fontSize": "dimension", "fontWeight": "fontWeight", "letterSpacing": "dimension", "lineHeight": "number"}
-    return sum((validate_value(kind, value.get(key), f"{path}.{key}") for key, kind in fields.items()), [])
+    return object_properties(value, fields, path) + sum((validate_value(kind, value.get(key), f"{path}.{key}") for key, kind in fields.items()), [])
 
 
 VALIDATORS = {

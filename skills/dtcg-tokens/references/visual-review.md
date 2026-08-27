@@ -1,5 +1,7 @@
 # Visual review contract
 
+Read `references/qualitative-judgment.md` before any taste, originality, uniqueness, non-AI-slop, or open-ended visual judgment. It standardizes evidence fields while preserving subjective interpretation, competing readings, emergent lenses, and source-specific expression.
+
 This review has five independent tracks. No average or blended score exists. A pass in one track cannot offset a failure in another.
 
 ## 1. Objective defects
@@ -77,6 +79,8 @@ Review every visual source and the actual proof artifact at:
 - every applicable interaction, data, error, motion, reduced-motion, and mode state.
 
 Each finding records viewport, state, region, marker or obligation, observed condition, evidence, countercheck, status, and repair if needed.
+
+Before visual judgment, confirm that `scripts/lib/artifact_contract.py` found exact equality between the coverage plan and decoded `data-token-path`, `data-stress-cell`, and `data-permutation-cell` attributes on renderable, non-hidden elements. Then inspect the corresponding visible regions. Attribute equality proves structural presence and uniqueness only; it cannot prove that CSS left the region visible or that a specimen is meaningful, legible, or well designed.
 
 ## Current basis
 

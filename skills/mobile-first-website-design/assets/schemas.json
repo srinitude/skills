@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mobile-first-website-design-packet/v1",
+  "type": "object",
+  "required": [
+    "breakpoints",
+    "stage_breakpoints",
+    "wireframe",
+    "integrations",
+    "sections",
+    "visual_evidence",
+    "performance",
+    "image_jobs",
+    "flora"
+  ],
+  "properties": {
+    "breakpoints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "width", "height"],
+        "properties": {
+          "id": {"type": "string"},
+          "width": {"type": "integer", "minimum": 1},
+          "height": {"type": "integer", "minimum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "stage_breakpoints": {
+      "type": "object",
+      "required": ["structure", "style", "implementation", "motion", "validation"]
+    },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "fallback_ran"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {
+            "enum": ["PASS", "UNAVAILABLE_AUTH", "UNAVAILABLE_TRANSPORT", "UNAVAILABLE_SCHEMA", "UNAVAILABLE_SKILL", "UNAVAILABLE_DISABLED", "NO_MATCH"]
+          },
+          "fallback_ran": {"type": "boolean"}
+        }
+      }
+    },
+    "sections": {"type": "array"},
+    "visual_evidence": {"type": "object"},
+    "performance": {"type": "object"},
+    "image_jobs": {"type": "array"},
+    "flora": {"type": "object"}
+  }
+}

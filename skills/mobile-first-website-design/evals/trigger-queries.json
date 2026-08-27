@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Design a mobile-first landing page for our new product.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a responsive marketing website that starts with the 320px layout.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn this campaign brief into evidence-led wireframes, visual identity, and a tested site.",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit and repair this landing page across every supported breakpoint.",
+    "should_trigger": true
+  },
+  {
+    "query": "Design an authenticated mobile application dashboard.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a reusable design-system token specification.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write the backend API for an online store.",
+    "should_trigger": false
+  },
+  {
+    "query": "Make a standalone logo for my company.",
+    "should_trigger": false
+  }
+]

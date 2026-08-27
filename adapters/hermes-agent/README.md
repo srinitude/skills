@@ -8,6 +8,7 @@ hermes skills install srinitude/skills/always-current-datetime
 hermes skills install srinitude/skills/goal-prompt
 hermes skills install srinitude/skills/logic-audit
 hermes skills install srinitude/skills/meaning-preserving-rewrite
+hermes skills install srinitude/skills/mobile-first-website-design
 hermes skills install srinitude/skills/outcome-bounded-work
 hermes skills install srinitude/skills/prompt-enhancer
 hermes skills install srinitude/skills/simplify-skill

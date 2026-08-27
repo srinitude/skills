@@ -1,0 +1,35 @@
+# Verify and select from the public prompt corpus
+
+Run from the skill directory.
+
+## Verify command
+
+`python3 scripts/prompt_corpus.py verify`
+
+## Verify standard output
+
+`{"count":1000,"errors":[],"shards":201,"status":"PASS"}`
+
+## Verify standard error
+
+Empty.
+
+## Verify exit code
+
+`0`
+
+## Select command
+
+`python3 scripts/prompt_corpus.py select advertising-and-social-imagery adapt-and-version assurance-quality`
+
+## Select standard output
+
+`{"bytes":17787,"domain":"advertising-and-social-imagery","id":"ice-11-04-04","lane":"adapt-and-version","path":"prompts/advertising-and-social-imagery/adapt-and-version/assurance-quality.md","perspective":"assurance-quality","sha256":"9f1c22d3464e6e72eee3b3f8eac5876570f74aaf52590d21df4e9755cdcb7bd6"}`
+
+## Select standard error
+
+Empty.
+
+## Select exit code
+
+`0`

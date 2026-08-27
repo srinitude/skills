@@ -1,0 +1,2418 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "8fcb66453d80f1454804c37770db179b83c171136dd05e1d0b541bfd3380e5c3",
+  "active_case_ids": [
+    "MFWD-001",
+    "MFWD-002",
+    "MFWD-003",
+    "MFWD-004",
+    "MFWD-005",
+    "MFWD-006",
+    "MFWD-007",
+    "MFWD-008"
+  ],
+  "native_version": "1.1.1",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "46a5dffa1a09dac9c396f01bca6836d7fac2abefac88298a5dd954eab4f98019"
+    },
+    {
+      "path": "assets/fixtures/fail-breakpoint-order.json",
+      "sha256": "884c6ddee5445921720b908ba2ebb202d3a27dc5668c458f42f54a648d4f436e"
+    },
+    {
+      "path": "assets/fixtures/fail-capability-floor.json",
+      "sha256": "2cf78ceb24ef252142cea0e265d7a6929b76775b1232ddb4c9a431a93d9ffbf4"
+    },
+    {
+      "path": "assets/fixtures/fail-flora-routing.json",
+      "sha256": "67d90cbd19c5aee71c8e675e1adcc9afae3823f396977eaa825796e19c3a0566"
+    },
+    {
+      "path": "assets/fixtures/fail-performance.json",
+      "sha256": "d8651728f6a0deedeb76d547d7230a504b73b8cd2f053e922c51595b52d58a74"
+    },
+    {
+      "path": "assets/fixtures/fail-prompt-hash.json",
+      "sha256": "0c520e9779d125b3fe038f8a6d65b4ad869bc66db24f8b79e69aaf70d37d5a59"
+    },
+    {
+      "path": "assets/fixtures/fail-style-in-wireframe.json",
+      "sha256": "e8350ac872cec59affd027bf376bca1c5d20dc9d8037373d16dac3bd8576d819"
+    },
+    {
+      "path": "assets/fixtures/pass-degraded.json",
+      "sha256": "2b983063979fe87a45f409560c9f627dd10d2966d6ea480256e18f1355f593ff"
+    },
+    {
+      "path": "assets/fixtures/pass-full.json",
+      "sha256": "bfc529211771844ea11645683b356755e184b3c99d09316597032e98ca86aaa8"
+    },
+    {
+      "path": "assets/prompt-manifest.json",
+      "sha256": "5ef1e574515be20b2b8d6884ac29d2e6c1ad8338d61fe75cf7bdf3f9b6e3954c"
+    },
+    {
+      "path": "assets/prompts/prompts-0001-0005.yaml",
+      "sha256": "4fafeccb2f22fec1f3a87e5f15a36b98ad574f876b8ea346bfdb7f52f346df5a"
+    },
+    {
+      "path": "assets/prompts/prompts-0006-0010.yaml",
+      "sha256": "9a01efc5eebacf70b4947648b67e6a8e4d2752180264ec8369d176d832f3ecb3"
+    },
+    {
+      "path": "assets/prompts/prompts-0011-0015.yaml",
+      "sha256": "84ce014f9a7dac7b1b54531e4ce83f81d786df5ee6bece8193a316b64dbcf16a"
+    },
+    {
+      "path": "assets/prompts/prompts-0016-0020.yaml",
+      "sha256": "668cdaa408f2f7e66376029065d15b07bc302de26d4e292edb08b5a18d4dc114"
+    },
+    {
+      "path": "assets/prompts/prompts-0021-0025.yaml",
+      "sha256": "067d8d250733c15b3aab8b4fe3a244144e514e71601dd2f57886a681cb786abf"
+    },
+    {
+      "path": "assets/prompts/prompts-0026-0030.yaml",
+      "sha256": "d42eb9e41375e084ed96f04a0bb577f42b22090e31044e4be9cc8643314cc592"
+    },
+    {
+      "path": "assets/prompts/prompts-0031-0035.yaml",
+      "sha256": "7554309fca4328c68368cb53b96b146802fd79c3470ddfcd31886e712cbb3c3f"
+    },
+    {
+      "path": "assets/prompts/prompts-0036-0040.yaml",
+      "sha256": "2f5e7321e7b10e2748cd72fc64cf1caa0ff7769b8c91a1f72fb0af7c175d1903"
+    },
+    {
+      "path": "assets/prompts/prompts-0041-0045.yaml",
+      "sha256": "afa9264854da2e44a6e090c50c75c37d9a77b4c1d0c69ba0b149e66cba96fbd1"
+    },
+    {
+      "path": "assets/prompts/prompts-0046-0050.yaml",
+      "sha256": "b3f1bf6c7ec3df118f23096900a676b3b462993f45c03fab7999491fe1b89950"
+    },
+    {
+      "path": "assets/prompts/prompts-0051-0055.yaml",
+      "sha256": "62c67809d695a0823e2b1d8871bf580ae062e6ffe97e2e280472b04675111e34"
+    },
+    {
+      "path": "assets/prompts/prompts-0056-0060.yaml",
+      "sha256": "5eefdc1de6d82edeb7dab79e60f45f39fd2fd7cbb8a34e705189d31782bad556"
+    },
+    {
+      "path": "assets/prompts/prompts-0061-0065.yaml",
+      "sha256": "160047beb233e83c2b065c57fe7a997b82487b3e3f500bdbc952edf56113f531"
+    },
+    {
+      "path": "assets/prompts/prompts-0066-0070.yaml",
+      "sha256": "c32981855ed0bb65fc2ac0ef64781f4d255a3ea6bf2c93933a24b9e57bb5a3d0"
+    },
+    {
+      "path": "assets/prompts/prompts-0071-0075.yaml",
+      "sha256": "1a0b081ec5d5a60e517778f5c9a49c933b1d6e17befaf023c0aaacefb90722c4"
+    },
+    {
+      "path": "assets/prompts/prompts-0076-0080.yaml",
+      "sha256": "af952d75c96766969222958bbb12bfdc5042dbef0e04c79c4e7fc494f04073b1"
+    },
+    {
+      "path": "assets/prompts/prompts-0081-0085.yaml",
+      "sha256": "65a739b2f7a867f6e067435ae986819d94fa989030fca098c0ef732d17ddfc2d"
+    },
+    {
+      "path": "assets/prompts/prompts-0086-0090.yaml",
+      "sha256": "f268d58975b31c354c33ded0da98a096120a6e1243a076ca35cfc77a5091f98c"
+    },
+    {
+      "path": "assets/prompts/prompts-0091-0095.yaml",
+      "sha256": "30779df493846dd743c910bfa85620deb2c4367696cbaedcef10f97c5bbd9665"
+    },
+    {
+      "path": "assets/prompts/prompts-0096-0100.yaml",
+      "sha256": "b6e73b220100c9499169bc5e3bd0a0192a54aa4a801919ec1dbf6293ab781b63"
+    },
+    {
+      "path": "assets/prompts/prompts-0101-0105.yaml",
+      "sha256": "fc7a1a4e1ea0b3fdc0a9bfe4b619c717aaf9d6bfd883d629b188c4f2f66b10ba"
+    },
+    {
+      "path": "assets/prompts/prompts-0106-0110.yaml",
+      "sha256": "065b61ef3cee38c936101f7d9ad01b4977b628c6facafcb2a9642503f41fea2e"
+    },
+    {
+      "path": "assets/prompts/prompts-0111-0115.yaml",
+      "sha256": "3cb533db11d4c3e70a8aae3f246ad7c0fa3f0318b147b5cdadc6adaa41fb0a55"
+    },
+    {
+      "path": "assets/prompts/prompts-0116-0120.yaml",
+      "sha256": "163de090fcf27e6888726a7470fc9dd4534469a7102c3c89936cc2185833b527"
+    },
+    {
+      "path": "assets/prompts/prompts-0121-0125.yaml",
+      "sha256": "4d4232fd21cdbfa28645b51dcdf7db563a20653bf0b70e8ae195a33b7c3e1eaa"
+    },
+    {
+      "path": "assets/prompts/prompts-0126-0130.yaml",
+      "sha256": "d3bed9d0d26470d19f3499f9581013334ed8ba7b7d7f742b0df2773f1d90b11d"
+    },
+    {
+      "path": "assets/prompts/prompts-0131-0135.yaml",
+      "sha256": "7c460307c8489ca702758e40531ece3e87de6f068a52fd9d3dadcb437fafd641"
+    },
+    {
+      "path": "assets/prompts/prompts-0136-0140.yaml",
+      "sha256": "f3d5d773f8054ea33f2dc92a786b0c865e7f0649c3991dc054cd6c478a9b5165"
+    },
+    {
+      "path": "assets/prompts/prompts-0141-0145.yaml",
+      "sha256": "cdd88ab9a3cdc484c2e5c15275f4326cedd518e5fa503191838d6f201b094f2e"
+    },
+    {
+      "path": "assets/prompts/prompts-0146-0150.yaml",
+      "sha256": "4b3b6ae2b8fe86449e601fe01afe82f9434fcbcbca8176b14dea1a0477bbc1a2"
+    },
+    {
+      "path": "assets/prompts/prompts-0151-0155.yaml",
+      "sha256": "683c47ea4ea6069055f2667749f77ff0c349dde9fe23c37576dc5bfe46904d9c"
+    },
+    {
+      "path": "assets/prompts/prompts-0156-0160.yaml",
+      "sha256": "057a49c6e8c72cb3e98e9b49731a752fad16c1245f208016f815cdde3c3bbafa"
+    },
+    {
+      "path": "assets/prompts/prompts-0161-0165.yaml",
+      "sha256": "34a8d8ea88904a4d8daac9ce5f942d814703a307258921f5714290dd93453061"
+    },
+    {
+      "path": "assets/prompts/prompts-0166-0170.yaml",
+      "sha256": "a6801ffd27a80e7c4feb2dc81eecb21753c454cb803f7fc781d17a922f6c832a"
+    },
+    {
+      "path": "assets/prompts/prompts-0171-0175.yaml",
+      "sha256": "90f90634bd8173b8dc199cb5d51dbe4dc90e4069e6be6d46f32b080f7c863066"
+    },
+    {
+      "path": "assets/prompts/prompts-0176-0180.yaml",
+      "sha256": "5f17bceb191240f1065ebcac668fc198ace46f6adda52a182b1d348953e73a99"
+    },
+    {
+      "path": "assets/prompts/prompts-0181-0185.yaml",
+      "sha256": "eee243810800994fc8a12c3a145c99c6241fe4387104512acde1ec83888a153b"
+    },
+    {
+      "path": "assets/prompts/prompts-0186-0190.yaml",
+      "sha256": "0a28f4628f53e009ccd27804ae911c5ed92d86c8086fe2b966ad73d312b2df97"
+    },
+    {
+      "path": "assets/prompts/prompts-0191-0195.yaml",
+      "sha256": "e7bff5d7d776a895a3c894e0e74362c64f8c1da48d93ee8ee0520aa4e3f5a36a"
+    },
+    {
+      "path": "assets/prompts/prompts-0196-0200.yaml",
+      "sha256": "d37ebdc886cb0c1d29c5d1c82f04c5b7639e30978acff224cbf5d2341fd8e112"
+    },
+    {
+      "path": "assets/prompts/prompts-0201-0205.yaml",
+      "sha256": "2fedcc8413cfbd88c02d0a20a953ea70e9e11de8e6ab030f65eac5aea0a6a16a"
+    },
+    {
+      "path": "assets/prompts/prompts-0206-0210.yaml",
+      "sha256": "b55aec9f8b261d7ded988394586ae5c9e2874b4fcc094d5056f54d2a0d85fb9a"
+    },
+    {
+      "path": "assets/prompts/prompts-0211-0215.yaml",
+      "sha256": "036285bfa21518537a7cd87e63017cce6bd6c2dfd23368a5f8d1e7c0b3f3b040"
+    },
+    {
+      "path": "assets/prompts/prompts-0216-0220.yaml",
+      "sha256": "5084cedcf566dc2318fa1da8c37ae967686ea310dd64a382dd8c4649ed683dee"
+    },
+    {
+      "path": "assets/prompts/prompts-0221-0225.yaml",
+      "sha256": "55e99e86aff01e999304f8d422c531106abfd61b66d3782011667b9df44003b4"
+    },
+    {
+      "path": "assets/prompts/prompts-0226-0230.yaml",
+      "sha256": "62bb90d9fd802c99a0efca71f6cbbe7facf86d5b5eaaeba647236c166ea50245"
+    },
+    {
+      "path": "assets/prompts/prompts-0231-0235.yaml",
+      "sha256": "525827042b19e2cfee9f93152d9321be066c6ee51507e17a0cd947b53b73be82"
+    },
+    {
+      "path": "assets/prompts/prompts-0236-0240.yaml",
+      "sha256": "e67132d32ef9108c93260884b73f9545695efb7dcc570d5088bd0e5106c1a476"
+    },
+    {
+      "path": "assets/prompts/prompts-0241-0245.yaml",
+      "sha256": "47ddfe3d134fce06cdb47eea8ad7621d8844cd756338228757896c7b0f47e8d6"
+    },
+    {
+      "path": "assets/prompts/prompts-0246-0250.yaml",
+      "sha256": "d4ecae4f07fe26c18273203d15628fade5493c6eab6c19b444a891295e6491e2"
+    },
+    {
+      "path": "assets/prompts/prompts-0251-0255.yaml",
+      "sha256": "443309b05c120fdf9f440bde9a06048c22592d962a8b14695f2a6d711fc47cd3"
+    },
+    {
+      "path": "assets/prompts/prompts-0256-0260.yaml",
+      "sha256": "08167852424f3d5ff196204d069b22cf53a11e70725c5c288d19834e13660ac7"
+    },
+    {
+      "path": "assets/prompts/prompts-0261-0265.yaml",
+      "sha256": "5ba83da3a2055ea3d74fc1596c283d84da3568722c33922aaecc2ab7b756697e"
+    },
+    {
+      "path": "assets/prompts/prompts-0266-0270.yaml",
+      "sha256": "197e07ae828ef5d9d0e1f3e35c215424ada41b4cb1195d1fbafae95a1d7846de"
+    },
+    {
+      "path": "assets/prompts/prompts-0271-0274.yaml",
+      "sha256": "66569edc0a16dc46f05b66b0f847c50c756f5c6f61d53ea929aab563ea0289da"
+    },
+    {
+      "path": "assets/prompts/prompts-0275-0279.yaml",
+      "sha256": "b2c1293cca0a76a81b626a27dacadaceb542622ff9d1ed4e9b8cbfe2c1a0f274"
+    },
+    {
+      "path": "assets/prompts/prompts-0280-0284.yaml",
+      "sha256": "0d8fdf1e1d6711b6c4a97f3ebcab06f109a9dd3a2f77ec1ccaf9242169809f06"
+    },
+    {
+      "path": "assets/prompts/prompts-0285-0289.yaml",
+      "sha256": "e061bfdc9e4cffdf28c057c396ae3ec639e8c1d1c3e5b702527c9d64f586d88f"
+    },
+    {
+      "path": "assets/prompts/prompts-0290-0294.yaml",
+      "sha256": "fe056218f65cad04a0e982baf0438deb4adda72b07949d357f9f2dfea1de4ee3"
+    },
+    {
+      "path": "assets/prompts/prompts-0295-0299.yaml",
+      "sha256": "2810ab52b1629714bb01ced4da597d1a988af2031dd43321dd93751aa862a467"
+    },
+    {
+      "path": "assets/prompts/prompts-0300-0304.yaml",
+      "sha256": "fb62fad3c054b02cc32d22a01b41fb12edd808ea7be664bcb08b770f981ba005"
+    },
+    {
+      "path": "assets/prompts/prompts-0305-0309.yaml",
+      "sha256": "0dce14e9edf58972d851df36046c8fc4630080a9e8cb087d2da0f9cf8e8dd536"
+    },
+    {
+      "path": "assets/prompts/prompts-0310-0314.yaml",
+      "sha256": "bea6e4295978eb3056106e6f306b92d0c83e6db70fe50f54dbfd6eaf7e0f4549"
+    },
+    {
+      "path": "assets/prompts/prompts-0315-0319.yaml",
+      "sha256": "2a3290b1e4cf1f27f81106d5a4f9dda6730ee25e79c9f355672ff72855d5b39b"
+    },
+    {
+      "path": "assets/prompts/prompts-0320-0324.yaml",
+      "sha256": "f6cced3690261747350c0c44458ee902153414f62d06c42edf0d20a08fa371ee"
+    },
+    {
+      "path": "assets/prompts/prompts-0325-0329.yaml",
+      "sha256": "13059b6cd92453287b0c5265990e5c0312ae289d9e42e1a683afa0da80704a68"
+    },
+    {
+      "path": "assets/prompts/prompts-0330-0334.yaml",
+      "sha256": "ee89778afc85983faa94f8fd667b64836f685d57bf92d0d18c5bd61b0d575d82"
+    },
+    {
+      "path": "assets/prompts/prompts-0335-0339.yaml",
+      "sha256": "539c89836235316c9f4b760e0b398f43d830dba0cc16bd660e26cde230ebbc8f"
+    },
+    {
+      "path": "assets/prompts/prompts-0340-0344.yaml",
+      "sha256": "16182d4183bebf9e089f6ae739b5afcb541991d34506d137095ead1feab536d6"
+    },
+    {
+      "path": "assets/prompts/prompts-0345-0349.yaml",
+      "sha256": "7f7ff56f27564fc5fb07e4fd003e035a356a211bc2f08b1a740c3ca71dedcb09"
+    },
+    {
+      "path": "assets/prompts/prompts-0350-0354.yaml",
+      "sha256": "3b1720ee39f57179618fa265e2cff2e7e91c425ae0a7b9f7bedaad8ab308dfb4"
+    },
+    {
+      "path": "assets/prompts/prompts-0355-0359.yaml",
+      "sha256": "21f8ca63b817b24379f5dff7a196df70ef10da87eb4adc2fad6b2d6a1bf758fd"
+    },
+    {
+      "path": "assets/prompts/prompts-0360-0364.yaml",
+      "sha256": "31086d488b61f1bb4ebb6364bd9ec3a65f672c2fb2e3a4ed24fbdfb4fd423d5a"
+    },
+    {
+      "path": "assets/prompts/prompts-0365-0369.yaml",
+      "sha256": "6d334a87fb5c7b17e5ed93a20fa5be46c1e17fc17ed09f11bff27f4f78a18414"
+    },
+    {
+      "path": "assets/prompts/prompts-0370-0374.yaml",
+      "sha256": "30de411837d05ac2bac47d0a9f6e5fd3656336631b06c73337f3c77d70f0a409"
+    },
+    {
+      "path": "assets/prompts/prompts-0375-0379.yaml",
+      "sha256": "79747520f1cb348cd6e62400c8b8aead548059222ae7d77d76fbf5ce5ecdabae"
+    },
+    {
+      "path": "assets/prompts/prompts-0380-0384.yaml",
+      "sha256": "554fe00ee6e7226b737669c473e744ad79ab8dc8873d052022a90624c9386491"
+    },
+    {
+      "path": "assets/prompts/prompts-0385-0389.yaml",
+      "sha256": "4b17e068820888e398bfa8cea5b8b9402a9bf5fa883071e1cec1548ffe207c9e"
+    },
+    {
+      "path": "assets/prompts/prompts-0390-0394.yaml",
+      "sha256": "26afec2e148f170cbd8952c817613105bd9d697a2fb50a32e8ee38274915a63c"
+    },
+    {
+      "path": "assets/prompts/prompts-0395-0399.yaml",
+      "sha256": "4d1feaba8e34203987f94a51df120d92068f94b58099b7e94d25186166fe6b2d"
+    },
+    {
+      "path": "assets/prompts/prompts-0400-0404.yaml",
+      "sha256": "febb6291747ddefebb23206e9503c3018e275920ad6aedd8683d71e373ed9e9b"
+    },
+    {
+      "path": "assets/prompts/prompts-0405-0409.yaml",
+      "sha256": "7cebf62316c9daf91ec01db200f8d89806dbedd2031713f68ad1c6e8e647e66d"
+    },
+    {
+      "path": "assets/prompts/prompts-0410-0414.yaml",
+      "sha256": "03b997137fd0227166e4d83d56327d5c207cbc287dc809c44c825ddecc5fc7f6"
+    },
+    {
+      "path": "assets/prompts/prompts-0415-0419.yaml",
+      "sha256": "074e833f6980fe337939528820c056efbaf83d738409ff6a6ea399067247bbdb"
+    },
+    {
+      "path": "assets/prompts/prompts-0420-0424.yaml",
+      "sha256": "2eca074d8135f1f4289a034368be7d5d0aea1ed0cdc3ce64ede4f9c4a1a6cfcf"
+    },
+    {
+      "path": "assets/prompts/prompts-0425-0429.yaml",
+      "sha256": "3c9a8db38d107593eb07aebd45b8a74c5d85672afc749e8e47dc94fe2e47833c"
+    },
+    {
+      "path": "assets/prompts/prompts-0430-0434.yaml",
+      "sha256": "a345d8f004dc95774e09bf9190b2bcd4500b4429c98bcf8fd5a980ebd62be811"
+    },
+    {
+      "path": "assets/prompts/prompts-0435-0439.yaml",
+      "sha256": "4387cb16dd4a65b4fff5d2aabb0b0991b824a4efaa14283dca4c36d9063f5295"
+    },
+    {
+      "path": "assets/prompts/prompts-0440-0444.yaml",
+      "sha256": "2d1bdc0b00d850db6a2b0a96af0a8e2b111984d52cebcfc6e6b760a059a7d6f1"
+    },
+    {
+      "path": "assets/prompts/prompts-0445-0449.yaml",
+      "sha256": "e838b41b5f3f801396e9c269d259cd6934941a530e13f2612626e2d59d67b4c8"
+    },
+    {
+      "path": "assets/prompts/prompts-0450-0454.yaml",
+      "sha256": "446f0d8ecd4bc349d72bf1f3512956ecc64cb22a97546ef56e2d456933e0f99b"
+    },
+    {
+      "path": "assets/prompts/prompts-0455-0459.yaml",
+      "sha256": "124659e1ae6056f994a561dc0f92478b684419308a81ea1496fdc033f395ed59"
+    },
+    {
+      "path": "assets/prompts/prompts-0460-0464.yaml",
+      "sha256": "e4a97f18e4a10ca8d2c2f6ef2e01e88197f112c1787edc0d310fa1d16c7cda03"
+    },
+    {
+      "path": "assets/prompts/prompts-0465-0469.yaml",
+      "sha256": "6b2024f215302a3f88f416aab4c620faa01f7f27a97831d5cfb43c9396c84a64"
+    },
+    {
+      "path": "assets/prompts/prompts-0470-0474.yaml",
+      "sha256": "7348e9e7a580fb5e1521ae9ee6f4524d4802721501bc164e6403fc854ecc13ce"
+    },
+    {
+      "path": "assets/prompts/prompts-0475-0479.yaml",
+      "sha256": "2cd6bf72859e8ae81d2476279b80abaee6c73a9653711e2f095db7f45cc6a9ca"
+    },
+    {
+      "path": "assets/prompts/prompts-0480-0484.yaml",
+      "sha256": "fc299ccbd5219765f374df0cf311db2f02f1bd60046c53bff7ce8644d55c8461"
+    },
+    {
+      "path": "assets/prompts/prompts-0485-0489.yaml",
+      "sha256": "8b35ac3fbb6d0eb559323e194113d5f9fef23da267a9ffb61eba01467204d9ed"
+    },
+    {
+      "path": "assets/prompts/prompts-0490-0494.yaml",
+      "sha256": "11da1b145679b682fa6b53ec5731896d33b12013c59be7c31de23467ed622ab3"
+    },
+    {
+      "path": "assets/prompts/prompts-0495-0499.yaml",
+      "sha256": "5958375424eb973ef2905b29f49edc1a6fcc2d5baf1b7bd25d6a59b9ed753f8e"
+    },
+    {
+      "path": "assets/prompts/prompts-0500-0504.yaml",
+      "sha256": "a9fc3ec40eb5b6aa024976b485925a0da5684eb7708e658620651ff622acea3e"
+    },
+    {
+      "path": "assets/prompts/prompts-0505-0509.yaml",
+      "sha256": "282a58fffefe2595dbf9f28a81bbba8f17159b0376354ff2c6877cfda4f90c0c"
+    },
+    {
+      "path": "assets/prompts/prompts-0510-0514.yaml",
+      "sha256": "8d3eb087b5ab9200c476be67d213e70ae6fcaa2b5694f0560d7f45d6e6cebcc1"
+    },
+    {
+      "path": "assets/prompts/prompts-0515-0519.yaml",
+      "sha256": "2e5636b6ed6ded10d3804abc62356486f59eb92192d419f30b2634541664eaf7"
+    },
+    {
+      "path": "assets/prompts/prompts-0520-0524.yaml",
+      "sha256": "3832b11f0ffaad96acf339807dcf363c5fa3c1a47e1b35adc9b27316491e2ca0"
+    },
+    {
+      "path": "assets/prompts/prompts-0525-0529.yaml",
+      "sha256": "9de45b21fc80ebb3988763df6aee3a6a92a4cfc44d47a74197fe494eff8eef35"
+    },
+    {
+      "path": "assets/prompts/prompts-0530-0534.yaml",
+      "sha256": "7056caa32d5f0f53faf4961f136c4ff806676a444de626fe667060d9130df7f6"
+    },
+    {
+      "path": "assets/prompts/prompts-0535-0539.yaml",
+      "sha256": "0c05f8b3be10c25ca609850100b79e27ddffae3f71fc8abe7da9e3bd4427c2ee"
+    },
+    {
+      "path": "assets/prompts/prompts-0540-0544.yaml",
+      "sha256": "6b83a6632eddc6c978d77e4441993cd7779f9bdeeaf972c247895afb7dc7af9e"
+    },
+    {
+      "path": "assets/prompts/prompts-0545-0549.yaml",
+      "sha256": "629970718feb38e5d8f1a3ccbd30aded14bae9f6b94d781253193b5d9ce700da"
+    },
+    {
+      "path": "assets/prompts/prompts-0550-0554.yaml",
+      "sha256": "fa948e9314f10c75938962133e981a895586d4c86c67ba197e9de40866a05b73"
+    },
+    {
+      "path": "assets/prompts/prompts-0555-0559.yaml",
+      "sha256": "55e58f52639292676265d427a588293cf04f0372e3bcc4e874a4c02d46ae0da7"
+    },
+    {
+      "path": "assets/prompts/prompts-0560-0564.yaml",
+      "sha256": "86325a6689c40e1c8dfae25c0ba2986342604cbe0d43b9895bc6be2b6e0b43f4"
+    },
+    {
+      "path": "assets/prompts/prompts-0565-0569.yaml",
+      "sha256": "c8c25afd28182dbec730aea3ef11317e86461230aeb3f8348239374a48a9d63d"
+    },
+    {
+      "path": "assets/prompts/prompts-0570-0574.yaml",
+      "sha256": "aaafea59fc6b213f74e2aa7692ae42afecaf22644001b4232eacceba7e08353a"
+    },
+    {
+      "path": "assets/prompts/prompts-0575-0579.yaml",
+      "sha256": "38cd3608e21539c1b027ae91e0dec9883c5b43bbfe0b04e84415e01a456ebd74"
+    },
+    {
+      "path": "assets/prompts/prompts-0580-0584.yaml",
+      "sha256": "d88773d2bf82e30dcb444773bd6167edce20784736fdaaeeedf50930f88c72a3"
+    },
+    {
+      "path": "assets/prompts/prompts-0585-0589.yaml",
+      "sha256": "dc090188ed58cdc8b9171a45eed1669a7b2fe7ee8a3ae2ed6572c0592b16b6cd"
+    },
+    {
+      "path": "assets/prompts/prompts-0590-0594.yaml",
+      "sha256": "607eb54471935a3187b13df4b9d55a6b0b679a685798790467b77351390d560d"
+    },
+    {
+      "path": "assets/prompts/prompts-0595-0599.yaml",
+      "sha256": "adbd750918da9eed1377c642248164579ad349097ab32b97d86399a30829fe23"
+    },
+    {
+      "path": "assets/prompts/prompts-0600-0604.yaml",
+      "sha256": "eba473f85f86ff289e18015917d7501562a4a225ecf3dd37316910b0f77f77c5"
+    },
+    {
+      "path": "assets/prompts/prompts-0605-0609.yaml",
+      "sha256": "377fa30714b465020baa0da5981bd535f073008bf0f92acadb5aa522d5678f76"
+    },
+    {
+      "path": "assets/prompts/prompts-0610-0614.yaml",
+      "sha256": "8e70b1b03afd187e443a655627ce4d1a9d39e6d390f0b9088b2c6abf9d861778"
+    },
+    {
+      "path": "assets/prompts/prompts-0615-0619.yaml",
+      "sha256": "84cd474c0f18ceaa07e2a8ccb0c406d2fb5bbcae9401cf2403c1a97ea64f01b8"
+    },
+    {
+      "path": "assets/prompts/prompts-0620-0624.yaml",
+      "sha256": "5e2e5c5ea8ceb0b2ebd5b92c2652a65643b427332771b29da9e43f7ea9edd0be"
+    },
+    {
+      "path": "assets/prompts/prompts-0625-0629.yaml",
+      "sha256": "857734014d6ad6f0f098c3ad8b9a9525b2670e20824b1a5345b4da47d8514a9c"
+    },
+    {
+      "path": "assets/prompts/prompts-0630-0634.yaml",
+      "sha256": "62f9d53cf0ef83e40ba8a870395091e2fb587367e8b09ed327facb72277608ad"
+    },
+    {
+      "path": "assets/prompts/prompts-0635-0639.yaml",
+      "sha256": "d91fc4162cdcef3c3b260d8b2e047f2714786405e230482e91c0e301cf0c48ff"
+    },
+    {
+      "path": "assets/prompts/prompts-0640-0644.yaml",
+      "sha256": "aee4e3eefdcbbc1616971af48093972f387da0e20898d5df5997b3e178c71fe9"
+    },
+    {
+      "path": "assets/prompts/prompts-0645-0649.yaml",
+      "sha256": "6b33221478d40b4ee8c8f0d18b0ceea59c7217ace8d2dc7653164fd473ce3cd5"
+    },
+    {
+      "path": "assets/prompts/prompts-0650-0654.yaml",
+      "sha256": "ade7aa7d2390bdabdb5da201fb878174fc78acb609675783e004668e328fef39"
+    },
+    {
+      "path": "assets/prompts/prompts-0655-0659.yaml",
+      "sha256": "ea7ac1d3bd6fbfc3ba6a77e6b3cca2ce7a46f152732a11332dd4a3d0fe1fca28"
+    },
+    {
+      "path": "assets/prompts/prompts-0660-0664.yaml",
+      "sha256": "efb19ad7c14d75118e22b6b3f31744a098179028c6ccffee1ce149b2834f2f08"
+    },
+    {
+      "path": "assets/prompts/prompts-0665-0669.yaml",
+      "sha256": "ca1ffa898046f39574f5cb4a126a017a6bdddcc44f8b18b92d2e9270d92f69ea"
+    },
+    {
+      "path": "assets/prompts/prompts-0670-0674.yaml",
+      "sha256": "7cb1da7a944b14a46ef7077b9bbb58888316378a44fd8c3d95a3891d05917214"
+    },
+    {
+      "path": "assets/prompts/prompts-0675-0679.yaml",
+      "sha256": "1fe9203e71b1f3ceec9a66ea8b392a09fffbe66586abef8064e81b403b18a22d"
+    },
+    {
+      "path": "assets/prompts/prompts-0680-0684.yaml",
+      "sha256": "37598836001610f36adebd7b72c75541df5d5527008a1353371caedfb3757dcc"
+    },
+    {
+      "path": "assets/prompts/prompts-0685-0689.yaml",
+      "sha256": "75ecd3157bc048ba85e9eb040be7ce02f79931b6a0b537846c5aa776e3c9c04e"
+    },
+    {
+      "path": "assets/prompts/prompts-0690-0694.yaml",
+      "sha256": "6d8e2dafd247d812a2563ffd33575f3b37a013774f58192a241e51d8351bbb8f"
+    },
+    {
+      "path": "assets/prompts/prompts-0695-0699.yaml",
+      "sha256": "f596c95ab3c6b9878d889e0744a382138021185d9a5832224389cf82e289ba47"
+    },
+    {
+      "path": "assets/prompts/prompts-0700-0704.yaml",
+      "sha256": "882d21e1327bc3d889b441df2f901d217b8d64a6c93fe8712daef8ac9298dc03"
+    },
+    {
+      "path": "assets/prompts/prompts-0705-0709.yaml",
+      "sha256": "2b465cf977d395f5bf5c9bf851924090c6fc907e5baf36b6cfbef5db412e20d8"
+    },
+    {
+      "path": "assets/prompts/prompts-0710-0714.yaml",
+      "sha256": "82dbccfd1b201e687073fe950a3211ee0c745cb3eebf97245fac2a26dd323d73"
+    },
+    {
+      "path": "assets/prompts/prompts-0715-0719.yaml",
+      "sha256": "7b4de7f00bf8b04cbd494402afb1f1092f81f6ddbe70c7f50cab5187c3759bcf"
+    },
+    {
+      "path": "assets/prompts/prompts-0720-0724.yaml",
+      "sha256": "cd6ee6ee443891ab75be89ecc39ea548e227e4eb1134af231cfb1496e97a0721"
+    },
+    {
+      "path": "assets/prompts/prompts-0725-0729.yaml",
+      "sha256": "8be2ad4decd68d3aad56f7c27455695e74fdc31d40ea7479f96466ba12cb440c"
+    },
+    {
+      "path": "assets/prompts/prompts-0730-0734.yaml",
+      "sha256": "e6c5aec18db3917c6309095dadf42cabb2524224ecd9755993f85aaace51215f"
+    },
+    {
+      "path": "assets/prompts/prompts-0735-0739.yaml",
+      "sha256": "7d800856c8b6176822029cdc3d11128fe8ed1c836a918889f4a78a277d6263d1"
+    },
+    {
+      "path": "assets/prompts/prompts-0740-0744.yaml",
+      "sha256": "904910a34960096a4b2597c66f6b337a68d6d53214be2081f094c9b56598b213"
+    },
+    {
+      "path": "assets/prompts/prompts-0745-0749.yaml",
+      "sha256": "2b8b98f1e4ae62d28e5da1bbcd51b9c0a8de5471810b9c99e7e54f189b4e0266"
+    },
+    {
+      "path": "assets/prompts/prompts-0750-0754.yaml",
+      "sha256": "56a176431c35d5fde5e022bd6e320744b9945262b3735b9af363be09e695636a"
+    },
+    {
+      "path": "assets/prompts/prompts-0755-0759.yaml",
+      "sha256": "fe8de3473633709ca64e90b12b3eed956e1f99872d1bdf4ae6bd6292e15e13f9"
+    },
+    {
+      "path": "assets/prompts/prompts-0760-0764.yaml",
+      "sha256": "8caa37fe25d02626ab940a75255b60b3b034f790705e67ff39631a0ce96ca472"
+    },
+    {
+      "path": "assets/prompts/prompts-0765-0769.yaml",
+      "sha256": "1b6eeaf253ef86b25eaef3cc149477d024769a0ef2ff5bf71292469908444f8e"
+    },
+    {
+      "path": "assets/prompts/prompts-0770-0774.yaml",
+      "sha256": "fdc621aa2992b9e78b5b0ce31dbb393001091a0ae7c62ac23b796852538a7793"
+    },
+    {
+      "path": "assets/prompts/prompts-0775-0779.yaml",
+      "sha256": "975406ec55efa2421a1c1c45572b566e40e5eb7aaa52c23da2b1c0ca14a2c6ad"
+    },
+    {
+      "path": "assets/prompts/prompts-0780-0784.yaml",
+      "sha256": "b2062a884a769e33df76dc8ce9394c626e3a11f9d5c4599334be6046963e3b7e"
+    },
+    {
+      "path": "assets/prompts/prompts-0785-0789.yaml",
+      "sha256": "cc392234496e2a481c3e7a8e83c2ab249b007603aa16502dd1a583cc29ef99a8"
+    },
+    {
+      "path": "assets/prompts/prompts-0790-0793.yaml",
+      "sha256": "fdee860cf3cc2f4646202e482ff6e02448f7db6b3bc09926b213d9f2e93e2d2a"
+    },
+    {
+      "path": "assets/prompts/prompts-0794-0798.yaml",
+      "sha256": "b475ef1fd11d6e0660beff2c4799d64aa8614f1b04af830554ccd717c583965d"
+    },
+    {
+      "path": "assets/prompts/prompts-0799-0803.yaml",
+      "sha256": "5944bb93e921f68e8438e0783f9e33ececf801d6c01812688259679164b58fd1"
+    },
+    {
+      "path": "assets/prompts/prompts-0804-0808.yaml",
+      "sha256": "0a0a483356167de55cc51b34a68ee11061d58919e174c6471b100701d72b79ec"
+    },
+    {
+      "path": "assets/prompts/prompts-0809-0813.yaml",
+      "sha256": "24387372f7b46f2c8859c17eda06822712ebc5ad6e2f0da343068167bf211a2b"
+    },
+    {
+      "path": "assets/prompts/prompts-0814-0818.yaml",
+      "sha256": "4679f84fba5af9303ed2faba057d3c33aed29f3986c93ad961be378fed4e633c"
+    },
+    {
+      "path": "assets/prompts/prompts-0819-0823.yaml",
+      "sha256": "a86a89adaeae83d59db36db2c3c613e52def8ffb1803f4152e47f0cb42f9d736"
+    },
+    {
+      "path": "assets/prompts/prompts-0824-0828.yaml",
+      "sha256": "ca369c143675a31d33ea90cda7dce0d793a0c12325b8edcf985556f9556458b8"
+    },
+    {
+      "path": "assets/prompts/prompts-0829-0833.yaml",
+      "sha256": "fadf82691ed6f303974c10a99efe9a0d49659a1de6363af7abd1e35a5f442cfe"
+    },
+    {
+      "path": "assets/prompts/prompts-0834-0838.yaml",
+      "sha256": "64479a93df4900aa0203171a533e78a5807d3b5df0be9d5a4b538c0d5d9ac405"
+    },
+    {
+      "path": "assets/prompts/prompts-0839-0843.yaml",
+      "sha256": "7fcab4f049c247713c1d778f06ac1aab5c124c733957368e8e6776e260992ad9"
+    },
+    {
+      "path": "assets/prompts/prompts-0844-0848.yaml",
+      "sha256": "fc3fe6a9caa546b6cd168d47049a508686b893f5c9459e29589dc149410c5237"
+    },
+    {
+      "path": "assets/prompts/prompts-0849-0853.yaml",
+      "sha256": "fe9f1192098824b1aabd36d77dfbc5a5b6891427f00c6de9b84ec116bc36b2a3"
+    },
+    {
+      "path": "assets/prompts/prompts-0854-0858.yaml",
+      "sha256": "6f8cfc9145770d3e7d6a396ae95e394fbfa314624f2caa533f014e02b5a1e81e"
+    },
+    {
+      "path": "assets/prompts/prompts-0859-0863.yaml",
+      "sha256": "1b745b627283552170b59c1fd3f2db8d1a7c836c4455815b1a69c715c9f40959"
+    },
+    {
+      "path": "assets/prompts/prompts-0864-0868.yaml",
+      "sha256": "e290ff9cd777dcf548dd1ede30a6539fd6a03edce8ab487e07677968f1cee2cd"
+    },
+    {
+      "path": "assets/prompts/prompts-0869-0873.yaml",
+      "sha256": "41980fccb42109dfa54adfc60b3ab076462a802a184d3e3e872c8c4762532e80"
+    },
+    {
+      "path": "assets/prompts/prompts-0874-0878.yaml",
+      "sha256": "4d49e948594991afdf303124d546b80d6098f34b2f9460b40db386a86b3835bc"
+    },
+    {
+      "path": "assets/prompts/prompts-0879-0883.yaml",
+      "sha256": "75e87a18ddf55b6086b5a526feebc3e83e298525c8a6d8261cedc16c7e489668"
+    },
+    {
+      "path": "assets/prompts/prompts-0884-0888.yaml",
+      "sha256": "4f34972f0727e0d5c752fc875cb02c32f381c9abbddd5cea61688201f9164d39"
+    },
+    {
+      "path": "assets/prompts/prompts-0889-0893.yaml",
+      "sha256": "05dc35d8616dc8794982cdb3d5fb91cdcca396482d5a06945c126c36512894ac"
+    },
+    {
+      "path": "assets/prompts/prompts-0894-0898.yaml",
+      "sha256": "4975dee0330e39e50ce2c4f8bf615ce597670ccf73a36011568ce321f14fe02e"
+    },
+    {
+      "path": "assets/prompts/prompts-0899-0903.yaml",
+      "sha256": "e92dd4d6ef5718dcd919b7dd708894756295de8f0ccfb24830f0d655fca2aebf"
+    },
+    {
+      "path": "assets/prompts/prompts-0904-0908.yaml",
+      "sha256": "52f3a5074c4b5e52c7ca39f141f6f39f4d7631cc3203f1ce66c63681c93819fd"
+    },
+    {
+      "path": "assets/prompts/prompts-0909-0913.yaml",
+      "sha256": "a3785d2abed5a937fe4f5fd07cd3acba5f260eabd6934c6284d2174f23e80168"
+    },
+    {
+      "path": "assets/prompts/prompts-0914-0918.yaml",
+      "sha256": "13d0b48fa41549ffa3ff004b75c76ce14c03fffef3d7084ef0dc286c7009b9a0"
+    },
+    {
+      "path": "assets/prompts/prompts-0919-0923.yaml",
+      "sha256": "445cf183d4932df03ff3a2086b2fe361cfca727f8e714be07d100edd899aa025"
+    },
+    {
+      "path": "assets/prompts/prompts-0924-0928.yaml",
+      "sha256": "533dfc770ef0eb4785949a53335e1793f833f48cc6fcae9803b38ed7e1af3a5e"
+    },
+    {
+      "path": "assets/prompts/prompts-0929-0933.yaml",
+      "sha256": "727d7400258b12932daa371e52bacc82cda9950c0a053a636a4c3d21946d3563"
+    },
+    {
+      "path": "assets/prompts/prompts-0934-0938.yaml",
+      "sha256": "cad9e9186aec97d7077ad5f163ecb50e8ba3766bf27199df733004e0faf090b1"
+    },
+    {
+      "path": "assets/prompts/prompts-0939-0943.yaml",
+      "sha256": "246f0b275a6bde7a2135bb64cb29fd346aec78d96d57315f3de545494e79c585"
+    },
+    {
+      "path": "assets/prompts/prompts-0944-0948.yaml",
+      "sha256": "154e4501596e78b6332656d9ea3ab9a94c01a0955fc266e847ce5bac8fa4ea6e"
+    },
+    {
+      "path": "assets/prompts/prompts-0949-0953.yaml",
+      "sha256": "8ecd3247f2ba39c89b26ab7c60fcae281b0bb1bc9785da9f926d7e7256b92979"
+    },
+    {
+      "path": "assets/prompts/prompts-0954-0958.yaml",
+      "sha256": "af6a286ae90ef1048c05bc5d47293337ba50e830cfa82144d6c17217cfc5df37"
+    },
+    {
+      "path": "assets/prompts/prompts-0959-0963.yaml",
+      "sha256": "0fea313f9699147e48f9dc33984f4685fec39ddc718d5b8483641bb0e0f9cbff"
+    },
+    {
+      "path": "assets/prompts/prompts-0964-0968.yaml",
+      "sha256": "74d20592602a88b676514f2f8dd6d19774ccb3422588cd61a97d15afbbe22949"
+    },
+    {
+      "path": "assets/prompts/prompts-0969-0973.yaml",
+      "sha256": "63b1e83b3e1a09eb0d6926cbfc9b9ceff6680ac74a2ec77850ca9af4509e64bc"
+    },
+    {
+      "path": "assets/prompts/prompts-0974-0978.yaml",
+      "sha256": "c93f5235572d323fc7c0acfd149ad545f798175e9df0b4e715d3c93de76cfd7c"
+    },
+    {
+      "path": "assets/prompts/prompts-0979-0983.yaml",
+      "sha256": "d35cb2da28986efe383bed3228084ad35d661914818633f8fba25753d243871b"
+    },
+    {
+      "path": "assets/prompts/prompts-0984-0988.yaml",
+      "sha256": "e9d4ebcc054bb1337880d7da2a1112a66e0f20ba06d6071290779fa5d19b6a3f"
+    },
+    {
+      "path": "assets/prompts/prompts-0989-0993.yaml",
+      "sha256": "2c2c5159942ab3346e2402ddde9e04373fd1e6911adafe28354baa15fab38118"
+    },
+    {
+      "path": "assets/prompts/prompts-0994-0998.yaml",
+      "sha256": "7e682a0bd18768aab4134b884428671eb3a0225963b050732be3385d50ee4899"
+    },
+    {
+      "path": "assets/prompts/prompts-0999-1000.yaml",
+      "sha256": "758e1efe6c25c1334984f0ccf4288118c25397aef94965554d854e3bc18b3a7e"
+    },
+    {
+      "path": "assets/schemas.json",
+      "sha256": "4e2edb2e57a664374780665f164fc82aa59ba334215649624b573ac7517724d5"
+    },
+    {
+      "path": "assets/source-lock.json",
+      "sha256": "cb6786daa7f1d645883d886c2c0fa77878f0275b2cc8ad461ec2ecb400d4b1e2"
+    },
+    {
+      "path": "assets/tool-registry.json",
+      "sha256": "97f56da3333db6d4df907dab70d1d277a9e03fe2638dc4f6f2ba7b8e0dae6bbf"
+    },
+    {
+      "path": "references/brief-and-research.md",
+      "sha256": "030d58361253d0d8faf1e740c3d94c27f43ff454ff706da79a281ac2d1a3ffe1"
+    },
+    {
+      "path": "references/composition-and-motion.md",
+      "sha256": "0a2eb1d9f03036ee8ebc207977b889eedabb1b1230ace1c6b7be1ed9f277fcee"
+    },
+    {
+      "path": "references/emil-procedures.md",
+      "sha256": "0f9161842343e3f7c10d9da8adbc63357b065f5dc9e66b4942a52db826d6f07d"
+    },
+    {
+      "path": "references/image-routing.md",
+      "sha256": "6229c0fc3826b888e292e3abc37e5b5b9e346d0bc241bec560b472abdbe3f6f3"
+    },
+    {
+      "path": "references/implementation-performance.md",
+      "sha256": "b62afc4ce9c70c5082df37090086c4069a1ecbff762cfd03ed303cb04adea746"
+    },
+    {
+      "path": "references/integrations.md",
+      "sha256": "70a6b60ad423bee1fec27d83b8c2fef7aa0af13c4ab15c155d3dc7231a9446f4"
+    },
+    {
+      "path": "references/judgement.md",
+      "sha256": "f96b4d4326d8c484714abec7be2c1260fc32b87cb7f126e05b0c7833b3d9987e"
+    },
+    {
+      "path": "references/source-coverage.md",
+      "sha256": "16cb9aae7edacac08e9716ec7c0373f6b130abbdc5cf7782e0ff689a87681891"
+    },
+    {
+      "path": "references/validation.md",
+      "sha256": "687cbe656bac2418fc6b6f7f1637c2eadeac00d0651220ee52cc77845b336717"
+    },
+    {
+      "path": "references/visual-identity.md",
+      "sha256": "add1d143ecf5a2f22744ef8d8eeb20cae25c144f09dc722fd0030e8b9a15522b"
+    },
+    {
+      "path": "references/wireframe.md",
+      "sha256": "f00ef7de62c6da163843e26205ca920b43f4cf67e37c5610d5e091db4ffc6a6c"
+    },
+    {
+      "path": "scripts/breakpoint_rules.py",
+      "sha256": "2f8cda7442498e2bfe66ce7bb43c8ce11097d3b0a9a36c15480103575bb4ee8e"
+    },
+    {
+      "path": "scripts/prompt_corpus.py",
+      "sha256": "1dee5b63a8a44a8c73493f2a4494d286cd5ca6a270414528ead9c8c28b81ad96"
+    },
+    {
+      "path": "scripts/validate_packet.py",
+      "sha256": "ab94df743c41e628ce2ecc4d82d4e09d645aee6014d51c012904b43fec41fd03"
+    }
+  ],
+  "source_case_ids": [
+    "fail-breakpoint-order",
+    "fail-capability-floor",
+    "fail-flora-routing",
+    "fail-performance",
+    "fail-prompt-hash",
+    "fail-style-in-wireframe",
+    "pass-degraded",
+    "pass-full"
+  ],
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-breakpoint-order.json",
+      "source_paths": [
+        "assets/fixtures/fail-breakpoint-order.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-capability-floor.json",
+      "source_paths": [
+        "assets/fixtures/fail-capability-floor.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-flora-routing.json",
+      "source_paths": [
+        "assets/fixtures/fail-flora-routing.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-performance.json",
+      "source_paths": [
+        "assets/fixtures/fail-performance.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-prompt-hash.json",
+      "source_paths": [
+        "assets/fixtures/fail-prompt-hash.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/fail-style-in-wireframe.json",
+      "source_paths": [
+        "assets/fixtures/fail-style-in-wireframe.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/pass-degraded.json",
+      "source_paths": [
+        "assets/fixtures/pass-degraded.json"
+      ]
+    },
+    {
+      "path": "assets/fixtures/pass-full.json",
+      "source_paths": [
+        "assets/fixtures/pass-full.json"
+      ]
+    },
+    {
+      "path": "assets/prompt-manifest.json",
+      "source_paths": [
+        "assets/prompt-manifest.json"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0001-0005.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0001-0005.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0006-0010.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0006-0010.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0011-0015.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0011-0015.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0016-0020.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0016-0020.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0021-0025.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0021-0025.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0026-0030.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0026-0030.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0031-0035.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0031-0035.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0036-0040.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0036-0040.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0041-0045.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0041-0045.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0046-0050.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0046-0050.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0051-0055.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0051-0055.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0056-0060.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0056-0060.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0061-0065.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0061-0065.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0066-0070.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0066-0070.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0071-0075.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0071-0075.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0076-0080.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0076-0080.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0081-0085.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0081-0085.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0086-0090.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0086-0090.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0091-0095.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0091-0095.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0096-0100.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0096-0100.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0101-0105.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0101-0105.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0106-0110.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0106-0110.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0111-0115.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0111-0115.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0116-0120.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0116-0120.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0121-0125.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0121-0125.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0126-0130.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0126-0130.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0131-0135.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0131-0135.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0136-0140.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0136-0140.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0141-0145.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0141-0145.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0146-0150.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0146-0150.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0151-0155.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0151-0155.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0156-0160.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0156-0160.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0161-0165.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0161-0165.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0166-0170.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0166-0170.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0171-0175.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0171-0175.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0176-0180.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0176-0180.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0181-0185.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0181-0185.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0186-0190.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0186-0190.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0191-0195.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0191-0195.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0196-0200.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0196-0200.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0201-0205.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0201-0205.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0206-0210.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0206-0210.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0211-0215.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0211-0215.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0216-0220.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0216-0220.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0221-0225.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0221-0225.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0226-0230.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0226-0230.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0231-0235.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0231-0235.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0236-0240.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0236-0240.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0241-0245.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0241-0245.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0246-0250.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0246-0250.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0251-0255.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0251-0255.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0256-0260.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0256-0260.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0261-0265.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0261-0265.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0266-0270.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0266-0270.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0271-0274.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0271-0274.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0275-0279.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0275-0279.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0280-0284.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0280-0284.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0285-0289.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0285-0289.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0290-0294.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0290-0294.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0295-0299.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0295-0299.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0300-0304.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0300-0304.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0305-0309.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0305-0309.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0310-0314.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0310-0314.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0315-0319.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0315-0319.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0320-0324.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0320-0324.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0325-0329.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0325-0329.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0330-0334.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0330-0334.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0335-0339.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0335-0339.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0340-0344.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0340-0344.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0345-0349.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0345-0349.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0350-0354.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0350-0354.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0355-0359.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0355-0359.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0360-0364.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0360-0364.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0365-0369.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0365-0369.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0370-0374.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0370-0374.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0375-0379.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0375-0379.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0380-0384.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0380-0384.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0385-0389.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0385-0389.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0390-0394.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0390-0394.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0395-0399.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0395-0399.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0400-0404.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0400-0404.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0405-0409.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0405-0409.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0410-0414.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0410-0414.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0415-0419.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0415-0419.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0420-0424.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0420-0424.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0425-0429.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0425-0429.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0430-0434.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0430-0434.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0435-0439.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0435-0439.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0440-0444.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0440-0444.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0445-0449.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0445-0449.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0450-0454.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0450-0454.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0455-0459.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0455-0459.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0460-0464.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0460-0464.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0465-0469.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0465-0469.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0470-0474.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0470-0474.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0475-0479.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0475-0479.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0480-0484.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0480-0484.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0485-0489.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0485-0489.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0490-0494.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0490-0494.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0495-0499.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0495-0499.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0500-0504.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0500-0504.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0505-0509.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0505-0509.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0510-0514.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0510-0514.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0515-0519.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0515-0519.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0520-0524.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0520-0524.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0525-0529.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0525-0529.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0530-0534.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0530-0534.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0535-0539.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0535-0539.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0540-0544.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0540-0544.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0545-0549.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0545-0549.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0550-0554.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0550-0554.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0555-0559.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0555-0559.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0560-0564.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0560-0564.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0565-0569.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0565-0569.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0570-0574.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0570-0574.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0575-0579.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0575-0579.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0580-0584.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0580-0584.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0585-0589.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0585-0589.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0590-0594.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0590-0594.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0595-0599.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0595-0599.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0600-0604.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0600-0604.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0605-0609.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0605-0609.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0610-0614.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0610-0614.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0615-0619.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0615-0619.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0620-0624.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0620-0624.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0625-0629.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0625-0629.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0630-0634.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0630-0634.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0635-0639.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0635-0639.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0640-0644.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0640-0644.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0645-0649.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0645-0649.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0650-0654.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0650-0654.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0655-0659.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0655-0659.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0660-0664.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0660-0664.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0665-0669.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0665-0669.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0670-0674.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0670-0674.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0675-0679.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0675-0679.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0680-0684.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0680-0684.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0685-0689.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0685-0689.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0690-0694.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0690-0694.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0695-0699.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0695-0699.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0700-0704.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0700-0704.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0705-0709.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0705-0709.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0710-0714.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0710-0714.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0715-0719.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0715-0719.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0720-0724.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0720-0724.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0725-0729.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0725-0729.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0730-0734.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0730-0734.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0735-0739.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0735-0739.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0740-0744.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0740-0744.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0745-0749.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0745-0749.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0750-0754.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0750-0754.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0755-0759.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0755-0759.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0760-0764.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0760-0764.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0765-0769.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0765-0769.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0770-0774.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0770-0774.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0775-0779.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0775-0779.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0780-0784.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0780-0784.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0785-0789.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0785-0789.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0790-0793.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0790-0793.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0794-0798.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0794-0798.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0799-0803.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0799-0803.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0804-0808.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0804-0808.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0809-0813.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0809-0813.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0814-0818.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0814-0818.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0819-0823.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0819-0823.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0824-0828.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0824-0828.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0829-0833.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0829-0833.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0834-0838.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0834-0838.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0839-0843.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0839-0843.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0844-0848.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0844-0848.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0849-0853.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0849-0853.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0854-0858.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0854-0858.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0859-0863.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0859-0863.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0864-0868.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0864-0868.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0869-0873.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0869-0873.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0874-0878.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0874-0878.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0879-0883.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0879-0883.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0884-0888.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0884-0888.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0889-0893.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0889-0893.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0894-0898.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0894-0898.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0899-0903.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0899-0903.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0904-0908.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0904-0908.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0909-0913.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0909-0913.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0914-0918.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0914-0918.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0919-0923.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0919-0923.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0924-0928.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0924-0928.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0929-0933.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0929-0933.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0934-0938.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0934-0938.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0939-0943.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0939-0943.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0944-0948.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0944-0948.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0949-0953.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0949-0953.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0954-0958.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0954-0958.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0959-0963.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0959-0963.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0964-0968.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0964-0968.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0969-0973.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0969-0973.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0974-0978.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0974-0978.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0979-0983.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0979-0983.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0984-0988.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0984-0988.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0989-0993.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0989-0993.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0994-0998.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0994-0998.yaml"
+      ]
+    },
+    {
+      "path": "assets/prompts/prompts-0999-1000.yaml",
+      "source_paths": [
+        "assets/prompts/prompts-0999-1000.yaml"
+      ]
+    },
+    {
+      "path": "assets/schemas.json",
+      "source_paths": [
+        "assets/schemas.json"
+      ]
+    },
+    {
+      "path": "assets/source-lock.json",
+      "source_paths": [
+        "assets/source-lock.json"
+      ]
+    },
+    {
+      "path": "assets/tool-registry.json",
+      "source_paths": [
+        "assets/tool-registry.json"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/source-mapping.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/prompt-corpus.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/reject-performance.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/validate-release.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/brief-and-research.md",
+      "source_paths": [
+        "references/brief-and-research.md"
+      ]
+    },
+    {
+      "path": "references/composition-and-motion.md",
+      "source_paths": [
+        "references/composition-and-motion.md"
+      ]
+    },
+    {
+      "path": "references/emil-procedures.md",
+      "source_paths": [
+        "references/emil-procedures.md"
+      ]
+    },
+    {
+      "path": "references/image-routing.md",
+      "source_paths": [
+        "references/image-routing.md"
+      ]
+    },
+    {
+      "path": "references/implementation-performance.md",
+      "source_paths": [
+        "references/implementation-performance.md"
+      ]
+    },
+    {
+      "path": "references/integrations.md",
+      "source_paths": [
+        "references/integrations.md"
+      ]
+    },
+    {
+      "path": "references/judgement.md",
+      "source_paths": [
+        "references/judgement.md"
+      ]
+    },
+    {
+      "path": "references/source-coverage.md",
+      "source_paths": [
+        "references/source-coverage.md"
+      ]
+    },
+    {
+      "path": "references/validation.md",
+      "source_paths": [
+        "references/validation.md"
+      ]
+    },
+    {
+      "path": "references/visual-identity.md",
+      "source_paths": [
+        "references/visual-identity.md"
+      ]
+    },
+    {
+      "path": "references/wireframe.md",
+      "source_paths": [
+        "references/wireframe.md"
+      ]
+    },
+    {
+      "path": "scripts/breakpoint_rules.py",
+      "source_paths": [
+        "scripts/breakpoint_rules.py"
+      ]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_package.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/prompt_corpus.py",
+      "source_paths": [
+        "scripts/prompt_corpus.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_package.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/validate_packet.py",
+      "source_paths": [
+        "scripts/validate_packet.py"
+      ]
+    }
+  ]
+}

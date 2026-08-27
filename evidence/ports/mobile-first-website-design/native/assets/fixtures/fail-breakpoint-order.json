@@ -1,0 +1,11 @@
+{
+  "breakpoints": [{"id":"sm","width":390,"height":844},{"id":"xs","width":320,"height":568}],
+  "stage_breakpoints": {"structure":[390,320],"style":[390,320],"implementation":[390,320],"motion":[390,320],"validation":[390,320]},
+  "wireframe": {"sections":["hero"]},
+  "integrations": [{"name":"mobbin","status":"PASS","fallback_ran":false}],
+  "sections": [{"id":"hero","evidence_count":1}],
+  "visual_evidence": {"320":true,"390":true},
+  "performance": {"320":{"LCP":2.1,"INP":160,"CLS":0.05,"FCP":1.5,"TTFB":0.6},"390":{"LCP":2.2,"INP":170,"CLS":0.06,"FCP":1.6,"TTFB":0.7}},
+  "image_jobs": [],
+  "flora": {"used":false}
+}

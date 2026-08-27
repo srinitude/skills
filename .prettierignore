@@ -5,4 +5,17 @@ evidence/ports/
 mcp/dist/
 skills/skill-factory/
 
+skills/mobile-first-website-design/assets/fixtures/
+skills/mobile-first-website-design/assets/prompts/
+skills/mobile-first-website-design/assets/schemas.json
+skills/mobile-first-website-design/assets/source-lock.json
+skills/mobile-first-website-design/assets/tool-registry.json
+skills/mobile-first-website-design/evals/cases.json
+skills/mobile-first-website-design/evals/manifest.json
+skills/mobile-first-website-design/evals/source-lineage.json
+skills/mobile-first-website-design/evals/source-mapping.json
+skills/mobile-first-website-design/references/brief-and-research.md
+skills/mobile-first-website-design/references/emil-procedures.md
+skills/mobile-first-website-design/references/implementation-performance.md
+
 skills/visual-design-system-extractor/examples/work/

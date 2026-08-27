@@ -27,6 +27,10 @@ _SKILLS = (
         "Use when rewriting rules without meaning loss.",
     ),
     (
+        "mobile-first-website-design",
+        "Use when designing landing pages and marketing websites.",
+    ),
+    (
         "outcome-bounded-work",
         "Use when instructions mix outcomes with recipes.",
     ),

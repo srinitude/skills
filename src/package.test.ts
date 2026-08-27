@@ -35,6 +35,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/goal-prompt/SKILL.md');
   expect(result.entries).toContain('package/skills/logic-audit/SKILL.md');
   expect(result.entries).toContain('package/skills/meaning-preserving-rewrite/SKILL.md');
+  expect(result.entries).toContain('package/skills/mobile-first-website-design/SKILL.md');
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prompt-enhancer/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
@@ -54,6 +55,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/goal-prompt/SKILL.md',
     'package/skills/logic-audit/SKILL.md',
     'package/skills/meaning-preserving-rewrite/SKILL.md',
+    'package/skills/mobile-first-website-design/SKILL.md',
     'package/skills/outcome-bounded-work/SKILL.md',
     'package/skills/prompt-enhancer/SKILL.md',
     'package/skills/reify/SKILL.md',

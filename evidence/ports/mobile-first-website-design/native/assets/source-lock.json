@@ -1,0 +1,76 @@
+{
+  "schema": "mobile-first-website-design-source-lock/v1",
+  "as_of": "2026-08-19",
+  "image_prompts": {
+    "repository": "https://github.com/srinitude/image-creation-editing-system-prompts",
+    "commit": "421ae7d1df9d9ff71393f4781e8e6db1b6f6e321",
+    "files": 1055,
+    "prompts": 1000,
+    "source_prompt_archive_sha256": "bdee2c0e2f3a6d98e271329fa18cc20266dc30dae1a92ec4ff520b1218db204b"
+  },
+  "external_skills": {
+    "impeccable": {
+      "repository": "https://github.com/pbakaus/impeccable",
+      "commit": "e1c1f31d29bca9e308f3bd1e292d53bcf8b5cba1",
+      "files": 3267
+    },
+    "taste": {
+      "repository": "https://github.com/Leonxlnx/taste-skill",
+      "commit": "661fb9611496d75063d3f8c476580635d8e63e86",
+      "files": 60
+    },
+    "refero": {
+      "repository": "https://github.com/referodesign/refero_skill",
+      "commit": "1d324d5be0492352e2c8702f70a4f9c386c2345f",
+      "files": 30
+    },
+    "emil": {
+      "repository": "https://github.com/emilkowalski/skills",
+      "commit": "e879241fab3cdb22e8d95587cdbf40b57a88d7da",
+      "tarball_sha256": "0047cedc84f4b7441ad7fb49e15de55bb10993c1684fcec423d572c1e222cc27",
+      "files": 22,
+      "markdown_files": 19
+    }
+  },
+  "flora": {
+    "user_docs": 116,
+    "developer_docs": 79,
+    "docs_manifest_sha256": "133f61bc7bc0d795bac6403a9cb911d1fb3f07d4b98bc1eb9b1b8cdced6a186e",
+    "semantic_coverage_sha256": "f5475ca4021a1f2e0483ed211b906a6460174105b348d54e5cd972049a591a67",
+    "document_audit_status_sha256": "039971a8f95d4e390d7f98c4c26fd68129653dc45ab674756d21a0b608f078b8",
+    "document_level_audits": 195,
+    "resolved_operational_contracts": 3,
+    "rejected_unmatched_audit_urls": 20,
+    "typescript_repository": "https://github.com/florafauna-ai/flora-typescript",
+    "typescript_commit": "444007d2c025339aa642cc7330c80844d0cd5a64",
+    "endpoint": "https://agents.flora.ai/mcp",
+    "top_level_tools": ["search_docs", "execute"]
+  },
+  "hermes": {
+    "docs_count": 206,
+    "docs_manifest_sha256": "5b1e8245b54ff6c7114c4f1eace0019af24110bd1a4da58d87bb0bfb80316987",
+    "docs_applicability_sha256": "95082689109a4be4ab0b13bfaecb251be72f8dc1342de5ba594b5a2f0dd81927",
+    "installed_commit": "bdc5b1f74c26e6240deb8f067ade6dc91c00e8f2",
+    "relevant_contract_map_sha256": "2048526539aea49bf64a06fd89281c4480f64a8997b09d77fdb33e35903ddd9c"
+  },
+  "web_vitals": {
+    "contract_sha256": "13674ec204cfddbe34418b783c2e856f957b8f53105c170ff571e701e4b82ed5",
+    "sources": [
+      "https://web.dev/articles/lcp",
+      "https://web.dev/articles/inp",
+      "https://web.dev/articles/cls",
+      "https://web.dev/articles/fcp",
+      "https://web.dev/articles/ttfb",
+      "https://github.com/GoogleChrome/web-vitals"
+    ]
+  },
+  "endpoints": {
+    "refero": "https://refero.design/mcp",
+    "flora": "https://agents.flora.ai/mcp"
+  },
+  "known_unavailable": {
+    "refero_live_auth": "UNAVAILABLE_AUTH",
+    "lazyweb_live_auth": "UNAVAILABLE_AUTH",
+    "emil_cited_x_evidence": "UNAVAILABLE_CITED_X_EVIDENCE"
+  }
+}

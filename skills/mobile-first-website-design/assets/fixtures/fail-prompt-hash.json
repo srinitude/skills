@@ -1,0 +1,11 @@
+{
+  "breakpoints": [{"id":"xs","width":320,"height":568}],
+  "stage_breakpoints": {"structure":[320],"style":[320],"implementation":[320],"motion":[320],"validation":[320]},
+  "wireframe": {"sections":["hero"]},
+  "integrations": [{"name":"mobbin","status":"PASS","fallback_ran":false}],
+  "sections": [{"id":"hero","evidence_count":1}],
+  "visual_evidence": {"320":true},
+  "performance": {"320":{"LCP":2.1,"INP":160,"CLS":0.05,"FCP":1.5,"TTFB":0.6}},
+  "image_jobs": [{"job_id":"hero-asset","prompt_path":"prompts/advertising-and-social-imagery/adapt-and-version/assurance-quality.md","prompt_sha256":"bad","tool":"direct-image-generation"}],
+  "flora": {"used":false}
+}

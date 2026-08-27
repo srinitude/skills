@@ -1,0 +1,77 @@
+{
+  "skill_name": "mobile-first-website-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Validate assets/fixtures/fail-breakpoint-order.json and return its exact release state.",
+      "expected_output": "Reject descending or inconsistent breakpoint traversal.",
+      "assertions": [
+        "Reject descending or inconsistent breakpoint traversal.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_BREAKPOINT_ORDER."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Validate assets/fixtures/fail-capability-floor.json and return its exact release state.",
+      "expected_output": "Reject a packet that lacks required evidence or fallback coverage.",
+      "assertions": [
+        "Reject a packet that lacks required evidence or fallback coverage.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_CAPABILITY_FLOOR."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Validate assets/fixtures/fail-flora-routing.json and return its exact release state.",
+      "expected_output": "Reject an invalid Flora endpoint, tool route, or unapproved charge.",
+      "assertions": [
+        "Reject an invalid Flora endpoint, tool route, or unapproved charge.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_FLORA_ROUTING."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Validate assets/fixtures/fail-performance.json and return its exact release state.",
+      "expected_output": "Reject any breakpoint that exceeds a required performance threshold.",
+      "assertions": [
+        "Reject any breakpoint that exceeds a required performance threshold.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_PERFORMANCE."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Validate assets/fixtures/fail-prompt-hash.json and return its exact release state.",
+      "expected_output": "Reject image work whose public prompt hash does not match the prompt corpus.",
+      "assertions": [
+        "Reject image work whose public prompt hash does not match the prompt corpus.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_PROMPT_HASH."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Validate assets/fixtures/fail-style-in-wireframe.json and return its exact release state.",
+      "expected_output": "Reject visual styling inside the style-free wireframe stage.",
+      "assertions": [
+        "Reject visual styling inside the style-free wireframe stage.",
+        "Must not: Returning PASS_RELEASE when the required decision is BLOCKED_STYLE_IN_WIREFRAME."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Validate assets/fixtures/pass-degraded.json and return its exact release state.",
+      "expected_output": "Accept named integration unavailability only when every fallback and capability floor passes.",
+      "assertions": [
+        "Accept named integration unavailability only when every fallback and capability floor passes.",
+        "Must not: Returning PASS_RELEASE when the required decision is PASS_RELEASE_DEGRADED."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Validate assets/fixtures/pass-full.json and return its exact release state.",
+      "expected_output": "Accept a complete smallest-first packet only after all integrations and gates pass.",
+      "assertions": [
+        "Accept a complete smallest-first packet only after all integrations and gates pass.",
+        "Must not: Returning any blocked or degraded state for the complete full fixture."
+      ]
+    }
+  ]
+}

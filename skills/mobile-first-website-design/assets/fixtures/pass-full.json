@@ -1,0 +1,21 @@
+{
+  "breakpoints": [{"id":"xs","width":320,"height":568},{"id":"sm","width":390,"height":844}],
+  "stage_breakpoints": {"structure":[320,390],"style":[320,390],"implementation":[320,390],"motion":[320,390],"validation":[320,390]},
+  "wireframe": {"sections":["hero","proof","action"],"smallest":"single sequence","larger":"proof beside outcome"},
+  "integrations": [
+    {"name":"refero","status":"PASS","fallback_ran":false},
+    {"name":"mobbin","status":"PASS","fallback_ran":false},
+    {"name":"lazyweb","status":"PASS","fallback_ran":false},
+    {"name":"flora","status":"PASS","fallback_ran":false},
+    {"name":"impeccable","status":"PASS","fallback_ran":false},
+    {"name":"taste","status":"PASS","fallback_ran":false}
+  ],
+  "sections": [{"id":"hero","evidence_count":2},{"id":"proof","evidence_count":2},{"id":"action","evidence_count":2}],
+  "visual_evidence": {"320":true,"390":true},
+  "performance": {
+    "320":{"LCP":2.1,"INP":160,"CLS":0.05,"FCP":1.5,"TTFB":0.6},
+    "390":{"LCP":2.2,"INP":170,"CLS":0.06,"FCP":1.6,"TTFB":0.7}
+  },
+  "image_jobs": [{"job_id":"hero-asset","prompt_path":"prompts/advertising-and-social-imagery/adapt-and-version/assurance-quality.md","prompt_sha256":"9f1c22d3464e6e72eee3b3f8eac5876570f74aaf52590d21df4e9755cdcb7bd6","tool":"direct-image-generation"}],
+  "flora": {"used":true,"endpoint":"https://agents.flora.ai/mcp","top_tool":"search_docs","charged":false,"approval":false}
+}

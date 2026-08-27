@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "skill": "mobile-first-website-design",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Design a mobile-first landing page for our new product.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Create a responsive marketing website that starts with the 320px layout.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Turn this campaign brief into evidence-led wireframes, visual identity, and a tested site.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Audit and repair this landing page across every supported breakpoint.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "prompt": "Design an authenticated mobile application dashboard.",
+      "should_trigger": false,
+      "pair_id": "TR-001"
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "prompt": "Create a reusable design-system token specification.",
+      "should_trigger": false,
+      "pair_id": "TR-002"
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Write the backend API for an online store.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Make a standalone logo for my company.",
+      "should_trigger": false
+    }
+  ]
+}

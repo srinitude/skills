@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "skill": "mobile-first-website-design",
+  "acceptance": "Every required outcome must hold and every veto must remain absent.",
+  "decision_labels": [
+    "BLOCKED_BREAKPOINT_ORDER",
+    "BLOCKED_CAPABILITY_FLOOR",
+    "BLOCKED_FLORA_ROUTING",
+    "BLOCKED_PERFORMANCE",
+    "BLOCKED_PROMPT_HASH",
+    "BLOCKED_STYLE_IN_WIREFRAME",
+    "PASS_RELEASE",
+    "PASS_RELEASE_DEGRADED"
+  ],
+  "groups": [
+    "behavior",
+    "failure_handling",
+    "recovery",
+    "rejection"
+  ],
+  "cases": [
+    {
+      "id": "MFWD-001",
+      "source_id": "MFWD-001",
+      "title": "fail-breakpoint-order",
+      "group": "failure_handling",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-breakpoint-order.json and return its exact release state.",
+      "decision": "BLOCKED_BREAKPOINT_ORDER",
+      "required": [
+        "Reject descending or inconsistent breakpoint traversal."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_BREAKPOINT_ORDER."
+      ]
+    },
+    {
+      "id": "MFWD-002",
+      "source_id": "MFWD-002",
+      "title": "fail-capability-floor",
+      "group": "failure_handling",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-capability-floor.json and return its exact release state.",
+      "decision": "BLOCKED_CAPABILITY_FLOOR",
+      "required": [
+        "Reject a packet that lacks required evidence or fallback coverage."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_CAPABILITY_FLOOR."
+      ]
+    },
+    {
+      "id": "MFWD-003",
+      "source_id": "MFWD-003",
+      "title": "fail-flora-routing",
+      "group": "failure_handling",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-flora-routing.json and return its exact release state.",
+      "decision": "BLOCKED_FLORA_ROUTING",
+      "required": [
+        "Reject an invalid Flora endpoint, tool route, or unapproved charge."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_FLORA_ROUTING."
+      ]
+    },
+    {
+      "id": "MFWD-004",
+      "source_id": "MFWD-004",
+      "title": "fail-performance",
+      "group": "failure_handling",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-performance.json and return its exact release state.",
+      "decision": "BLOCKED_PERFORMANCE",
+      "required": [
+        "Reject any breakpoint that exceeds a required performance threshold."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_PERFORMANCE."
+      ]
+    },
+    {
+      "id": "MFWD-005",
+      "source_id": "MFWD-005",
+      "title": "fail-prompt-hash",
+      "group": "failure_handling",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-prompt-hash.json and return its exact release state.",
+      "decision": "BLOCKED_PROMPT_HASH",
+      "required": [
+        "Reject image work whose public prompt hash does not match the prompt corpus."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_PROMPT_HASH."
+      ]
+    },
+    {
+      "id": "MFWD-006",
+      "source_id": "MFWD-006",
+      "title": "fail-style-in-wireframe",
+      "group": "rejection",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/fail-style-in-wireframe.json and return its exact release state.",
+      "decision": "BLOCKED_STYLE_IN_WIREFRAME",
+      "required": [
+        "Reject visual styling inside the style-free wireframe stage."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is BLOCKED_STYLE_IN_WIREFRAME."
+      ]
+    },
+    {
+      "id": "MFWD-007",
+      "source_id": "MFWD-007",
+      "title": "pass-degraded",
+      "group": "recovery",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/pass-degraded.json and return its exact release state.",
+      "decision": "PASS_RELEASE_DEGRADED",
+      "required": [
+        "Accept named integration unavailability only when every fallback and capability floor passes."
+      ],
+      "veto": [
+        "Returning PASS_RELEASE when the required decision is PASS_RELEASE_DEGRADED."
+      ]
+    },
+    {
+      "id": "MFWD-008",
+      "source_id": "MFWD-008",
+      "title": "pass-full",
+      "group": "behavior",
+      "pressures": [
+        "deterministic fixture replay",
+        "fail-closed release decision"
+      ],
+      "prompt": "Validate assets/fixtures/pass-full.json and return its exact release state.",
+      "decision": "PASS_RELEASE",
+      "required": [
+        "Accept a complete smallest-first packet only after all integrations and gates pass."
+      ],
+      "veto": [
+        "Returning any blocked or degraded state for the complete full fixture."
+      ]
+    }
+  ]
+}

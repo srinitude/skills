@@ -27,6 +27,7 @@ test('passes the current public repository copy', async () => {
     'skills/goal-prompt/SKILL.md',
     'skills/logic-audit/SKILL.md',
     'skills/meaning-preserving-rewrite/SKILL.md',
+    'skills/mobile-first-website-design/SKILL.md',
     'skills/outcome-bounded-work/SKILL.md',
     'skills/prompt-enhancer/SKILL.md',
     'skills/reify/SKILL.md',

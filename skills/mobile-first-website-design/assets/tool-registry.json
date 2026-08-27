@@ -1,0 +1,117 @@
+{
+  "schema": "mobile-first-website-design-tool-registry/v1",
+  "direct_tools": [
+    {
+      "name": "direct-image-generation",
+      "trigger": "text-to-image or supported image edit",
+      "invocation": "available host capability; exact prompt required; pass supported source-image, reference-image, aspect-ratio, and upscale inputs only when the active capability accepts them",
+      "fallback": ["flora.execute", "comfyui", "frozen-local-asset"]
+    },
+    {
+      "name": "pixel-inspection",
+      "trigger": "inspect any image, render, contact sheet, crop, or generated asset",
+      "invocation": "available host capability with the image, inspection question, and optional crop region",
+      "fallback": ["auxiliary-vision-route", "BLOCKED_CAPABILITY_FLOOR"]
+    },
+    {
+      "name": "capability-discovery",
+      "trigger": "discover a deferred MCP, browser, or design tool",
+      "invocation": "discover an available capability, inspect its current input contract, then invoke it",
+      "fallback": ["record-unavailable"]
+    },
+    {
+      "name": "mobbin-section-search",
+      "trigger": "section-level marketing reference research",
+      "fallback": ["refero", "lazyweb", "direct-first-party-web"]
+    },
+    {
+      "name": "mobbin-screen-search",
+      "trigger": "single-state reference research",
+      "fallback": ["refero", "lazyweb", "direct-first-party-web"]
+    },
+    {
+      "name": "mobbin-flow-search",
+      "trigger": "multi-step behavior research",
+      "fallback": ["refero", "direct-first-party-web"]
+    },
+    {
+      "name": "refero MCP",
+      "endpoint": "https://refero.design/mcp",
+      "trigger": "page, section, or flow reference research",
+      "fallback": ["mobbin", "lazyweb", "direct-first-party-web"]
+    },
+    {
+      "name": "lazyweb MCP",
+      "trigger": "current web pattern and source research",
+      "fallback": ["direct-first-party-web"]
+    },
+    {
+      "name": "flora.search_docs",
+      "endpoint": "https://agents.flora.ai/mcp",
+      "trigger": "resolve current Flora SDK, model, input, output, cost, callback, stream, polling, or canvas contract",
+      "fallback": ["official-docs-lock", "record-unavailable"]
+    },
+    {
+      "name": "flora.execute",
+      "endpoint": "https://agents.flora.ai/mcp",
+      "trigger": "one bounded isolated TypeScript async run(client) operation after approval gates; use bounded polling inside MCP and do not inherit REST callback_url or schema stream modes without operation-specific proof",
+      "fallback": ["direct-image-generation", "comfyui", "frozen-local-asset"]
+    },
+    {
+      "name": "authenticated-ui-operation",
+      "trigger": "authenticated browser, keyboard, and pixel checks that require UI",
+      "fallback": ["non-authenticated-browser-route", "record-human-gate"]
+    },
+    {
+      "name": "direct first-party HTTPS",
+      "trigger": "official source retrieval when configured search or extract providers are unavailable",
+      "fallback": ["official-repository-source", "record-unavailable"]
+    }
+  ],
+  "skills": [
+    {"name": "one-of-a-kind-designer", "trigger": "broader cross-media visual direction", "fallback": "native identity rules"},
+    {"name": "comfyui", "trigger": "local node-based image generation or editing", "fallback": "direct-image-generation"},
+    {"name": "claude-design", "trigger": "one-off HTML design artifact when its executor boundary permits", "fallback": "native implementation"},
+    {"name": "sketch", "trigger": "disposable HTML comparison only", "fallback": "three native wireframe candidates"},
+    {"name": "popular-web-designs", "trigger": "mechanism study from named design systems", "fallback": "direct first-party research"},
+    {"name": "product-visual-continuity", "trigger": "port a sibling brand with provided references", "fallback": "native identity rules"},
+    {"name": "visual-design-system-extractor", "trigger": "extract a reusable system from supplied images", "fallback": "native token extraction"},
+    {"name": "design-md", "trigger": "DESIGN.md token artifact", "fallback": "canonical JSON tokens"},
+    {"name": "responsive-layout-debugging", "trigger": "viewport-specific layout failure", "fallback": "integer all-width sweep"},
+    {"name": "dogfood", "trigger": "exploratory web QA", "fallback": "deterministic validation matrix"},
+    {"name": "impeccable", "trigger": "visual craft judgement", "fallback": "native craft gate"},
+    {"name": "taste-skill", "trigger": "specificity and anti-generic judgement", "fallback": "native taste gate"}
+  ],
+  "flora_typescript_sdk_calls": [
+    "client.actions.list",
+    "client.actions.retrieve",
+    "client.actions.run",
+    "client.assets.complete",
+    "client.assets.create",
+    "client.assets.list",
+    "client.assets.retrieve",
+    "client.assets.retry",
+    "client.feedback.record",
+    "client.generations.create",
+    "client.generations.list",
+    "client.generations.retrieve",
+    "client.models.list",
+    "client.projects.actions.create",
+    "client.projects.actions.run",
+    "client.projects.assets.attachAsset",
+    "client.projects.canvas.retrieve",
+    "client.projects.canvas.update",
+    "client.projects.create",
+    "client.projects.list",
+    "client.projects.listNodes",
+    "client.projects.retrieve",
+    "client.runs.startGeneration",
+    "client.runs.startTechnique",
+    "client.techniques.list",
+    "client.techniques.retrieve",
+    "client.techniques.runs.create",
+    "client.techniques.runs.list",
+    "client.techniques.runs.retrieve",
+    "client.workspaces.list"
+  ]
+}

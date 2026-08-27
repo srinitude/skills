@@ -1,0 +1,1621 @@
+{
+  "schema": "prompt-yaml-corpus/v1",
+  "source_commit": "421ae7d1df9d9ff71393f4781e8e6db1b6f6e321",
+  "source_prompt_archive_sha256": "bdee2c0e2f3a6d98e271329fa18cc20266dc30dae1a92ec4ff520b1218db204b",
+  "count": 1000,
+  "encoding": "utf-8-yaml-uncompressed",
+  "shards": [
+    {
+      "path": "assets/prompts/prompts-0001-0005.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/adapt-and-version/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/adapt-and-version/risk-provenance.md",
+      "sha256": "022e8b63a27d2a3ce34d57a0da8dd44c88170a409e85618cfc7d461a6e4a4333",
+      "bytes": 92494
+    },
+    {
+      "path": "assets/prompts/prompts-0006-0010.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/analyze-and-critique/risk-provenance.md",
+      "sha256": "4e37a945566d6d368101245d38ed2ec6e0287ea9c5a6dbad320043ad7b8349be",
+      "bytes": 89175
+    },
+    {
+      "path": "assets/prompts/prompts-0011-0015.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/deliver-and-govern/risk-provenance.md",
+      "sha256": "f8f252e786fb4421fcf6a2ba17553e88f8e1ae1082c9e243cb8139fa88825dda",
+      "bytes": 91361
+    },
+    {
+      "path": "assets/prompts/prompts-0016-0020.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/edit-and-transform/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/edit-and-transform/risk-provenance.md",
+      "sha256": "50ce0d01c985422b7ff7b408dfc09551b673c1bf375e3aeeaeba137dd1fead63",
+      "bytes": 92151
+    },
+    {
+      "path": "assets/prompts/prompts-0021-0025.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/frame-and-brief/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/frame-and-brief/risk-provenance.md",
+      "sha256": "e2ebd2741d655731d43d8a4dfecbd3b1ced9a0e2b7f2b09a0640a24e60b77538",
+      "bytes": 88740
+    },
+    {
+      "path": "assets/prompts/prompts-0026-0030.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/generate-and-render/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/generate-and-render/risk-provenance.md",
+      "sha256": "1ce4be7d4171d7b35fc04e6c1ca5ad65acda785459b561dc1fab14413a42a2e3",
+      "bytes": 93648
+    },
+    {
+      "path": "assets/prompts/prompts-0031-0035.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/implement-and-automate/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/implement-and-automate/risk-provenance.md",
+      "sha256": "a8feda808a5eae5f376239bd6d85f72fc60570f55948f0286d6c7b489ca0c062",
+      "bytes": 96594
+    },
+    {
+      "path": "assets/prompts/prompts-0036-0040.yaml",
+      "count": 5,
+      "first": "prompts/advertising-and-social-imagery/test-and-validate/assurance-quality.md",
+      "last": "prompts/advertising-and-social-imagery/test-and-validate/risk-provenance.md",
+      "sha256": "9dc3d4d5914800803369c199110fec57491046eb27bb010b7a158de5294c3e32",
+      "bytes": 89019
+    },
+    {
+      "path": "assets/prompts/prompts-0041-0045.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/adapt-and-version/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/adapt-and-version/risk-provenance.md",
+      "sha256": "ad4da5392cd1dafc81ddd5e4e34cbac1728422a6d3b01655eace6c90a5c1cff3",
+      "bytes": 93287
+    },
+    {
+      "path": "assets/prompts/prompts-0046-0050.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/analyze-and-critique/risk-provenance.md",
+      "sha256": "560d087cefb0d0ec9d7d6604acfa04679248f9ce36def2be780b1be56b7c5dab",
+      "bytes": 89578
+    },
+    {
+      "path": "assets/prompts/prompts-0051-0055.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/deliver-and-govern/risk-provenance.md",
+      "sha256": "b96aca920ab4a45129f8fffc2f79576236d74056c375b9e88203b5ad689f054c",
+      "bytes": 89969
+    },
+    {
+      "path": "assets/prompts/prompts-0056-0060.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/edit-and-transform/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/edit-and-transform/risk-provenance.md",
+      "sha256": "5557e01f6f33ce1eb41718cc1efceedaa336ba51bdbd6ad089539db6ae3b9ac3",
+      "bytes": 90759
+    },
+    {
+      "path": "assets/prompts/prompts-0061-0065.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/frame-and-brief/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/frame-and-brief/risk-provenance.md",
+      "sha256": "1f428904d9f35807a3e9521ec53d44e0c12eff0002d367489eaf1e2e50b50f3f",
+      "bytes": 89143
+    },
+    {
+      "path": "assets/prompts/prompts-0066-0070.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/generate-and-render/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/generate-and-render/risk-provenance.md",
+      "sha256": "a1766f3cbc0f5a97faeb1810d9e5a17a164c725b4352c19377527e663b7f0758",
+      "bytes": 94441
+    },
+    {
+      "path": "assets/prompts/prompts-0071-0075.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/implement-and-automate/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/implement-and-automate/risk-provenance.md",
+      "sha256": "c3d55005fad53b8401397d6fc61859fcd7c327a7b5d1683db97119fdfcd067f8",
+      "bytes": 97387
+    },
+    {
+      "path": "assets/prompts/prompts-0076-0080.yaml",
+      "count": 5,
+      "first": "prompts/asset-operations-dam-versioning-and-delivery/test-and-validate/assurance-quality.md",
+      "last": "prompts/asset-operations-dam-versioning-and-delivery/test-and-validate/risk-provenance.md",
+      "sha256": "6504c60eb103252ab731c4669f6d3f25a5f69626b52c2dbccab5d53c28c348de",
+      "bytes": 89422
+    },
+    {
+      "path": "assets/prompts/prompts-0081-0085.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/adapt-and-version/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/adapt-and-version/risk-provenance.md",
+      "sha256": "070476cfe8f8b89506c8ac9f0f7874696d08a50d5e1ef597b529047c5a9fc8e7",
+      "bytes": 91959
+    },
+    {
+      "path": "assets/prompts/prompts-0086-0090.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/analyze-and-critique/risk-provenance.md",
+      "sha256": "0a412d012d47a4a77a0d3f1e75098e6ab91372fd7f63d0a2c241777ed333f0e2",
+      "bytes": 86395
+    },
+    {
+      "path": "assets/prompts/prompts-0091-0095.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/deliver-and-govern/risk-provenance.md",
+      "sha256": "9db165d0ed9e75db7cf60fd5e3991bdce2e5f9342ceb1a1b11c2ef70fca18a5f",
+      "bytes": 88581
+    },
+    {
+      "path": "assets/prompts/prompts-0096-0100.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/edit-and-transform/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/edit-and-transform/risk-provenance.md",
+      "sha256": "7234756f85737be343321b2471b7d2957fc00e2eda6327d074b713bf56a48c31",
+      "bytes": 91616
+    },
+    {
+      "path": "assets/prompts/prompts-0101-0105.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/frame-and-brief/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/frame-and-brief/risk-provenance.md",
+      "sha256": "45f5dfdfea0e15494b377589f9692301a12c3594ac9cae10f5ebc56d3eae36da",
+      "bytes": 85960
+    },
+    {
+      "path": "assets/prompts/prompts-0106-0110.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/generate-and-render/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/generate-and-render/risk-provenance.md",
+      "sha256": "1a956c49a55d73581ef2cf2d18deb29cdd2d983ae6193693ee57b4b09751c135",
+      "bytes": 90868
+    },
+    {
+      "path": "assets/prompts/prompts-0111-0115.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/implement-and-automate/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/implement-and-automate/risk-provenance.md",
+      "sha256": "c3e92246fadcc4ace6c01c139570df2cfc21e104e380437caefc199b93a13cd6",
+      "bytes": 96059
+    },
+    {
+      "path": "assets/prompts/prompts-0116-0120.yaml",
+      "count": 5,
+      "first": "prompts/brand-identity-and-key-visuals/test-and-validate/assurance-quality.md",
+      "last": "prompts/brand-identity-and-key-visuals/test-and-validate/risk-provenance.md",
+      "sha256": "c5814c41c1c670e6f7796059f4f1736f69d270168ef49a918201c07bf28cc50b",
+      "bytes": 86239
+    },
+    {
+      "path": "assets/prompts/prompts-0121-0125.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/adapt-and-version/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/adapt-and-version/risk-provenance.md",
+      "sha256": "042dcd0e84e00cdf7520163986bb7b7cac73e1c0310936da211c5f8aee98beae",
+      "bytes": 90036
+    },
+    {
+      "path": "assets/prompts/prompts-0126-0130.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/analyze-and-critique/risk-provenance.md",
+      "sha256": "542a202c80895feebdfe5588fb4034aca9dbdb6c6df60f0c92bfabe1dc74f692",
+      "bytes": 84532
+    },
+    {
+      "path": "assets/prompts/prompts-0131-0135.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/deliver-and-govern/risk-provenance.md",
+      "sha256": "f03127087a44719b9f99349b94a57bbccc0ab4d7493a6913e7e95c9c7bc14bdb",
+      "bytes": 86718
+    },
+    {
+      "path": "assets/prompts/prompts-0136-0140.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/edit-and-transform/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/edit-and-transform/risk-provenance.md",
+      "sha256": "9528521223c4a961f293dcf7adf6e1c06a639d85a671bd418e354c233b92ab81",
+      "bytes": 87508
+    },
+    {
+      "path": "assets/prompts/prompts-0141-0145.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/frame-and-brief/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/frame-and-brief/risk-provenance.md",
+      "sha256": "28971ef5bc33e3d5c507021c58b8d4a3cd5c996f6d9f4f1abeb5a502753d9caf",
+      "bytes": 84097
+    },
+    {
+      "path": "assets/prompts/prompts-0146-0150.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/generate-and-render/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/generate-and-render/risk-provenance.md",
+      "sha256": "fd08531c04185850bfba6b1f7930c81e412ec095ca42504f0a4c219eb87cbfce",
+      "bytes": 91190
+    },
+    {
+      "path": "assets/prompts/prompts-0151-0155.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/implement-and-automate/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/implement-and-automate/risk-provenance.md",
+      "sha256": "d1a4291b050555884191d32bb915cd286225981b5b4149e38ac5593151f44800",
+      "bytes": 94136
+    },
+    {
+      "path": "assets/prompts/prompts-0156-0160.yaml",
+      "count": 5,
+      "first": "prompts/color-grading-lighting-and-finishing/test-and-validate/assurance-quality.md",
+      "last": "prompts/color-grading-lighting-and-finishing/test-and-validate/risk-provenance.md",
+      "sha256": "48cda69ae5137f52175a842f30f0aad2c284dfced8412620502e60576264ac9f",
+      "bytes": 84376
+    },
+    {
+      "path": "assets/prompts/prompts-0161-0165.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/adapt-and-version/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/adapt-and-version/risk-provenance.md",
+      "sha256": "e03b7266599916f80c8b5ab6c9297ad22b8649643919d4ce7f73b296507aae82",
+      "bytes": 91913
+    },
+    {
+      "path": "assets/prompts/prompts-0166-0170.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/analyze-and-critique/risk-provenance.md",
+      "sha256": "19072508a8d0345d5ed8a03c4aead3b8bbdc85083febaa9bf8c90e8d1463fe03",
+      "bytes": 86409
+    },
+    {
+      "path": "assets/prompts/prompts-0171-0175.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/deliver-and-govern/risk-provenance.md",
+      "sha256": "c9b4f6ca884f44ea6e68b8f657c32144800e4518482430a7cc6b29c1112a4d53",
+      "bytes": 88595
+    },
+    {
+      "path": "assets/prompts/prompts-0176-0180.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/edit-and-transform/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/edit-and-transform/risk-provenance.md",
+      "sha256": "dee0a15b7a52a7c4d0676a4f27988d093d1c3ca4545a7ef7b57c187d081f8262",
+      "bytes": 89385
+    },
+    {
+      "path": "assets/prompts/prompts-0181-0185.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/frame-and-brief/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/frame-and-brief/risk-provenance.md",
+      "sha256": "db267b8e1a861ffd61e2a68828f27bbd90e92919065a3a5f3a5e47d2b707e56f",
+      "bytes": 85974
+    },
+    {
+      "path": "assets/prompts/prompts-0186-0190.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/generate-and-render/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/generate-and-render/risk-provenance.md",
+      "sha256": "fcdc5a2ce260d6ab0ea6b383bfb25e69983755610312a55d5a6f7ad3ebcccd2f",
+      "bytes": 93067
+    },
+    {
+      "path": "assets/prompts/prompts-0191-0195.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/implement-and-automate/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/implement-and-automate/risk-provenance.md",
+      "sha256": "918cebd6a2691bf19875ce274616b01e6729028c5ffa7a335ad5284502cf6802",
+      "bytes": 96013
+    },
+    {
+      "path": "assets/prompts/prompts-0196-0200.yaml",
+      "count": 5,
+      "first": "prompts/compositing-photomontage-and-vfx/test-and-validate/assurance-quality.md",
+      "last": "prompts/compositing-photomontage-and-vfx/test-and-validate/risk-provenance.md",
+      "sha256": "8cb335fe71ffda2429828d41a72104a71a8a84c0432a38fd1230737cf8cb877e",
+      "bytes": 86253
+    },
+    {
+      "path": "assets/prompts/prompts-0201-0205.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/adapt-and-version/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/adapt-and-version/risk-provenance.md",
+      "sha256": "bb5e35a2b18a950b6178d195db8417e11263033396f72d1c2ede3deb93532af4",
+      "bytes": 95532
+    },
+    {
+      "path": "assets/prompts/prompts-0206-0210.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/analyze-and-critique/risk-provenance.md",
+      "sha256": "8860a08732968395fd836a43f6b02a0ce722a369e151e3a6ce4ff65310a86148",
+      "bytes": 86818
+    },
+    {
+      "path": "assets/prompts/prompts-0211-0215.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/deliver-and-govern/risk-provenance.md",
+      "sha256": "2023a6500269f65b12069a182c008fc06e19a13599f359f83bbe6a57fe150fc1",
+      "bytes": 89004
+    },
+    {
+      "path": "assets/prompts/prompts-0216-0220.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/edit-and-transform/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/edit-and-transform/risk-provenance.md",
+      "sha256": "985c3dd37a0158d4034a79803359dc473c51e39bc3d6ff4bd0c7224b130b5daf",
+      "bytes": 93004
+    },
+    {
+      "path": "assets/prompts/prompts-0221-0225.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/frame-and-brief/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/frame-and-brief/risk-provenance.md",
+      "sha256": "5f53e49bc80701e2cbc2fd645a2ec5e5b2d9027986605eb9732c8ee760b04b78",
+      "bytes": 86383
+    },
+    {
+      "path": "assets/prompts/prompts-0226-0230.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/generate-and-render/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/generate-and-render/risk-provenance.md",
+      "sha256": "cfbd245ee1567fe5335fb1045c2bb959fddadd737eb2778e879bab165fa695a5",
+      "bytes": 94441
+    },
+    {
+      "path": "assets/prompts/prompts-0231-0235.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/implement-and-automate/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/implement-and-automate/risk-provenance.md",
+      "sha256": "5dcfdf761e9cf8a3ce446941abef8d6490e03019fcb0514e3fc7bdbfa0012ed8",
+      "bytes": 97512
+    },
+    {
+      "path": "assets/prompts/prompts-0236-0240.yaml",
+      "count": 5,
+      "first": "prompts/data-visualization-diagrams-and-infographics/test-and-validate/assurance-quality.md",
+      "last": "prompts/data-visualization-diagrams-and-infographics/test-and-validate/risk-provenance.md",
+      "sha256": "3e4541c6567672a148abe4e21469eb61383ad4f0a3440d07d2ae82dce7d5d45e",
+      "bytes": 86662
+    },
+    {
+      "path": "assets/prompts/prompts-0241-0245.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/adapt-and-version/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/adapt-and-version/risk-provenance.md",
+      "sha256": "c71df410cf8cdbd133aebe91984c32eca27a0ac5447245c60f943514e7001259",
+      "bytes": 97514
+    },
+    {
+      "path": "assets/prompts/prompts-0246-0250.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/analyze-and-critique/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/analyze-and-critique/risk-provenance.md",
+      "sha256": "d3622f5d74dcb4593e659b4713bcde65c63bf41f9e596a9b1a8bdf2f4ac29af1",
+      "bytes": 89765
+    },
+    {
+      "path": "assets/prompts/prompts-0251-0255.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/deliver-and-govern/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/deliver-and-govern/risk-provenance.md",
+      "sha256": "65020a7dd21250a689c7a4d057ebb7233589e1a94a99e91c33411f4cbc793ddd",
+      "bytes": 91951
+    },
+    {
+      "path": "assets/prompts/prompts-0256-0260.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/edit-and-transform/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/edit-and-transform/risk-provenance.md",
+      "sha256": "8c98af6233bf9675537fa00095b09a8d73b28008a25de4c7c9f638400f43a112",
+      "bytes": 94986
+    },
+    {
+      "path": "assets/prompts/prompts-0261-0265.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/frame-and-brief/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/frame-and-brief/risk-provenance.md",
+      "sha256": "cf21cd2fdc4c3588da2367426bf83d8a39bd5ec6463ab0641ad0bc6acd8b3527",
+      "bytes": 89330
+    },
+    {
+      "path": "assets/prompts/prompts-0266-0270.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/generate-and-render/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/generate-and-render/risk-provenance.md",
+      "sha256": "00cecba0e6b2852f72692656f3c60e504c2156adc4630e5ba5f53eac67f5180e",
+      "bytes": 96423
+    },
+    {
+      "path": "assets/prompts/prompts-0271-0274.yaml",
+      "count": 4,
+      "first": "prompts/design-systems-accessibility-and-localization/implement-and-automate/assurance-quality.md",
+      "last": "prompts/design-systems-accessibility-and-localization/implement-and-automate/production-workflow.md",
+      "sha256": "80ce2cf41bc3c46062c670dd2baf408f89c8eaf8eacb174fb3c9fe85855c1710",
+      "bytes": 79649
+    },
+    {
+      "path": "assets/prompts/prompts-0275-0279.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/implement-and-automate/risk-provenance.md",
+      "last": "prompts/design-systems-accessibility-and-localization/test-and-validate/production-workflow.md",
+      "sha256": "8fa686b68dbd93327d29d63a1d815fd2e30969b46ad949de066cb5200f6670a1",
+      "bytes": 91591
+    },
+    {
+      "path": "assets/prompts/prompts-0280-0284.yaml",
+      "count": 5,
+      "first": "prompts/design-systems-accessibility-and-localization/test-and-validate/risk-provenance.md",
+      "last": "prompts/generative-image-direction/adapt-and-version/production-workflow.md",
+      "sha256": "93bce4484956b568197ae05a67190a565aef0d328ce67986fb12e8cea059da8b",
+      "bytes": 89956
+    },
+    {
+      "path": "assets/prompts/prompts-0285-0289.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/adapt-and-version/risk-provenance.md",
+      "last": "prompts/generative-image-direction/analyze-and-critique/production-workflow.md",
+      "sha256": "61ec48813a7c801d7eaa8554c6ac182ad80c455815e053dd9fc9a39362a3fb24",
+      "bytes": 85575
+    },
+    {
+      "path": "assets/prompts/prompts-0290-0294.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/generative-image-direction/deliver-and-govern/production-workflow.md",
+      "sha256": "52e590633868ce8c1ddd172cacaf59ebd99bfda9eda45676cfaed9ce2b4ddb92",
+      "bytes": 86214
+    },
+    {
+      "path": "assets/prompts/prompts-0295-0299.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/generative-image-direction/edit-and-transform/production-workflow.md",
+      "sha256": "8bf72306fd93cceba25f22e8dd717d100d17bbfeaff7061212d73532e6cf4053",
+      "bytes": 89078
+    },
+    {
+      "path": "assets/prompts/prompts-0300-0304.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/edit-and-transform/risk-provenance.md",
+      "last": "prompts/generative-image-direction/frame-and-brief/production-workflow.md",
+      "sha256": "b203f07b1cf52beb31b537bc594638009d0e1b2e405cb9eeee191fc916be10a6",
+      "bytes": 85162
+    },
+    {
+      "path": "assets/prompts/prompts-0305-0309.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/frame-and-brief/risk-provenance.md",
+      "last": "prompts/generative-image-direction/generate-and-render/production-workflow.md",
+      "sha256": "f49c79886eb8f05029add52be865a286e99a0ce7bbcb07f37fea7b2f714b1df6",
+      "bytes": 87953
+    },
+    {
+      "path": "assets/prompts/prompts-0310-0314.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/generate-and-render/risk-provenance.md",
+      "last": "prompts/generative-image-direction/implement-and-automate/production-workflow.md",
+      "sha256": "6f6000db1d5ac13493ad68fc4c54300262c229659e0830b9bcf1e5a8bf775599",
+      "bytes": 93088
+    },
+    {
+      "path": "assets/prompts/prompts-0315-0319.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/implement-and-automate/risk-provenance.md",
+      "last": "prompts/generative-image-direction/test-and-validate/production-workflow.md",
+      "sha256": "3459c750cdf3032028ce44956cff74a66ccc076dd0b1d3ef7d5a94bf33f837a4",
+      "bytes": 86275
+    },
+    {
+      "path": "assets/prompts/prompts-0320-0324.yaml",
+      "count": 5,
+      "first": "prompts/generative-image-direction/test-and-validate/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/adapt-and-version/production-workflow.md",
+      "sha256": "f4570b83d8f8319dc29aaeb61580fd247efbca00192203495ad32823b758ca70",
+      "bytes": 90047
+    },
+    {
+      "path": "assets/prompts/prompts-0325-0329.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/adapt-and-version/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/analyze-and-critique/production-workflow.md",
+      "sha256": "37ba157f826f33c4b9efa2565bdacc7a9b3578c5fc560d4b34e6e8baae0f0c27",
+      "bytes": 88830
+    },
+    {
+      "path": "assets/prompts/prompts-0330-0334.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/deliver-and-govern/production-workflow.md",
+      "sha256": "2f80b27d525671bbb858a16b0e0d2099f25959c1fbc95d5ea3f3d456474379e2",
+      "bytes": 89918
+    },
+    {
+      "path": "assets/prompts/prompts-0335-0339.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/edit-and-transform/production-workflow.md",
+      "sha256": "dd1fbb7c54e4c766380e2d504e7db6e3175412f4f6eed0b80f91a2a15e4d16cb",
+      "bytes": 90986
+    },
+    {
+      "path": "assets/prompts/prompts-0340-0344.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/edit-and-transform/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/frame-and-brief/production-workflow.md",
+      "sha256": "3bce234efd0c747734c80ef971286d499d05cf1383af7da55893fb4ef4e4203f",
+      "bytes": 88417
+    },
+    {
+      "path": "assets/prompts/prompts-0345-0349.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/frame-and-brief/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/generate-and-render/production-workflow.md",
+      "sha256": "6b7b21e98e1873ebe73ca0b7733ce8bbc8c3da83a9df22c6e36949794891d984",
+      "bytes": 91657
+    },
+    {
+      "path": "assets/prompts/prompts-0350-0354.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/generate-and-render/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/implement-and-automate/production-workflow.md",
+      "sha256": "3d26107b2bbd0063b74ff51c6c8dff4eb55debac29152b964648c81bb91b9787",
+      "bytes": 94996
+    },
+    {
+      "path": "assets/prompts/prompts-0355-0359.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/implement-and-automate/risk-provenance.md",
+      "last": "prompts/graphic-design-layout-and-posters/test-and-validate/production-workflow.md",
+      "sha256": "d4c1fd319115ad88262f835ebc13c8a5db8e5753abb99da9b6ac6088536aed2a",
+      "bytes": 89530
+    },
+    {
+      "path": "assets/prompts/prompts-0360-0364.yaml",
+      "count": 5,
+      "first": "prompts/graphic-design-layout-and-posters/test-and-validate/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/adapt-and-version/production-workflow.md",
+      "sha256": "f849b407417bb70948f6cb1bab3604446d118e765a908d7f2315a01603285ccc",
+      "bytes": 91910
+    },
+    {
+      "path": "assets/prompts/prompts-0365-0369.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/adapt-and-version/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/analyze-and-critique/production-workflow.md",
+      "sha256": "48fb945c8fb27b8d301b57692a8f06614e198844cfdd4ff9f3c17ead661bb063",
+      "bytes": 90235
+    },
+    {
+      "path": "assets/prompts/prompts-0370-0374.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/deliver-and-govern/production-workflow.md",
+      "sha256": "d4c7a6dd5f9c3088f8aadc640537b52dd59d3bc0cbdac94babeea8fe8ac04464",
+      "bytes": 91323
+    },
+    {
+      "path": "assets/prompts/prompts-0375-0379.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/edit-and-transform/production-workflow.md",
+      "sha256": "6021d834de2b1d5745d51428f8cab96fd9fa6eba814da1398d6831bb56c781f4",
+      "bytes": 92391
+    },
+    {
+      "path": "assets/prompts/prompts-0380-0384.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/edit-and-transform/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/frame-and-brief/production-workflow.md",
+      "sha256": "6dc305f262f3be65a0f27b545298b6c8583680821451383e98429051cdbb8f0f",
+      "bytes": 89822
+    },
+    {
+      "path": "assets/prompts/prompts-0385-0389.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/frame-and-brief/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/generate-and-render/production-workflow.md",
+      "sha256": "54e292fe30642260b646b00eced619ff344d8456aa8181777e254941e316a26c",
+      "bytes": 93062
+    },
+    {
+      "path": "assets/prompts/prompts-0390-0394.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/generate-and-render/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/implement-and-automate/production-workflow.md",
+      "sha256": "d28003f6e4bea73ab6552348c590a6cf61f9ee947eb08699c7d99261e82c195e",
+      "bytes": 96401
+    },
+    {
+      "path": "assets/prompts/prompts-0395-0399.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/implement-and-automate/risk-provenance.md",
+      "last": "prompts/icons-vectors-patterns-and-surface-graphics/test-and-validate/production-workflow.md",
+      "sha256": "a6c58274f0a781083fc82f38b9f70287a4a280e10e473a2ec01c28912f74fd70",
+      "bytes": 90935
+    },
+    {
+      "path": "assets/prompts/prompts-0400-0404.yaml",
+      "count": 5,
+      "first": "prompts/icons-vectors-patterns-and-surface-graphics/test-and-validate/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/adapt-and-version/production-workflow.md",
+      "sha256": "c051c0f396b61e3051e23f7fc4c4a363adec4db48a1ab3238efed9b56adb1de3",
+      "bytes": 90186
+    },
+    {
+      "path": "assets/prompts/prompts-0405-0409.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/adapt-and-version/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/analyze-and-critique/production-workflow.md",
+      "sha256": "1ed5585304af7641a15620438efcec24935735ae4531c43a5fc05bea6d9d9215",
+      "bytes": 87719
+    },
+    {
+      "path": "assets/prompts/prompts-0410-0414.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/deliver-and-govern/production-workflow.md",
+      "sha256": "3b3c3aa27340c2e1996e4e7c28255621338a14780195a933a3e963821f22b2fd",
+      "bytes": 88807
+    },
+    {
+      "path": "assets/prompts/prompts-0415-0419.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/edit-and-transform/production-workflow.md",
+      "sha256": "4b08e9097881975ec600b2dd7a5d4efbcd3806588966613b8c2f16b36bc07103",
+      "bytes": 89875
+    },
+    {
+      "path": "assets/prompts/prompts-0420-0424.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/edit-and-transform/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/frame-and-brief/production-workflow.md",
+      "sha256": "7c4911c33bf68476bd817805bb5895a5c2c7c40f33db49227bfd08aeaf47e1e2",
+      "bytes": 87306
+    },
+    {
+      "path": "assets/prompts/prompts-0425-0429.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/frame-and-brief/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/generate-and-render/production-workflow.md",
+      "sha256": "abc3c39970dc12ce13ed1662c2cb3dbe03b6d975382fef4c67b0852254d8080e",
+      "bytes": 90546
+    },
+    {
+      "path": "assets/prompts/prompts-0430-0434.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/generate-and-render/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/implement-and-automate/production-workflow.md",
+      "sha256": "153522fbc6cca215750c7ac3d58df114ceefbd20bf07926ce30d776764342a0f",
+      "bytes": 93885
+    },
+    {
+      "path": "assets/prompts/prompts-0435-0439.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/implement-and-automate/risk-provenance.md",
+      "last": "prompts/illustration-concept-art-and-storyboards/test-and-validate/production-workflow.md",
+      "sha256": "1746b526920f4847ef2c8b0e26108712a51c7b17aa868ccd851fbb16c80c134b",
+      "bytes": 88419
+    },
+    {
+      "path": "assets/prompts/prompts-0440-0444.yaml",
+      "count": 5,
+      "first": "prompts/illustration-concept-art-and-storyboards/test-and-validate/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/adapt-and-version/production-workflow.md",
+      "sha256": "5bf827ec7b16f67925337b16ced9c39daa3fe9579a85e1d6076962791ffff491",
+      "bytes": 89942
+    },
+    {
+      "path": "assets/prompts/prompts-0445-0449.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/adapt-and-version/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/analyze-and-critique/production-workflow.md",
+      "sha256": "dfc1aa2a2ce15bd204a24108928b52739aad1a21e7ac5df0a401c18de8b84c6e",
+      "bytes": 88037
+    },
+    {
+      "path": "assets/prompts/prompts-0450-0454.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/deliver-and-govern/production-workflow.md",
+      "sha256": "9b879d0bef79dcfd9004b429cc51ce945e993d3cdb9bb52605802ecb438092cf",
+      "bytes": 89125
+    },
+    {
+      "path": "assets/prompts/prompts-0455-0459.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/edit-and-transform/production-workflow.md",
+      "sha256": "3cafc3999c820f062bc236768d5257cb90def544bb8cc984284b835a0ad3d4aa",
+      "bytes": 90193
+    },
+    {
+      "path": "assets/prompts/prompts-0460-0464.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/edit-and-transform/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/frame-and-brief/production-workflow.md",
+      "sha256": "28414b3fa2cf84eb91868f32b73003e2036de0dd1bfc2037f042d2456f237e87",
+      "bytes": 87624
+    },
+    {
+      "path": "assets/prompts/prompts-0465-0469.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/frame-and-brief/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/generate-and-render/production-workflow.md",
+      "sha256": "a27d8bb0da449749b30e324c706662405734284a5b30f3d93a0fb48e438bea6d",
+      "bytes": 90864
+    },
+    {
+      "path": "assets/prompts/prompts-0470-0474.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/generate-and-render/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/implement-and-automate/production-workflow.md",
+      "sha256": "77d3f3357e9e8c7c9d25b6b66820b8193167ecf92a725cb9a3ff63e11ca94e52",
+      "bytes": 94203
+    },
+    {
+      "path": "assets/prompts/prompts-0475-0479.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/implement-and-automate/risk-provenance.md",
+      "last": "prompts/image-to-image-transformation/test-and-validate/production-workflow.md",
+      "sha256": "8edfccfb7b4f119aff150327067f25782c08b8773adef227cd65993f167e7c91",
+      "bytes": 88737
+    },
+    {
+      "path": "assets/prompts/prompts-0480-0484.yaml",
+      "count": 5,
+      "first": "prompts/image-to-image-transformation/test-and-validate/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/adapt-and-version/production-workflow.md",
+      "sha256": "096760812522ce8093384199d0cc359eb94745ee725cc768063c33bbf2b68e34",
+      "bytes": 89163
+    },
+    {
+      "path": "assets/prompts/prompts-0485-0489.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/adapt-and-version/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/analyze-and-critique/production-workflow.md",
+      "sha256": "3d90841ea60fb886b5f1a722e88cccfadaaea7b4ab0ef135c5d67e90f6c9b54c",
+      "bytes": 85244
+    },
+    {
+      "path": "assets/prompts/prompts-0490-0494.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/deliver-and-govern/production-workflow.md",
+      "sha256": "aa516153161a1abcab5be1c7bdadb2cae2bc63d8e1f70fd4cd7642dee325a4d1",
+      "bytes": 85895
+    },
+    {
+      "path": "assets/prompts/prompts-0495-0499.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/edit-and-transform/production-workflow.md",
+      "sha256": "b181a47b2a1adfeab64a15b985ea6b9560d1ab374dd3097b205e86df9d1c82aa",
+      "bytes": 86963
+    },
+    {
+      "path": "assets/prompts/prompts-0500-0504.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/edit-and-transform/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/frame-and-brief/production-workflow.md",
+      "sha256": "a64838b505ebfb66735c6201f35625e748d8bb25d7cdea24393d7582d6c064cc",
+      "bytes": 84394
+    },
+    {
+      "path": "assets/prompts/prompts-0505-0509.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/frame-and-brief/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/generate-and-render/production-workflow.md",
+      "sha256": "d72572d406fbedcc8d7650a2e203ca2ff959d1f9d0166b2f3f248ee632dd8b9f",
+      "bytes": 89382
+    },
+    {
+      "path": "assets/prompts/prompts-0510-0514.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/generate-and-render/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/implement-and-automate/production-workflow.md",
+      "sha256": "2644e27b0749d2219ece50a98f94cc4dedb0ecfefda14dfc281626464ccf5835",
+      "bytes": 93158
+    },
+    {
+      "path": "assets/prompts/prompts-0515-0519.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/implement-and-automate/risk-provenance.md",
+      "last": "prompts/inpainting-and-object-editing/test-and-validate/production-workflow.md",
+      "sha256": "1a328edfb9380bb27cdcb711504ad44469c0892b86077c2d426ff03a1cd72ac5",
+      "bytes": 85944
+    },
+    {
+      "path": "assets/prompts/prompts-0520-0524.yaml",
+      "count": 5,
+      "first": "prompts/inpainting-and-object-editing/test-and-validate/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/adapt-and-version/production-workflow.md",
+      "sha256": "a0dae1f94c3f15d11eb9c4c2318cfb44be3e94a9cd5fe4723a5b1ff4813718a5",
+      "bytes": 89372
+    },
+    {
+      "path": "assets/prompts/prompts-0525-0529.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/adapt-and-version/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/analyze-and-critique/production-workflow.md",
+      "sha256": "c9de92d05bef4c0268d5ea981033c38e2cfab5c0bbc7f089e6b0e0f3781355be",
+      "bytes": 88066
+    },
+    {
+      "path": "assets/prompts/prompts-0530-0534.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/deliver-and-govern/production-workflow.md",
+      "sha256": "e123d24be66fa0cdae119ff824fec314880ce6f65e202175f30475fe4bf3843c",
+      "bytes": 89154
+    },
+    {
+      "path": "assets/prompts/prompts-0535-0539.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/edit-and-transform/production-workflow.md",
+      "sha256": "d0a886b571e304e5ca375d62f1430bb6fc14f1e1f8762bc52f6378454339eb92",
+      "bytes": 90222
+    },
+    {
+      "path": "assets/prompts/prompts-0540-0544.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/edit-and-transform/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/frame-and-brief/production-workflow.md",
+      "sha256": "9cebc1ffed4f88ab28c2c229d05df4328e30438b9bfcfb8a3ebae86ad89fc3b2",
+      "bytes": 87653
+    },
+    {
+      "path": "assets/prompts/prompts-0545-0549.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/frame-and-brief/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/generate-and-render/production-workflow.md",
+      "sha256": "a4f0fe702bd254ac0f69f50e5c90996e615b61da866ff97b537c55b073e4884c",
+      "bytes": 90893
+    },
+    {
+      "path": "assets/prompts/prompts-0550-0554.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/generate-and-render/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/implement-and-automate/production-workflow.md",
+      "sha256": "dba295347dc9572be30a4f0fec2be16c9e9b90b784a603073e585559dd6ab1fb",
+      "bytes": 94232
+    },
+    {
+      "path": "assets/prompts/prompts-0555-0559.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/implement-and-automate/risk-provenance.md",
+      "last": "prompts/outpainting-and-background-extension/test-and-validate/production-workflow.md",
+      "sha256": "2e98418aa521193d22132e621105e93912bc278e8e8b2d70aaad43ab58c6db0a",
+      "bytes": 88766
+    },
+    {
+      "path": "assets/prompts/prompts-0560-0564.yaml",
+      "count": 5,
+      "first": "prompts/outpainting-and-background-extension/test-and-validate/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/adapt-and-version/production-workflow.md",
+      "sha256": "9978b7dd346930e48c522bcea6091a947cd32072f3bf2cb1f332ff046cfe17ce",
+      "bytes": 91723
+    },
+    {
+      "path": "assets/prompts/prompts-0565-0569.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/adapt-and-version/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/analyze-and-critique/production-workflow.md",
+      "sha256": "748dc9bfdb1dbf8fad45217d21b280690c8f306c9ffa463b00d65dbe14cc26fd",
+      "bytes": 88391
+    },
+    {
+      "path": "assets/prompts/prompts-0570-0574.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/deliver-and-govern/production-workflow.md",
+      "sha256": "25ab5ed199bfc0fb4d07370239c687c7849303ab693e7d6cd8dd4644c1b97a74",
+      "bytes": 89030
+    },
+    {
+      "path": "assets/prompts/prompts-0575-0579.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/edit-and-transform/production-workflow.md",
+      "sha256": "ad69d2661f252f1d89dc5f97284f6623804b9982956b94c16f273cdead3d2908",
+      "bytes": 91894
+    },
+    {
+      "path": "assets/prompts/prompts-0580-0584.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/edit-and-transform/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/frame-and-brief/production-workflow.md",
+      "sha256": "ca89a401368a800e56e9ec1ddbec801a99fe5fc8aacf42e9032db5c3febb5d4d",
+      "bytes": 87978
+    },
+    {
+      "path": "assets/prompts/prompts-0585-0589.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/frame-and-brief/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/generate-and-render/production-workflow.md",
+      "sha256": "ce5cf35eea2cec19024aca8839ac3059acb0c52d85b3cb36b9a34186ecf40eb0",
+      "bytes": 90769
+    },
+    {
+      "path": "assets/prompts/prompts-0590-0594.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/generate-and-render/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/implement-and-automate/production-workflow.md",
+      "sha256": "61a9e92e4e85dee30c5cc433f1ec6bfcf5fcad519bc533f42a47bfe9364920f4",
+      "bytes": 95904
+    },
+    {
+      "path": "assets/prompts/prompts-0595-0599.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/implement-and-automate/risk-provenance.md",
+      "last": "prompts/photography-direction-and-preproduction/test-and-validate/production-workflow.md",
+      "sha256": "c78da2649c9fab1b513d6051273d127899dfc12a70e6a3527ee00538c18a0016",
+      "bytes": 89091
+    },
+    {
+      "path": "assets/prompts/prompts-0600-0604.yaml",
+      "count": 5,
+      "first": "prompts/photography-direction-and-preproduction/test-and-validate/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/adapt-and-version/production-workflow.md",
+      "sha256": "8027b10105bec0e9c80e9bb1c28152611a999f34fbfb90a11b3b1ae861b44201",
+      "bytes": 92303
+    },
+    {
+      "path": "assets/prompts/prompts-0605-0609.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/adapt-and-version/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/analyze-and-critique/production-workflow.md",
+      "sha256": "8106daff688dd953b38cd33c2f474d389ea8a040d4cf149f2951645a090a8cb7",
+      "bytes": 89192
+    },
+    {
+      "path": "assets/prompts/prompts-0610-0614.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/deliver-and-govern/production-workflow.md",
+      "sha256": "17cbcf7bd30aaa6d66be2934bde9ca2febc5267afe3ddac779e2399d4d8fd74a",
+      "bytes": 89843
+    },
+    {
+      "path": "assets/prompts/prompts-0615-0619.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/edit-and-transform/production-workflow.md",
+      "sha256": "fee8f936f3ccdcdb03134c96ea89a89dd67d26936bbff4fae2a967452decd4ed",
+      "bytes": 90911
+    },
+    {
+      "path": "assets/prompts/prompts-0620-0624.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/edit-and-transform/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/frame-and-brief/production-workflow.md",
+      "sha256": "645f6c46abba9de449931d4b8d9e7895791db6dc490c690f383517571d2af12a",
+      "bytes": 88342
+    },
+    {
+      "path": "assets/prompts/prompts-0625-0629.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/frame-and-brief/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/generate-and-render/production-workflow.md",
+      "sha256": "7406666530d3861bf155f857d675319681565d58e47805c803c3d8c5577de3dd",
+      "bytes": 93330
+    },
+    {
+      "path": "assets/prompts/prompts-0630-0634.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/generate-and-render/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/implement-and-automate/production-workflow.md",
+      "sha256": "1ea43a8e500dc04e7c75ee122ac1ae27dd9f64d0a973b3189519bacf79316859",
+      "bytes": 97106
+    },
+    {
+      "path": "assets/prompts/prompts-0635-0639.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/implement-and-automate/risk-provenance.md",
+      "last": "prompts/portrait-beauty-and-fashion-retouching/test-and-validate/production-workflow.md",
+      "sha256": "f66ee4d6bddcf1f5dfed8e86353ef49633092e5f1c750fc7fcc325ed581179c8",
+      "bytes": 89892
+    },
+    {
+      "path": "assets/prompts/prompts-0640-0644.yaml",
+      "count": 5,
+      "first": "prompts/portrait-beauty-and-fashion-retouching/test-and-validate/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/adapt-and-version/production-workflow.md",
+      "sha256": "eed99946fea25943e1a69672820c14c217dd86ca8f93abab03a3911ac9ee9e6e",
+      "bytes": 93278
+    },
+    {
+      "path": "assets/prompts/prompts-0645-0649.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/adapt-and-version/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/analyze-and-critique/production-workflow.md",
+      "sha256": "ccd7cb08eb41074f5dd6ec20d4633d4ac7f7a2a75284c23e32d7664f3dd70618",
+      "bytes": 90206
+    },
+    {
+      "path": "assets/prompts/prompts-0650-0654.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/deliver-and-govern/production-workflow.md",
+      "sha256": "f45a4b8ee6a61a8732df639d328f67de9be621a124010b3dbd029a1e0bbac146",
+      "bytes": 90857
+    },
+    {
+      "path": "assets/prompts/prompts-0655-0659.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/edit-and-transform/production-workflow.md",
+      "sha256": "f430aea26f891df101c4896a49523ba35934a89b37130ba6e1979665ffb7a555",
+      "bytes": 91925
+    },
+    {
+      "path": "assets/prompts/prompts-0660-0664.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/edit-and-transform/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/frame-and-brief/production-workflow.md",
+      "sha256": "1d3ed50e0faab0cd6346a9747a4de8a2e3825e45e5e01e6c5f092f26b572418a",
+      "bytes": 89356
+    },
+    {
+      "path": "assets/prompts/prompts-0665-0669.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/frame-and-brief/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/generate-and-render/production-workflow.md",
+      "sha256": "c697839a3c18c55d67110cf1558c6bb83463d4319dc45aa79a21a288014a66e3",
+      "bytes": 94344
+    },
+    {
+      "path": "assets/prompts/prompts-0670-0674.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/generate-and-render/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/implement-and-automate/production-workflow.md",
+      "sha256": "33491f52ab003a2f494e78f5527168839c6dcfac56a0e468d6a8d0d13ece57a1",
+      "bytes": 98120
+    },
+    {
+      "path": "assets/prompts/prompts-0675-0679.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/implement-and-automate/risk-provenance.md",
+      "last": "prompts/print-packaging-prepress-and-output/test-and-validate/production-workflow.md",
+      "sha256": "a39cb61d8f902b569e65dbed018ebfa5b70d6ac5e4034f14d37934389a2b6a06",
+      "bytes": 90906
+    },
+    {
+      "path": "assets/prompts/prompts-0680-0684.yaml",
+      "count": 5,
+      "first": "prompts/print-packaging-prepress-and-output/test-and-validate/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/adapt-and-version/production-workflow.md",
+      "sha256": "fca662ff3740a5b48e056877bd179e8b4c8880722e7e38c5503a11fb278cd668",
+      "bytes": 91697
+    },
+    {
+      "path": "assets/prompts/prompts-0685-0689.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/adapt-and-version/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/analyze-and-critique/production-workflow.md",
+      "sha256": "70440010bea16964763391fb49c6812967f9927c1715feb47124ecd405919038",
+      "bytes": 89722
+    },
+    {
+      "path": "assets/prompts/prompts-0690-0694.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/deliver-and-govern/production-workflow.md",
+      "sha256": "c67488795d4cafb32e31c13ddd5d5168ab5e61efed4e29f2b0cfe8c94f8c775b",
+      "bytes": 90810
+    },
+    {
+      "path": "assets/prompts/prompts-0695-0699.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/edit-and-transform/production-workflow.md",
+      "sha256": "0468bf523dda821b662834fd2db03e4bf6eecf321396050f3c917795497d6d6e",
+      "bytes": 91878
+    },
+    {
+      "path": "assets/prompts/prompts-0700-0704.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/edit-and-transform/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/frame-and-brief/production-workflow.md",
+      "sha256": "b245d63d9d4837a10462f52d5b6215eb3707a28269b41bb754a91e0f532f8817",
+      "bytes": 89309
+    },
+    {
+      "path": "assets/prompts/prompts-0705-0709.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/frame-and-brief/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/generate-and-render/production-workflow.md",
+      "sha256": "b3d21f83ddbe277bdf9a8783eab0bf79fa4f06554e8a073e166295806ffe56df",
+      "bytes": 92549
+    },
+    {
+      "path": "assets/prompts/prompts-0710-0714.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/generate-and-render/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/implement-and-automate/production-workflow.md",
+      "sha256": "ec797e373bed777fc27c3d031be45c5b464ca273ffe13da2b5b63809bde6f45b",
+      "bytes": 95888
+    },
+    {
+      "path": "assets/prompts/prompts-0715-0719.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/implement-and-automate/risk-provenance.md",
+      "last": "prompts/product-and-ecommerce-imagery/test-and-validate/production-workflow.md",
+      "sha256": "d022007f9a31f61b94cea35f9b4c7a176555e91f1e01c1b05ef640828eb094e1",
+      "bytes": 90422
+    },
+    {
+      "path": "assets/prompts/prompts-0720-0724.yaml",
+      "count": 5,
+      "first": "prompts/product-and-ecommerce-imagery/test-and-validate/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/adapt-and-version/production-workflow.md",
+      "sha256": "4564f5128bb89e051084cf6545223f163a56be0f51ec1981feaa7443a201bbd1",
+      "bytes": 90345
+    },
+    {
+      "path": "assets/prompts/prompts-0725-0729.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/adapt-and-version/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/analyze-and-critique/production-workflow.md",
+      "sha256": "fa5510de23b80147e9b769c373643aad7b8356620d2d8455e9cd2b2b3d01b838",
+      "bytes": 86307
+    },
+    {
+      "path": "assets/prompts/prompts-0730-0734.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/deliver-and-govern/production-workflow.md",
+      "sha256": "060f2785b26272d5f83051d4cf976f25c4225af07327f86b262521fded383edd",
+      "bytes": 86958
+    },
+    {
+      "path": "assets/prompts/prompts-0735-0739.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/edit-and-transform/production-workflow.md",
+      "sha256": "f2f01912e297bfec7ab22e41b09a499976368f5342393ae15ab9148848ea76db",
+      "bytes": 88026
+    },
+    {
+      "path": "assets/prompts/prompts-0740-0744.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/edit-and-transform/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/frame-and-brief/production-workflow.md",
+      "sha256": "30b1b2cfa95925bcc50e6166e5ccc5bb5b3bd741540917100e0e3cb789189287",
+      "bytes": 85457
+    },
+    {
+      "path": "assets/prompts/prompts-0745-0749.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/frame-and-brief/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/generate-and-render/production-workflow.md",
+      "sha256": "cf3920a9d009a0a0b95ac5f5dbf8888d68f7753c599106560294169bbc9a61b1",
+      "bytes": 90445
+    },
+    {
+      "path": "assets/prompts/prompts-0750-0754.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/generate-and-render/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/implement-and-automate/production-workflow.md",
+      "sha256": "aef5063dd357c05cbecdabf7a128d6660231a5e8b0169668abf1b42d18f8f366",
+      "bytes": 94221
+    },
+    {
+      "path": "assets/prompts/prompts-0755-0759.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/implement-and-automate/risk-provenance.md",
+      "last": "prompts/restoration-upscaling-and-colorization/test-and-validate/production-workflow.md",
+      "sha256": "95cab1e54e1b444bd3eae06a21e48c4a86d0cffb731d2daa14020cf0927c3d14",
+      "bytes": 87007
+    },
+    {
+      "path": "assets/prompts/prompts-0760-0764.yaml",
+      "count": 5,
+      "first": "prompts/restoration-upscaling-and-colorization/test-and-validate/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/adapt-and-version/production-workflow.md",
+      "sha256": "be5ef8a72c5ff6aae665a78c35f08bc4bd60c6548d4c4d0a4409f285d423ea64",
+      "bytes": 94029
+    },
+    {
+      "path": "assets/prompts/prompts-0765-0769.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/adapt-and-version/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/analyze-and-critique/production-workflow.md",
+      "sha256": "8d669a5fc311be455127d949c6538becbb363f9816ea9a0a0f59d78f30769590",
+      "bytes": 89301
+    },
+    {
+      "path": "assets/prompts/prompts-0770-0774.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/analyze-and-critique/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/deliver-and-govern/production-workflow.md",
+      "sha256": "4581cde824a89af5ad6257be382833b4e984adce44f14f84b238e7cdbcafe136",
+      "bytes": 89310
+    },
+    {
+      "path": "assets/prompts/prompts-0775-0779.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/deliver-and-govern/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/edit-and-transform/production-workflow.md",
+      "sha256": "239896c20b6cd4f0c99fedfe593d57606e62ccb8be503f19bcd4940f25f6b4b9",
+      "bytes": 92946
+    },
+    {
+      "path": "assets/prompts/prompts-0780-0784.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/edit-and-transform/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/frame-and-brief/production-workflow.md",
+      "sha256": "e0832ebf51faae281c1766dddc2acefb721846b90ccabfe58a0ce9d042b0aaf3",
+      "bytes": 88451
+    },
+    {
+      "path": "assets/prompts/prompts-0785-0789.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/frame-and-brief/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/generate-and-render/production-workflow.md",
+      "sha256": "ec6749222b389929d297d8706306895d32ce79a6dfd168607e2ad69e32fbecfb",
+      "bytes": 93569
+    },
+    {
+      "path": "assets/prompts/prompts-0790-0793.yaml",
+      "count": 4,
+      "first": "prompts/rights-provenance-safety-and-governance/generate-and-render/risk-provenance.md",
+      "last": "prompts/rights-provenance-safety-and-governance/implement-and-automate/creator-operator.md",
+      "sha256": "fb63aec04a8506251ca5a1e28ff384e68893d126f93001c809dd07107292c6fe",
+      "bytes": 79306
+    },
+    {
+      "path": "assets/prompts/prompts-0794-0798.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/implement-and-automate/production-workflow.md",
+      "last": "prompts/rights-provenance-safety-and-governance/test-and-validate/creator-operator.md",
+      "sha256": "eeb386984fa3518a31402fbec09ac71df619af48e7cf0a43b771e6433d17f896",
+      "bytes": 92594
+    },
+    {
+      "path": "assets/prompts/prompts-0799-0803.yaml",
+      "count": 5,
+      "first": "prompts/rights-provenance-safety-and-governance/test-and-validate/production-workflow.md",
+      "last": "prompts/text-to-image-generation/adapt-and-version/creator-operator.md",
+      "sha256": "40014eff9b1d862a8808e704730868ba4a46e557c8f4596efec59104af2aded9",
+      "bytes": 88980
+    },
+    {
+      "path": "assets/prompts/prompts-0804-0808.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/adapt-and-version/production-workflow.md",
+      "last": "prompts/text-to-image-generation/analyze-and-critique/creator-operator.md",
+      "sha256": "684507f95c5cd48ff6bd6e081d2c1d78d429fa967ac6ab7be31dd04781fb8fe4",
+      "bytes": 86686
+    },
+    {
+      "path": "assets/prompts/prompts-0809-0813.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/analyze-and-critique/production-workflow.md",
+      "last": "prompts/text-to-image-generation/deliver-and-govern/creator-operator.md",
+      "sha256": "3e5e3716661de45a05a4c9ed7946fc1d992e43e0952dfdbc839c42d94952840e",
+      "bytes": 85773
+    },
+    {
+      "path": "assets/prompts/prompts-0814-0818.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/deliver-and-govern/production-workflow.md",
+      "last": "prompts/text-to-image-generation/edit-and-transform/creator-operator.md",
+      "sha256": "a41841f74560516736f4d0a5c6de2087b60e746fa3eb15907365a281ade6ef1c",
+      "bytes": 88468
+    },
+    {
+      "path": "assets/prompts/prompts-0819-0823.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/edit-and-transform/production-workflow.md",
+      "last": "prompts/text-to-image-generation/frame-and-brief/creator-operator.md",
+      "sha256": "5048a1f1992fab5a59fc971c8be89b50836481478dce06d254233148a347d233",
+      "bytes": 86289
+    },
+    {
+      "path": "assets/prompts/prompts-0824-0828.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/frame-and-brief/production-workflow.md",
+      "last": "prompts/text-to-image-generation/generate-and-render/creator-operator.md",
+      "sha256": "b3489d706f757debee484b5aabe9f37c151fbfaee3d408defca77808b6e70369",
+      "bytes": 86970
+    },
+    {
+      "path": "assets/prompts/prompts-0829-0833.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/generate-and-render/production-workflow.md",
+      "last": "prompts/text-to-image-generation/implement-and-automate/creator-operator.md",
+      "sha256": "ca7ebbda51fc3d0a8195dae18e43fdca68e4637a2be3ece9098b82f1afa2dfe9",
+      "bytes": 92048
+    },
+    {
+      "path": "assets/prompts/prompts-0834-0838.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/implement-and-automate/production-workflow.md",
+      "last": "prompts/text-to-image-generation/test-and-validate/creator-operator.md",
+      "sha256": "61058dc3b006b4a0f61f9489e225f99866acec31556f2a65f97f060aae059abf",
+      "bytes": 88234
+    },
+    {
+      "path": "assets/prompts/prompts-0839-0843.yaml",
+      "count": 5,
+      "first": "prompts/text-to-image-generation/test-and-validate/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/adapt-and-version/creator-operator.md",
+      "sha256": "c054367d4bef21b9576950779106a4480d665fc5b3f014915b799d0fb3b15e40",
+      "bytes": 90918
+    },
+    {
+      "path": "assets/prompts/prompts-0844-0848.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/adapt-and-version/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/analyze-and-critique/creator-operator.md",
+      "sha256": "1e36e451ffad2a38ce0f7bda0acdca0f451702e01a22ed2e357c6b7dea1ee0b0",
+      "bytes": 92030
+    },
+    {
+      "path": "assets/prompts/prompts-0849-0853.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/analyze-and-critique/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/deliver-and-govern/creator-operator.md",
+      "sha256": "bb240622dfbcbf354bd1ddd8ed331d563499230447b6c0418691c42fefaf7ed4",
+      "bytes": 91141
+    },
+    {
+      "path": "assets/prompts/prompts-0854-0858.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/deliver-and-govern/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/edit-and-transform/creator-operator.md",
+      "sha256": "212348c54820e1e68d59a2f0e1398aa3e0748785fea1a5f06660ebad429d3399",
+      "bytes": 92489
+    },
+    {
+      "path": "assets/prompts/prompts-0859-0863.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/edit-and-transform/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/frame-and-brief/creator-operator.md",
+      "sha256": "ad4f2e9a9a717cd49c13aef2aeff26fb0442c8fb499dddf4f61cc7a3a20bdd3e",
+      "bytes": 90759
+    },
+    {
+      "path": "assets/prompts/prompts-0864-0868.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/frame-and-brief/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/generate-and-render/creator-operator.md",
+      "sha256": "d847724bca1b43a13aee0d7eae3f6c6812ea68c88caf3b5da69affa93918ffcd",
+      "bytes": 93649
+    },
+    {
+      "path": "assets/prompts/prompts-0869-0873.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/generate-and-render/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/implement-and-automate/creator-operator.md",
+      "sha256": "8dafa87b7b312e915a47f6d5eec6b50e0d3f01fb93caeb5dd9188a3792b5fdb9",
+      "bytes": 98254
+    },
+    {
+      "path": "assets/prompts/prompts-0874-0878.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/implement-and-automate/production-workflow.md",
+      "last": "prompts/three-d-product-and-architectural-rendering/test-and-validate/creator-operator.md",
+      "sha256": "a1b2505c8f76935d133f9f76cbe159c65b65a969f3adac69d29786c5870defe6",
+      "bytes": 93578
+    },
+    {
+      "path": "assets/prompts/prompts-0879-0883.yaml",
+      "count": 5,
+      "first": "prompts/three-d-product-and-architectural-rendering/test-and-validate/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/adapt-and-version/creator-operator.md",
+      "sha256": "4a88577ef171bdbaadd4557be01ab65de8956d3d1d20e198bbf456fa06c30083",
+      "bytes": 91623
+    },
+    {
+      "path": "assets/prompts/prompts-0884-0888.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/adapt-and-version/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/analyze-and-critique/creator-operator.md",
+      "sha256": "64ba1d5d0e7de60d14dacf5afe5b43584accf0fe3401456a3c97fdaf20ccd5f3",
+      "bytes": 90928
+    },
+    {
+      "path": "assets/prompts/prompts-0889-0893.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/analyze-and-critique/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/deliver-and-govern/creator-operator.md",
+      "sha256": "96aad0b747bcc35f7f14a146a395539d9d1a508d5a5730739ba92bd707e09dc3",
+      "bytes": 90913
+    },
+    {
+      "path": "assets/prompts/prompts-0894-0898.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/deliver-and-govern/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/edit-and-transform/creator-operator.md",
+      "sha256": "277df5b263af4e4c12d1a826ee5ff70ebd5bea258b2f1eeeeccf7202fadb4af1",
+      "bytes": 92261
+    },
+    {
+      "path": "assets/prompts/prompts-0899-0903.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/edit-and-transform/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/frame-and-brief/creator-operator.md",
+      "sha256": "814c7512d23a2ae4edc9a11892607c8cf5d8e5b2a0c9f16cb805bcc25167a5d0",
+      "bytes": 90531
+    },
+    {
+      "path": "assets/prompts/prompts-0904-0908.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/frame-and-brief/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/generate-and-render/creator-operator.md",
+      "sha256": "ee828ef46e03711ca29c7163c89989d1d89f9d3aa97ea6fda8119a1cd7f3eb24",
+      "bytes": 92110
+    },
+    {
+      "path": "assets/prompts/prompts-0909-0913.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/generate-and-render/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/implement-and-automate/creator-operator.md",
+      "sha256": "a568f191ba002d8db97d270240f59820cdeb920ab0c0f1ade5c0d29176dbe562",
+      "bytes": 95841
+    },
+    {
+      "path": "assets/prompts/prompts-0914-0918.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/implement-and-automate/production-workflow.md",
+      "last": "prompts/typography-and-lettering-in-images/test-and-validate/creator-operator.md",
+      "sha256": "d276bf1880eddd3190d2f4619593237638fe06496f41800ef4e9721c2d392736",
+      "bytes": 92476
+    },
+    {
+      "path": "assets/prompts/prompts-0919-0923.yaml",
+      "count": 5,
+      "first": "prompts/typography-and-lettering-in-images/test-and-validate/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/adapt-and-version/creator-operator.md",
+      "sha256": "d4e43c01b7280c846779b3c8a545262c7c6ff8d66ba0fca7aaeebc100b0b66f7",
+      "bytes": 93946
+    },
+    {
+      "path": "assets/prompts/prompts-0924-0928.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/adapt-and-version/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/analyze-and-critique/creator-operator.md",
+      "sha256": "bbca2c6089daaf6e5a6c2eab9b68be73ba83708317fc8ef58c9d6981fde16951",
+      "bytes": 92296
+    },
+    {
+      "path": "assets/prompts/prompts-0929-0933.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/analyze-and-critique/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/deliver-and-govern/creator-operator.md",
+      "sha256": "71f4d4c2f4bc7da52a0ff9ff3219a025f43fee7cc08b48b6c5a195f74e7972ca",
+      "bytes": 90509
+    },
+    {
+      "path": "assets/prompts/prompts-0934-0938.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/deliver-and-govern/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/edit-and-transform/creator-operator.md",
+      "sha256": "e46312988b7825906819b10bda7053d1a207aaa57481b3f6afd6dca5123261ef",
+      "bytes": 93204
+    },
+    {
+      "path": "assets/prompts/prompts-0939-0943.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/edit-and-transform/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/frame-and-brief/creator-operator.md",
+      "sha256": "1f05ea14e502cf59e31185cddff3ba385904ff90c8ff8b70d2a6cba77bd70773",
+      "bytes": 91025
+    },
+    {
+      "path": "assets/prompts/prompts-0944-0948.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/frame-and-brief/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/generate-and-render/creator-operator.md",
+      "sha256": "9c70e31be5272bbbba03a40b177f58ad89c0bd32df6d398f968c7ae2921089c6",
+      "bytes": 93017
+    },
+    {
+      "path": "assets/prompts/prompts-0949-0953.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/generate-and-render/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/implement-and-automate/creator-operator.md",
+      "sha256": "fc59c272bebb220e8218bd5e24c0476e6f304e5a8a394ea3046f87ff5461672a",
+      "bytes": 97697
+    },
+    {
+      "path": "assets/prompts/prompts-0954-0958.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/implement-and-automate/production-workflow.md",
+      "last": "prompts/ui-screens-and-component-visuals/test-and-validate/creator-operator.md",
+      "sha256": "13a1fa3a3c9acb3c03fb8e8d8ee294ebe31571e468037148806efe15a12599eb",
+      "bytes": 92996
+    },
+    {
+      "path": "assets/prompts/prompts-0959-0963.yaml",
+      "count": 5,
+      "first": "prompts/ui-screens-and-component-visuals/test-and-validate/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/adapt-and-version/creator-operator.md",
+      "sha256": "622cf135ee2fe3e3a3ed3ba4b31b5a8efdec4a7daa789f0fefa0add865145e26",
+      "bytes": 93696
+    },
+    {
+      "path": "assets/prompts/prompts-0964-0968.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/adapt-and-version/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/analyze-and-critique/creator-operator.md",
+      "sha256": "5a506f8a33675f124ad5591a5bf3d3fb2d0135bed9a3af0c7db91b5980ca0155",
+      "bytes": 92150
+    },
+    {
+      "path": "assets/prompts/prompts-0969-0973.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/analyze-and-critique/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/deliver-and-govern/creator-operator.md",
+      "sha256": "25e773e2d487904efe8efc6237eb15228ae2ab3081bc0a3537a17bd5ad1db871",
+      "bytes": 90363
+    },
+    {
+      "path": "assets/prompts/prompts-0974-0978.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/deliver-and-govern/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/edit-and-transform/creator-operator.md",
+      "sha256": "30ede62930a23563388bb272e4178d98634d21761a565c308f14afcb180542c5",
+      "bytes": 93058
+    },
+    {
+      "path": "assets/prompts/prompts-0979-0983.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/edit-and-transform/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/frame-and-brief/creator-operator.md",
+      "sha256": "8923ed80ab54dcd1c127aa48272221141196afb45834ad853eb650983a53846d",
+      "bytes": 90879
+    },
+    {
+      "path": "assets/prompts/prompts-0984-0988.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/frame-and-brief/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/generate-and-render/creator-operator.md",
+      "sha256": "b48848dd23407363d07faa8b679aaf9fe13f5c7b42ffc1b39c8d59a3d6bc11f4",
+      "bytes": 92871
+    },
+    {
+      "path": "assets/prompts/prompts-0989-0993.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/generate-and-render/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/implement-and-automate/creator-operator.md",
+      "sha256": "9a5e5f7f6ddec340c43ea3f18dc4fc37b6933b3ab4d5ac6cd3647879f43ff086",
+      "bytes": 97551
+    },
+    {
+      "path": "assets/prompts/prompts-0994-0998.yaml",
+      "count": 5,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/implement-and-automate/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/test-and-validate/creator-operator.md",
+      "sha256": "7bd0afb5acfc4b1ef19ea3fbc53e88d585597784433108f6883fd53c6a046a26",
+      "bytes": 92850
+    },
+    {
+      "path": "assets/prompts/prompts-0999-1000.yaml",
+      "count": 2,
+      "first": "prompts/ux-wireframes-flows-and-prototypes/test-and-validate/production-workflow.md",
+      "last": "prompts/ux-wireframes-flows-and-prototypes/test-and-validate/risk-provenance.md",
+      "sha256": "9918d71bede284e96078350e2366154b3eb27530e6da9a38ab293a45d5a44521",
+      "bytes": 35767
+    }
+  ],
+  "public_transform": {
+    "name": "punctuation-normalization-v1",
+    "native_bytes_owner": "committed evidence packet"
+  }
+}

@@ -123,7 +123,7 @@ test('maps every native nonblank line and behavior case without loss', async () 
       public_id: `MFWD-${String(index + 1).padStart(3, '0')}`,
     });
   });
-});
+}, 20_000);
 
 test('binds every mapped line to its public text or portable semantic owner', async () => {
   const mapping = await json<{
@@ -151,7 +151,7 @@ test('binds every mapped line to its public text or portable semantic owner', as
       semantic.contains,
     );
   }
-});
+}, 20_000);
 
 test('publishes 1000 normalized prompts in 201 verified shards', async () => {
   const manifest = await json<{

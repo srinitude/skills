@@ -1,0 +1,240 @@
+{
+  "report_version": "2.0",
+  "title": "Input-specific token proof",
+  "sources": [
+    {
+      "id": "source-1",
+      "kind": "image",
+      "locator": "path-page-frame-time-route-or-region",
+      "sha256": "replace-with-lowercase-sha256",
+      "vision_inspected": true,
+      "vision_passes": ["whole-frame", "detail", "comparative"]
+    }
+  ],
+  "observations": [
+    {
+      "source_id": "source-1",
+      "locator": "exact-page-frame-time-route-or-line",
+      "region": "exact-visible-region-or-content-location",
+      "fact": "State one observed, externally checkable fact.",
+      "basis": "observed",
+      "confidence": "high"
+    }
+  ],
+  "identity_thesis": "Name the audience, use context, intended feeling, and source-specific visual idea.",
+  "signature_decisions": [
+    {
+      "axis": "applicable-design-axis",
+      "decision": "Name one source-specific decision.",
+      "evidence": "Cite a source observation or exact locator.",
+      "tokens": ["group.token"]
+    }
+  ],
+  "quality_checks": [
+    {
+      "name": "audience_relation",
+      "status": "pending_visual_review",
+      "evidence": "Add located evidence."
+    },
+    {
+      "name": "visual_identity",
+      "status": "pending_visual_review",
+      "evidence": "Add located evidence."
+    },
+    {
+      "name": "hierarchy",
+      "status": "pending_visual_review",
+      "evidence": "Add located evidence."
+    },
+    {
+      "name": "cohesion",
+      "status": "pending_visual_review",
+      "evidence": "Add located evidence."
+    },
+    {
+      "name": "non_genericity",
+      "status": "pending_visual_review",
+      "evidence": "Add located evidence."
+    },
+    {
+      "name": "render_integrity",
+      "status": "pending_visual_review",
+      "evidence": "Add final wide and narrow visual findings."
+    },
+    {
+      "name": "possibility_accounting",
+      "status": "pending_visual_review",
+      "evidence": "Add full-universe accounting evidence."
+    },
+    {
+      "name": "context_coverage",
+      "status": "pending_visual_review",
+      "evidence": "Add token-to-context coverage evidence."
+    },
+    {
+      "name": "coverage_integrity",
+      "status": "pending_visual_review",
+      "evidence": "Add type and permutation evidence."
+    },
+    {
+      "name": "temporal_currency",
+      "status": "pending_visual_review",
+      "evidence": "Add clock and current-source evidence."
+    },
+    {
+      "name": "taste",
+      "status": "pending_visual_review",
+      "evidence": "Add reasoned visual judgment and counterevidence."
+    },
+    {
+      "name": "originality",
+      "status": "pending_visual_review",
+      "evidence": "Add source-lineage and falsification evidence."
+    },
+    {
+      "name": "corpus_uniqueness",
+      "status": "pending_visual_review",
+      "evidence": "Add declared-corpus comparison evidence."
+    },
+    {
+      "name": "non_ai_slop",
+      "status": "pending_visual_review",
+      "evidence": "Add observable output-trait evidence."
+    },
+    {
+      "name": "perceptual_motor_invariants",
+      "status": "pending_visual_review",
+      "evidence": "Add eye, cognition, touch, and context-invariant evidence."
+    },
+    {
+      "name": "objective_visual_defects",
+      "status": "pending_visual_review",
+      "evidence": "Add complete visual-defect catalog coverage."
+    },
+    {
+      "name": "experimental_output",
+      "status": "pending_visual_review",
+      "evidence": "Add embedding, visible-specimen, hypothesis, status, and use-boundary evidence."
+    }
+  ],
+  "input_manifest": { "catalog_version": "1.0.0", "items": [] },
+  "intent_manifest": {
+    "request": {
+      "requested_operation": "generate",
+      "fidelity": "faithful-translation",
+      "target_scope": ["whole-system", "proof-artifact"],
+      "output_use": "audit-evidence",
+      "confidence_basis": "explicit-request",
+      "desired_outcome": "Replace with the requested observable outcome.",
+      "audience_task": "Replace with the audience and task."
+    },
+    "sources": [],
+    "conflicts": []
+  },
+  "possibility_ledger": {
+    "catalog_version": "1.0.0",
+    "default": {
+      "disposition": "unresolved",
+      "reason": "Review this possibility against the source and intent.",
+      "evidence": "unresolved",
+      "stage": "evidence"
+    },
+    "overrides": [],
+    "extensions": []
+  },
+  "context_requirements": [],
+  "permutation_space": { "axes": [], "groups": [], "exclusions": [] },
+  "experimental_output": {
+    "policy_version": "1.0",
+    "strategy_catalog_version": "1.0.0",
+    "required": true,
+    "minimum_retained_tokens": 2,
+    "minimum_distinct_strategies": 2,
+    "entries": [
+      {
+        "path": "experimental.tokens.replace-with-token",
+        "experiment_id": "replace-with-stable-id",
+        "exploration_strategy": "replace-with-one-enumerated-strategy",
+        "hypothesis": "State the question this token tests.",
+        "intended_context": "State the bounded use or comparison context.",
+        "status": "retained_unproven",
+        "artifact_disposition": "visible_specimen_required",
+        "invariant_disposition": "not_used_experimental"
+      },
+      {
+        "path": "experimental.tokens.replace-with-second-token",
+        "experiment_id": "replace-with-second-stable-id",
+        "exploration_strategy": "replace-with-a-different-enumerated-strategy",
+        "hypothesis": "State the second question this token tests.",
+        "intended_context": "State the second bounded use or comparison context.",
+        "status": "retained_unproven",
+        "artifact_disposition": "visible_specimen_required",
+        "invariant_disposition": "not_used_experimental"
+      }
+    ]
+  },
+  "temporal_context": {
+    "anchor": {
+      "captured_at": "replace-with-fresh-local-clock-anchor",
+      "date": "YYYY-MM-DD",
+      "weekday": "replace",
+      "timezone": "replace",
+      "utc_offset": "replace",
+      "source": "replace"
+    },
+    "pinned_specification": "DTCG 2025.10",
+    "current_specification": "replace-after-current-primary-source-check",
+    "current_sources": []
+  },
+  "artifact_review": {
+    "status": "pending_visual_review",
+    "vision_executor": {
+      "capability": "strong-native-vision",
+      "mode": "active-or-delegated"
+    },
+    "viewports": [],
+    "defect_review": {
+      "catalog_version": "1.0.0",
+      "status": "pending_visual_review",
+      "reviewed_ids": [],
+      "findings": [],
+      "unresolved_veto_count": 0,
+      "unresolved_major_count": 0
+    },
+    "invariant_review": {
+      "catalog_version": "1.0.0",
+      "status": "pending_visual_review",
+      "entries": []
+    },
+    "judgment_reviews": { "catalog_version": "1.0.0", "tracks": [] },
+    "experimental_review": {
+      "status": "pending_visual_review",
+      "reviewed_paths": [],
+      "findings": "Add visible specimen and use-boundary findings."
+    },
+    "final_readback": {
+      "status": "pending_visual_review",
+      "reviewed_surface_sha256": null,
+      "artifact_locator": null,
+      "reviewed_after_final_assembly": false
+    }
+  },
+  "comparison": {
+    "scope": "declared-corpus",
+    "corpus_name": "Name the reviewed corpus",
+    "items_compared": 0,
+    "method": "Declare methods and thresholds before comparison.",
+    "result": "Record matches, differences, nearest neighbors, and limits."
+  },
+  "claims": {
+    "dtcg_conformant": "pending_validation",
+    "non_slop": "pending_visual_review",
+    "original_within_scope": "pending_visual_review",
+    "taste_pass": "pending_visual_review",
+    "non_ai_slop": "pending_visual_review",
+    "unique_within_declared_corpus": "pending_visual_review",
+    "invariants_satisfied": "pending_visual_review",
+    "globally_unique": false
+  },
+  "limits": ["Global uniqueness cannot be proved without an exhaustive comparison corpus."]
+}

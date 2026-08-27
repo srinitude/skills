@@ -31,6 +31,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.sha256).toMatch(/^[a-f0-9]{64}$/);
   expect(result.entries).toContain('package/skills/always-current-datetime/SKILL.md');
   expect(result.entries).toContain('package/skills/dedupe/SKILL.md');
+  expect(result.entries).toContain('package/skills/dtcg-tokens/SKILL.md');
   expect(result.entries).toContain('package/skills/goal-prompt/SKILL.md');
   expect(result.entries).toContain('package/skills/logic-audit/SKILL.md');
   expect(result.entries).toContain('package/skills/meaning-preserving-rewrite/SKILL.md');
@@ -49,6 +50,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
     'package/skills/always-current-datetime/SKILL.md',
     'package/skills/dedupe/SKILL.md',
+    'package/skills/dtcg-tokens/SKILL.md',
     'package/skills/goal-prompt/SKILL.md',
     'package/skills/logic-audit/SKILL.md',
     'package/skills/meaning-preserving-rewrite/SKILL.md',

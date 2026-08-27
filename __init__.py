@@ -10,6 +10,11 @@ _SKILLS = (
         "Use when deduplicating bounded collections.",
     ),
     (
+        "dtcg-tokens",
+        "Use when any multimodal source must become source-specific DTCG tokens"
+        " with a vision-reviewed standalone proof artifact.",
+    ),
+    (
         "goal-prompt",
         "Use when packaging source input for a standing goal.",
     ),

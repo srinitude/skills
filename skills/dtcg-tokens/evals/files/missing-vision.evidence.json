@@ -1,0 +1,31 @@
+{
+  "report_version": "1.0",
+  "title": "Invalid evidence",
+  "sources": [
+    {
+      "id": "ref-1",
+      "kind": "image",
+      "sha256": "9b8f47fbfcbf70f73d09113d30d94d2a2c6d24f7e9acbb4e876fb522c95f617d",
+      "vision_inspected": false,
+      "locator": "identity-board.png"
+    }
+  ],
+  "observations": [],
+  "identity_thesis": "Missing vision.",
+  "signature_decisions": [],
+  "quality_checks": [],
+  "comparison": {
+    "scope": "declared-corpus",
+    "corpus_name": "none",
+    "items_compared": 0,
+    "method": "none",
+    "result": "none"
+  },
+  "claims": {
+    "dtcg_conformant": false,
+    "non_slop": false,
+    "original_within_scope": false,
+    "globally_unique": false
+  },
+  "limits": []
+}

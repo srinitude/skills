@@ -1,0 +1,35 @@
+[
+  {
+    "query": "Make DTCG JSON tokens from these screenshots and prove they are source-specific.",
+    "should_trigger": true
+  },
+  {
+    "query": "Extract a design token system from this moodboard using your vision.",
+    "should_trigger": true
+  },
+  {
+    "query": "Convert this brand brief and video into Design Tokens Community Group format.",
+    "should_trigger": true
+  },
+  { "query": "Validate tokens.json against DTCG 2025.10.", "should_trigger": true },
+  {
+    "query": "Create a standalone evidence report for my token set.",
+    "should_trigger": true
+  },
+  {
+    "query": "Derive platform-neutral color, type, space, shape, and motion tokens from these references.",
+    "should_trigger": true
+  },
+  { "query": "Generate CSS custom properties from tokens.json.", "should_trigger": false },
+  { "query": "Make a brand moodboard from these colors.", "should_trigger": false },
+  { "query": "Review this interface for accessibility issues.", "should_trigger": false },
+  {
+    "query": "Build a component library from my existing tokens.",
+    "should_trigger": false
+  },
+  { "query": "Explain what a design token is.", "should_trigger": false },
+  {
+    "query": "Convert this JSON file to YAML without changing its schema.",
+    "should_trigger": false
+  }
+]

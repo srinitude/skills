@@ -1,0 +1,533 @@
+{
+  "catalog_version": "1.0.0",
+  "published": "2026-08-27",
+  "catalog_links": {
+    "objective_visual_defects": "visual-defect-catalog.json",
+    "taste_originality_uniqueness_non_ai_slop": "judgment-review-catalog.json",
+    "perceptual_cognitive_motor_invariants": "perceptual-motor-invariant-catalog.json",
+    "exploration_strategies": "exploration-strategy-catalog.json"
+  },
+  "statuses": ["pass", "fail", "not_applicable", "unresolved", "blocked"],
+  "metrics": [
+    {
+      "id": "input_accounting_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "intent_accounting_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "possibility_accounting_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "requirement_coverage_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "token_evidence_link_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "artifact_hash_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "validation_error_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "experimental_token_embedding_rate",
+      "family": "work-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "experimental_token_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "at-least",
+      "threshold": 2,
+      "veto": true
+    },
+    {
+      "id": "experimental_strategy_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "at-least",
+      "threshold": 2,
+      "veto": true
+    },
+    {
+      "id": "experimental_visible_specimen_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "residue_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "contradiction_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "claim_overreach_count",
+      "family": "work-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "unsupported_token_rate",
+      "family": "design-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "orphan_token_rate",
+      "family": "design-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "unexplained_omission_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "stock_scale_without_evidence_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "duplicate_role_conflict_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "alias_resolution_failure_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "composite_member_failure_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "context_reproduction_gap_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "accessibility_violation_count",
+      "family": "visual-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "visual_defect_count",
+      "family": "visual-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "generic_role_without_context_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "unsupported_scale_completion_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "canned_decision_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "evidence_specificity_rate",
+      "family": "automated-genericity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "identity_substitution_failure_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "observed_to_assumed_ratio",
+      "family": "automated-genericity",
+      "kind": "ratio",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "symmetry_without_source_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "decorative_noise_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "description_repetition_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "proof_sentence_without_measure_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "signature_decision_count",
+      "family": "source-specificity",
+      "kind": "count",
+      "direction": "at-least",
+      "threshold": 5,
+      "veto": true
+    },
+    {
+      "id": "signature_axis_count",
+      "family": "source-specificity",
+      "kind": "count",
+      "direction": "at-least",
+      "threshold": 3,
+      "veto": true
+    },
+    {
+      "id": "source_clause_coverage_rate",
+      "family": "source-specificity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "decision_token_coverage_rate",
+      "family": "source-specificity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "input_trait_reproduction_rate",
+      "family": "source-specificity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "counterevidence_resolution_rate",
+      "family": "source-specificity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "exact_output_hash_collision_count",
+      "family": "corpus-distinctiveness",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "normalized_graph_collision_count",
+      "family": "corpus-distinctiveness",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "path_value_collision_rate",
+      "family": "corpus-distinctiveness",
+      "kind": "ratio",
+      "direction": "below-predeclared",
+      "threshold": "declared",
+      "veto": true
+    },
+    {
+      "id": "palette_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "typography_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "space_shape_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "material_motion_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "semantic_graph_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "report",
+      "threshold": null,
+      "veto": false
+    },
+    {
+      "id": "signature_collision_count",
+      "family": "corpus-distinctiveness",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "nearest_neighbor_distance",
+      "family": "corpus-distinctiveness",
+      "kind": "distance",
+      "direction": "at-least-predeclared",
+      "threshold": "declared",
+      "veto": true
+    },
+    {
+      "id": "wide_narrow_review_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "native_visual_pass_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "objective_defect_accounting_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "unresolved_visual_veto_count",
+      "family": "visual-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "unresolved_visual_major_count",
+      "family": "visual-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "perceptual_invariant_accounting_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "applied_invariant_pass_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "taste_obligation_review_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "originality_obligation_review_rate",
+      "family": "source-specificity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "corpus_uniqueness_obligation_review_rate",
+      "family": "corpus-distinctiveness",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "non_ai_slop_obligation_review_rate",
+      "family": "automated-genericity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "reasoning_implementation_gap_count",
+      "family": "automated-genericity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "current_source_verification_rate",
+      "family": "temporal-currency",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "future_dated_evidence_count",
+      "family": "temporal-currency",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "pinned_current_version_confusion_count",
+      "family": "temporal-currency",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    }
+  ]
+}

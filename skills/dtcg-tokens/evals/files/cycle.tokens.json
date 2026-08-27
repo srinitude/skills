@@ -1,0 +1,1 @@
+{ "a": { "$type": "color", "$value": "{b}" }, "b": { "$type": "color", "$value": "{a}" } }

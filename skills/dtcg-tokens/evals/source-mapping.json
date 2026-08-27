@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "skill": "dtcg-tokens",
+  "mappings": [
+    { "source_id": "DTCG-001", "public_case_ids": ["DTCG-001"] },
+    { "source_id": "DTCG-002", "public_case_ids": ["DTCG-002"] },
+    { "source_id": "DTCG-003", "public_case_ids": ["DTCG-003"] },
+    { "source_id": "DTCG-004", "public_case_ids": ["DTCG-004"] },
+    { "source_id": "DTCG-005", "public_case_ids": ["DTCG-005"] },
+    { "source_id": "DTCG-006", "public_case_ids": ["DTCG-006"] },
+    { "source_id": "DTCG-007", "public_case_ids": ["DTCG-007"] },
+    { "source_id": "DTCG-008", "public_case_ids": ["DTCG-008"] },
+    { "source_id": "DTCG-009", "public_case_ids": ["DTCG-009"] },
+    { "source_id": "DTCG-010", "public_case_ids": ["DTCG-010"] }
+  ]
+}

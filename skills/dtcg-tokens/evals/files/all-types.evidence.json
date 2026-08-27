@@ -1,0 +1,26 @@
+{
+  "fixture_kind": "synthetic-renderer-coverage",
+  "context_requirements": [
+    {
+      "id": "all-standard-types",
+      "confidence": "high",
+      "possibilities": [],
+      "tokens": [
+        "border",
+        "color",
+        "cubicBezier",
+        "dimension",
+        "duration",
+        "fontFamily",
+        "fontWeight",
+        "gradient",
+        "number",
+        "shadow",
+        "strokeStyle",
+        "transition",
+        "typography"
+      ]
+    }
+  ],
+  "permutation_space": { "axes": [], "groups": [], "exclusions": [] }
+}

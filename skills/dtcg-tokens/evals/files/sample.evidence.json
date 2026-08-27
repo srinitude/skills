@@ -1,0 +1,1192 @@
+{
+  "report_version": "2.0",
+  "title": "Airfield ground-control token proof",
+  "sources": [
+    {
+      "id": "ref-brief",
+      "kind": "text",
+      "sha256": "bb28fbe50ab893a841b1aa89c4b05098b0ee1d7d701ff011c50f2b4d21953e44",
+      "vision_inspected": false,
+      "vision_passes": [],
+      "locator": "evals/files/sample-brief.txt"
+    }
+  ],
+  "observations": [
+    {
+      "source_id": "ref-brief",
+      "locator": "paragraph 2",
+      "region": "audience and task",
+      "fact": "Ramp coordinators track arrivals, holds, maintenance blocks, route clearance, and timed risk.",
+      "basis": "observed",
+      "confidence": "high"
+    },
+    {
+      "source_id": "ref-brief",
+      "locator": "paragraph 2",
+      "region": "color directive",
+      "fact": "The directive assigns cyan to active route, amber to timed risk, and magenta to maintenance fault.",
+      "basis": "observed",
+      "confidence": "high"
+    },
+    {
+      "source_id": "ref-brief",
+      "locator": "paragraph 2",
+      "region": "spatial directive",
+      "fact": "The declared rhythm uses 5, 12, 18, and 29 pixel gaps with 2 pixel corners and 44 pixel targets.",
+      "basis": "observed",
+      "confidence": "high"
+    },
+    {
+      "source_id": "ref-brief",
+      "locator": "paragraph 2",
+      "region": "motion directive",
+      "fact": "Status changes use a direct 90 millisecond motion while reduced motion remains a required proof mode.",
+      "basis": "observed",
+      "confidence": "high"
+    },
+    {
+      "source_id": "ref-brief",
+      "locator": "paragraph 3",
+      "region": "anti-reference",
+      "fact": "The directive prohibits card mosaics, editorial serif type, oversized ornaments, and unsupported scale completion.",
+      "basis": "observed",
+      "confidence": "high"
+    }
+  ],
+  "identity_thesis": "A dense airfield control instrument that makes route state, timed risk, and maintenance interruption readable without decorative ceremony.",
+  "signature_decisions": [
+    {
+      "axis": "color-role",
+      "decision": "Reserve cyan for the active route instead of distributing it as decoration.",
+      "evidence": "The source assigns cyan to active route only.",
+      "tokens": ["foundation.color.route", "semantic.color.activeRoute"]
+    },
+    {
+      "axis": "color-role",
+      "decision": "Separate timed risk from maintenance fault with amber and magenta.",
+      "evidence": "The source names both operational meanings explicitly.",
+      "tokens": [
+        "foundation.color.risk",
+        "foundation.color.fault",
+        "semantic.color.timedRisk",
+        "semantic.color.maintenanceFault"
+      ]
+    },
+    {
+      "axis": "spacing",
+      "decision": "Use the declared 5, 12, 18, and 29 pixel rhythm without filling a stock geometric scale.",
+      "evidence": "The source gives those four gaps and prohibits unsupported completion.",
+      "tokens": [
+        "foundation.space.micro",
+        "foundation.space.control",
+        "foundation.space.cluster",
+        "foundation.space.section"
+      ]
+    },
+    {
+      "axis": "shape",
+      "decision": "Use 2 pixel corners and one-pixel rails for instrument precision.",
+      "evidence": "The source declares the corner value and the token system keeps the rail literal.",
+      "tokens": [
+        "foundation.space.corner",
+        "foundation.space.hairline",
+        "foundation.stroke.rail",
+        "foundation.border.signal"
+      ]
+    },
+    {
+      "axis": "typography",
+      "decision": "Separate control copy from tabular operational data with two sans and mono roles.",
+      "evidence": "The source requires tabular data type and prohibits editorial serif type.",
+      "tokens": [
+        "foundation.font.control",
+        "foundation.font.data",
+        "foundation.typography.display",
+        "foundation.typography.data"
+      ]
+    },
+    {
+      "axis": "motion",
+      "decision": "Use a direct 90 millisecond status transition and a slower handoff only where state transfer needs it.",
+      "evidence": "The source declares direct 90 millisecond status motion.",
+      "tokens": [
+        "foundation.motion.snap",
+        "foundation.motion.handoff",
+        "foundation.motion.direct",
+        "foundation.motion.settle",
+        "foundation.transition.status"
+      ]
+    },
+    {
+      "axis": "accessibility",
+      "decision": "Keep the touch target at 44 pixels and pair the darkest surface with pale ice text.",
+      "evidence": "The source declares the target and the high-contrast field colors.",
+      "tokens": [
+        "foundation.space.target",
+        "foundation.color.night",
+        "foundation.color.ice",
+        "semantic.space.touchTarget",
+        "semantic.color.text"
+      ]
+    }
+  ],
+  "quality_checks": [
+    {
+      "name": "audience_relation",
+      "status": "pass",
+      "evidence": "Five named ramp-control tasks map to status, route, risk, and maintenance token roles."
+    },
+    {
+      "name": "visual_identity",
+      "status": "pass",
+      "evidence": "The dark instrument field, route cyan, risk amber, fault magenta, tight geometry, and mono data role share an operational thesis."
+    },
+    {
+      "name": "hierarchy",
+      "status": "pass",
+      "evidence": "Display and data typography roles, four declared gaps, and color-role restraint create distinct reading levels."
+    },
+    {
+      "name": "cohesion",
+      "status": "pass",
+      "evidence": "Nine semantic aliases resolve to the same source-declared foundation values with no duplicate role conflict."
+    },
+    {
+      "name": "non_genericity",
+      "status": "pass",
+      "evidence": "Seven decisions across color, spacing, shape, type, motion, and accessibility cite exact source clauses and token paths."
+    },
+    {
+      "name": "render_integrity",
+      "status": "pending_visual_review",
+      "evidence": "The final artifact must receive native wide and narrow visual review for overlap, clipping, overflow, occlusion, legibility, contrast, crop, density, hierarchy, and motion."
+    },
+    {
+      "name": "possibility_accounting",
+      "status": "pass",
+      "evidence": "Every catalog leaf receives one expanded disposition before tokens are accepted."
+    },
+    {
+      "name": "context_coverage",
+      "status": "pass",
+      "evidence": "Every one of the 44 token paths belongs to one source-linked or exploration-specific context requirement."
+    },
+    {
+      "name": "coverage_integrity",
+      "status": "pass",
+      "evidence": "All 13 standard DTCG types and every declared finite permutation have rendered coverage records."
+    },
+    {
+      "name": "temporal_currency",
+      "status": "pass",
+      "evidence": "One local clock anchor precedes the recorded verification of the pinned DTCG 2025.10 specification."
+    },
+    {
+      "name": "taste",
+      "status": "pending_visual_review",
+      "evidence": "Taste requires reasoned whole-frame, detail, state, and comparative visual review with counterevidence."
+    },
+    {
+      "name": "originality",
+      "status": "pending_visual_review",
+      "evidence": "Originality requires source lineage, noun substitution, transplant, and structural comparison checks."
+    },
+    {
+      "name": "corpus_uniqueness",
+      "status": "pending_visual_review",
+      "evidence": "Corpus-bounded uniqueness requires exact, graph, layout, visual, and semantic nearest-neighbor checks."
+    },
+    {
+      "name": "non_ai_slop",
+      "status": "pending_visual_review",
+      "evidence": "Output-trait review must test reasoning-to-implementation alignment, filler, repetition, and unresolved detail."
+    },
+    {
+      "name": "perceptual_motor_invariants",
+      "status": "pending_visual_review",
+      "evidence": "Every applicable eye, cognition, touch, and cross-context invariant requires token feasibility plus rendered proof."
+    },
+    {
+      "name": "objective_visual_defects",
+      "status": "pending_visual_review",
+      "evidence": "Every marker in the visual defect catalog requires an actual rendered wide and narrow disposition."
+    },
+    {
+      "name": "experimental_output",
+      "status": "pending_visual_review",
+      "evidence": "Every required experimental token is embedded and still needs a visible specimen plus explicit use-boundary review."
+    }
+  ],
+  "input_manifest": {
+    "catalog_version": "1.0.0",
+    "items": [
+      {
+        "id": "ref-brief",
+        "source_class": "written-symbolic",
+        "carrier": "local-file",
+        "sensory_channel": ["text"],
+        "temporal_form": "static",
+        "dimensionality": "not-applicable",
+        "representation_state": "raw",
+        "composition": "single-item",
+        "access_method": ["direct-read"],
+        "evidence_role": ["primary-design-evidence", "constraint"],
+        "availability": "inspectable"
+      }
+    ]
+  },
+  "intent_manifest": {
+    "request": {
+      "requested_operation": "prove",
+      "fidelity": "faithful-translation",
+      "target_scope": ["whole-system", "proof-artifact"],
+      "output_use": "audit-evidence",
+      "confidence_basis": "explicit-request",
+      "desired_outcome": "Generate and prove a source-specific DTCG token system.",
+      "audience_task": "Reviewers must verify every token, omission, variant, and claim."
+    },
+    "sources": [
+      {
+        "source_id": "ref-brief",
+        "roles": ["authoritative-target", "product-context-source", "content-source"],
+        "decision_authority": "binding",
+        "allowed_influence": [
+          "exact-values",
+          "structural-relationships",
+          "semantic-roles",
+          "state-behavior",
+          "content-constraints",
+          "accessibility-constraints"
+        ],
+        "target_scope": ["whole-system", "proof-artifact"],
+        "confidence_basis": "source-declaration"
+      }
+    ],
+    "conflicts": []
+  },
+  "possibility_ledger": {
+    "catalog_version": "1.0.0",
+    "default": {
+      "disposition": "not_observed",
+      "reason": "The binding source does not declare this possibility.",
+      "evidence": "ref-brief",
+      "stage": "evidence"
+    },
+    "overrides": [
+      {
+        "id": "representation-layer/primitive",
+        "disposition": "included",
+        "reason": "The source declares literal foundation values.",
+        "evidence": "ref-brief",
+        "stage": "representation",
+        "tokens": ["foundation.color.night"]
+      },
+      {
+        "id": "representation-layer/semantic",
+        "disposition": "included",
+        "reason": "Operational roles require semantic aliases.",
+        "evidence": "ref-brief",
+        "stage": "representation",
+        "tokens": ["semantic.color.activeRoute"]
+      },
+      {
+        "id": "dtcg-type/color",
+        "disposition": "included",
+        "reason": "The source declares field and signal colors.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.color.night", "semantic.color.activeRoute"]
+      },
+      {
+        "id": "dtcg-type/dimension",
+        "disposition": "included",
+        "reason": "The source declares rhythm, corner, and target dimensions.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.space.micro", "foundation.space.target"]
+      },
+      {
+        "id": "dtcg-type/fontFamily",
+        "disposition": "included",
+        "reason": "Control and data roles need separate families.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.font.control", "foundation.font.data"]
+      },
+      {
+        "id": "dtcg-type/fontWeight",
+        "disposition": "included",
+        "reason": "Normal, signal, and alarm emphasis are declared.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": [
+          "foundation.font.regular",
+          "foundation.font.signal",
+          "foundation.font.alarm"
+        ]
+      },
+      {
+        "id": "dtcg-type/duration",
+        "disposition": "included",
+        "reason": "Status and handoff timing are declared.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.motion.snap", "foundation.motion.handoff"]
+      },
+      {
+        "id": "dtcg-type/cubicBezier",
+        "disposition": "included",
+        "reason": "Direct and settle curves distinguish state change.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.motion.direct", "foundation.motion.settle"]
+      },
+      {
+        "id": "dtcg-type/number",
+        "disposition": "included",
+        "reason": "Line-height and muted opacity values are required.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": [
+          "foundation.number.bodyLine",
+          "foundation.number.displayLine",
+          "foundation.number.mutedOpacity"
+        ]
+      },
+      {
+        "id": "dtcg-type/strokeStyle",
+        "disposition": "included",
+        "reason": "The instrument rail uses a solid stroke.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.stroke.rail"]
+      },
+      {
+        "id": "dtcg-type/border",
+        "disposition": "included",
+        "reason": "Signal boundaries require a composite border.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.border.signal"]
+      },
+      {
+        "id": "dtcg-type/transition",
+        "disposition": "included",
+        "reason": "Status motion needs a full transition value.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.transition.status"]
+      },
+      {
+        "id": "dtcg-type/shadow",
+        "disposition": "included",
+        "reason": "Raised operational layers need bounded depth.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.shadow.raised"]
+      },
+      {
+        "id": "dtcg-type/gradient",
+        "disposition": "included",
+        "reason": "Route progression has an ordered field-to-route specimen.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.gradient.routeFade"]
+      },
+      {
+        "id": "dtcg-type/typography",
+        "disposition": "included",
+        "reason": "Display and tabular data roles require composites.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.typography.display", "foundation.typography.data"]
+      },
+      {
+        "id": "design-family/color",
+        "disposition": "included",
+        "reason": "Operational states depend on exact color roles.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "semantic.color.text",
+          "semantic.color.activeRoute",
+          "semantic.color.timedRisk",
+          "semantic.color.maintenanceFault"
+        ]
+      },
+      {
+        "id": "design-family/typography",
+        "disposition": "included",
+        "reason": "Control and data reading tasks require type roles.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.typography.display", "foundation.typography.data"]
+      },
+      {
+        "id": "design-family/space",
+        "disposition": "included",
+        "reason": "The source declares a non-geometric rhythm.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "foundation.space.micro",
+          "foundation.space.control",
+          "foundation.space.cluster",
+          "foundation.space.section"
+        ]
+      },
+      {
+        "id": "design-family/size",
+        "disposition": "included",
+        "reason": "Touch target size is binding.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.space.target", "semantic.space.touchTarget"]
+      },
+      {
+        "id": "design-family/shape",
+        "disposition": "included",
+        "reason": "Two-pixel corners express instrument precision.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.space.corner"]
+      },
+      {
+        "id": "design-family/border",
+        "disposition": "included",
+        "reason": "Signal boundaries are required.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.border.signal"]
+      },
+      {
+        "id": "design-family/stroke",
+        "disposition": "included",
+        "reason": "One-pixel solid rails organize data.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.stroke.rail", "foundation.space.hairline"]
+      },
+      {
+        "id": "design-family/depth",
+        "disposition": "included",
+        "reason": "Raised layers need one bounded shadow.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.shadow.raised"]
+      },
+      {
+        "id": "design-family/motion",
+        "disposition": "included",
+        "reason": "Status and handoff behavior are time-based.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "foundation.motion.snap",
+          "foundation.motion.handoff",
+          "foundation.transition.status"
+        ]
+      },
+      {
+        "id": "design-family/data-display",
+        "disposition": "included",
+        "reason": "Controllers scan tabular values.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.font.data", "foundation.typography.data"]
+      },
+      {
+        "id": "design-family/accessibility",
+        "disposition": "included",
+        "reason": "Target size and contrast are binding.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "foundation.space.target",
+          "foundation.color.ice",
+          "foundation.color.night"
+        ]
+      },
+      {
+        "id": "design-family/interaction",
+        "disposition": "included",
+        "reason": "Status updates and touch targets support control work.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["semantic.space.touchTarget", "foundation.transition.status"]
+      },
+      {
+        "id": "design-family/product-state",
+        "disposition": "included",
+        "reason": "Active, risk, and fault states are distinct.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "semantic.color.activeRoute",
+          "semantic.color.timedRisk",
+          "semantic.color.maintenanceFault"
+        ]
+      },
+      {
+        "id": "role/palette",
+        "disposition": "included",
+        "reason": "The source declares seven palette values.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": [
+          "foundation.color.night",
+          "foundation.color.bay",
+          "foundation.color.ice",
+          "foundation.color.mist",
+          "foundation.color.route",
+          "foundation.color.risk",
+          "foundation.color.fault"
+        ]
+      },
+      {
+        "id": "role/text-primary",
+        "disposition": "included",
+        "reason": "Pale ice is the primary text role.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.text"]
+      },
+      {
+        "id": "role/text-secondary",
+        "disposition": "included",
+        "reason": "Mist is the supporting text role.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.secondaryText"]
+      },
+      {
+        "id": "role/surface-canvas",
+        "disposition": "included",
+        "reason": "Night is the instrument canvas.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.canvas"]
+      },
+      {
+        "id": "role/surface-raised",
+        "disposition": "included",
+        "reason": "Bay is the raised operational surface.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.surface", "foundation.shadow.raised"]
+      },
+      {
+        "id": "role/action-primary",
+        "disposition": "included",
+        "reason": "Active route carries primary action emphasis.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.activeRoute"]
+      },
+      {
+        "id": "role/warning",
+        "disposition": "included",
+        "reason": "Amber is reserved for timed risk.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.timedRisk"]
+      },
+      {
+        "id": "role/error",
+        "disposition": "included",
+        "reason": "Magenta identifies a maintenance fault.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.color.maintenanceFault"]
+      },
+      {
+        "id": "role/display",
+        "disposition": "included",
+        "reason": "Display typography announces primary operational state.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["foundation.typography.display"]
+      },
+      {
+        "id": "role/numeric",
+        "disposition": "included",
+        "reason": "Mono data typography supports tabular scanning.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["foundation.typography.data"]
+      },
+      {
+        "id": "role/base-rhythm",
+        "disposition": "included",
+        "reason": "The source declares four rhythm values.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": [
+          "foundation.space.micro",
+          "foundation.space.control",
+          "foundation.space.cluster",
+          "foundation.space.section"
+        ]
+      },
+      {
+        "id": "role/section-gap",
+        "disposition": "included",
+        "reason": "Twenty-nine pixels separates proof regions.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.space.sectionGap"]
+      },
+      {
+        "id": "role/touch-target",
+        "disposition": "included",
+        "reason": "The source declares a 44 pixel target.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["semantic.space.touchTarget"]
+      },
+      {
+        "id": "role/radius",
+        "disposition": "included",
+        "reason": "The source declares 2 pixel corners.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["foundation.space.corner"]
+      },
+      {
+        "id": "role/elevation",
+        "disposition": "included",
+        "reason": "One shadow distinguishes raised data.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["foundation.shadow.raised"]
+      },
+      {
+        "id": "role/transition",
+        "disposition": "included",
+        "reason": "Status changes use the declared transition.",
+        "evidence": "ref-brief",
+        "stage": "architecture",
+        "tokens": ["foundation.transition.status"]
+      },
+      {
+        "id": "state/default",
+        "disposition": "included",
+        "reason": "Canvas, surface, and text define default state.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.color.canvas", "semantic.color.surface", "semantic.color.text"]
+      },
+      {
+        "id": "state/selected",
+        "disposition": "included",
+        "reason": "The active route is the selected operational path.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.color.activeRoute"]
+      },
+      {
+        "id": "state/warning",
+        "disposition": "included",
+        "reason": "Timed risk is the warning state.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.color.timedRisk"]
+      },
+      {
+        "id": "state/error",
+        "disposition": "included",
+        "reason": "Maintenance fault is the error state.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.color.maintenanceFault"]
+      },
+      {
+        "id": "mode/dark",
+        "disposition": "included",
+        "reason": "The source declares a graphite control field.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.color.canvas", "semantic.color.text"]
+      },
+      {
+        "id": "mode/reduced-motion",
+        "disposition": "included",
+        "reason": "The artifact must expose a no-motion proof mode.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["foundation.motion.snap"]
+      },
+      {
+        "id": "mode/standard-motion",
+        "disposition": "included",
+        "reason": "Status and handoff motion are declared.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["foundation.transition.status"]
+      },
+      {
+        "id": "mode/narrow",
+        "disposition": "included",
+        "reason": "The proof is inspected at 390 pixels.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.space.touchTarget"]
+      },
+      {
+        "id": "mode/wide",
+        "disposition": "included",
+        "reason": "The proof is inspected at 1440 pixels.",
+        "evidence": "ref-brief",
+        "stage": "variants",
+        "tokens": ["semantic.space.sectionGap"]
+      },
+      {
+        "id": "context/audience",
+        "disposition": "included",
+        "reason": "Ramp coordinators are explicit.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.typography.data"]
+      },
+      {
+        "id": "context/user-task",
+        "disposition": "included",
+        "reason": "Five operational tasks are explicit.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "semantic.color.activeRoute",
+          "semantic.color.timedRisk",
+          "semantic.color.maintenanceFault"
+        ]
+      },
+      {
+        "id": "context/environment",
+        "disposition": "included",
+        "reason": "Airfield ground control is explicit.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["semantic.color.canvas", "semantic.color.text"]
+      },
+      {
+        "id": "context/urgency",
+        "disposition": "included",
+        "reason": "Timed risk and maintenance fault require fast distinction.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["semantic.color.timedRisk", "semantic.color.maintenanceFault"]
+      },
+      {
+        "id": "context/safety",
+        "disposition": "included",
+        "reason": "Operational risk makes state clarity safety-relevant.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["foundation.color.risk", "foundation.color.fault"]
+      },
+      {
+        "id": "context/device-independent-use",
+        "disposition": "included",
+        "reason": "Wide and narrow proof widths are required.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": ["semantic.space.touchTarget", "semantic.space.sectionGap"]
+      },
+      {
+        "id": "context/accessibility-need",
+        "disposition": "included",
+        "reason": "Target size, contrast, and reduced motion are required.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "foundation.space.target",
+          "foundation.motion.snap",
+          "foundation.color.ice"
+        ]
+      },
+      {
+        "id": "context/product-mode",
+        "disposition": "included",
+        "reason": "Active route, timed risk, and maintenance fault are product modes.",
+        "evidence": "ref-brief",
+        "stage": "context",
+        "tokens": [
+          "semantic.color.activeRoute",
+          "semantic.color.timedRisk",
+          "semantic.color.maintenanceFault"
+        ]
+      },
+      {
+        "id": "value-domain-partition/valid-structure",
+        "disposition": "included",
+        "reason": "All supplied tokens pass DTCG validation.",
+        "evidence": "validator",
+        "stage": "tokens",
+        "tokens": ["foundation.color.night"]
+      },
+      {
+        "id": "value-domain-partition/literal",
+        "disposition": "included",
+        "reason": "Foundation values are literal.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.color.night", "foundation.space.micro"]
+      },
+      {
+        "id": "value-domain-partition/alias",
+        "disposition": "included",
+        "reason": "Semantic values alias foundation values.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["semantic.color.canvas", "semantic.space.sectionGap"]
+      },
+      {
+        "id": "value-domain-partition/single",
+        "disposition": "included",
+        "reason": "Primitive values include single-value types.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.font.signal", "foundation.motion.snap"]
+      },
+      {
+        "id": "value-domain-partition/composite",
+        "disposition": "included",
+        "reason": "Border, transition, shadow, gradient, and typography are composites.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": [
+          "foundation.border.signal",
+          "foundation.transition.status",
+          "foundation.shadow.raised",
+          "foundation.gradient.routeFade",
+          "foundation.typography.display"
+        ]
+      },
+      {
+        "id": "value-domain-partition/negative",
+        "disposition": "included",
+        "reason": "Shadow spread includes a negative boundary case.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.shadow.raised"]
+      },
+      {
+        "id": "value-domain-partition/zero",
+        "disposition": "included",
+        "reason": "Transition delay and shadow offset include zero.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.transition.status", "foundation.shadow.raised"]
+      },
+      {
+        "id": "value-domain-partition/positive",
+        "disposition": "included",
+        "reason": "Dimensions, durations, weights, and ratios include positive values.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": [
+          "foundation.space.target",
+          "foundation.motion.snap",
+          "foundation.font.signal",
+          "foundation.number.bodyLine"
+        ]
+      },
+      {
+        "id": "value-domain-partition/boundary",
+        "disposition": "included",
+        "reason": "Gradient positions include zero and one.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.gradient.routeFade"]
+      },
+      {
+        "id": "value-domain-partition/ordered-member",
+        "disposition": "included",
+        "reason": "Gradient stops and cubic curves are ordered.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": ["foundation.gradient.routeFade", "foundation.motion.direct"]
+      },
+      {
+        "id": "value-domain-partition/unit-or-color-space",
+        "disposition": "included",
+        "reason": "Dimensions, durations, and colors declare units or color space.",
+        "evidence": "ref-brief",
+        "stage": "tokens",
+        "tokens": [
+          "foundation.space.micro",
+          "foundation.motion.snap",
+          "foundation.color.night"
+        ]
+      }
+    ],
+    "extensions": [
+      {
+        "id": "extension/experimental-route-softening",
+        "disposition": "included",
+        "experimental": true,
+        "reason": "Retain a lower-glare route signal candidate without assigning it to a production semantic role.",
+        "evidence": "ref-brief plus exploration requirement",
+        "stage": "tokens",
+        "tokens": ["experimental.tokens.route-signal-softening"]
+      },
+      {
+        "id": "extension/experimental-risk-pulse",
+        "disposition": "included",
+        "experimental": true,
+        "reason": "Retain one intermediate motion candidate for direct comparison without replacing the declared status transition.",
+        "evidence": "ref-brief plus exploration requirement",
+        "stage": "tokens",
+        "tokens": ["experimental.tokens.risk-pulse-duration"]
+      }
+    ]
+  },
+  "context_requirements": [
+    {
+      "id": "req-color-state",
+      "statement": "Render the full field palette and preserve the active, risk, and fault assignments.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "design-family/color",
+        "role/palette",
+        "role/text-primary",
+        "role/text-secondary",
+        "role/surface-canvas",
+        "role/surface-raised",
+        "role/action-primary",
+        "role/warning",
+        "role/error"
+      ],
+      "tokens": [
+        "foundation.color.bay",
+        "foundation.color.fault",
+        "foundation.color.ice",
+        "foundation.color.mist",
+        "foundation.color.night",
+        "foundation.color.risk",
+        "foundation.color.route",
+        "semantic.color.activeRoute",
+        "semantic.color.canvas",
+        "semantic.color.maintenanceFault",
+        "semantic.color.secondaryText",
+        "semantic.color.surface",
+        "semantic.color.text",
+        "semantic.color.timedRisk"
+      ]
+    },
+    {
+      "id": "req-spacing",
+      "statement": "Use only the declared rhythm, hairline, corner, and target dimensions.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "design-family/space",
+        "design-family/size",
+        "design-family/shape",
+        "role/base-rhythm",
+        "role/section-gap",
+        "role/touch-target",
+        "role/radius"
+      ],
+      "tokens": [
+        "foundation.space.cluster",
+        "foundation.space.control",
+        "foundation.space.corner",
+        "foundation.space.hairline",
+        "foundation.space.micro",
+        "foundation.space.section",
+        "foundation.space.target",
+        "semantic.space.sectionGap",
+        "semantic.space.touchTarget"
+      ]
+    },
+    {
+      "id": "req-type",
+      "statement": "Separate control copy, tabular data, signal emphasis, and alarm emphasis without serif type.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "design-family/typography",
+        "design-family/data-display",
+        "role/display",
+        "role/numeric"
+      ],
+      "tokens": [
+        "foundation.font.alarm",
+        "foundation.font.control",
+        "foundation.font.data",
+        "foundation.font.regular",
+        "foundation.font.signal",
+        "foundation.number.bodyLine",
+        "foundation.number.displayLine",
+        "foundation.number.mutedOpacity",
+        "foundation.typography.data",
+        "foundation.typography.display"
+      ]
+    },
+    {
+      "id": "req-motion",
+      "statement": "Show direct status motion, handoff motion, and the reduced-motion disposition.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "design-family/motion",
+        "role/transition",
+        "mode/reduced-motion",
+        "mode/standard-motion"
+      ],
+      "tokens": [
+        "foundation.motion.direct",
+        "foundation.motion.handoff",
+        "foundation.motion.settle",
+        "foundation.motion.snap",
+        "foundation.transition.status"
+      ]
+    },
+    {
+      "id": "req-structure",
+      "statement": "Use bounded rails, signal border, route gradient, and raised depth only where they explain structure.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "design-family/border",
+        "design-family/stroke",
+        "design-family/depth",
+        "role/elevation"
+      ],
+      "tokens": [
+        "foundation.border.signal",
+        "foundation.gradient.routeFade",
+        "foundation.shadow.raised",
+        "foundation.stroke.rail"
+      ]
+    },
+    {
+      "id": "req-experimental-output",
+      "statement": "Retain and visibly inspect at least one source-adjacent color experiment and one motion experiment without implying production approval.",
+      "source_ids": ["ref-brief"],
+      "confidence": "high",
+      "possibilities": [
+        "extension/experimental-route-softening",
+        "extension/experimental-risk-pulse"
+      ],
+      "tokens": [
+        "experimental.tokens.route-signal-softening",
+        "experimental.tokens.risk-pulse-duration"
+      ]
+    }
+  ],
+  "permutation_space": {
+    "axes": [
+      { "id": "mode", "values": ["dark", "forced-colors"] },
+      { "id": "width", "values": ["narrow", "wide"] },
+      { "id": "motion", "values": ["standard", "reduced"] },
+      { "id": "state", "values": ["default", "active", "risk", "fault"] }
+    ],
+    "groups": [
+      { "id": "surface-states", "axes": ["mode", "width"] },
+      { "id": "status", "axes": ["state", "width"] },
+      { "id": "motion", "axes": ["motion", "state"] }
+    ],
+    "exclusions": []
+  },
+  "experimental_output": {
+    "policy_version": "1.0",
+    "strategy_catalog_version": "1.0.0",
+    "required": true,
+    "minimum_retained_tokens": 2,
+    "minimum_distinct_strategies": 2,
+    "entries": [
+      {
+        "path": "experimental.tokens.route-signal-softening",
+        "experiment_id": "exp-route-softening",
+        "exploration_strategy": "boundary_probe",
+        "hypothesis": "A softened route signal may reduce prolonged glare while remaining distinct from the canvas.",
+        "intended_context": "Secondary monitoring only; not assigned to the primary active-route role.",
+        "status": "retained_unproven",
+        "artifact_disposition": "visible_specimen_required",
+        "invariant_disposition": "not_used_experimental"
+      },
+      {
+        "path": "experimental.tokens.risk-pulse-duration",
+        "experiment_id": "exp-risk-pulse",
+        "exploration_strategy": "temporal_behavior_probe",
+        "hypothesis": "An intermediate pulse may improve risk-change perception without feeling sluggish.",
+        "intended_context": "Experimental timed-risk comparison with reduced-motion fallback required.",
+        "status": "active_experiment",
+        "artifact_disposition": "visible_specimen_required",
+        "invariant_disposition": "not_used_experimental"
+      }
+    ]
+  },
+  "temporal_context": {
+    "anchor": {
+      "captured_at": "2026-08-27T10:23:03-04:00",
+      "date": "2026-08-27",
+      "weekday": "Thursday",
+      "timezone": "EDT",
+      "utc_offset": "-04:00",
+      "source": "system-local"
+    },
+    "pinned_specification": "DTCG 2025.10",
+    "current_specification": "DTCG 2025.10",
+    "current_sources": [
+      {
+        "id": "dtcg-current",
+        "url": "https://www.designtokens.org/tr/drafts/format/",
+        "retrieved_at": "2026-08-27T09:30:00-04:00",
+        "primary": true,
+        "status": "verified"
+      }
+    ]
+  },
+  "artifact_review": {
+    "status": "pending_visual_review",
+    "vision_executor": { "capability": "strong-native-vision", "mode": "active" },
+    "viewports": [],
+    "defect_review": {
+      "catalog_version": "1.0.0",
+      "status": "pending_visual_review",
+      "reviewed_ids": [],
+      "findings": [],
+      "unresolved_veto_count": 0,
+      "unresolved_major_count": 0
+    },
+    "invariant_review": {
+      "catalog_version": "1.0.0",
+      "status": "pending_visual_review",
+      "entries": []
+    },
+    "judgment_reviews": { "catalog_version": "1.0.0", "tracks": [] },
+    "experimental_review": {
+      "status": "pending_visual_review",
+      "reviewed_paths": [],
+      "findings": "Pending visible specimen and use-boundary review."
+    },
+    "final_readback": {
+      "status": "pending_visual_review",
+      "reviewed_surface_sha256": null,
+      "artifact_locator": null,
+      "reviewed_after_final_assembly": false
+    }
+  },
+  "comparison": {
+    "scope": "declared-corpus",
+    "corpus_name": "sample design directive plus anti-reference clauses",
+    "items_compared": 1,
+    "method": "source-clause and normalized token-graph comparison",
+    "result": "Every signature decision maps to a source clause; no comparison item collides with the output graph."
+  },
+  "claims": {
+    "dtcg_conformant": true,
+    "non_slop": "pending_visual_review",
+    "original_within_scope": "pending_visual_review",
+    "taste_pass": "pending_visual_review",
+    "non_ai_slop": "pending_visual_review",
+    "unique_within_declared_corpus": "pending_visual_review",
+    "invariants_satisfied": "pending_visual_review",
+    "globally_unique": false
+  },
+  "limits": ["Global uniqueness cannot be proved without an exhaustive comparison corpus."]
+}

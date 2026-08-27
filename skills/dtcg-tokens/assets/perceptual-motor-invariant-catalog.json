@@ -1,0 +1,495 @@
+{
+  "catalog_version": "1.0.0",
+  "as_of": "2026-08-27",
+  "domains": [
+    "visual_perception",
+    "cognitive_comprehension",
+    "motor_touch",
+    "cross_context"
+  ],
+  "decision_policy": {
+    "scope": "minimum_relational_invariants",
+    "style_neutral": true,
+    "contextual_values_required": true,
+    "token_file_alone_can_pass": false,
+    "experimental_branches_allowed": true,
+    "invariants_gate_published_use_not_token_existence": true,
+    "rule": "The token set may contain conventional, experimental, speculative, and previously unseen values. An invariant applies only to a claimed use in a rendered context. The rendered use must preserve the invariant's human outcome, but its form and exact values remain source- and task-dependent.",
+    "applicability": "Start with every invariant. Narrow each to applied, rejected, deferred, or not applicable with source-backed reasons.",
+    "failure": "One failed applicable invariant blocks a clean published-use pass for that context. It does not block generating, retaining, comparing, or learning from the experimental token branch.",
+    "boundary": "These are minimum human-outcome relations, not a house style, a preference for familiar patterns, or a claim that subjective taste can be reduced to physiology. Novel composition, unusual scales, unfamiliar interaction, expressive type, new materials, and new token extensions remain allowed when equivalent access and meaning are proved."
+  },
+  "creative_exception_protocol": {
+    "preserve_intent": "State the human outcome protected by the invariant rather than copying a familiar implementation.",
+    "name_experiment": "Describe the unconventional relation, the question it explores, and the affected token paths.",
+    "prove_equivalent_access": "Provide an equally effective path for required perception, comprehension, or action when the experimental form cannot carry it alone.",
+    "test_real_render": "Use strong native vision and relevant machine measurements on the actual wide, narrow, state, mode, and input contexts.",
+    "record_tradeoff": "Record gains, costs, counterevidence, failed contexts, and the exact boundary of any pass.",
+    "retain_unknowns": "Keep unresolved experiments and novel token branches in evidence with partial or blocked status instead of deleting them to force conformity."
+  },
+  "invariants": [
+    {
+      "id": "VP-CONTRAST-001",
+      "domain": "visual_perception",
+      "invariant": "Required marks remain distinguishable from their effective backgrounds.",
+      "applies_when": "Any text, control, focus indicator, state boundary, or essential graphic is visible.",
+      "token_feasibility_check": "Resolve foreground, background, opacity, overlay, and mode tokens and compute every applicable contrast pair.",
+      "render_check": "Inspect worst-case effective backgrounds, states, gradients, images, and responsive crops at final size.",
+      "pass_condition": "Text and essential non-text contrast meet current WCAG 2.2 thresholds and remain visibly legible.",
+      "failure_condition": "Any required mark falls below its threshold or disappears against an allowed background.",
+      "allowed_exception": "Only the relevant WCAG exceptions apply; decorative content cannot carry required meaning.",
+      "required_evidence": "Token pairs, resolved values, ratios, state, viewport, and located screenshot."
+    },
+    {
+      "id": "VP-FIGURE-GROUND-001",
+      "domain": "visual_perception",
+      "invariant": "Foreground information separates clearly from background and neighboring layers.",
+      "applies_when": "Content uses containers, overlays, images, translucency, shadows, borders, or layered depth.",
+      "token_feasibility_check": "Verify surface, border, shadow, scrim, and content tokens provide distinct relational roles across modes.",
+      "render_check": "Inspect all layer boundaries in grayscale, high contrast, and actual color at wide and narrow sizes.",
+      "pass_condition": "Required content has one unambiguous visual plane and layer ownership.",
+      "failure_condition": "Content merges with background, belongs to two planes, or appears behind an incorrect layer.",
+      "allowed_exception": "Deliberate ambiguity is allowed only for noninteractive ornament that carries no required information.",
+      "required_evidence": "Layer map, token roles, grayscale and color regions, and ownership finding."
+    },
+    {
+      "id": "VP-GROUPING-001",
+      "domain": "visual_perception",
+      "invariant": "Visual grouping matches semantic ownership and task relationships.",
+      "applies_when": "Two or more items form regions, components, lists, comparisons, or parent-child structures.",
+      "token_feasibility_check": "Verify spacing, divider, surface, and heading tokens offer at least one reliable distinction between within-group and between-group relations.",
+      "render_check": "Compare proximity, containment, alignment, and shared treatment with the semantic graph.",
+      "pass_condition": "Related items read together and unrelated items remain visibly separate without relying on prose repair.",
+      "failure_condition": "Proximity or styling creates a false group, breaks a real group, or leaves ownership ambiguous.",
+      "allowed_exception": "Cross-cutting comparison may regroup content when the alternate relationship is labeled and remains unambiguous.",
+      "required_evidence": "Semantic graph, spacing relations, rendered groups, and ambiguous cases."
+    },
+    {
+      "id": "VP-HIERARCHY-001",
+      "domain": "visual_perception",
+      "invariant": "Visual salience follows information and action priority.",
+      "applies_when": "The artifact contains more than one level of information or more than one possible action.",
+      "token_feasibility_check": "Verify type, color, size, spacing, emphasis, and elevation tokens can express every required priority level without collisions.",
+      "render_check": "Record first, second, and third attention targets at thumbnail and actual size and compare with task order.",
+      "pass_condition": "The attention sequence matches the required reading and decision sequence.",
+      "failure_condition": "Decoration, metadata, or low-priority content outranks decisions, failures, evidence, or primary actions.",
+      "allowed_exception": "A summary may lead when its status, scope, and evidence path remain equally clear.",
+      "required_evidence": "Priority map, salience tokens, attention sequence, viewports, and screenshots."
+    },
+    {
+      "id": "VP-DIFFERENTIATION-001",
+      "domain": "visual_perception",
+      "invariant": "Materially different roles and states are visually distinguishable.",
+      "applies_when": "Two or more semantic roles, data categories, states, or interaction conditions coexist.",
+      "token_feasibility_check": "Resolve each role-state combination and identify independent differences in color, shape, position, label, pattern, or border.",
+      "render_check": "Compare adjacent and separated specimens in color, grayscale, and common color-vision simulations.",
+      "pass_condition": "A reviewer can identify each role or state without guessing and without color as the sole cue.",
+      "failure_condition": "Distinct roles collapse visually or the same appearance carries conflicting meanings.",
+      "allowed_exception": "Equivalent roles may share appearance only when the system explicitly declares them equivalent in that context.",
+      "required_evidence": "Role-state matrix, token differences, simulation captures, and identification result."
+    },
+    {
+      "id": "VP-ALIGNMENT-001",
+      "domain": "visual_perception",
+      "invariant": "Alignment provides stable visual axes for scanning and comparison.",
+      "applies_when": "Related text, controls, values, or regions repeat or form sequences.",
+      "token_feasibility_check": "Verify layout, grid, inset, gap, and component anatomy tokens define shared axes or documented optical corrections.",
+      "render_check": "Overlay axes and baselines across repeated items at every supported viewport.",
+      "pass_condition": "Related items share clear alignment or use a consistent source-backed alternate alignment rule.",
+      "failure_condition": "Drift, near-alignment, or arbitrary offsets increase scan effort or imply false grouping.",
+      "allowed_exception": "Optical correction may deviate from geometry when consistently applied and visibly improves alignment.",
+      "required_evidence": "Token rules, overlay guides, measured offsets, viewports, and optical rationale."
+    },
+    {
+      "id": "VP-LEGIBILITY-001",
+      "domain": "visual_perception",
+      "invariant": "Required symbols and characters remain recognizable at intended scale.",
+      "applies_when": "Text, numerals, icons, strokes, charts, or small graphic marks carry meaning.",
+      "token_feasibility_check": "Check font size, weight, line height, tracking, stroke width, icon size, and density tokens against their use contexts.",
+      "render_check": "Inspect at 100 percent, expected viewing distance, lowest supported resolution, and narrowest viewport.",
+      "pass_condition": "Characters, symbols, and values can be read and distinguished without zoom as a prerequisite.",
+      "failure_condition": "Thinness, size, blur, crowding, crop, or texture makes a required mark unreliable to recognize.",
+      "allowed_exception": "Decorative marks may be illegible only when they have no textual or semantic role.",
+      "required_evidence": "Token paths, computed styles, actual-size captures, viewport, and transcription test."
+    },
+    {
+      "id": "VP-COLOR-REDUNDANCY-001",
+      "domain": "visual_perception",
+      "invariant": "Hue reinforces but does not solely encode required information.",
+      "applies_when": "Color differentiates status, selection, category, progression, error, or comparison.",
+      "token_feasibility_check": "Verify every semantic color role has a redundant text, icon, shape, pattern, position, or border cue token or component rule.",
+      "render_check": "Remove hue and inspect all information-bearing states in grayscale and color-vision simulations.",
+      "pass_condition": "Every required distinction survives without hue.",
+      "failure_condition": "Meaning, status, or selection disappears when color differences are removed.",
+      "allowed_exception": "Decorative palette variation may rely on hue when no meaning or action depends on it.",
+      "required_evidence": "Semantic color map, redundant cues, grayscale and simulation results."
+    },
+    {
+      "id": "VP-FOCAL-COMPETITION-001",
+      "domain": "visual_perception",
+      "invariant": "The number and strength of focal events fit the task sequence.",
+      "applies_when": "Multiple high-contrast, large, moving, or saturated elements coexist.",
+      "token_feasibility_check": "Inventory emphasis, accent, display type, elevation, and motion tokens and map each to a priority role.",
+      "render_check": "Review whole-frame visual mass and five-second attention sequence across states.",
+      "pass_condition": "One dominant focal event or a deliberate ordered set guides attention without masking evidence.",
+      "failure_condition": "Several unrelated elements compete equally or no element provides a starting point.",
+      "allowed_exception": "Parallel comparison views may use balanced focal weight when comparison is the primary task.",
+      "required_evidence": "Emphasis inventory, priority roles, attention sequence, and whole-frame captures."
+    },
+
+    {
+      "id": "CC-MAPPING-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Visual roles map consistently to semantic roles and actions.",
+      "applies_when": "A token, component, icon, color, shape, or position repeats across contexts.",
+      "token_feasibility_check": "Build a bidirectional map from semantic roles to visual tokens and flag one-to-many or conflicting mappings.",
+      "render_check": "Compare every repeated cue across pages, sections, modes, and states.",
+      "pass_condition": "The same cue carries the same meaning, and the same function remains recognizably identified.",
+      "failure_condition": "A cue changes meaning without an explicit transformation rule or one meaning uses conflicting cues.",
+      "allowed_exception": "Contextual variation may pass when the context is visible and the transformation rule is stable.",
+      "required_evidence": "Role-token graph, rendered occurrences, conflicts, and transformation rules."
+    },
+    {
+      "id": "CC-STATE-UNAMBIGUITY-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Current state, available action, and state change are unambiguous.",
+      "applies_when": "Controls, navigation, selection, validation, loading, or data status can change.",
+      "token_feasibility_check": "Verify every applicable state resolves to at least one stable visible difference and an accurate label where needed.",
+      "render_check": "Review states side by side and in transition, including keyboard, touch, and reduced-motion conditions.",
+      "pass_condition": "A reviewer identifies current state, what can happen next, and the result of action without guessing.",
+      "failure_condition": "States look identical, conflict with labels, or change without clear feedback.",
+      "allowed_exception": "Momentary transition states may be subtle when immediate stable feedback follows and no decision depends on the moment.",
+      "required_evidence": "State matrix, token values, transition captures, labels, and identification results."
+    },
+    {
+      "id": "CC-ERROR-PRIORITY-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Errors and blocking conditions outrank decorative and success content.",
+      "applies_when": "Failure, invalid input, missing evidence, blocked work, or risk can occur.",
+      "token_feasibility_check": "Verify error and blocked roles include salience, readable contrast, text, and relation to the affected item.",
+      "render_check": "Trigger each failure and inspect first view, focus movement, relationship, recovery, and narrow layout.",
+      "pass_condition": "The failure is noticed, understood, located, and recoverable before a pass or success claim can be mistaken as current.",
+      "failure_condition": "Failure is buried, color-only, detached, vague, or visually weaker than irrelevant content.",
+      "allowed_exception": "Nonblocking warnings may use lower salience when their scope and later access remain clear.",
+      "required_evidence": "Failure tokens, triggered state, attention order, affected item, and recovery path."
+    },
+    {
+      "id": "CC-CONSISTENT-ID-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "The same component or function is identified consistently.",
+      "applies_when": "A function, object, status, or component appears more than once.",
+      "token_feasibility_check": "Compare naming, icon, anatomy, state, and role tokens across all occurrences.",
+      "render_check": "Place occurrences side by side and test recognition with surrounding context removed.",
+      "pass_condition": "Repeated functions remain recognizably the same while contextual variants remain explainable.",
+      "failure_condition": "The same function changes appearance or name enough to be mistaken for a different one.",
+      "allowed_exception": "A source-backed variant may differ when a visible shared invariant preserves recognition.",
+      "required_evidence": "Occurrence inventory, token comparison, context-free recognition test, and variants."
+    },
+    {
+      "id": "CC-LABEL-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Labels predict topic, purpose, state, or action accurately.",
+      "applies_when": "Headings, controls, legends, statuses, links, or input labels are present.",
+      "token_feasibility_check": "Verify label roles exist and pair with the owned content or control in the component anatomy.",
+      "render_check": "Read each label without surrounding prose and compare the prediction with its actual content or result.",
+      "pass_condition": "Labels are concise, specific, and accurate enough to orient and act.",
+      "failure_condition": "A label is vague, decorative, inconsistent, or predicts the wrong content or action.",
+      "allowed_exception": "Expressive labels may pass when an adjacent plain label preserves exact meaning.",
+      "required_evidence": "Label-role tokens, label text, owned content, prediction test, and alternate label."
+    },
+    {
+      "id": "CC-DISCLOSURE-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Information depth increases without hiding status, scope, or recovery.",
+      "applies_when": "Content volume requires summaries, tabs, accordions, drill-down, or raw-data disclosure.",
+      "token_feasibility_check": "Verify summary, detail, disclosure, status, and navigation roles remain distinguishable and linked.",
+      "render_check": "Attempt key tasks at summary level, then open details and return without losing context or focus.",
+      "pass_condition": "Readers can get status quickly and inspect full evidence without a dead end or memory burden.",
+      "failure_condition": "The page is either an undifferentiated dump or hides material evidence behind unclear controls.",
+      "allowed_exception": "Small artifacts may present all content at once when scan order and density remain sound.",
+      "required_evidence": "Information layers, token roles, task attempts, focus behavior, and screenshots."
+    },
+    {
+      "id": "CC-RECOGNITION-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Required choices rely on visible recognition cues rather than memory of hidden state.",
+      "applies_when": "Users compare values, return to prior sections, choose states, or act on source evidence.",
+      "token_feasibility_check": "Verify selected, previous, current, related, and reference roles can remain visible where the task needs comparison.",
+      "render_check": "Run comparison and return tasks without relying on remembered offscreen values.",
+      "pass_condition": "Relevant choices, labels, units, and prior state are visible or directly retrievable at decision time.",
+      "failure_condition": "Users must remember hidden values, mappings, instructions, or prior state to avoid error.",
+      "allowed_exception": "Learned shortcuts may rely on commands when a visible equivalent remains available.",
+      "required_evidence": "Task, hidden dependencies, visible cues, token roles, and completion result."
+    },
+    {
+      "id": "CC-CAUSE-EFFECT-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "The relationship between an action and its affected content is visible.",
+      "applies_when": "A control changes, filters, expands, copies, navigates, or validates content.",
+      "token_feasibility_check": "Verify control, target, selection, feedback, and transition roles define one perceivable relationship.",
+      "render_check": "Activate each control and observe proximity, motion, focus, labeling, and resulting state.",
+      "pass_condition": "The user can identify what changed, where, and whether the intended action succeeded.",
+      "failure_condition": "Feedback is absent, distant, ambiguous, or visually unrelated to the control.",
+      "allowed_exception": "Global actions may affect multiple regions when the scope is stated before activation and results are summarized.",
+      "required_evidence": "Control-target map, before-after states, focus, feedback, and task result."
+    },
+    {
+      "id": "CC-CHOICE-LOAD-001",
+      "domain": "cognitive_comprehension",
+      "invariant": "Simultaneous choices and signals are bounded by the task's actual decision structure.",
+      "applies_when": "Several actions, statuses, filters, metrics, or comparison dimensions appear together.",
+      "token_feasibility_check": "Map priority and grouping tokens to the decision tree and flag equal treatment of unrelated branches.",
+      "render_check": "Review the first viewport and each decision point for competing actions and irrelevant signals.",
+      "pass_condition": "At each point, primary choices are clear and secondary choices remain available without competing equally.",
+      "failure_condition": "Every option is equally prominent, irrelevant options appear early, or choices lack grouping and consequence cues.",
+      "allowed_exception": "High-frequency control panels may expose many choices when grouping, labels, defaults, and stable position support rapid scanning.",
+      "required_evidence": "Decision tree, visible choices, priority tokens, audience, and scan result."
+    },
+
+    {
+      "id": "MT-TARGET-SIZE-001",
+      "domain": "motor_touch",
+      "invariant": "Pointer targets meet the platform-neutral accessibility floor.",
+      "applies_when": "Any author-created control can be activated by pointer or touch.",
+      "token_feasibility_check": "Resolve control size, icon button, padding, minimum-size, and component anatomy tokens for every target state.",
+      "render_check": "Measure actual clickable bounds, not visible glyphs, at every viewport and state.",
+      "pass_condition": "Each target contains a 24 by 24 CSS pixel square or satisfies a current WCAG 2.2 Target Size Minimum exception.",
+      "failure_condition": "A target is undersized and fails every spacing, equivalent, inline, user-agent, and essential exception.",
+      "allowed_exception": "Only the current WCAG 2.2 exceptions apply and must be recorded per target.",
+      "required_evidence": "Token paths, target bounds, clickable bounds, viewport, neighbor geometry, and exception result."
+    },
+    {
+      "id": "MT-TARGET-SPACING-001",
+      "domain": "motor_touch",
+      "invariant": "Undersized or adjacent targets provide enough separation to avoid accidental activation.",
+      "applies_when": "Two or more pointer targets are near each other or one is below 24 by 24 CSS pixels.",
+      "token_feasibility_check": "Resolve gaps, hit-area expansion, inline-link, and component-spacing tokens for neighboring targets.",
+      "render_check": "Place a 24 CSS pixel diameter circle at each undersized target's bounding-box center and compare intersections.",
+      "pass_condition": "Targets meet size or their required spacing circles do not intersect another target or undersized-target circle.",
+      "failure_condition": "Undersized neighboring targets create overlapping activation-risk regions without another valid exception.",
+      "allowed_exception": "Inline, equivalent, user-agent, and essential exceptions follow current WCAG 2.2 rules.",
+      "required_evidence": "Target and neighbor bounds, circle geometry, token gaps, viewport, and exception."
+    },
+    {
+      "id": "MT-FOCUS-001",
+      "domain": "motor_touch",
+      "invariant": "Keyboard focus is visible, persistent, and not obscured.",
+      "applies_when": "Any interaction is keyboard operable or receives focus.",
+      "token_feasibility_check": "Verify focus color, outline, offset, thickness, background, and layering tokens work across all component surfaces and modes.",
+      "render_check": "Traverse every target by keyboard with sticky layers, overlays, and modes active.",
+      "pass_condition": "Focus remains visible, identifiable, and at least partially unobscured for every focused component.",
+      "failure_condition": "Focus disappears, blends in, clips, is covered, or cannot be followed through the task.",
+      "allowed_exception": "An unmodified user-agent focus indicator may pass when it remains visibly effective in the tested environment.",
+      "required_evidence": "Focus token values, sequence, contrast, layer state, viewports, and screenshots."
+    },
+    {
+      "id": "MT-POINTER-CANCEL-001",
+      "domain": "motor_touch",
+      "invariant": "Pointer activation permits cancellation before destructive or consequential completion.",
+      "applies_when": "A single-pointer action performs a function on down-event or can cause accidental activation.",
+      "token_feasibility_check": "Verify pressed, armed, active, cancel, and confirmation states can be represented distinctly.",
+      "render_check": "Press, move away, release, and repeat with touch and pointer for each consequential target.",
+      "pass_condition": "Down-event does not irreversibly complete the action, or release-away cancels, undo exists, or completion requires confirmation.",
+      "failure_condition": "Accidental contact immediately causes an irreversible or difficult-to-reverse action.",
+      "allowed_exception": "Essential down-event behavior may pass only when no safer interaction can preserve the function.",
+      "required_evidence": "State tokens, event sequence, cancellation result, consequence, and essentiality rationale."
+    },
+    {
+      "id": "MT-DRAG-ALTERNATIVE-001",
+      "domain": "motor_touch",
+      "invariant": "Dragging has a simple pointer alternative.",
+      "applies_when": "Any function uses drag-and-drop, sliders, sorting, panning, or path-based pointer movement.",
+      "token_feasibility_check": "Verify selected, move, increment, destination, and feedback roles support a non-drag control path.",
+      "render_check": "Complete the same function without dragging using single clicks, taps, or keyboard controls.",
+      "pass_condition": "A non-drag path reaches the same outcome and preserves state feedback.",
+      "failure_condition": "Precise path movement is the only way to complete the function.",
+      "allowed_exception": "Freehand drawing or another function whose essence is path input may be exempt when clearly scoped.",
+      "required_evidence": "Drag function, alternate controls, token roles, completion parity, and essentiality if exempt."
+    },
+    {
+      "id": "MT-GESTURE-001",
+      "domain": "motor_touch",
+      "invariant": "Multipoint or path gestures have a single-pointer alternative.",
+      "applies_when": "Pinch, rotate, swipe path, multi-finger, or directional gesture performs a function.",
+      "token_feasibility_check": "Verify explicit control, state, and feedback tokens exist for an equivalent single-pointer action.",
+      "render_check": "Complete the gesture-controlled task using only one pointer without path dependence.",
+      "pass_condition": "All required outcomes are available through simple controls and remain visibly equivalent.",
+      "failure_condition": "A complex gesture is required and no accessible equivalent exists.",
+      "allowed_exception": "A gesture may be essential when the input path itself is the content or task.",
+      "required_evidence": "Gesture, equivalent control, token paths, outcome comparison, and exception rationale."
+    },
+    {
+      "id": "MT-HIT-VISUAL-MAP-001",
+      "domain": "motor_touch",
+      "invariant": "The interactive hit area matches the visible control and its perceived ownership.",
+      "applies_when": "A visible element or group is clickable, tappable, draggable, or focusable.",
+      "token_feasibility_check": "Compare component anatomy and hit-area rules with padding, container, and state tokens.",
+      "render_check": "Visualize hit boxes and test edges, gaps, nested controls, and repeated items.",
+      "pass_condition": "The hit area is large enough, does not invade neighboring controls, and matches what appears actionable.",
+      "failure_condition": "Dead visible areas, invisible active areas, nested conflicts, or overlapping hit boxes cause surprise or errors.",
+      "allowed_exception": "A larger invisible hit area may extend into noninteractive space when it cannot steal another target's input.",
+      "required_evidence": "Hit-box overlay, visual bounds, neighbor targets, state, and edge tests."
+    },
+    {
+      "id": "MT-INPUT-PARITY-001",
+      "domain": "motor_touch",
+      "invariant": "Touch, pointer, and keyboard reach the same required outcomes.",
+      "applies_when": "The artifact supports more than one input modality.",
+      "token_feasibility_check": "Verify hover, focus, pressed, selected, revealed, and feedback roles exist independently of one input method.",
+      "render_check": "Complete every required task separately with touch, pointer, and keyboard.",
+      "pass_condition": "All modalities can perceive state, activate controls, reveal content, scroll, dismiss, and recover.",
+      "failure_condition": "One modality loses content, action, feedback, or recovery available to another.",
+      "allowed_exception": "Input-specific enhancements may differ when required outcomes remain equivalent.",
+      "required_evidence": "Task matrix, input methods, state tokens, completion results, and gaps."
+    },
+    {
+      "id": "MT-MOVING-TARGET-001",
+      "domain": "motor_touch",
+      "invariant": "Targets do not move unpredictably during acquisition or activation.",
+      "applies_when": "Loading, validation, responsive changes, animation, or content insertion can move controls.",
+      "token_feasibility_check": "Verify stable layout, reserved-space, loading, and transition tokens prevent target displacement.",
+      "render_check": "Approach and activate targets during load, validation, and state transitions on touch and pointer.",
+      "pass_condition": "Targets remain stable or move only after a clear user action without risking accidental activation.",
+      "failure_condition": "A target shifts under the pointer or finger, causing missed or wrong activation.",
+      "allowed_exception": "User-dragged objects may move with the pointer when the state and destination remain visible.",
+      "required_evidence": "Before-during-after geometry, trigger, token rules, input method, and activation result."
+    },
+
+    {
+      "id": "XC-REFLOW-001",
+      "domain": "cross_context",
+      "invariant": "Required content and relationships survive narrow reflow.",
+      "applies_when": "The artifact claims responsive or narrow-screen support.",
+      "token_feasibility_check": "Verify layout, breakpoint, wrap, gap, min-max, and overflow tokens define a narrow transformation for every region.",
+      "render_check": "Render at 320 CSS pixels and all declared breakpoints with longest real content.",
+      "pass_condition": "Ordinary content requires only one-dimensional scrolling and retains labels, ownership, order, and function.",
+      "failure_condition": "Reflow causes two-dimensional page scrolling, content loss, overlap, or broken relationships.",
+      "allowed_exception": "Inherently two-dimensional content may use a contained accessible scroller.",
+      "required_evidence": "Token transformations, viewport, scroll measurements, stress content, and screenshots."
+    },
+    {
+      "id": "XC-REDUCED-MOTION-001",
+      "domain": "cross_context",
+      "invariant": "Meaning and task completion survive reduced motion.",
+      "applies_when": "Any token or component uses animation, transition, parallax, auto-motion, or animated emphasis.",
+      "token_feasibility_check": "Verify motion tokens have reduced or zero-motion branches and that state tokens do not depend on animation alone.",
+      "render_check": "Enable reduced motion and complete every affected task while comparing start and end states.",
+      "pass_condition": "Nonessential motion is removed or reduced, and all meaning, feedback, and layout remain intact.",
+      "failure_condition": "Motion persists unnecessarily or reduced mode loses content, feedback, or identity.",
+      "allowed_exception": "Essential motion may remain only when no non-motion equivalent preserves the function.",
+      "required_evidence": "Motion token branches, preference state, task results, and essentiality if any."
+    },
+    {
+      "id": "XC-TEXT-RESIZE-001",
+      "domain": "cross_context",
+      "invariant": "Text resize preserves content and function.",
+      "applies_when": "The output renders text in a user-scalable interface.",
+      "token_feasibility_check": "Verify type, line-height, container, wrap, min-height, and overflow tokens do not require fixed text dimensions.",
+      "render_check": "Resize text to 200 percent and inspect every region, control, and data specimen.",
+      "pass_condition": "Text, labels, controls, and evidence remain present, readable, associated, and operable.",
+      "failure_condition": "Resize clips, overlaps, truncates without recovery, hides, or disables required content.",
+      "allowed_exception": "Only applicable WCAG text-resize exceptions may pass and must be recorded.",
+      "required_evidence": "Token constraints, before-after captures, scale, affected regions, and exceptions."
+    },
+    {
+      "id": "XC-MODE-INVARIANCE-001",
+      "domain": "cross_context",
+      "invariant": "Semantic roles retain meaning across themes, modes, and contexts.",
+      "applies_when": "The token set declares light, dark, high-contrast, density, locale, platform, or contextual branches.",
+      "token_feasibility_check": "Compare resolved role graphs across branches and verify required distinctions and aliases remain semantically stable.",
+      "render_check": "Review corresponding regions side by side across every declared mode and state.",
+      "pass_condition": "Identity adapts while hierarchy, role meaning, contrast, and state recognition remain stable.",
+      "failure_condition": "A mode loses roles, flips meaning, breaks contrast, or appears as an unrelated fallback.",
+      "allowed_exception": "A branch may intentionally change expression when the transformation is source-backed and semantic meaning remains stable.",
+      "required_evidence": "Resolved role graphs, branch comparisons, screenshots, and transformation rules."
+    },
+    {
+      "id": "XC-SOURCE-INVARIANCE-001",
+      "domain": "cross_context",
+      "invariant": "Source-specific identity survives all supported states and viewports.",
+      "applies_when": "The token set claims a source-derived identity or signature decisions.",
+      "token_feasibility_check": "Map each signature decision to tokens used in every applicable branch and component context.",
+      "render_check": "Locate the signature in wide, narrow, interactive, error, reduced-motion, and mode variants.",
+      "pass_condition": "Each supported state retains enough of the source-specific relations to remain recognizably one system.",
+      "failure_condition": "Fallback states collapse to generic defaults or lose all signature decisions.",
+      "allowed_exception": "A safety-critical state may simplify expression when clarity improves and core identity remains sufficient.",
+      "required_evidence": "Signature-token map, state-region locators, side-by-side captures, and recognition result."
+    },
+    {
+      "id": "XC-DENSITY-001",
+      "domain": "cross_context",
+      "invariant": "Density adapts without losing target size, grouping, hierarchy, or readability.",
+      "applies_when": "Content volume, viewport, audience familiarity, or density mode changes.",
+      "token_feasibility_check": "Verify gap, target, type, line-height, grouping, disclosure, and container tokens define coherent density branches.",
+      "render_check": "Stress maximum content at smallest viewport and compare any compact and comfortable modes.",
+      "pass_condition": "All modes preserve touch floors, readable text, clear groups, and task-priority hierarchy.",
+      "failure_condition": "Compact mode becomes cramped or comfortable mode fragments relationships and navigation.",
+      "allowed_exception": "High-density operational views may use contained data strategies when every motor and legibility invariant still passes.",
+      "required_evidence": "Density token branches, content stress set, audience, viewports, and findings."
+    },
+    {
+      "id": "XC-ALIAS-INVARIANCE-001",
+      "domain": "cross_context",
+      "invariant": "Aliases preserve semantic intent through resolution and overrides.",
+      "applies_when": "DTCG aliases, themes, component overrides, or context branches are used.",
+      "token_feasibility_check": "Resolve every alias in every branch, detect cycles, type mismatches, missing targets, and semantic role divergence.",
+      "render_check": "Compare rendered values and roles at every override site with the source decision and base semantic role.",
+      "pass_condition": "Resolution is valid and overrides change expression without changing intended meaning.",
+      "failure_condition": "An alias breaks, changes type, creates contradiction, or makes one semantic role behave inconsistently.",
+      "allowed_exception": "Context-specific semantic changes require a new named role rather than a hidden override.",
+      "required_evidence": "Alias graph, resolver output, branch, render locators, and semantic comparison."
+    },
+    {
+      "id": "XC-FAILURE-INVARIANCE-001",
+      "domain": "cross_context",
+      "invariant": "Failure visibility and recovery survive every supported context.",
+      "applies_when": "Any state, mode, viewport, input method, or data condition can fail.",
+      "token_feasibility_check": "Verify error, warning, blocked, focus, label, and recovery tokens exist in every applicable branch.",
+      "render_check": "Trigger failures across wide, narrow, touch, keyboard, modes, and reduced motion.",
+      "pass_condition": "Failures remain visible, located, understandable, and recoverable in every context.",
+      "failure_condition": "A context hides, weakens, detaches, or removes the recovery path.",
+      "allowed_exception": "A nonrecoverable terminal failure may omit retry only when it clearly states the next external action.",
+      "required_evidence": "Failure-context matrix, token branches, triggered captures, focus, and recovery results."
+    },
+    {
+      "id": "X-UNKNOWN-INVARIANT-001",
+      "domain": "cross_context",
+      "invariant": "A newly observed human-perception or motor requirement is not ignored because the catalog is finite.",
+      "applies_when": "Strong visual review finds repeatable comprehension, perception, or touch harm not covered by existing invariants.",
+      "token_feasibility_check": "Identify affected token relations and whether the current type, role, state, or context universe can express a repair.",
+      "render_check": "Locate the condition, reproduce it, test an alternate relation, and compare task outcome.",
+      "pass_condition": "The new invariant is recorded, checked, and either satisfied or blocks the run pending a catalog update.",
+      "failure_condition": "A repeatable harmful condition is dismissed only because no existing invariant names it.",
+      "allowed_exception": "A personal preference without repeatable task, access, or comprehension impact stays in the taste track.",
+      "required_evidence": "Condition, region, state, reproduction, affected tokens, alternate test, harm, and proposed invariant."
+    }
+  ],
+  "standards_basis": [
+    {
+      "title": "Web Content Accessibility Guidelines 2.2",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "Making Content Usable for People with Cognitive and Learning Disabilities",
+      "url": "https://www.w3.org/TR/coga-usable/",
+      "checked": "2026-08-27",
+      "status": "W3C Working Group Note; supplemental guidance, not WCAG conformance"
+    },
+    {
+      "title": "Understanding Target Size Minimum",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "Understanding Focus Visible",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "Understanding Headings and Labels",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html",
+      "checked": "2026-08-27"
+    }
+  ]
+}

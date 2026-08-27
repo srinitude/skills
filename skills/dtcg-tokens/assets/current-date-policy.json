@@ -1,0 +1,36 @@
+{
+  "policy_version": "1.0.0",
+  "anchor_count": 1,
+  "required_anchor_fields": [
+    "captured_at",
+    "date",
+    "weekday",
+    "timezone",
+    "utc_offset",
+    "source"
+  ],
+  "current_claims_require_live_primary_source": true,
+  "show_pinned_and_current_versions": true,
+  "future_dated_evidence": "blocked",
+  "unverified_current_claim": "blocked",
+  "drift_domains": [
+    "token-specification",
+    "schema",
+    "validator",
+    "accessibility-guidance",
+    "design-practice",
+    "comparison-corpus",
+    "tool-behavior"
+  ],
+  "source_fields": [
+    "id",
+    "domain",
+    "locator",
+    "retrieved_at",
+    "published_or_effective",
+    "version",
+    "status",
+    "primary",
+    "sha256_or_unavailable_reason"
+  ]
+}

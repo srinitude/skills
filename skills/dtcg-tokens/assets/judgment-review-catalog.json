@@ -1,0 +1,473 @@
+{
+  "catalog_version": "1.0.0",
+  "as_of": "2026-08-27",
+  "tracks": ["taste", "originality", "corpus_uniqueness", "non_ai_slop"],
+  "decision_policy": {
+    "aggregation": "no_blended_score",
+    "rule": "Each track receives its own pass, fail, partial, or blocked verdict. One passing track cannot cancel a failure in another track.",
+    "evidence_rule": "Every pass cites visible regions, source clauses, token paths, comparison items, or measured outputs. Unsupported praise is not evidence.",
+    "disconfirmation_rule": "The reviewer records the strongest credible counterexample before passing a track."
+  },
+  "track_contracts": {
+    "taste": {
+      "basis": "strong_vision_reasoned_judgment",
+      "requires_comparative_review": true,
+      "requires_counterevidence": true,
+      "boundary": "Taste is not objectively provable. It is a disciplined judgment about fitness, intent, coherence, restraint, and finish, supported by visible evidence and explicit counterchecks.",
+      "minimum_review": "Review whole frame, important details, narrow and wide states, source references, and at least one credible alternative direction."
+    },
+    "originality": {
+      "basis": "source_lineage_plus_comparative_visual_judgment",
+      "claim_scope": "artifact_and_token_system",
+      "boundary": "Originality means that material decisions are source-derived, non-default, mutually coherent, and not reducible to a surface restyle of a familiar template.",
+      "minimum_review": "Trace every signature decision to input evidence and test whether the same system survives noun substitution or transplant into an unrelated context."
+    },
+    "corpus_uniqueness": {
+      "basis": "declared_corpus_comparison",
+      "claim_scope": "declared_corpus_only",
+      "global_uniqueness_allowed": false,
+      "predeclared_thresholds_required": true,
+      "boundary": "One-of-a-kind means no material collision inside the named comparison corpus. It never means global uniqueness.",
+      "minimum_review": "Compare exact bytes, normalized token graphs, value-role relations, layout structure, visual appearance, copy structure, and nearest neighbors."
+    },
+    "non_ai_slop": {
+      "basis": "output_quality_and_provenance",
+      "target": "observable_output_traits",
+      "authorship_detection_allowed": false,
+      "provenance_required_for_authorship_claims": true,
+      "boundary": "The review detects generic, incoherent, unsupported, repetitive, falsely reasoned, or under-resolved output. It does not infer authorship from appearance.",
+      "minimum_review": "Compare stated reasoning with implementation, inspect source-clause fidelity, challenge every decorative or generic decision, and review high-detail regions for unresolved output."
+    }
+  },
+  "review_obligations": [
+    {
+      "id": "TA-01",
+      "track": "taste",
+      "severity": "veto",
+      "question": "Is the visual direction appropriate for the stated audience, task, setting, and consequence level?",
+      "pass_evidence": "Located visual decisions connect to audience needs and task conditions.",
+      "fail_signal": "The artifact could serve a materially different audience or task without meaningful change.",
+      "countercheck": "Name an alternative audience for which the same direction would fit better and test that claim.",
+      "required_record": "Audience, task, visible locators, decision rationale, and counterexample."
+    },
+    {
+      "id": "TA-02",
+      "track": "taste",
+      "severity": "veto",
+      "question": "Does the composition establish an intentional reading order that matches decision priority?",
+      "pass_evidence": "First, second, and third attention targets are visible and correspond to the task order.",
+      "fail_signal": "The eye lands on decoration, metadata, or a verdict before the evidence needed to interpret it.",
+      "countercheck": "Test the reading order at thumbnail scale and at actual viewing size.",
+      "required_record": "Attention sequence with regions and task-priority mapping."
+    },
+    {
+      "id": "TA-03",
+      "track": "taste",
+      "severity": "major",
+      "question": "Do contrast, scale, density, and whitespace feel deliberately allocated rather than evenly distributed?",
+      "pass_evidence": "Variation forms a legible rhythm and each high-contrast event has a role.",
+      "fail_signal": "Everything is equally loud, equally quiet, uniformly carded, or spaced by an unexplained repeated increment.",
+      "countercheck": "Check whether deliberate uniformity is required by the source or high-frequency workflow.",
+      "required_record": "At least three rhythm observations and one exception test."
+    },
+    {
+      "id": "TA-04",
+      "track": "taste",
+      "severity": "major",
+      "question": "Do typography choices create a coherent voice and functional hierarchy?",
+      "pass_evidence": "Typeface roles, weights, measures, and spacing support the identity thesis and reading task.",
+      "fail_signal": "Type choices conflict in voice, hierarchy, or optical weight, or feel selected as isolated fashionable gestures.",
+      "countercheck": "Compare against a simpler type system and explain why the retained system performs better.",
+      "required_record": "Type-role map, visible specimens, and alternative comparison."
+    },
+    {
+      "id": "TA-05",
+      "track": "taste",
+      "severity": "major",
+      "question": "Does color behave as a system of relationships rather than a palette display?",
+      "pass_evidence": "Color allocation signals hierarchy, state, material, or source-specific meaning.",
+      "fail_signal": "Accent is spread decoratively, color roles conflict, or palette novelty substitutes for design logic.",
+      "countercheck": "Review the artifact in grayscale and under common color-vision simulations.",
+      "required_record": "Color-role map, grayscale finding, and simulation finding."
+    },
+    {
+      "id": "TA-06",
+      "track": "taste",
+      "severity": "major",
+      "question": "Are ornament, asymmetry, overlap, and expressive gestures earned by content?",
+      "pass_evidence": "Each expressive move reinforces a source-specific idea without hiding evidence.",
+      "fail_signal": "A gesture exists mainly to appear designed and has no task, semantic, or identity function.",
+      "countercheck": "Remove the gesture and compare meaning, hierarchy, and distinctiveness.",
+      "required_record": "Before-and-after judgment or a reasoned removal test."
+    },
+    {
+      "id": "TA-07",
+      "track": "taste",
+      "severity": "major",
+      "question": "Is the level of visual restraint appropriate to the artifact's purpose?",
+      "pass_evidence": "The artifact contains no more visual events than the purpose requires, while retaining a distinct identity.",
+      "fail_signal": "It is either decorated past comprehension or stripped until it loses hierarchy and authored character.",
+      "countercheck": "Test one materially quieter and one materially more expressive direction.",
+      "required_record": "Two alternative-direction comparisons and retained rationale."
+    },
+    {
+      "id": "TA-08",
+      "track": "taste",
+      "severity": "major",
+      "question": "Are details resolved consistently at close inspection?",
+      "pass_evidence": "Edges, icon weight, type baselines, dividers, radii, spacing, and crops follow the intended visual grammar.",
+      "fail_signal": "The whole frame appears polished but close regions reveal arbitrary mismatches or unfinished decisions.",
+      "countercheck": "Inspect at least five high-detail regions and the narrowest supported viewport.",
+      "required_record": "Five located detail observations and viewport."
+    },
+    {
+      "id": "TA-09",
+      "track": "taste",
+      "severity": "warning",
+      "question": "Does the design contain a memorable source-specific idea without novelty for its own sake?",
+      "pass_evidence": "A reviewer can describe the identity in one sentence using relations that are visible in the artifact.",
+      "fail_signal": "The artifact is forgettable, or its only memorable feature is an unrelated stunt.",
+      "countercheck": "Ask whether the idea remains recognizable with brand nouns and palette names removed.",
+      "required_record": "One-sentence visual identity and noun-free recognition check."
+    },
+    {
+      "id": "TA-10",
+      "track": "taste",
+      "severity": "major",
+      "question": "Do wide, narrow, interactive, and static states feel like one authored system?",
+      "pass_evidence": "State changes preserve identity, priority, and quality while adapting composition.",
+      "fail_signal": "One state looks like a collapsed or generic fallback of another.",
+      "countercheck": "Compare corresponding regions side by side across every required state.",
+      "required_record": "State comparison matrix with regions and findings."
+    },
+
+    {
+      "id": "OR-01",
+      "track": "originality",
+      "severity": "veto",
+      "question": "Are at least five signature decisions derived from located source evidence?",
+      "pass_evidence": "Each decision cites a source locator and named token paths.",
+      "fail_signal": "Signature decisions are unsupported, generic, or merely restate token values.",
+      "countercheck": "Attempt to derive each decision from an unrelated reference; any equally plausible derivation weakens it.",
+      "required_record": "Decision, source locator, token paths, and unrelated-reference countercheck."
+    },
+    {
+      "id": "OR-02",
+      "track": "originality",
+      "severity": "veto",
+      "question": "Does the identity fail the noun-substitution test?",
+      "pass_evidence": "Replacing product, audience, and brand nouns makes the identity thesis visibly false.",
+      "fail_signal": "The thesis and artifact remain plausible for an unrelated product after noun replacement.",
+      "countercheck": "Perform at least two substitutions from materially different domains.",
+      "required_record": "Original thesis, substituted theses, and visible contradictions."
+    },
+    {
+      "id": "OR-03",
+      "track": "originality",
+      "severity": "major",
+      "question": "Does the artifact fail the transplant test?",
+      "pass_evidence": "Moving its layout, copy pattern, and visual grammar to an unrelated brief creates obvious mismatches.",
+      "fail_signal": "The artifact is a reusable shell whose content and palette can be swapped without structural change.",
+      "countercheck": "Map an unrelated brief into the current skeleton and identify what breaks.",
+      "required_record": "Transplant target, attempted mapping, and breakpoints."
+    },
+    {
+      "id": "OR-04",
+      "track": "originality",
+      "severity": "major",
+      "question": "Do signature decisions interact to form one system?",
+      "pass_evidence": "Palette, type, spacing, shape, composition, material, and motion reinforce shared source relations.",
+      "fail_signal": "Distinctive choices are isolated flourishes with no cross-axis relationship.",
+      "countercheck": "Remove one signature axis and test whether the remaining identity loses coherence.",
+      "required_record": "Cross-axis relation graph and removal test."
+    },
+    {
+      "id": "OR-05",
+      "track": "originality",
+      "severity": "major",
+      "question": "Is variation structural rather than palette-only?",
+      "pass_evidence": "Compared artifacts differ in hierarchy, spatial grammar, component anatomy, content strategy, and token relationships where the sources differ.",
+      "fail_signal": "Only colors, fonts, or decorative accents change while the same skeleton persists.",
+      "countercheck": "Compare normalized structure with styling removed.",
+      "required_record": "Structure comparison and styling-free finding."
+    },
+    {
+      "id": "OR-06",
+      "track": "originality",
+      "severity": "major",
+      "question": "Are non-default scales and value distributions justified by source evidence?",
+      "pass_evidence": "Step counts, ratios, clusters, and exceptions reproduce observed relations or task needs.",
+      "fail_signal": "Familiar scales are completed automatically or regularized without evidence.",
+      "countercheck": "Compare against common default scales and locate every material difference.",
+      "required_record": "Scale comparison, source evidence, and retained exceptions."
+    },
+    {
+      "id": "OR-07",
+      "track": "originality",
+      "severity": "major",
+      "question": "Do recurring motifs carry stable meaning?",
+      "pass_evidence": "Repeated motifs encode source-specific structure, behavior, or identity across contexts.",
+      "fail_signal": "Motifs repeat as decoration and can be removed without changing interpretation.",
+      "countercheck": "Run a removal test at three occurrences.",
+      "required_record": "Motif occurrences, meaning, and removal results."
+    },
+    {
+      "id": "OR-08",
+      "track": "originality",
+      "severity": "major",
+      "question": "Is every major design claim visible in the implementation?",
+      "pass_evidence": "Claim-to-region and claim-to-token coverage both equal 100 percent.",
+      "fail_signal": "The rationale describes a quality or decision that the rendered artifact does not implement.",
+      "countercheck": "Search for implemented decisions that were not claimed and claimed decisions that were not implemented.",
+      "required_record": "Bidirectional claim mapping and uncovered items."
+    },
+    {
+      "id": "OR-09",
+      "track": "originality",
+      "severity": "warning",
+      "question": "Does the artifact contain meaningful counter-conventions?",
+      "pass_evidence": "At least one familiar convention is altered for a source-supported reason without harming use.",
+      "fail_signal": "Every choice follows current default patterns, or convention-breaking is arbitrary.",
+      "countercheck": "Explain the user cost of the alteration and verify that the benefit exceeds it.",
+      "required_record": "Convention, alteration, source reason, cost, and benefit."
+    },
+    {
+      "id": "OR-10",
+      "track": "originality",
+      "severity": "major",
+      "question": "Can the design lineage be reconstructed without relying on the final claim text?",
+      "pass_evidence": "Sources, observations, decisions, tokens, and rendered regions form a complete trace.",
+      "fail_signal": "The artifact appears distinctive but the causal path from input to design is missing or contradictory.",
+      "countercheck": "Have the reviewer reconstruct one decision from the evidence in reverse.",
+      "required_record": "Reverse trace with every locator and any gap."
+    },
+
+    {
+      "id": "CU-01",
+      "track": "corpus_uniqueness",
+      "severity": "veto",
+      "question": "Is the comparison corpus named, nonempty, relevant, and hashed?",
+      "pass_evidence": "Every compared item has identity, scope, hash, and reason for inclusion.",
+      "fail_signal": "The corpus is absent, unnamed, empty, inaccessible, or selected only after seeing the result.",
+      "countercheck": "Identify the most likely omitted near neighbor and explain its disposition.",
+      "required_record": "Corpus manifest, hashes, inclusion rules, and omission check."
+    },
+    {
+      "id": "CU-02",
+      "track": "corpus_uniqueness",
+      "severity": "veto",
+      "question": "Are exact output hash collisions absent?",
+      "pass_evidence": "Current token, evidence, and artifact hashes differ from every corpus item.",
+      "fail_signal": "Any exact output hash matches a prior item that is not the same recorded run.",
+      "countercheck": "Verify byte normalization did not create a false difference.",
+      "required_record": "Hash table and normalization method."
+    },
+    {
+      "id": "CU-03",
+      "track": "corpus_uniqueness",
+      "severity": "veto",
+      "question": "Are normalized token graph collisions absent?",
+      "pass_evidence": "Path-role-reference-value graphs remain distinct after metadata and ordering normalization.",
+      "fail_signal": "The normalized token graph matches a prior item despite changed names or metadata.",
+      "countercheck": "Recompute after removing run-specific identifiers and descriptions.",
+      "required_record": "Graph method, normalized hashes, and collision result."
+    },
+    {
+      "id": "CU-04",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Is the layout skeleton materially different from near neighbors?",
+      "pass_evidence": "Region hierarchy, section order, spatial relationships, and responsive transformations exceed predeclared distance thresholds.",
+      "fail_signal": "The same layout skeleton persists with swapped styling or content.",
+      "countercheck": "Compare with color, font, copy, and decoration removed.",
+      "required_record": "Skeleton representation, thresholds, distances, and nearest neighbor."
+    },
+    {
+      "id": "CU-05",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Is visual appearance distinct beyond palette distance?",
+      "pass_evidence": "Perceptual comparison shows differences in hierarchy, density, rhythm, shape, and material, not only hue.",
+      "fail_signal": "Perceptual distance is dominated by color while composition and visual grammar converge.",
+      "countercheck": "Run grayscale and edge-map comparisons.",
+      "required_record": "Full-color, grayscale, edge, and nearest-neighbor findings."
+    },
+    {
+      "id": "CU-06",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Is semantic token organization distinct where the input warrants it?",
+      "pass_evidence": "Roles, groups, aliases, states, and context branches reflect source-specific semantics.",
+      "fail_signal": "The same generic semantic taxonomy is reused despite materially different inputs.",
+      "countercheck": "Compare role graphs after removing primitive values.",
+      "required_record": "Semantic graph distance and source justification."
+    },
+    {
+      "id": "CU-07",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Were all similarity thresholds declared before final comparison?",
+      "pass_evidence": "Thresholds and methods are frozen in the run record before results are computed.",
+      "fail_signal": "Thresholds are absent, changed after comparison, or chosen to force a pass.",
+      "countercheck": "Inspect timestamps and run-state ordering.",
+      "required_record": "Frozen thresholds, timestamps, and any approved revision."
+    },
+    {
+      "id": "CU-08",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Does the nearest neighbor remain materially distinguishable in a blind side-by-side review?",
+      "pass_evidence": "The reviewer identifies each artifact and its source-specific rationale without labels.",
+      "fail_signal": "The reviewer confuses artifacts or distinguishes them only by palette or nouns.",
+      "countercheck": "Repeat in grayscale and with identifying copy masked.",
+      "required_record": "Blind review protocol, guesses, reasons, and masked result."
+    },
+    {
+      "id": "CU-09",
+      "track": "corpus_uniqueness",
+      "severity": "major",
+      "question": "Are styling and content both run-specific?",
+      "pass_evidence": "Copy structure, examples, specimen strategy, hierarchy, and visual grammar all derive from current tokens and intent.",
+      "fail_signal": "A fixed report shell is filled with different tokens, or styling changes while content strategy stays fixed.",
+      "countercheck": "Compare normalized DOM, section grammar, and headline formulas with prior artifacts.",
+      "required_record": "DOM and content-grammar comparison with collisions."
+    },
+    {
+      "id": "CU-10",
+      "track": "corpus_uniqueness",
+      "severity": "veto",
+      "question": "Is the uniqueness claim limited to the declared corpus?",
+      "pass_evidence": "Claims name the corpus and state that global uniqueness is unproved.",
+      "fail_signal": "The artifact says globally unique, one of a kind without scope, or otherwise implies exhaustive comparison.",
+      "countercheck": "Search visible copy, metadata, embedded evidence, and completion messages for overclaiming.",
+      "required_record": "Claim-text search and approved bounded wording."
+    },
+
+    {
+      "id": "NS-01",
+      "track": "non_ai_slop",
+      "severity": "veto",
+      "question": "Does every stated design rationale map to implemented evidence?",
+      "pass_evidence": "Claim-to-region and claim-to-token mappings cover every retained rationale.",
+      "fail_signal": "Confident reasoning describes decisions or qualities absent from the artifact.",
+      "countercheck": "Review implementation without reading the rationale, then compare independent observations.",
+      "required_record": "Independent visual notes and bidirectional claim map."
+    },
+    {
+      "id": "NS-02",
+      "track": "non_ai_slop",
+      "severity": "veto",
+      "question": "Are all source clauses and multimodal facts accounted for?",
+      "pass_evidence": "Every clause and observed fact is applied, rejected with reason, deferred, or marked not applicable.",
+      "fail_signal": "Material input content silently disappears or is replaced with a generic interpretation.",
+      "countercheck": "Have a second pass reconstruct the input requirements from the output.",
+      "required_record": "Source accounting table and reconstruction gaps."
+    },
+    {
+      "id": "NS-03",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Is the artifact free of generic template dependence?",
+      "pass_evidence": "Structure, copy, and styling materially change with the current tokens and intent.",
+      "fail_signal": "A dashboard, card grid, landing page, editorial board, or report shell appears by default without source need.",
+      "countercheck": "Attempt to swap in an unrelated token set without changing the structure.",
+      "required_record": "Template-substitution test and mismatches."
+    },
+    {
+      "id": "NS-04",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Is filler absent?",
+      "pass_evidence": "Every sentence, specimen, visual, and metric supports a required decision or proof obligation.",
+      "fail_signal": "Placeholder copy, invented testimonials, fake metrics, decorative charts, empty labels, or generic explanatory prose appear.",
+      "countercheck": "Remove each questionable item and test whether any proof is lost.",
+      "required_record": "Filler inventory, removal tests, and retained rationale."
+    },
+    {
+      "id": "NS-05",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Are decorative elements semantically or compositionally necessary?",
+      "pass_evidence": "Each decorative element has a named role in identity, hierarchy, grouping, or source reproduction.",
+      "fail_signal": "Oversized blobs, gradients, grids, line art, sparkles, rings, mock windows, or noise exist only to signal polish.",
+      "countercheck": "Disable decoration and compare meaning, navigation, and source specificity.",
+      "required_record": "Decoration-role map and disabled-state review."
+    },
+    {
+      "id": "NS-06",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Are microdetails internally consistent?",
+      "pass_evidence": "Repeated components preserve intended anatomy, optical alignment, states, icon logic, units, and naming.",
+      "fail_signal": "Near-duplicates disagree in small ways that indicate unresolved generation rather than designed variation.",
+      "countercheck": "Cluster repeated elements and inspect every outlier.",
+      "required_record": "Component clusters, outliers, and disposition."
+    },
+    {
+      "id": "NS-07",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Is repetition purposeful rather than statistically generic?",
+      "pass_evidence": "Repeated phrases, shapes, components, and token steps each serve a stable role.",
+      "fail_signal": "Descriptions echo, sentence structures repeat, card patterns multiply, or scales expand without added meaning.",
+      "countercheck": "Deduplicate repeated units and test whether any function is lost.",
+      "required_record": "Repetition inventory and deduplication result."
+    },
+    {
+      "id": "NS-08",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Are examples and data truthful, source-backed, and context-specific?",
+      "pass_evidence": "Specimens use actual token values and bounded source-derived content.",
+      "fail_signal": "Examples are fake, generic, contradicted by embedded data, or presented as facts without provenance.",
+      "countercheck": "Trace every visible value and factual claim back to the embedded records.",
+      "required_record": "Visible-value trace and unsupported-item count."
+    },
+    {
+      "id": "NS-09",
+      "track": "non_ai_slop",
+      "severity": "major",
+      "question": "Does detail quality survive increased task complexity?",
+      "pass_evidence": "Compound constraints, states, relationships, comparisons, and exceptions remain accurate and coherent.",
+      "fail_signal": "The artifact handles the headline idea but drops bindings, counts, exceptions, or fine relationships.",
+      "countercheck": "Decompose compound requirements and inspect them one by one at detail scale.",
+      "required_record": "Atomic requirement matrix with located results."
+    },
+    {
+      "id": "NS-10",
+      "track": "non_ai_slop",
+      "severity": "veto",
+      "question": "Are authorship claims based only on provenance?",
+      "pass_evidence": "No visual detector or reviewer impression is used to claim who or what created the artifact.",
+      "fail_signal": "Appearance, detector score, or stylistic stereotype is treated as proof of human or synthetic authorship.",
+      "countercheck": "Separate provenance facts from quality observations and remove unsupported attribution.",
+      "required_record": "Provenance records, quality findings, and attribution boundary."
+    }
+  ],
+  "research_basis": [
+    {
+      "title": "Design Theater: A Benchmark for Generative UI",
+      "url": "https://arxiv.org/abs/2607.22928",
+      "used_for": "reasoning-to-implementation alignment and interface homogeneity",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "IDEA-Bench: How Far are Generative Models from Professional Designing?",
+      "url": "https://arxiv.org/abs/2412.11767",
+      "used_for": "multi-input professional design task fidelity and hierarchical evaluation",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "Evaluating and Improving Compositional Text-to-Visual Generation",
+      "url": "https://openaccess.thecvf.com/content/CVPR2024W/EvGenFM/html/Li_Evaluating_and_Improving_Compositional_Text-to-Visual_Generation_CVPRW_2024_paper.html",
+      "used_for": "attribute, relationship, logic, comparison, and fine-detail prompt alignment",
+      "checked": "2026-08-27"
+    },
+    {
+      "title": "Reducing Risks Posed by Synthetic Content",
+      "url": "https://doi.org/10.6028/NIST.AI.100-4",
+      "used_for": "provenance and the limits of content-based authorship detection",
+      "checked": "2026-08-27"
+    }
+  ]
+}

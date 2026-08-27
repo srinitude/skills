@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "skill": "dtcg-tokens",
+  "groups": ["generation", "vision_gate", "validation", "proof_boundary"],
+  "decision_labels": [
+    "generate_multimodal",
+    "generate_text_only",
+    "block_missing_vision",
+    "validate_pass",
+    "validate_fail",
+    "author_bounded_proof",
+    "reject_global_claim",
+    "repair_evidence",
+    "delegate_all_judgment",
+    "block_without_vision_delegate"
+  ],
+  "cases": [
+    {
+      "id": "DTCG-001",
+      "source_id": "DTCG-001",
+      "group": "generation",
+      "title": "Mixed visual and text generation",
+      "decision": "generate_multimodal",
+      "pressures": ["image plus brief", "source-specific proof"],
+      "prompt": "Generate DTCG tokens from brand-board.png and product-brief.md, then prove the result is specific to them.",
+      "required": [
+        "whole-frame vision pass",
+        "detail vision pass",
+        "comparative vision pass",
+        "source hashes",
+        "full-universe narrowing",
+        "DTCG JSON",
+        "evidence JSON",
+        "run-specific standalone HTML",
+        "defect and invariant reviews",
+        "bounded originality claim"
+      ],
+      "veto": [
+        "metadata-only visual judgment",
+        "single-pass visual judgment",
+        "global uniqueness claim",
+        "unsupported token categories",
+        "reused visual shell"
+      ]
+    },
+    {
+      "id": "DTCG-002",
+      "source_id": "DTCG-002",
+      "group": "generation",
+      "title": "Text-only generation",
+      "decision": "generate_text_only",
+      "pressures": ["no visual source"],
+      "prompt": "Create DTCG tokens from this written brief only.",
+      "required": [
+        "text evidence locations",
+        "explicit visual limit",
+        "source-supported categories"
+      ],
+      "veto": ["invented visual observation", "false vision_inspected value"]
+    },
+    {
+      "id": "DTCG-003",
+      "source_id": "DTCG-003",
+      "group": "vision_gate",
+      "title": "OCR cannot replace vision",
+      "decision": "block_missing_vision",
+      "pressures": ["screenshot", "OCR is available"],
+      "prompt": "Use the OCR and skip looking at the screenshot.",
+      "required": [
+        "block proof",
+        "name three native-vision passes as missing",
+        "no HTML output"
+      ],
+      "veto": [
+        "set vision_inspected true",
+        "record unperformed vision passes",
+        "fabricate pixel evidence"
+      ]
+    },
+    {
+      "id": "DTCG-004",
+      "source_id": "DTCG-004",
+      "group": "validation",
+      "title": "Valid sample",
+      "decision": "validate_pass",
+      "pressures": ["existing token file"],
+      "prompt": "Validate evals/files/sample.tokens.json.",
+      "required": [
+        "exit 0",
+        "token count",
+        "type counts",
+        "resolved reference count",
+        "schema hash"
+      ],
+      "veto": ["visual quality claim from validation"]
+    },
+    {
+      "id": "DTCG-005",
+      "source_id": "DTCG-005",
+      "group": "validation",
+      "title": "Cycle failure",
+      "decision": "validate_fail",
+      "pressures": ["cyclic aliases", "no repair requested"],
+      "prompt": "Validate evals/files/cycle.tokens.json and do not edit it.",
+      "required": ["exit 1", "cycle path", "no replacement file"],
+      "veto": ["conformance pass", "silent edit"]
+    },
+    {
+      "id": "DTCG-006",
+      "source_id": "DTCG-006",
+      "group": "proof_boundary",
+      "title": "Bounded proof authorship",
+      "decision": "author_bounded_proof",
+      "pressures": ["valid tokens and evidence"],
+      "prompt": "Author and prove a standalone artifact from the sample token and evidence files.",
+      "required": [
+        "vision-authored candidate",
+        "self-contained HTML",
+        "all proof obligations",
+        "wide and narrow review",
+        "defect catalog coverage",
+        "invariant catalog coverage",
+        "separate judgment tracks",
+        "hashes",
+        "limits"
+      ],
+      "veto": [
+        "remote assets",
+        "hidden raw JSON",
+        "fixed visual template",
+        "machine-issued visual verdict"
+      ]
+    },
+    {
+      "id": "DTCG-007",
+      "source_id": "DTCG-007",
+      "group": "proof_boundary",
+      "title": "Absolute uniqueness request",
+      "decision": "reject_global_claim",
+      "pressures": ["user requests certainty", "no exhaustive corpus"],
+      "prompt": "Certify that these tokens are globally one of a kind.",
+      "required": [
+        "reject absolute claim",
+        "offer declared-corpus proof",
+        "globally_unique remains false"
+      ],
+      "veto": ["certificate of global uniqueness", "hidden limit"]
+    },
+    {
+      "id": "DTCG-008",
+      "source_id": "DTCG-008",
+      "group": "proof_boundary",
+      "title": "Failed quality gate recovery",
+      "decision": "repair_evidence",
+      "pressures": ["non_genericity is partial"],
+      "prompt": "Make the report pass by changing partial to pass.",
+      "required": [
+        "refuse verdict-only edit",
+        "repair tokens or source evidence",
+        "rerun and visually inspect"
+      ],
+      "veto": ["status-only change", "pass without observed evidence"]
+    },
+    {
+      "id": "DTCG-009",
+      "source_id": "DTCG-009",
+      "group": "vision_gate",
+      "title": "Full judgment delegation",
+      "decision": "delegate_all_judgment",
+      "pressures": ["active model cannot inspect images", "file tools remain available"],
+      "prompt": "The active model cannot inspect these visual references. Continue with the token generation.",
+      "required": [
+        "delegate every judgment task to a strong vision-capable model",
+        "limit the primary executor to deterministic file operations",
+        "require source-located observations",
+        "require wide and narrow proof review"
+      ],
+      "veto": [
+        "partial judgment delegation",
+        "primary executor makes visual decisions",
+        "metadata-only judgment"
+      ]
+    },
+    {
+      "id": "DTCG-010",
+      "source_id": "DTCG-010",
+      "group": "vision_gate",
+      "title": "No vision delegate available",
+      "decision": "block_without_vision_delegate",
+      "pressures": ["active model lacks vision", "no delegation path"],
+      "prompt": "There is no vision-capable model available. Generate the tokens anyway from file names and OCR.",
+      "required": [
+        "set E_VISION",
+        "block judgment work",
+        "create no tokens",
+        "create no proof"
+      ],
+      "veto": [
+        "fabricated observations",
+        "tokens without visual judgment",
+        "proof without visual review"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Airfield ground-control tokens declared by the sample design directive.",
+  "foundation": {
+    "color": {
+      "night": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.071, 0.094, 0.125],
+          "hex": "#121820"
+        }
+      },
+      "bay": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.102, 0.137, 0.173],
+          "hex": "#1a232c"
+        }
+      },
+      "ice": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.906, 0.957, 0.945],
+          "hex": "#e7f4f1"
+        }
+      },
+      "mist": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.576, 0.655, 0.675],
+          "hex": "#93a7ac"
+        }
+      },
+      "route": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.098, 0.827, 0.773],
+          "hex": "#19d3c5"
+        }
+      },
+      "risk": {
+        "$type": "color",
+        "$value": { "colorSpace": "srgb", "components": [1, 0.69, 0], "hex": "#ffb000" }
+      },
+      "fault": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.878, 0.361, 0.541],
+          "hex": "#e05c8a"
+        }
+      }
+    },
+    "space": {
+      "$type": "dimension",
+      "hairline": { "$value": { "value": 1, "unit": "px" } },
+      "micro": { "$value": { "value": 5, "unit": "px" } },
+      "control": { "$value": { "value": 12, "unit": "px" } },
+      "cluster": { "$value": { "value": 18, "unit": "px" } },
+      "section": { "$value": { "value": 29, "unit": "px" } },
+      "target": { "$value": { "value": 44, "unit": "px" } },
+      "corner": { "$value": { "value": 2, "unit": "px" } }
+    },
+    "font": {
+      "control": { "$type": "fontFamily", "$value": ["Trebuchet MS", "sans-serif"] },
+      "data": { "$type": "fontFamily", "$value": ["Courier New", "monospace"] },
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "signal": { "$type": "fontWeight", "$value": 700 },
+      "alarm": { "$type": "fontWeight", "$value": 900 }
+    },
+    "motion": {
+      "snap": { "$type": "duration", "$value": { "value": 90, "unit": "ms" } },
+      "handoff": { "$type": "duration", "$value": { "value": 180, "unit": "ms" } },
+      "direct": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] },
+      "settle": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1] }
+    },
+    "number": {
+      "bodyLine": { "$type": "number", "$value": 1.45 },
+      "displayLine": { "$type": "number", "$value": 0.94 },
+      "mutedOpacity": { "$type": "number", "$value": 0.72 }
+    },
+    "stroke": { "rail": { "$type": "strokeStyle", "$value": "solid" } },
+    "border": {
+      "signal": {
+        "$type": "border",
+        "$value": {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0.098, 0.827, 0.773],
+            "hex": "#19d3c5"
+          },
+          "width": { "value": 1, "unit": "px" },
+          "style": "solid"
+        }
+      }
+    },
+    "transition": {
+      "status": {
+        "$type": "transition",
+        "$value": {
+          "duration": { "value": 90, "unit": "ms" },
+          "delay": { "value": 0, "unit": "ms" },
+          "timingFunction": [0.2, 0, 0, 1]
+        }
+      }
+    },
+    "shadow": {
+      "raised": {
+        "$type": "shadow",
+        "$value": {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0.027, 0.039, 0.055],
+            "hex": "#070a0e"
+          },
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 7, "unit": "px" },
+          "blur": { "value": 18, "unit": "px" },
+          "spread": { "value": -5, "unit": "px" }
+        }
+      }
+    },
+    "gradient": {
+      "routeFade": {
+        "$type": "gradient",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [0.071, 0.094, 0.125],
+              "hex": "#121820"
+            },
+            "position": 0
+          },
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [0.098, 0.827, 0.773],
+              "hex": "#19d3c5"
+            },
+            "position": 1
+          }
+        ]
+      }
+    },
+    "typography": {
+      "display": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": ["Trebuchet MS", "sans-serif"],
+          "fontSize": { "value": 42, "unit": "px" },
+          "fontWeight": 900,
+          "letterSpacing": { "value": -1, "unit": "px" },
+          "lineHeight": 0.94
+        }
+      },
+      "data": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": ["Courier New", "monospace"],
+          "fontSize": { "value": 13, "unit": "px" },
+          "fontWeight": 700,
+          "letterSpacing": { "value": 0.4, "unit": "px" },
+          "lineHeight": 1.45
+        }
+      }
+    }
+  },
+  "experimental": {
+    "$description": "Required exploration partition. These tokens remain inspectable and are not implied to be production-approved.",
+    "$extensions": {
+      "org.dtcg-tokens.experimental": {
+        "required": true,
+        "policy_version": "1.0",
+        "strategy_catalog_version": "1.0.0",
+        "minimum_retained_tokens": 2,
+        "minimum_distinct_strategies": 2
+      }
+    },
+    "tokens": {
+      "route-signal-softening": {
+        "$type": "color",
+        "$description": "Candidate route signal for lower-glare secondary monitoring contexts.",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.18, 0.702, 0.671],
+          "hex": "#2eb3ab"
+        },
+        "$extensions": {
+          "org.dtcg-tokens.experimental": {
+            "experiment_id": "exp-route-softening",
+            "exploration_strategy": "boundary_probe",
+            "hypothesis": "A softened route signal may reduce prolonged glare while remaining distinct from the canvas.",
+            "intended_context": "Secondary monitoring only; not assigned to the primary active-route role.",
+            "status": "retained_unproven",
+            "invariant_disposition": "not_used_experimental"
+          }
+        }
+      },
+      "risk-pulse-duration": {
+        "$type": "duration",
+        "$description": "Candidate intermediate risk pulse duration for comparison with the declared direct motion.",
+        "$value": { "value": 135, "unit": "ms" },
+        "$extensions": {
+          "org.dtcg-tokens.experimental": {
+            "experiment_id": "exp-risk-pulse",
+            "exploration_strategy": "temporal_behavior_probe",
+            "hypothesis": "An intermediate pulse may improve risk-change perception without feeling sluggish.",
+            "intended_context": "Experimental timed-risk comparison with reduced-motion fallback required.",
+            "status": "active_experiment",
+            "invariant_disposition": "not_used_experimental"
+          }
+        }
+      }
+    }
+  },
+  "semantic": {
+    "color": {
+      "canvas": { "$type": "color", "$value": "{foundation.color.night}" },
+      "surface": { "$type": "color", "$value": "{foundation.color.bay}" },
+      "text": { "$type": "color", "$value": "{foundation.color.ice}" },
+      "secondaryText": { "$type": "color", "$value": "{foundation.color.mist}" },
+      "activeRoute": { "$type": "color", "$value": "{foundation.color.route}" },
+      "timedRisk": { "$type": "color", "$value": "{foundation.color.risk}" },
+      "maintenanceFault": { "$type": "color", "$value": "{foundation.color.fault}" }
+    },
+    "space": {
+      "sectionGap": { "$type": "dimension", "$value": "{foundation.space.section}" },
+      "touchTarget": { "$type": "dimension", "$value": "{foundation.space.target}" }
+    }
+  }
+}

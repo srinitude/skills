@@ -1,0 +1,246 @@
+{
+  "catalog_version": "1.0.0",
+  "published": "2026-08-27",
+  "source_classes": [
+    "written-symbolic",
+    "documents-pages",
+    "static-visual",
+    "time-based-visual",
+    "audio",
+    "editable-creative",
+    "code-executable",
+    "structured-data",
+    "interactive-runtime",
+    "spatial-physical",
+    "accessibility-alternate",
+    "metadata-provenance",
+    "collections-mixed",
+    "unknown-or-future"
+  ],
+  "input_facets": {
+    "carrier": [
+      "inline-message",
+      "local-file",
+      "local-directory",
+      "archive",
+      "clipboard",
+      "uri",
+      "live-source",
+      "connected-record",
+      "stream",
+      "device-capture",
+      "in-session-artifact"
+    ],
+    "sensory-channel": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "spatial",
+      "tactile-haptic-description",
+      "structured-data",
+      "code",
+      "interaction",
+      "metadata",
+      "mixed"
+    ],
+    "temporal-form": [
+      "static",
+      "ordered-sequence",
+      "timed-stream",
+      "event-stream",
+      "interactive-state",
+      "version-history",
+      "timeless-specification"
+    ],
+    "dimensionality": [
+      "scalar-one-dimensional",
+      "two-dimensional",
+      "depth-aware",
+      "three-dimensional",
+      "panoramic-spatial",
+      "not-applicable"
+    ],
+    "representation-state": [
+      "raw",
+      "rendered",
+      "editable-source",
+      "compiled",
+      "captured",
+      "scanned",
+      "transcribed",
+      "extracted",
+      "annotated",
+      "summarized",
+      "derived"
+    ],
+    "composition": [
+      "single-item",
+      "layered-item",
+      "page-set",
+      "frame-sequence",
+      "synchronized-tracks",
+      "embedded-object-container",
+      "linked-graph",
+      "collection",
+      "nested-bundle",
+      "live-state-graph"
+    ],
+    "access-method": [
+      "direct-read",
+      "native-visual-inspection",
+      "audio-listening",
+      "frame-extraction",
+      "rendering",
+      "decoding",
+      "decompression",
+      "ocr",
+      "transcription",
+      "structured-parsing",
+      "isolated-viewer",
+      "interaction-capture",
+      "delegated-visual-judgment",
+      "unavailable"
+    ],
+    "evidence-role": [
+      "primary-design-evidence",
+      "supporting-context",
+      "counterevidence",
+      "constraint",
+      "comparison-corpus",
+      "provenance",
+      "metadata",
+      "non-evidentiary-attachment"
+    ],
+    "availability": [
+      "inspectable",
+      "partially-inspectable",
+      "encrypted",
+      "corrupt",
+      "inaccessible",
+      "unsupported",
+      "permission-gated",
+      "missing"
+    ]
+  },
+  "intent_classes": [
+    "build",
+    "extraction",
+    "evaluation",
+    "transformation",
+    "exploration",
+    "proof",
+    "negative",
+    "unknown-or-conflicting"
+  ],
+  "intent_facets": {
+    "requested-operation": [
+      "generate",
+      "extract",
+      "reconstruct",
+      "translate",
+      "extend",
+      "merge",
+      "compare",
+      "audit",
+      "validate",
+      "repair",
+      "normalize",
+      "migrate",
+      "document",
+      "explore",
+      "prove"
+    ],
+    "fidelity": [
+      "exact-reproduction",
+      "faithful-translation",
+      "compatible-extension",
+      "selective-extraction",
+      "interpretive-synthesis",
+      "loose-inspiration",
+      "independent-under-constraints"
+    ],
+    "source-role": [
+      "authoritative-target",
+      "binding-specification",
+      "brand-source",
+      "product-context-source",
+      "content-source",
+      "behavioral-source",
+      "accessibility-source",
+      "implementation-source",
+      "inspiration",
+      "example",
+      "counterexample",
+      "anti-reference",
+      "comparison-item",
+      "provenance-only",
+      "excluded-material"
+    ],
+    "decision-authority": [
+      "binding",
+      "preferred",
+      "informative",
+      "conflicting",
+      "superseded",
+      "prohibited",
+      "unresolved"
+    ],
+    "allowed-influence": [
+      "exact-values",
+      "structural-relationships",
+      "semantic-roles",
+      "component-anatomy",
+      "state-behavior",
+      "mode-behavior",
+      "visual-traits",
+      "content-constraints",
+      "accessibility-constraints",
+      "naming-only",
+      "comparison-only",
+      "no-token-influence"
+    ],
+    "target-scope": [
+      "whole-system",
+      "platform-family",
+      "product-area",
+      "pattern",
+      "component",
+      "anatomy-slot",
+      "state",
+      "mode",
+      "breakpoint",
+      "content-class",
+      "proof-artifact"
+    ],
+    "output-use": [
+      "production-implementation",
+      "prototype",
+      "handoff",
+      "documentation",
+      "migration",
+      "testing",
+      "comparison",
+      "audit-evidence",
+      "exploration"
+    ],
+    "confidence-basis": [
+      "explicit-request",
+      "source-declaration",
+      "observed-source-content",
+      "cross-source-agreement",
+      "bounded-inference",
+      "unresolved"
+    ]
+  },
+  "unknown_extension": {
+    "class": "unknown-or-future",
+    "requires": [
+      "detected-properties",
+      "attempted-access-methods",
+      "availability",
+      "evidence-status",
+      "namespaced-extension-id"
+    ]
+  }
+}

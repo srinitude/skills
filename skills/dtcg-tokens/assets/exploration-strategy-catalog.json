@@ -1,0 +1,69 @@
+{
+  "catalog_version": "1.0.0",
+  "purpose": "Enumerate the exploration operators that must be considered before experimental tokens are selected for final retention.",
+  "selection_policy": {
+    "generate_candidate_for_every_applicable_strategy": true,
+    "record_every_candidate_in_possibility_ledger": true,
+    "minimum_retained_tokens": 2,
+    "minimum_distinct_strategies": 2,
+    "selection_order": [
+      "boundary_probe",
+      "relationship_reversal",
+      "cross_cue_recombination",
+      "context_transfer",
+      "access_equivalent_alternative",
+      "temporal_behavior_probe"
+    ],
+    "ordered_gates": [
+      "source_or_intent_link",
+      "dtcg_representability",
+      "nonduplication",
+      "testable_hypothesis",
+      "bounded_use",
+      "invariant_disposition"
+    ],
+    "rule": "Retain the first candidates in selection order that pass every ordered gate until both minimums are met. Retain more when independently supported. Never use a blended score or delete a retained experiment to make a review look clean."
+  },
+  "strategies": [
+    {
+      "id": "boundary_probe",
+      "question": "What source-supported value near a perceptual, physical, semantic, or technical boundary could reveal a better operating range?",
+      "applicable_when": "A value or relation has an observable range, threshold, limit, or ordered scale.",
+      "candidate_record": "Name the bound, baseline, changed value, expected effect, risk, and measurement."
+    },
+    {
+      "id": "relationship_reversal",
+      "question": "What happens if a source-supported hierarchy, contrast, density, direction, or role relation is deliberately reversed?",
+      "applicable_when": "Two or more observed roles have a directional, ordered, or dominant relationship.",
+      "candidate_record": "Name the original relation, reversed relation, intended context, expected gain, and failure condition."
+    },
+    {
+      "id": "cross_cue_recombination",
+      "question": "Can two independently observed cues be recombined into a new token relation without losing their source trace?",
+      "applicable_when": "At least two source, modality, state, or intent cues can affect the same design decision.",
+      "candidate_record": "Name both cue lineages, the new relation, expected outcome, and collision risk."
+    },
+    {
+      "id": "context_transfer",
+      "question": "Can an observed token relation work in a new but bounded context that the source does not already resolve?",
+      "applicable_when": "The requested output includes another state, mode, viewport, input method, component, or audience context.",
+      "candidate_record": "Name the source context, target context, adaptation, hypothesis, and production-use boundary."
+    },
+    {
+      "id": "access_equivalent_alternative",
+      "question": "What unconventional token can preserve the required human outcome through an equally effective perceptual, cognitive, or motor path?",
+      "applicable_when": "A novel form may weaken a required invariant unless another path carries the same outcome.",
+      "candidate_record": "Name the novel form, affected invariant, equivalent path, test context, and stop condition."
+    },
+    {
+      "id": "temporal_behavior_probe",
+      "question": "What timing, sequence, easing, or state-transition change could improve perception or action without adding noise?",
+      "applicable_when": "The source or requested output contains time, state change, animation, audio rhythm, or interaction feedback.",
+      "candidate_record": "Name the baseline timing, proposed behavior, reduced-motion or static fallback, expected outcome, and measurement."
+    }
+  ],
+  "unknown_strategy": {
+    "id": "unknown_exploration_strategy",
+    "rule": "Add a source-linked extension record before use, then apply the same ordered gates and final-output obligations."
+  }
+}

@@ -1,0 +1,5 @@
+Airfield ground-control design directive
+
+Build a dense but calm control surface for ramp coordinators who track arrivals, holds, maintenance blocks, route clearance, and timed risk. Use the declared graphite field, pale ice text, route cyan, signal amber, and maintenance magenta. Apply the 5, 12, 18, and 29 pixel rhythm, 2 pixel corners, 44 pixel touch targets, tabular data type, and direct 90 millisecond status motion. Signal amber is reserved for timed risk. Cyan identifies the active route. Magenta identifies a maintenance fault.
+
+Avoid card mosaics, decorative gradients, editorial serif type, oversized geometric ornaments, unsupported scale completion, and visual marks that do not explain an operational relationship.

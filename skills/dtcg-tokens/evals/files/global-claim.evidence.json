@@ -1,0 +1,38 @@
+{
+  "report_version": "1.0",
+  "title": "Invalid global claim",
+  "sources": [
+    {
+      "id": "ref-1",
+      "kind": "text",
+      "sha256": "9b8f47fbfcbf70f73d09113d30d94d2a2c6d24f7e9acbb4e876fb522c95f617d",
+      "vision_inspected": false,
+      "locator": "brief.txt"
+    }
+  ],
+  "observations": [
+    {
+      "source_id": "ref-1",
+      "region": "full document",
+      "fact": "A text brief exists.",
+      "confidence": "high"
+    }
+  ],
+  "identity_thesis": "A bounded identity.",
+  "signature_decisions": [],
+  "quality_checks": [],
+  "comparison": {
+    "scope": "global",
+    "corpus_name": "all designs",
+    "items_compared": 0,
+    "method": "none",
+    "result": "unique"
+  },
+  "claims": {
+    "dtcg_conformant": true,
+    "non_slop": true,
+    "original_within_scope": true,
+    "globally_unique": true
+  },
+  "limits": []
+}

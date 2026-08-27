@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Rejected restaurant operations identity board</title>
+  <description id="description">Negative visual eval fixture. This board must never pass design quality or render integrity gates.</description>
+  <rect width="1200" height="800" fill="#f1ead8"/>
+  <g stroke="#191714" stroke-width="1" opacity="0.12">
+    <path d="M0 40H1200M0 80H1200M0 120H1200M0 160H1200M0 200H1200M0 240H1200M0 280H1200M0 320H1200M0 360H1200M0 400H1200M0 440H1200M0 480H1200M0 520H1200M0 560H1200M0 600H1200M0 640H1200M0 680H1200M0 720H1200M0 760H1200"/>
+    <path d="M40 0V800M80 0V800M120 0V800M160 0V800M200 0V800M240 0V800M280 0V800M320 0V800M360 0V800M400 0V800M440 0V800M480 0V800M520 0V800M560 0V800M600 0V800M640 0V800M680 0V800M720 0V800M760 0V800M800 0V800M840 0V800M880 0V800M920 0V800M960 0V800M1000 0V800M1040 0V800M1080 0V800M1120 0V800M1160 0V800"/>
+  </g>
+  <text x="64" y="72" fill="#191714" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">RESTAURANT OPERATIONS / IDENTITY 01</text>
+  <line x1="64" y1="92" x2="1136" y2="92" stroke="#191714"/>
+  <text x="64" y="194" fill="#191714" font-family="Georgia, serif" font-size="70" letter-spacing="-3">Service tools,</text>
+  <text x="64" y="264" fill="#1f4935" font-family="Georgia, serif" font-size="66" font-style="italic" letter-spacing="-3">printed with purpose.</text>
+  <text x="70" y="320" fill="#191714" font-family="Arial, sans-serif" font-size="20">Shift intelligence for kitchens that move fast and read clearly.</text>
+  <g transform="translate(64 370)">
+    <rect width="125" height="102" fill="#191714"/>
+    <rect x="125" width="125" height="102" fill="#f1ead8" stroke="#191714"/>
+    <rect x="250" width="125" height="102" fill="#1f4935"/>
+    <rect x="375" width="125" height="102" fill="#ae522c"/>
+    <text x="0" y="128" fill="#191714" font-family="Arial, sans-serif" font-size="13">INK / PAPER / HERB / COPPER</text>
+  </g>
+  <g transform="translate(690 132)">
+    <rect width="446" height="252" fill="#1f4935"/>
+    <circle cx="340" cy="-20" r="112" fill="none" stroke="#ae522c" stroke-width="54" opacity="0.8"/>
+    <g transform="translate(72 50)" fill="none" stroke="#f1ead8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M30 12c55 34 55 112 0 148M0 24c82 22 82 100 0 124M15 86h74"/>
+      <path d="M183 22v144M150 40l33-28 33 28"/>
+    </g>
+    <text x="230" y="205" fill="#f1ead8" font-family="Georgia, serif" font-size="30">Kitchen rhythm</text>
+  </g>
+  <g transform="translate(568 418)">
+    <rect width="260" height="294" fill="#ae522c"/>
+    <g transform="translate(64 52)" fill="none" stroke="#191714" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="66" cy="70" r="62"/>
+      <path d="M128 72h84M66 132v72"/>
+    </g>
+    <text x="28" y="258" fill="#191714" font-family="Arial, sans-serif" font-size="18" font-weight="700">SERVICE / FOCUS</text>
+    <rect x="284" y="38" width="284" height="210" fill="#191714"/>
+    <g transform="translate(330 72)" fill="none" stroke="#f1ead8" stroke-width="10" stroke-linecap="round">
+      <path d="M18 112L170 0M8 132l38-10-28-28zM180 12l32 32"/>
+      <path d="M84 136h126"/>
+    </g>
+    <text x="310" y="286" fill="#191714" font-family="Georgia, serif" font-size="28">Uneven modules.</text>
+  </g>
+  <g transform="translate(64 660)">
+    <text fill="#191714" font-family="Arial, sans-serif" font-size="21" font-weight="700">Interface Sans / 14</text>
+    <text y="50" fill="#191714" font-family="Georgia, serif" font-size="42">Editorial Serif / 30</text>
+  </g>
+</svg>

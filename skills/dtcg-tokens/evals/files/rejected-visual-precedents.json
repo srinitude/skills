@@ -1,0 +1,42 @@
+{
+  "fixture_kind": "negative-visual-precedents",
+  "cases": [
+    {
+      "id": "editorial-board-collision",
+      "artifact": "rejected-editorial-board.svg",
+      "expected_verdict": "fail",
+      "failed_gates": [
+        "audience_relation",
+        "visual_identity",
+        "cohesion",
+        "non_genericity",
+        "render_integrity"
+      ],
+      "observed_failures": [
+        "The oversized copper ring collides with and crowds the green module.",
+        "Lower modules do not share a defensible alignment system with the upper composition.",
+        "Line drawings do not explain an operational product relationship.",
+        "The paper grid, earthy palette, serif italic headline, swatch strip, and oversized geometry form a familiar brand-board formula.",
+        "The board names restaurant operations but contains no operational status, workflow, timing, role, inventory, or exception content."
+      ]
+    },
+    {
+      "id": "automatic-dashboard-proof",
+      "artifact": "audit-only external captures recorded in outputs/dtcg-visual-artifact-audit.md",
+      "expected_verdict": "fail",
+      "failed_gates": [
+        "visual_identity",
+        "hierarchy",
+        "non_genericity",
+        "render_integrity"
+      ],
+      "observed_failures": [
+        "Two seeded runs retain the same oversized headline, dark dashboard, statistic strip, repeated tile fields, and dense data wall.",
+        "Seed-driven palette rotation creates arbitrary low-contrast labels.",
+        "Type and token content repeat one tile treatment regardless of token meaning.",
+        "The narrow report exceeds 31000 pixels and is impractical to inspect.",
+        "The report presents PASS before native visual judgment."
+      ]
+    }
+  ]
+}

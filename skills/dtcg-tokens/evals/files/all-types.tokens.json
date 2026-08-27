@@ -1,0 +1,64 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Synthetic validator fixture with one token for every standard DTCG type.",
+  "color": {
+    "$type": "color",
+    "$value": { "colorSpace": "srgb", "components": [0.1, 0.2, 0.3], "hex": "#1a334d" }
+  },
+  "dimension": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+  "fontFamily": { "$type": "fontFamily", "$value": ["Trebuchet MS", "sans-serif"] },
+  "fontWeight": { "$type": "fontWeight", "$value": 700 },
+  "duration": { "$type": "duration", "$value": { "value": 120, "unit": "ms" } },
+  "cubicBezier": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] },
+  "number": { "$type": "number", "$value": 1.25 },
+  "strokeStyle": { "$type": "strokeStyle", "$value": "solid" },
+  "border": {
+    "$type": "border",
+    "$value": {
+      "color": { "colorSpace": "srgb", "components": [0.1, 0.2, 0.3], "hex": "#1a334d" },
+      "width": { "value": 1, "unit": "px" },
+      "style": "solid"
+    }
+  },
+  "transition": {
+    "$type": "transition",
+    "$value": {
+      "duration": { "value": 120, "unit": "ms" },
+      "delay": { "value": 0, "unit": "ms" },
+      "timingFunction": [0.2, 0, 0, 1]
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": { "colorSpace": "srgb", "components": [0, 0, 0], "hex": "#000000" },
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 4, "unit": "px" },
+      "blur": { "value": 12, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    }
+  },
+  "gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "color": { "colorSpace": "srgb", "components": [0.1, 0.2, 0.3], "hex": "#1a334d" },
+        "position": 0
+      },
+      {
+        "color": { "colorSpace": "srgb", "components": [0.9, 0.8, 0.2], "hex": "#e6cc33" },
+        "position": 1
+      }
+    ]
+  },
+  "typography": {
+    "$type": "typography",
+    "$value": {
+      "fontFamily": ["Trebuchet MS", "sans-serif"],
+      "fontSize": { "value": 18, "unit": "px" },
+      "fontWeight": 700,
+      "letterSpacing": { "value": 0, "unit": "px" },
+      "lineHeight": 1.4
+    }
+  }
+}

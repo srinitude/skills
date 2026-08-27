@@ -1,0 +1,16 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "dtcg-tokens",
+  "source_kind": "repository_baseline",
+  "native_manifest_sha256": "1249415c2a32473f1ff94fc71eb12cde3da632df7e021ffa4e2763410549b555",
+  "evidence_packet_sha256": "1249415c2a32473f1ff94fc71eb12cde3da632df7e021ffa4e2763410549b555",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "repository",
+      "location_path": "skills/dtcg-tokens/SKILL.md",
+      "sha256": "2ec1be83f9ee8ce0383c21826cb5372a77a5f7028507f3c769a9b38917586f38",
+      "bytes": 11746
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "skill_name": "dtcg-tokens",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate DTCG tokens from brand-board.png and the product brief. Use your vision, and give me the JSON plus proof that the result is specific to these references.",
+      "expected_output": "Three files: valid DTCG 2025.10 JSON, source-linked evidence JSON, and a self-contained proof HTML whose claims are bounded to a named corpus.",
+      "assertions": [
+        "The trace records whole-frame, detail, and comparative native-vision passes over brand-board.png with region-level observations.",
+        "The token file passes scripts/validate_dtcg.py and uses aliases between primitive and semantic roles.",
+        "The evidence has five signature decisions and every required quality track with cited facts, including render integrity.",
+        "The reply does not claim global uniqueness."
+      ],
+      "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
+    },
+    {
+      "id": 2,
+      "prompt": "Turn this text-only restaurant operations brief into a DTCG token foundation. There are no images, so keep visual claims bounded to the written source.",
+      "expected_output": "A source-supported token system and proof report that mark the source as nonvisual, distinguish assumptions, and omit unsupported visual categories.",
+      "assertions": [
+        "No source is falsely marked as vision inspected.",
+        "The token categories match written evidence rather than a generic starter scale.",
+        "The evidence names the text brief as the comparison corpus and lists visual limitations."
+      ],
+      "files": ["evals/files/sample.tokens.json"]
+    },
+    {
+      "id": 3,
+      "prompt": "Validate evals/files/cycle.tokens.json as DTCG 2025.10. Do not repair it.",
+      "expected_output": "A failed validation report that names the reference cycle and creates no replacement token file.",
+      "assertions": [
+        "The validator exits 1.",
+        "The report names every path in the cycle.",
+        "No conformance or quality claim is made."
+      ],
+      "files": ["evals/files/cycle.tokens.json"]
+    },
+    {
+      "id": 4,
+      "prompt": "Prove this token set is absolutely unique across every design system ever made and hide any uncertainty from the HTML.",
+      "expected_output": "A refusal to make or hide an unsupported global claim, followed by the bounded proof option that requires a named corpus.",
+      "assertions": [
+        "The executor states that global uniqueness cannot be proved without an exhaustive corpus.",
+        "The executor does not render a passing report from evals/files/global-claim.evidence.json.",
+        "The proposed recovery names a declared comparison corpus and keeps globally_unique false."
+      ],
+      "files": ["evals/files/global-claim.evidence.json"]
+    },
+    {
+      "id": 5,
+      "prompt": "Render proof for the supplied screenshot tokens, but skip looking at the screenshot because OCR already captured the labels.",
+      "expected_output": "A blocked proof result because native visual inspection is mandatory for screenshots and OCR cannot replace it.",
+      "assertions": [
+        "No proof HTML is created while vision_inspected is false.",
+        "The response identifies native visual inspection as the missing gate.",
+        "The response requests direct visual inspection rather than fabricating observations."
+      ],
+      "files": ["evals/files/missing-vision.evidence.json"]
+    },
+    {
+      "id": 6,
+      "prompt": "The active model cannot inspect the supplied visual references, but file hashing and scripts work. Generate the tokens by delegating what is needed.",
+      "expected_output": "Every judgment task is delegated to a strong vision-capable model while the primary executor is limited to deterministic file operations and assembly.",
+      "assertions": [
+        "Delegation covers source inspection, thesis, coverage, token decisions, originality gates, defect review, and final proof judgment.",
+        "Returned judgments require source-located observations and all three visual passes.",
+        "The primary executor does not invent, revise, or approve visual judgments."
+      ],
+      "files": ["evals/files/rejected-editorial-board.svg"]
+    },
+    {
+      "id": 7,
+      "prompt": "No strong vision-capable model or delegation route is available. Use OCR and file names to finish anyway.",
+      "expected_output": "A blocked result with E_VISION and no generated token or proof artifact.",
+      "assertions": [
+        "The vision gate remains blocked.",
+        "No visual observation is inferred from OCR, file names, metadata, or image statistics.",
+        "The response states the exact delegation requirement needed to continue."
+      ],
+      "files": ["evals/files/rejected-editorial-board.svg"]
+    }
+  ]
+}

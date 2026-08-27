@@ -14,7 +14,6 @@ const expectedSkills = [
   ['logic-audit', '0.1.1'],
   ['meaning-preserving-rewrite', '0.1.0'],
   ['outcome-bounded-work', '0.1.0'],
-  ['prime-vector', '0.2.4'],
   ['prompt-enhancer', '0.1.0'],
   ['reify', '0.1.0'],
   ['simplify-skill', '0.1.0'],
@@ -38,7 +37,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 16,
+    skillCount: 15,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',

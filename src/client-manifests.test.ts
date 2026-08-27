@@ -113,7 +113,6 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/logic-audit/SKILL.md',
       'skills/meaning-preserving-rewrite/SKILL.md',
       'skills/outcome-bounded-work/SKILL.md',
-      'skills/prime-vector/SKILL.md',
       'skills/prompt-enhancer/SKILL.md',
       'skills/reify/SKILL.md',
       'skills/simplify-skill/SKILL.md',
@@ -131,7 +130,6 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
   await expectInside('skills/logic-audit/SKILL.md');
   await expectInside('skills/meaning-preserving-rewrite/SKILL.md');
   await expectInside('skills/outcome-bounded-work/SKILL.md');
-  await expectInside('skills/prime-vector/SKILL.md');
   await expectInside('skills/prompt-enhancer/SKILL.md');
   await expectInside('skills/reify/SKILL.md');
   await expectInside('skills/simplify-skill/SKILL.md');
@@ -176,7 +174,7 @@ test('groups canonical skills for skills-hub clients', async () => {
       { skills: ['goal-prompt'], title: 'Goal Packaging' },
       { skills: ['reify'], title: 'Ideation' },
       {
-        skills: ['outcome-bounded-work', 'prime-vector', 'starting-point'],
+        skills: ['outcome-bounded-work', 'starting-point'],
         title: 'Planning',
       },
       { skills: ['prompt-enhancer'], title: 'Prompt Quality' },

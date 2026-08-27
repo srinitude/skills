@@ -26,10 +26,6 @@ _SKILLS = (
         "Use when instructions mix outcomes with recipes.",
     ),
     (
-        "prime-vector",
-        "Use when a high-stakes problem needs a strategy.",
-    ),
-    (
         "prompt-enhancer",
         "Use when the user asks to enhance, improve, refine, rewrite,"
         " strengthen, or validate a prompt, or says \"make this prompt"

@@ -1,4 +1,5 @@
 """Contract tests for every bundled script in this skill."""
+import hashlib
 import json
 import pathlib
 import re
@@ -23,6 +24,29 @@ class TestScriptContracts(unittest.TestCase):
             result = run(script, "--help")
             self.assertEqual(result.returncode, 0, script.name)
             self.assertIn("usage", result.stdout.lower(), script.name)
+
+    def test_case_source_ids_match_repository_schema(self):
+        cases = json.loads((SKILL_DIR / "evals" / "cases.json").read_text(encoding="utf-8"))["cases"]
+        for case in cases:
+            self.assertRegex(case["source_id"], r"^[A-Z]+-\d{3}$", case["id"])
+
+    def test_lineage_matches_current_skill_bytes(self):
+        lineage = json.loads((SKILL_DIR / "evals" / "source-lineage.json").read_text(encoding="utf-8"))
+        cases = json.loads((SKILL_DIR / "evals" / "cases.json").read_text(encoding="utf-8"))["cases"]
+        active_ids = lineage.get("active_case_ids", lineage["source_case_ids"])
+        self.assertEqual(sorted(active_ids), sorted(case["source_id"] for case in cases))
+
+        inventory = sorted(
+            path.relative_to(SKILL_DIR).as_posix()
+            for path in SKILL_DIR.rglob("*")
+            if path.is_file() and path.relative_to(SKILL_DIR).as_posix() != "evals/source-lineage.json"
+        )
+        claimed = sorted(entry["path"] for entry in lineage["public_files"])
+        self.assertEqual(claimed, inventory)
+
+        skill_bytes = (SKILL_DIR / "SKILL.md").read_bytes()
+        source_claim = next(entry for entry in lineage["source_files"] if entry["path"] == "SKILL.md")
+        self.assertEqual(source_claim["sha256"], hashlib.sha256(skill_bytes).hexdigest())
 
 
 class TestSkillInfo(unittest.TestCase):

@@ -1,7 +1,13 @@
 {
   "version": "1.0.0",
   "purpose": "Use independent workers without losing ownership, evidence, or final verification.",
-  "eligibility": ["runtime_supports_workers", "at_least_two_ready_tasks", "tasks_are_independent", "tasks_are_bounded", "writes_are_disjoint"],
+  "eligibility": [
+    "runtime_supports_workers",
+    "at_least_two_ready_tasks",
+    "tasks_are_independent",
+    "tasks_are_bounded",
+    "writes_are_disjoint"
+  ],
   "delegate_when_eligible": true,
   "unavailable_fallback": "run_same_roles_sequentially_with_same_records",
   "task_packet_fields": [
@@ -21,10 +27,28 @@
     "budget",
     "status"
   ],
-  "result_fields": ["claims", "sources", "located_evidence", "counterevidence", "uncertainty", "conflicts", "output_paths", "output_hashes", "status"],
+  "result_fields": [
+    "claims",
+    "sources",
+    "located_evidence",
+    "counterevidence",
+    "uncertainty",
+    "conflicts",
+    "output_paths",
+    "output_hashes",
+    "status"
+  ],
   "write_policy": "one_writer_per_mutable_deliverable",
   "visual_worker_rule": "A worker may judge visuals only after passing assets/vision-probe-manifest.json.",
   "counterevidence_task_required": true,
   "lead_rechecks_current_bytes": true,
-  "lead_owns": ["run_contract", "dependency_graph", "integration", "conflict_resolution", "final_claims", "final_vision_judgment", "current_byte_readback"]
+  "lead_owns": [
+    "run_contract",
+    "dependency_graph",
+    "integration",
+    "conflict_resolution",
+    "final_claims",
+    "final_vision_judgment",
+    "current_byte_readback"
+  ]
 }

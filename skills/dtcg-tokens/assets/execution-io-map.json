@@ -9,7 +9,13 @@
       "produces": ["run.contract"],
       "primary_output": "run.contract",
       "decision_owner": "agent",
-      "support_files": ["references/deterministic-execution.md", "references/subagent-orchestration.md", "assets/subagent-task-contract.json", "scripts/current_anchor.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/deterministic-execution.md",
+        "references/subagent-orchestration.md",
+        "assets/subagent-task-contract.json",
+        "scripts/current_anchor.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S02",
@@ -17,7 +23,11 @@
       "produces": ["source.inventory"],
       "primary_output": "source.inventory",
       "decision_owner": "agent with vision access",
-      "support_files": ["assets/multimodal-input-catalog.json", "references/multimodal-inspection.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/multimodal-input-catalog.json",
+        "references/multimodal-inspection.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S03",
@@ -37,7 +47,11 @@
       "produces": ["observation.register"],
       "primary_output": "observation.register",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/multimodal-inspection.md", "references/multimodal-originality.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/multimodal-inspection.md",
+        "references/multimodal-originality.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S05",
@@ -45,7 +59,11 @@
       "produces": ["statement.register"],
       "primary_output": "statement.register",
       "decision_owner": "agent",
-      "support_files": ["references/evidence-schema.md", "references/decisions.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/evidence-schema.md",
+        "references/decisions.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S06",
@@ -53,7 +71,12 @@
       "produces": ["identity.thesis"],
       "primary_output": "identity.thesis",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/originality-rubric.md", "references/multimodal-originality.md", "assets/originality-analysis-contract.json", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/originality-rubric.md",
+        "references/multimodal-originality.md",
+        "assets/originality-analysis-contract.json",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S07",
@@ -61,7 +84,14 @@
       "produces": ["token.universe"],
       "primary_output": "token.universe",
       "decision_owner": "agent with vision evidence",
-      "support_files": ["assets/token-possibility-catalog.json", "assets/screen-possibility-space.json", "references/dtcg-2025.10.md", "references/category-taxonomy.md", "references/screen-decision.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/token-possibility-catalog.json",
+        "assets/screen-possibility-space.json",
+        "references/dtcg-2025.10.md",
+        "references/category-taxonomy.md",
+        "references/screen-decision.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S08",
@@ -69,7 +99,18 @@
       "produces": ["exploration.ledger"],
       "primary_output": "exploration.ledger",
       "decision_owner": "strong vision executor",
-      "support_files": ["assets/exploration-strategy-catalog.json", "assets/creative-source-frontier.json", "assets/experiment-contract.json", "assets/exploration-corpus/manifest.json", "references/exploration-synthesis.md", "references/experimental-decision.md", "references/research-protocol.md", "scripts/prepare_creative_research.py", "scripts/validate_exploration.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/exploration-strategy-catalog.json",
+        "assets/creative-source-frontier.json",
+        "assets/experiment-contract.json",
+        "assets/exploration-corpus/manifest.json",
+        "references/exploration-synthesis.md",
+        "references/experimental-decision.md",
+        "references/research-protocol.md",
+        "scripts/prepare_creative_research.py",
+        "scripts/validate_exploration.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S09",
@@ -82,7 +123,12 @@
       "produces": ["context.matrix"],
       "primary_output": "context.matrix",
       "decision_owner": "agent with vision evidence",
-      "support_files": ["references/evidence-schema.md", "references/screen-decision.md", "assets/screen-possibility-space.json", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/evidence-schema.md",
+        "references/screen-decision.md",
+        "assets/screen-possibility-space.json",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S10",
@@ -90,7 +136,13 @@
       "produces": ["signature.decisions"],
       "primary_output": "signature.decisions",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/originality-rubric.md", "references/creative-transfer.md", "references/google-font-selection.md", "scripts/prepare_google_fonts.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/originality-rubric.md",
+        "references/creative-transfer.md",
+        "references/google-font-selection.md",
+        "scripts/prepare_google_fonts.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S11",
@@ -98,7 +150,11 @@
       "produces": ["artifact.tokens"],
       "primary_output": "artifact.tokens",
       "decision_owner": "agent",
-      "support_files": ["references/dtcg-2025.10.md", "assets/dtcg-format-2025.10.schema.json", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/dtcg-2025.10.md",
+        "assets/dtcg-format-2025.10.schema.json",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S12",
@@ -126,7 +182,12 @@
       "produces": ["artifact.evidence"],
       "primary_output": "artifact.evidence",
       "decision_owner": "agent",
-      "support_files": ["assets/evidence-template.json", "assets/originality-analysis-contract.json", "references/evidence-schema.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/evidence-template.json",
+        "assets/originality-analysis-contract.json",
+        "references/evidence-schema.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S14",
@@ -139,7 +200,13 @@
       "produces": ["proof.candidate"],
       "primary_output": "proof.candidate",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/visual-review.md", "references/writing-style.md", "references/google-font-selection.md", "scripts/lib/artifact_contract.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/visual-review.md",
+        "references/writing-style.md",
+        "references/google-font-selection.md",
+        "scripts/lib/artifact_contract.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S15",
@@ -147,7 +214,12 @@
       "produces": ["proof.originality-review"],
       "primary_output": "proof.originality-review",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/deterministic-execution.md", "references/multimodal-originality.md", "assets/exploration-corpus/negative-patterns.json", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/deterministic-execution.md",
+        "references/multimodal-originality.md",
+        "assets/exploration-corpus/negative-patterns.json",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S16",
@@ -161,7 +233,11 @@
       "produces": ["proof.coverage-map"],
       "primary_output": "proof.coverage-map",
       "decision_owner": "agent with vision evidence",
-      "support_files": ["scripts/lib/artifact_contract.py", "scripts/lib/coverage.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "scripts/lib/artifact_contract.py",
+        "scripts/lib/coverage.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S17",
@@ -188,7 +264,12 @@
       "produces": ["review.visual"],
       "primary_output": "review.visual",
       "decision_owner": "strong vision executor",
-      "support_files": ["references/visual-review.md", "references/google-font-selection.md", "assets/vision-probe-manifest.json", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/visual-review.md",
+        "references/google-font-selection.md",
+        "assets/vision-probe-manifest.json",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S19",
@@ -196,7 +277,11 @@
       "produces": ["review.defects"],
       "primary_output": "review.defects",
       "decision_owner": "strong vision executor",
-      "support_files": ["assets/visual-defect-catalog.json", "references/visual-review.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/visual-defect-catalog.json",
+        "references/visual-review.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S20",
@@ -204,7 +289,11 @@
       "produces": ["review.invariants"],
       "primary_output": "review.invariants",
       "decision_owner": "strong vision executor",
-      "support_files": ["assets/perceptual-motor-invariant-catalog.json", "references/screen-decision.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/perceptual-motor-invariant-catalog.json",
+        "references/screen-decision.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S21",
@@ -218,7 +307,12 @@
       "produces": ["review.judgment"],
       "primary_output": "review.judgment",
       "decision_owner": "strong vision executor",
-      "support_files": ["assets/judgment-review-catalog.json", "references/qualitative-judgment.md", "references/multimodal-originality.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "assets/judgment-review-catalog.json",
+        "references/qualitative-judgment.md",
+        "references/multimodal-originality.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S22",
@@ -240,7 +334,11 @@
       "produces": ["final.readback"],
       "primary_output": "final.readback",
       "decision_owner": "agent with strong vision executor",
-      "support_files": ["references/evidence-schema.md", "references/google-font-selection.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/evidence-schema.md",
+        "references/google-font-selection.md",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S24",
@@ -248,7 +346,16 @@
       "produces": ["package.validation"],
       "primary_output": "package.validation",
       "decision_owner": "mechanical executor",
-      "support_files": ["references/validation.md", "references/file-trigger-audit.md", "evals/contract.md", "evals/rubric.md", "scripts/validate_skill.py", "scripts/audit_file_triggers.py", "scripts/check_evals.py", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/validation.md",
+        "references/file-trigger-audit.md",
+        "evals/contract.md",
+        "evals/rubric.md",
+        "scripts/validate_skill.py",
+        "scripts/audit_file_triggers.py",
+        "scripts/check_evals.py",
+        "scripts/run_pipeline.py"
+      ]
     },
     {
       "id": "S25",
@@ -256,7 +363,11 @@
       "produces": ["completion.disposition"],
       "primary_output": "completion.disposition",
       "decision_owner": "agent",
-      "support_files": ["references/deterministic-execution.md", "references/evidence-schema.md", "scripts/run_pipeline.py"]
+      "support_files": [
+        "references/deterministic-execution.md",
+        "references/evidence-schema.md",
+        "scripts/run_pipeline.py"
+      ]
     }
   ]
 }

@@ -14,34 +14,34 @@ Exploration must start from a typed, versioned corpus of usable creative materia
 
 ## Object Definitions
 
-| Object | Definition | Not accepted |
-| --- | --- | --- |
-| Primitive | Lowest-level controllable visual, spatial, temporal, interaction, sensory, material, state, or data property. | A finished style or named trend. |
-| Operator | A transformation that changes one or more primitives or relationships. | A vague instruction such as make it better or more creative. |
-| Mechanism | A cause-and-effect pattern that predicts an observable result. | A metaphor with no structural transfer or falsifier. |
-| Concept | A reusable structural arrangement of primitives, operators, and mechanisms for a stated purpose. | A screenshot, template, or surface look to copy. |
-| Theme | A source-backed semantic or experiential proposition with observable implications. | A generic mood adjective without evidence or consequences. |
-| Tension | Two forces that the candidate must hold, separate, sequence, or reconcile. | A decorative pair of opposites with no decision effect. |
-| Constraint | A hard, soft, hidden, inverted, or experimental boundary on the candidate. | An unstated convention treated as physics. |
-| Question | A bounded prompt whose answer could change a token or proof decision. | An open-ended request for inspiration. |
-| Idea | A run-specific, falsifiable hypothesis assembled from source evidence and corpus entries. | A static corpus item or untestable suggestion. |
+| Object     | Definition                                                                                                    | Not accepted                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Primitive  | Lowest-level controllable visual, spatial, temporal, interaction, sensory, material, state, or data property. | A finished style or named trend.                             |
+| Operator   | A transformation that changes one or more primitives or relationships.                                        | A vague instruction such as make it better or more creative. |
+| Mechanism  | A cause-and-effect pattern that predicts an observable result.                                                | A metaphor with no structural transfer or falsifier.         |
+| Concept    | A reusable structural arrangement of primitives, operators, and mechanisms for a stated purpose.              | A screenshot, template, or surface look to copy.             |
+| Theme      | A source-backed semantic or experiential proposition with observable implications.                            | A generic mood adjective without evidence or consequences.   |
+| Tension    | Two forces that the candidate must hold, separate, sequence, or reconcile.                                    | A decorative pair of opposites with no decision effect.      |
+| Constraint | A hard, soft, hidden, inverted, or experimental boundary on the candidate.                                    | An unstated convention treated as physics.                   |
+| Question   | A bounded prompt whose answer could change a token or proof decision.                                         | An open-ended request for inspiration.                       |
+| Idea       | A run-specific, falsifiable hypothesis assembled from source evidence and corpus entries.                     | A static corpus item or untestable suggestion.               |
 
 ## Package Shape
 
 The corpus is a versioned folder, not one unstructured list.
 
-| Planned file | Canonical content |
-| --- | --- |
-| `assets/exploration-corpus/manifest.json` | Version, schema, shard hashes, counts, update date, source classes, and compatibility. |
-| `assets/exploration-corpus/primitives.json` | Atomic visual, spatial, type, color, material, motion, interaction, haptic, audio, state, data, and accessibility controls. |
-| `assets/exploration-corpus/operators.json` | Combination, inversion, substitution, scaling, sequencing, mapping, abstraction, perturbation, and topology operations. |
-| `assets/exploration-corpus/mechanisms.json` | Relational patterns from design, science, art, engineering, nature, language, movement, music, and other domains. |
-| `assets/exploration-corpus/concepts.json` | Structural patterns with prerequisites, effects, risks, and tests. |
-| `assets/exploration-corpus/themes.json` | Proposition and tension grammars, evidence requirements, implications, anti-signals, and clichés to avoid. |
-| `assets/exploration-corpus/constraints.json` | Human invariants, technology limits, hidden assumptions, inversion candidates, and experimental bounds. |
-| `assets/exploration-corpus/questions.json` | Typed questions for source analysis, cross-domain transfer, counterfactuals, physical interaction, and proof. |
-| `assets/exploration-corpus/technology.json` | Dated capability records from the technology watch, with maturity and fallback requirements. |
-| `assets/exploration-corpus/negative-patterns.json` | Generic shells, repeated generated-design patterns, invalid transfers, failed themes, and rejected visual precedents. |
+| Planned file                                       | Canonical content                                                                                                           |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `assets/exploration-corpus/manifest.json`          | Version, schema, shard hashes, counts, update date, source classes, and compatibility.                                      |
+| `assets/exploration-corpus/primitives.json`        | Atomic visual, spatial, type, color, material, motion, interaction, haptic, audio, state, data, and accessibility controls. |
+| `assets/exploration-corpus/operators.json`         | Combination, inversion, substitution, scaling, sequencing, mapping, abstraction, perturbation, and topology operations.     |
+| `assets/exploration-corpus/mechanisms.json`        | Relational patterns from design, science, art, engineering, nature, language, movement, music, and other domains.           |
+| `assets/exploration-corpus/concepts.json`          | Structural patterns with prerequisites, effects, risks, and tests.                                                          |
+| `assets/exploration-corpus/themes.json`            | Proposition and tension grammars, evidence requirements, implications, anti-signals, and clichés to avoid.                  |
+| `assets/exploration-corpus/constraints.json`       | Human invariants, technology limits, hidden assumptions, inversion candidates, and experimental bounds.                     |
+| `assets/exploration-corpus/questions.json`         | Typed questions for source analysis, cross-domain transfer, counterfactuals, physical interaction, and proof.               |
+| `assets/exploration-corpus/technology.json`        | Dated capability records from the technology watch, with maturity and fallback requirements.                                |
+| `assets/exploration-corpus/negative-patterns.json` | Generic shells, repeated generated-design patterns, invalid transfers, failed themes, and rejected visual precedents.       |
 
 The manifest must fail if a shard is missing, stale, duplicated, unreferenced, or has a hash mismatch. The future runtime reference explains how to load only the shards needed for a run while the manifest proves full catalog awareness.
 
@@ -82,18 +82,18 @@ The [screen possibility-space appendix](2026-08-27-dtcg-screen-possibility-space
 
 The operator corpus must include these stable families:
 
-| Family | Operations |
-| --- | --- |
-| Combine | Pair, layer, interleave, braid, fuse, alternate, synchronize, or counterpoint. |
-| Separate | Split, isolate, stagger, gate, reveal, defer, phase, or create redundancy. |
-| Transform | Scale, stretch, compress, rotate, translate, warp, morph, quantize, interpolate, or remap. |
-| Reframe | Change objective, agent, granularity, formalism, time scale, point of view, or medium. |
-| Invert | Reverse hierarchy, direction, figure and ground, control and response, input and output, default and exception, or cause and display. |
-| Vary | Sweep, block, randomize, perturb, mutate, exaggerate, attenuate, or test extremes. |
-| Abstract | Strip surface traits, preserve relations, generalize, specialize, encode, or symbolize. |
-| Transfer | Map a verified mechanism from a distant domain while forbidding surface imitation. |
-| Counterfactual | Remove, replace, shuffle, flatten, transplant, mask, or preserve style while changing structure. |
-| Temporalize | Sequence, accumulate, decay, loop, branch, pause, interrupt, replay, or make state history visible. |
+| Family         | Operations                                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Combine        | Pair, layer, interleave, braid, fuse, alternate, synchronize, or counterpoint.                                                        |
+| Separate       | Split, isolate, stagger, gate, reveal, defer, phase, or create redundancy.                                                            |
+| Transform      | Scale, stretch, compress, rotate, translate, warp, morph, quantize, interpolate, or remap.                                            |
+| Reframe        | Change objective, agent, granularity, formalism, time scale, point of view, or medium.                                                |
+| Invert         | Reverse hierarchy, direction, figure and ground, control and response, input and output, default and exception, or cause and display. |
+| Vary           | Sweep, block, randomize, perturb, mutate, exaggerate, attenuate, or test extremes.                                                    |
+| Abstract       | Strip surface traits, preserve relations, generalize, specialize, encode, or symbolize.                                               |
+| Transfer       | Map a verified mechanism from a distant domain while forbidding surface imitation.                                                    |
+| Counterfactual | Remove, replace, shuffle, flatten, transplant, mask, or preserve style while changing structure.                                      |
+| Temporalize    | Sequence, accumulate, decay, loop, branch, pause, interrupt, replay, or make state history visible.                                   |
 
 Each operator must name input types, output types, invalid combinations, predicted effect, and at least one falsifier.
 
@@ -133,12 +133,12 @@ Exploration uses a recorded seed derived from the input hash, intent hash, corpu
 
 The lead builds four candidate lanes before evaluation:
 
-| Lane | Required construction | Minimum candidates |
-| --- | --- | --- |
-| Combinational | Two source relations plus primitives and a mechanism from a distant domain. | 3 |
-| Exploratory | Search inside a declared rule set by varying primitives or parameters. | 3 |
-| Transformational | Change a soft or hidden constraint, objective, medium, agent, or interaction model. | 3 |
-| Antithetical | Use inversion, contradiction, or a counter-theme against the leading thesis. | 3 |
+| Lane             | Required construction                                                               | Minimum candidates |
+| ---------------- | ----------------------------------------------------------------------------------- | ------------------ |
+| Combinational    | Two source relations plus primitives and a mechanism from a distant domain.         | 3                  |
+| Exploratory      | Search inside a declared rule set by varying primitives or parameters.              | 3                  |
+| Transformational | Change a soft or hidden constraint, objective, medium, agent, or interaction model. | 3                  |
+| Antithetical     | Use inversion, contradiction, or a counter-theme against the leading thesis.        | 3                  |
 
 Each candidate must contain at least two source-specific relationships, one primitive, one operator, one mechanism, one theme or tension, one constraint, one question, one predicted effect, one falsifier, and exact candidate token paths. Include a physical interaction primitive when applicable. Include at least one current technology candidate in the twelve-candidate set, but do not retain it merely to fill the quota.
 

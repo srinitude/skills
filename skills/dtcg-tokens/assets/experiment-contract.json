@@ -26,12 +26,7 @@
     "evidence_plan",
     "rollback"
   ],
-  "variable_groups": [
-    "independent",
-    "held_constant",
-    "nuisance",
-    "blocked"
-  ],
+  "variable_groups": ["independent", "held_constant", "nuisance", "blocked"],
   "methods": {
     "few_interacting_factors": "full_factorial",
     "many_early_factors": "screening_design",

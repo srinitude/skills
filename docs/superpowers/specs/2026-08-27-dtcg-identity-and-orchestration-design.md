@@ -20,18 +20,18 @@ Every task packet records `task_id`, role, objective, exact input paths and hash
 
 The evidence manifest must keep these claims separate:
 
-| Claim | Required meaning and proof |
-| --- | --- |
-| `source_specificity` | Located observations and relationships are present in the actual input. |
-| `source_distinctiveness` | Named features differ from a stated local context or matched comparison set. |
-| `source_originality` | Novelty and contextual fit both pass within a named corpus, date, feature space, and task. |
-| `output_originality` | Tokens and proof derive from source relationships instead of a reusable shell or surface substitution. |
-| `output_identifiability` | Reviewers can match output to its source among matched distractors under declared transformations. |
-| `corpus_uniqueness` | No collision or near neighbor crosses declared thresholds in a frozen corpus and representation set. |
-| `memorability` | Corrected recognition evidence passes; loudness or salience alone cannot establish it. |
-| `authorship_provenance` | External provenance records support authorship; style cannot prove it. |
-| `bounded_one_of_a_kind` | Originality, identifiability, and multi-representation corpus uniqueness all pass inside the same declared boundary. |
-| `globally_unique` | Always false because the searchable universe is neither complete nor stable. |
+| Claim                    | Required meaning and proof                                                                                           |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `source_specificity`     | Located observations and relationships are present in the actual input.                                              |
+| `source_distinctiveness` | Named features differ from a stated local context or matched comparison set.                                         |
+| `source_originality`     | Novelty and contextual fit both pass within a named corpus, date, feature space, and task.                           |
+| `output_originality`     | Tokens and proof derive from source relationships instead of a reusable shell or surface substitution.               |
+| `output_identifiability` | Reviewers can match output to its source among matched distractors under declared transformations.                   |
+| `corpus_uniqueness`      | No collision or near neighbor crosses declared thresholds in a frozen corpus and representation set.                 |
+| `memorability`           | Corrected recognition evidence passes; loudness or salience alone cannot establish it.                               |
+| `authorship_provenance`  | External provenance records support authorship; style cannot prove it.                                               |
+| `bounded_one_of_a_kind`  | Originality, identifiability, and multi-representation corpus uniqueness all pass inside the same declared boundary. |
+| `globally_unique`        | Always false because the searchable universe is neither complete nor stable.                                         |
 
 A result can be unique but unidentifiable, identifiable but unoriginal, memorable but generic, or original but unfit. The skill must report each state without upgrading it to another claim.
 

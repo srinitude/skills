@@ -214,7 +214,7 @@
     },
     {
       "id": "DTCG-011",
-      "source_id": "target-font-policy",
+      "source_id": "DTCG-011",
       "group": "generation",
       "title": "Current uncommon Google Font selection",
       "decision": "select_current_uncommon_fonts",

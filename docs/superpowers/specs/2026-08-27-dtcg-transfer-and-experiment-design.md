@@ -41,13 +41,13 @@ Confirmation cannot change the frozen question, prediction, measure, or threshol
 
 ## Method Choice
 
-| Condition | Required method |
-| --- | --- |
-| A few factors may interact. | Full factorial comparison. |
-| Many factors need early reduction. | Screening design. |
-| A continuous space may curve. | Response-surface design. |
-| A large continuous space lacks a known shape. | Space-filling design. |
-| Context may change the result. | Block by viewport, theme, state, input, interaction, or rendering environment. |
+| Condition                                     | Required method                                                                |
+| --------------------------------------------- | ------------------------------------------------------------------------------ |
+| A few factors may interact.                   | Full factorial comparison.                                                     |
+| Many factors need early reduction.            | Screening design.                                                              |
+| A continuous space may curve.                 | Response-surface design.                                                       |
+| A large continuous space lacks a known shape. | Space-filling design.                                                          |
+| Context may change the result.                | Block by viewport, theme, state, input, interaction, or rendering environment. |
 
 The record states why the method fits the question. An experiment cannot pass only because it used a named method.
 

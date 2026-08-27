@@ -26,25 +26,23 @@ The package must not compare execution systems. A strong-vision path owns each v
 
 ## Retained Conversation Contract
 
-The [conversation-requirements appendix](2026-08-27-dtcg-conversation-requirements.md) retains this full conversation. Load it before any package change or approval. Map each change to a requirement ID. Simplification cannot remove a requirement.
+The [conversation-requirements appendix](2026-08-27-dtcg-conversation-requirements.md) is the canonical conversation contract. Load it before package changes or approval, and map each change to an ID. Simplification cannot remove a requirement.
 
 ## Architecture
 
 The feature has eleven independent owners. Each planned support file must be linked from the relevant `SKILL.md` Execution and Completion route, with its load condition stated there.
 
-| Owner | Purpose | Planned package file |
-| --- | --- | --- |
-| Source frontier | Enumerate domains, mechanisms, distance rules, freshness, and stopping criteria. | `assets/creative-source-frontier.json` |
-| Transfer contract | Turn a distant source relation into a falsifiable token decision without surface imitation. | `references/creative-transfer.md` |
-| Experiment contract | Define hypotheses, variables, controls, falsifiers, evidence, and retained experimental tokens. | `assets/experiment-contract.json` and `references/experimental-decision.md` |
-| Source identity | Build and falsify a modality-aware graph of source-specific observations and relationships. | `assets/originality-analysis-contract.json` and `references/multimodal-originality.md` |
-| Screen possibility space | Enumerate visual output, physical interaction, device, body, environment, and accessibility axes before narrowing. | `assets/screen-possibility-space.json` and `references/screen-decision.md` |
-| Exploration corpus | Supply typed primitives, operators, mechanisms, concepts, themes, tensions, constraints, questions, and negative patterns for deterministic synthesis. | `assets/exploration-corpus/` and `references/exploration-synthesis.md` |
-| Deterministic execution | Make every step and Markdown file explicit, readable, cleanly formatted, stateful, routed, and testable; qualify the strong-vision path. | Existing execution records, `scripts/run_pipeline.py`, `scripts/lint_writing.py`, `references/writing-style.md`, and `assets/vision-probe-manifest.json` |
-| Runtime orchestration | Define a dependency graph, bounded worker packets, one-writer ownership, handoffs, conflicts, and fallback. | `assets/subagent-task-contract.json` and `references/subagent-orchestration.md` |
-| Research capture | Produce a dated, reproducible source record and record blocked access. | `scripts/prepare_creative_research.py` |
-| Deterministic validation | Validate coverage, records, claims, orchestration, experiments, and output agreement. | `scripts/validate_exploration.py` and focused tests |
-| Pipeline routing | Connect all owners to the 25 steps and Completion. | Existing execution references, evidence schema, evals, and examples |
+- **Source frontier:** `assets/creative-source-frontier.json` enumerates domains, mechanisms, distance, freshness, and stop rules.
+- **Transfer contract:** `references/creative-transfer.md` turns distant relations into falsifiable token decisions without surface imitation.
+- **Experiment contract:** `assets/experiment-contract.json` and `references/experimental-decision.md` define hypotheses, variables, controls, falsifiers, evidence, and retained tokens.
+- **Source identity:** `assets/originality-analysis-contract.json` and `references/multimodal-originality.md` build and falsify the modality-aware source graph.
+- **Screen possibility space:** `assets/screen-possibility-space.json` and `references/screen-decision.md` enumerate visual, interaction, device, body, environment, and access axes.
+- **Exploration corpus:** `assets/exploration-corpus/` and `references/exploration-synthesis.md` supply typed primitives, operators, mechanisms, concepts, themes, tensions, constraints, questions, and negative patterns.
+- **Deterministic execution:** Execution records, `scripts/run_pipeline.py`, `scripts/lint_writing.py`, `references/writing-style.md`, and `assets/vision-probe-manifest.json` make steps explicit and qualify the vision path.
+- **Runtime orchestration:** `assets/subagent-task-contract.json` and `references/subagent-orchestration.md` define dependencies, worker packets, one-writer ownership, handoffs, conflicts, and fallback.
+- **Research capture:** `scripts/prepare_creative_research.py` records dated sources and blocked access.
+- **Deterministic validation:** `scripts/validate_exploration.py` and focused tests check coverage, records, claims, orchestration, experiments, and output agreement.
+- **Pipeline routing:** Existing execution references, evidence schema, evals, and examples connect all owners to the 25 steps and Completion.
 
 ## Identity And Orchestration
 
@@ -52,7 +50,7 @@ The lead owns a dependency graph, one-writer boundaries, integration, current-by
 
 Originality, identifiability, corpus uniqueness, memorability, provenance, and bounded one-of-a-kind status remain separate claims. Source identity uses located multimodal relationships, counterfactuals, matched distractors, transformations, open-set rejection, and multiple similarity representations. Global uniqueness is never claimed.
 
-The task packets, strong-vision boundary, claim table, source-identity graph, negative controls, and matching tests are owned by the [identity and orchestration appendix](2026-08-27-dtcg-identity-and-orchestration-design.md). Load it while implementing or reviewing the source-identity or runtime-orchestration owners, `E_DELEGATION`, `E_HANDOFF`, `E_CONFLICT`, `E_VISION`, `E_SOURCE_IDENTITY`, `E_IDENTIFIABILITY`, `E_CLAIM`, or their tests.
+The [identity and orchestration appendix](2026-08-27-dtcg-identity-and-orchestration-design.md) owns task packets, the vision boundary, claims, identity graphs, controls, and matching tests. Load it when changing source identity, runtime orchestration, the related error codes, or their tests.
 
 ## Deterministic Execution And Vision
 
@@ -64,7 +62,7 @@ Every step checks current named inputs, performs bounded actions, saves one type
 
 The strong-vision gate uses paired fixtures for overlap, clipping, type, contrast, responsive states, interaction, source identity, taste, originality, and hallucinated visual relations. The active visual path must pass before judgment work begins. A non-passing path delegates every judgment task to a model with strong vision that passes the same probe. If no such path is available, the run returns `BLOCKED: E_VISION`.
 
-The full step-card format, plain-language and Markdown rules, state transitions, open extension boundary, vision probe, research-to-procedure conversions, and tests are owned by the [deterministic-execution appendix](2026-08-27-dtcg-deterministic-execution-design.md). Load it while changing `SKILL.md` Execution or Completion, any Markdown file, execution reference or record, the vision path, `E_PROCEDURE`, `E_MARKDOWN`, `E_VISION`, or their tests.
+The [deterministic-execution appendix](2026-08-27-dtcg-deterministic-execution-design.md) owns step cards, Markdown rules, state, extensions, vision probes, and tests. Load it when changing `SKILL.md` Execution or Completion, Markdown, execution records, the vision path, related error codes, or their tests.
 
 ## Screen Possibility Space
 
@@ -72,7 +70,7 @@ Before choosing token families, the run enumerates tuples across screen, composi
 
 Each tuple records its source relation, predicted effect, physical basis, device needs, fallbacks, risks, falsifier, token paths, and proof specimens. Sight, perception, touch, access, safety, and recovery checks veto failed use without choosing an aesthetic.
 
-The full taxonomy, extension rule, decision record, and research-backed checks are owned by the [screen possibility-space appendix](2026-08-27-dtcg-screen-possibility-space-design.md). Load it while implementing or reviewing `assets/screen-possibility-space.json`, `references/screen-decision.md`, Step 07, `E_SCREEN_SPACE`, or their tests.
+The [screen possibility-space appendix](2026-08-27-dtcg-screen-possibility-space-design.md) owns its taxonomy, extensions, decisions, and checks. Load it when changing its asset, reference, Step 07, `E_SCREEN_SPACE`, or tests.
 
 ## Exploration Corpus
 
@@ -80,7 +78,7 @@ Exploration must use a typed, versioned corpus rather than an open request for i
 
 Step 08 builds a run-local corpus from the source identity graph, intent, applicable screen axes, distant mechanisms, active themes and antitheses, recent technology records, and rejected precedents. It then freezes at least twelve distinct candidates across combinational, exploratory, transformational, and antithetical lanes before taste filtering. Each candidate needs source relations, a primitive, operator, mechanism, theme or tension, constraint, question, predicted effect, falsifier, and candidate token paths.
 
-The shard design, entry schema, four-lane synthesis, recorded seed, anti-fixation rules, and lineage tests are owned by the [exploration-corpus appendix](2026-08-27-dtcg-exploration-corpus-design.md). Load it while implementing or reviewing `assets/exploration-corpus/`, `references/exploration-synthesis.md`, Step 08, `E_CORPUS`, or their tests.
+The [exploration-corpus appendix](2026-08-27-dtcg-exploration-corpus-design.md) owns shards, schema, synthesis, seed, fixation controls, and lineage tests. Load it when changing its assets, reference, Step 08, `E_CORPUS`, or tests.
 
 ## Source Frontier And Research Protocol
 
@@ -90,13 +88,13 @@ The domain catalog includes cognitive science, experimental science, optimizatio
 
 The research record stores run and retrieval dates, query, URL, publisher, publication date, source class, version, extracted mechanism, counterevidence, and access limits. Search snippets are leads only. No finite search can inspect all arXiv records, so every run uses a broad, reproducible, multi-query sweep across relevant categories and dates, then records coverage and stopping limits. Recent preprints may propose tests but cannot alone settle a design rule.
 
-The dated sources, evidence classes, counterarguments, and design consequences are owned by the [research-basis appendix](2026-08-27-dtcg-research-basis.md). Load it when changing a research-derived requirement or refreshing current evidence.
+The [research-basis appendix](2026-08-27-dtcg-research-basis.md) owns dated sources, evidence classes, counterarguments, and design consequences. Load it when changing a research-derived requirement or refreshing evidence.
 
 ## Transfer And Experiment Contracts
 
 Every transfer preserves a source relation while forbidding surface imitation. Every experiment freezes its question, variables, controls, predictions, measures, vetoes, stop rule, and rollback before confirmation. The final set retains at least three experimental tokens from three mechanism families, including one inversion or antithetical result.
 
-The full fields, method-choice rules, retention boundary, failures, and tests are owned by the [transfer-and-experiment appendix](2026-08-27-dtcg-transfer-and-experiment-design.md). Load it while changing `references/creative-transfer.md`, `assets/experiment-contract.json`, `references/experimental-decision.md`, Step 08, `E_TRANSFER`, `E_EXPERIMENT`, `E_EXPLORATION`, or their tests.
+The [transfer-and-experiment appendix](2026-08-27-dtcg-transfer-and-experiment-design.md) owns fields, method rules, retention, failures, and tests. Load it when changing its reference, asset, Step 08, related error codes, or tests.
 
 ## Selection And Vision Review
 
@@ -112,25 +110,23 @@ No later step may invent missing evidence, transfers, experiments, observations,
 
 ## Error Handling
 
-| Condition | Result |
-| --- | --- |
-| Current-source quota cannot pass | `BLOCKED: E_SOURCE_CURRENT` |
-| Domain distance or transfer cannot be supported | `BLOCKED: E_SOURCE_DISTANCE` or `BLOCKED: E_TRANSFER` |
-| Font catalog, rarity, license, or embedded bytes fail | `BLOCKED: E_FONT_CURRENT`, `E_FONT_RARITY`, or `E_FONT_ASSET` |
-| Eligible delegation is skipped or a worker contract is invalid | `BLOCKED: E_DELEGATION` |
-| Handoff schema, input hash, or output hash is missing or stale | `BLOCKED: E_HANDOFF` |
-| Worker conflicts remain unresolved | `BLOCKED: E_CONFLICT` |
-| Visual judgment lacks a qualified strong-vision owner | `BLOCKED: E_VISION` |
-| A step is vague, unrouted, untyped, or lacks an input-to-output link | `BLOCKED: E_PROCEDURE` |
-| A Markdown file is unclear, malformed, crowded, duplicated, or renders incorrectly | `BLOCKED: E_MARKDOWN` |
-| A screen-space family is omitted, lacks a disposition, or loses its required result | `BLOCKED: E_SCREEN_SPACE` |
-| Corpus shard, candidate lane, source relation, falsifier, or retained lineage is missing | `BLOCKED: E_CORPUS` |
-| Identity graph is incomplete or its counterfactual fails | `BLOCKED: E_SOURCE_IDENTITY` |
-| Matching, open-set, or transformation test fails | `BLOCKED: E_IDENTIFIABILITY` |
-| Claims are conflated, unscoped, or global | `BLOCKED: E_CLAIM` |
-| Experiment record is incomplete or required experimental tokens drift | `BLOCKED: E_EXPERIMENT` or `BLOCKED: E_EXPLORATION` |
-| A non-compensatory gate fails | Existing exact gate code; no aggregate score can rescue it |
-| Three repairs fail at the same cause | Existing deterministic stop rule |
+- `E_SOURCE_CURRENT`: current-source quota cannot pass.
+- `E_SOURCE_DISTANCE` or `E_TRANSFER`: domain distance or transfer lacks support.
+- `E_FONT_CURRENT`, `E_FONT_RARITY`, or `E_FONT_ASSET`: font catalog, rarity, license, or embedded bytes fail.
+- `E_DELEGATION`: eligible delegation is skipped or a worker contract is invalid.
+- `E_HANDOFF`: the handoff schema, input hash, or output hash is missing or stale.
+- `E_CONFLICT`: worker conflicts remain unresolved.
+- `E_VISION`: visual judgment lacks a qualified strong-vision owner.
+- `E_PROCEDURE`: a step is vague, unrouted, untyped, or lacks an input-to-output link.
+- `E_MARKDOWN`: Markdown is unclear, malformed, crowded, duplicated, or rendered incorrectly.
+- `E_SCREEN_SPACE`: a screen-space family lacks a disposition or loses its required result.
+- `E_CORPUS`: a corpus shard, candidate lane, source relation, falsifier, or retained lineage is missing.
+- `E_SOURCE_IDENTITY`: the identity graph is incomplete or its counterfactual fails.
+- `E_IDENTIFIABILITY`: matching, open-set, or transformation testing fails.
+- `E_CLAIM`: claims are conflated, unscoped, or global.
+- `E_EXPERIMENT` or `E_EXPLORATION`: an experiment record is incomplete or required tokens drift.
+- Existing gate code blocks any non-compensatory failure. An aggregate score cannot rescue it.
+- The deterministic stop rule applies after three repairs fail at the same cause.
 
 ## Test Plan
 

@@ -3,15 +3,51 @@
   "updated": "2026-08-27",
   "purpose": "List each typed shard used to build a run-local idea corpus.",
   "shards": {
-    "primitives": {"path": "assets/exploration-corpus/primitives.json", "class": "primitive", "sha256": "a43ed35af14a760ef2c0754963933e7cc7ab5e11fb90b1a4e9c054959e6aa673"},
-    "operators": {"path": "assets/exploration-corpus/operators.json", "class": "operator", "sha256": "620a7417f9e2a41ca48e709d6720d8d025ba34cb1a12de4586cd422975b1d795"},
-    "mechanisms": {"path": "assets/exploration-corpus/mechanisms.json", "class": "mechanism", "sha256": "b859bac60f1e967b43f8ae1530b839071d3086a106c386b9e240cf6d0ae84964"},
-    "concepts": {"path": "assets/exploration-corpus/concepts.json", "class": "concept", "sha256": "14cab090c041307fa820b1c359f2ed5989676a459adee5e733c02573d3f62d8a"},
-    "themes": {"path": "assets/exploration-corpus/themes.json", "class": "theme", "sha256": "5045cbf69677aba85bb600829824a5f5390a0e7e368386a372d35bf611eb7c33"},
-    "constraints": {"path": "assets/exploration-corpus/constraints.json", "class": "constraint", "sha256": "40da5fb0496976327f9248cadf3d7806ea4dd083fcdede6588c7d0cf9934e422"},
-    "questions": {"path": "assets/exploration-corpus/questions.json", "class": "question", "sha256": "c67170f432a9ec5b9e32d707f3d33dd3514c023e7657a6f86cedd74014d7d96a"},
-    "technology": {"path": "assets/exploration-corpus/technology.json", "class": "technology", "sha256": "732713839767188ec76e07ba010c9d1ba39646eac0907b51aff2e1b09fdcf1b9"},
-    "negative-patterns": {"path": "assets/exploration-corpus/negative-patterns.json", "class": "negative_pattern", "sha256": "e358819fc43d8c19350d86bfd2e7d6fdcfb0883e11a9abf96d50959d6decdc0a"}
+    "primitives": {
+      "path": "assets/exploration-corpus/primitives.json",
+      "class": "primitive",
+      "sha256": "aa31ea01538c2ca61eccf9ab1dd53dd857e27e3fade30645f50712c430c02238"
+    },
+    "operators": {
+      "path": "assets/exploration-corpus/operators.json",
+      "class": "operator",
+      "sha256": "560e85c893096049d8cb33c60340e3ad603f87c16cb8fe04649fba637c11759c"
+    },
+    "mechanisms": {
+      "path": "assets/exploration-corpus/mechanisms.json",
+      "class": "mechanism",
+      "sha256": "b5bbf7f768a7496709bbb3330dd7cc39b305248a02e8d6a8bb7fb04277f9b8f1"
+    },
+    "concepts": {
+      "path": "assets/exploration-corpus/concepts.json",
+      "class": "concept",
+      "sha256": "999cebf2b0650f9ae60f5584a9e3bbcf727a3638723dbd06264b1db48ef09582"
+    },
+    "themes": {
+      "path": "assets/exploration-corpus/themes.json",
+      "class": "theme",
+      "sha256": "e25f89cce5f2fc62ca2c643b945f258050c4e91f1ada33c7a9a73e5bea578776"
+    },
+    "constraints": {
+      "path": "assets/exploration-corpus/constraints.json",
+      "class": "constraint",
+      "sha256": "8fe6ebe5484af86bf2cd9f596eb000b5c44baa71f138f5907ccb00f8b966d39e"
+    },
+    "questions": {
+      "path": "assets/exploration-corpus/questions.json",
+      "class": "question",
+      "sha256": "78bee79dac0ab0e18666af47c0dbc02d855c3d83812400b1c19ebf99168fbcec"
+    },
+    "technology": {
+      "path": "assets/exploration-corpus/technology.json",
+      "class": "technology",
+      "sha256": "de7616d8a2540d807b1db75e125ee8ae90e731a42651fac4da80d3103ae06497"
+    },
+    "negative-patterns": {
+      "path": "assets/exploration-corpus/negative-patterns.json",
+      "class": "negative_pattern",
+      "sha256": "3b229b337f1e904d314065a7371055001ca5bc3c97e105aaee47590ce1878bdc"
+    }
   },
   "synthesis_contract": "assets/exploration-corpus/synthesis-contract.json",
   "failure": "E_CORPUS"

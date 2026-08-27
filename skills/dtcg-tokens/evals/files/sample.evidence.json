@@ -1207,7 +1207,15 @@
         "eligible": true,
         "reasons": [],
         "category": "Monospace",
-        "subsets": ["menu", "cyrillic", "cyrillic-ext", "greek", "latin", "latin-ext", "vietnamese"]
+        "subsets": [
+          "menu",
+          "cyrillic",
+          "cyrillic-ext",
+          "greek",
+          "latin",
+          "latin-ext",
+          "vietnamese"
+        ]
       }
     ],
     "selected_families": ["Galdeano", "Victor Mono"],
@@ -1319,5 +1327,7 @@
     "invariants_satisfied": "pending_visual_review",
     "globally_unique": false
   },
-  "limits": ["Global uniqueness is outside this skill's valid claim scope and remains unproved."]
+  "limits": [
+    "Global uniqueness is outside this skill's valid claim scope and remains unproved."
+  ]
 }

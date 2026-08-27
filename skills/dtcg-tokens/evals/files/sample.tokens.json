@@ -197,10 +197,10 @@
             "experiment_id": "exp-route-softening",
             "exploration_strategy": "boundary_probe",
             "hypothesis": "A softened route signal may reduce prolonged glare while remaining distinct from the canvas.",
-          "intended_context": "Secondary monitoring only; not assigned to the primary active-route role.",
-          "status": "retained_unproven",
-          "invariant_disposition": "not_used_experimental",
-          "inversion_or_antithesis": false
+            "intended_context": "Secondary monitoring only; not assigned to the primary active-route role.",
+            "status": "retained_unproven",
+            "invariant_disposition": "not_used_experimental",
+            "inversion_or_antithesis": false
           }
         }
       },
@@ -213,31 +213,31 @@
             "experiment_id": "exp-risk-pulse",
             "exploration_strategy": "temporal_behavior_probe",
             "hypothesis": "An intermediate pulse may improve risk-change perception without feeling sluggish.",
-          "intended_context": "Experimental timed-risk comparison with reduced-motion fallback required.",
-          "status": "active_experiment",
-          "invariant_disposition": "not_used_experimental",
-          "inversion_or_antithesis": false
+            "intended_context": "Experimental timed-risk comparison with reduced-motion fallback required.",
+            "status": "active_experiment",
+            "invariant_disposition": "not_used_experimental",
+            "inversion_or_antithesis": false
+          }
         }
-      }
-    },
-    "lane-density-inversion": {
-      "$type": "dimension",
-      "$description": "Candidate spacing inversion that gives the highest-risk lane more isolation instead of more visual mass.",
-      "$value": {
-        "value": 12,
-        "unit": "px"
       },
-      "$extensions": {
-        "org.dtcg-tokens.experimental": {
-          "experiment_id": "exp-lane-density-inversion",
-          "exploration_strategy": "relationship_reversal",
-          "hypothesis": "Inverting the usual density relation by increasing isolation around the highest-risk lane may improve recognition without enlarging the risk marker.",
-          "intended_context": "Experimental high-risk lane comparison only; production use requires touch, grouping, and scan-time review.",
-          "status": "retained_unproven",
-          "invariant_disposition": "not_used_experimental",
-          "inversion_or_antithesis": true
+      "lane-density-inversion": {
+        "$type": "dimension",
+        "$description": "Candidate spacing inversion that gives the highest-risk lane more isolation instead of more visual mass.",
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "$extensions": {
+          "org.dtcg-tokens.experimental": {
+            "experiment_id": "exp-lane-density-inversion",
+            "exploration_strategy": "relationship_reversal",
+            "hypothesis": "Inverting the usual density relation by increasing isolation around the highest-risk lane may improve recognition without enlarging the risk marker.",
+            "intended_context": "Experimental high-risk lane comparison only; production use requires touch, grouping, and scan-time review.",
+            "status": "retained_unproven",
+            "invariant_disposition": "not_used_experimental",
+            "inversion_or_antithesis": true
+          }
         }
-      }
       }
     }
   },

@@ -5,12 +5,56 @@
   "requires_native_detail": true,
   "requires_region_ids": true,
   "families": {
-    "overlap_clipping": ["unintended_collision", "crop", "hidden_content", "unsafe_occlusion", "edge_loss", "purposeful_overlap"],
-    "typography": ["size", "measure", "spacing", "hierarchy", "fallback", "glyphs", "overflow"],
-    "contrast_perception": ["text_contrast", "non_text_contrast", "color_only_meaning", "grouping", "hierarchy", "forced_colors", "grayscale"],
-    "responsive": ["wide", "narrow", "sub_320", "zoom", "rotation", "segmentation", "reduced_motion"],
-    "interaction": ["focus", "target", "drag_alternative", "feedback", "interruption", "recovery", "touch"],
-    "source_identity": ["source_relation", "matched_distractor", "generic_surface_match", "counterfactual_loss"],
+    "overlap_clipping": [
+      "unintended_collision",
+      "crop",
+      "hidden_content",
+      "unsafe_occlusion",
+      "edge_loss",
+      "purposeful_overlap"
+    ],
+    "typography": [
+      "size",
+      "measure",
+      "spacing",
+      "hierarchy",
+      "fallback",
+      "glyphs",
+      "overflow"
+    ],
+    "contrast_perception": [
+      "text_contrast",
+      "non_text_contrast",
+      "color_only_meaning",
+      "grouping",
+      "hierarchy",
+      "forced_colors",
+      "grayscale"
+    ],
+    "responsive": [
+      "wide",
+      "narrow",
+      "sub_320",
+      "zoom",
+      "rotation",
+      "segmentation",
+      "reduced_motion"
+    ],
+    "interaction": [
+      "focus",
+      "target",
+      "drag_alternative",
+      "feedback",
+      "interruption",
+      "recovery",
+      "touch"
+    ],
+    "source_identity": [
+      "source_relation",
+      "matched_distractor",
+      "generic_surface_match",
+      "counterfactual_loss"
+    ],
     "taste_originality": ["fact", "inference", "judgment", "preference", "counterevidence"],
     "hallucination_control": ["absent_element", "absent_relation", "unsupported_state"]
   },

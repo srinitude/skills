@@ -1,7 +1,38 @@
 {
   "version": "1.0.0",
-  "record_fields": ["retrieval_date", "source", "maturity", "support_boundary", "hardware", "privacy", "safety", "performance", "fallback", "test", "disposition"],
-  "maturity": ["stable_verified", "deployed_partial", "active_draft", "research_prototype", "speculative"],
-  "families": ["native_overlays", "anchor_positioning", "view_transitions", "wide_color_hdr", "local_gpu", "foldable_segments", "spatial_sensing", "whole_hand_touch", "tactile_surfaces", "mid_air_haptics", "light_field", "shape_changing_display"],
+  "record_fields": [
+    "retrieval_date",
+    "source",
+    "maturity",
+    "support_boundary",
+    "hardware",
+    "privacy",
+    "safety",
+    "performance",
+    "fallback",
+    "test",
+    "disposition"
+  ],
+  "maturity": [
+    "stable_verified",
+    "deployed_partial",
+    "active_draft",
+    "research_prototype",
+    "speculative"
+  ],
+  "families": [
+    "native_overlays",
+    "anchor_positioning",
+    "view_transitions",
+    "wide_color_hdr",
+    "local_gpu",
+    "foldable_segments",
+    "spatial_sensing",
+    "whole_hand_touch",
+    "tactile_surfaces",
+    "mid_air_haptics",
+    "light_field",
+    "shape_changing_display"
+  ],
   "rule": "Newness widens candidates. It does not prove production fitness."
 }

@@ -22,8 +22,8 @@ If the catalog cannot be fetched, its schema changed, the response lacks a serve
 
 ## Command
 
-| Input | Command |
-| ----- | ------- |
+| Input                                               | Command                                                                                                                                                                                                                                                                                                                                                  |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Three or more candidates and one or more selections | `python3 scripts/prepare_google_fonts.py --run-date YYYY-MM-DD --candidate "Rare Family A" --candidate "Rare Family B" --candidate "Rare Family C" --select-spec "Rare Family A:wght@400;700" --required-subset latin --output-catalog <name>.google-fonts.catalog.json --output-manifest <name>.google-fonts.json --output-css <name>.google-fonts.css` |
 
 The catalog capture, manifest, and CSS are run records, not extra final deliverables. The final HTML remains one file because its font CSS contains data URLs.

@@ -2,27 +2,125 @@
   "version": "1.0.0",
   "purpose": "Keep source identity and output claims separate, located, and bounded.",
   "claims": {
-    "source_specificity": {"allowed": true, "needs": ["located_observations", "located_relations"]},
-    "source_distinctiveness": {"allowed": true, "needs": ["named_comparison_set", "difference_evidence"]},
-    "source_originality": {"allowed": true, "needs": ["dated_corpus", "novelty", "context_fit"]},
-    "output_originality": {"allowed": true, "needs": ["source_relation_lineage", "shell_ablation"]},
-    "output_identifiability": {"allowed": true, "needs": ["matched_distractors", "transformations", "open_set"]},
-    "corpus_uniqueness": {"allowed": true, "needs": ["frozen_corpus", "multiple_representations", "thresholds"]},
-    "memorability": {"allowed": true, "optional": true, "needs": ["held_out_recognition", "false_alarm_correction"]},
-    "authorship_provenance": {"allowed": true, "needs": ["external_provenance"]},
-    "bounded_one_of_a_kind": {"allowed": true, "needs": ["output_originality", "output_identifiability", "corpus_uniqueness", "declared_boundary"]},
-    "globally_unique": {"allowed": false, "reason": "The searchable universe is incomplete and changes over time."}
+    "source_specificity": {
+      "allowed": true,
+      "needs": ["located_observations", "located_relations"]
+    },
+    "source_distinctiveness": {
+      "allowed": true,
+      "needs": ["named_comparison_set", "difference_evidence"]
+    },
+    "source_originality": {
+      "allowed": true,
+      "needs": ["dated_corpus", "novelty", "context_fit"]
+    },
+    "output_originality": {
+      "allowed": true,
+      "needs": ["source_relation_lineage", "shell_ablation"]
+    },
+    "output_identifiability": {
+      "allowed": true,
+      "needs": ["matched_distractors", "transformations", "open_set"]
+    },
+    "corpus_uniqueness": {
+      "allowed": true,
+      "needs": ["frozen_corpus", "multiple_representations", "thresholds"]
+    },
+    "memorability": {
+      "allowed": true,
+      "optional": true,
+      "needs": ["held_out_recognition", "false_alarm_correction"]
+    },
+    "authorship_provenance": { "allowed": true, "needs": ["external_provenance"] },
+    "bounded_one_of_a_kind": {
+      "allowed": true,
+      "needs": [
+        "output_originality",
+        "output_identifiability",
+        "corpus_uniqueness",
+        "declared_boundary"
+      ]
+    },
+    "globally_unique": {
+      "allowed": false,
+      "reason": "The searchable universe is incomplete and changes over time."
+    }
   },
   "identity_graph": {
-    "node_fields": ["modality", "observation", "location", "role", "confidence", "expected_invariance", "allowed_variation", "comparison_context"],
-    "edge_types": ["spatial", "temporal", "semantic", "causal", "hierarchical", "rhythmic", "material", "interaction", "crossmodal", "purposeful_tension", "absence", "silence"],
-    "negative_controls": ["remove", "replace_with_category_average", "strip_surface_trait", "flatten_hierarchy", "shuffle_timing", "transplant_layout", "mask_detail", "preserve_style_change_structure"]
+    "node_fields": [
+      "modality",
+      "observation",
+      "location",
+      "role",
+      "confidence",
+      "expected_invariance",
+      "allowed_variation",
+      "comparison_context"
+    ],
+    "edge_types": [
+      "spatial",
+      "temporal",
+      "semantic",
+      "causal",
+      "hierarchical",
+      "rhythmic",
+      "material",
+      "interaction",
+      "crossmodal",
+      "purposeful_tension",
+      "absence",
+      "silence"
+    ],
+    "negative_controls": [
+      "remove",
+      "replace_with_category_average",
+      "strip_surface_trait",
+      "flatten_hierarchy",
+      "shuffle_timing",
+      "transplant_layout",
+      "mask_detail",
+      "preserve_style_change_structure"
+    ]
   },
   "identifiability": {
     "matched_distractors": true,
     "open_set_none_option": true,
-    "measures": ["top_1", "top_k", "confusion_matrix", "hit_rate", "false_alarm_rate", "within_source_consistency", "between_source_separation", "counterfactual_identity_loss"],
-    "transformations": ["viewport", "theme", "state", "input_method", "crop", "scale", "grayscale", "reduced_detail", "temporal_segment", "noise"]
+    "measures": [
+      "top_1",
+      "top_k",
+      "confusion_matrix",
+      "hit_rate",
+      "false_alarm_rate",
+      "within_source_consistency",
+      "between_source_separation",
+      "counterfactual_identity_loss"
+    ],
+    "transformations": [
+      "viewport",
+      "theme",
+      "state",
+      "input_method",
+      "crop",
+      "scale",
+      "grayscale",
+      "reduced_detail",
+      "temporal_segment",
+      "noise"
+    ]
   },
-  "uniqueness_representations": ["exact_bytes", "normalized_token_graph", "appearance", "layout", "object_relations", "grayscale", "edges", "topology", "semantics", "temporal", "audio", "tactile", "crossmodal_relations"]
+  "uniqueness_representations": [
+    "exact_bytes",
+    "normalized_token_graph",
+    "appearance",
+    "layout",
+    "object_relations",
+    "grayscale",
+    "edges",
+    "topology",
+    "semantics",
+    "temporal",
+    "audio",
+    "tactile",
+    "crossmodal_relations"
+  ]
 }

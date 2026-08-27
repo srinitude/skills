@@ -1,10 +1,30 @@
 {
   "version": "1.0.0",
   "entries": [
-    {"id": "identity-ablation", "type": "source", "question": "Which removed relation causes the largest source-recognition loss?"},
-    {"id": "distant-transfer", "type": "transfer", "question": "Which distant mechanism shares structure without sharing surface traits?"},
-    {"id": "hidden-assumption", "type": "transformation", "question": "Which convention is being treated as a physical rule without evidence?"},
-    {"id": "touch-equivalence", "type": "physical", "question": "What touch geometry, posture, and alternate path can carry the same outcome?"},
-    {"id": "proof-falsifier", "type": "proof", "question": "What visible change would disprove the claimed token relation?"}
+    {
+      "id": "identity-ablation",
+      "type": "source",
+      "question": "Which removed relation causes the largest source-recognition loss?"
+    },
+    {
+      "id": "distant-transfer",
+      "type": "transfer",
+      "question": "Which distant mechanism shares structure without sharing surface traits?"
+    },
+    {
+      "id": "hidden-assumption",
+      "type": "transformation",
+      "question": "Which convention is being treated as a physical rule without evidence?"
+    },
+    {
+      "id": "touch-equivalence",
+      "type": "physical",
+      "question": "What touch geometry, posture, and alternate path can carry the same outcome?"
+    },
+    {
+      "id": "proof-falsifier",
+      "type": "proof",
+      "question": "What visible change would disprove the claimed token relation?"
+    }
   ]
 }

@@ -13,6 +13,10 @@
       "source_paths": ["SKILL.md"]
     },
     {
+      "path": "assets/creative-source-frontier.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/current-date-policy.json",
       "source_paths": ["target-scaffolding"]
     },
@@ -25,10 +29,6 @@
       "source_paths": ["target-scaffolding"]
     },
     {
-      "path": "assets/google-font-policy.json",
-      "source_paths": ["target-scaffolding"]
-    },
-    {
       "path": "assets/execution-io-map.json",
       "source_paths": ["target-scaffolding"]
     },
@@ -37,7 +37,63 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "assets/experiment-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/concepts.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/constraints.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/mechanisms.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/negative-patterns.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/operators.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/primitives.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/questions.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/synthesis-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/technology.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/exploration-corpus/themes.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/exploration-strategy-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/file-trigger-policy.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/google-font-policy.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -49,6 +105,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "assets/originality-analysis-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/perceptual-motor-invariant-catalog.json",
       "source_paths": ["target-scaffolding"]
     },
@@ -57,7 +117,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "assets/screen-possibility-space.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/subagent-task-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/token-possibility-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/vision-probe-manifest.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -125,15 +197,15 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "evals/files/vision-probe-pairs.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "evals/manifest.json",
       "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/rubric.md",
-      "source_paths": ["target-scaffolding"]
-    },
-    {
-      "path": "evals/source-lineage.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -181,11 +253,23 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/creative-transfer.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/decisions.md",
       "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/deterministic-execution.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/dtcg-2025.10.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/evidence-schema.md",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -205,15 +289,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/experimental-decision.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/exploration-synthesis.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/extension-protocol.md",
       "source_paths": ["target-scaffolding"]
     },
     {
-      "path": "references/dtcg-2025.10.md",
-      "source_paths": ["target-scaffolding"]
-    },
-    {
-      "path": "references/evidence-schema.md",
+      "path": "references/file-trigger-audit.md",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -229,11 +317,27 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/multimodal-originality.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/originality-rubric.md",
       "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/qualitative-judgment.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/research-protocol.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/screen-decision.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/subagent-orchestration.md",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -249,7 +353,15 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/writing-style.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/assemble_artifact.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/audit_file_triggers.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -313,6 +425,18 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/lib/pipeline.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/pipeline_cli.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/pipeline_io.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/lib/proof.py",
       "source_paths": ["target-scaffolding"]
     },
@@ -325,7 +449,15 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/prepare_creative_research.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/prepare_google_fonts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/run_pipeline.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -361,7 +493,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/tests/test_file_trigger_map.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_frontier_contracts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_google_fonts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_identity_screen_vision_contracts.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -377,7 +521,15 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/tests/test_run_pipeline.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_scripts.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_skill_readability_contract.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -393,6 +545,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/validate_exploration.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/validate_skill.py",
       "source_paths": ["target-scaffolding"]
     }
@@ -400,7 +556,7 @@
   "source_files": [
     {
       "path": "SKILL.md",
-      "sha256": "bb915d49ad9b3c80ca000c04dd8e5b3c4245a211a97960b9b97c01279f7f98c6"
+      "sha256": "9242dd3007d9b80a1dfa039b5de8c54142fc83d9505436fa07964260d97723d5"
     }
   ],
   "source_case_ids": [
@@ -414,5 +570,18 @@
     "DTCG-008",
     "DTCG-009",
     "DTCG-010"
+  ],
+  "active_case_ids": [
+    "DTCG-001",
+    "DTCG-002",
+    "DTCG-003",
+    "DTCG-004",
+    "DTCG-005",
+    "DTCG-006",
+    "DTCG-007",
+    "DTCG-008",
+    "DTCG-009",
+    "DTCG-010",
+    "DTCG-011"
   ]
 }

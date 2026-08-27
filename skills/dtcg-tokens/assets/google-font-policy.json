@@ -20,7 +20,11 @@
     "exclude_brand_fonts": true,
     "require_source_script_support": true,
     "required_visual_passes": ["whole-frame", "detail", "comparative"],
-    "selected_family_must_appear_in": ["fontFamily tokens", "typography tokens", "standalone proof artifact"]
+    "selected_family_must_appear_in": [
+      "fontFamily tokens",
+      "typography tokens",
+      "standalone proof artifact"
+    ]
   },
   "artifact": {
     "font_format": "woff2",

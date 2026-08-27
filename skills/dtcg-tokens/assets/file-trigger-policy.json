@@ -1,11 +1,7 @@
 {
   "version": "1.0.0",
   "purpose": "Define bounded roots and discovery routes for the whole-directory file audit.",
-  "roots": [
-    "SKILL.md",
-    "mise.toml",
-    ".github/workflows/ci.yml"
-  ],
+  "roots": ["SKILL.md", "mise.toml", ".github/workflows/ci.yml"],
   "discovery": {
     "scripts/tests/test_*.py": {
       "mode": "discover",
@@ -18,8 +14,5 @@
       "consumer": "scripts/tests/test_scripts.py"
     }
   },
-  "generated_forbidden": [
-    "**/__pycache__/**",
-    "**/*.pyc"
-  ]
+  "generated_forbidden": ["**/__pycache__/**", "**/*.pyc"]
 }

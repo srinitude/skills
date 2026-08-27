@@ -4,14 +4,14 @@ Run all 25 steps in order. `assets/execution-io-map.json` names each input, outp
 
 ## Runner commands
 
-| Command | Use |
-| --- | --- |
-| `python3 scripts/run_pipeline.py init --run <run.json> --run-id <id> --name <name> --request <request-file> --source <source-file> --anchor <anchor.json>` | Create 25 `PENDING` records and hash the frozen request and sources. Repeat `--source` for more inputs. |
-| `python3 scripts/run_pipeline.py packet --run <run.json> --step SNN --output <packet.json>` | Save the exact inputs, outputs, support files, missing inputs, and decision owner for one step. |
-| `python3 scripts/run_pipeline.py start --run <run.json> --step SNN` | Verify all named inputs and predecessor state, then set the step to `RUNNING`. |
-| `python3 scripts/run_pipeline.py pass --run <run.json> --step SNN --output <name>=<path>` | Hash every named output and set the step to `PASS`. Repeat `--output`, `--check`, and `--evidence` as needed. |
-| `python3 scripts/run_pipeline.py block --run <run.json> --step SNN --code <code> --reason <text> --recovery <text>` | Save one allowed error, failed check, evidence locator, and exact recovery need. |
-| `python3 scripts/run_pipeline.py status --run <run.json>` | Report state counts and whether all 25 steps are `PASS`. |
+| Command                                                                                                                                                    | Use                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `python3 scripts/run_pipeline.py init --run <run.json> --run-id <id> --name <name> --request <request-file> --source <source-file> --anchor <anchor.json>` | Create 25 `PENDING` records and hash the frozen request and sources. Repeat `--source` for more inputs.       |
+| `python3 scripts/run_pipeline.py packet --run <run.json> --step SNN --output <packet.json>`                                                                | Save the exact inputs, outputs, support files, missing inputs, and decision owner for one step.               |
+| `python3 scripts/run_pipeline.py start --run <run.json> --step SNN`                                                                                        | Verify all named inputs and predecessor state, then set the step to `RUNNING`.                                |
+| `python3 scripts/run_pipeline.py pass --run <run.json> --step SNN --output <name>=<path>`                                                                  | Hash every named output and set the step to `PASS`. Repeat `--output`, `--check`, and `--evidence` as needed. |
+| `python3 scripts/run_pipeline.py block --run <run.json> --step SNN --code <code> --reason <text> --recovery <text>`                                        | Save one allowed error, failed check, evidence locator, and exact recovery need.                              |
+| `python3 scripts/run_pipeline.py status --run <run.json>`                                                                                                  | Report state counts and whether all 25 steps are `PASS`.                                                      |
 
 ## Step fields
 

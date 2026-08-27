@@ -1,10 +1,40 @@
 {
   "version": "1.0.0",
   "entries": [
-    {"id": "negative-feedback", "domain": "cybernetics", "relation": "Observed error changes the next response.", "prediction": "State feedback reduces repeated error.", "falsifier": "Feedback arrives too late or changes the wrong control."},
-    {"id": "selective-retention", "domain": "immunology", "relation": "Many variants are generated, then useful responses persist.", "prediction": "A broad candidate pool yields distinct retained mechanisms.", "falsifier": "Candidates collapse before testing."},
-    {"id": "requisite-variety", "domain": "systems", "relation": "Response range must match meaningful disturbance range.", "prediction": "State tokens cover real context differences.", "falsifier": "Several contexts share one misleading response."},
-    {"id": "counterpoint", "domain": "music", "relation": "Independent lines keep identity while forming a larger relation.", "prediction": "Several cues remain distinct without visual fragmentation.", "falsifier": "One cue erases the others or no combined reading forms."},
-    {"id": "blocking", "domain": "experimental_science", "relation": "Context is held or grouped so a tested change is not confused with it.", "prediction": "Viewport or input effects can be attributed to the changed token.", "falsifier": "Run order or context explains the result."}
+    {
+      "id": "negative-feedback",
+      "domain": "cybernetics",
+      "relation": "Observed error changes the next response.",
+      "prediction": "State feedback reduces repeated error.",
+      "falsifier": "Feedback arrives too late or changes the wrong control."
+    },
+    {
+      "id": "selective-retention",
+      "domain": "immunology",
+      "relation": "Many variants are generated, then useful responses persist.",
+      "prediction": "A broad candidate pool yields distinct retained mechanisms.",
+      "falsifier": "Candidates collapse before testing."
+    },
+    {
+      "id": "requisite-variety",
+      "domain": "systems",
+      "relation": "Response range must match meaningful disturbance range.",
+      "prediction": "State tokens cover real context differences.",
+      "falsifier": "Several contexts share one misleading response."
+    },
+    {
+      "id": "counterpoint",
+      "domain": "music",
+      "relation": "Independent lines keep identity while forming a larger relation.",
+      "prediction": "Several cues remain distinct without visual fragmentation.",
+      "falsifier": "One cue erases the others or no combined reading forms."
+    },
+    {
+      "id": "blocking",
+      "domain": "experimental_science",
+      "relation": "Context is held or grouped so a tested change is not confused with it.",
+      "prediction": "Viewport or input effects can be attributed to the changed token.",
+      "falsifier": "Run order or context explains the result."
+    }
   ]
 }

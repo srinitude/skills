@@ -1,11 +1,35 @@
 {
   "version": "1.0.0",
   "entries": [
-    {"id": "generic-proof-shell", "signal": "The same composition survives unrelated sources.", "test": "Replace the source and tokens; reject if the shell still claims fit."},
-    {"id": "palette-only-identity", "signal": "Identity depends only on copied colors.", "test": "Use grayscale and structure-preserving distractors."},
-    {"id": "complexity-as-originality", "signal": "More layers or effects are called more original.", "test": "Compare a simpler matched alternative and locate the source relation."},
-    {"id": "random-combination", "signal": "Elements are combined without a mechanism or predicted effect.", "test": "Require a mechanism and falsifier before rendering."},
-    {"id": "polished-defect-mask", "signal": "Finish hides overlap, hierarchy, accessibility, state, or evidence failures.", "test": "Apply objective vetoes before taste review."},
-    {"id": "rejected-editorial-board", "signal": "Large shapes collide, type hierarchy competes, and modules lack one source-bearing relation.", "test": "Use evals/files/rejected-editorial-board.svg only as a negative fixture."}
+    {
+      "id": "generic-proof-shell",
+      "signal": "The same composition survives unrelated sources.",
+      "test": "Replace the source and tokens; reject if the shell still claims fit."
+    },
+    {
+      "id": "palette-only-identity",
+      "signal": "Identity depends only on copied colors.",
+      "test": "Use grayscale and structure-preserving distractors."
+    },
+    {
+      "id": "complexity-as-originality",
+      "signal": "More layers or effects are called more original.",
+      "test": "Compare a simpler matched alternative and locate the source relation."
+    },
+    {
+      "id": "random-combination",
+      "signal": "Elements are combined without a mechanism or predicted effect.",
+      "test": "Require a mechanism and falsifier before rendering."
+    },
+    {
+      "id": "polished-defect-mask",
+      "signal": "Finish hides overlap, hierarchy, accessibility, state, or evidence failures.",
+      "test": "Apply objective vetoes before taste review."
+    },
+    {
+      "id": "rejected-editorial-board",
+      "signal": "Large shapes collide, type hierarchy competes, and modules lack one source-bearing relation.",
+      "test": "Use evals/files/rejected-editorial-board.svg only as a negative fixture."
+    }
   ]
 }

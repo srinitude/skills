@@ -12,7 +12,7 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 CHECK_JOBS = ["validate", "reading", "lineage", "source-lineage", "ownership",
-              "directories", "lint-writing", "lint-code",
+              "directories", "context-routing", "lint-writing", "lint-code",
               "lint-placeholders", "evals", "examples"]
 REQUIRED_TASKS = ["ci", "test"] + CHECK_JOBS
 
@@ -44,7 +44,9 @@ class TestTaskGraph(unittest.TestCase):
 
     def test_each_check_job_runs_one_command(self):
         for job in CHECK_JOBS:
-            run = self.tasks[job]["run"]
+            task = self.tasks.get(job)
+            self.assertIsNotNone(task, f"missing task: {job}")
+            run = task["run"]
             self.assertIsInstance(run, str, f"{job} must run one command")
             self.assertIn("python3 scripts/", run)
 

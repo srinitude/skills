@@ -1,0 +1,134 @@
+{
+  "schema": "design-like-im-5-context-routing-meaning-ledger/v1",
+  "constructed_at": "2026-08-30",
+  "baseline": {
+    "path": "evidence/ports/design-like-im-5/construction/baselines/SKILL-before-context-routing.md",
+    "sha256": "1b4ed69603d9bae30400c1f57230f9ee793157c3d580f3d463737785f48b6299",
+    "lines": 195
+  },
+  "target": {
+    "path": "skills/design-like-im-5/SKILL.md",
+    "sha256": "800cf9b1e9509b01f3fe88e00dc98beb4cf36daee24fd5ce31eb78b7ce66f207",
+    "lines": 192
+  },
+  "rule": "Preserve each old requirement. Add context beside the action it governs. Do not weaken an owner, veto, proof gate, or model boundary.",
+  "records": [
+    {
+      "id": "M-001",
+      "source_lines": "10-22",
+      "source_meaning": "Keep the product clear without hiding truth, cost, risk, state, control, owners, or model judgment.",
+      "strength": "must",
+      "target": "SKILL.md#one-contract",
+      "movement": "kept_and_expanded",
+      "proof": "The same outcome, owner pins, review ownership, and script boundary remain. Route files now bind context to each action."
+    },
+    {
+      "id": "M-002",
+      "source_lines": "24-37",
+      "source_meaning": "Keep help read-only, keep run modes distinct, and use real success and failure examples.",
+      "strength": "must",
+      "target": "SKILL.md#commands",
+      "movement": "kept_and_expanded",
+      "proof": "Both commands, mode limits, run example, and missing-proof stop remain. A generated context packet example and two record fixtures were added."
+    },
+    {
+      "id": "M-003",
+      "source_lines": "39-49",
+      "source_meaning": "Freeze intake and owners, keep run state outside the skill, load run context, and bar script judgment.",
+      "strength": "must",
+      "target": "SKILL.md#start-every-run",
+      "movement": "kept_and_expanded",
+      "proof": "All start gates remain. The start now freezes the route hash, and each packet names the run files it needs."
+    },
+    {
+      "id": "M-004",
+      "source_lines": "51-67",
+      "source_meaning": "Run all thirteen actions in the fixed workflow order with their named owners.",
+      "strength": "must",
+      "target": "SKILL.md#required-action-order",
+      "movement": "split_into_context_capsules",
+      "proof": "Each old action appears once in the same order. Each capsule names Read, Run, Use, Compare, Test, Produce, and a barred substitution."
+    },
+    {
+      "id": "M-005",
+      "source_lines": "69-81",
+      "source_meaning": "Load full packet context, make at least four unlike options, keep exploration open, and leave the choice with the model.",
+      "strength": "must",
+      "target": "SKILL.md#build-each-model-packet",
+      "movement": "kept_and_expanded",
+      "proof": "The option floor, open option space, option fields, and model choice remain. Required paths and missing-context accounting were added."
+    },
+    {
+      "id": "M-006",
+      "source_lines": "83-91",
+      "source_meaning": "Treat product states as an open context-derived set with overlap, change, causes, and uncertainty.",
+      "strength": "must",
+      "target": "SKILL.md#discover-product-states",
+      "movement": "kept",
+      "proof": "The open-set rule, prompt-only state list, discovery inputs, overlap, change, and uncertainty remain."
+    },
+    {
+      "id": "M-007",
+      "source_lines": "93-119",
+      "source_meaning": "The model must run every exact eye, brain, touch, objective, bad design, bad output, and bad work check against current proof.",
+      "strength": "must",
+      "target": "SKILL.md#run-every-review-invariant",
+      "movement": "kept_and_clarified",
+      "proof": "All seven groups remain. Each answer still needs scene, observation, evidence, decision, reason, alternatives, and doubt."
+    },
+    {
+      "id": "M-008",
+      "source_lines": "121-131",
+      "source_meaning": "Build through the fixed low-to-high part chain, require token and atom proof, and rebuild stale dependents.",
+      "strength": "must",
+      "target": "SKILL.md#build-from-proved-parts",
+      "movement": "kept",
+      "proof": "The chain, dtcg-tokens owner, atom gate, stale propagation, rebuild, and structural-only lineage claim remain."
+    },
+    {
+      "id": "M-009",
+      "source_lines": "133-141",
+      "source_meaning": "Use the right record schema, validate fixed fields and checks, and keep design judgment with the model.",
+      "strength": "must",
+      "target": "SKILL.md#record-model-work",
+      "movement": "kept_and_expanded",
+      "proof": "All three schemas and the record command remain. Context acknowledgement and missing-context fields were added to each model schema."
+    },
+    {
+      "id": "M-010",
+      "source_lines": "143-151",
+      "source_meaning": "Keep the veto order, do not hide burden, and block only affected claims with an exact resume path.",
+      "strength": "must",
+      "target": "SKILL.md#veto-and-failure-rules",
+      "movement": "kept",
+      "proof": "The veto order, non-tradeable limits, failure owner, partial block, safe work, and resume proof remain."
+    },
+    {
+      "id": "M-011",
+      "source_lines": "153-171",
+      "source_meaning": "Keep reading, file, generation, package, task, validation, owner, and source claims with one named owner each.",
+      "strength": "must",
+      "target": "SKILL.md#reading-and-package-owners",
+      "movement": "kept_and_expanded",
+      "proof": "All old owners remain. Context route assets, checker, and generated example owners were added without a second owner."
+    },
+    {
+      "id": "M-012",
+      "source_lines": "173-185",
+      "source_meaning": "Keep eval method, grading, cases, triggers, timing, source proof, fixtures, and fixture claim limits with named owners.",
+      "strength": "must",
+      "target": "SKILL.md#eval-owner-map",
+      "movement": "kept_and_expanded",
+      "proof": "All prior eval owners remain. One context-loss case per workflow action and pass and block fixtures were added."
+    },
+    {
+      "id": "M-013",
+      "source_lines": "187-195",
+      "source_meaning": "Return product and proof, use only three final states, avoid overclaims, run all gates, and pass only with current seen proof.",
+      "strength": "must",
+      "target": "SKILL.md#return-and-done",
+      "movement": "kept_and_expanded",
+      "proof": "The return scope, three states, no-overclaim rule, run check, CI gate, seen-view gate, and veto gate remain. Context accounting is now also required."
+    }
+  ]
+}

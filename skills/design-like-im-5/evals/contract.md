@@ -8,6 +8,10 @@ State tests keep the product state set open. Review tests require every eye, bra
 
 Each item applies the full open human sweep. Each item keeps one exact question, one probe order, named proof, listed failure meaning, and fixed decision rules. Tests reject a swapped check, taste score, or closed human list.
 
+`context-cases.json` gives each action one context-loss case. Each packet must carry references, scripts, assets, examples, and evals. A record must name each used or missing path. Missing context requires `BLOCKED` for the affected claim.
+
+Use `files/valid-context-record.json` for full path use. Use `files/missing-context-record.json` for the blocked branch. These fixtures check context accounting, not design quality.
+
 Hard failures need direct render and input proof. Tests include text and image clashes, clipped meaning, and blocked controls. They also test target clashes, focus traps, lost cues, state conflicts, and dead ends.
 
 Run each main case with and without the skill. Run cold and warm cases. Keep the same task and inputs.

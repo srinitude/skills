@@ -27,7 +27,9 @@ def mappings(paths, source_paths):
     extra = ["construction/case-study-ledger.json",
              "construction/simplicity-source-ledger.json",
              "construction/current-pattern-evidence.json",
-             "construction/integration-matrix.json"]
+             "construction/integration-matrix.json",
+             "construction/context-routing-meaning-ledger.json",
+             "construction/context-routing-validation.json"]
     for path in paths:
         sources = [path] if path in source_paths else ["target-scaffolding"]
         if path in {"SKILL.md", "assets/simplicity-contract.json"}:

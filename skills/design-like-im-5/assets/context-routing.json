@@ -1,0 +1,853 @@
+{
+  "version": "1.0.0",
+  "support_classes": ["references", "scripts", "assets", "examples", "evals"],
+  "routes": [
+    {
+      "id": "CTX-FREEZE-INTAKE",
+      "action": "freeze_intake",
+      "source_text": "Use references/intake.md and assets/run-intake.schema.json. Read it now.",
+      "meaning": "Freeze current facts, rights, tasks, proof, and unknowns without filling a gap from habit. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "Before any run file or product judgment is made. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/intake.md",
+            "contribution": "Defines fact, assumption, source right, proof, and missing-input handling. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Defines how to acknowledge each context source without turning it into a vote. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Validates required intake fields and writes the frozen run record. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/run-intake.schema.json",
+            "contribution": "Defines the accepted intake fields and their exact shapes. Use this map."
+          },
+          {
+            "path": "assets/context-routing.json",
+            "contribution": "Owns this route and its required support. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows a complete valid start and every created run file. Match this scene."
+          },
+          {
+            "path": "examples/failure-missing-proof.md",
+            "contribution": "Shows the required stop when the proof threshold is missing. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/files/valid-intake.json",
+            "contribution": "Supplies a valid intake fixture for the start gate. Try this case."
+          },
+          {
+            "path": "evals/files/missing-proof.json",
+            "contribution": "Supplies the nearest failure case for a guessed proof field. Try this case."
+          },
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests that missing intake context blocks instead of being invented. Try this case."
+          }
+        ]
+      },
+      "produce": "A frozen run.json with current intake, rules, route hash, and next action. Save this proof.",
+      "do_not_substitute": "Do not replace a missing fact with a common product default. Keep this bar."
+    },
+    {
+      "id": "CTX-LIST-CAPABILITIES",
+      "action": "list_capabilities",
+      "source_text": "Read capabilities.json and mark web, browser, render, capture, motion, and sight gaps. Read it now.",
+      "meaning": "Record what can be inspected or produced now so later claims do not exceed available proof. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After intake is frozen and before source or visual work begins. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Explains how missing capabilities limit claims without limiting safe work. Read this guide."
+          },
+          {
+            "path": "references/failure.md",
+            "contribution": "Defines the blocked record for a missing sight, render, motion, or input path. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_scaffold.py",
+            "contribution": "Creates the stable capability list with an unknown initial state. Run this tool."
+          },
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Writes the capability scaffold into the run folder. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/execution-ownership.json",
+            "contribution": "Keeps capability discovery structural and leaves product judgment with the model. Use this map."
+          },
+          {
+            "path": "assets/context-bundle.schema.json",
+            "contribution": "Defines the full support bundle carried into capability work. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the capability scaffold produced by a real start command. Match this scene."
+          },
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how a missing capability becomes named context instead of a hidden assumption. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests that capability gaps narrow claims and create a blocked branch when needed. Try this case."
+          }
+        ]
+      },
+      "produce": "A capabilities.json record with current availability and named proof limits. Save this proof.",
+      "do_not_substitute": "Do not treat file access, captions, or structure as unseen pixel or input proof. Keep this bar."
+    },
+    {
+      "id": "CTX-SOURCE-MEANING",
+      "action": "source_meaning",
+      "source_text": "Read references/research.md and build a source_meaning packet. Read it now.",
+      "meaning": "Interpret current source evidence with rights, location, time, gaps, and counterreadings attached. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "Before a source is turned into a product rule or design direction. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/research.md",
+            "contribution": "Defines source gathering, source meaning, rights, gaps, and evidence separation. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Adds the questions that expose conflicting readings and missing context. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds and records the source action packet without interpreting the source. Run this tool."
+          },
+          {
+            "path": "scripts/check_source_lineage.py",
+            "contribution": "Checks that public source paths and hashes remain current. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Defines evidence, counterevidence, uncertainty, options, and the chosen direction. Use this map."
+          },
+          {
+            "path": "assets/context-bundle.schema.json",
+            "contribution": "Requires all routed context classes and their contributions. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows a source packet that acknowledges context before judgment. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the real source packet path and surrounding run state. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests source age, rights, location, and counterreading coverage. Try this case."
+          },
+          {
+            "path": "evals/source-mapping.json",
+            "contribution": "Links source-backed claims to their canonical evidence owner. Try this case."
+          }
+        ]
+      },
+      "produce": "A source_meaning model record with used paths, gaps, evidence, counterevidence, and uncertainty. Save this proof.",
+      "do_not_substitute": "Do not replace source meaning with a remembered pattern or a surface copy. Keep this bar."
+    },
+    {
+      "id": "CTX-STATE-JUDGMENT",
+      "action": "state_judgment",
+      "source_text": "Read the open state matrix and rich checklist, then use assets/state-record.schema.json. Read it now.",
+      "meaning": "Find context-derived product states, their causes, overlap, change, unknowns, and response options. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After source meaning is recorded and whenever new evidence changes a state. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/decisions.md",
+            "contribution": "Defines conflict handling, open options, and the veto order. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Supplies rich eye, brain, touch, context, and counterexample questions. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_scaffold.py",
+            "contribution": "Creates the open state matrix and discovery dimensions. Run this tool."
+          },
+          {
+            "path": "scripts/review_checklist.py",
+            "contribution": "Supplies stable review IDs without choosing state meaning. Run this tool."
+          },
+          {
+            "path": "scripts/human_capability_sweep.py",
+            "contribution": "Supplies the open eye, brain, and touch sweep. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/state-record.schema.json",
+            "contribution": "Defines open state items, causes, transitions, alternatives, and uncertainty. Use this map."
+          },
+          {
+            "path": "assets/simplicity-contract.json",
+            "contribution": "Adds fixed human, harm, access, and one-meaning rules. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how state context stays attached to the model record. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the open state matrix produced at run start. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests that prompt states are not treated as a closed set. Try this case."
+          },
+          {
+            "path": "evals/evals.json",
+            "contribution": "Tests state discovery, alternatives, and full review coverage. Try this case."
+          }
+        ]
+      },
+      "produce": "A state_judgment record with open states, causes, transitions, reviews, options, and uncertainty. Save this proof.",
+      "do_not_substitute": "Do not replace found states with a fixed happy-path list. Keep this bar."
+    },
+    {
+      "id": "CTX-SELECT-RULES",
+      "action": "select_rules",
+      "source_text": "Use assets/simplicity-contract.json and references/decisions.md for conflicts. Read it now.",
+      "meaning": "Select only rules justified by the frozen intake and fixed vetoes while keeping product choices open. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After states are found and before atoms or product parts are designed. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/decisions.md",
+            "contribution": "Defines the decision order, conflict record, and option freedom. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Prevents a rule from being detached from the context that activated it. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Selects rules from declared fields and values without ranking designs. Run this tool."
+          },
+          {
+            "path": "scripts/audit_ownership.py",
+            "contribution": "Checks that scripts do not claim a judgment owner role. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/simplicity-contract.json",
+            "contribution": "Owns stable rule IDs, triggers, meanings, and always-on vetoes. Use this map."
+          },
+          {
+            "path": "assets/execution-ownership.json",
+            "contribution": "Separates mechanical rule selection from model judgment. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the selected rule IDs in the frozen run record. Match this scene."
+          },
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows why selected rules remain attached to their route context. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests that a script-selected rule does not become a script-selected design. Try this case."
+          },
+          {
+            "path": "evals/cases.json",
+            "contribution": "Supplies human, harm, state, and access cases that challenge rule use. Try this case."
+          }
+        ]
+      },
+      "produce": "A frozen list of applicable rule IDs with model choice still open. Save this proof.",
+      "do_not_substitute": "Do not treat an applicable rule as a complete product answer. Keep this bar."
+    },
+    {
+      "id": "CTX-ATOM-JUDGMENT",
+      "action": "atom_judgment",
+      "source_text": "Read references/build.md and run the full atom owner named there. Read it now.",
+      "meaning": "Create source-proved atoms before higher parts and keep their visual judgment with the model. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After rules are selected and before molecules or screens are built. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/build.md",
+            "contribution": "Defines the one-way part chain, atom gate, and stale propagation. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Adds current scene, state, access, and counterexample context to atom judgment. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the atom judgment packet and checks record shape. Run this tool."
+          },
+          {
+            "path": "scripts/check_lineage.py",
+            "contribution": "Checks layer order and links without judging atom quality. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Requires unlike options, evidence, tradeoffs, vetoes, and a reasoned model choice. Use this map."
+          },
+          {
+            "path": "assets/lineage.schema.json",
+            "contribution": "Defines the saved low-to-high dependency links. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how source and state context enter an atom packet. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the dependency and atom route scaffolds. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests that a familiar atom pattern is not accepted without source proof. Try this case."
+          },
+          {
+            "path": "evals/files/valid-lineage.json",
+            "contribution": "Supplies a valid low-to-high chain for the atom gate. Try this case."
+          }
+        ]
+      },
+      "produce": "An atom_judgment record and proved atom links for later parts. Save this proof.",
+      "do_not_substitute": "Do not let a screen invent an unproved atom or let a script judge its fit. Keep this bar."
+    },
+    {
+      "id": "CTX-PART-DESIGN",
+      "action": "part_design",
+      "source_text": "Build molecules, organisms, and templates from proved low parts. Read it now.",
+      "meaning": "Compose reusable parts from proved atoms while tracking state fit, alternatives, and affected dependents. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After atom proof exists and before screen composition. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/build.md",
+            "contribution": "Defines allowed layer order, reuse, invalidation, and rebuild rules. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Keeps person, state, input, access, and service context attached to composition. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the part design packet and checks its required fields. Run this tool."
+          },
+          {
+            "path": "scripts/check_lineage.py",
+            "contribution": "Finds layer skips, cycles, stale links, and unused parts. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Defines options, evidence, tradeoffs, and the model-owned choice. Use this map."
+          },
+          {
+            "path": "assets/lineage.schema.json",
+            "contribution": "Defines part IDs, layers, dependencies, stale state, and use. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows the context carried into a reusable part decision. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the dependency manifest and rebuild queue available to the packet. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests copied surfaces, hidden one-off rules, and weak context use. Try this case."
+          },
+          {
+            "path": "evals/files/skipped-lineage.json",
+            "contribution": "Supplies a layer-skip failure that must block composition. Try this case."
+          }
+        ]
+      },
+      "produce": "A part_design record with reusable parts, context fit, options, and dependency effects. Save this proof.",
+      "do_not_substitute": "Do not hide a one-off screen rule inside a reusable part. Keep this bar."
+    },
+    {
+      "id": "CTX-SCREEN-DESIGN",
+      "action": "screen_design",
+      "source_text": "Build screens and flows from proved templates and do not add a one-off low rule. Read it now.",
+      "meaning": "Create whole screens and flows from proved parts across current states, views, inputs, and access paths. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After templates are proved and before motion or final visual review. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/build.md",
+            "contribution": "Keeps screen composition on the proved part chain. Read this guide."
+          },
+          {
+            "path": "references/decisions.md",
+            "contribution": "Keeps four unlike directions, conflicts, vetoes, and model choice visible. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Adds the full current state, scene, access, and service context to each direction. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the screen packet and requires option and context fields. Run this tool."
+          },
+          {
+            "path": "scripts/check_lineage.py",
+            "contribution": "Checks that screens use proved templates and current dependencies. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Requires unlike options, concrete scenes, evidence, tests, and a model-owned choice. Use this map."
+          },
+          {
+            "path": "assets/simplicity-contract.json",
+            "contribution": "Adds access, human, harm, service, state, and one-meaning constraints. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how an example informs a scene without becoming a copied screen. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the state, view, render, and dependency records available to screen work. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests early choice, copied surfaces, missing states, and script-owned decisions. Try this case."
+          },
+          {
+            "path": "evals/evals.json",
+            "contribution": "Supplies realistic create, review, revise, state, access, and overlap cases. Try this case."
+          }
+        ]
+      },
+      "produce": "A screen_design record plus screens and flows linked to proved templates and states. Save this proof.",
+      "do_not_substitute": "Do not copy an example surface or choose the first familiar pattern. Keep this bar."
+    },
+    {
+      "id": "CTX-MOTION-JUDGMENT",
+      "action": "motion_judgment",
+      "source_text": "Judge change, timing, calm paths, input response, sound, and touch feedback. Read it now.",
+      "meaning": "Judge motion and sensory feedback in the actual state change, input path, access setting, and interruption context. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After screen structure exists and before final visual review. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/review.md",
+            "contribution": "Defines required views, direct inspection, repair, and rerender review. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Adds timing, cause, effort, interruption, settings, sound, and touch questions. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the motion packet and checks its option and context fields. Run this tool."
+          },
+          {
+            "path": "scripts/human_capability_sweep.py",
+            "contribution": "Supplies motion, input, feedback, effort, and setting factors for model review. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Defines motion options, evidence, uncertainty, vetoes, and model choice. Use this map."
+          },
+          {
+            "path": "assets/simplicity-contract.json",
+            "contribution": "Requires reduced-motion, input response, access, and calm-path checks. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how motion proof and a missing capture affect the decision. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the render and viewport prompts used to plan motion evidence. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests motion claims made without current motion or input proof. Try this case."
+          },
+          {
+            "path": "evals/cases.json",
+            "contribution": "Supplies access, input, dynamic state, feedback, and repair cases. Try this case."
+          }
+        ]
+      },
+      "produce": "A motion_judgment record with current motion, sound, touch, access, and repair evidence. Save this proof.",
+      "do_not_substitute": "Do not infer motion or touch quality from a static screen. Keep this bar."
+    },
+    {
+      "id": "CTX-VISUAL-REVIEW",
+      "action": "visual_review",
+      "source_text": "Read references/review.md and use assets/review-record.schema.json. Read it now.",
+      "meaning": "Inspect current renders and input paths with every human and negative invariant bound to the active state. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After current renders exist and after every repair rerender. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/review.md",
+            "contribution": "Defines whole, close, state, input, relation, and rerender inspection. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Supplies rich eye, brain, touch, conflict, and negative-control questions. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/review_checklist.py",
+            "contribution": "Supplies every stable positive and negative review check. Run this tool."
+          },
+          {
+            "path": "scripts/human_capability_sweep.py",
+            "contribution": "Supplies the open human factor sweep for every check. Run this tool."
+          },
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the review packet and validates answer coverage. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/review-record.schema.json",
+            "contribution": "Defines current views, model reviews, negative reviews, evidence, and decision. Use this map."
+          },
+          {
+            "path": "assets/context-bundle.schema.json",
+            "contribution": "Requires every support class and path acknowledgement in the packet. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows a narrow error review and its missing-render blocked branch. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the full canonical checklist and render plan created for review. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests text overlap, image overlap, covered controls, and false checklist passes. Try this case."
+          },
+          {
+            "path": "evals/evals.json",
+            "contribution": "Supplies objective failure, bad design, bad output, and bad work cases. Try this case."
+          }
+        ]
+      },
+      "produce": "A visual_review record with every exact check, current proof, alternatives, doubt, and repair result. Save this proof.",
+      "do_not_substitute": "Do not replace direct current render and input inspection with code, captions, or a prior review. Keep this bar."
+    },
+    {
+      "id": "CTX-PLAIN-READBACK",
+      "action": "plain_readback",
+      "source_text": "Read every user-facing word and use assets/model-record.schema.json. Read it now.",
+      "meaning": "Read all current product words in their state, order, action, risk, feedback, and repair context. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After screens and states are current and before final completion. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/review.md",
+            "contribution": "Requires whole and close inspection of current user-facing output. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Adds truth, memory, choice, risk, cause, feedback, and uncertainty questions. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Builds the readback packet and checks required record fields. Run this tool."
+          },
+          {
+            "path": "scripts/check_reading.py",
+            "contribution": "Checks public skill prose shape without judging product language. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/model-record.schema.json",
+            "contribution": "Defines evidence, alternatives, counterevidence, uncertainty, and choice. Use this map."
+          },
+          {
+            "path": "assets/simplicity-contract.json",
+            "contribution": "Adds clear-next-step, truth, feedback, access, and one-meaning rules. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows how words are read inside a state instead of in isolation. Match this scene."
+          },
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the state and view context that must accompany readback. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests clear sentences that still omit risk, state, cause, or repair context. Try this case."
+          },
+          {
+            "path": "evals/cases.json",
+            "contribution": "Supplies plain-language, feedback, access, and state cases. Try this case."
+          }
+        ]
+      },
+      "produce": "A plain_readback record with every word, state, action, risk, feedback, alternative, and doubt checked. Save this proof.",
+      "do_not_substitute": "Do not accept a clear sentence when its surrounding state makes the meaning false or incomplete. Keep this bar."
+    },
+    {
+      "id": "CTX-CHECK-LINEAGE",
+      "action": "check_lineage",
+      "source_text": "Use assets/lineage.schema.json and run scripts/check_lineage.py. Read it now.",
+      "meaning": "Prove that every high part uses current proved low parts and that no stale or skipped link remains. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After any part change and before final completion. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/build.md",
+            "contribution": "Defines the fixed layer chain, invalidation, rebuild, and unused-part rules. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Keeps lineage proof separate from a judgment about design quality. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/check_lineage.py",
+            "contribution": "Checks order, cycles, stale dependencies, layer skips, and unused parts. Run this tool."
+          },
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Carries current dependency and rebuild context into related model actions. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/lineage.schema.json",
+            "contribution": "Defines part layers, dependency links, use, and stale state. Use this map."
+          },
+          {
+            "path": "assets/execution-ownership.json",
+            "contribution": "Marks lineage checking as structural and not a design verdict. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/run.md",
+            "contribution": "Shows the dependency manifest and rebuild queue that feed lineage. Match this scene."
+          },
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows why a structural pass cannot replace current screen review. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/files/valid-lineage.json",
+            "contribution": "Supplies a complete valid part chain. Try this case."
+          },
+          {
+            "path": "evals/files/skipped-lineage.json",
+            "contribution": "Supplies a direct layer-skip failure. Try this case."
+          },
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests stale lineage and overclaimed structural passes. Try this case."
+          }
+        ]
+      },
+      "produce": "A current lineage check with no layer skip, cycle, stale link, or unused part. Save this proof.",
+      "do_not_substitute": "Do not turn valid links into a claim that the linked design is good. Keep this bar."
+    },
+    {
+      "id": "CTX-FINAL-CHECK",
+      "action": "final_check",
+      "source_text": "Check all records, links, rules, renders, stale parts, bytes, and vetoes. Read it now.",
+      "meaning": "Recheck current product and run proof as one result without expanding any script claim. Keep this aim.",
+      "strength": "must",
+      "judgment_owner": "model",
+      "load_when": "After every model action, repair, rerender, and lineage check is current. Load it then.",
+      "support": {
+        "references": [
+          {
+            "path": "references/failure.md",
+            "contribution": "Defines final blocked, stale, safe-work, and resume reporting. Read this guide."
+          },
+          {
+            "path": "references/review.md",
+            "contribution": "Requires current final visual and interaction evidence. Read this guide."
+          },
+          {
+            "path": "references/context-routing.md",
+            "contribution": "Requires every context path to be acknowledged or named as missing. Read this guide."
+          }
+        ],
+        "scripts": [
+          {
+            "path": "scripts/run_pipeline.py",
+            "contribution": "Checks that every required model record exists. Run this tool."
+          },
+          {
+            "path": "scripts/check_context_routing.py",
+            "contribution": "Checks route IDs, support classes, contributions, paths, and body anchors. Run this tool."
+          },
+          {
+            "path": "scripts/check_lineage.py",
+            "contribution": "Checks current part links and stale state. Run this tool."
+          }
+        ],
+        "assets": [
+          {
+            "path": "assets/workflow.json",
+            "contribution": "Defines the full required action order. Use this map."
+          },
+          {
+            "path": "assets/execution-ownership.json",
+            "contribution": "Defines every script and model owner boundary. Use this map."
+          },
+          {
+            "path": "assets/context-routing.json",
+            "contribution": "Defines every required context route and contribution. Use this map."
+          }
+        ],
+        "examples": [
+          {
+            "path": "examples/context-packets.md",
+            "contribution": "Shows why missing context blocks a claim even when the record shape is valid. Match this scene."
+          },
+          {
+            "path": "examples/failure-missing-proof.md",
+            "contribution": "Shows the exact safe stop shape for a missing gate. Match this scene."
+          }
+        ],
+        "evals": [
+          {
+            "path": "evals/context-cases.json",
+            "contribution": "Tests false completion from partial context or structural passes. Try this case."
+          },
+          {
+            "path": "evals/contract.md",
+            "contribution": "Defines what fixture checks can and cannot prove. Try this case."
+          },
+          {
+            "path": "evals/rubric.md",
+            "contribution": "Defines the human review needed beyond machine checks. Try this case."
+          }
+        ]
+      },
+      "produce": "One PASS, STALE, or BLOCKED result tied to current product bytes and current run proof. Save this proof.",
+      "do_not_substitute": "Do not turn passing code, schemas, routes, or fixtures into a claim about pixels, use, access, or value. Keep this bar."
+    }
+  ]
+}

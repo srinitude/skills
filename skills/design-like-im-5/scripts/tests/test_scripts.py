@@ -1,5 +1,6 @@
 """Contract tests for bundled scripts other than the run pipeline."""
 import json
+import importlib.util
 import pathlib
 import subprocess
 import sys
@@ -49,6 +50,16 @@ class TestLineage(unittest.TestCase):
 
 
 class TestSourceLineage(unittest.TestCase):
+    def test_skill_body_is_bound_to_context_routing_evidence(self):
+        path = SKILL_DIR / "evals" / "source-lineage.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        rows = {row["path"]: row["source_paths"]
+                for row in data["public_files"]}
+        self.assertIn("construction/context-routing-meaning-ledger.json",
+                      rows["SKILL.md"])
+        self.assertIn("construction/context-routing-validation.json",
+                      rows["SKILL.md"])
+
     def test_current_public_hashes_pass(self):
         script = SKILL_DIR / "scripts" / "check_source_lineage.py"
         result = run(script, SKILL_DIR)
@@ -79,6 +90,14 @@ class TestReading(unittest.TestCase):
 
 
 class TestExamples(unittest.TestCase):
+    def test_context_packet_example_is_generated(self):
+        script = SKILL_DIR / "scripts" / "build_examples.py"
+        spec = importlib.util.spec_from_file_location("build_examples", script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        expected = SKILL_DIR / "examples" / "context-packets.md"
+        self.assertIn(expected, module.documents())
+
     def test_current_examples_match_real_commands(self):
         script = SKILL_DIR / "scripts" / "build_examples.py"
         result = run(script, "--check")

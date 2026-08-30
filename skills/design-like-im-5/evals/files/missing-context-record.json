@@ -1,0 +1,21 @@
+{
+  "action": "source_meaning",
+  "decision": "BLOCKED",
+  "evidence": ["route:CTX-SOURCE-MEANING"],
+  "reason": "A needed research file is not here, so the source claim must wait.",
+  "counterevidence": ["The packet and source map are here."],
+  "uncertainty": "The lost file may change how the source is read.",
+  "affected": ["state_judgment", "select_rules"],
+  "context_acknowledgements": [
+    "assets/context-bundle.schema.json",
+    "assets/model-record.schema.json",
+    "evals/context-cases.json",
+    "evals/source-mapping.json",
+    "examples/context-packets.md",
+    "examples/run.md",
+    "references/context-routing.md",
+    "scripts/check_source_lineage.py",
+    "scripts/run_pipeline.py"
+  ],
+  "missing_context": ["references/research.md"]
+}

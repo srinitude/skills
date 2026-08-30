@@ -1,0 +1,22 @@
+{
+  "action": "source_meaning",
+  "decision": "PASS",
+  "evidence": ["source:current"],
+  "reason": "Current source facts, rights, gaps, and counterreadings support the claim.",
+  "counterevidence": ["No conflicting current source was found."],
+  "uncertainty": "The next product state may add more source context.",
+  "affected": ["state_judgment"],
+  "context_acknowledgements": [
+    "assets/context-bundle.schema.json",
+    "assets/model-record.schema.json",
+    "evals/context-cases.json",
+    "evals/source-mapping.json",
+    "examples/context-packets.md",
+    "examples/run.md",
+    "references/context-routing.md",
+    "references/research.md",
+    "scripts/check_source_lineage.py",
+    "scripts/run_pipeline.py"
+  ],
+  "missing_context": []
+}

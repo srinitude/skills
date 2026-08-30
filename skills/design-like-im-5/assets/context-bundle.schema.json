@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://srinitude.dev/schemas/design-like-im-5/context-bundle.schema.json",
+  "title": "Design context bundle",
+  "type": "object",
+  "required": [
+    "route_id",
+    "route_sha256",
+    "load_when",
+    "support",
+    "required_paths",
+    "produce",
+    "do_not_substitute"
+  ],
+  "properties": {
+    "route_id": { "type": "string", "pattern": "^CTX-[A-Z0-9-]+$" },
+    "route_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "load_when": { "type": "string", "minLength": 1 },
+    "support": {
+      "type": "object",
+      "required": ["references", "scripts", "assets", "examples", "evals"],
+      "properties": {
+        "references": { "$ref": "#/$defs/supportRows" },
+        "scripts": { "$ref": "#/$defs/supportRows" },
+        "assets": { "$ref": "#/$defs/supportRows" },
+        "examples": { "$ref": "#/$defs/supportRows" },
+        "evals": { "$ref": "#/$defs/supportRows" }
+      },
+      "additionalProperties": false
+    },
+    "required_paths": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "produce": { "type": "string", "minLength": 1 },
+    "do_not_substitute": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "supportRows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "contribution"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "contribution": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

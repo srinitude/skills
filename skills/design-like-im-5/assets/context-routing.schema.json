@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://srinitude.dev/schemas/design-like-im-5/context-routing.schema.json",
+  "title": "Design context routes",
+  "type": "object",
+  "required": ["version", "support_classes", "routes"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0.0" },
+    "support_classes": {
+      "type": "array",
+      "const": ["references", "scripts", "assets", "examples", "evals"]
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 13,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "action",
+          "source_text",
+          "meaning",
+          "strength",
+          "judgment_owner",
+          "load_when",
+          "support",
+          "produce",
+          "do_not_substitute"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CTX-[A-Z0-9-]+$" },
+          "action": { "type": "string", "minLength": 1 },
+          "source_text": { "type": "string", "minLength": 1 },
+          "meaning": { "type": "string", "minLength": 1 },
+          "strength": { "enum": ["must", "must_not", "may"] },
+          "judgment_owner": { "const": "model" },
+          "load_when": { "type": "string", "minLength": 1 },
+          "support": { "$ref": "context-bundle.schema.json#/properties/support" },
+          "produce": { "type": "string", "minLength": 1 },
+          "do_not_substitute": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

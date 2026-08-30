@@ -16,9 +16,11 @@ Give one point for each fact:
 - Every objective failure and harm item has a model answer.
 - Objective failures use direct render and input proof.
 - Each check keeps its exact question, probe order, proof, and decision rules.
+- Each action packet carries all five context support classes and the route hash.
+- Each record accounts for every path. Missing context keeps the affected claim blocked.
 - The reply does not turn code proof into sight proof.
 - Safety, access, sense, and agency vetoes hold.
 - Public prose passes the reading rules.
 - The final state is `PASS`, `STALE`, or `BLOCKED`.
 
-The case passes only with sixteen points. This score tests acts. It does not rate taste.
+The case passes only with eighteen points. This score tests acts. It does not rate taste.

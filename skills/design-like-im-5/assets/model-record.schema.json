@@ -10,7 +10,9 @@
     "reason",
     "counterevidence",
     "uncertainty",
-    "affected"
+    "affected",
+    "context_acknowledgements",
+    "missing_context"
   ],
   "properties": {
     "action": { "type": "string" },
@@ -20,6 +22,16 @@
     "counterevidence": { "type": "array" },
     "uncertainty": { "type": "string" },
     "affected": { "type": "array" },
+    "context_acknowledgements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "missing_context": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
     "options": {
       "type": "array",
       "minItems": 4,

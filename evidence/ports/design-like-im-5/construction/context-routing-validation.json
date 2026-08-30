@@ -1,0 +1,32 @@
+{
+  "schema": "design-like-im-5-context-routing-validation/v1",
+  "checked_at": "2026-08-30",
+  "baseline_sha256": "1b4ed69603d9bae30400c1f57230f9ee793157c3d580f3d463737785f48b6299",
+  "target_sha256": "800cf9b1e9509b01f3fe88e00dc98beb4cf36daee24fd5ce31eb78b7ce66f207",
+  "machine_review": {
+    "workflow_actions": 13,
+    "context_routes": 13,
+    "support_classes_per_route": 5,
+    "context_eval_cases": 13,
+    "body_lines": 192,
+    "body_line_cap": 200,
+    "generation_contract_sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+    "generation_contract_changed": false,
+    "focused_tests": "PASS",
+    "reading_check": "PASS",
+    "code_check": "PASS",
+    "route_check": "PASS"
+  },
+  "human_review": {
+    "status": "PASS",
+    "reviewed_against": "construction/context-routing-meaning-ledger.json",
+    "meaning_loss_found": false,
+    "strength_loss_found": false,
+    "voice_shift_found": false,
+    "owner_conflict_found": false,
+    "model_judgment_reduced": false,
+    "context_added_without_rule_change": true,
+    "countercheck": "The body is three lines shorter, but no governed detail was deleted. Stable detail moved into locally named routes, files, examples, and evals.",
+    "limits": "This report proves instruction preservation and package checks. It does not prove visual quality or product value."
+  }
+}

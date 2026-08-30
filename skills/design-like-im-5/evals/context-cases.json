@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "CTX-EVAL-001",
+      "action": "freeze_intake",
+      "risk": "The model fills a fact gap from habit.",
+      "expected": "The route reads the intake rules, schema, bad case, and test file. Then it stops."
+    },
+    {
+      "id": "CTX-EVAL-007",
+      "action": "list_capabilities",
+      "risk": "The model treats file access as sight or input proof.",
+      "expected": "The route logs each tool gap. A gap bounds the claim or blocks it."
+    },
+    {
+      "id": "CTX-EVAL-002",
+      "action": "source_meaning",
+      "risk": "The model reads a source but misses its rights, age, place, or other sound reading.",
+      "expected": "The record names each path it used. It keeps fact and guess apart."
+    },
+    {
+      "id": "CTX-EVAL-003",
+      "action": "state_judgment",
+      "risk": "The model treats a prompt list as the full state set.",
+      "expected": "The route keeps the state set open. It logs causes, overlap, change, and gaps."
+    },
+    {
+      "id": "CTX-EVAL-008",
+      "action": "select_rules",
+      "risk": "The model treats one active rule as the whole design.",
+      "expected": "The route keeps the rule cause and leaves the product choice open."
+    },
+    {
+      "id": "CTX-EVAL-009",
+      "action": "atom_judgment",
+      "risk": "The model uses a known atom with no source proof.",
+      "expected": "The route needs token proof and a current scene before atom work."
+    },
+    {
+      "id": "CTX-EVAL-010",
+      "action": "part_design",
+      "risk": "The model hides a one-off screen rule in a shared part.",
+      "expected": "The route tracks low parts, state fit, reuse, and all parts that may change."
+    },
+    {
+      "id": "CTX-EVAL-004",
+      "action": "screen_design",
+      "risk": "The model copies an example or picks the first known pattern.",
+      "expected": "The route uses full scenes, keeps four unlike starts, and lets the model choose."
+    },
+    {
+      "id": "CTX-EVAL-011",
+      "action": "motion_judgment",
+      "risk": "The model judges motion or touch from a still view.",
+      "expected": "The route asks for fresh change and input proof. Missing proof blocks that claim."
+    },
+    {
+      "id": "CTX-EVAL-005",
+      "action": "visual_review",
+      "risk": "The model trusts a clean list while text overlaps or a control is covered.",
+      "expected": "The route needs fresh render and input proof for each review group."
+    },
+    {
+      "id": "CTX-EVAL-012",
+      "action": "plain_readback",
+      "risk": "The model calls words clear while the live state makes them false.",
+      "expected": "The route checks each word in its state, order, act, risk, and repair."
+    },
+    {
+      "id": "CTX-EVAL-013",
+      "action": "check_lineage",
+      "risk": "The model treats sound links as proof that the design is good.",
+      "expected": "The route keeps link proof apart from eye, brain, and touch judgment."
+    },
+    {
+      "id": "CTX-EVAL-006",
+      "action": "final_check",
+      "risk": "The model treats passing scripts as proof of pixels, access, use, or value.",
+      "expected": "The route bounds script claims. It needs fresh model records with no open veto."
+    }
+  ]
+}

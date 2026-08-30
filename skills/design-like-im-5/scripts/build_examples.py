@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PIPELINE = ROOT / "scripts" / "run_pipeline.py"
 INTAKE = ROOT / "evals" / "files" / "valid-intake.json"
 MISSING = ROOT / "evals" / "files" / "missing-proof.json"
+VALID_CONTEXT = ROOT / "evals" / "files" / "valid-context-record.json"
+MISSING_CONTEXT = ROOT / "evals" / "files" / "missing-context-record.json"
 
 
 def command(*args):
@@ -83,10 +85,41 @@ def failure_example():
     ])
 
 
+def context_data():
+    with tempfile.TemporaryDirectory() as temp:
+        command("start", "--intake", INTAKE, "--run-dir", temp)
+        result = command("packet", "--run-dir", temp,
+                         "--action", "visual_review", "--item-id",
+                         "narrow-error")
+        packet = (Path(temp) / "packets" /
+                  "visual_review--narrow-error.json").read_text(encoding="utf-8")
+    return result, packet
+
+
+def context_example():
+    result, packet = context_data()
+    valid = VALID_CONTEXT.read_text(encoding="utf-8")
+    blocked = MISSING_CONTEXT.read_text(encoding="utf-8")
+    return "\n".join([
+        "# Context packet example\n",
+        "Guess removed: A short action may omit needed judgment context.\n",
+        "## Request\n", "> Review the narrow error state and its covered action.\n",
+        "## Command\n", "```sh\npython3 scripts/run_pipeline.py packet --run-dir run --action visual_review --item-id narrow-error\n```\n",
+        "## Real output\n", f"```text\n{result.stdout.rstrip()}\n```\n",
+        f"The command exits with code `{result.returncode}`. It creates one packet file.\n",
+        file_block("packets/visual_review--narrow-error.json", packet),
+        "## Passing context record\n", file_block("../evals/files/valid-context-record.json", valid),
+        "## Blocked context record\n", file_block("../evals/files/missing-context-record.json", blocked),
+        "The model reads each named path. Missing required context keeps the affected claim blocked.\n",
+        "The script checks that accounting. It does not judge the control.\n",
+    ])
+
+
 def documents():
     return {ROOT / "examples" / "run.md": run_example(),
             ROOT / "examples" / "help.md": help_example(),
-            ROOT / "examples" / "failure-missing-proof.md": failure_example()}
+            ROOT / "examples" / "failure-missing-proof.md": failure_example(),
+            ROOT / "examples" / "context-packets.md": context_example()}
 
 
 def main(argv=None):

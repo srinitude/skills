@@ -11,15 +11,12 @@ Exit codes:
 import argparse, hashlib, json, re, sys
 from pathlib import Path
 
-from review_checklist import (ANSWER_FIELDS, REVIEW_DECISIONS,
-                              REVIEW_CHECKLIST, REVIEW_INDEX)
+from review_checklist import ANSWER_FIELDS, REVIEW_DECISIONS, REVIEW_CHECKLIST, REVIEW_INDEX
+from check_context_routing import build_context_bundle, record_context_issues, routing_digest
 from run_scaffold import make_packet, scaffold_files
 
-NEEDED = ["outcome", "audience", "platform", "primary_tasks",
-          "source_permissions", "proof_threshold"]
-MODEL_ACTIONS = ["source_meaning", "atom_judgment", "part_design",
-                 "screen_design", "motion_judgment", "visual_review",
-                 "plain_readback", "state_judgment"]
+NEEDED = ["outcome", "audience", "platform", "primary_tasks", "source_permissions", "proof_threshold"]
+MODEL_ACTIONS = ["source_meaning", "atom_judgment", "part_design", "screen_design", "motion_judgment", "visual_review", "plain_readback", "state_judgment"]
 REVIEW_ACTIONS = {"state_judgment", "visual_review"}
 
 
@@ -34,10 +31,6 @@ def dump(path, data):
         path.write_text(text, encoding="utf-8")
 
 
-def missing_fields(data):
-    return [key for key in NEEDED if not data.get(key)]
-
-
 def choose_rules(contract, data):
     picked = []
     for rule in contract["rules"]:
@@ -46,18 +39,13 @@ def choose_rules(contract, data):
     return picked
 
 
-def make_scaffold(out, run_id, data):
-    for name, value in scaffold_files(run_id, data).items():
-        dump(out / name, {"version": "1.0.0", **value})
-
-
 def start(args):
     try:
         data = load(args.intake)
     except (OSError, json.JSONDecodeError) as error:
         print(f"error: intake could not be read: {error}", file=sys.stderr)
         return 2
-    missing = missing_fields(data)
+    missing = [key for key in NEEDED if not data.get(key)]
     if missing:
         print("blocked: missing " + ", ".join(missing), file=sys.stderr)
         return 1
@@ -68,11 +56,13 @@ def start(args):
     rules = choose_rules(contract, data)
     out = Path(args.run_dir)
     run = {"version": "1.0.0", "run_id": run_id, "status": "READY",
-           "intake": data, "rules": rules, "next": "source_meaning"}
+           "intake": data, "rules": rules,
+           "context_routing_sha256": routing_digest(root),
+           "next": "source_meaning"}
     dump(out / "run.json", run)
-    make_scaffold(out, run_id, data)
-    print(json.dumps({"run_id": run_id, "status": "READY",
-                      "next_action": "source_meaning"}, sort_keys=True))
+    for name, value in scaffold_files(run_id, data).items():
+        dump(out / name, {"version": "1.0.0", **value})
+    print(json.dumps({"run_id": run_id, "status": "READY", "next_action": "source_meaning"}, sort_keys=True))
     return 0
 
 
@@ -86,14 +76,23 @@ def packet(args):
     except (OSError, json.JSONDecodeError) as error:
         print(f"error: run could not be read: {error}", file=sys.stderr)
         return 2
+    root = Path(__file__).resolve().parents[1]
+    if run.get("context_routing_sha256") != routing_digest(root):
+        print("blocked: context routes changed after start", file=sys.stderr)
+        return 1
+    try:
+        context = build_context_bundle(root, args.action)
+    except ValueError as error:
+        print(f"blocked: {error}", file=sys.stderr)
+        return 1
     data = make_packet(args.action, run["run_id"], run["intake"], run["rules"],
                        args.item_id)
+    data["context_bundle"] = context
     item = re.sub(r"[^a-zA-Z0-9_-]+", "-", args.item_id or "").strip("-")
     name = args.action + (f"--{item}" if item else "") + ".json"
     target = out / "packets" / name
     dump(target, data)
-    print(json.dumps({"action": args.action, "status": "PACKET_READY"},
-                     sort_keys=True))
+    print(json.dumps({"action": args.action, "status": "PACKET_READY"}, sort_keys=True))
     return 0
 
 
@@ -115,6 +114,7 @@ def valid_record(record, packet):
         missing.extend(valid_model_reviews(record))
     if packet.get("exploration_contract"):
         missing.extend(valid_exploration(record, packet))
+    missing.extend(record_context_issues(record, packet.get("context_bundle", {})))
     return sorted(set(missing))
 
 
@@ -134,8 +134,7 @@ def valid_state_record(record):
 
 
 def valid_model_reviews(record):
-    return (valid_review_groups(record, "model_reviews", "lenses") +
-            valid_review_groups(record, "negative_reviews", "negative_checks"))
+    return valid_review_groups(record, "model_reviews", "lenses") + valid_review_groups(record, "negative_reviews", "negative_checks")
 
 
 def valid_review_groups(record, record_key, checklist_key):
@@ -196,8 +195,7 @@ def record(args):
         print("blocked: missing " + ", ".join(missing), file=sys.stderr)
         return 1
     dump(out / "records" / f"{result['action']}.json", result)
-    print(json.dumps({"action": result["action"], "status": "RECORDED"},
-                     sort_keys=True))
+    print(json.dumps({"action": result["action"], "status": "RECORDED"}, sort_keys=True))
     return 0
 
 
@@ -206,8 +204,7 @@ def check(args):
     missing = [name for name in MODEL_ACTIONS
                if not (out / "records" / f"{name}.json").is_file()]
     state = "PASS" if not missing else "BLOCKED"
-    print(json.dumps({"status": state, "missing_records": missing},
-                     sort_keys=True))
+    print(json.dumps({"status": state, "missing_records": missing}, sort_keys=True))
     return 0 if not missing else 1
 
 
@@ -231,8 +228,7 @@ def parser():
 
 def main(argv=None):
     args = parser().parse_args(argv)
-    return {"start": start, "packet": packet, "record": record,
-            "check": check}[args.command](args)
+    return {"start": start, "packet": packet, "record": record, "check": check}[args.command](args)
 
 
 if __name__ == "__main__":

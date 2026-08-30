@@ -1,5 +1,5 @@
 {
-  "native_manifest_sha256": "907f6a024d268652857ccd6164c4c3f64840333d8ea7c1c5efb7609b16c6ff81",
+  "native_manifest_sha256": "32224f0e499a66b8a212aa5561d8d7711f3a9966fa7024be942cb815c37947a6",
   "native_version": "2026-08-30",
   "public_files": [
     {
@@ -13,8 +13,22 @@
         "construction/case-study-ledger.json",
         "construction/simplicity-source-ledger.json",
         "construction/current-pattern-evidence.json",
-        "construction/integration-matrix.json"
+        "construction/integration-matrix.json",
+        "construction/context-routing-meaning-ledger.json",
+        "construction/context-routing-validation.json"
       ]
+    },
+    {
+      "path": "assets/context-bundle.schema.json",
+      "source_paths": ["assets/context-bundle.schema.json"]
+    },
+    {
+      "path": "assets/context-routing.json",
+      "source_paths": ["assets/context-routing.json"]
+    },
+    {
+      "path": "assets/context-routing.schema.json",
+      "source_paths": ["assets/context-routing.schema.json"]
     },
     {
       "path": "assets/eval-case-template.json",
@@ -59,7 +73,9 @@
         "construction/case-study-ledger.json",
         "construction/simplicity-source-ledger.json",
         "construction/current-pattern-evidence.json",
-        "construction/integration-matrix.json"
+        "construction/integration-matrix.json",
+        "construction/context-routing-meaning-ledger.json",
+        "construction/context-routing-validation.json"
       ]
     },
     {
@@ -75,6 +91,10 @@
       "source_paths": ["evals/cases.json"]
     },
     {
+      "path": "evals/context-cases.json",
+      "source_paths": ["evals/context-cases.json"]
+    },
+    {
       "path": "evals/contract.md",
       "source_paths": ["evals/contract.md"]
     },
@@ -83,12 +103,20 @@
       "source_paths": ["evals/evals.json"]
     },
     {
+      "path": "evals/files/missing-context-record.json",
+      "source_paths": ["evals/files/missing-context-record.json"]
+    },
+    {
       "path": "evals/files/missing-proof.json",
       "source_paths": ["evals/files/missing-proof.json"]
     },
     {
       "path": "evals/files/skipped-lineage.json",
       "source_paths": ["evals/files/skipped-lineage.json"]
+    },
+    {
+      "path": "evals/files/valid-context-record.json",
+      "source_paths": ["evals/files/valid-context-record.json"]
     },
     {
       "path": "evals/files/valid-intake.json",
@@ -123,6 +151,10 @@
       "source_paths": ["evals/trigger-queries.json"]
     },
     {
+      "path": "examples/context-packets.md",
+      "source_paths": ["examples/context-packets.md"]
+    },
+    {
       "path": "examples/failure-missing-proof.md",
       "source_paths": ["examples/failure-missing-proof.md"]
     },
@@ -141,6 +173,10 @@
     {
       "path": "references/build.md",
       "source_paths": ["references/build.md"]
+    },
+    {
+      "path": "references/context-routing.md",
+      "source_paths": ["references/context-routing.md"]
     },
     {
       "path": "references/decisions.md",
@@ -191,6 +227,10 @@
       "source_paths": ["scripts/check_code_rules.py"]
     },
     {
+      "path": "scripts/check_context_routing.py",
+      "source_paths": ["scripts/check_context_routing.py"]
+    },
+    {
       "path": "scripts/check_evals.py",
       "source_paths": ["scripts/check_evals.py"]
     },
@@ -237,6 +277,10 @@
     {
       "path": "scripts/tests/test_ci_contract.py",
       "source_paths": ["scripts/tests/test_ci_contract.py"]
+    },
+    {
+      "path": "scripts/tests/test_context_routing.py",
+      "source_paths": ["scripts/tests/test_context_routing.py"]
     },
     {
       "path": "scripts/tests/test_review_contract.py",
@@ -288,7 +332,19 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "1b4ed69603d9bae30400c1f57230f9ee793157c3d580f3d463737785f48b6299"
+      "sha256": "800cf9b1e9509b01f3fe88e00dc98beb4cf36daee24fd5ce31eb78b7ce66f207"
+    },
+    {
+      "path": "assets/context-bundle.schema.json",
+      "sha256": "c4ebf98051a3d6aedc21572d54735b2ce1af35c13868ea8b1a051c7f98bdb55a"
+    },
+    {
+      "path": "assets/context-routing.json",
+      "sha256": "46e4f0d6675cba351bcfde1f2ed5c0d5c6f019daaef4fe96835897eb116183ff"
+    },
+    {
+      "path": "assets/context-routing.schema.json",
+      "sha256": "378d72baf3d2b7edbdb86f97a7819894453e6b49bfe63aefb8dbdbfdb2cc2b20"
     },
     {
       "path": "assets/eval-case-template.json",
@@ -300,7 +356,7 @@
     },
     {
       "path": "assets/file-manifest.json",
-      "sha256": "c351e14b4b9be6d4febb408fd2f265a2d74eff301a641faa72033b20c87b21b6"
+      "sha256": "70ff18b45fd967db312a333114706e4b26d0dad71a435303085448a15e9ad01b"
     },
     {
       "path": "assets/lineage.schema.json",
@@ -308,7 +364,7 @@
     },
     {
       "path": "assets/model-record.schema.json",
-      "sha256": "744ee94450dc6666dc1a1ae11f94a6097cefb17962c49e2f86d5e79cb4906022"
+      "sha256": "a4112139b734cc6f216c6288ed6b5c9d2a0ef8f9d3e7cbbc9300a096ec650bc8"
     },
     {
       "path": "assets/reading-contract.json",
@@ -320,7 +376,7 @@
     },
     {
       "path": "assets/review-record.schema.json",
-      "sha256": "3e09077173ebc825c10bbf2ddbce7a53f6bd309d6cf4d56917c69e94a12e4c2c"
+      "sha256": "6bf8bd2f1a218261748510c1beab0c3872ac956e5d3b993ca9c55714a46b9001"
     },
     {
       "path": "assets/run-intake.schema.json",
@@ -332,11 +388,15 @@
     },
     {
       "path": "assets/state-record.schema.json",
-      "sha256": "cbff2cbbf26a055a823db14c17626472466751cb910f4892cab9db7c6d0f78ed"
+      "sha256": "d818d5ee59b8108f53aa9802f1531e3a8a87198dd4d9e97f6e0bfcb6a9ce279c"
     },
     {
       "path": "assets/workflow.json",
       "sha256": "9c99dc76c138702cbbc4957146f56582721f38ebbfac575ba35a34128e15c465"
+    },
+    {
+      "path": "construction/baselines/SKILL-before-context-routing.md",
+      "sha256": "1b4ed69603d9bae30400c1f57230f9ee793157c3d580f3d463737785f48b6299"
     },
     {
       "path": "construction/case-study-ledger.json",
@@ -344,7 +404,15 @@
     },
     {
       "path": "construction/construction-check.json",
-      "sha256": "2455a9a96f095d06783832edf3055e0537f5dbd464b0da4dea5aca0fef3759cc"
+      "sha256": "26458f55df5d350f6eb591ad09e17d230d670b690efaf96293c6988224071a3e"
+    },
+    {
+      "path": "construction/context-routing-meaning-ledger.json",
+      "sha256": "96d13cc58bde0dc2f029929bd430dcda33488a85061f98fda167d4174c338140"
+    },
+    {
+      "path": "construction/context-routing-validation.json",
+      "sha256": "a329ef0c46ee4809707e10952697005c9224b9792b08a4cf4aaa7322fbd89d61"
     },
     {
       "path": "construction/current-pattern-evidence.json",
@@ -367,12 +435,20 @@
       "sha256": "9f8881b33b7d59f6e2f7b812e6c8538d54a4a84ec8fd394bd4b906dc16d17d66"
     },
     {
+      "path": "evals/context-cases.json",
+      "sha256": "2949d01aa63418bcdaee57e68f5f2cf7bb6d36cf43de8c73c35f85c2dfe99161"
+    },
+    {
       "path": "evals/contract.md",
-      "sha256": "60cc10fa1759eaef557081532db22f954cd187baaa8e1e99d99b54167d5521df"
+      "sha256": "a9aca9cbf33672671ae06889165ed58449dd04604dc0a8f582322e6d543b302d"
     },
     {
       "path": "evals/evals.json",
       "sha256": "d6543351544b451688acd260d40ed5cc51e624c1faccbd1fa86dff55305994bb"
+    },
+    {
+      "path": "evals/files/missing-context-record.json",
+      "sha256": "d75c2a9aaa4e1e1e640d41bfe73ac3975777e1e88ba612b82914a988eb83543c"
     },
     {
       "path": "evals/files/missing-proof.json",
@@ -381,6 +457,10 @@
     {
       "path": "evals/files/skipped-lineage.json",
       "sha256": "19c670817daefd85f5c232644c07120509a00d440846055416a310ac4341d93e"
+    },
+    {
+      "path": "evals/files/valid-context-record.json",
+      "sha256": "4c7f51f45c31fb95dc3af6d4214621f14940a2116106637851631bc943e95456"
     },
     {
       "path": "evals/files/valid-intake.json",
@@ -396,7 +476,7 @@
     },
     {
       "path": "evals/rubric.md",
-      "sha256": "329fd5e80fd03bebb09d07fbe2c735b0a1008843c1f5f8dcfbc4e082b7d262f2"
+      "sha256": "250ce4f5f8f6e6223c18299a1a8f71f86a3150294e9e06f1c55270d0c8701150"
     },
     {
       "path": "evals/source-mapping.json",
@@ -415,6 +495,10 @@
       "sha256": "8c4dc9fa86db5d3f7929ee72654f91acc3d3b85d50ec8fe0fcf7b55ee36dd833"
     },
     {
+      "path": "examples/context-packets.md",
+      "sha256": "b9cc9ad34114eb8b17b4146518c5927833285897f9f82e60df054a4b06f3c228"
+    },
+    {
       "path": "examples/failure-missing-proof.md",
       "sha256": "065e95e3742f10cd45bdd800306599814afcebd5495f0fd8e5d812c8547fd16f"
     },
@@ -424,15 +508,19 @@
     },
     {
       "path": "examples/run.md",
-      "sha256": "3c2290946998aaa19091c490edfc665516cc5f43f1e9828c01b677d220dcf96f"
+      "sha256": "81698901ea9fde05d806b62f17b5a9cd02b8772b0d287193273f559aa37d8069"
     },
     {
       "path": "mise.toml",
-      "sha256": "88a150919158b5206b41562f3c21ebc8bc231b89c11e97a6ddf27e0372f5bf36"
+      "sha256": "39cb605a3be656f496e61d5735dda5fd0420e177c3bbf47bf10dfe4313084d1a"
     },
     {
       "path": "references/build.md",
       "sha256": "bf6eba093bb687a817ccd2724e35315f05fcc218f2c0f2120e83b3077b8b4867"
+    },
+    {
+      "path": "references/context-routing.md",
+      "sha256": "78aa74502b8bc3ddecd971b4d7ef421d94f80d76adaca9f5bd1906fb824b87b4"
     },
     {
       "path": "references/decisions.md",
@@ -468,7 +556,7 @@
     },
     {
       "path": "scripts/build_examples.py",
-      "sha256": "33ff568e68d9a60bed93cf912895b0896c0821b19858d922c113fbb5de93ff47"
+      "sha256": "327ae22c5194abf1e3c13f607204d84bf95e9f01adf6fe206a003be40a4e21ac"
     },
     {
       "path": "scripts/build_file_manifest.py",
@@ -476,11 +564,15 @@
     },
     {
       "path": "scripts/build_lineage.py",
-      "sha256": "a664d7843b21981fbe21dec482792393b0aca1e79b9487349e5efe567a455788"
+      "sha256": "afbac1dc6d3f488eb12c6b7dc43b565af8a291495d8fa231ec94ae257ba3f4a5"
     },
     {
       "path": "scripts/check_code_rules.py",
       "sha256": "8aceae4c14f1326e117685174ab01dc127126d846ad4d0104121eb79fc4055f8"
+    },
+    {
+      "path": "scripts/check_context_routing.py",
+      "sha256": "06c7203bdfefc92988e81c952e0821b819bf04e8003bb80fc8adb58d1d35e113"
     },
     {
       "path": "scripts/check_evals.py",
@@ -516,7 +608,7 @@
     },
     {
       "path": "scripts/run_pipeline.py",
-      "sha256": "a2615dcfc70be863a63c7bc4cd8693a52a6c865b2ad1ac042ee54285ca761757"
+      "sha256": "97098739dc21df5432fd85da0f978d391943196e69777a41786c17197696dcbc"
     },
     {
       "path": "scripts/run_scaffold.py",
@@ -528,7 +620,11 @@
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
-      "sha256": "9f9ee3d43b6368d9cc74ad63463e12109bed318fa81e84ff192d00d22b04e1bd"
+      "sha256": "2c5042e8639adda67569f7af6dee1199fb957fb49602c445fbb235362f7b35f7"
+    },
+    {
+      "path": "scripts/tests/test_context_routing.py",
+      "sha256": "4da737f2fc151e65bca200edcc5f5e421fc0d7f17477703e3c69e66d54aa582c"
     },
     {
       "path": "scripts/tests/test_review_contract.py",
@@ -536,15 +632,15 @@
     },
     {
       "path": "scripts/tests/test_run_pipeline.py",
-      "sha256": "7f11d92730355e8aafc217889d7c92f2c34d0e7f0f71256edec0342bf0efc386"
+      "sha256": "33a9ed0f69fa3f87db3f23d84cf984d0dd42dacc6b1ffe1729e4e0417b36b21d"
     },
     {
       "path": "scripts/tests/test_scripts.py",
-      "sha256": "080101bc83279700b1627c2a04350b958dd6fb5c81ad5809329d10aee08b1a90"
+      "sha256": "88260453a29a0aca426c45906b52c07c9a30ed12915385279dcad82132d7fca4"
     },
     {
       "path": "scripts/tests/test_skill_body.py",
-      "sha256": "9bbd10ccb1cccc9e3447c0ce8f631f3a24ccbbc79fce71149921ac699d9dcdc9"
+      "sha256": "c9d40a2632de1fa5185cb4677805869bbba96592e1a9152a58dbf5d7e24618ab"
     },
     {
       "path": "scripts/tests/test_state_pipeline.py",

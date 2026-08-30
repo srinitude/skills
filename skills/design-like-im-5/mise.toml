@@ -11,6 +11,7 @@ run = [
   "mise run source-lineage",
   "mise run ownership",
   "mise run directories",
+  "mise run context-routing",
   "mise run lint-writing",
   "mise run lint-code",
   "mise run lint-placeholders",
@@ -45,6 +46,10 @@ run = "python3 scripts/audit_ownership.py ."
 [tasks.directories]
 description = "Check each public file has a real use"
 run = "python3 scripts/audit_directories.py ."
+
+[tasks.context-routing]
+description = "Check local context routes and support contributions"
+run = "python3 scripts/check_context_routing.py ."
 
 [tasks.lint-writing]
 description = "Mechanical writing checks on every markdown file"

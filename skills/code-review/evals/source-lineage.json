@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "native_version": "1.0.0",
+  "native_manifest_sha256": "",
+  "public_version": "0.1.0",
+  "source_files": [],
+  "public_files": [
+    {
+      "path": "SKILL.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/review-checklist.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/block-on-defect.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/clean-sign-off.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/continue-review.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/help-command.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "examples/unverified-guess.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/review-record.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_validate_checklist.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/validate_checklist.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["target-scaffolding"]
+    }
+  ],
+  "source_case_ids": ["CRV-001", "CRV-002", "CRV-003", "CRV-004", "CRV-005"]
+}

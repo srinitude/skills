@@ -1,0 +1,70 @@
+[
+  {
+    "query": "The change is done. Review it for defects before I open the pull request.",
+    "should_trigger": true
+  },
+  {
+    "query": "Run a code review on this branch against its acceptance test.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review the pull request and tell me whether it is safe to merge.",
+    "should_trigger": true
+  },
+  {
+    "query": "Continue the code review from the record I saved last session.",
+    "should_trigger": true
+  },
+  {
+    "query": "The tests pass, but check the diff for the case they miss before sign-off.",
+    "should_trigger": true
+  },
+  {
+    "query": "Is this unverified suspicion a blocker? Review it carefully.",
+    "should_trigger": true
+  },
+  {
+    "query": "Block the merge and record the defect that fails the round-trip test.",
+    "should_trigger": true
+  },
+  {
+    "query": "Sign off the review and hand the checklist to the next reviewer.",
+    "should_trigger": true
+  },
+  {
+    "query": "The migration is done. Review it. I have no acceptance criteria yet.",
+    "should_trigger": true
+  },
+  {
+    "query": "Redteam the change for the input the tests do not cover.",
+    "should_trigger": true
+  },
+  { "query": "What is the capital of Norway?", "should_trigger": false },
+  {
+    "query": "Write a TypeScript function that parses this JSON into a User object.",
+    "should_trigger": false
+  },
+  { "query": "Summarize this attached report in five bullets.", "should_trigger": false },
+  {
+    "query": "Fix the failing parser test in src/parser.test.ts and run the suite.",
+    "should_trigger": false
+  },
+  {
+    "query": "Send the approved invoice to the recipient listed in the ticket.",
+    "should_trigger": false
+  },
+  {
+    "query": "Reify this loose idea into one concrete outcome I can test.",
+    "should_trigger": false
+  },
+  { "query": "Show me the weather for tomorrow.", "should_trigger": false },
+  { "query": "Delete the scrapped draft directory now.", "should_trigger": false },
+  {
+    "query": "List every decision recorded in project-log.md without changing them.",
+    "should_trigger": false
+  },
+  {
+    "query": "We already chose the outcome. Write the final announcement from this approved brief.",
+    "should_trigger": false
+  }
+]

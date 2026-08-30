@@ -1,0 +1,28 @@
+{
+  "target": "",
+  "contract": "",
+  "verdict": "",
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "",
+      "file": "",
+      "line": "",
+      "clause": "",
+      "evidence": "",
+      "suggestion": "",
+      "state": "open"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D-001",
+      "finding": "",
+      "choice": "",
+      "reason": "",
+      "reversible": true
+    }
+  ],
+  "next_check": "",
+  "status": "active"
+}

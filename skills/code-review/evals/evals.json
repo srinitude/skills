@@ -1,0 +1,66 @@
+{
+  "skill_name": "code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The parser refactor is done. Review it against the round-trip acceptance test before I push.",
+      "expected_output": "A review record that runs the named test, maps findings to severity with contract clauses, separates verified findings from guesses, and gives a merge decision.",
+      "assertions": [
+        "The response runs the target's own check command and reports real output and exit codes.",
+        "The response maps each defect to a severity and names the contract clause it violates.",
+        "The response separates verified findings from unverified guesses.",
+        "The response gives one merge decision rather than a menu of options."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Continue the review of the auth change from the record I saved earlier. I cannot remember which finding blocked it.",
+      "expected_output": "The saved record is inspected before the author is asked to repeat findings, and the blocking finding is read from it.",
+      "assertions": [
+        "The response inspects the named reachable record before asking the author for the blocking finding.",
+        "The response states what was checked when the named record cannot be reached.",
+        "The response does not invent a finding or claim a record read that did not occur."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review this pull request. The tests pass, but I want to be sure there is no case they miss.",
+      "expected_output": "The tests are run for real output, then an adversarial read records the case the tests do not cover as a finding only when it violates a contract clause.",
+      "assertions": [
+        "The response runs the test suite and captures real output and exit codes rather than recalling a pass.",
+        "The response performs at least one adversarial read and records it.",
+        "The response records an uncovered case as a finding only when it violates a named contract clause."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I think the retry loop leaks a connection, but I have not checked. Is that a blocker?",
+      "expected_output": "The suspicion is recorded as unverified with the evidence that would confirm it, not as a blocker, and the next check is stated.",
+      "assertions": [
+        "The response does not turn an unverified suspicion into a blocker.",
+        "The response marks the claim unverified and states what would verify it.",
+        "The response states the next check a reviewer would run."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The change is clean. Sign it off and hand the review to the next reviewer.",
+      "expected_output": "A signed-off record with zero open blocking findings, plus a CHECKLIST.json copied out of the skill and validated with the absolute script path at exit 0.",
+      "assertions": [
+        "The response confirms zero open blocking findings before sign-off.",
+        "The response copies the checklist template out of the installed skill instead of editing it in place.",
+        "The response runs the validator with an absolute script path and reports the printed report and exit code."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Review the migration script. I do not know what acceptance criteria apply.",
+      "expected_output": "When no contract is named and none can be inferred from tests, the response asks for the one acceptance criterion that decides merge and stops.",
+      "assertions": [
+        "The response asks for one acceptance criterion before reviewing.",
+        "The response does not invent a contract to justify a verdict.",
+        "The response stops rather than guessing at a merge decision."
+      ]
+    }
+  ]
+}

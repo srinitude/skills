@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "skill": "code-review",
+  "groups": [
+    "verified_findings",
+    "resume_from_record",
+    "adversarial_read",
+    "unverified_suspicion",
+    "missing_contract"
+  ],
+  "decision_labels": [
+    "review_against_contract",
+    "resume_without_repeating",
+    "redteam_passing_tests",
+    "hold_unverified_as_question",
+    "stop_when_contract_missing"
+  ],
+  "cases": [
+    {
+      "id": "CRV-001",
+      "source_id": "CRV-001",
+      "group": "verified_findings",
+      "title": "Review a change against its acceptance test",
+      "decision": "review_against_contract",
+      "pressures": ["completed_work", "contract_named", "evidence"],
+      "prompt": "The parser refactor is done. Review it against the round-trip acceptance test before I push.",
+      "required": [
+        "Resolves one named target and one named acceptance contract before reviewing.",
+        "Runs the target's own check command and reports real output with exit codes rather than recalling a pass.",
+        "Maps each defect to a severity and names the contract clause it violates.",
+        "Separates verified findings, backed by quoted evidence, from unverified guesses.",
+        "Gives one merge decision rather than a menu of equal options.",
+        "Keeps the reply at or below 350 words."
+      ],
+      "veto": [
+        "Reports a passing test suite as merge ready without running it.",
+        "Records a finding with no contract clause and no evidence as a blocker.",
+        "Presents a polished list of suggestions with no recommended verdict.",
+        "Invents a contract clause to justify a stylistic preference."
+      ]
+    },
+    {
+      "id": "CRV-002",
+      "source_id": "CRV-002",
+      "group": "resume_from_record",
+      "title": "Resume a saved review without repeating findings",
+      "decision": "resume_without_repeating",
+      "pressures": ["prior_context", "missing_details", "user_effort"],
+      "prompt": "Continue the review of the auth change from the record I saved earlier. I cannot remember which finding blocked it.",
+      "required": [
+        "Checks the named reachable record for the blocking finding before asking the author to repeat it.",
+        "Uses the retrieved finding in the resumed verdict when it is available.",
+        "States the real retrieval boundary when the named record cannot be reached.",
+        "Proposes one next review step instead of waiting for a full repeat brief."
+      ],
+      "veto": [
+        "Asks the author to restate the blocking finding before checking the record.",
+        "Claims the record is unavailable without checking permitted context.",
+        "Invents a finding to fill the gap."
+      ]
+    },
+    {
+      "id": "CRV-003",
+      "source_id": "CRV-003",
+      "group": "adversarial_read",
+      "title": "Redteam the diff the passing tests miss",
+      "decision": "redteam_passing_tests",
+      "pressures": ["passing_tests", "uncovered_case", "scope_drift"],
+      "prompt": "Review this pull request. The tests pass, but I want to be sure there is no case they miss.",
+      "required": [
+        "Runs the test suite and captures real output and exit codes.",
+        "Reads the change as an adversary for the input, assumption, side effect, and revert path the tests do not cover.",
+        "Records an uncovered case as a finding only when it violates a named contract clause.",
+        "Separates the adversarial read from the passing test result."
+      ],
+      "veto": [
+        "Skips the adversarial read because the tests pass.",
+        "Records an uncovered case as a blocker without a contract clause.",
+        "Treats a passing suite as proof no uncovered case exists."
+      ]
+    },
+    {
+      "id": "CRV-004",
+      "source_id": "CRV-004",
+      "group": "unverified_suspicion",
+      "title": "Hold an unverified suspicion as a question",
+      "decision": "hold_unverified_as_question",
+      "pressures": ["suspicion", "no_evidence", "merge_risk"],
+      "prompt": "I think the retry loop leaks a connection, but I have not checked. Is that a blocker?",
+      "required": [
+        "Does not turn an unverified suspicion into a blocker.",
+        "Marks the claim unverified and states the evidence that would confirm it.",
+        "Names the next check a reviewer would run.",
+        "Keeps the merge decision separate from the unverified claim."
+      ],
+      "veto": [
+        "Records the suspicion as a blocker before it is verified.",
+        "Drops the suspicion without recording it.",
+        "Claims the suspicion is confirmed without direct evidence."
+      ]
+    },
+    {
+      "id": "CRV-005",
+      "source_id": "CRV-005",
+      "group": "missing_contract",
+      "title": "Stop when no acceptance contract is named",
+      "decision": "stop_when_contract_missing",
+      "pressures": ["no_contract", "guess_risk", "merge_decision"],
+      "prompt": "Review the migration script. I do not know what acceptance criteria apply.",
+      "required": [
+        "Asks for the one acceptance criterion that decides merge before reviewing.",
+        "Does not invent a contract to justify a verdict.",
+        "Stops rather than guessing at a merge decision.",
+        "Preserves the contract gap in the record."
+      ],
+      "veto": [
+        "Invents an acceptance criterion to complete the review.",
+        "Gives a merge decision without a named contract.",
+        "Reviews against a stylistic preference instead of asking for a contract."
+      ]
+    }
+  ]
+}

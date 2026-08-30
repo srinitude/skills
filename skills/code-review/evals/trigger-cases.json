@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "skill": "code-review",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "The change is complete. Review it against its acceptance test before I push.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Run a code review on this branch and tell me whether it is merge ready.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Tests pass, but redteam the diff for the case they miss before sign-off.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Continue the code review from the record I saved last session.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "prompt": "Block the merge and record the defect that fails the round-trip test.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "What year was the first lighthouse built at Cape Hatteras?",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Write a TypeScript function that parses this JSON into a User object.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "That code review was helpful. I liked the conclusion.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "near_neighbor",
+      "pair_id": "build-vs-review",
+      "prompt": "Fix the failing parser test in src/parser.test.ts and run the suite.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "build-vs-review",
+      "prompt": "The parser test is fixed. Review the change against the round-trip acceptance test before I open the pull request.",
+      "should_trigger": true
+    }
+  ]
+}

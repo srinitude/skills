@@ -1,0 +1,75 @@
+{
+  "schema": "speed-policy.schema.json",
+  "schema_version": 1,
+  "skill": "design-like-im-5",
+  "budget_owner": "evals/speed-budgets.json",
+  "objective": "minimum_elapsed_time_to_fully_verified_result",
+  "invariants": {
+    "proof_loss_allowed": false,
+    "required_work": "all",
+    "scope_loss_allowed": false,
+    "workflow_action_concurrency": 1,
+    "writers_per_artifact": 1
+  },
+  "parallel_groups": [
+    {
+      "id": "context_reads",
+      "enter_when": "The action packet and route hash are set.",
+      "work": "Read files that do not depend on each other in one batch. Name each file before judgment.",
+      "must_wait_for": ["set intake", "current action packet", "set route hash"],
+      "stop_if": "A needed file is missing, unfit, or still being written."
+    },
+    {
+      "id": "current_sources",
+      "enter_when": "Source rights, exact questions, and search bounds are set.",
+      "work": "Start separate source reads early. Keep each source claim on its own.",
+      "must_wait_for": ["set intake", "source rights", "source questions"],
+      "stop_if": "A source needs an open right, an earlier result, or a changed question."
+    },
+    {
+      "id": "render_capture_matrix",
+      "enter_when": "Product bytes, states, views, inputs, access settings, and bounds are set.",
+      "work": "Render and save each view form in one batch. Then run every model review.",
+      "must_wait_for": ["set product bytes", "state list", "view list"],
+      "stop_if": "A source or product change makes an affected image or check stale."
+    },
+    {
+      "id": "package_checks",
+      "enter_when": "All pack writers are done and public bytes are set.",
+      "work": "Run separate read-only pack checks at the same time through Mise.",
+      "must_wait_for": ["ordered build chain", "set public files"],
+      "stop_if": "A check writes public bytes, skips a task, or reads a file still being made."
+    }
+  ],
+  "never_parallelize": [
+    {
+      "id": "workflow_actions",
+      "rule": "Finish and save the current action before the next one starts."
+    },
+    {
+      "id": "shared_writer",
+      "rule": "Never let two writers change the same run or pack file."
+    },
+    {
+      "id": "unfrozen_inputs",
+      "rule": "Do not start linked work while its intake, source, product, state, route, or view can change."
+    },
+    {
+      "id": "missing_context_judgment",
+      "rule": "Do not save a model choice until each needed path and proof is named."
+    }
+  ],
+  "reuse": {
+    "allowed": "Reuse the same loaded bytes and set images inside one action batch.",
+    "forbidden": "Do not reuse a prior model choice. Do not reuse an image after any input to it changes.",
+    "required_check": "rerun_each_required_check",
+    "invalidation_result": "STALE"
+  },
+  "measurement": {
+    "segments": ["discovery", "full_load", "task", "transport"],
+    "conditions": ["cold", "warm"],
+    "minimum_samples": 2,
+    "package_jobs": 8,
+    "decision_metric": "elapsed_time_to_fully_verified_result"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "checked_date": "2026-08-30",
+  "packet_contract": {
+    "one_action_per_packet": true,
+    "required_fields": [
+      "goal",
+      "current_inputs",
+      "required_paths",
+      "fixed_constraints",
+      "required_evidence",
+      "success_rule",
+      "output_schema",
+      "stop_conditions",
+      "worked_example",
+      "failure_example"
+    ],
+    "missing_field_result": "BLOCKED",
+    "mechanical_owner": "mise",
+    "judgment_owner": "judgment"
+  },
+  "repeatability": {
+    "runs": 2,
+    "clean_context": true,
+    "same_fixture": true,
+    "compare": [
+      "action_order",
+      "context_accounting",
+      "evidence_classes",
+      "vetoes",
+      "status"
+    ],
+    "allowed_variation": ["wording", "option_count_above_minimum", "creative_direction"],
+    "disagreement_status": "STALE"
+  },
+  "rungs": [
+    {
+      "id": "atomic",
+      "owner": "mise",
+      "proves": ["Each required field, path, enum, and order rule exists."],
+      "does_not_prove": ["It does not prove that a design judgment is sound."],
+      "advance_when": "Every atomic check passes with no missing field.",
+      "evidence": ["The checker exits with code zero."],
+      "mise_task": "proof-ladder",
+      "support": ["assets/proof-ladder.schema.json", "scripts/check_proof_ladder.py"]
+    },
+    {
+      "id": "mutation",
+      "owner": "mise",
+      "proves": ["A seeded order or claim-bound fault makes the checker fail."],
+      "does_not_prove": ["It does not prove that every possible fault is detected."],
+      "advance_when": "Each named seed is rejected for its intended reason.",
+      "evidence": ["Order and scope mutations exit with code one."],
+      "mise_task": "proof-ladder",
+      "support": ["scripts/tests/test_proof_ladder.py", "examples/proof-ladder.md"]
+    },
+    {
+      "id": "metamorphic",
+      "owner": "mise",
+      "proves": ["Case order does not change a valid proof result."],
+      "does_not_prove": ["It does not prove that unrelated input changes are harmless."],
+      "advance_when": "A case reorder keeps the same passing result.",
+      "evidence": ["The reordered case set exits with code zero."],
+      "mise_task": "proof-ladder",
+      "support": ["scripts/tests/test_proof_ladder.py", "evals/pilot-cases.json"]
+    },
+    {
+      "id": "judgment_pilot",
+      "owner": "judgment",
+      "proves": ["The five seeded scenes receive eye, brain, and touch review."],
+      "does_not_prove": ["It does not prove quality outside the five named scenes."],
+      "advance_when": "Both clean runs detect each seed and agree on every fixed field.",
+      "evidence": ["Each case has two review records and one bounded claim."],
+      "mise_task": "proof-ladder",
+      "support": [
+        "evals/pilot-cases.json",
+        "evals/files/proof-pilot-scenes.json",
+        "evals/files/pilot-overlap.svg"
+      ]
+    },
+    {
+      "id": "combinatorial",
+      "owner": "mise",
+      "proves": ["Every value pair appears across the six named dimensions."],
+      "does_not_prove": [
+        "Pair coverage does not prove every three-way or rare interaction."
+      ],
+      "advance_when": "All two-way value pairs occur at least once.",
+      "evidence": ["The pairwise coverage check exits with code zero."],
+      "mise_task": "proof-ladder",
+      "support": ["evals/pilot-cases.json", "references/proof-ladder.md"]
+    },
+    {
+      "id": "representative",
+      "owner": "judgment",
+      "proves": ["Typical, edge, and adverse scenes pass the same bounded rubric."],
+      "does_not_prove": ["A sample does not prove any scene outside its stated scope."],
+      "advance_when": "No held case adds a new veto, state kind, or failure class.",
+      "evidence": ["Held cases have current proof and completed review records."],
+      "mise_task": "complete",
+      "support": ["evals/contract.md", "evals/rubric.md", "evals/pilot-cases.json"]
+    },
+    {
+      "id": "whole_skill",
+      "owner": "judgment",
+      "proves": ["A clean run can follow the full route and all fixed gates."],
+      "does_not_prove": ["One whole run does not prove every future product result."],
+      "advance_when": "Both first-time passes finish with current proof and no open veto.",
+      "evidence": ["The body-only and whole-skill records both pass."],
+      "mise_task": "complete",
+      "support": ["SKILL.md", "evals/contract.md", "examples/proof-ladder.md"]
+    }
+  ]
+}

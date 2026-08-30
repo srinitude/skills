@@ -1,72 +1,171 @@
-# Task graph for this skill.
-# One default path per job. Local runs and remote CI both call: mise run ci
+# One task graph owns each command in this skill.
 
-[tasks.ci]
-description = "Full pipeline: all tests, structure, writing, code, evals"
-run = [
-  "mise run test",
-  "mise run validate",
-  "mise run reading",
-  "mise run lineage",
-  "mise run source-lineage",
-  "mise run ownership",
-  "mise run directories",
-  "mise run context-routing",
-  "mise run lint-writing",
-  "mise run lint-code",
-  "mise run lint-placeholders",
-  "mise run evals",
-  "mise run examples",
-]
+[settings]
+jobs = 8
+
+[tasks.skill-info]
+description = "Print the skill name and when to use it"
+run = "python3 scripts/skill_info.py"
+
+[tasks.run-scaffold]
+description = "Print the fixed run form without a design choice"
+run = "python3 scripts/run_scaffold.py"
+
+[tasks.review-checklist]
+description = "Print all fixed review checks and result rules"
+run = "python3 scripts/review_checklist.py"
+
+[tasks.human-sweep]
+description = "Print the open eye, brain, and touch sweep"
+run = "python3 scripts/human_capability_sweep.py"
+
+[tasks.lineage-file]
+description = "Check one part link file and record final run proof when asked"
+run = "python3 scripts/check_lineage.py"
+
+[tasks.run-start]
+description = "Make one run from a full intake"
+depends = ["task-graph", "context-routing", "section-support"]
+run = "python3 scripts/run_pipeline.py start"
+
+[tasks.run-packet]
+description = "Make one routed model work packet"
+depends = ["task-graph", "context-routing", "section-support"]
+run = "python3 scripts/run_pipeline.py packet"
+
+[tasks.run-record]
+description = "Check and save one model result"
+depends = ["task-graph", "context-routing", "section-support"]
+run = "python3 scripts/run_pipeline.py record"
+
+[tasks.run-select-rules]
+description = "Pick fixed rules after state work is saved"
+depends = ["task-graph", "context-routing", "section-support"]
+run = "python3 scripts/select_rules.py"
+
+[tasks.run-check]
+description = "Check ordered records, decisions, rules, and current lineage proof"
+depends = ["task-graph", "context-routing", "section-support"]
+run = "python3 scripts/run_pipeline.py check"
+
+[tasks.examples-write]
+description = "Build each worked case from real command output"
+run = "python3 scripts/build_examples.py --write"
+
+[tasks.file-manifest-write]
+description = "Build the public file role list"
+depends = ["examples-write"]
+run = "python3 scripts/build_file_manifest.py ."
+
+[tasks.source-manifest-write]
+description = "Refresh repository baseline hashes after public files"
+depends = ["file-manifest-write"]
+run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json --refresh-claim-only"
+
+[tasks.source-lineage-write]
+description = "Build public source links after all public files"
+depends = ["source-manifest-write"]
+run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json"
+
+[tasks.generate]
+description = "Build cases, file roles, and source links in order"
+depends = ["source-lineage-write"]
+run = "true"
+
+[tasks.task-graph]
+description = "Reject lost task links and task loops"
+run = "mise tasks validate --errors-only"
 
 [tasks.test]
-description = "Every test in scripts/tests/"
+description = "Run each test and each live command path"
 run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 
 [tasks.validate]
-description = "Static structure checks against the generation contract"
+description = "Check fixed skill shape and pack rules"
 run = "python3 scripts/validate_skill.py ."
 
 [tasks.reading]
-description = "Check plain words and short sentences"
+description = "Check plain words and short lines"
 run = "python3 scripts/check_reading.py ."
 
 [tasks.lineage]
-description = "Check the full part chain"
+description = "Check part order, links, loops, age, and use"
 run = "python3 scripts/check_lineage.py evals/files/valid-lineage.json"
 
 [tasks.source-lineage]
-description = "Check public hashes and source claim links"
+description = "Check each public hash and source link"
 run = "python3 scripts/check_source_lineage.py ."
 
+[tasks.lineage-build]
+description = "Check that built source links are current"
+run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json --check"
+
 [tasks.ownership]
-description = "Check one owner for each work step"
+description = "Check one fixed owner for each work step"
 run = "python3 scripts/audit_ownership.py ."
 
 [tasks.directories]
-description = "Check each public file has a real use"
+description = "Check that each public file has a named use"
 run = "python3 scripts/audit_directories.py ."
 
+[tasks.file-manifest]
+description = "Check that the public file list is current"
+run = "python3 scripts/build_file_manifest.py . --check"
+
 [tasks.context-routing]
-description = "Check local context routes and support contributions"
+description = "Check each work route and each source use"
 run = "python3 scripts/check_context_routing.py ."
 
+[tasks.section-support]
+description = "Check direct rich help for each skill head"
+run = "python3 scripts/check_section_support.py ."
+
 [tasks.lint-writing]
-description = "Mechanical writing checks on every markdown file"
+description = "Check fixed writing rules in each public file"
 run = "python3 scripts/lint_writing.py ."
 
 [tasks.lint-code]
-description = "Size and nesting limits on every code file"
+description = "Check code size, depth, and work marks"
 run = "python3 scripts/check_code_rules.py ."
 
 [tasks.lint-placeholders]
-description = "Refuse any scaffold placeholder text left in markdown or evals"
+description = "Reject blank draft text in public files"
 run = "python3 scripts/check_placeholders.py ."
 
 [tasks.evals]
-description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
+description = "Check test cases and start queries"
 run = "python3 scripts/check_evals.py ."
 
+[tasks.proof-ladder]
+description = "Check bounded proof rungs, pilot cases, repeatability, and pair coverage"
+depends = ["task-graph", "evals", "section-support"]
+run = "python3 scripts/check_proof_ladder.py ."
+
 [tasks.examples]
-description = "Check examples against fresh command output"
+description = "Check each case against fresh command output"
 run = "python3 scripts/build_examples.py --check"
+
+[tasks.structure]
+description = "Run each pack, owner, route, and head check"
+depends = ["task-graph", "validate", "ownership", "directories", "context-routing", "section-support", "file-manifest"]
+run = "true"
+
+[tasks.proof]
+description = "Run all link, test, case, and built proof checks"
+depends = ["lineage", "source-lineage", "lineage-build", "evals", "examples", "proof-ladder"]
+run = "true"
+
+[tasks.quality]
+description = "Run all prose, code, and blank text checks"
+depends = ["reading", "lint-writing", "lint-code", "lint-placeholders"]
+run = "true"
+
+[tasks.ci]
+description = "Run tests plus all shape, proof, and prose checks"
+depends = ["test", "structure", "proof", "quality"]
+run = "true"
+
+[tasks.complete]
+description = "Run the full linked gate needed before PASS"
+depends = ["ci"]
+run = "echo 'complete: every required task passed'"

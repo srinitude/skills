@@ -45,27 +45,39 @@ def row(path):
     }
 
 
+def document(root):
+    paths = sorted(str(path.relative_to(root)) for path in root.rglob("*")
+                   if path.is_file() and "__pycache__" not in path.parts)
+    if "assets/file-manifest.json" not in paths:
+        paths.append("assets/file-manifest.json")
+        paths.sort()
+    return {"version": "1.0.0", "files": [row(path) for path in paths]}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("skill_dir", help="skill folder")
+    parser.add_argument("--check", action="store_true",
+                        help="fail when the saved manifest differs")
     args = parser.parse_args(argv)
     root = Path(args.skill_dir).resolve()
     if not root.is_dir():
         print("error: skill folder was not found", file=sys.stderr)
         return 2
     target = root / "assets" / "file-manifest.json"
-    paths = sorted(str(path.relative_to(root)) for path in root.rglob("*")
-                   if path.is_file() and "__pycache__" not in path.parts)
-    if "assets/file-manifest.json" not in paths:
-        paths.append("assets/file-manifest.json")
-        paths.sort()
-    if not paths:
+    data = document(root)
+    if not data["files"]:
         print("blocked: no public files", file=sys.stderr)
         return 1
-    data = {"version": "1.0.0", "files": [row(path) for path in paths]}
-    target.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n",
-                      encoding="utf-8")
-    print(f"file manifest built: {len(paths)} files")
+    text = json.dumps(data, indent=2, sort_keys=True) + "\n"
+    if args.check:
+        if not target.is_file() or target.read_text(encoding="utf-8") != text:
+            print("file manifest differs", file=sys.stderr)
+            return 1
+        print(f"file manifest matches: {len(data['files'])} files")
+        return 0
+    target.write_text(text, encoding="utf-8")
+    print(f"file manifest built: {len(data['files'])} files")
     return 0
 
 

@@ -1,0 +1,1145 @@
+{
+  "version": "1.0.0",
+  "support_folders": ["references", "scripts", "assets", "evals", "examples"],
+  "sections": [
+    {
+      "id": "BODY-PURPOSE",
+      "heading": "Design like I am five",
+      "level": 1,
+      "purpose": "Set the product aim before any method or style choice.",
+      "enter_when": "Load this section when the skill first applies.",
+      "support": [
+        {
+          "path": "references/section-support.md",
+          "load_when": "Read before following any section route.",
+          "contribution": "Explains the full support chain and the model judgment line."
+        },
+        {
+          "path": "assets/section-support.schema.json",
+          "load_when": "Use when checking the section owner map.",
+          "contribution": "Fixes each support field without fixing a design answer."
+        }
+      ],
+      "load_order": ["references/section-support.md", "assets/section-support.schema.json"],
+      "actions": [
+        "Name the user-facing product aim.",
+        "Keep hard system work away from the user.",
+        "Keep truth, cost, risk, state, and control visible."
+      ],
+      "evidence": [
+        "The request names the product and user outcome.",
+        "The result keeps key facts and controls visible."
+      ],
+      "output": "A plain product aim that guides all later choices.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Require a product aim.",
+        "Require visible truth and control."
+      ],
+      "model_freedom": [
+        "Interpret what clear and easy mean in this product.",
+        "Choose a fitting form after reading current proof."
+      ],
+      "fixed_constraints": ["Do not hide truth, cost, risk, state, or control."],
+      "do_not_substitute": "Do not replace the product aim with a visual style.",
+      "wall_clock": [
+        "Start current source, capability, and proof discovery as soon as the product aim is known.",
+        "Do not begin product judgment before intake and source rights are fixed."
+      ],
+      "blocked_when": ["The product or user outcome is unknown."]
+    },
+    {
+      "id": "BODY-CONTRACT",
+      "heading": "One contract",
+      "level": 2,
+      "purpose": "Fix order, owners, support, and the boundary around model judgment.",
+      "enter_when": "Read before any task, packet, or design choice.",
+      "support": [
+        {
+          "path": "assets/workflow.json",
+          "load_when": "Read at the start of every run.",
+          "contribution": "Owns the sole required action order."
+        },
+        {
+          "path": "assets/execution-ownership.json",
+          "load_when": "Read with the workflow.",
+          "contribution": "Names the owner for every action."
+        },
+        {
+          "path": "assets/speed-policy.json",
+          "load_when": "Read before scheduling work inside an action.",
+          "contribution": "Owns safe parallel work, serial work, reuse, and timing."
+        },
+        {
+          "path": "assets/speed-policy.schema.json",
+          "load_when": "Use when checking the speed policy.",
+          "contribution": "Fixes policy shape without changing numeric eval bounds."
+        },
+        {
+          "path": "evals/speed-budgets.json",
+          "load_when": "Read when timing is measured.",
+          "contribution": "Owns the repository-standard numeric bounds."
+        },
+        {
+          "path": "references/context-routing.md",
+          "load_when": "Read before using an action route.",
+          "contribution": "Explains complete context use and barred swaps."
+        },
+        {
+          "path": "scripts/check_section_support.py",
+          "load_when": "Run through Mise after body or support changes.",
+          "contribution": "Checks support shape without choosing product work."
+        }
+      ],
+      "load_order": [
+        "assets/workflow.json",
+        "assets/execution-ownership.json",
+        "assets/speed-policy.json",
+        "assets/speed-policy.schema.json",
+        "evals/speed-budgets.json",
+        "references/context-routing.md",
+        "scripts/check_section_support.py"
+      ],
+      "actions": [
+        "Freeze the workflow and owner map.",
+        "Load each action route before judgment.",
+        "Give the model room only inside its owned work."
+      ],
+      "evidence": [
+        "Each action follows the fixed order.",
+        "Each result names its owner and used context."
+      ],
+      "output": "One fixed run contract with clear room for model judgment.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check order, owners, paths, fields, and route hashes.",
+        "Reject a task-owned design verdict."
+      ],
+      "model_freedom": [
+        "Add, split, mix, reverse, or reject options.",
+        "Use current context to make owned choices."
+      ],
+      "fixed_constraints": [
+        "Keep source rights and vetoes.",
+        "Do not skip, merge, replace, or reorder required actions."
+      ],
+      "do_not_substitute": "Do not add a hidden method from memory.",
+      "wall_clock": [
+        "Schedule only independent read-only work together after its inputs are fixed.",
+        "Never save time by changing a fixed rule, proof gate, owner, or action order."
+      ],
+      "blocked_when": ["The workflow, owner map, or needed route cannot be read."]
+    },
+    {
+      "id": "BODY-USE",
+      "heading": "Use the skill",
+      "level": 2,
+      "purpose": "Hold preparation, ordered action, and packet work under one run route.",
+      "enter_when": "Read after the contract and keep it open for the full run.",
+      "support": [
+        {
+          "path": "examples/run.md",
+          "load_when": "Read before the first run or after its interface changes.",
+          "contribution": "Shows one complete use from intake to final proof."
+        },
+        {
+          "path": "assets/workflow.json",
+          "load_when": "Read before preparing the run.",
+          "contribution": "Owns the sole action order below this heading."
+        }
+      ],
+      "load_order": ["examples/run.md", "assets/workflow.json"],
+      "actions": [
+        "Choose help or a product run.",
+        "Prepare one run folder.",
+        "Complete each action and packet in order."
+      ],
+      "evidence": [
+        "The command boundary is clear.",
+        "The run starts once and follows the workflow."
+      ],
+      "output": "One prepared and ordered run.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check command, run, and action structure.",
+        "Reject an action outside the workflow."
+      ],
+      "model_freedom": [
+        "Choose safe work inside the selected run mode.",
+        "Make every product judgment assigned by the workflow."
+      ],
+      "fixed_constraints": [
+        "Prepare before model work.",
+        "Keep all required actions in order."
+      ],
+      "do_not_substitute": "Do not split preparation and execution into competing run methods.",
+      "wall_clock": [
+        "Start the run once, then keep eligible work moving inside the current action.",
+        "Do not repeat fixed setup after its proof is current."
+      ],
+      "blocked_when": ["The command, run mode, or workflow cannot be resolved."]
+    },
+    {
+      "id": "BODY-COMMANDS",
+      "heading": "Commands",
+      "level": 3,
+      "purpose": "Separate help from real product work and state each mutation limit.",
+      "enter_when": "Read when the user asks for help or starts a run.",
+      "support": [
+        {
+          "path": "examples/help.md",
+          "load_when": "Read for a help request.",
+          "contribution": "Shows the exact help result without starting work."
+        },
+        {
+          "path": "examples/run.md",
+          "load_when": "Read before the first real run.",
+          "contribution": "Shows real commands, output, and run files."
+        },
+        {
+          "path": "examples/failure-missing-proof.md",
+          "load_when": "Read when a needed fact or proof is absent.",
+          "contribution": "Shows the required narrow stop."
+        }
+      ],
+      "load_order": [
+        "examples/help.md",
+        "examples/run.md",
+        "examples/failure-missing-proof.md"
+      ],
+      "actions": [
+        "Classify the request as help or run.",
+        "For a run, record create, review, or revise.",
+        "Apply the matching change boundary."
+      ],
+      "evidence": [
+        "The reply matches the chosen command.",
+        "Changed files stay within the named run mode."
+      ],
+      "output": "A help reply or one bounded product run.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check command names and required inputs.",
+        "Check that a review changes no product file."
+      ],
+      "model_freedom": [
+        "Explain help in words that fit the user.",
+        "Choose safe work within the run mode."
+      ],
+      "fixed_constraints": [
+        "A review is read-only.",
+        "A revision changes only approved files."
+      ],
+      "do_not_substitute": "Do not treat a help request as approval to run.",
+      "wall_clock": [
+        "Load only the support chain for the requested command.",
+        "Do not load run-only files for help or repeat a command example whose bytes are unchanged."
+      ],
+      "blocked_when": ["The requested run mode is unclear and would change write scope."]
+    },
+    {
+      "id": "BODY-START",
+      "heading": "Prepare the run",
+      "level": 3,
+      "purpose": "Freeze facts, rules, routes, and proof limits before model work.",
+      "enter_when": "Use once at the start of each run.",
+      "support": [
+        {
+          "path": "references/intake.md",
+          "load_when": "Read before writing intake facts.",
+          "contribution": "Defines facts, assumptions, rights, proof, and stops."
+        },
+        {
+          "path": "assets/run-intake.schema.json",
+          "load_when": "Use while making the intake.",
+          "contribution": "Fixes the intake field shape."
+        },
+        {
+          "path": "evals/files/valid-intake.json",
+          "load_when": "Use when checking the start path.",
+          "contribution": "Provides a real valid intake."
+        },
+        {
+          "path": "scripts/run_pipeline.py",
+          "load_when": "Run only through the named Mise start task.",
+          "contribution": "Writes the run scaffold and route hash."
+        }
+      ],
+      "load_order": [
+        "references/intake.md",
+        "assets/run-intake.schema.json",
+        "evals/files/valid-intake.json",
+        "scripts/run_pipeline.py"
+      ],
+      "actions": [
+        "Read order, owners, routes, and intake rules.",
+        "Write current facts and proof limits.",
+        "Create the run outside the skill folder."
+      ],
+      "evidence": [
+        "The intake passes its schema.",
+        "The run records the current route hash.",
+        "Missing facts stay missing."
+      ],
+      "output": "A stable run folder ready for routed model work.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check required intake fields.",
+        "Write fixed scaffold files and route hashes."
+      ],
+      "model_freedom": [
+        "Judge which safe work can continue around a missing fact.",
+        "Explain proof limits in product terms."
+      ],
+      "fixed_constraints": [
+        "Keep the run outside the skill folder.",
+        "Do not hand-build run fields."
+      ],
+      "do_not_substitute": "Do not fill an absent fact with a common default.",
+      "wall_clock": [
+        "Freeze intake, route, and run shape once before dependent work starts.",
+        "After that freeze, start independent current source and capability reads early while keeping one writer for each run file."
+      ],
+      "blocked_when": ["A needed intake fact or source right is missing."]
+    },
+    {
+      "id": "BODY-ACTION-ORDER",
+      "heading": "Complete all actions in order",
+      "level": 3,
+      "purpose": "Route every required action to its source, task, output, and stop rule.",
+      "enter_when": "Keep this section open for the full run.",
+      "support": [
+        {
+          "path": "assets/workflow.json",
+          "load_when": "Read before the first action and after any route change.",
+          "contribution": "Owns the thirteen required actions in order."
+        },
+        {
+          "path": "assets/context-routing.json",
+          "load_when": "Read before each model action.",
+          "contribution": "Names all support and its contribution."
+        },
+        {
+          "path": "examples/context-packets.md",
+          "load_when": "Compare before model work.",
+          "contribution": "Shows full and missing context accounting."
+        },
+        {
+          "path": "evals/context-cases.json",
+          "load_when": "Run when action routes change.",
+          "contribution": "Tests context loss and barred swaps."
+        }
+      ],
+      "load_order": [
+        "assets/workflow.json",
+        "assets/context-routing.json",
+        "examples/context-packets.md",
+        "evals/context-cases.json"
+      ],
+      "actions": [
+        "Take the next action only.",
+        "Load every source named for that action.",
+        "Save its required output before moving on."
+      ],
+      "evidence": [
+        "Every prior action has its output.",
+        "No later action ran early.",
+        "Each model action names used and missing context."
+      ],
+      "output": "A complete run in the sole allowed action order.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check action order and required outputs.",
+        "Reject missing routes and owner mismatches.",
+        "Reject a runtime action before its exact turn and record current lineage proof before final_check."
+      ],
+      "model_freedom": [
+        "Explore widely inside each model-owned action.",
+        "Stop only the affected branch when safe."
+      ],
+      "fixed_constraints": [
+        "Do not skip or merge actions.",
+        "Do not treat a fixture pass as product proof."
+      ],
+      "do_not_substitute": "Do not replace the workflow with a shorter personal process.",
+      "wall_clock": [
+        "Keep all thirteen actions serial in the fixed order.",
+        "Inside the current action, batch only independent reads, renders, captures, and checks after their inputs are fixed."
+      ],
+      "blocked_when": ["A prior output or required support path is absent."]
+    },
+    {
+      "id": "BODY-MODEL-PACKET",
+      "heading": "Build each model packet",
+      "level": 3,
+      "purpose": "Give the model complete context and wide, bounded room for judgment.",
+      "enter_when": "Use before each model-owned action.",
+      "support": [
+        {
+          "path": "assets/context-bundle.schema.json",
+          "load_when": "Use while making or checking a packet.",
+          "contribution": "Fixes packet routes, support, outputs, and barred swaps."
+        },
+        {
+          "path": "references/context-routing.md",
+          "load_when": "Read before judging packet context.",
+          "contribution": "Explains use, gaps, conflicts, and context fitness."
+        },
+        {
+          "path": "examples/context-packets.md",
+          "load_when": "Compare before recording the first packet result.",
+          "contribution": "Shows context use and a blocked gap."
+        },
+        {
+          "path": "scripts/run_pipeline.py",
+          "load_when": "Run only through packet and record Mise tasks.",
+          "contribution": "Builds packets and checks result fields."
+        }
+      ],
+      "load_order": [
+        "assets/context-bundle.schema.json",
+        "references/context-routing.md",
+        "examples/context-packets.md",
+        "scripts/run_pipeline.py"
+      ],
+      "actions": [
+        "Build the packet for the next action.",
+        "Read every required path.",
+        "Make at least four unlike starts when the packet asks."
+      ],
+      "evidence": [
+        "Used and missing paths are named.",
+        "Options carry proof, costs, tests, vetoes, and doubt.",
+        "The model explains its choice."
+      ],
+      "output": "One context-complete packet and one model-owned result.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check packet fields and option counts.",
+        "Check context use and allowed result fields."
+      ],
+      "model_freedom": [
+        "Add, split, mix, reverse, or reject options.",
+        "Explore form, flow, words, motion, sound, touch, and service effects."
+      ],
+      "fixed_constraints": [
+        "Keep source rights and vetoes.",
+        "Record evidence, alternatives, costs, and doubt."
+      ],
+      "do_not_substitute": "Do not ask for private chain-of-thought or let a task choose the direction.",
+      "wall_clock": [
+        "Read independent packet paths as one batch after the packet and route hash are fixed.",
+        "Read identical bytes once inside the action, but rerun every required check and never reuse a prior model verdict."
+      ],
+      "blocked_when": ["Needed context is absent or unfit for the claim."]
+    },
+    {
+      "id": "BODY-JUDGE",
+      "heading": "Judge the design",
+      "level": 2,
+      "purpose": "Group the model-owned choices, human reviews, and build decisions.",
+      "enter_when": "Read before the first product judgment.",
+      "support": [
+        {
+          "path": "references/decisions.md",
+          "load_when": "Read before comparing or choosing a direction.",
+          "contribution": "Defines visible decision reasons, options, tradeoffs, and doubt."
+        },
+        {
+          "path": "assets/simplicity-contract.json",
+          "load_when": "Read before any design choice.",
+          "contribution": "Fixes veto order and the boundary around creative judgment."
+        }
+      ],
+      "load_order": ["references/decisions.md", "assets/simplicity-contract.json"],
+      "actions": [
+        "Apply the veto order.",
+        "Find product states and run human review.",
+        "Build only from proved parts."
+      ],
+      "evidence": [
+        "Each choice names current proof, alternatives, costs, vetoes, and doubt.",
+        "No task makes a design verdict."
+      ],
+      "output": "A model-owned direction backed by current human and lineage proof.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Require the decision and proof fields.",
+        "Reject a task-owned design choice."
+      ],
+      "model_freedom": [
+        "Explore unlike directions inside the fixed contract.",
+        "Choose or reject directions from current product context."
+      ],
+      "fixed_constraints": [
+        "Keep veto order fixed.",
+        "Keep product judgment with the model."
+      ],
+      "do_not_substitute": "Do not turn a score, checklist, or fixture into the design choice.",
+      "wall_clock": [
+        "Run decisive vetoes before costly design work.",
+        "Batch independent product evidence only after its inputs are fixed."
+      ],
+      "blocked_when": ["Current product context cannot support the judgment."]
+    },
+    {
+      "id": "BODY-VETOES",
+      "heading": "Veto and failure rules",
+      "level": 3,
+      "purpose": "Apply non-negotiable human and proof gates before any design choice.",
+      "enter_when": "Read before state, part, screen, motion, or review judgment.",
+      "support": [
+        {
+          "path": "references/failure.md",
+          "load_when": "Read when any proof, right, route, or human gate may fail.",
+          "contribution": "Defines narrow stops, safe work, and ways to resume."
+        },
+        {
+          "path": "assets/simplicity-contract.json",
+          "load_when": "Read before choosing rules or directions.",
+          "contribution": "Fixes safety, access, truth, and agency constraints."
+        },
+        {
+          "path": "examples/failure-missing-proof.md",
+          "load_when": "Compare when proof is missing.",
+          "contribution": "Shows a useful blocked result without guessed facts."
+        },
+        {
+          "path": "evals/files/missing-proof.json",
+          "load_when": "Use when testing the stop path.",
+          "contribution": "Supplies the nearest missing-proof case."
+        }
+      ],
+      "load_order": [
+        "references/failure.md",
+        "assets/simplicity-contract.json",
+        "examples/failure-missing-proof.md",
+        "evals/files/missing-proof.json"
+      ],
+      "actions": [
+        "Check safety, then access, truth, understanding, and agency.",
+        "Stop only each failed claim or branch.",
+        "Name safe work and the smallest way to resume."
+      ],
+      "evidence": [
+        "Each veto has current proof.",
+        "A blocked result names the failed gate and missing proof.",
+        "No calm surface hides cost or control."
+      ],
+      "output": "A passed veto set or a narrow blocked result.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Require all veto fields.",
+        "Reject PASS while a fixed veto stays open."
+      ],
+      "model_freedom": [
+        "Judge how a veto appears in the current scene.",
+        "Continue safe work around a blocked branch."
+      ],
+      "fixed_constraints": [
+        "Safety comes first.",
+        "Do not trade away access, truth, understanding, or agency."
+      ],
+      "do_not_substitute": "Do not hide harm, cost, risk, work, or control for visual calm.",
+      "wall_clock": [
+        "Run the earliest decisive safety, access, rights, and proof gates before costly dependent work.",
+        "A failed branch stops early while independent safe work continues."
+      ],
+      "blocked_when": ["A needed veto cannot be checked with current proof."]
+    },
+    {
+      "id": "BODY-PRODUCT-STATES",
+      "heading": "Discover product states",
+      "level": 3,
+      "purpose": "Find open, context-shaped states and choose fitting responses with human judgment.",
+      "enter_when": "Use after source meaning and whenever new proof changes a state.",
+      "support": [
+        {
+          "path": "references/product-states.md",
+          "load_when": "Read before state discovery or state review.",
+          "contribution": "Gives the open discovery and response method."
+        },
+        {
+          "path": "scripts/review_checklist.py",
+          "load_when": "Run through the review checklist Mise task.",
+          "contribution": "Supplies stable check IDs without choosing a state."
+        },
+        {
+          "path": "assets/state-record.schema.json",
+          "load_when": "Use while recording found states.",
+          "contribution": "Fixes causes, links, options, reviews, and doubt fields."
+        },
+        {
+          "path": "examples/product-states.md",
+          "load_when": "Compare before saving the first state record.",
+          "contribution": "Shows overlapping states and a model-owned response."
+        },
+        {
+          "path": "evals/section-support-cases.json",
+          "load_when": "Run after state guidance changes.",
+          "contribution": "Rejects closed lists, collapsed states, and decorative support."
+        }
+      ],
+      "load_order": [
+        "references/product-states.md",
+        "scripts/review_checklist.py",
+        "assets/state-record.schema.json",
+        "examples/product-states.md",
+        "evals/section-support-cases.json"
+      ],
+      "actions": [
+        "Find states from people, goals, acts, data, systems, place, time, and risk.",
+        "Keep overlaps, mixes, unknowns, and change visible.",
+        "Make unlike responses before the model chooses."
+      ],
+      "evidence": [
+        "Each state has causes, scope, change, proof, and doubt.",
+        "Concurrent states stay separate.",
+        "The chosen response names tradeoffs and vetoes."
+      ],
+      "output": "An open state record with model-owned response choices.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Require open-world fields, review IDs, options, proof, and doubt.",
+        "Reject a closed or exhaustive state claim."
+      ],
+      "model_freedom": [
+        "Add any state shown by proof.",
+        "Mix or invent response forms that fit the state.",
+        "Revise the state model as use changes."
+      ],
+      "fixed_constraints": [
+        "Common states are prompts only.",
+        "Do not merge concurrent states to simplify the record."
+      ],
+      "do_not_substitute": "Do not replace found states with a preset list or task-owned choice.",
+      "wall_clock": [
+        "Gather independent state evidence together after source meaning is fixed.",
+        "Do not make one state wait for another unless its causes, transition, proof, or response depends on that state."
+      ],
+      "blocked_when": [
+        "The state claim needs proof that cannot be seen, tested, or sourced."
+      ]
+    },
+    {
+      "id": "BODY-REVIEW",
+      "heading": "Run every review invariant",
+      "level": 3,
+      "purpose": "Use eye, brain, and touch judgment to find human and objective failures.",
+      "enter_when": "Use inside state review and after each built or changed product view.",
+      "support": [
+        {
+          "path": "references/review.md",
+          "load_when": "Read before visual, motion, touch, or plain readback work.",
+          "contribution": "Defines current proof, view coverage, and result rules."
+        },
+        {
+          "path": "scripts/review_checklist.py",
+          "load_when": "Run through Mise before each full review.",
+          "contribution": "Supplies all stable positive and negative checks."
+        },
+        {
+          "path": "scripts/human_capability_sweep.py",
+          "load_when": "Run through Mise with the fixed checklist.",
+          "contribution": "Supplies open eye, brain, and touch prompts."
+        },
+        {
+          "path": "assets/review-record.schema.json",
+          "load_when": "Use while recording visual review.",
+          "contribution": "Fixes observations, proof, options, choices, and doubt."
+        },
+        {
+          "path": "evals/evals.json",
+          "load_when": "Run after review behavior changes.",
+          "contribution": "Tests full review coverage and owner lines."
+        }
+      ],
+      "load_order": [
+        "references/review.md",
+        "scripts/review_checklist.py",
+        "scripts/human_capability_sweep.py",
+        "assets/review-record.schema.json",
+        "evals/evals.json"
+      ],
+      "actions": [
+        "Inspect the whole, close detail, each state, and each input path.",
+        "Apply eye, brain, and touch to every relevant check.",
+        "Run all bad design, output, and practice checks."
+      ],
+      "evidence": [
+        "Current pixels and input behavior were inspected.",
+        "Text and image overlap are checked.",
+        "Each answer separates fact, sight, inference, and change."
+      ],
+      "output": "A current model review with exact findings, choices, alternatives, and doubt.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Require every check ID and answer field.",
+        "Reject missing proof and unseen PASS claims."
+      ],
+      "model_freedom": [
+        "Add human factors revealed by the scene.",
+        "Judge severity, product fit, tradeoffs, and the best repair."
+      ],
+      "fixed_constraints": [
+        "Objective overlap and blocked controls cannot pass.",
+        "Missing needed sight, motion, touch, or use proof blocks that claim."
+      ],
+      "do_not_substitute": "Do not replace direct sight and input proof with code, captions, or hashes.",
+      "wall_clock": [
+        "Freeze product bytes and the state, view, input, and access matrix before capture.",
+        "Render and capture independent variants as one batch, then run every check. Any affecting change makes those captures and checks stale."
+      ],
+      "blocked_when": [
+        "A needed view, motion, input, sound, or access path cannot be checked."
+      ]
+    },
+    {
+      "id": "BODY-BUILD",
+      "heading": "Build from proved parts",
+      "level": 3,
+      "purpose": "Build screens and flows from source-backed tokens, atoms, and linked parts.",
+      "enter_when": "Use before atom, part, screen, or flow work.",
+      "support": [
+        {
+          "path": "references/build.md",
+          "load_when": "Read before atom or part work.",
+          "contribution": "Defines proof gates, part levels, reuse, and rebuild rules."
+        },
+        {
+          "path": "scripts/check_lineage.py",
+          "load_when": "Run through the caller-supplied lineage Mise task.",
+          "contribution": "Checks order, links, loops, stale parts, and unused parts."
+        },
+        {
+          "path": "assets/lineage.schema.json",
+          "load_when": "Use while making a part manifest.",
+          "contribution": "Fixes the part and dependency field shape."
+        },
+        {
+          "path": "evals/files/valid-lineage.json",
+          "load_when": "Use when checking the sound path.",
+          "contribution": "Shows a valid linked part chain."
+        },
+        {
+          "path": "evals/files/skipped-lineage.json",
+          "load_when": "Use when checking a skipped layer.",
+          "contribution": "Shows the required lineage failure."
+        }
+      ],
+      "load_order": [
+        "references/build.md",
+        "scripts/check_lineage.py",
+        "assets/lineage.schema.json",
+        "evals/files/valid-lineage.json",
+        "evals/files/skipped-lineage.json"
+      ],
+      "actions": [
+        "Prove tokens and atoms first.",
+        "Build each higher part from linked lower parts.",
+        "Mark and rebuild all affected higher parts after a low change."
+      ],
+      "evidence": [
+        "Each part names its lower links and current proof.",
+        "No layer is skipped.",
+        "Changed low parts make linked high parts stale."
+      ],
+      "output": "A current part manifest and product built from proved parts.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check part order, links, loops, staleness, and use.",
+        "Reject a screen that invents a lower rule."
+      ],
+      "model_freedom": [
+        "Judge which proved parts fit the product.",
+        "Create new linked parts when reuse would harm the outcome."
+      ],
+      "fixed_constraints": [
+        "Use the current token skill for source tokens and atoms.",
+        "Stop when atom proof is absent."
+      ],
+      "do_not_substitute": "Do not treat sound lineage as proof of good design.",
+      "wall_clock": [
+        "After atom proof, build independent siblings together while preserving one writer per part.",
+        "Keep dependent layers serial and rebuild only the affected linked higher parts after a lower change."
+      ],
+      "blocked_when": ["Token, atom, or needed lower-part proof is absent."]
+    },
+    {
+      "id": "BODY-PROVE",
+      "heading": "Prove and finish",
+      "level": 2,
+      "purpose": "Group record, package, eval, and completion proof under one finish route.",
+      "enter_when": "Read before saving the first result and keep it open through return.",
+      "support": [
+        {
+          "path": "assets/model-record.schema.json",
+          "load_when": "Use when saving normal model work.",
+          "contribution": "Fixes the visible proof, choice, option, and doubt fields."
+        },
+        {
+          "path": "evals/contract.md",
+          "load_when": "Read before the final gate.",
+          "contribution": "Defines what each eval can and cannot prove."
+        }
+      ],
+      "load_order": ["assets/model-record.schema.json", "evals/contract.md"],
+      "actions": [
+        "Save each model result.",
+        "Run package and eval owners.",
+        "Return only after the full gate passes."
+      ],
+      "evidence": [
+        "Every model action has a current record.",
+        "Every required task and human check has distinct proof."
+      ],
+      "output": "An honest final status with product files and run proof.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check records, package shape, eval routes, and task completion.",
+        "Reject a proof class used outside its scope."
+      ],
+      "model_freedom": [
+        "Explain visible reasons and remaining doubt.",
+        "Return a narrow blocked result where proof is missing."
+      ],
+      "fixed_constraints": [
+        "Keep task proof apart from design proof.",
+        "Do not return PASS before the full gate passes."
+      ],
+      "do_not_substitute": "Do not replace final proof with intent, a fixture, or an earlier result.",
+      "wall_clock": [
+        "Run independent final checks together when their inputs are fixed.",
+        "Stop as soon as every retained gate passes."
+      ],
+      "blocked_when": ["A required record, view, veto, task, or context path is absent."]
+    },
+    {
+      "id": "BODY-RECORD",
+      "heading": "Record model work",
+      "level": 3,
+      "purpose": "Save observable reasons and proof without asking for private thought traces.",
+      "enter_when": "Use after each model-owned action and before the next action.",
+      "support": [
+        {
+          "path": "assets/model-record.schema.json",
+          "load_when": "Use for normal model actions.",
+          "contribution": "Fixes choice, proof, options, costs, and doubt fields."
+        },
+        {
+          "path": "assets/state-record.schema.json",
+          "load_when": "Use for state judgment.",
+          "contribution": "Adds open states, causes, change, and full reviews."
+        },
+        {
+          "path": "assets/review-record.schema.json",
+          "load_when": "Use for visual review.",
+          "contribution": "Adds exact review answers and view proof."
+        },
+        {
+          "path": "scripts/run_pipeline.py",
+          "load_when": "Run through the record Mise task.",
+          "contribution": "Checks result fields, context use, and owner lines."
+        },
+        {
+          "path": "examples/context-packets.md",
+          "load_when": "Compare before saving the first result.",
+          "contribution": "Shows visible reasons without private thought traces."
+        }
+      ],
+      "load_order": [
+        "assets/model-record.schema.json",
+        "assets/state-record.schema.json",
+        "assets/review-record.schema.json",
+        "scripts/run_pipeline.py",
+        "examples/context-packets.md"
+      ],
+      "actions": [
+        "Use the schema for the current action.",
+        "Record facts, observations, options, choice, proof, costs, vetoes, and doubt.",
+        "Save the checked result before moving on."
+      ],
+      "evidence": [
+        "The result names all used and missing context.",
+        "The choice points to current proof.",
+        "The task accepts the required fields."
+      ],
+      "output": "One checked record for each model-owned action.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check fields, allowed result states, context use, and review IDs.",
+        "Reject a task-owned product choice."
+      ],
+      "model_freedom": [
+        "Explain the choice in concise visible terms.",
+        "Keep uncertainty and competing readings open."
+      ],
+      "fixed_constraints": [
+        "Do not ask for private chain-of-thought.",
+        "A filled form is not proof of a good result."
+      ],
+      "do_not_substitute": "Do not replace current proof with a polished reason.",
+      "wall_clock": [
+        "Prepare independent evidence slots together, but allow one model-owned write to the action record.",
+        "Save the checked record before the next workflow action starts."
+      ],
+      "blocked_when": [
+        "The result lacks proof, required context, options, or a model-owned choice."
+      ]
+    },
+    {
+      "id": "BODY-PACKAGE-OWNERS",
+      "heading": "Reading and package owners",
+      "level": 3,
+      "purpose": "Keep package rules, generated files, and one reading exception with their true owners.",
+      "enter_when": "Use when any public skill file, task, example, or package rule changes.",
+      "support": [
+        {
+          "path": "assets/reading-contract.json",
+          "load_when": "Read before public prose changes.",
+          "contribution": "Owns grade and sentence limits."
+        },
+        {
+          "path": "assets/reading-exceptions.json",
+          "load_when": "Read before claiming any reading exception.",
+          "contribution": "Owns the sole exact-copy exception."
+        },
+        {
+          "path": "references/generation-contract.md",
+          "load_when": "Read only when public skill content changes.",
+          "contribution": "Preserves the upstream generation rules unchanged."
+        },
+        {
+          "path": "assets/file-manifest.json",
+          "load_when": "Read when public files or roles change.",
+          "contribution": "Owns every public file role."
+        },
+        {
+          "path": "scripts/build_file_manifest.py",
+          "load_when": "Run only through its Mise write or check task.",
+          "contribution": "Builds or checks the public role manifest."
+        }
+      ],
+      "load_order": [
+        "assets/reading-contract.json",
+        "assets/reading-exceptions.json",
+        "references/generation-contract.md",
+        "assets/file-manifest.json",
+        "scripts/build_file_manifest.py"
+      ],
+      "actions": [
+        "Load the owner for each changed public file.",
+        "Regenerate owned files in dependency order.",
+        "Run the full task graph after generation."
+      ],
+      "evidence": [
+        "The generation contract hash is unchanged.",
+        "The file manifest and source lineage are current.",
+        "Every task and link is acyclic."
+      ],
+      "output": "A current package whose public files, tasks, and reading rules match their owners.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check reading limits, hashes, roles, links, tasks, and generated bytes.",
+        "Allow only the named exact-copy exception.",
+        "Check standard YAML, portable CommonMark, UTF-8, LF newlines, ATX headings, blank block spacing, one-line blocks, and relative local links."
+      ],
+      "model_freedom": [
+        "Choose concise wording that preserves every rule.",
+        "Move conditional detail to a true owner with a backlink."
+      ],
+      "fixed_constraints": [
+        "Do not hand-edit generated files.",
+        "Do not add a second reading exception.",
+        "Do not use client directives, raw HTML, or extension-only tables.",
+        "Use task markers only for real checklists.",
+        "Do not use tabs, trailing whitespace, Setext headings, or local absolute links.",
+        "Keep every body block clean, readable, and agent-parsable."
+      ],
+      "do_not_substitute": "Do not add a random document to satisfy package shape.",
+      "wall_clock": [
+        "Finish the ordered generation chain before any read-only package gate starts.",
+        "Run independent read-only checks in parallel without cache or skip rules. Keep every public-file writer serial."
+      ],
+      "blocked_when": ["A generated owner, source hash, or package rule cannot be read."]
+    },
+    {
+      "id": "BODY-EVAL-OWNERS",
+      "heading": "Eval owner map",
+      "level": 3,
+      "purpose": "Route each claim to the smallest eval that can test it.",
+      "enter_when": "Use when behavior changes or the final skill is judged from a clean view.",
+      "support": [
+        {
+          "path": "evals/manifest.json",
+          "load_when": "Read before loading any eval file.",
+          "contribution": "Maps eval files to their claims and use."
+        },
+        {
+          "path": "evals/contract.md",
+          "load_when": "Read before running or changing evals.",
+          "contribution": "Owns the eval method and proof limits."
+        },
+        {
+          "path": "evals/rubric.md",
+          "load_when": "Read before human grading.",
+          "contribution": "Owns the model and product quality grades."
+        },
+        {
+          "path": "references/proof-ladder.md",
+          "load_when": "Read before accepting proof from a small test.",
+          "contribution": "Fixes rung order, claim bounds, repeat runs, and expansion rules."
+        },
+        {
+          "path": "assets/proof-ladder.json",
+          "load_when": "Read before the proof ladder task runs.",
+          "contribution": "Fixes packet fields, repeat checks, owners, and rung gates."
+        },
+        {
+          "path": "evals/pilot-cases.json",
+          "load_when": "Read before any contained pilot.",
+          "contribution": "Supplies one-fault scenes and pair coverage."
+        },
+        {
+          "path": "examples/proof-ladder.md",
+          "load_when": "Compare before the first proof ladder run.",
+          "contribution": "Shows pass, mutation, reorder, and claim-bound results."
+        },
+        {
+          "path": "assets/eval-case-template.json",
+          "load_when": "Use when a new case is needed.",
+          "contribution": "Fixes a new eval case shape."
+        },
+        {
+          "path": "scripts/check_proof_ladder.py",
+          "load_when": "Run through the proof-ladder Mise task.",
+          "contribution": "Checks rung order, scope bounds, cases, paths, and pairs."
+        },
+        {
+          "path": "scripts/check_evals.py",
+          "load_when": "Run through the eval Mise task.",
+          "contribution": "Checks eval files and trigger pairs."
+        }
+      ],
+      "load_order": [
+        "evals/manifest.json",
+        "evals/contract.md",
+        "evals/rubric.md",
+        "references/proof-ladder.md",
+        "assets/proof-ladder.json",
+        "evals/pilot-cases.json",
+        "examples/proof-ladder.md",
+        "assets/eval-case-template.json",
+        "scripts/check_proof_ladder.py",
+        "scripts/check_evals.py"
+      ],
+      "actions": [
+        "Pick the eval owner for each changed claim.",
+        "Run atomic, mutation, reorder, pilot, pair, sample, and whole-skill rungs in order.",
+        "Run each pilot twice from clean context.",
+        "Grade task proof and design proof separately."
+      ],
+      "evidence": [
+        "Every changed claim has a passing bounded case.",
+        "Seeded faults make their intended checks fail.",
+        "Case order does not change the gate.",
+        "Closed states and task-owned choices fail.",
+        "The first-time run follows routes without hidden context."
+      ],
+      "output": "Fresh eval results with structural and design claims kept apart.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check packet shape, rung order, links, pairs, and expected fields.",
+        "Reject a pass with no stated scope bound.",
+        "Run each named fixture and task."
+      ],
+      "model_freedom": [
+        "Judge design quality with the human rubric.",
+        "Add disconfirming cases shown by real failures."
+      ],
+      "fixed_constraints": [
+        "Do not treat fixture success as product success.",
+        "Do not train on held-back first-time cases.",
+        "Do not require copied wording or one fixed safe design answer."
+      ],
+      "do_not_substitute": "Do not replace a fresh behavioral run with a static body scan.",
+      "wall_clock": [
+        "Start with atomic checks and stop expansion after the smallest full proof passes.",
+        "Run independent cases in parallel with the same frozen inputs, while keeping cold and warm samples separate.",
+        "Run the body-only first-time pass and whole-skill first-time pass as distinct required results."
+      ],
+      "blocked_when": ["A changed claim has no current eval or human proof."]
+    },
+    {
+      "id": "BODY-RETURN",
+      "heading": "Return and done",
+      "level": 3,
+      "purpose": "Return product files and proof only after all fixed and human gates finish.",
+      "enter_when": "Use after every workflow action and model record is complete.",
+      "support": [
+        {
+          "path": "examples/run.md",
+          "load_when": "Read before forming a passing result.",
+          "contribution": "Shows complete run files and task output."
+        },
+        {
+          "path": "examples/failure-missing-proof.md",
+          "load_when": "Read when any gate remains open.",
+          "contribution": "Shows the required blocked result."
+        },
+        {
+          "path": "evals/rubric.md",
+          "load_when": "Use for the final human grade.",
+          "contribution": "Separates sound process from good design."
+        },
+        {
+          "path": "scripts/run_pipeline.py",
+          "load_when": "Run only through the final run-check Mise task.",
+          "contribution": "Checks that every model record exists."
+        },
+        {
+          "path": "assets/workflow.json",
+          "load_when": "Read back before final status.",
+          "contribution": "Confirms every required action was retained."
+        }
+      ],
+      "load_order": [
+        "examples/run.md",
+        "examples/failure-missing-proof.md",
+        "evals/rubric.md",
+        "scripts/run_pipeline.py",
+        "assets/workflow.json"
+      ],
+      "actions": [
+        "Check all run records and context paths.",
+        "Inspect each needed view and clear every veto.",
+        "Run the complete Mise gate before PASS."
+      ],
+      "evidence": [
+        "All model records exist and pass field checks.",
+        "All needed human reviews use current proof.",
+        "The complete task exits with code zero."
+      ],
+      "output": "Product files, run proof, and one honest PASS, STALE, or BLOCKED state.",
+      "judgment_owner": "model",
+      "deterministic_scope": [
+        "Check all task dependencies and required run records.",
+        "Reject PASS when any fixed task fails."
+      ],
+      "model_freedom": [
+        "Judge whether current pixels, use, access, and value meet the product aim.",
+        "Explain remaining doubt without hiding it."
+      ],
+      "fixed_constraints": [
+        "PASS needs the complete task and all human proof.",
+        "No open veto may remain."
+      ],
+      "do_not_substitute": "Do not turn a task pass into a claim about unseen product quality.",
+      "wall_clock": [
+        "Start independent final read-only checks together after all writers and model records finish.",
+        "Run the integrated complete gate last and return as soon as every retained criterion passes."
+      ],
+      "blocked_when": ["Any record, route, proof, view, or veto is incomplete."]
+    }
+  ]
+}

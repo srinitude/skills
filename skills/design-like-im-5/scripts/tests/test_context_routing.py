@@ -14,7 +14,7 @@ CONTEXT_CASES = SKILL / "evals" / "context-cases.json"
 SUPPORT_CLASSES = {"references", "scripts", "assets", "examples", "evals"}
 CONTEXT_SUPPORT = {
     "references/context-routing.md",
-    "scripts/check_context_routing.py",
+    "mise run context-routing",
     "assets/context-routing.json",
     "assets/context-bundle.schema.json",
     "examples/context-packets.md",

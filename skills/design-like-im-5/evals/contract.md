@@ -16,4 +16,20 @@ Hard failures need direct render and input proof. Tests include text and image c
 
 Run each main case with and without the skill. Run cold and warm cases. Keep the same task and inputs.
 
+Run a body-only cold read before the whole-skill cold run. The body-only pass finds route, order, owner, and wording gaps. The whole-skill pass follows the full package from a clean context. Neither pass may substitute for the other.
+
+Use the proof ladder in fixed order. Each rung must name what it proves and cannot prove.
+
+Run each pilot twice from clean context. Compare order, context use, proof class, veto, and status.
+
+A clash makes the result stale. Wording and safe creative choices may differ.
+
+Use pair coverage for bounded two-factor checks. Escalate failed or high-risk links past pair coverage.
+
+Each runtime task rejects an action before its exact turn. The final runtime check needs all model records, selected rules, and current lineage proof. It maps a `REVISE` record to `STALE` and any `BLOCKED` record to `BLOCKED`.
+
+Use `speed-budgets.json` to minimize elapsed time to full proof. Keep workflow actions serial. Inside one action, overlap only independent work after its inputs are fixed. Keep one writer per artifact. Do not cache or skip a required check. A source or product change invalidates affected captures and checks.
+
+Measure discovery, full load, task work, and transport separately. Record cold and warm samples. A faster component does not pass if full verified time regresses or proof changes.
+
 A pass must quote seen facts. A fail must name the missed fact. Fixture passes prove the runner only. They do not prove the skill helps or that the design is good.

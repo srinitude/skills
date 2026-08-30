@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the shape of skill test files.
+"""Check the shape of skill test files and the lossless speed policy.
 
 Each case needs a prompt, result, and checks.
 Trigger tests need both yes and no cases.
@@ -21,6 +21,107 @@ from pathlib import Path
 
 def nonempty(value):
     return isinstance(value, str) and value.strip()
+
+
+def exact_ids(rows, expected):
+    if not isinstance(rows, list):
+        return False
+    return {row.get("id") for row in rows if isinstance(row, dict)} == expected
+
+
+def check_manifest(doc, problems):
+    if not isinstance(doc, dict):
+        return
+    required = {
+        "schema_version", "skill", "public_version", "case_source",
+        "trigger_source", "contract", "rubric", "speed_budgets",
+        "conditions", "repetitions", "test_classes",
+    }
+    if set(doc) != required:
+        problems.append("manifest.json: fields do not match the eval schema")
+    if doc.get("conditions") != ["with_skill", "without_skill"]:
+        problems.append("manifest.json: conditions are wrong")
+    if doc.get("repetitions") != 2:
+        problems.append("manifest.json: repetitions must be two")
+
+
+def check_speed_shape(doc, problems):
+    if doc.get("objective") != "minimum_elapsed_time_to_fully_verified_result":
+        problems.append("speed-policy.json: objective is wrong")
+    required = {
+        "proof_loss_allowed": False,
+        "required_work": "all",
+        "scope_loss_allowed": False,
+        "workflow_action_concurrency": 1,
+        "writers_per_artifact": 1,
+    }
+    if doc.get("invariants") != required:
+        problems.append("speed-policy.json: invariants must preserve all work and proof")
+
+
+def check_budgets(doc, problems):
+    required = {"schema_version", "skill", "fixture", "live", "failure_rule"}
+    if set(doc) != required:
+        problems.append("speed-budgets.json: fields do not match the eval schema")
+    if doc.get("failure_rule") != "BLOCKED":
+        problems.append("speed-budgets.json: failure rule must be BLOCKED")
+
+
+def check_parallel(doc, problems):
+    where = "speed-policy.json"
+    parallel = {"context_reads", "current_sources", "package_checks",
+                "render_capture_matrix"}
+    if not exact_ids(doc.get("parallel_groups"), parallel):
+        problems.append(f"{where}: parallel_groups are incomplete")
+    for row in doc.get("parallel_groups", []):
+        if not isinstance(row, dict) or set(row) != {
+                "id", "enter_when", "work", "must_wait_for", "stop_if"}:
+            problems.append(f"{where}: each parallel group needs one full gate")
+            break
+        if not all(nonempty(row.get(key)) for key in
+                   ["enter_when", "work", "stop_if"]):
+            problems.append(f"{where}: parallel group text is incomplete")
+            break
+        if not isinstance(row.get("must_wait_for"), list) or not row["must_wait_for"]:
+            problems.append(f"{where}: parallel group needs prerequisites")
+            break
+
+
+def check_serial(doc, problems):
+    where = "speed-policy.json"
+    barred = {"missing_context_judgment", "shared_writer",
+              "unfrozen_inputs", "workflow_actions"}
+    if not exact_ids(doc.get("never_parallelize"), barred):
+        problems.append(f"{where}: never_parallelize is incomplete")
+    if any(set(row) != {"id", "rule"} or not nonempty(row.get("rule"))
+           for row in doc.get("never_parallelize", [])
+           if isinstance(row, dict)):
+        problems.append(f"{where}: each serial gate needs one rule")
+
+
+def check_reuse_measure(doc, problems):
+    where = "speed-policy.json"
+    reuse = doc.get("reuse", {})
+    if reuse.get("required_check") != "rerun_each_required_check":
+        problems.append(f"{where}: every required check must rerun")
+    if reuse.get("invalidation_result") != "STALE":
+        problems.append(f"{where}: invalid reuse must become STALE")
+    measure = doc.get("measurement", {})
+    if measure.get("segments") != ["discovery", "full_load", "task", "transport"]:
+        problems.append(f"{where}: timing segments are incomplete")
+    if measure.get("conditions") != ["cold", "warm"]:
+        problems.append(f"{where}: cold and warm timing are required")
+    if measure.get("package_jobs") != 8:
+        problems.append(f"{where}: package_jobs must match the measured graph")
+
+
+def check_speed(doc, problems):
+    if not isinstance(doc, dict):
+        return
+    check_speed_shape(doc, problems)
+    check_parallel(doc, problems)
+    check_serial(doc, problems)
+    check_reuse_measure(doc, problems)
 
 
 def check_case(case, index, skill, problems):
@@ -89,6 +190,24 @@ def load(path, problems):
         return None
 
 
+def check_all(skill, minimum, queries_minimum, problems):
+    doc = load(skill / "evals" / "evals.json", problems)
+    if doc is not None:
+        check_cases(doc, skill, minimum, problems)
+    queries = load(skill / "evals" / "trigger-queries.json", problems)
+    if queries is not None:
+        check_queries(queries, queries_minimum, problems)
+    manifest = load(skill / "evals" / "manifest.json", problems)
+    if manifest is not None:
+        check_manifest(manifest, problems)
+    budgets = load(skill / "evals" / "speed-budgets.json", problems)
+    if budgets is not None:
+        check_budgets(budgets, problems)
+    policy = load(skill / "assets" / "speed-policy.json", problems)
+    if policy is not None:
+        check_speed(policy, problems)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -102,12 +221,7 @@ def main(argv=None):
         print(f"error: no such directory: {skill}", file=sys.stderr)
         return 2
     problems = []
-    doc = load(skill / "evals" / "evals.json", problems)
-    if doc is not None:
-        check_cases(doc, skill, args.min_cases, problems)
-    queries = load(skill / "evals" / "trigger-queries.json", problems)
-    if queries is not None:
-        check_queries(queries, args.min_queries, problems)
+    check_all(skill, args.min_cases, args.min_queries, problems)
     for problem in problems:
         print(problem)
     print(f"eval checks: {len(problems)} problems")

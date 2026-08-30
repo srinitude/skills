@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "SECTION-PURPOSE",
+      "heading": "Design like I am five",
+      "risk": "The model treats simplicity as style or less product value.",
+      "expected": "State a clear full-product aim while keeping truth and control visible.",
+      "reject": ["style-only aim", "hidden product work", "missing truth or control"]
+    },
+    {
+      "id": "SECTION-CONTRACT",
+      "heading": "One contract",
+      "risk": "A task changes order, owners, or model judgment rights.",
+      "expected": "Keep fixed owners and routes while the model explores inside its owned work.",
+      "reject": ["changed action order", "task-owned judgment", "hidden method"]
+    },
+    {
+      "id": "SECTION-USE",
+      "heading": "Use the skill",
+      "risk": "Preparation and execution become competing run methods.",
+      "expected": "Keep commands, preparation, action order, and packets under one run route.",
+      "reject": ["duplicate run method", "missing preparation", "unordered execution"]
+    },
+    {
+      "id": "SECTION-COMMANDS",
+      "heading": "Commands",
+      "risk": "Help starts work or a review changes product files.",
+      "expected": "Keep help read-only and apply the named run mode.",
+      "reject": ["help mutation", "review mutation", "unapproved revision"]
+    },
+    {
+      "id": "SECTION-START",
+      "heading": "Prepare the run",
+      "risk": "The run begins with guessed facts or mutable routes.",
+      "expected": "Freeze facts, owners, routes, and proof limits before model work.",
+      "reject": ["guessed intake", "hand-built run", "changed route hash"]
+    },
+    {
+      "id": "SECTION-ORDER",
+      "heading": "Complete all actions in order",
+      "risk": "A required action is skipped, merged, or run out of order.",
+      "expected": "Run all thirteen actions and save each named proof.",
+      "reject": ["skipped action", "merged action", "late required proof"]
+    },
+    {
+      "id": "SECTION-PACKET",
+      "heading": "Build each model packet",
+      "risk": "The model judges from thin context or one weak option.",
+      "expected": "Load routed context, make unlike options, then save the model choice.",
+      "reject": ["missing context", "single option", "task-ranked direction"]
+    },
+    {
+      "id": "SECTION-JUDGE",
+      "heading": "Judge the design",
+      "risk": "A fixed score or task replaces context-shaped product judgment.",
+      "expected": "Keep design choices with the model inside fixed veto and proof rules.",
+      "reject": ["task-owned direction", "score-owned direction", "missing product proof"]
+    },
+    {
+      "id": "SECTION-VETO",
+      "heading": "Veto and failure rules",
+      "risk": "Visual calm hides harm, access loss, cost, or lost control.",
+      "expected": "Apply fixed vetoes and block only the affected claim or branch.",
+      "reject": ["open safety veto", "hidden cost", "whole-run stop without need"]
+    },
+    {
+      "id": "SECTION-STATES",
+      "heading": "Discover product states",
+      "risk": "A fixed list replaces open, concurrent, context-shaped states.",
+      "expected": "Find states from proof and let the model choose fitting responses.",
+      "reject": [
+        "closed state list",
+        "script-owned state choice",
+        "decorative support link",
+        "collapsed concurrent states"
+      ]
+    },
+    {
+      "id": "SECTION-REVIEW",
+      "heading": "Run every review invariant",
+      "risk": "A checklist pass replaces current eye, brain, or touch judgment.",
+      "expected": "Use current human proof for every positive and negative check.",
+      "reject": ["unseen pass", "missing human lens", "missed objective overlap"]
+    },
+    {
+      "id": "SECTION-BUILD",
+      "heading": "Build from proved parts",
+      "risk": "A screen invents low rules or keeps stale linked parts.",
+      "expected": "Build from proved layers and rebuild each affected higher part.",
+      "reject": ["layer skip", "screen-owned atom", "stale linked part"]
+    },
+    {
+      "id": "SECTION-PROVE",
+      "heading": "Prove and finish",
+      "risk": "A record, fixture, or task pass becomes final product proof.",
+      "expected": "Keep proof classes distinct and finish only after every required gate.",
+      "reject": ["mixed proof classes", "missing record", "early finish"]
+    },
+    {
+      "id": "SECTION-RECORD",
+      "heading": "Record model work",
+      "risk": "A filled form hides missing proof or asks for private thought traces.",
+      "expected": "Save visible proof, options, choice, costs, vetoes, and doubt.",
+      "reject": ["private chain-of-thought", "proof-free reason", "missing context account"]
+    },
+    {
+      "id": "SECTION-PACKAGE",
+      "heading": "Reading and package owners",
+      "risk": "Generated files drift or a new reading exception hides hard prose.",
+      "expected": "Use each canonical owner and keep the sole exact-copy exception.",
+      "reject": [
+        "hand-edited generated file",
+        "new reading exception",
+        "circular task link"
+      ]
+    },
+    {
+      "id": "SECTION-EVAL",
+      "heading": "Eval owner map",
+      "risk": "A fixture pass becomes a claim about product quality.",
+      "expected": "Route each claim to its eval and grade product judgment separately.",
+      "reject": ["fixture proves design", "missing negative case", "hidden eval owner"]
+    },
+    {
+      "id": "SECTION-RETURN",
+      "heading": "Return and done",
+      "risk": "PASS appears before all records, views, vetoes, and tasks finish.",
+      "expected": "Return honest files and proof after the complete task and human checks.",
+      "reject": ["early PASS", "unseen design claim", "open veto"]
+    }
+  ]
+}

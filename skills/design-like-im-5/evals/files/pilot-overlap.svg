@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="240" viewBox="0 0 640 240" role="img" aria-labelledby="title desc">
+  <title id="title">Seeded text overlap pilot</title>
+  <desc id="desc">The account name crosses the save control label.</desc>
+  <rect width="640" height="240" fill="#f7f5ef"/>
+  <g id="overlap-scene" font-family="Arial, sans-serif" fill="#161616">
+    <text x="48" y="54" font-size="22" font-weight="700">Account settings</text>
+    <rect x="48" y="88" width="544" height="80" rx="12" fill="#ffffff" stroke="#9b978e"/>
+    <text x="68" y="136" font-size="28">North Star Research Account</text>
+    <rect x="390" y="112" width="172" height="56" rx="28" fill="#161616"/>
+    <text x="436" y="148" font-size="20" fill="#ffffff">Save now</text>
+  </g>
+</svg>

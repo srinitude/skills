@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "proof-ladder.schema.json",
+  "title": "Bounded proof ladder",
+  "type": "object",
+  "required": ["version", "checked_date", "packet_contract", "repeatability", "rungs"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "checked_date": { "type": "string", "format": "date" },
+    "packet_contract": {
+      "type": "object",
+      "required": [
+        "one_action_per_packet",
+        "required_fields",
+        "missing_field_result",
+        "mechanical_owner",
+        "judgment_owner"
+      ],
+      "properties": {
+        "one_action_per_packet": { "const": true },
+        "required_fields": {
+          "type": "array",
+          "minItems": 10,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "missing_field_result": { "const": "BLOCKED" },
+        "mechanical_owner": { "const": "mise" },
+        "judgment_owner": { "const": "judgment" }
+      },
+      "additionalProperties": false
+    },
+    "repeatability": {
+      "type": "object",
+      "required": [
+        "runs",
+        "clean_context",
+        "same_fixture",
+        "compare",
+        "allowed_variation",
+        "disagreement_status"
+      ],
+      "properties": {
+        "runs": { "const": 2 },
+        "clean_context": { "const": true },
+        "same_fixture": { "const": true },
+        "compare": { "$ref": "#/$defs/textList" },
+        "allowed_variation": { "$ref": "#/$defs/textList" },
+        "disagreement_status": { "const": "STALE" }
+      },
+      "additionalProperties": false
+    },
+    "rungs": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "$ref": "#/$defs/rung" }
+    }
+  },
+  "$defs": {
+    "textList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "rung": {
+      "type": "object",
+      "required": [
+        "id",
+        "owner",
+        "proves",
+        "does_not_prove",
+        "advance_when",
+        "evidence",
+        "mise_task",
+        "support"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "owner": { "enum": ["mise", "judgment"] },
+        "proves": { "$ref": "#/$defs/textList" },
+        "does_not_prove": { "$ref": "#/$defs/textList" },
+        "advance_when": { "type": "string", "minLength": 1 },
+        "evidence": { "$ref": "#/$defs/textList" },
+        "mise_task": { "type": "string", "minLength": 1 },
+        "support": { "$ref": "#/$defs/textList" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -7,6 +7,7 @@ Exit codes:
   2  the input could not be read
 """
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -17,6 +18,11 @@ LAYERS = ["tokens", "atoms", "molecules", "organisms", "templates",
 
 def load(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def dump(path, data):
+    text = json.dumps(data, sort_keys=True, separators=(",", ":")) + "\n"
+    path.write_text(text, encoding="utf-8")
 
 
 def find_cycle(node, links, seen, active):
@@ -81,10 +87,39 @@ def check_part(part, by_id, issues):
         issues.append(f"{name}: skips {prior}")
 
 
-def main(argv=None):
+def parse_args(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", help="part chain JSON file")
-    args = parser.parse_args(argv)
+    parser.add_argument(
+        "--run-dir",
+        help="run folder that must be waiting at check_lineage")
+    return parser.parse_args(argv)
+
+
+def record_run_proof(run_dir, manifest_path):
+    out = Path(run_dir)
+    try:
+        run = load(out / "run.json")
+    except (OSError, json.JSONDecodeError) as error:
+        print(f"error: run could not be read: {error}", file=sys.stderr)
+        return 2
+    if run.get("next") != "check_lineage":
+        print(f"blocked: next action is {run.get('next')}, not check_lineage",
+              file=sys.stderr)
+        return 1
+    manifest = Path(manifest_path).resolve()
+    dump(out / "lineage-check.json", {
+        "action": "check_lineage", "manifest": str(manifest),
+        "manifest_sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),
+        "status": "PASS", "version": "1.0.0",
+    })
+    run["next"] = "final_check"
+    dump(out / "run.json", run)
+    return 0
+
+
+def main(argv=None):
+    args = parse_args(argv)
     try:
         issues = check(load(args.manifest))
     except (OSError, json.JSONDecodeError, ValueError) as error:
@@ -93,7 +128,9 @@ def main(argv=None):
     for issue in issues:
         print(issue)
     print(f"lineage check: {len(issues)} problems")
-    return 1 if issues else 0
+    if issues:
+        return 1
+    return record_run_proof(args.run_dir, args.manifest) if args.run_dir else 0
 
 
 if __name__ == "__main__":

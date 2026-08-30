@@ -12,6 +12,13 @@ def run(*args):
                           capture_output=True, text=True, timeout=120)
 
 
+def set_next(run_dir, action):
+    path = pathlib.Path(run_dir) / "run.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    data["next"] = action
+    path.write_text(json.dumps(data), encoding="utf-8")
+
+
 def full_checklist():
     result = subprocess.run([sys.executable, str(CHECKLIST)],
                             capture_output=True, text=True, timeout=120)
@@ -107,6 +114,7 @@ class TestStatePipeline(unittest.TestCase):
     def test_state_packet_uses_the_open_state_contract(self):
         with tempfile.TemporaryDirectory() as tmp:
             run("start", "--intake", INTAKE, "--run-dir", tmp)
+            set_next(tmp, "state_judgment")
             result = run("packet", "--run-dir", tmp,
                          "--action", "state_judgment")
             saved = pathlib.Path(tmp) / "packets" / "state_judgment.json"
@@ -119,6 +127,7 @@ class TestStatePipeline(unittest.TestCase):
     def test_state_record_blocks_missing_state_and_reviews(self):
         with tempfile.TemporaryDirectory() as tmp:
             run("start", "--intake", INTAKE, "--run-dir", tmp)
+            set_next(tmp, "state_judgment")
             run("packet", "--run-dir", tmp, "--action", "state_judgment")
             path = pathlib.Path(tmp) / "state-result.json"
             path.write_text(json.dumps({"action": "state_judgment",
@@ -133,6 +142,7 @@ class TestStatePipeline(unittest.TestCase):
     def test_state_record_requires_a_scene_for_every_check(self):
         with tempfile.TemporaryDirectory() as tmp:
             run("start", "--intake", INTAKE, "--run-dir", tmp)
+            set_next(tmp, "state_judgment")
             run("packet", "--run-dir", tmp, "--action", "state_judgment")
             root = pathlib.Path(tmp)
             checklist = full_checklist()
@@ -148,6 +158,7 @@ class TestStatePipeline(unittest.TestCase):
     def test_state_record_requires_every_negative_check(self):
         with tempfile.TemporaryDirectory() as tmp:
             run("start", "--intake", INTAKE, "--run-dir", tmp)
+            set_next(tmp, "state_judgment")
             run("packet", "--run-dir", tmp, "--action", "state_judgment")
             root = pathlib.Path(tmp)
             checklist = full_checklist()
@@ -164,6 +175,7 @@ class TestStatePipeline(unittest.TestCase):
     def test_record_blocks_a_changed_check_meaning(self):
         with tempfile.TemporaryDirectory() as tmp:
             run("start", "--intake", INTAKE, "--run-dir", tmp)
+            set_next(tmp, "state_judgment")
             run("packet", "--run-dir", tmp, "--action", "state_judgment")
             root = pathlib.Path(tmp)
             checklist_path = root / "review-checklist.json"

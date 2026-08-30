@@ -34,11 +34,9 @@ For each support item, ask what it adds to the current person, state, task, plac
 
 Ask what would change the reading. Seek proof against the first view. Find an edge case and one sound cause.
 
-For eye work, inspect presence, relation, order, overlap, crop, scale, contrast, motion, and change across views.
-
-For brain work, inspect truth, expectation, cause, memory load, choice cost, risk, feedback, uncertainty, and repair.
-
-For touch work, inspect reach, target, spacing, timing, input mode, feedback, interruption, settings, and effort.
+- **Eye work:** Inspect presence, relation, order, overlap, crop, scale, contrast, motion, and change across views.
+- **Brain work:** Inspect truth, expectation, cause, memory load, choice cost, risk, feedback, uncertainty, and repair.
+- **Touch work:** Inspect reach, target, spacing, timing, input mode, feedback, interruption, settings, and effort.
 
 ## Preserve creative room
 

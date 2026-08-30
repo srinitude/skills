@@ -87,27 +87,26 @@ def failure_example():
 
 def context_data():
     with tempfile.TemporaryDirectory() as temp:
-        command("start", "--intake", INTAKE, "--run-dir", temp)
-        result = command("packet", "--run-dir", temp,
-                         "--action", "visual_review", "--item-id",
-                         "narrow-error")
+        first = command("start", "--intake", INTAKE, "--run-dir", temp)
+        second = command("packet", "--run-dir", temp,
+                         "--action", "source_meaning")
         packet = (Path(temp) / "packets" /
-                  "visual_review--narrow-error.json").read_text(encoding="utf-8")
-    return result, packet
+                  "source_meaning.json").read_text(encoding="utf-8")
+    return first, second, packet
 
 
 def context_example():
-    result, packet = context_data()
+    first, second, packet = context_data()
     valid = VALID_CONTEXT.read_text(encoding="utf-8")
     blocked = MISSING_CONTEXT.read_text(encoding="utf-8")
     return "\n".join([
         "# Context packet example\n",
         "Guess removed: A short action may omit needed judgment context.\n",
-        "## Request\n", "> Review the narrow error state and its covered action.\n",
-        "## Command\n", "```sh\npython3 scripts/run_pipeline.py packet --run-dir run --action visual_review --item-id narrow-error\n```\n",
-        "## Real output\n", f"```text\n{result.stdout.rstrip()}\n```\n",
-        f"The command exits with code `{result.returncode}`. It creates one packet file.\n",
-        file_block("packets/visual_review--narrow-error.json", packet),
+        "## Request\n", "> Prepare the source meaning packet before any product judgment.\n",
+        "## Commands\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/valid-intake.json --run-dir run\npython3 scripts/run_pipeline.py packet --run-dir run --action source_meaning\n```\n",
+        "## Real output\n", f"```text\n{first.stdout}{second.stdout}```\n",
+        f"The commands exit with codes `{first.returncode}` and `{second.returncode}`. The second creates one packet file.\n",
+        file_block("packets/source_meaning.json", packet),
         "## Passing context record\n", file_block("../evals/files/valid-context-record.json", valid),
         "## Blocked context record\n", file_block("../evals/files/missing-context-record.json", blocked),
         "The model reads each named path. Missing required context keeps the affected claim blocked.\n",
@@ -115,11 +114,45 @@ def context_example():
     ])
 
 
+def product_state_data():
+    with tempfile.TemporaryDirectory() as temp:
+        first = command("start", "--intake", INTAKE, "--run-dir", temp)
+        second = command("packet", "--run-dir", temp,
+                         "--action", "source_meaning")
+        third = command("record", "--run-dir", temp,
+                        "--result", VALID_CONTEXT)
+        fourth = command("packet", "--run-dir", temp,
+                         "--action", "state_judgment")
+        root = Path(temp)
+        matrix = (root / "state-matrix.json").read_text(encoding="utf-8")
+        packet = (root / "packets" /
+                  "state_judgment.json").read_text(encoding="utf-8")
+    return first, second, third, fourth, matrix, packet
+
+
+def product_state_example():
+    first, second, third, fourth, matrix, packet = product_state_data()
+    return "\n".join([
+        "# Product state example\n",
+        "Guess removed: Common state names are a closed product state list.\n",
+        "## Request\n", "> Find the account setup states before choosing a response.\n",
+        "## Commands\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/valid-intake.json --run-dir run\npython3 scripts/run_pipeline.py packet --run-dir run --action source_meaning\npython3 scripts/run_pipeline.py record --run-dir run --result evals/files/valid-context-record.json\npython3 scripts/run_pipeline.py packet --run-dir run --action state_judgment\n```\n",
+        "## Real output\n", f"```text\n{first.stdout}{second.stdout}{third.stdout}{fourth.stdout}```\n",
+        f"The commands exit with codes `{first.returncode}`, `{second.returncode}`, `{third.returncode}`, and `{fourth.returncode}`.\n",
+        "## Open state scaffold\n", file_block("state-matrix.json", matrix),
+        "## Full model packet\n", file_block("packets/state_judgment.json", packet),
+        "The listed states are prompts. The model may find overlapping, mixed, brief, or person-specific states.\n",
+        "For each found state, the model records causes, change, proof, options, tradeoffs, vetoes, choice, and doubt.\n",
+        "The source fixture proves only ordered packet mechanics. It does not prove a product source or design choice.\n",
+    ])
+
+
 def documents():
     return {ROOT / "examples" / "run.md": run_example(),
             ROOT / "examples" / "help.md": help_example(),
             ROOT / "examples" / "failure-missing-proof.md": failure_example(),
-            ROOT / "examples" / "context-packets.md": context_example()}
+            ROOT / "examples" / "context-packets.md": context_example(),
+            ROOT / "examples" / "product-states.md": product_state_example()}
 
 
 def main(argv=None):

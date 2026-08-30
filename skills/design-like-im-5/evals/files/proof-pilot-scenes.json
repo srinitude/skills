@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "scenes": [
+    {
+      "id": "stale-control",
+      "state": "Source copy is ten minutes old.",
+      "control": "Save now",
+      "control_state": "enabled",
+      "faults": ["bad-design-misleading-control"],
+      "required_proof": ["source age", "control state", "safe repair"]
+    },
+    {
+      "id": "focus-cue",
+      "state": "Keyboard focus is on the main action.",
+      "visible_focus": false,
+      "faults": ["objective-cue-loss"],
+      "required_proof": ["focus order", "focus paint", "key action"]
+    },
+    {
+      "id": "reduced-motion",
+      "state": "Reduced motion is on.",
+      "motion_trace": ["scale 1.0", "scale 1.2", "scale 1.0"],
+      "faults": ["bad-design-inaccessible-core"],
+      "required_proof": ["live setting", "live trace", "still alternative"]
+    },
+    {
+      "id": "concurrent-state",
+      "state": "Two service replies reach one item.",
+      "visible_status": ["Saved", "Failed"],
+      "faults": ["objective-state-conflict"],
+      "required_proof": ["reply times", "item identity", "merge rule"]
+    }
+  ]
+}

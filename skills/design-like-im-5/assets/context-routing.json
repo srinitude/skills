@@ -275,7 +275,7 @@
         ],
         "scripts": [
           {
-            "path": "scripts/run_pipeline.py",
+            "path": "scripts/select_rules.py",
             "contribution": "Selects rules from declared fields and values without ranking designs. Run this tool."
           },
           {

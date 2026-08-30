@@ -46,6 +46,7 @@ LATIN = [
 WORD_RES = [(w, re.compile(r"\b%s\b" % re.escape(w), re.I)) for w in WORDS]
 LIST_RE = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
+SENTENCE_END = re.compile(r"[.!?](?:[\"'`*_)]*)?(?:\s|$)")
 
 
 def check_words(line):
@@ -112,6 +113,53 @@ def check_block(block, path, problems):
                         "wrappable block; join the block into one line")
 
 
+def semantic_kind(line, fence):
+    if FENCE_RE.match(line):
+        return "fence"
+    if fence or line.strip().startswith(("#", ">", "|")):
+        return "reset"
+    if LIST_RE.match(line) or line[:4] == "    ":
+        return "reset"
+    if not line.strip():
+        return "blank"
+    return "plain"
+
+
+def flush_plain(blocks, current):
+    if current:
+        blocks.append(("plain", current))
+    return []
+
+
+def semantic_blocks(lines):
+    blocks, current, fence = [], [], False
+    start = skip_frontmatter(lines)
+    for number, line in enumerate(lines[start:], start=start + 1):
+        kind = semantic_kind(line, fence)
+        if kind == "plain":
+            current.append((number, line))
+            continue
+        current = flush_plain(blocks, current)
+        if kind == "fence":
+            fence = not fence
+        if kind != "blank":
+            blocks.append(("reset", [(number, line)]))
+    flush_plain(blocks, current)
+    return blocks
+
+
+def check_semantic_groups(lines, path, problems):
+    run = []
+    for kind, block in semantic_blocks(lines):
+        text = " ".join(line for _, line in block)
+        one = (kind == "plain" and len(block) == 1
+               and len(SENTENCE_END.findall(text)) == 1)
+        run = run + [block[0][0]] if one else []
+        if len(run) == 3:
+            problems.append(f"{path}:{run[0]}: three stacked one-sentence "
+                            "paragraphs; use a semantic list or join prose")
+
+
 def check_file(path):
     problems = []
     text = path.read_text(encoding="utf-8")
@@ -122,6 +170,7 @@ def check_file(path):
         problems.extend(f"{path}:{number}: {m}" for m in messages)
     for block in collect_blocks(lines):
         check_block(block, path, problems)
+    check_semantic_groups(lines, path, problems)
     return problems
 
 

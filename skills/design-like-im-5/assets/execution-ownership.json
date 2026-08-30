@@ -30,7 +30,7 @@
     {
       "id": "select_rules",
       "owner": "script",
-      "script": "scripts/run_pipeline.py",
+      "script": "scripts/select_rules.py",
       "claims_judgment": false
     },
     {

@@ -1,0 +1,197 @@
+{
+  "version": "1.0.0",
+  "checked_date": "2026-08-30",
+  "coverage": {
+    "strength": 2,
+    "dimensions": [
+      { "id": "state", "values": ["settled", "changing"] },
+      { "id": "viewport", "values": ["wide", "narrow"] },
+      { "id": "input", "values": ["pointer", "keyboard"] },
+      { "id": "access", "values": ["default", "reduced"] },
+      { "id": "data", "values": ["current", "stale"] },
+      { "id": "motion", "values": ["still", "moving"] }
+    ],
+    "rows": [
+      {
+        "id": "PAIR-01",
+        "values": {
+          "state": "settled",
+          "viewport": "wide",
+          "input": "pointer",
+          "access": "default",
+          "data": "current",
+          "motion": "still"
+        }
+      },
+      {
+        "id": "PAIR-02",
+        "values": {
+          "state": "settled",
+          "viewport": "wide",
+          "input": "keyboard",
+          "access": "default",
+          "data": "stale",
+          "motion": "moving"
+        }
+      },
+      {
+        "id": "PAIR-03",
+        "values": {
+          "state": "settled",
+          "viewport": "narrow",
+          "input": "pointer",
+          "access": "reduced",
+          "data": "current",
+          "motion": "moving"
+        }
+      },
+      {
+        "id": "PAIR-04",
+        "values": {
+          "state": "settled",
+          "viewport": "narrow",
+          "input": "keyboard",
+          "access": "reduced",
+          "data": "stale",
+          "motion": "still"
+        }
+      },
+      {
+        "id": "PAIR-05",
+        "values": {
+          "state": "changing",
+          "viewport": "wide",
+          "input": "pointer",
+          "access": "reduced",
+          "data": "stale",
+          "motion": "still"
+        }
+      },
+      {
+        "id": "PAIR-06",
+        "values": {
+          "state": "changing",
+          "viewport": "wide",
+          "input": "keyboard",
+          "access": "reduced",
+          "data": "current",
+          "motion": "moving"
+        }
+      },
+      {
+        "id": "PAIR-07",
+        "values": {
+          "state": "changing",
+          "viewport": "narrow",
+          "input": "pointer",
+          "access": "default",
+          "data": "stale",
+          "motion": "moving"
+        }
+      },
+      {
+        "id": "PAIR-08",
+        "values": {
+          "state": "changing",
+          "viewport": "narrow",
+          "input": "keyboard",
+          "access": "default",
+          "data": "current",
+          "motion": "still"
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "PILOT-TEXT-OVERLAP",
+      "fixture": "evals/files/pilot-overlap.svg#overlap-scene",
+      "fault_seed": ["objective-text-overlap"],
+      "expected_detection": ["eye-reading", "eye-content", "touch-target"],
+      "claim_scope": "The named text clash is seen in this fixed wide scene.",
+      "blocked_claim": "Do not claim that all overlap cases are found.",
+      "expansion_trigger": "Add sizes when font, copy, zoom, or container width changes.",
+      "review_records": ["eye", "brain", "touch"],
+      "repeatability_runs": 2,
+      "agreement_fields": [
+        "action_order",
+        "context_accounting",
+        "evidence_classes",
+        "vetoes",
+        "status"
+      ]
+    },
+    {
+      "id": "PILOT-STALE-CONTROL",
+      "fixture": "evals/files/proof-pilot-scenes.json#stale-control",
+      "fault_seed": ["bad-design-misleading-control"],
+      "expected_detection": ["brain-truth", "brain-next", "touch-affordance"],
+      "claim_scope": "The enabled save control conflicts with the named stale source.",
+      "blocked_claim": "Do not claim that every stale data path is covered.",
+      "expansion_trigger": "Add cases when data age, source, action, or repair changes.",
+      "review_records": ["eye", "brain", "touch"],
+      "repeatability_runs": 2,
+      "agreement_fields": [
+        "action_order",
+        "context_accounting",
+        "evidence_classes",
+        "vetoes",
+        "status"
+      ]
+    },
+    {
+      "id": "PILOT-FOCUS-CUE",
+      "fixture": "evals/files/proof-pilot-scenes.json#focus-cue",
+      "fault_seed": ["objective-cue-loss"],
+      "expected_detection": ["eye-focus", "touch-input", "touch-cues"],
+      "claim_scope": "The named keyboard focus cue is absent in this scene.",
+      "blocked_claim": "Do not claim that the full keyboard path was tested.",
+      "expansion_trigger": "Add each focus move when order, control, or input changes.",
+      "review_records": ["eye", "brain", "touch"],
+      "repeatability_runs": 2,
+      "agreement_fields": [
+        "action_order",
+        "context_accounting",
+        "evidence_classes",
+        "vetoes",
+        "status"
+      ]
+    },
+    {
+      "id": "PILOT-REDUCED-MOTION",
+      "fixture": "evals/files/proof-pilot-scenes.json#reduced-motion",
+      "fault_seed": ["bad-design-inaccessible-core"],
+      "expected_detection": ["eye-motion", "touch-settings", "brain-feedback"],
+      "claim_scope": "The named motion trace ignores the reduced motion setting.",
+      "blocked_claim": "Do not infer live motion from a still frame.",
+      "expansion_trigger": "Add live traces when timing, setting, or transition changes.",
+      "review_records": ["eye", "brain", "touch"],
+      "repeatability_runs": 2,
+      "agreement_fields": [
+        "action_order",
+        "context_accounting",
+        "evidence_classes",
+        "vetoes",
+        "status"
+      ]
+    },
+    {
+      "id": "PILOT-CONCURRENT-STATE",
+      "fixture": "evals/files/proof-pilot-scenes.json#concurrent-state",
+      "fault_seed": ["objective-state-conflict"],
+      "expected_detection": ["eye-state", "brain-current", "brain-unknown"],
+      "claim_scope": "The same item shows saved and failed at one time.",
+      "blocked_claim": "Do not claim that every concurrent state is covered.",
+      "expansion_trigger": "Add cases when actors, service replies, or merge rules change.",
+      "review_records": ["eye", "brain", "touch"],
+      "repeatability_runs": 2,
+      "agreement_fields": [
+        "action_order",
+        "context_accounting",
+        "evidence_classes",
+        "vetoes",
+        "status"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "evidence_packet_sha256": "32224f0e499a66b8a212aa5561d8d7711f3a9966fa7024be942cb815c37947a6",
+  "evidence_packet_sha256": "932df78b7389996cfdae42d5ae39defff7f49bb268595fedf673dd2158763259",
   "files": [
     {
       "bytes": 423,
@@ -9,10 +9,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 18046,
+      "bytes": 17132,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/SKILL.md",
-      "sha256": "800cf9b1e9509b01f3fe88e00dc98beb4cf36daee24fd5ce31eb78b7ce66f207",
+      "sha256": "0d6548c98742ea990872787e8c7ca0ee339ee65871dbb02f7ef9dd3b59249cc6",
       "source_path": "SKILL.md"
     },
     {
@@ -26,7 +26,7 @@
       "bytes": 37288,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/assets/context-routing.json",
-      "sha256": "46e4f0d6675cba351bcfde1f2ed5c0d5c6f019daaef4fe96835897eb116183ff",
+      "sha256": "686b3db1241fe7b5df45508eed2675e47428af777623903570e742c6e5bc03d8",
       "source_path": "assets/context-routing.json"
     },
     {
@@ -47,14 +47,14 @@
       "bytes": 2567,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/assets/execution-ownership.json",
-      "sha256": "a9ba95e4ef71a49b2cc869eb92f962231ab21c4bd3d62d4d4aa13695b07bae40",
+      "sha256": "15824bdd394a5b9a1bc2cecef62ceae0256ad7cd077e33e435ff79466777caeb",
       "source_path": "assets/execution-ownership.json"
     },
     {
-      "bytes": 26345,
+      "bytes": 37929,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/assets/file-manifest.json",
-      "sha256": "70ff18b45fd967db312a333114706e4b26d0dad71a435303085448a15e9ad01b",
+      "sha256": "f4c9f664b96a5e6d68f53bee9af0f34c42b126a9ee2467d999d96e692d953666",
       "source_path": "assets/file-manifest.json"
     },
     {
@@ -70,6 +70,20 @@
       "location_path": "skills/design-like-im-5/assets/model-record.schema.json",
       "sha256": "a4112139b734cc6f216c6288ed6b5c9d2a0ef8f9d3e7cbbc9300a096ec650bc8",
       "source_path": "assets/model-record.schema.json"
+    },
+    {
+      "bytes": 4428,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/proof-ladder.json",
+      "sha256": "0f270635b73b384864850a6b6d6d09642b759a76a0b7b849a26b4c3307a86e4d",
+      "source_path": "assets/proof-ladder.json"
+    },
+    {
+      "bytes": 2672,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/proof-ladder.schema.json",
+      "sha256": "c61a84739e851b6f3c7d550dcf5e02a4e27f5f5aa90bb5e5cce5184d90ad5c86",
+      "source_path": "assets/proof-ladder.schema.json"
     },
     {
       "bytes": 611,
@@ -100,11 +114,39 @@
       "source_path": "assets/run-intake.schema.json"
     },
     {
+      "bytes": 46957,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/section-support.json",
+      "sha256": "99c7d64cc3da7c9e193675f98ee25ee7689724d53da6b3cf92cb2a6d2dd42eb9",
+      "source_path": "assets/section-support.json"
+    },
+    {
+      "bytes": 2792,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/section-support.schema.json",
+      "sha256": "ae68a8658bde4c0b45abac4336b80196ee4432761e47e27272e60752c8f9e7cc",
+      "source_path": "assets/section-support.schema.json"
+    },
+    {
       "bytes": 6373,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/assets/simplicity-contract.json",
       "sha256": "1232d7bb46317eb24baa0028b20359e4747aa26d84b123953bec9d69ffb75534",
       "source_path": "assets/simplicity-contract.json"
+    },
+    {
+      "bytes": 3029,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/speed-policy.json",
+      "sha256": "62734bf1737fcfb34c6ff33aa4306b384957326ab113993a2d2c053cad10f624",
+      "source_path": "assets/speed-policy.json"
+    },
+    {
+      "bytes": 3439,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/assets/speed-policy.schema.json",
+      "sha256": "a3fc20afacbede6d6556a2f37451a43c6de9624744a3a383b402b2bb697adc1e",
+      "source_path": "assets/speed-policy.schema.json"
     },
     {
       "bytes": 5998,
@@ -198,10 +240,10 @@
       "source_path": "evals/context-cases.json"
     },
     {
-      "bytes": 1640,
+      "bytes": 2971,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/evals/contract.md",
-      "sha256": "a9aca9cbf33672671ae06889165ed58449dd04604dc0a8f582322e6d543b302d",
+      "sha256": "b8641e9e05c224e8848d7eef52bb1a6ffc1352b41ff2f486843ef9841f8e012e",
       "source_path": "evals/contract.md"
     },
     {
@@ -224,6 +266,20 @@
       "location_path": "skills/design-like-im-5/evals/files/missing-proof.json",
       "sha256": "148b2af4c3ed36fb018e4c7eb81465fadc8e6e852ae7de966c56be8db9b9154b",
       "source_path": "evals/files/missing-proof.json"
+    },
+    {
+      "bytes": 785,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/evals/files/pilot-overlap.svg",
+      "sha256": "db5288893f2a82f6a0fef7c7251c937b35c54152a8076eeffd0b74c9288ea123",
+      "source_path": "evals/files/pilot-overlap.svg"
+    },
+    {
+      "bytes": 1086,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/evals/files/proof-pilot-scenes.json",
+      "sha256": "3e2b6de39980576a588328443bb38e0c220e4524ca0c862667c020d44ceb950a",
+      "source_path": "evals/files/proof-pilot-scenes.json"
     },
     {
       "bytes": 378,
@@ -261,11 +317,25 @@
       "source_path": "evals/manifest.json"
     },
     {
-      "bytes": 1206,
+      "bytes": 6151,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/evals/pilot-cases.json",
+      "sha256": "8100e2be51ed20d475648eb59036125550677f037a572358d539e1404c5ab020",
+      "source_path": "evals/pilot-cases.json"
+    },
+    {
+      "bytes": 1716,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/evals/rubric.md",
-      "sha256": "250ce4f5f8f6e6223c18299a1a8f71f86a3150294e9e06f1c55270d0c8701150",
+      "sha256": "d33fc99fa9683de1ee559a292ddc83a492ca9c4305f6616e5d06e68ee9ea93a0",
       "source_path": "evals/rubric.md"
+    },
+    {
+      "bytes": 5735,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/evals/section-support-cases.json",
+      "sha256": "90c01e23c31bf4bf6ad80ac69b078f417bdf982c80bd165a00304eb7b15d5607",
+      "source_path": "evals/section-support-cases.json"
     },
     {
       "bytes": 2050,
@@ -296,10 +366,10 @@
       "source_path": "evals/trigger-queries.json"
     },
     {
-      "bytes": 6166,
+      "bytes": 5856,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/examples/context-packets.md",
-      "sha256": "b9cc9ad34114eb8b17b4146518c5927833285897f9f82e60df054a4b06f3c228",
+      "sha256": "5b86e851e43836cf28961b78ab4dcedd06b3f36a7b0098dc5871cc301b9f69dc",
       "source_path": "examples/context-packets.md"
     },
     {
@@ -317,17 +387,31 @@
       "source_path": "examples/help.md"
     },
     {
-      "bytes": 9449,
+      "bytes": 7591,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/examples/product-states.md",
+      "sha256": "0f24106d7b1b504ee5b684305eca610b6c7642cfd47096f97e65cd16042016aa",
+      "source_path": "examples/product-states.md"
+    },
+    {
+      "bytes": 1269,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/examples/proof-ladder.md",
+      "sha256": "916a81cbdf2569b2c4008c5b97f0449fd4a8be160f73205df0109e46d83f827e",
+      "source_path": "examples/proof-ladder.md"
+    },
+    {
+      "bytes": 9472,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/examples/run.md",
-      "sha256": "81698901ea9fde05d806b62f17b5a9cd02b8772b0d287193273f559aa37d8069",
+      "sha256": "3289052f63a6e933e9f48eeace44deca817330b6c415f7ed2e818c2038da54fe",
       "source_path": "examples/run.md"
     },
     {
-      "bytes": 2245,
+      "bytes": 5920,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/mise.toml",
-      "sha256": "39cb605a3be656f496e61d5735dda5fd0420e177c3bbf47bf10dfe4313084d1a",
+      "sha256": "f7bf34491513eb16bc755a136a633e121dc73b7faf48ae43bbc0a68f4d1a678d",
       "source_path": "mise.toml"
     },
     {
@@ -338,10 +422,10 @@
       "source_path": "references/build.md"
     },
     {
-      "bytes": 3399,
+      "bytes": 3403,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/references/context-routing.md",
-      "sha256": "78aa74502b8bc3ddecd971b4d7ef421d94f80d76adaca9f5bd1906fb824b87b4",
+      "sha256": "c7fa44a22500e5fe0f5e3d3c1445b3f2c2eae3e4ce39b3fab43fa98b6a61c268",
       "source_path": "references/context-routing.md"
     },
     {
@@ -373,6 +457,20 @@
       "source_path": "references/intake.md"
     },
     {
+      "bytes": 10207,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/references/product-states.md",
+      "sha256": "e0e6efffe832b2331245db03f3ac6756e3477ce6eea9bf9e060a25ff15097b60",
+      "source_path": "references/product-states.md"
+    },
+    {
+      "bytes": 4305,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/references/proof-ladder.md",
+      "sha256": "1168d29114fc9240f6d8fa770e144cc23192c6b0c67db403b864ddd4ebe751c9",
+      "source_path": "references/proof-ladder.md"
+    },
+    {
       "bytes": 3122,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/references/research.md",
@@ -385,6 +483,13 @@
       "location_path": "skills/design-like-im-5/references/review.md",
       "sha256": "daf72b002372bfae975ce094ae0b7892e3475561be3ecba47fd7d0fe9f9d2b9a",
       "source_path": "references/review.md"
+    },
+    {
+      "bytes": 4171,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/references/section-support.md",
+      "sha256": "4e1e5537f92d732e7072711b7be01af3546cd084a83d4c33ed6412cbbdf80e80",
+      "source_path": "references/section-support.md"
     },
     {
       "bytes": 1950,
@@ -401,24 +506,24 @@
       "source_path": "scripts/audit_ownership.py"
     },
     {
-      "bytes": 6646,
+      "bytes": 9012,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/build_examples.py",
-      "sha256": "327ae22c5194abf1e3c13f607204d84bf95e9f01adf6fe206a003be40a4e21ac",
+      "sha256": "9354964b01b04f8fa5f9ff3cf0a4e7b982718e914835e6ab524c86f71994e124",
       "source_path": "scripts/build_examples.py"
     },
     {
-      "bytes": 2389,
+      "bytes": 2836,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/build_file_manifest.py",
-      "sha256": "a018fdb2e29a2abf68dc49b742227d0536f4534dada117bfbd914f0f55f6b167",
+      "sha256": "3bbf22536ae9efed9e034e2dc906cd7d70cec1878d89a98f28e9554230ef6328",
       "source_path": "scripts/build_file_manifest.py"
     },
     {
-      "bytes": 2717,
+      "bytes": 5686,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/build_lineage.py",
-      "sha256": "afbac1dc6d3f488eb12c6b7dc43b565af8a291495d8fa231ec94ae257ba3f4a5",
+      "sha256": "01191b746aea545a413994181373a6307344d030fa1496bcd45221950de54325",
       "source_path": "scripts/build_lineage.py"
     },
     {
@@ -436,17 +541,17 @@
       "source_path": "scripts/check_context_routing.py"
     },
     {
-      "bytes": 4319,
+      "bytes": 9076,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/check_evals.py",
-      "sha256": "02683a9bf32a139c30e7a5b12374f95a05072f34a8ace06658942e8bed7af26f",
+      "sha256": "40d473bb91013e047d2380cbc5215893bb3891d308d6b9607e261a8d56139ceb",
       "source_path": "scripts/check_evals.py"
     },
     {
-      "bytes": 3069,
+      "bytes": 4256,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/check_lineage.py",
-      "sha256": "20ae16affdd139f0c90ee2826ad00cf5894165a129431f8e3e3c2d43dd55aaec",
+      "sha256": "334239491177815745558b333bab0279dc99a402e40f1884ba80367ce9cd6101",
       "source_path": "scripts/check_lineage.py"
     },
     {
@@ -457,11 +562,25 @@
       "source_path": "scripts/check_placeholders.py"
     },
     {
+      "bytes": 6714,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/check_proof_ladder.py",
+      "sha256": "8cb7707f1fa76e64ad53d59535b6bffd9b7411bf725cfccb2fb80136de2df018",
+      "source_path": "scripts/check_proof_ladder.py"
+    },
+    {
       "bytes": 7327,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/check_reading.py",
       "sha256": "536b27bc4e191be06a399ca1fad110bc8c1be42effdf8df6cd3cf59b72034fd0",
       "source_path": "scripts/check_reading.py"
+    },
+    {
+      "bytes": 6297,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/check_section_support.py",
+      "sha256": "513b0bce09cf5eeca3e17a7fbf06985753d7c2a6128b6e7cc8fa8520491af492",
+      "source_path": "scripts/check_section_support.py"
     },
     {
       "bytes": 3481,
@@ -478,10 +597,45 @@
       "source_path": "scripts/human_capability_sweep.py"
     },
     {
-      "bytes": 5184,
+      "bytes": 53,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/lib/__init__.py",
+      "sha256": "998012d886b362e754d159be2b413db01b8f420cf2494af1d2b45f8868c4d6f2",
+      "source_path": "scripts/lib/__init__.py"
+    },
+    {
+      "bytes": 2252,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/lib/run_completion.py",
+      "sha256": "a783a20fbfc55ab127653ea2a7a29bf31e365ceb483674ff19b8b6de82b68476",
+      "source_path": "scripts/lib/run_completion.py"
+    },
+    {
+      "bytes": 641,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/lib/run_contract.py",
+      "sha256": "eddfcd925da9c16d2b149a3227252e7e333cb33fc1eee2a969622b618f8dd114",
+      "source_path": "scripts/lib/run_contract.py"
+    },
+    {
+      "bytes": 461,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/lib/run_io.py",
+      "sha256": "20bbefb229d8a8c7bd5c57647c166088ef47174bbb25ae6ad1d37534ebe713b4",
+      "source_path": "scripts/lib/run_io.py"
+    },
+    {
+      "bytes": 3853,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/lib/run_validation.py",
+      "sha256": "0bc6c4cc94b05651ae572c48accaa895f7c9f959271e4a9af76804a806923248",
+      "source_path": "scripts/lib/run_validation.py"
+    },
+    {
+      "bytes": 6755,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/lint_writing.py",
-      "sha256": "17e0c6c84d4367b2a137667bcc10c5ec0d67509a7a47578b0de174cb8687eae1",
+      "sha256": "d3df479d182729ff819caf3eb2a3fcfc0f451bada5f6bf8eff70a38b9eb25f1a",
       "source_path": "scripts/lint_writing.py"
     },
     {
@@ -492,10 +646,10 @@
       "source_path": "scripts/review_checklist.py"
     },
     {
-      "bytes": 9526,
+      "bytes": 7351,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/run_pipeline.py",
-      "sha256": "97098739dc21df5432fd85da0f978d391943196e69777a41786c17197696dcbc",
+      "sha256": "6de209651ea90ce804261bab6eaad310539aeb1c76e48030dad461806a9f46af",
       "source_path": "scripts/run_pipeline.py"
     },
     {
@@ -506,6 +660,13 @@
       "source_path": "scripts/run_scaffold.py"
     },
     {
+      "bytes": 2040,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/select_rules.py",
+      "sha256": "1ee66ce920da3780f4d8069dae06992903e3f884feb3227b191b82734216daba",
+      "source_path": "scripts/select_rules.py"
+    },
+    {
       "bytes": 1554,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/skill_info.py",
@@ -513,18 +674,39 @@
       "source_path": "scripts/skill_info.py"
     },
     {
-      "bytes": 2598,
+      "bytes": 3625,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/pipeline_test_support.py",
+      "sha256": "3b01fdc556c53d3956723a4037ef553fe0dbc8b1620b583d95de5469e0dea83d",
+      "source_path": "scripts/tests/pipeline_test_support.py"
+    },
+    {
+      "bytes": 6492,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_ci_contract.py",
-      "sha256": "2c5042e8639adda67569f7af6dee1199fb957fb49602c445fbb235362f7b35f7",
+      "sha256": "5ff8256102b3e8a26a27d340ddf0cf77b745488c6407ea9ca16c641ed9f054ba",
       "source_path": "scripts/tests/test_ci_contract.py"
     },
     {
-      "bytes": 4648,
+      "bytes": 4640,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_context_routing.py",
-      "sha256": "4da737f2fc151e65bca200edcc5f5e421fc0d7f17477703e3c69e66d54aa582c",
+      "sha256": "53767a82c495ab1be3b3b7f687922dbe320aeb0d8a6fedb8ff052d8b6e68d47e",
       "source_path": "scripts/tests/test_context_routing.py"
+    },
+    {
+      "bytes": 1324,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_markdown_semantics.py",
+      "sha256": "f225d827f3f34c1bc0c5ef94259ce83745996eba56a6b7c4ba40c1494670183c",
+      "source_path": "scripts/tests/test_markdown_semantics.py"
+    },
+    {
+      "bytes": 6758,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_proof_ladder.py",
+      "sha256": "fc99c1241eea9d180920f32ba43b7339e1e448b14a8a4eea18dca090232cdbc5",
+      "source_path": "scripts/tests/test_proof_ladder.py"
     },
     {
       "bytes": 5188,
@@ -534,42 +716,84 @@
       "source_path": "scripts/tests/test_review_contract.py"
     },
     {
-      "bytes": 10694,
+      "bytes": 4069,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_run_completion.py",
+      "sha256": "c41364a0345839c609c3a26d1a4b5d6cdf51d1234fe5518864c7eb3e324f9bf1",
+      "source_path": "scripts/tests/test_run_completion.py"
+    },
+    {
+      "bytes": 4420,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_run_packets.py",
+      "sha256": "3ec7fe379d07812f1fb72ca2f023f05c27c41bba59d1d873a3f443f5a3babd12",
+      "source_path": "scripts/tests/test_run_packets.py"
+    },
+    {
+      "bytes": 3736,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_run_pipeline.py",
-      "sha256": "33a9ed0f69fa3f87db3f23d84cf984d0dd42dacc6b1ffe1729e4e0417b36b21d",
+      "sha256": "8fa2798a89c881ff0d302e0be583a1de4b0e35dc355a926ef8c90c75860f22a5",
       "source_path": "scripts/tests/test_run_pipeline.py"
     },
     {
-      "bytes": 4437,
+      "bytes": 5071,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_run_records.py",
+      "sha256": "b7ec35d7858867214f7567f8a8419eb8d591eefdcb1843345c917a5348ad9739",
+      "source_path": "scripts/tests/test_run_records.py"
+    },
+    {
+      "bytes": 10498,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_scripts.py",
-      "sha256": "88260453a29a0aca426c45906b52c07c9a30ed12915385279dcad82132d7fca4",
+      "sha256": "36ed1fe0b476731324d89055d4b9a91029bc2710a11556f775b00472e2b06ea4",
       "source_path": "scripts/tests/test_scripts.py"
     },
     {
-      "bytes": 3204,
+      "bytes": 8567,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_section_support.py",
+      "sha256": "b4d83453d592ec25e7f04db5f80802a53bda1ca466ab6c6d2ff194c44cd4c37e",
+      "source_path": "scripts/tests/test_section_support.py"
+    },
+    {
+      "bytes": 2283,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_select_rules.py",
+      "sha256": "1af47689efc021b3980b53f3038190c6b445bb9794a9d783279d980ef6f0cd95",
+      "source_path": "scripts/tests/test_select_rules.py"
+    },
+    {
+      "bytes": 6981,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_skill_body.py",
-      "sha256": "c9d40a2632de1fa5185cb4677805869bbba96592e1a9152a58dbf5d7e24618ab",
+      "sha256": "25cddfab1a149bdffa88f4e47c64fa751aa7833c3df17b8ba81b3c571ea1227b",
       "source_path": "scripts/tests/test_skill_body.py"
     },
     {
-      "bytes": 8668,
+      "bytes": 3369,
+      "location_kind": "repository",
+      "location_path": "skills/design-like-im-5/scripts/tests/test_skill_format.py",
+      "sha256": "a6c52b77e81ab26f3c1a562ea245f4e99892141a2df69ba582c0970ddda34796",
+      "source_path": "scripts/tests/test_skill_format.py"
+    },
+    {
+      "bytes": 9105,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/tests/test_state_pipeline.py",
-      "sha256": "0d795dfab9b19c50dd7ae1feea6c37d19f7e51f708ee3555d920b16a8f1494ee",
+      "sha256": "2c534db472dec756828829f784899a27bc4b61e8df7f23553e27ea8f1f52c233",
       "source_path": "scripts/tests/test_state_pipeline.py"
     },
     {
-      "bytes": 4250,
+      "bytes": 7455,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/scripts/validate_skill.py",
-      "sha256": "ae9a54e402dced0d7456424e7fc8d6cc3de22f7f4933f1b17d2f8564761cadd5",
+      "sha256": "7c985bf2a64a05e9cdde22cb7900f9b38294fb411136eb4fa5e88dbacfc373ba",
       "source_path": "scripts/validate_skill.py"
     }
   ],
-  "native_manifest_sha256": "32224f0e499a66b8a212aa5561d8d7711f3a9966fa7024be942cb815c37947a6",
+  "native_manifest_sha256": "932df78b7389996cfdae42d5ae39defff7f49bb268595fedf673dd2158763259",
   "schema": "source-evidence/v1",
   "skill": "design-like-im-5",
   "source_kind": "hybrid_archived_and_repository_baseline"

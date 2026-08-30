@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "section-support.schema.json",
+  "title": "Section support map",
+  "type": "object",
+  "required": ["version", "support_folders", "sections"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "support_folders": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": { "enum": ["references", "scripts", "assets", "evals", "examples"] }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/section" }
+    }
+  },
+  "$defs": {
+    "support": {
+      "type": "object",
+      "required": ["path", "load_when", "contribution"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "load_when": { "type": "string", "minLength": 1 },
+        "contribution": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "id",
+        "heading",
+        "level",
+        "purpose",
+        "enter_when",
+        "support",
+        "load_order",
+        "actions",
+        "evidence",
+        "output",
+        "judgment_owner",
+        "deterministic_scope",
+        "model_freedom",
+        "fixed_constraints",
+        "do_not_substitute",
+        "wall_clock",
+        "blocked_when"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "heading": { "type": "string", "minLength": 1 },
+        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "enter_when": { "type": "string", "minLength": 1 },
+        "support": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/support" }
+        },
+        "load_order": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "actions": { "$ref": "#/$defs/textList" },
+        "evidence": { "$ref": "#/$defs/textList" },
+        "output": { "type": "string", "minLength": 1 },
+        "judgment_owner": { "const": "model" },
+        "deterministic_scope": { "$ref": "#/$defs/textList" },
+        "model_freedom": { "$ref": "#/$defs/textList" },
+        "fixed_constraints": { "$ref": "#/$defs/textList" },
+        "do_not_substitute": { "type": "string", "minLength": 1 },
+        "wall_clock": { "$ref": "#/$defs/textList" },
+        "blocked_when": { "$ref": "#/$defs/textList" }
+      },
+      "additionalProperties": false
+    },
+    "textList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false
+}

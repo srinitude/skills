@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://srinitude.dev/skills/design-like-im-5/speed-policy.schema.json",
+  "title": "Design like I am five speed policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "skill",
+    "budget_owner",
+    "objective",
+    "invariants",
+    "parallel_groups",
+    "never_parallelize",
+    "reuse",
+    "measurement"
+  ],
+  "properties": {
+    "schema": { "const": "speed-policy.schema.json" },
+    "schema_version": { "const": 1 },
+    "skill": { "const": "design-like-im-5" },
+    "budget_owner": { "const": "evals/speed-budgets.json" },
+    "objective": { "const": "minimum_elapsed_time_to_fully_verified_result" },
+    "invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proof_loss_allowed",
+        "required_work",
+        "scope_loss_allowed",
+        "workflow_action_concurrency",
+        "writers_per_artifact"
+      ],
+      "properties": {
+        "proof_loss_allowed": { "const": false },
+        "required_work": { "const": "all" },
+        "scope_loss_allowed": { "const": false },
+        "workflow_action_concurrency": { "const": 1 },
+        "writers_per_artifact": { "const": 1 }
+      }
+    },
+    "parallel_groups": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/parallel" }
+    },
+    "never_parallelize": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/serial" }
+    },
+    "reuse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed", "forbidden", "required_check", "invalidation_result"],
+      "properties": {
+        "allowed": { "type": "string", "minLength": 1 },
+        "forbidden": { "type": "string", "minLength": 1 },
+        "required_check": { "const": "rerun_each_required_check" },
+        "invalidation_result": { "const": "STALE" }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "segments",
+        "conditions",
+        "minimum_samples",
+        "package_jobs",
+        "decision_metric"
+      ],
+      "properties": {
+        "segments": { "const": ["discovery", "full_load", "task", "transport"] },
+        "conditions": { "const": ["cold", "warm"] },
+        "minimum_samples": { "type": "integer", "minimum": 2 },
+        "package_jobs": { "const": 8 },
+        "decision_metric": { "const": "elapsed_time_to_fully_verified_result" }
+      }
+    }
+  },
+  "$defs": {
+    "parallel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "enter_when", "work", "must_wait_for", "stop_if"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "enter_when": { "type": "string", "minLength": 1 },
+        "work": { "type": "string", "minLength": 1 },
+        "must_wait_for": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "stop_if": { "type": "string", "minLength": 1 }
+      }
+    },
+    "serial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "rule"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "rule": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

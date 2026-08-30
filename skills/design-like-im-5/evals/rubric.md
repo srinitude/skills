@@ -22,5 +22,11 @@ Give one point for each fact:
 - Safety, access, sense, and agency vetoes hold.
 - Public prose passes the reading rules.
 - The final state is `PASS`, `STALE`, or `BLOCKED`.
+- Each proof rung states its exact claim and bound.
+- Two clean pilot runs agree on every fixed field.
 
-The case passes only with eighteen points. This score tests acts. It does not rate taste.
+Also require both first-time passes. The body-only pass must expose the full route without hidden context. The whole-skill pass must complete the same work from a clean context.
+
+For speed, require serial workflow actions, one writer per artifact, and every check. Credit overlap only for independent work with fixed inputs. Fail any result that saves time by cutting scope, proof, review, or rerender work.
+
+The case passes only with twenty points. This score tests acts. It does not rate taste.

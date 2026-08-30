@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Check a skill folder against its build rules.
+"""Check a skill folder.
 
-The check covers the head, name, size, folders, and path depth.
-It prints one line for each fault.
+Check its name, size, paths, and files.
+List each fault.
 
 Exit codes:
-  0  the skill passes every check
-  1  at least one check failed
-  2  usage or input error
+  0  pass
+  1  fail
+  2  bad input
 
 Example:
   python3 scripts/validate_skill.py .
@@ -22,6 +22,8 @@ ALLOWED_KEYS = {"name", "description", "license", "compatibility",
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 REQUIRED_DIRS = ["references", "assets", "examples", "scripts", "evals"]
 PATH_RE = re.compile(r"\b(?:references|assets|examples|scripts|tests|evals)/[\w./-]+")
+LINK_RE = re.compile(r"\[[^\]]+\]\(([^)\s]+)(?:\s+[^)]*)?\)")
+SCHEME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
 MAX_BODY_LINES = 200
 MAX_FILE_CHARS = 100_000
 
@@ -73,12 +75,85 @@ def check_body(body, text, problems):
             problems.append(f"path deeper than one subdirectory: {token}")
 
 
+def check_portable_bytes(raw, text, problems):
+    if raw.startswith(b"\xef\xbb\xbf"):
+        problems.append("a UTF-8 BOM is not allowed")
+    if b"\r" in raw:
+        problems.append("non-LF line endings are not allowed")
+    if "\t" in text:
+        problems.append("tab characters are not allowed")
+    if any(line.endswith((" ", "\t")) for line in text.splitlines()):
+        problems.append("trailing whitespace is not allowed")
+
+
+def check_line_syntax(visible, problems):
+    if re.match(r"^\s*::[A-Za-z]", visible):
+        problems.append("client-specific directives are not allowed")
+    if re.search(r"</?[A-Za-z][A-Za-z0-9-]*(?:\s[^>]*)?>", visible):
+        problems.append("raw HTML is not allowed")
+
+
+def check_heading(lines, index, visible, problems):
+    if not re.match(r"^#{1,3} \S", visible):
+        problems.append("heading levels must be 1 to 3")
+    before = lines[index - 1].strip() if index else ""
+    after = lines[index + 1].strip() if index + 1 < len(lines) else ""
+    if before or after:
+        problems.append("blank lines around headings are required")
+
+
+def check_portable_body(body, problems):
+    lines = body.splitlines()
+    in_fence = False
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith(("```", "~~~")):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        visible = re.sub(r"`[^`]*`", "", line)
+        check_line_syntax(visible, problems)
+        if re.match(r"^ {0,3}(?:=+|-+)\s*$", visible) and index > 0 \
+                and lines[index - 1].strip():
+            problems.append("Setext headings are not allowed")
+        if re.match(r"^\s*#{1,6}(?:\s|$)", visible):
+            check_heading(lines, index, visible, problems)
+        if index + 1 < len(lines) and "|" in visible:
+            next_line = lines[index + 1]
+            table_rule = r"^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*$"
+            if re.match(table_rule, next_line):
+                problems.append("extension-only tables are not allowed")
+
+
+def check_portable_links(body, problems):
+    for match in LINK_RE.finditer(body):
+        target = match.group(1).strip("<>")
+        lowered = target.lower()
+        if target.startswith(("/", "~")) or re.match(
+                r"^[A-Za-z]:[/\\]", target):
+            problems.append("absolute local links are not allowed")
+        elif SCHEME_RE.match(target) and not lowered.startswith(
+                ("https://", "http://", "mailto:")):
+            problems.append("client or file URI links are not allowed")
+
+
+def check_universal_format(raw, text, body, problems):
+    """Check the shared Markdown form."""
+    check_portable_bytes(raw, text, problems)
+    check_portable_body(body, problems)
+    check_portable_links(body, problems)
+
+
 def check_layout(skill, body, problems):
     for name in REQUIRED_DIRS + ["scripts/tests"]:
         if not (skill / name).is_dir():
             problems.append(f"missing required directory: {name}/")
-        elif body and f"{name}/" not in body:
+        elif body and name in {"references", "assets", "examples", "evals"} \
+                and f"{name}/" not in body:
             problems.append(f"body never references {name}/")
+    if body and "mise run" not in body:
+        problems.append("body never names a Mise task")
     if not (skill / "evals" / "evals.json").is_file():
         problems.append("missing evals/evals.json")
     if not (skill / "mise.toml").is_file():
@@ -87,7 +162,13 @@ def check_layout(skill, body, problems):
 
 def validate(skill):
     problems = []
-    text = (skill / "SKILL.md").read_text(encoding="utf-8")
+    raw = (skill / "SKILL.md").read_bytes()
+    try:
+        text = raw.decode("utf-8")
+    except UnicodeDecodeError:
+        problems.append("UTF-8 text is required")
+        check_layout(skill, "", problems)
+        return problems
     header, body, fatal = split_frontmatter(text)
     if fatal:
         problems.append(fatal)
@@ -95,6 +176,7 @@ def validate(skill):
     else:
         check_fields(parse_header(header), skill.name, problems)
         check_body(body, text, problems)
+    check_universal_format(raw, text, body, problems)
     check_layout(skill, body, problems)
     return problems
 

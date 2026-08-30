@@ -9,184 +9,169 @@ metadata:
 
 # Design like I am five
 
-Make a full product that feels clear, capable, and easy to use. Keep hard system work behind the screen. Do not hide truth, cost, risk, state, or control.
+Make a full product that feels clear, able, and easy to use. Keep hard system work behind the screen. Do not hide truth, cost, risk, state, or control. Read [references/section-support.md](references/section-support.md) for the full support chain.
 
 ## One contract
 
-This file routes the work. The linked files own the detail. Use the current intake, sources, product bytes, and named owners. Do not add a hidden method from memory.
-
-`assets/workflow.json is the only step order.` `assets/execution-ownership.json is the only owner map.` Do not skip, merge, replace, or reorder a required step.
-
-[assets/context-routing.json](assets/context-routing.json) binds each action to its full context. [assets/context-routing.schema.json](assets/context-routing.schema.json) fixes route shape. [assets/context-bundle.schema.json](assets/context-bundle.schema.json) fixes packet shape.
-
-Read [references/context-routing.md](references/context-routing.md) before using a route. Run [scripts/check_context_routing.py](scripts/check_context_routing.py) after changing any route, support file, packet, or body anchor.
-
-The model has wide room inside its owned work. Give it all current context before judgment. It may add, split, reverse, mix, or reject options. Keep source rights and vetoes fixed.
-
-The model performs every eye, brain, and touch review. The model checks every bad design, bad output, and bad practice invariant. Scripts check structure. They do not make design judgments.
-
-## Commands
-
-| Command | Result                                                          |
-| ------- | --------------------------------------------------------------- |
-| `help`  | Show commands, inputs, outputs, context routes, and stop rules. |
-| `run`   | Create, review, or revise a full product and return proof.      |
-
-For `help`, read [examples/help.md](examples/help.md). Match its commands and input names. Do not start a run.
-
-For `run`, record `create`, `review`, or `revise`. A review changes no product file. A revise run changes only approved files.
-
-Read [examples/run.md](examples/run.md) before the first run. Read it again after any command, path, schema, packet, or output change.
-
-Read [examples/context-packets.md](examples/context-packets.md) before model work. It shows context use, missing context, and the limit on script claims.
-
-Compare `evals/files/valid-context-record.json` with `evals/files/missing-context-record.json`. They fix complete and blocked context accounting.
-
-Read [examples/failure-missing-proof.md](examples/failure-missing-proof.md) when an input or proof field is missing. Use its stop shape. Do not guess.
-
-## Start every run
-
-1. Read [assets/workflow.json](assets/workflow.json). Keep its action order for the whole run.
-2. Read [assets/execution-ownership.json](assets/execution-ownership.json). Give each action to its named owner.
-3. Read [assets/context-routing.json](assets/context-routing.json). Keep its hash and action routes fixed for the run.
-4. Read [references/intake.md](references/intake.md). Write facts in [assets/run-intake.schema.json](assets/run-intake.schema.json).
-5. Validate the intake. Stop only affected work when a needed fact is absent.
-6. Run `python3 scripts/run_pipeline.py start --intake INPUT --run-dir RUN`.
-7. Keep `RUN` outside this skill folder. Do not hand-build its files or fields.
-8. Read every run file named by the next packet. Run each source command named by the review index.
-
-The start script writes stable scaffolds and a route hash. It does not pick states, rules, options, or results.
-
-## Required action order
-
-Follow every action from [assets/workflow.json](assets/workflow.json). Each capsule names what its files add. Read every applicable item before acting.
-
-1. **[CTX-FREEZE-INTAKE] `freeze_intake`.** Read `references/intake.md` for fact and stop rules. Run `scripts/run_pipeline.py`. Use `assets/run-intake.schema.json`. Compare `examples/failure-missing-proof.md`. Test `evals/files/valid-intake.json`, `evals/files/missing-proof.json`, and `evals/context-cases.json`. Produce `run.json`. Never invent a fact.
-2. **[CTX-LIST-CAPABILITIES] `list_capabilities`.** Read `references/failure.md` for proof gaps. Run `scripts/run_scaffold.py`. Use `assets/execution-ownership.json`. Compare `examples/context-packets.md`. Test `evals/context-cases.json`. Produce `capabilities.json`. Never treat structure as sight or input proof.
-3. **[CTX-SOURCE-MEANING] `source_meaning`.** Read `references/research.md` for rights, age, place, gaps, and meaning. Run `scripts/run_pipeline.py`. Use `assets/model-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/source-mapping.json` and `evals/context-cases.json`. Produce `source_meaning`. Never replace a source with memory or surface copy.
-4. **[CTX-STATE-JUDGMENT] `state_judgment`.** Read `references/decisions.md` for open options and conflicts. Run `scripts/review_checklist.py` and `scripts/human_capability_sweep.py`. Use `assets/state-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/evals.json` and `evals/context-cases.json`. Produce `state_judgment`. Never close the state set.
-5. **[CTX-SELECT-RULES] `select_rules`.** Read `references/decisions.md` for the veto order. Run `scripts/run_pipeline.py`. Use `assets/simplicity-contract.json`. Compare `examples/run.md`. Test `evals/cases.json` and `evals/context-cases.json`. Produce rule IDs. Never treat one rule as the whole design.
-6. **[CTX-ATOM-JUDGMENT] `atom_judgment`.** Read `references/build.md` for the atom gate. Run `scripts/check_lineage.py`. Use `assets/lineage.schema.json` and `assets/model-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/files/valid-lineage.json` and `evals/context-cases.json`. Produce proved atoms and links. Never let a screen invent an atom.
-7. **[CTX-PART-DESIGN] `part_design`.** Read `references/build.md` for reuse and rebuild rules. Run `scripts/check_lineage.py`. Use `assets/model-record.schema.json`. Compare `examples/run.md`. Test `evals/files/skipped-lineage.json` and `evals/context-cases.json`. Produce reusable parts and dependency effects. Never hide a one-off rule in a part.
-8. **[CTX-SCREEN-DESIGN] `screen_design`.** Read `references/build.md`, `references/decisions.md`, and `references/context-routing.md`. Run `scripts/run_pipeline.py`. Use `assets/simplicity-contract.json`. Compare `examples/context-packets.md` without surface copy. Test `evals/evals.json` and `evals/context-cases.json`. Produce screens and flows from proved templates. Never choose the first known pattern.
-9. **[CTX-MOTION-JUDGMENT] `motion_judgment`.** Read `references/review.md` for motion proof. Run `scripts/human_capability_sweep.py`. Use `assets/model-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/cases.json` and `evals/context-cases.json`. Produce motion, sound, touch, access, and repair judgment. Never infer motion from a still.
-10. **[CTX-VISUAL-REVIEW] `visual_review`.** Read `references/review.md` for whole, close, state, input, and rerender checks. Run `scripts/review_checklist.py` and `scripts/human_capability_sweep.py`. Use `assets/review-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/evals.json` and `evals/context-cases.json`. Produce a current review. Never replace direct sight and input proof with code or captions.
-11. **[CTX-PLAIN-READBACK] `plain_readback`.** Read `references/review.md` for state and view context. Run `scripts/run_pipeline.py`. Use `assets/model-record.schema.json`. Compare `examples/context-packets.md`. Test `evals/cases.json` and `evals/context-cases.json`. Produce a full word and meaning readback. Never accept clear words in a false state.
-12. **[CTX-CHECK-LINEAGE] `check_lineage`.** Read `references/build.md` for the part chain. Run `scripts/check_lineage.py`. Use `assets/lineage.schema.json`. Compare `examples/run.md`. Test `evals/files/valid-lineage.json`, `evals/files/skipped-lineage.json`, and `evals/context-cases.json`. Produce current lineage proof. Never turn sound links into a design verdict.
-13. **[CTX-FINAL-CHECK] `final_check`.** Read `references/failure.md`, `references/review.md`, and `references/context-routing.md`. Run `scripts/run_pipeline.py`, `scripts/check_context_routing.py`, and `scripts/check_lineage.py`. Use `assets/workflow.json`, `assets/execution-ownership.json`, and `assets/context-routing.json`. Compare `examples/failure-missing-proof.md`. Test `evals/contract.md`, `evals/rubric.md`, and `evals/context-cases.json`. Produce one current result. Never turn script proof into a pixel, use, access, or value claim.
-
-## Build each model packet
-
-Run `python3 scripts/run_pipeline.py packet --run-dir RUN --action ACTION`. Load the packet before doing that action.
-
-The packet carries its route ID, route hash, load condition, five support classes, path contributions, output, and barred substitution. Read every required path.
-
-Record used paths in `context_acknowledgements`. Record unavailable or unfit paths in `missing_context`. Use `BLOCKED` when missing context prevents the claim.
-
-Creative packets require four unlike directions as a floor. There is no option ceiling. Start with a known pattern, product-shaped form, true reverse, and experimental edge.
-
-Those starts are not boxes. The model may add, split, mix, or reverse directions. It may explore state, structure, order, words, action, form, motion, sound, touch, access, platform fit, and service effects.
-
-Give each option a scene, claim, product fit, evidence, tradeoffs, veto check, test, and novelty note. Keep a bold option until evidence or a veto rejects it.
-
-The model chooses and explains the direction. A script may check fields and reasons. A script must not rank, score, or choose options.
-
-## Discover product states
-
-Product states are found, not picked from a closed list. They may overlap, nest, affect one person, or change during use.
-
-Find states from the person, goal, task, prior act, data, and system. Check place, device, input, access, time, content, people, and risk. Record each cause and change.
-
-No content, wait, partial result, failure, repair, offline, permission, interruption, and success are prompts. Skip any that do not fit. Add states revealed by evidence.
-
-For each kept state, make response options before one choice. Record unknown, mixed, stale, short-lived, and concurrent states without false certainty.
-
-## Run every review invariant
-
-[scripts/review_checklist.py](scripts/review_checklist.py) owns stable check IDs, rules, commands, and source links. [scripts/human_capability_sweep.py](scripts/human_capability_sweep.py) owns the open human sweep.
-
-Apply every eye, brain, and touch factor to every check. Add any factor found in current proof. A common answer is not a fixed rule.
-
-Eye checks cover first sight, order, groups, change, reading, color, focus, range, motion, and content. Brain checks cover truth, action, cause, memory, choice, language, feedback, risk, context, and unknowns. Touch checks cover targets, spacing, reach, inputs, cues, response, gestures, repair, settings, and effort.
-
-Objective checks cover text and image clashes, clipped meaning, blocked controls, and lost work. Also check targets, focus, cues, states, and dead ends. Use direct render and input proof.
-
-Bad design checks cover hidden state, false rank, false controls, silence, and lost work. Also check access, unsafe acts, fixed context, broken parts, and shifted burden.
-
-Bad output checks cover weak claims, unseen passes, missed states, closed state lists, and missed checks. Also check weak options, script judgment, old proof, broken links, and vague results.
-
-Bad work checks cover style-first work, surface copy, screen-first rules, early choice, and one-sided proof. Also check happy paths, late access, hidden cost, weak metrics, and false polish.
-
-Each model answer gives the scene, observation, evidence, decision, reason, alternatives, and doubt. Use exact words, positions, sizes, timing, paths, touch, motion, sound, and feedback when seen. Mark estimates.
-
-Keep fact, sight, inference, and proposed change apart. Use `NOT_APPLICABLE` only with evidence and a reason. Missing sight, motion, touch, or use proof means `BLOCKED` for that claim.
-
-## Build from proved parts
-
-Read [references/build.md](references/build.md) before atom or part work. Use `token proof -> tokens -> atoms -> molecules -> organisms -> templates -> screens -> flows`.
-
-Run the current `dtcg-tokens` skill for all source tokens and atoms. Do not restate its process. Stop at the atom gate when that skill or proof is absent.
-
-Mark linked high parts stale after a low-part change. Rebuild and review every affected part. A screen may not invent a low rule.
-
-Run `python3 scripts/check_lineage.py MANIFEST`. It checks links, order, cycles, stale parts, and unused parts. It does not judge quality.
-
-## Record model work
-
-Use [assets/model-record.schema.json](assets/model-record.schema.json) for normal records. Use [assets/state-record.schema.json](assets/state-record.schema.json) for states. Use [assets/review-record.schema.json](assets/review-record.schema.json) for visual review.
-
-Run `python3 scripts/run_pipeline.py record --run-dir RUN --result RESULT`. It checks fields, context acknowledgement, exact checks, options, and owner boundaries.
-
-A filled record is not a good claim by itself. The model must support each result with current proof and the fixed veto order.
-
-## Veto and failure rules
-
-Safety comes first. Access comes next. Then check understanding, agency, task success, convention, expression, novelty, and build cost.
-
-Do not trade away safety, access, understanding, or agency. Do not hide cost, risk, work, or control to make one view look calm.
-
-Read [references/failure.md](references/failure.md) for missing facts, rights, sources, sight, atom proof, low parts, checks, context, stale rules, clashes, and change.
-
-Return `BLOCKED` for the affected claim. Name the failed gate, missing proof, linked parts, safe work, and smallest way to resume.
-
-## Reading and package owners
-
-[assets/reading-contract.json](assets/reading-contract.json) owns public grade and sentence checks. [assets/reading-exceptions.json](assets/reading-exceptions.json) owns the sole exact-copy exception.
-
-Read [references/generation-contract.md](references/generation-contract.md) only when this public skill changes. Its unchanged copy is the only full-file reading exception.
-
-[assets/file-manifest.json](assets/file-manifest.json) owns public file roles. [evals/source-lineage.json](evals/source-lineage.json) owns public hashes and source links.
-
-Run shape comes from [scripts/run_scaffold.py](scripts/run_scaffold.py), [scripts/run_pipeline.py](scripts/run_pipeline.py), [assets/workflow.json](assets/workflow.json), and [assets/execution-ownership.json](assets/execution-ownership.json).
-
-Package facts come from [scripts/skill_info.py](scripts/skill_info.py), [scripts/build_examples.py](scripts/build_examples.py), [scripts/build_file_manifest.py](scripts/build_file_manifest.py), [scripts/build_lineage.py](scripts/build_lineage.py), and [assets/file-manifest.json](assets/file-manifest.json).
-
-Validation comes from [scripts/validate_skill.py](scripts/validate_skill.py), [scripts/check_code_rules.py](scripts/check_code_rules.py), [scripts/check_placeholders.py](scripts/check_placeholders.py), [scripts/lint_writing.py](scripts/lint_writing.py), [scripts/check_reading.py](scripts/check_reading.py), and [scripts/check_context_routing.py](scripts/check_context_routing.py).
-
-Load `scripts/tests/` only when behavior or checks change. [mise.toml](mise.toml) owns the task graph. [.github/workflows/ci.yml](.github/workflows/ci.yml) calls the same graph.
-
-Owner and source proof comes from [scripts/audit_directories.py](scripts/audit_directories.py), [scripts/audit_ownership.py](scripts/audit_ownership.py), [scripts/check_source_lineage.py](scripts/check_source_lineage.py), and [scripts/check_evals.py](scripts/check_evals.py).
-
-## Eval owner map
-
-Load eval files only when an eval runs or changes. Read [evals/manifest.json](evals/manifest.json) first.
-
-[evals/contract.md](evals/contract.md) owns method. [evals/rubric.md](evals/rubric.md) owns human grading. [assets/eval-case-template.json](assets/eval-case-template.json) owns new case shape.
-
-[evals/cases.json](evals/cases.json) owns act cases. [evals/trigger-cases.json](evals/trigger-cases.json) owns trigger pairs. `evals/evals.json` and `evals/trigger-queries.json` own local checks.
-
-[evals/context-cases.json](evals/context-cases.json) owns context-loss cases. `evals/speed-budgets.json` owns timing. [evals/source-lineage.json](evals/source-lineage.json) and `evals/source-mapping.json` own source proof.
-
-Use `evals/files/valid-intake.json` and `evals/files/missing-proof.json` for run gates. Use `evals/files/valid-lineage.json` and `evals/files/skipped-lineage.json` for part gates.
-
-Fixture passes prove the runner only. They do not prove sight, use, access, taste, product value, or a good choice.
-
-## Return and done
-
-Return product files and run proof. Name sources, gaps, states, options, choice, reviews, atom proof, links, stale parts, context gaps, and vetoes.
-
-Use only `PASS`, `STALE`, or `BLOCKED` as the final run state. Never turn code or route passes into claims about pixels, use, access, or value.
-
-Run `python3 scripts/run_pipeline.py check --run-dir RUN`. Run `python3 scripts/check_context_routing.py .`. Then run `mise run ci`.
-
-Return `PASS` only when every record exists, every context path is accounted for, and every script gate passes. Each needed view must be seen. No veto may stay open.
+- This file routes work. Its linked files own detail. Use current facts, sources, product files, and named owners.
+- Minimize wall time only after every rule and proof stays fixed. Do not skip work, cut proof, or overlap required actions.
+- [assets/speed-policy.json](assets/speed-policy.json) owns safe parallel work, serial work, reuse, and timing. [assets/speed-policy.schema.json](assets/speed-policy.schema.json) fixes its shape. [evals/speed-budgets.json](evals/speed-budgets.json) owns numeric bounds.
+- [assets/workflow.json](assets/workflow.json) is the only step order. [assets/execution-ownership.json](assets/execution-ownership.json) is the only owner map. Do not skip, merge, replace, or reorder a required step.
+- [assets/context-routing.json](assets/context-routing.json) binds each action to full context. [assets/context-routing.schema.json](assets/context-routing.schema.json) fixes route shape.
+- [assets/context-bundle.schema.json](assets/context-bundle.schema.json) fixes packet shape. [assets/section-support.json](assets/section-support.json) owns support for each heading.
+- [assets/section-support.schema.json](assets/section-support.schema.json) fixes that owner shape. Read [references/context-routing.md](references/context-routing.md) and [references/section-support.md](references/section-support.md) before work.
+- Run `mise run context-routing` after a route change.
+- The model has wide room only inside its owned work. It may add, split, reverse, mix, or reject options. Keep source rights, fixed rules, and vetoes.
+- The model performs every eye, brain, and touch review. The model checks every bad design, bad output, and bad practice invariant.
+- Mise tasks check structure. They do not make design judgments.
+
+## Use the skill
+
+Follow [examples/run.md](examples/run.md) for one full use. [assets/workflow.json](assets/workflow.json) keeps the run in one order.
+
+### Commands
+
+- **`help`:** Explain inputs, outputs, routes, tasks, and stops. Match [examples/help.md](examples/help.md). Do not start work.
+- **`run`:** Create, review, or revise. Reviews change no product file. Revisions change only approved files.
+- **Before model work:** Read [examples/run.md](examples/run.md) before the first run and after any task, path, packet, or output change. Read [examples/context-packets.md](examples/context-packets.md) for full, missing, and unfit context.
+- **When context is incomplete:** Compare [evals/files/valid-context-record.json](evals/files/valid-context-record.json) with [evals/files/missing-context-record.json](evals/files/missing-context-record.json). These fixtures fix context accounting. Use [examples/failure-missing-proof.md](examples/failure-missing-proof.md) when a fact or proof field is missing. Do not guess.
+
+### Prepare the run
+
+**Run checklist:**
+
+- [ ] **1.** Read [assets/workflow.json](assets/workflow.json), [assets/execution-ownership.json](assets/execution-ownership.json), and [assets/context-routing.json](assets/context-routing.json). Keep their order, owners, routes, and route hash fixed.
+- [ ] **2.** Read [references/intake.md](references/intake.md). Write facts in [assets/run-intake.schema.json](assets/run-intake.schema.json). Validate the intake. Stop only affected work when a needed fact is absent.
+- [ ] **3.** Run `mise run run-start --intake INPUT --run-dir RUN`.
+- [ ] **4.** Keep `RUN` outside this skill folder. Do not hand-build its files or fields.
+- [ ] **5.** Read every path named by the next packet.
+- [ ] **6.** Run both review tasks when the packet calls for human review.
+- [ ] **7.** Keep one writer for each run file.
+
+> The task writes fixed run forms and a route hash. It does not pick states, rules, options, or results.
+
+### Complete all actions in order
+
+- Follow every action in [assets/workflow.json](assets/workflow.json). Load each named source before acting. Save the named proof.
+- Each runtime task rejects an action before its exact turn.
+- Inside one action, batch independent reads, renders, captures, and checks after their inputs are fixed.
+- `run-start` completes actions 1 and 2. Its next action must be `source_meaning`.
+
+1. **[CTX-FREEZE-INTAKE] `freeze_intake`.** `run-start` completes this action. Apply [references/intake.md](references/intake.md) and [evals/files/missing-proof.json](evals/files/missing-proof.json). Never invent a fact.
+2. **[CTX-LIST-CAPABILITIES] `list_capabilities`.** `run-start` completes this action. Use `mise run run-scaffold` to inspect its output. Apply [references/failure.md](references/failure.md). Never treat structure as sight or touch proof.
+3. **[CTX-SOURCE-MEANING] `source_meaning`.** Use `mise run run-packet`. Apply [references/research.md](references/research.md), [evals/source-mapping.json](evals/source-mapping.json), and [evals/context-cases.json](evals/context-cases.json). The model records source meaning.
+4. **[CTX-STATE-JUDGMENT] `state_judgment`.** Use `mise run run-packet`, `mise run review-checklist`, and `mise run human-sweep`. Apply [references/product-states.md](references/product-states.md). The model finds states.
+5. **[CTX-SELECT-RULES] `select_rules`.** Run `mise run run-select-rules --run-dir RUN`. Apply [assets/simplicity-contract.json](assets/simplicity-contract.json) and [references/decisions.md](references/decisions.md). Keep the fixed veto order.
+6. **[CTX-ATOM-JUDGMENT] `atom_judgment`.** Use `mise run run-packet`. Apply [assets/lineage.schema.json](assets/lineage.schema.json) and [evals/files/valid-lineage.json](evals/files/valid-lineage.json). The model judges proved atoms.
+7. **[CTX-PART-DESIGN] `part_design`.** Use `mise run run-packet` and `mise run lineage-file MANIFEST`. Apply [evals/files/skipped-lineage.json](evals/files/skipped-lineage.json). The model builds linked parts.
+8. **[CTX-SCREEN-DESIGN] `screen_design`.** Use `mise run run-packet`. Apply [references/build.md](references/build.md) and [examples/context-packets.md](examples/context-packets.md). The model builds from proved parts.
+9. **[CTX-MOTION-JUDGMENT] `motion_judgment`.** Use `mise run run-packet` and `mise run human-sweep`. Apply [references/review.md](references/review.md). The model judges live motion. Never infer motion from a still.
+10. **[CTX-VISUAL-REVIEW] `visual_review`.** Use `mise run run-packet`, `mise run review-checklist`, and `mise run human-sweep`. Apply [assets/review-record.schema.json](assets/review-record.schema.json). The model reviews current pixels and use.
+11. **[CTX-PLAIN-READBACK] `plain_readback`.** Use `mise run run-packet`. Apply [evals/cases.json](evals/cases.json). The model reads all visible words in context. Never accept clear words in a false state.
+12. **[CTX-CHECK-LINEAGE] `check_lineage`.** Use `mise run lineage-file MANIFEST --run-dir RUN`. Apply [assets/lineage.schema.json](assets/lineage.schema.json). The task checks links, records proof, and advances no design claim.
+13. **[CTX-FINAL-CHECK] `final_check`.** Run `mise run run-check --run-dir RUN`, then `mise run complete`. Apply [evals/contract.md](evals/contract.md) and [evals/rubric.md](evals/rubric.md). Never turn task proof into design proof.
+
+### Build each model packet
+
+- Run `mise run run-packet --run-dir RUN --action ACTION`. Load the packet before that action.
+- Follow [assets/context-bundle.schema.json](assets/context-bundle.schema.json). Keep the packet's route, hash, support, output, and barred swaps.
+- Record used paths in `context_acknowledgements`. Record unavailable or unfit paths in `missing_context`. Use `BLOCKED` when missing context prevents the claim.
+- Create four unlike starts: known, product-shaped, reversed, and strange. There is no option cap. These starts are prompts, not boxes.
+- Add, split, mix, or reverse starts. Explore state, structure, order, words, action, form, motion, sound, touch, access, platform fit, and service effects.
+- Give each option a scene, claim, fit, proof, costs, veto check, test, and novelty note. Keep a bold option until evidence or a veto rejects it.
+- The model chooses and explains the direction. A Mise task may check fields. It must not rank, score, or choose.
+- Run `mise run run-record --run-dir RUN --result RESULT`. Save that result before any next action.
+
+## Judge the design
+
+Use [references/decisions.md](references/decisions.md) with [assets/simplicity-contract.json](assets/simplicity-contract.json). The model owns every design choice.
+
+### Veto and failure rules
+
+- Apply vetoes in this order: safety, access, understanding, agency, task success, convention, expression, novelty, then build cost.
+- Do not trade away safety, access, understanding, or agency. Do not hide cost, risk, work, or control.
+- Read [references/failure.md](references/failure.md) for missing facts, rights, sources, sight, atom proof, context, clashes, and change.
+- Return `BLOCKED` for the affected claim. Name the failed gate, missing proof, linked parts, safe work, and smallest way to resume.
+
+### Discover product states
+
+- Read [references/product-states.md](references/product-states.md), use [assets/state-record.schema.json](assets/state-record.schema.json), and compare [examples/product-states.md](examples/product-states.md).
+- Use [evals/section-support-cases.json](evals/section-support-cases.json) to reject closed lists and task-owned choices. Run `mise run review-checklist` and `mise run human-sweep`.
+- Find product states instead of picking them from a closed list. States may overlap, nest, mix, conflict, or change during use.
+- Check the person, goal, past act, data, system, place, device, input, time, content, people, and risk.
+- Treat common states as prompts only. Skip unfit prompts. Add any state shown by proof.
+- Make unlike response options for each state. Record causes, links, change, proof, doubts, tradeoffs, and the model's choice.
+- Keep unknown, mixed, stale, short-lived, and concurrent states open. Do not ask for private chain-of-thought.
+
+### Run every review invariant
+
+- Run `mise run review-checklist` for fixed check IDs. Run `mise run human-sweep` for open eye, brain, and touch prompts.
+- Read [references/review.md](references/review.md) for proof rules. Apply every relevant human factor to every check.
+- **Eye:** Check first sight, order, groups, change, text, color, focus, range, motion, and content.
+- **Brain:** Check truth, action, cause, memory, choice, language, feedback, risk, context, and unknowns.
+- **Touch:** Check targets, gaps, reach, inputs, cues, response, gestures, repair, settings, and effort.
+- **Objective failures:** Reject text or image overlap, clipped meaning, blocked controls, lost work, dead ends, false focus, and false cues.
+- **Bad work:** Check bad design, output, and practice. Include hidden state, false control, old proof, weak options, surface copy, and early choice.
+- **Answer shape:** Give the scene, observation, proof, choice, reason, options, costs, vetoes, and doubt. Mark estimates.
+- **Evidence state:** Keep fact, sight, inference, and change apart. `NOT_APPLICABLE` needs proof. Missing needed proof means `BLOCKED` for that claim.
+- **Invalidation:** A source or product change invalidates affected captures and checks.
+
+### Build from proved parts
+
+- Read [references/build.md](references/build.md) before atom or part work.
+- Use `token proof -> tokens -> atoms -> molecules -> organisms -> templates -> screens -> flows`.
+- Run the current `dtcg-tokens` skill for all source tokens and atoms. Do not restate its method.
+- Stop at the atom gate when that skill or proof is absent. A screen may not invent a low rule.
+- Mark linked high parts stale after a low change. Rebuild and review every affected part.
+- Run `mise run lineage-file MANIFEST`. It checks links, order, loops, stale parts, and unused parts. It does not judge quality.
+
+## Prove and finish
+
+Use [assets/model-record.schema.json](assets/model-record.schema.json) for saved proof. Use [evals/contract.md](evals/contract.md) for the final gate.
+
+### Record model work
+
+- Use [assets/model-record.schema.json](assets/model-record.schema.json) for normal work.
+- Use [assets/state-record.schema.json](assets/state-record.schema.json) for states.
+- Use [assets/review-record.schema.json](assets/review-record.schema.json) for visual review.
+- Run `mise run run-record --run-dir RUN --result RESULT`.
+- The task checks fields, context use, options, and owner lines. A filled record is not a good claim by itself.
+- The model must support each result with current proof. Record visible reasons, options, costs, vetoes, and doubt.
+
+### Reading and package owners
+
+- [assets/reading-contract.json](assets/reading-contract.json) owns public grade and sentence checks. [assets/reading-exceptions.json](assets/reading-exceptions.json) owns the sole exact-copy exception.
+- `SKILL.md` uses standard YAML frontmatter and portable CommonMark only.
+- Read [references/generation-contract.md](references/generation-contract.md) only when this public skill changes. Its unchanged copy is the sole full-file reading exception.
+- [assets/file-manifest.json](assets/file-manifest.json) owns public file roles. [evals/source-lineage.json](evals/source-lineage.json) owns public hashes and source links.
+- Run shape comes from [assets/workflow.json](assets/workflow.json) and [assets/execution-ownership.json](assets/execution-ownership.json). Run `mise run run-scaffold` to view it.
+- [mise.toml](mise.toml) owns all executable tasks and links. [.github/workflows/ci.yml](.github/workflows/ci.yml) runs the same check graph.
+- Keep UTF-8, LF newlines, ATX headings, blank block spacing, one-line blocks, and relative local links. Every block stays clean, readable, and agent-parsable.
+- Run `mise run skill-info` for package facts. Run `mise run generate` after public sources change.
+- Run `mise run complete` for the full fixed gate. Its acyclic links force every needed check to run.
+- Mise runs independent read-only checks in parallel and never caches or skips a required task.
+
+### Eval owner map
+
+- Load eval files only when an eval runs or changes.
+- Read [evals/manifest.json](evals/manifest.json), [evals/contract.md](evals/contract.md), [evals/rubric.md](evals/rubric.md), and [assets/eval-case-template.json](assets/eval-case-template.json) first.
+- Read [references/proof-ladder.md](references/proof-ladder.md), [assets/proof-ladder.json](assets/proof-ladder.json), [examples/proof-ladder.md](examples/proof-ladder.md), and [evals/pilot-cases.json](evals/pilot-cases.json). Run `mise run proof-ladder`.
+- Run each pilot twice from clean context. Compare action order, context use, proof classes, vetoes, and status. Any clash is `STALE`. Wording and safe creative directions may differ.
+- [evals/cases.json](evals/cases.json) and [evals/trigger-cases.json](evals/trigger-cases.json) own act and trigger cases.
+- [evals/evals.json](evals/evals.json), [evals/trigger-queries.json](evals/trigger-queries.json), and [evals/section-support-cases.json](evals/section-support-cases.json) own local checks.
+- [evals/context-cases.json](evals/context-cases.json) owns context-loss cases. [evals/speed-budgets.json](evals/speed-budgets.json) owns timing.
+- [evals/source-lineage.json](evals/source-lineage.json) and [evals/source-mapping.json](evals/source-mapping.json) own source proof.
+- Use [evals/files/valid-intake.json](evals/files/valid-intake.json) and [evals/files/missing-proof.json](evals/files/missing-proof.json) for run gates.
+- Use [evals/files/valid-lineage.json](evals/files/valid-lineage.json) and [evals/files/skipped-lineage.json](evals/files/skipped-lineage.json) for part gates.
+- Fixture passes prove the task only. They do not prove sight, use, access, taste, product value, or a good choice.
+
+### Return and done
+
+**Completion checklist:**
+
+- [ ] Return product files and run proof. Follow [examples/run.md](examples/run.md) and the stop shape in [examples/failure-missing-proof.md](examples/failure-missing-proof.md).
+- [ ] Name sources, gaps, states, options, choice, reviews, atom proof, links, stale parts, context gaps, and vetoes.
+- [ ] Use only `PASS`, `STALE`, or `BLOCKED`. Never turn task passes into claims about pixels, use, access, or value.
+- [ ] Run `mise run run-check --run-dir RUN`. Then run `mise run complete`.
+- [ ] Return `PASS` only after `mise run complete` exits with code `0`.
+- [ ] Confirm that every record and context path is present. See each needed view. Leave no veto open.

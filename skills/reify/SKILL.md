@@ -57,6 +57,7 @@ Each file in `examples/` is one complete run with real command output. Read the 
 
 - `examples/help-command.md` when the user types `help` or asks what this skill can do.
 - `examples/new-vague-memory.md` when starting from a loose thought and you need the first reply, the record file, and the probe object.
+- `examples/new-decision-record.md` when the vague idea is a choice between forms rather than a piece of writing, and the probe object is a comparison that tests the decision.
 - `examples/thin-facts-no-invention.md` before writing any first-person prose from a memory that carries no names, places, or dates. This is the failure this skill causes most often.
 - `examples/continue-record.md` when resuming a saved record, including the case where the directory holds more than one.
 - `examples/revert-decision.md` before running `revert`, for the before and after record and what happens to files.

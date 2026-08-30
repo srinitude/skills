@@ -44,6 +44,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://logic-audit/SKILL.md',
       'skill://meaning-preserving-rewrite/SKILL.md',
       'skill://mobile-first-website-design/SKILL.md',
+      'skill://only-one-interpretation/SKILL.md',
       'skill://outcome-bounded-work/SKILL.md',
       'skill://prompt-enhancer/SKILL.md',
       'skill://reify/SKILL.md',

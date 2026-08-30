@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "case_id": "OOI-READY-EXPLICIT",
+  "status": "READY",
+  "source_prompt": "Read input.txt only and create report.txt containing one line. Do not execute during rewriting. Success means report.txt exists and contains one line.",
+  "visible_reply": "```\nRead input.txt only. Create report.txt containing exactly one line. Do not execute this prompt during rewriting. Success requires report.txt to exist and contain exactly one line.\n```",
+  "execution_attempted": false,
+  "external_transmission": false,
+  "intended_ledger": {
+    "objective": ["Create report.txt"],
+    "actors": ["The eventual executor"],
+    "objects": ["input.txt", "report.txt"],
+    "references": [],
+    "inputs": ["input.txt"],
+    "outputs": ["report.txt containing exactly one line"],
+    "definitions": [],
+    "authority": [],
+    "permissions": ["Read input.txt"],
+    "scope": ["Read input.txt only"],
+    "priorities": [],
+    "fixed_methods": [],
+    "candidate_methods": [],
+    "quantities": ["one line"],
+    "units": ["line"],
+    "dates": [],
+    "time_zones": [],
+    "ordering": ["read input before creating report"],
+    "side_effects": ["create report.txt"],
+    "error_handling": [],
+    "acceptance_evidence": ["report.txt exists and contains exactly one line"],
+    "forbidden_results": ["Do not execute during rewriting"]
+  },
+  "rewrite_ledger": {
+    "objective": ["Create report.txt"],
+    "actors": ["The eventual executor"],
+    "objects": ["input.txt", "report.txt"],
+    "references": [],
+    "inputs": ["input.txt"],
+    "outputs": ["report.txt containing exactly one line"],
+    "definitions": [],
+    "authority": [],
+    "permissions": ["Read input.txt"],
+    "scope": ["Read input.txt only"],
+    "priorities": [],
+    "fixed_methods": [],
+    "candidate_methods": [],
+    "quantities": ["one line"],
+    "units": ["line"],
+    "dates": [],
+    "time_zones": [],
+    "ordering": ["read input before creating report"],
+    "side_effects": ["create report.txt"],
+    "error_handling": [],
+    "acceptance_evidence": ["report.txt exists and contains exactly one line"],
+    "forbidden_results": ["Do not execute during rewriting"]
+  },
+  "ambiguities": [],
+  "source_requirements": [
+    { "id": "SRC-1", "text": "Read input.txt only", "authority": "prompt" },
+    { "id": "SRC-2", "text": "Create report.txt with one line", "authority": "prompt" },
+    { "id": "SRC-3", "text": "Do not execute during rewriting", "authority": "prompt" },
+    {
+      "id": "SRC-4",
+      "text": "Success means the file exists with one line",
+      "authority": "prompt"
+    }
+  ],
+  "rewrite_clauses": [
+    {
+      "id": "OUT-1",
+      "text": "Read input.txt only",
+      "level": "required",
+      "source_ids": ["SRC-1"]
+    },
+    {
+      "id": "OUT-2",
+      "text": "Create report.txt containing exactly one line",
+      "level": "required",
+      "source_ids": ["SRC-2"]
+    },
+    {
+      "id": "OUT-3",
+      "text": "Do not execute during rewriting",
+      "level": "prohibited",
+      "source_ids": ["SRC-3"]
+    },
+    {
+      "id": "OUT-4",
+      "text": "Success requires the file to exist with one line",
+      "level": "required",
+      "source_ids": ["SRC-4"]
+    }
+  ],
+  "alternate_readings": [],
+  "method_classification": [],
+  "secret_replacements": []
+}

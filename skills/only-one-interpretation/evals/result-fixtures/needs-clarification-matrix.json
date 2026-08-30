@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "case_id": "OOI-AMBIGUITY-MATRIX",
+  "status": "NEEDS_CLARIFICATION",
+  "source_prompt": "Send it to them tomorrow, archive all matching records except deleted accounts with legal holds, export 10, follow the urgent priority, and confirm success.",
+  "visible_reply": "NEEDS_CLARIFICATION\nWhich object does 'it' name, who are all recipients, and what authority permits sending? Does the exception exclude only deleted accounts with legal holds, or every deleted account plus every account with a legal hold? What records does 'all' cover, what rule defines 'urgent' priority, what calendar date and time zone does 'tomorrow' mean, what quantity and unit does '10' mean, what exact output is required, and what observable evidence counts as success?",
+  "execution_attempted": false,
+  "external_transmission": false,
+  "intended_ledger": {
+    "objective": ["Rewrite the prompt only after all material fields are known"],
+    "actors": [],
+    "objects": [],
+    "references": [],
+    "inputs": [],
+    "outputs": [],
+    "definitions": [],
+    "authority": [],
+    "permissions": [],
+    "scope": [],
+    "priorities": [],
+    "fixed_methods": [],
+    "candidate_methods": [],
+    "quantities": [],
+    "units": [],
+    "dates": [],
+    "time_zones": [],
+    "ordering": [],
+    "side_effects": [],
+    "error_handling": [],
+    "acceptance_evidence": [],
+    "forbidden_results": ["Do not execute or guess"]
+  },
+  "ambiguities": [
+    {
+      "id": "AMB-1",
+      "class": "referential",
+      "finding": "it and them are unresolved",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-2",
+      "class": "attachment",
+      "finding": "the legal-hold exception has two attachments",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-3",
+      "class": "quantifier",
+      "finding": "all has no defined set",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-4",
+      "class": "priority",
+      "finding": "urgent has no precedence rule",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-5",
+      "class": "temporal",
+      "finding": "tomorrow lacks a date and time zone",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-6",
+      "class": "unit",
+      "finding": "10 lacks a quantity basis and unit",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-7",
+      "class": "authority",
+      "finding": "sending authority is unstated",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-8",
+      "class": "output-format",
+      "finding": "the output is unstated",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    },
+    {
+      "id": "AMB-9",
+      "class": "success-criteria",
+      "finding": "success evidence is unstated",
+      "material": true,
+      "status": "unresolved",
+      "resolved_by": null
+    }
+  ],
+  "questions": [
+    {
+      "finding_ids": ["AMB-1", "AMB-7"],
+      "text": "Identify the object, recipients, and authority."
+    },
+    {
+      "finding_ids": ["AMB-2", "AMB-3", "AMB-4", "AMB-5", "AMB-6"],
+      "text": "Resolve exception, set, priority, date, time zone, quantity, and unit."
+    },
+    { "finding_ids": ["AMB-8", "AMB-9"], "text": "Define the output and success evidence." }
+  ]
+}

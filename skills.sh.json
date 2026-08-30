@@ -31,7 +31,7 @@
     },
     {
       "title": "Prompt Quality",
-      "skills": ["prompt-enhancer"]
+      "skills": ["only-one-interpretation", "prompt-enhancer"]
     },
     {
       "title": "Reasoning",

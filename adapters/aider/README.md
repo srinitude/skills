@@ -11,6 +11,7 @@ aider --read /absolute/path/to/skills/skills/goal-prompt/SKILL.md
 aider --read /absolute/path/to/skills/skills/logic-audit/SKILL.md
 aider --read /absolute/path/to/skills/skills/meaning-preserving-rewrite/SKILL.md
 aider --read /absolute/path/to/skills/skills/mobile-first-website-design/SKILL.md
+aider --read /absolute/path/to/skills/skills/only-one-interpretation/SKILL.md
 aider --read /absolute/path/to/skills/skills/outcome-bounded-work/SKILL.md
 aider --read /absolute/path/to/skills/skills/prompt-enhancer/SKILL.md
 aider --read /absolute/path/to/skills/skills/reify/SKILL.md

@@ -129,6 +129,9 @@ test('keeps the root guide concise and the Aider route portable', async () => {
     '--read /absolute/path/to/skills/skills/mobile-first-website-design/SKILL.md',
   );
   expect(aider).toContain(
+    '--read /absolute/path/to/skills/skills/only-one-interpretation/SKILL.md',
+  );
+  expect(aider).toContain(
     '--read /absolute/path/to/skills/skills/prompt-enhancer/SKILL.md',
   );
   expect(aider).toContain('--read /absolute/path/to/skills/skills/reify/SKILL.md');

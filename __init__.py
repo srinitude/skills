@@ -53,6 +53,10 @@ _SKILLS = (
         "Use when designing landing pages and marketing websites.",
     ),
     (
+        "only-one-interpretation",
+        "Use when disambiguating prompts, not improving or running.",
+    ),
+    (
         "outcome-bounded-work",
         "Use when instructions mix outcomes with recipes.",
     ),

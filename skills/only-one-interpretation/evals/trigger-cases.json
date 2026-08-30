@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "skill": "only-one-interpretation",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "pair_id": "pair-01",
+      "prompt": "Make this prompt have only one operational reading.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "near_neighbor",
+      "pair_id": "pair-01",
+      "prompt": "Make this prompt more persuasive and polished.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "pair_id": "pair-02",
+      "prompt": "Disambiguate the actors, scope, units, and success condition in this task prompt.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "near_neighbor",
+      "pair_id": "pair-02",
+      "prompt": "Audit the logic and contradictions in this task prompt without rewriting it.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "pair_id": "pair-03",
+      "prompt": "Ask every material clarification before you rewrite this instruction.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "pair_id": "pair-03",
+      "prompt": "Rewrite this policy in plain language without meaning loss.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "positive",
+      "pair_id": "pair-04",
+      "prompt": "Check alternate readings, then return one executable prompt without running it.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "pair_id": "pair-04",
+      "prompt": "Run this executable prompt now.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "positive",
+      "pair_id": "pair-05",
+      "prompt": "Resolve every pronoun and attachment ambiguity in this prompt.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "pair-05",
+      "prompt": "Copyedit this prompt for grammar and tone.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-011",
+      "kind": "positive",
+      "pair_id": "pair-06",
+      "prompt": "Turn this vague prompt into one precise operation or ask what is missing.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-012",
+      "kind": "near_neighbor",
+      "pair_id": "pair-06",
+      "prompt": "Fact-check the claims in this prompt.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-013",
+      "kind": "positive",
+      "pair_id": "pair-07",
+      "prompt": "Preserve my fixed method while closing every material ambiguity.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-014",
+      "kind": "near_neighbor",
+      "pair_id": "pair-07",
+      "prompt": "Recommend a better method for this task.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-015",
+      "kind": "positive",
+      "pair_id": "pair-08",
+      "prompt": "Rewrite this with explicit authority, failure, output, and acceptance terms.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-016",
+      "kind": "near_neighbor",
+      "pair_id": "pair-08",
+      "prompt": "Classify whether this request is safe.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-017",
+      "kind": "positive",
+      "pair_id": "pair-09",
+      "prompt": "Does this prompt permit two material executions? Rewrite only after ruling one out.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-018",
+      "kind": "near_neighbor",
+      "pair_id": "pair-09",
+      "prompt": "Summarize what this prompt asks for.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-019",
+      "kind": "positive",
+      "pair_id": "pair-10",
+      "prompt": "Give this prompt one source-backed reading or ask one complete clarification turn.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-020",
+      "kind": "hard_negative",
+      "pair_id": "pair-10",
+      "prompt": "Design a better workflow for the team.",
+      "should_trigger": false
+    }
+  ]
+}

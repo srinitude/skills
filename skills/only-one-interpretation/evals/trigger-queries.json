@@ -1,0 +1,55 @@
+[
+  {
+    "query": "Make this prompt have only one operational reading.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite this so no material execution choice is left open.",
+    "should_trigger": true
+  },
+  {
+    "query": "Disambiguate the actors, scope, units, and success condition in this prompt.",
+    "should_trigger": true
+  },
+  {
+    "query": "Ask me every material clarification before rewriting this instruction.",
+    "should_trigger": true
+  },
+  {
+    "query": "Check alternate readings, then return one executable prompt without running it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Resolve pronouns and attachment ambiguity in this task prompt.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn this vague prompt into one precise operation or ask me what is missing.",
+    "should_trigger": true
+  },
+  {
+    "query": "Preserve my fixed method while closing every material ambiguity.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite this prompt with explicit authority, failure, output, and acceptance terms.",
+    "should_trigger": true
+  },
+  {
+    "query": "Does this prompt still permit two materially different executions? Rewrite only if it does not.",
+    "should_trigger": true
+  },
+  { "query": "Improve this prompt and make it more persuasive.", "should_trigger": false },
+  { "query": "Audit these requirements for contradictions.", "should_trigger": false },
+  {
+    "query": "Rewrite this policy in plain language without meaning loss.",
+    "should_trigger": false
+  },
+  { "query": "Copyedit this paragraph for rhythm and tone.", "should_trigger": false },
+  { "query": "Run this migration now.", "should_trigger": false },
+  { "query": "Fact-check every claim in this prompt.", "should_trigger": false },
+  { "query": "Classify whether this request is safe.", "should_trigger": false },
+  { "query": "Summarize what this prompt asks for.", "should_trigger": false },
+  { "query": "Design a better workflow for this team.", "should_trigger": false },
+  { "query": "Explain why this argument is invalid.", "should_trigger": false }
+]

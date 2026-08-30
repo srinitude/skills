@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "case_id": "OOI-READY-RECOVERY",
+  "status": "READY",
+  "source_prompt": "Earlier, 'it' meant input.csv and 'them' meant the two addresses supplied to the execution environment. Rewrite: send it to them, but do not send anything now.",
+  "visible_reply": "```\nThe eventual executor must send input.csv to the two recipients whose addresses are supplied through the execution environment. Do not send, read, or transmit anything while rewriting this prompt.\n```",
+  "execution_attempted": false,
+  "external_transmission": false,
+  "intended_ledger": {
+    "objective": ["Send input.csv during eventual execution"],
+    "actors": ["The eventual executor"],
+    "objects": ["input.csv", "two recipients"],
+    "references": ["it means input.csv", "them means the two supplied recipients"],
+    "inputs": ["input.csv", "recipient addresses from the execution environment"],
+    "outputs": ["one transmission to both recipients"],
+    "definitions": [],
+    "authority": [],
+    "permissions": [],
+    "scope": ["rewrite only now"],
+    "priorities": [],
+    "fixed_methods": [],
+    "candidate_methods": [],
+    "quantities": ["two recipients"],
+    "units": ["recipients"],
+    "dates": [],
+    "time_zones": [],
+    "ordering": ["rewrite before eventual execution"],
+    "side_effects": ["eventual transmission"],
+    "error_handling": [],
+    "acceptance_evidence": [],
+    "forbidden_results": ["No read or transmission during rewriting"]
+  },
+  "rewrite_ledger": {
+    "objective": ["Send input.csv during eventual execution"],
+    "actors": ["The eventual executor"],
+    "objects": ["input.csv", "two recipients"],
+    "references": ["it means input.csv", "them means the two supplied recipients"],
+    "inputs": ["input.csv", "recipient addresses from the execution environment"],
+    "outputs": ["one transmission to both recipients"],
+    "definitions": [],
+    "authority": [],
+    "permissions": [],
+    "scope": ["rewrite only now"],
+    "priorities": [],
+    "fixed_methods": [],
+    "candidate_methods": [],
+    "quantities": ["two recipients"],
+    "units": ["recipients"],
+    "dates": [],
+    "time_zones": [],
+    "ordering": ["rewrite before eventual execution"],
+    "side_effects": ["eventual transmission"],
+    "error_handling": [],
+    "acceptance_evidence": [],
+    "forbidden_results": ["No read or transmission during rewriting"]
+  },
+  "ambiguities": [
+    {
+      "id": "AMB-1",
+      "class": "referential",
+      "finding": "it and them had multiple referents",
+      "material": true,
+      "status": "resolved",
+      "resolved_by": "SRC-1"
+    }
+  ],
+  "source_requirements": [
+    {
+      "id": "SRC-1",
+      "text": "The earlier answers define input.csv and two environment-supplied recipients",
+      "authority": "governing context"
+    },
+    { "id": "SRC-2", "text": "Do not send anything now", "authority": "prompt" }
+  ],
+  "rewrite_clauses": [
+    {
+      "id": "OUT-1",
+      "text": "Send input.csv to the two environment-supplied recipients during eventual execution",
+      "level": "required",
+      "source_ids": ["SRC-1"]
+    },
+    {
+      "id": "OUT-2",
+      "text": "Do not read or transmit during rewriting",
+      "level": "prohibited",
+      "source_ids": ["SRC-2"]
+    }
+  ],
+  "alternate_readings": [
+    {
+      "ambiguity_id": "AMB-1",
+      "alternate": "Send another file or use another recipient set",
+      "ruling_clause_id": "OUT-1"
+    }
+  ],
+  "method_classification": [],
+  "secret_replacements": []
+}

@@ -110,6 +110,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
       'skills/always-current-datetime/SKILL.md',
       'skills/by-design/SKILL.md',
       'skills/dedupe/SKILL.md',
+      'skills/design-like-im-5/SKILL.md',
       'skills/goal-prompt/SKILL.md',
       'skills/logic-audit/SKILL.md',
       'skills/meaning-preserving-rewrite/SKILL.md',
@@ -129,6 +130,7 @@ test('Aider adapter reads the canonical skill without copying it', async () => {
   await expectInside('skills/always-current-datetime/SKILL.md');
   await expectInside('skills/by-design/SKILL.md');
   await expectInside('skills/dedupe/SKILL.md');
+  await expectInside('skills/design-like-im-5/SKILL.md');
   await expectInside('skills/goal-prompt/SKILL.md');
   await expectInside('skills/logic-audit/SKILL.md');
   await expectInside('skills/meaning-preserving-rewrite/SKILL.md');
@@ -175,7 +177,10 @@ test('groups canonical skills for skills-hub clients', async () => {
       },
       { skills: ['dedupe'], title: 'Data Quality' },
       { skills: ['by-design'], title: 'Design Decisions' },
-      { skills: ['visual-design-system-extractor'], title: 'Design Systems' },
+      {
+        skills: ['design-like-im-5', 'visual-design-system-extractor'],
+        title: 'Design Systems',
+      },
       { skills: ['goal-prompt'], title: 'Goal Packaging' },
       { skills: ['reify'], title: 'Ideation' },
       {

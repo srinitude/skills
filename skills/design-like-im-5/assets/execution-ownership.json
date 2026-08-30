@@ -1,0 +1,91 @@
+{
+  "version": "1.0.0",
+  "actions": [
+    {
+      "id": "freeze_intake",
+      "owner": "script",
+      "script": "scripts/run_pipeline.py",
+      "claims_judgment": false
+    },
+    {
+      "id": "list_capabilities",
+      "owner": "script",
+      "script": "scripts/run_pipeline.py",
+      "claims_judgment": false
+    },
+    {
+      "id": "source_meaning",
+      "owner": "model",
+      "why": "Source meaning needs judgment.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "state_judgment",
+      "owner": "model",
+      "why": "Open states, human sweeps, harm checks, and the best response need context and judgment.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "select_rules",
+      "owner": "script",
+      "script": "scripts/run_pipeline.py",
+      "claims_judgment": false
+    },
+    {
+      "id": "atom_judgment",
+      "owner": "model",
+      "why": "Atoms need sight and taste.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "part_design",
+      "owner": "model",
+      "why": "New parts need design skill.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "screen_design",
+      "owner": "model",
+      "why": "Screens need design skill.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "motion_judgment",
+      "owner": "model",
+      "why": "Motion fit needs sight.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "visual_review",
+      "owner": "model",
+      "why": "The model must judge every human sweep, objective failure, bad design, bad output, and bad practice item.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "plain_readback",
+      "owner": "model",
+      "why": "Clear sense needs a full read.",
+      "prepare_script": "scripts/run_pipeline.py",
+      "check_script": "scripts/run_pipeline.py"
+    },
+    {
+      "id": "check_lineage",
+      "owner": "script",
+      "script": "scripts/check_lineage.py",
+      "claims_judgment": false
+    },
+    {
+      "id": "final_check",
+      "owner": "script",
+      "script": "scripts/run_pipeline.py",
+      "claims_judgment": false
+    }
+  ]
+}

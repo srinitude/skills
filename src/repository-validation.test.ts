@@ -11,6 +11,7 @@ const expectedSkills = [
   ['always-current-datetime', '0.1.0'],
   ['by-design', '0.1.0'],
   ['dedupe', '0.1.0'],
+  ['design-like-im-5', '0.1.0'],
   ['dtcg-tokens', '0.2.2'],
   ['goal-prompt', '0.1.0'],
   ['logic-audit', '0.1.1'],
@@ -40,7 +41,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 18,
+    skillCount: 19,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',

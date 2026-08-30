@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "steps": [
+    { "number": 1, "action": "freeze_intake" },
+    { "number": 2, "action": "list_capabilities" },
+    { "number": 3, "action": "source_meaning" },
+    { "number": 4, "action": "state_judgment" },
+    { "number": 5, "action": "select_rules" },
+    { "number": 6, "action": "atom_judgment" },
+    { "number": 7, "action": "part_design" },
+    { "number": 8, "action": "screen_design" },
+    { "number": 9, "action": "motion_judgment" },
+    { "number": 10, "action": "visual_review" },
+    { "number": 11, "action": "plain_readback" },
+    { "number": 12, "action": "check_lineage" },
+    { "number": 13, "action": "final_check" }
+  ]
+}

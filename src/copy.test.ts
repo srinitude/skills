@@ -24,6 +24,7 @@ test('passes the current public repository copy', async () => {
     'skills/always-current-datetime/SKILL.md',
     'skills/by-design/SKILL.md',
     'skills/dedupe/SKILL.md',
+    'skills/design-like-im-5/SKILL.md',
     'skills/dtcg-tokens/SKILL.md',
     'skills/goal-prompt/SKILL.md',
     'skills/logic-audit/SKILL.md',

@@ -1,6 +1,6 @@
 {
   "schema": "agentskills-pages/v1",
-  "captured_at": "2026-07-20",
+  "captured_at": "2026-08-30",
   "source": "https://agentskills.io/sitemap.xml",
   "pages": [
     {
@@ -10,13 +10,13 @@
     },
     {
       "url": "https://agentskills.io/clients.md",
-      "bytes": 24275,
-      "sha256": "d67af9f4c31f95991cc9c5ff3d5a7f9ebc30fa2442a5185c858eff9b6057c299"
+      "bytes": 25457,
+      "sha256": "d11e7259d6a9f01707dbc84ebd023a6c40707a7008cb6ae5332e862ce117d4b6"
     },
     {
       "url": "https://agentskills.io/home.md",
-      "bytes": 25349,
-      "sha256": "546f0f92a3d16945f7e5b8a739de449bb740a5cb8fcaef8ee5469544d936e2c9"
+      "bytes": 26531,
+      "sha256": "7be41261358594f02801b994f22b1d55a265062c7ba481f439360c2ccac3d828"
     },
     {
       "url": "https://agentskills.io/skill-creation/best-practices.md",
@@ -45,8 +45,8 @@
     },
     {
       "url": "https://agentskills.io/specification.md",
-      "bytes": 7986,
-      "sha256": "9d770de8f1b0556e6198defeba162e3336df431b60b52bf786f3700c5555493b"
+      "bytes": 8157,
+      "sha256": "2b1dbb4fd80c31748d15812c4ebd3e66c09383d0c792801f617718684489e40d"
     }
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "outcome": "Build a clear account setup flow.",
+  "audience": "New account owners.",
+  "platform": "Responsive web.",
+  "primary_tasks": ["Create an account"],
+  "source_permissions": ["public_web"]
+}

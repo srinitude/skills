@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "syntax": [
+    {
+      "span": "code fence",
+      "reason": "A split may change code.",
+      "owner": "reading checker",
+      "plain_note": "Code is checked by code tests."
+    },
+    {
+      "span": "command",
+      "reason": "A split may change the command.",
+      "owner": "reading checker",
+      "plain_note": "The nearby text says what it does."
+    },
+    {
+      "span": "path or URL",
+      "reason": "A split may break the link.",
+      "owner": "reading checker",
+      "plain_note": "The nearby text names the source or file."
+    },
+    {
+      "span": "key or hash",
+      "reason": "A split may change its value.",
+      "owner": "reading checker",
+      "plain_note": "The nearby text names its use."
+    }
+  ],
+  "full_file": [
+    {
+      "name": "generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "reason": "This is an unchanged owner copy.",
+      "owner": "skill-factory",
+      "plain_note": "Read it only when the skill changes."
+    }
+  ]
+}

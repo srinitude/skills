@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "claims": [
+    {
+      "id": "case-ledger",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/case-study-ledger.json",
+        "construction/construction-check.json",
+        "construction/integration-matrix.json",
+        "construction/visual-review.json"
+      ]
+    },
+    {
+      "id": "WCAG22",
+      "owner_id": "source-manifest",
+      "source_paths": ["construction/simplicity-source-ledger.json"]
+    },
+    {
+      "id": "platform-guidance",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/current-pattern-evidence.json",
+        "construction/simplicity-source-ledger.json"
+      ]
+    },
+    {
+      "id": "service-guidance",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/current-pattern-evidence.json",
+        "construction/simplicity-source-ledger.json"
+      ]
+    },
+    {
+      "id": "game-guidance",
+      "owner_id": "source-manifest",
+      "source_paths": ["construction/simplicity-source-ledger.json"]
+    },
+    {
+      "id": "pattern-sources",
+      "owner_id": "source-manifest",
+      "source_paths": ["construction/current-pattern-evidence.json"]
+    },
+    {
+      "id": "human-centered-evaluation",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/current-pattern-evidence.json",
+        "construction/simplicity-source-ledger.json"
+      ]
+    },
+    {
+      "id": "dark-pattern-guidance",
+      "owner_id": "source-manifest",
+      "source_paths": ["construction/simplicity-source-ledger.json"]
+    },
+    {
+      "id": "feedback-and-repair",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/current-pattern-evidence.json",
+        "construction/simplicity-source-ledger.json"
+      ]
+    },
+    {
+      "id": "state-production",
+      "owner_id": "source-manifest",
+      "source_paths": [
+        "construction/current-pattern-evidence.json",
+        "construction/simplicity-source-ledger.json"
+      ]
+    }
+  ]
+}

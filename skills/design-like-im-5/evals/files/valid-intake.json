@@ -1,0 +1,8 @@
+{
+  "outcome": "Build a clear account setup flow.",
+  "audience": "New account owners.",
+  "platform": "Responsive web.",
+  "primary_tasks": ["Create an account", "Fix input errors"],
+  "source_permissions": ["public_web", "local_files"],
+  "proof_threshold": "Each task works in wide and narrow views."
+}

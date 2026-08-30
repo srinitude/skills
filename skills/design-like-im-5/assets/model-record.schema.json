@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "model-record.schema.json",
+  "title": "Model choice record",
+  "type": "object",
+  "required": [
+    "action",
+    "decision",
+    "evidence",
+    "reason",
+    "counterevidence",
+    "uncertainty",
+    "affected"
+  ],
+  "properties": {
+    "action": { "type": "string" },
+    "decision": { "enum": ["PASS", "REVISE", "BLOCKED"] },
+    "evidence": { "type": "array", "minItems": 1 },
+    "reason": { "type": "string" },
+    "counterevidence": { "type": "array" },
+    "uncertainty": { "type": "string" },
+    "affected": { "type": "array" },
+    "options": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/option" }
+    },
+    "chosen_direction": { "$ref": "#/$defs/chosenDirection" }
+  },
+  "$defs": {
+    "option": {
+      "type": "object",
+      "required": [
+        "id",
+        "direction",
+        "scene",
+        "hypothesis",
+        "product_fit",
+        "evidence",
+        "tradeoffs",
+        "veto_check",
+        "test",
+        "novelty"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "direction": { "type": "string", "minLength": 1 },
+        "scene": { "type": "string", "minLength": 1 },
+        "hypothesis": { "type": "string", "minLength": 1 },
+        "product_fit": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "array", "minItems": 1 },
+        "tradeoffs": { "type": "array", "minItems": 1 },
+        "veto_check": { "type": "string", "minLength": 1 },
+        "test": { "type": "string", "minLength": 1 },
+        "novelty": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "chosenDirection": {
+      "type": "object",
+      "required": ["source_option_ids", "reason"],
+      "properties": {
+        "source_option_ids": { "type": "array", "minItems": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

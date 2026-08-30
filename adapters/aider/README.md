@@ -6,6 +6,7 @@ Read a canonical [`SKILL.md`](../../skills/always-current-datetime/SKILL.md) by 
 aider --read /absolute/path/to/skills/skills/always-current-datetime/SKILL.md
 aider --read /absolute/path/to/skills/skills/by-design/SKILL.md
 aider --read /absolute/path/to/skills/skills/dedupe/SKILL.md
+aider --read /absolute/path/to/skills/skills/design-like-im-5/SKILL.md
 aider --read /absolute/path/to/skills/skills/goal-prompt/SKILL.md
 aider --read /absolute/path/to/skills/skills/logic-audit/SKILL.md
 aider --read /absolute/path/to/skills/skills/meaning-preserving-rewrite/SKILL.md

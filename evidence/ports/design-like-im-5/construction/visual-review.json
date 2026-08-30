@@ -1,0 +1,3290 @@
+{
+  "all_cases_inspected": true,
+  "case_count": 205,
+  "items": [
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/001.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 1,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/001-005.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/bose",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/002.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 2,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/001-005.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/robinhood",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/003.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 3,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/001-005.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/san-francisco-symphony",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/004.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 4,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/001-005.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/spotify",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/005.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 5,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/001-005.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/mailchimp",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/006.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 6,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/006-010.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/girl-scouts",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/007.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 7,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/006-010.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/twitch",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/008.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 8,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/006-010.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/cnet",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/009.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 9,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/006-010.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/ogilvy",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/010.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 10,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/006-010.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/freeform",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/011.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 11,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/011-015.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/sweetgreen",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/012.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 12,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/011-015.png",
+      "status": "INSPECTED",
+      "url": "https://wearecollins.com/case-studies/dropbox",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/013.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 13,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/011-015.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/medexpress",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/014.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 14,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/011-015.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/st-paul-s-cathedral",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/015.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 15,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/011-015.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/gates-foundation",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/016.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 16,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/016-020.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/london-design-festival-2024",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/017.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 17,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/016-020.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/mon-takanawa-the-museum-of-narratives",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/018.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 18,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/016-020.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/folger-shakespeare-library",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/019.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 19,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/016-020.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/national-building-museum",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/020.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 20,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/016-020.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/doris-duke-artist-awards-2026",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/021.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 21,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/021-025.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/payz",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/022.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 22,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/021-025.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/yzd",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/023.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 23,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/021-025.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/coqodaq",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/024.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 24,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/021-025.png",
+      "status": "INSPECTED",
+      "url": "https://www.pentagram.com/work/the-book-of-kells-experience",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/025.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 25,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/021-025.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/proactiv-entertainment",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/026.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 26,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/026-030.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/macba",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/027.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 27,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/026-030.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/krateo-sky",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/028.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 28,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/026-030.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/albert",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/029.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 29,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/026-030.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/miin",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/030.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 30,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/026-030.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/grandhotelcentral",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/031.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 31,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/031-035.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/four-seasons-mallorca-at-formentor",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/032.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 32,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/031-035.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/bastian-beach",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/033.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 33,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/031-035.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/stern-grove-festival",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/034.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 34,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/031-035.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/toulouse-school-of-economics",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/035.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 35,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/031-035.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/everesting",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/036.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 36,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/036-040.png",
+      "status": "INSPECTED",
+      "url": "https://wearemucho.com/work/galante",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/037.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 37,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/036-040.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/amazon",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/038.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 38,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/036-040.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/the-norton-museum-of-art",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/039.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 39,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/036-040.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/call-of-duty",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/040.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 40,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/036-040.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/microsoft-50th",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/041.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 41,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/041-045.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/marblex",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/042.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 42,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/041-045.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/yazio",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/043.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 43,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/041-045.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/lyft",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/044.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 44,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/041-045.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/huntington-bank",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/045.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 45,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/041-045.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/tripadvisor",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/046.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 46,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/046-050.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/machinex",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/047.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 47,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/046-050.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/deezer",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/048.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 48,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/046-050.png",
+      "status": "INSPECTED",
+      "url": "https://koto.com/projects/mews",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/049.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 49,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/046-050.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/wise",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/050.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 50,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/046-050.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/papier",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/051.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 51,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/051-055.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/east-london-liquor-co",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/052.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 52,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/051-055.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/marshmallow",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/053.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 53,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/051-055.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/zoe",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/054.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 54,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/051-055.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/monzo",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/055.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 55,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/051-055.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/northzone-vc-branding",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/056.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 56,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/056-060.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/globe-trotter",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/057.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 57,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/056-060.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/eager",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/058.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 58,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/056-060.png",
+      "status": "INSPECTED",
+      "url": "https://raggededge.com/partnerships/tilt",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/059.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 59,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/056-060.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/ea-sports",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/060.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 60,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/056-060.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/svns",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/061.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 61,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/061-065.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/eurostar",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/062.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 62,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/061-065.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/airbnb",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/063.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 63,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/061-065.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/royal-ballet-opera",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/064.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 64,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/061-065.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/borussia-dortmund",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/065.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 65,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/061-065.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/depop",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/066.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 66,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/066-070.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/deliveroo",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/067.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 67,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/066-070.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/the-other-house",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/068.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 68,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/066-070.png",
+      "status": "INSPECTED",
+      "url": "https://www.further.group/work/opencoreos",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/069.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 69,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/066-070.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/blank-street",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/070.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 70,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/066-070.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/decathlon",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/071.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 71,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/071-075.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/gsk",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/072.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 72,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/071-075.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/mckinsey",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/073.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 73,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/071-075.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/the-met",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/074.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 74,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/071-075.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/instacart",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/075.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 75,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/071-075.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/tiktok",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/076.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 76,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/076-080.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/the-economist",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/077.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 77,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/076-080.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/lloyds",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/078.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 78,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/076-080.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/lg-electronics",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/079.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 79,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/076-080.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/nybg",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/080.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 80,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/076-080.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/uber",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/081.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 81,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/081-085.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/patreon",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/082.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 82,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/081-085.png",
+      "status": "INSPECTED",
+      "url": "https://wolffolins.com/work/mercedes-amg-petronas-f1-team",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/083.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 83,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/081-085.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/chapter",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/084.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 84,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/081-085.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/knoll",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/085.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 85,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/081-085.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/lyme-academy-of-fine-arts",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/086.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 86,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/086-090.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/domaine",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/087.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 87,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/086-090.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/munson",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/088.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 88,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/086-090.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/moma",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/089.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 89,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/086-090.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/clhu",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/090.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 90,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/086-090.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/williams-college",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/091.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 91,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/091-095.png",
+      "status": "INSPECTED",
+      "url": "https://order.design/project/songtrust",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/092.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 92,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/091-095.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/philadelphia-museum-of-art",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/093.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 93,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/091-095.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/cbs",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/094.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 94,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/091-095.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/masterclass",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/095.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 95,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/091-095.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/national-geographic",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/096.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 96,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/096-100.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/nike-by-you",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/097.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 97,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/096-100.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/tend",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/098.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 98,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/096-100.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/hart-bageri-expansion",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/099.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 99,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/096-100.png",
+      "status": "INSPECTED",
+      "url": "https://gretelny.com/knoll-works",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/100.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 100,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/096-100.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/sundance",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/101.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 101,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/101-105.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/masp",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/102.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 102,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/101-105.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/whotels",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/103.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 103,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/101-105.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/twitch",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/104.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 104,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/101-105.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/kunsthallebasel",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/105.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 105,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/101-105.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/robinhood-market",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/106.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 106,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/106-110.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/grau",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/107.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 107,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/106-110.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/upwork",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/108.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 108,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/106-110.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/olympikus",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/109.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 109,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/106-110.png",
+      "status": "INSPECTED",
+      "url": "https://www.portorocha.com/zigzag",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/110.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 110,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/106-110.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/obama-foundation",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/111.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 111,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/111-115.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/waabi",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/112.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 112,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/111-115.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/fort-point",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/113.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 113,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/111-115.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/eames-institute",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/114.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 114,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/111-115.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/zipline",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/115.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 115,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/111-115.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/lightship",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/116.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 116,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/116-120.png",
+      "status": "INSPECTED",
+      "url": "https://manualcreative.com/work/mill",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/117.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 117,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/116-120.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/stepchange-charity-identity/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/118.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 118,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/116-120.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/stories-ink-new/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/119.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 119,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/116-120.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/bulk/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/120.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 120,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/116-120.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/brooklyn-brewery/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/121.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 121,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/121-125.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/vocation/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/122.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 122,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/121-125.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/mizkan/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/123.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 123,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/121-125.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/pooch-mutt/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/124.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 124,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/121-125.png",
+      "status": "INSPECTED",
+      "url": "https://www.robot-food.com/work/nutriment/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/125.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 125,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/121-125.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/eat-big-fish/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/126.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 126,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/126-130.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/zempler/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/127.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 127,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/126-130.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/cuckoo/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/128.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 128,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/126-130.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/mixcloud/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/129.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 129,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/126-130.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/dave/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/130.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 130,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/126-130.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/octopus-money/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/131.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 131,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/131-135.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/temple/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/132.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 132,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/131-135.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/clearbank/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/133.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 133,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/131-135.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/coinshares/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/134.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 134,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/131-135.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/calm/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/135.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 135,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/131-135.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/notch/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/136.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 136,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/136-140.png",
+      "status": "INSPECTED",
+      "url": "https://www.studio-output.com/work/pie/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/137.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 137,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/136-140.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/wilson",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/138.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 138,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/136-140.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/docusign",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/139.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 139,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/136-140.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/crafted-brand-experience-design",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/140.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 140,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/136-140.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/culture-manual-branding-web-design",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/141.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 141,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/141-145.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/the-webby-awards-website-design",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/142.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 142,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/141-145.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/tony-blair-institute",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/143.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 143,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/141-145.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/beats-by-dre-branded-ecommerce-website",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/144.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 144,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/141-145.png",
+      "status": "INSPECTED",
+      "url": "https://www.basicagency.com/case-studies/fender-academy-responsive-brand-education-platform",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/145.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 145,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/141-145.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/wework",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/146.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 146,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/146-150.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/betterment",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/147.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 147,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/146-150.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/framework",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/148.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 148,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/146-150.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/engine",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/149.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 149,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/146-150.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/capsule",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/150.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 150,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/146-150.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/brooklyn-brewery",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/151.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 151,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/151-155.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/marz",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/152.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 152,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/151-155.png",
+      "status": "INSPECTED",
+      "url": "https://ru-dy.com/work/away",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/153.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 153,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/151-155.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/atelier100",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/154.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 154,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/151-155.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/adidas-adicolor",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/155.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 155,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/151-155.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/juul",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/156.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 156,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/156-160.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/ollo",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/157.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 157,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/156-160.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/david-collins-studio",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/158.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 158,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/156-160.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/the-hand-of-clarks",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/159.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 159,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/156-160.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/le-corbusier-the-art-of-architecture",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/160.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 160,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/156-160.png",
+      "status": "INSPECTED",
+      "url": "https://bibliothequedesign.com/projects/mere",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/161.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 161,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/161-165.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/actioncoach-rebrand/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/162.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 162,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/161-165.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/starbridge/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/163.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 163,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/161-165.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/addinor/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/164.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 164,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/161-165.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/numilo/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/165.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 165,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/161-165.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/kcl-digital/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/166.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 166,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/166-170.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/cwc-solicitors/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/167.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 167,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/166-170.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/titan-workwear/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/168.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 168,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/166-170.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/omniateam/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/169.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 169,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/166-170.png",
+      "status": "INSPECTED",
+      "url": "https://www.elementsbrandmanagement.co.uk/portfolio/odyssey-sportswear/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/170.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 170,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/166-170.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/driver",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/171.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 171,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/171-175.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/moog",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/172.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 172,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/171-175.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/essential",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/173.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 173,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/171-175.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/signs",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/174.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 174,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/171-175.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/aurorasolar",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/175.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 175,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/171-175.png",
+      "status": "INSPECTED",
+      "url": "https://www.hellomonday.com/work/netflix-kids-and-family",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/176.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 176,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/176-180.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/electronic-arts",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/177.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 177,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/176-180.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/servicenow-rebrand",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/178.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 178,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/176-180.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/google-design",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/179.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 179,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/176-180.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/oura-smart-ring",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/180.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 180,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/176-180.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/eames-institute",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/181.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 181,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/181-185.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/google-holiday-100",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/182.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 182,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/181-185.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/perfected",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/183.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 183,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/181-185.png",
+      "status": "INSPECTED",
+      "url": "https://www.instrument.com/work/nike-digital-design-system",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/184.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 184,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/181-185.png",
+      "status": "INSPECTED",
+      "url": "https://www.studionari.co.uk/projects/netflix-house",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/185.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 185,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/181-185.png",
+      "status": "INSPECTED",
+      "url": "https://www.studionari.co.uk/projects/threads",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/186.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 186,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/186-190.png",
+      "status": "INSPECTED",
+      "url": "https://www.studionari.co.uk/projects/atorie",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/187.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 187,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/186-190.png",
+      "status": "INSPECTED",
+      "url": "https://www.studionari.co.uk/projects/blueberry",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/188.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 188,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/186-190.png",
+      "status": "INSPECTED",
+      "url": "https://www.studionari.co.uk/projects/brainstorm",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/189.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 189,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/186-190.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/ikea/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/190.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 190,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/186-190.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/gatorade/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/191.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 191,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/191-195.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/mta/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/192.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 192,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/191-195.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/aesop/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/193.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 193,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/191-195.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/virgin-america/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/194.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 194,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/191-195.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/planned-parenthood/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/195.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 195,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/191-195.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/philz-coffee/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/196.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 196,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/196-200.png",
+      "status": "INSPECTED",
+      "url": "https://work.co/clients/aldo/",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/197.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 197,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/196-200.png",
+      "status": "INSPECTED",
+      "url": "https://studiodumbar.com/work/nl-branding",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/198.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 198,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/196-200.png",
+      "status": "INSPECTED",
+      "url": "https://studiodumbar.com/work/meta-connect",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/199.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 199,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/196-200.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/moneda-branding",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/200.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 200,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/196-200.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/imserv-branding",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/201.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 201,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/201-205.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/smartstream-branding",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/202.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 202,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/201-205.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/seda",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/203.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 203,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/201-205.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/fluent-branding-web-design-project",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/204.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 204,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/201-205.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/smey-branding-web-design-project",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    },
+    {
+      "capture": ".artifacts/design-like-im-5/full-pages/205.png",
+      "confirmed": "Applied views must prove how a core idea works in use.",
+      "id": 205,
+      "limits": "Static page views do not prove motion timing or live interaction.",
+      "observation": "Native vision checked the opening, middle, and closing page areas.",
+      "rejected": "A title, source summary, or image count cannot prove visual meaning.",
+      "review_sheet": ".artifacts/design-like-im-5/full-sheets/201-205.png",
+      "status": "INSPECTED",
+      "url": "https://pony.studio/design-work/paradym-branding-web-design-project",
+      "views": [
+        "opening",
+        "middle",
+        "closing"
+      ]
+    }
+  ],
+  "motion_limit": "Static source pages do not prove motion timing or live interaction.",
+  "reviewed_at": "2026-08-30",
+  "reviewer": "native vision",
+  "schema": "design-like-im-5-visual-review/v1"
+}

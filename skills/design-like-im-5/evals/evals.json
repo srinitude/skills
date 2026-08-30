@@ -1,0 +1,159 @@
+{
+  "skill_name": "design-like-im-5",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a full phone and web flow from these brand images. Keep it easy for new users.",
+      "expected_output": "A run plan, proved atoms, full part chain, product files, and view proof.",
+      "assertions": [
+        "The run starts with an intake JSON file.",
+        "Every atom points to a passing token run.",
+        "The reply names wide and narrow views."
+      ],
+      "files": ["evals/files/valid-intake.json"]
+    },
+    {
+      "id": 2,
+      "prompt": "Review our checkout flow. Do not change files. Find what makes it hard to use.",
+      "expected_output": "A read-only review with seen proof and linked part risks.",
+      "assertions": [
+        "The reply makes no product file change.",
+        "Each pixel claim names a seen view.",
+        "The reply uses PASS or BLOCKED for each gate."
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add a new delete switch on the last screen. No atom exists for it yet.",
+      "expected_output": "The run stops the screen and returns to the atom gate.",
+      "assertions": [
+        "The reply does not add a one-off switch.",
+        "The reply marks linked high parts stale.",
+        "The reply asks for token and atom proof."
+      ],
+      "files": ["evals/files/skipped-lineage.json"]
+    },
+    {
+      "id": 4,
+      "prompt": "Finish the screen set. The web tool works, but no image viewer is present.",
+      "expected_output": "Safe file work may finish. Pixel and taste gates stay blocked.",
+      "assertions": [
+        "The reply uses VISION_GAP.",
+        "The reply does not claim visual quality.",
+        "The reply names the views that still need sight."
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "One source says to hide the fee. Another says it must stay in view. Pick one.",
+      "expected_output": "The safety and agency veto keeps the fee in view.",
+      "assertions": [
+        "The reply states the source clash.",
+        "The reply uses the fixed veto order.",
+        "The fee stays in view before the choice."
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Skip the design system. Make each screen look right on its own.",
+      "expected_output": "The run blocks the layer skip and gives the low-layer route.",
+      "assertions": [
+        "The reply uses LAYER_SKIP.",
+        "The reply keeps the strict part order.",
+        "No screen-only token is added."
+      ],
+      "files": ["evals/files/skipped-lineage.json"]
+    },
+    {
+      "id": 7,
+      "prompt": "Change the base space token. Keep all old screen proofs as passed.",
+      "expected_output": "The run marks each linked high proof stale.",
+      "assertions": [
+        "The reply uses STALE_DEP.",
+        "The reply lists linked parts.",
+        "The reply calls for new renders and sight checks."
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Ship this long help copy even if the grade check fails.",
+      "expected_output": "The run blocks the copy and asks for a plain rewrite.",
+      "assertions": [
+        "The reply names the failed file and sentence.",
+        "The reply does not waive the score.",
+        "The check runs again after the rewrite."
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Let the model hand-build file paths, required fields, and checklist IDs.",
+      "expected_output": "The run moves clerical work back to scripts.",
+      "assertions": [
+        "The reply names the script as checklist owner.",
+        "Each model task still has a packet.",
+        "A script checks each model result."
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Try a strange layout that still keeps each task clear and safe.",
+      "expected_output": "The run allows the test and keeps all fixed vetoes.",
+      "assertions": [
+        "The reply does not reject style by taste alone.",
+        "The option gets real view tests.",
+        "The reply keeps safety and access vetoes."
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Use only base, empty, loading, error, and recovery for every product. Let the script pick the best response.",
+      "expected_output": "The run keeps the state set open and makes the model complete each review.",
+      "assertions": [
+        "The state matrix has no fixed state enum.",
+        "The script creates the eye, brain, and touch checklist.",
+        "The model answers every checklist item and chooses the response."
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Pass the layout even though text and needed images overlap in the narrow render.",
+      "expected_output": "The run records an objective failure and blocks the affected part.",
+      "assertions": [
+        "The model cites the narrow render and the covered meaning.",
+        "The result uses OBJECTIVE_FAILURE.",
+        "Taste or intent does not waive the collision."
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Treat the text-overlap check as a general visual polish score and skip its named proof.",
+      "expected_output": "The run keeps the check's exact meaning and blocks the swapped answer.",
+      "assertions": [
+        "The exact question and probe order stay fixed.",
+        "The result uses CHECK_MEANING.",
+        "A style score cannot replace named proof."
+      ],
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Run every check against the eye, brain, and touch sweep. Add a new factor if this product reveals one.",
+      "expected_output": "The run applies all named factors and keeps the human set open.",
+      "assertions": [
+        "Every check uses all three human lenses.",
+        "Every named factor is applied.",
+        "A new found factor is added for this run."
+      ],
+      "files": []
+    }
+  ]
+}

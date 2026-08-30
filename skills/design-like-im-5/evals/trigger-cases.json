@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "skill": "design-like-im-5",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "pair_id": "full-product",
+      "prompt": "Create a full web product and its design system from these source images.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "pair_id": "full-review",
+      "prompt": "Review every state and screen in this app for clear and safe use.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "near_neighbor",
+      "pair_id": "full-product",
+      "prompt": "Change one button color in this known design system.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-004",
+      "kind": "near_neighbor",
+      "pair_id": "full-review",
+      "prompt": "Check this one sentence for plain words.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-005",
+      "kind": "hard_negative",
+      "prompt": "Make a DTCG token file from this mood board.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "hard_negative",
+      "prompt": "Write a brand case study about our last launch.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "positive",
+      "prompt": "Revise our full phone flow and rebuild each linked design part.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Fix a test bug in our data parser.",
+      "should_trigger": false
+    }
+  ]
+}

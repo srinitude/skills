@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "review-record.schema.json",
+  "title": "Model eye, brain, and touch review",
+  "type": "object",
+  "required": [
+    "action",
+    "decision",
+    "model_reviews",
+    "negative_reviews",
+    "evidence",
+    "reason",
+    "counterevidence",
+    "uncertainty",
+    "affected"
+  ],
+  "properties": {
+    "action": { "const": "visual_review" },
+    "decision": { "enum": ["PASS", "REVISE", "BLOCKED"] },
+    "model_reviews": {
+      "type": "object",
+      "required": ["eye", "brain", "touch"],
+      "properties": {
+        "eye": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        },
+        "brain": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        },
+        "touch": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "negative_reviews": {
+      "$ref": "#/$defs/negativeReviews"
+    },
+    "evidence": { "type": "array", "minItems": 1 },
+    "reason": { "type": "string" },
+    "counterevidence": { "type": "array" },
+    "uncertainty": { "type": "string" },
+    "affected": { "type": "array" }
+  },
+  "$defs": {
+    "negativeReviews": {
+      "type": "object",
+      "required": ["objective_failure", "bad_design", "bad_output", "bad_practice"],
+      "properties": {
+        "objective_failure": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        },
+        "bad_design": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        },
+        "bad_output": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        },
+        "bad_practice": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/checkAnswer" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "checkAnswer": {
+      "type": "object",
+      "required": [
+        "id",
+        "scene",
+        "observation",
+        "evidence",
+        "decision",
+        "reason",
+        "alternatives",
+        "uncertainty"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "scene": { "type": "string", "minLength": 1 },
+        "observation": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "array", "minItems": 1 },
+        "decision": {
+          "enum": ["PASS", "REVISE", "BLOCKED", "NOT_APPLICABLE"]
+        },
+        "reason": { "type": "string", "minLength": 1 },
+        "alternatives": { "type": "array", "minItems": 1 },
+        "uncertainty": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

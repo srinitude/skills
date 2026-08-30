@@ -1,0 +1,7 @@
+{
+  "id": 0,
+  "prompt": "A real user request with named files or other clear facts.",
+  "expected_output": "A result that a reviewer can check.",
+  "assertions": ["One check for the result.", "One check for a hard case."],
+  "files": []
+}

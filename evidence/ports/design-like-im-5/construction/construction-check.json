@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-08-30",
+  "checks": {
+    "all_disciplines_answer_questions": true,
+    "all_matrix_cells_filled": true,
+    "all_originals_accessible": true,
+    "all_rules_mapped": true,
+    "all_visuals_inspected": true,
+    "each_case_contributes": true,
+    "exactly_205_records": true,
+    "exactly_23_agencies": true,
+    "harm_rule_present": true,
+    "human_sweep_rule_present": true,
+    "new_primary_sources_present": true,
+    "one_meaning_rule_present": true,
+    "open_state_rule_present": true,
+    "unique_case_ids": true
+  },
+  "schema": "design-like-im-5-construction-check/v1"
+}

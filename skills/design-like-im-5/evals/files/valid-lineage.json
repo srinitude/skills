@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "dtcg_run": { "status": "PASS", "evidence": "runs/tokens/proof.json" },
+  "parts": [
+    { "id": "token.color", "layer": "tokens", "deps": [], "status": "PASS" },
+    { "id": "atom.button", "layer": "atoms", "deps": ["token.color"], "status": "PASS" },
+    {
+      "id": "molecule.form",
+      "layer": "molecules",
+      "deps": ["atom.button"],
+      "status": "PASS"
+    },
+    {
+      "id": "organism.signup",
+      "layer": "organisms",
+      "deps": ["molecule.form"],
+      "status": "PASS"
+    },
+    {
+      "id": "template.auth",
+      "layer": "templates",
+      "deps": ["organism.signup"],
+      "status": "PASS"
+    },
+    {
+      "id": "screen.signup",
+      "layer": "screens",
+      "deps": ["template.auth"],
+      "status": "PASS"
+    },
+    {
+      "id": "flow.account",
+      "layer": "interactions",
+      "deps": ["screen.signup"],
+      "status": "PASS"
+    }
+  ]
+}

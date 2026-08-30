@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "dtcg_run": { "status": "PASS", "evidence": "runs/tokens/proof.json" },
+  "parts": [
+    { "id": "token.color", "layer": "tokens", "deps": [], "status": "PASS" },
+    { "id": "atom.button", "layer": "atoms", "deps": ["token.color"], "status": "PASS" },
+    { "id": "screen.signup", "layer": "screens", "deps": ["atom.button"], "status": "PASS" }
+  ]
+}

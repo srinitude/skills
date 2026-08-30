@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "measure": "Flesch-Kincaid Grade Level",
+  "max_grade": 6.0,
+  "max_mean_sentence_words": 14,
+  "max_sentence_words": 20,
+  "scope": "Each public prose file and the full public prose set.",
+  "kept": [
+    "Plain text",
+    "headings",
+    "list text",
+    "help text",
+    "errors",
+    "comments",
+    "docstrings",
+    "prompts"
+  ],
+  "removed": ["code", "commands", "paths", "URLs", "keys", "hashes", "exact quotes"],
+  "short_text_check": "The final human read checks short terms and labels.",
+  "formula": "0.39 words per sentence, plus 11.8 syllables per word, minus 15.59."
+}

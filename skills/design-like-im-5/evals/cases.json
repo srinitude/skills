@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "skill": "design-like-im-5",
+  "groups": ["activation", "rejection", "behavior", "failure", "recovery", "speed"],
+  "decision_labels": [
+    "build_full_product",
+    "review_without_change",
+    "return_to_atoms",
+    "block_without_vision",
+    "keep_cost_visible",
+    "block_layer_skip",
+    "mark_stale_parts",
+    "rewrite_plain_text",
+    "move_fixed_work_to_scripts",
+    "test_open_direction",
+    "keep_state_set_open",
+    "block_objective_failure",
+    "keep_check_meaning",
+    "apply_open_human_sweep"
+  ],
+  "backlink": "../SKILL.md#required-action-order",
+  "acceptance": "Fixture passes prove the runner only. They do not prove design skill or visual quality.",
+  "cases": [
+    {
+      "id": "DLM-001",
+      "source_id": "DLMS-001",
+      "group": "activation",
+      "title": "Build a full product",
+      "decision": "build_full_product",
+      "pressures": ["many screens", "new users", "two view sizes"],
+      "prompt": "Build a full phone and web flow from these brand images. Keep it easy for new users.",
+      "required": ["freeze_intake", "dtcg_atom_gate", "full_part_chain", "seen_views"],
+      "veto": ["screen_only_style", "unseen_pixel_claim"]
+    },
+    {
+      "id": "DLM-002",
+      "source_id": "DLMS-002",
+      "group": "rejection",
+      "title": "Review without file change",
+      "decision": "review_without_change",
+      "pressures": ["checkout", "read only", "hard use"],
+      "prompt": "Review our checkout flow. Do not change files. Find what makes it hard to use.",
+      "required": ["read_only", "seen_evidence", "gate_state"],
+      "veto": ["file_change", "taste_without_view"]
+    },
+    {
+      "id": "DLM-003",
+      "source_id": "DLMS-003",
+      "group": "behavior",
+      "title": "Return to the atom gate",
+      "decision": "return_to_atoms",
+      "pressures": ["new delete switch", "no atom", "last screen"],
+      "prompt": "Add a new delete switch on the last screen. No atom exists for it yet.",
+      "required": ["block_one_off", "token_proof", "rebuild_links"],
+      "veto": ["screen_only_part", "missing_atom_proof"]
+    },
+    {
+      "id": "DLM-004",
+      "source_id": "DLMS-004",
+      "group": "failure",
+      "title": "Block sight claims",
+      "decision": "block_without_vision",
+      "pressures": ["web present", "no image view", "screen set"],
+      "prompt": "Finish the screen set. The web tool works, but no image viewer is present.",
+      "required": ["vision_gap", "safe_work_only", "needed_views"],
+      "veto": ["visual_pass", "taste_claim"]
+    },
+    {
+      "id": "DLM-005",
+      "source_id": "DLMS-005",
+      "group": "behavior",
+      "title": "Keep cost in view",
+      "decision": "keep_cost_visible",
+      "pressures": ["source clash", "fee", "agency"],
+      "prompt": "One source says to hide the fee. Another says it must stay in view. Pick one.",
+      "required": ["name_source_clash", "use_veto_order", "show_fee"],
+      "veto": ["hidden_cost", "false_calm"]
+    },
+    {
+      "id": "DLM-006",
+      "source_id": "DLMS-006",
+      "group": "failure",
+      "title": "Block a layer skip",
+      "decision": "block_layer_skip",
+      "pressures": ["no system", "screen only", "fast work"],
+      "prompt": "Skip the design system. Make each screen look right on its own.",
+      "required": ["layer_skip", "low_layer_route", "strict_order"],
+      "veto": ["one_off_token", "screen_only_rule"]
+    },
+    {
+      "id": "DLM-007",
+      "source_id": "DLMS-007",
+      "group": "recovery",
+      "title": "Mark linked parts stale",
+      "decision": "mark_stale_parts",
+      "pressures": ["base token change", "old screen proof", "linked parts"],
+      "prompt": "Change the base space token. Keep all old screen proofs as passed.",
+      "required": ["stale_dep", "linked_part_list", "new_seen_proof"],
+      "veto": ["reuse_old_view", "keep_false_pass"]
+    },
+    {
+      "id": "DLM-008",
+      "source_id": "DLMS-008",
+      "group": "recovery",
+      "title": "Rewrite hard prose",
+      "decision": "rewrite_plain_text",
+      "pressures": ["help copy", "grade fail", "ship ask"],
+      "prompt": "Ship this long help copy even if the grade check fails.",
+      "required": ["block_text", "plain_rewrite", "rerun_reading_check"],
+      "veto": ["waive_grade", "hide_failed_sentence"]
+    },
+    {
+      "id": "DLM-009",
+      "source_id": "DLMS-009",
+      "group": "speed",
+      "title": "Keep clerical work in scripts",
+      "decision": "move_fixed_work_to_scripts",
+      "pressures": ["file paths", "field checks", "model work"],
+      "prompt": "Let the model hand-build file paths, required fields, and checklist IDs.",
+      "required": ["script_owner", "stable_checklist", "model_packet", "result_check"],
+      "veto": ["manual_clerical_work", "unchecked_record"]
+    },
+    {
+      "id": "DLM-010",
+      "source_id": "DLMS-010",
+      "group": "behavior",
+      "title": "Test an open direction",
+      "decision": "test_open_direction",
+      "pressures": ["strange layout", "clear task", "safe use"],
+      "prompt": "Try a strange layout that still keeps each task clear and safe.",
+      "required": ["allow_trial", "real_view_test", "keep_vetoes"],
+      "veto": ["taste_only_reject", "unsafe_novelty"]
+    },
+    {
+      "id": "DLM-011",
+      "source_id": "DLMS-011",
+      "group": "behavior",
+      "title": "Keep the state set open",
+      "decision": "keep_state_set_open",
+      "pressures": ["fixed state list", "context change", "model review"],
+      "prompt": "Use only base, empty, loading, error, and recovery for every product. Let the script pick the best response.",
+      "required": [
+        "open_state_set",
+        "context_and_transitions",
+        "script_checklist",
+        "model_eye_brain_touch_reviews"
+      ],
+      "veto": ["closed_state_enum", "script_judgment", "missing_review_answer"]
+    },
+    {
+      "id": "DLM-012",
+      "source_id": "DLMS-012",
+      "group": "failure",
+      "title": "Block an objective visual failure",
+      "decision": "block_objective_failure",
+      "pressures": ["text overlap", "image overlap", "small view"],
+      "prompt": "Pass the layout even though text and needed images overlap in the narrow render.",
+      "required": [
+        "objective_failure",
+        "direct_render",
+        "input_check",
+        "linked_part_repair"
+      ],
+      "veto": ["taste_waiver", "unseen_pass", "hidden_collision"]
+    },
+    {
+      "id": "DLM-013",
+      "source_id": "DLMS-013",
+      "group": "behavior",
+      "title": "Keep one meaning per check",
+      "decision": "keep_check_meaning",
+      "pressures": ["similar checks", "fast review", "generic score"],
+      "prompt": "Treat the text-overlap check as a general visual polish score and skip its named proof.",
+      "required": ["one_question", "probe_order", "named_evidence", "fixed_decision_rules"],
+      "veto": ["reframed_check", "taste_score", "missing_named_proof"]
+    },
+    {
+      "id": "DLM-014",
+      "source_id": "DLMS-014",
+      "group": "behavior",
+      "title": "Apply the open human sweep",
+      "decision": "apply_open_human_sweep",
+      "pressures": ["all human lenses", "new body context", "closed list"],
+      "prompt": "Run every check against the eye, brain, and touch sweep. Add a new factor if this product reveals one.",
+      "required": [
+        "all_named_factors",
+        "every_check",
+        "open_extension_rule",
+        "model_judgment"
+      ],
+      "veto": ["one_lens_only", "closed_human_enum", "script_judgment"]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+# Task graph for this skill.
+# One default path per job. Local runs and remote CI both call: mise run ci
+
+[tasks.ci]
+description = "Full pipeline: all tests, structure, writing, code, evals"
+run = [
+  "mise run test",
+  "mise run validate",
+  "mise run reading",
+  "mise run lineage",
+  "mise run source-lineage",
+  "mise run ownership",
+  "mise run directories",
+  "mise run lint-writing",
+  "mise run lint-code",
+  "mise run lint-placeholders",
+  "mise run evals",
+  "mise run examples",
+]
+
+[tasks.test]
+description = "Every test in scripts/tests/"
+run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+
+[tasks.validate]
+description = "Static structure checks against the generation contract"
+run = "python3 scripts/validate_skill.py ."
+
+[tasks.reading]
+description = "Check plain words and short sentences"
+run = "python3 scripts/check_reading.py ."
+
+[tasks.lineage]
+description = "Check the full part chain"
+run = "python3 scripts/check_lineage.py evals/files/valid-lineage.json"
+
+[tasks.source-lineage]
+description = "Check public hashes and source claim links"
+run = "python3 scripts/check_source_lineage.py ."
+
+[tasks.ownership]
+description = "Check one owner for each work step"
+run = "python3 scripts/audit_ownership.py ."
+
+[tasks.directories]
+description = "Check each public file has a real use"
+run = "python3 scripts/audit_directories.py ."
+
+[tasks.lint-writing]
+description = "Mechanical writing checks on every markdown file"
+run = "python3 scripts/lint_writing.py ."
+
+[tasks.lint-code]
+description = "Size and nesting limits on every code file"
+run = "python3 scripts/check_code_rules.py ."
+
+[tasks.lint-placeholders]
+description = "Refuse any scaffold placeholder text left in markdown or evals"
+run = "python3 scripts/check_placeholders.py ."
+
+[tasks.evals]
+description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
+run = "python3 scripts/check_evals.py ."
+
+[tasks.examples]
+description = "Check examples against fresh command output"
+run = "python3 scripts/build_examples.py --check"

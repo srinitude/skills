@@ -1,0 +1,198 @@
+{
+  "version": "1.0.0",
+  "evidence_date": "2026-08-30",
+  "refresh": { "after_days": 180, "state": "STALE", "reason": "RULES_OLD" },
+  "context_fields": [
+    "user",
+    "task",
+    "platform",
+    "risk",
+    "abilities",
+    "locale",
+    "content",
+    "environment",
+    "input_mode",
+    "frequency",
+    "expertise",
+    "time_pressure"
+  ],
+  "precedence": [
+    "safety",
+    "access",
+    "understanding",
+    "agency",
+    "task_success",
+    "convention",
+    "expression",
+    "novelty",
+    "build_cost"
+  ],
+  "vetoes": [
+    { "id": "VETO_SAFETY", "test": "A choice can cause hidden harm." },
+    { "id": "VETO_ACCESS", "test": "A person cannot sense or use a key step." },
+    { "id": "VETO_SENSE", "test": "A key state or cost is hard to know." },
+    { "id": "VETO_AGENCY", "test": "A choice hides control or blocks a safe undo." }
+  ],
+  "rules": [
+    {
+      "id": "EYE_FIRST",
+      "always": true,
+      "lens": "eye",
+      "rule": "One clear thing leads each view.",
+      "evidence": "case-ledger; WCAG22; pattern-sources",
+      "counterexample": "A dense skilled tool may need more than one lead."
+    },
+    {
+      "id": "BRAIN_ONE_STEP",
+      "always": true,
+      "lens": "brain",
+      "rule": "Show each needed choice near its use.",
+      "evidence": "case-ledger; service-guidance; pattern-sources",
+      "counterexample": "Skilled users may need a full batch view."
+    },
+    {
+      "id": "TOUCH_CLEAR",
+      "always": true,
+      "lens": "touch",
+      "rule": "Give each action a clear hit area and response.",
+      "evidence": "WCAG22; platform-guidance",
+      "counterexample": "Dense tools may use input modes beyond touch."
+    },
+    {
+      "id": "NO_COLOR_ONLY",
+      "always": true,
+      "lens": "access",
+      "rule": "Do not use color as the sole sign.",
+      "evidence": "WCAG22",
+      "counterexample": "None for key facts."
+    },
+    {
+      "id": "KEEP_INPUT",
+      "always": true,
+      "lens": "recovery",
+      "rule": "Keep valid input after an error.",
+      "evidence": "pattern-sources",
+      "counterexample": "Secrets may need safe removal."
+    },
+    {
+      "id": "RISK_CONFIRM",
+      "field": "risk",
+      "values": ["high"],
+      "lens": "safety",
+      "rule": "Show the cost and ask before hard change.",
+      "evidence": "platform-guidance; game-guidance",
+      "counterexample": "Do not add a prompt to a safe undo."
+    },
+    {
+      "id": "MOTION_ALT",
+      "always": true,
+      "lens": "motion",
+      "rule": "Motion must explain change and have a calm path.",
+      "evidence": "platform-guidance",
+      "counterexample": "None for key facts."
+    },
+    {
+      "id": "WHOLE_SERVICE",
+      "always": true,
+      "lens": "system",
+      "rule": "Do not move work or risk out of sight.",
+      "evidence": "service-guidance; case-ledger",
+      "counterexample": "None when the moved cost harms another person."
+    },
+    {
+      "id": "SOURCE_IDEA",
+      "always": true,
+      "lens": "system",
+      "rule": "Make style come from product meaning.",
+      "evidence": "case-ledger",
+      "counterexample": "A plain tool may need little brand voice."
+    },
+    {
+      "id": "ADAPT_SPACE",
+      "always": true,
+      "lens": "layout",
+      "rule": "Change the layout for the space and input.",
+      "evidence": "platform-guidance",
+      "counterexample": "A fixed frame may be part of the task."
+    },
+    {
+      "id": "STATE_OPEN",
+      "always": true,
+      "lens": "state",
+      "rule": "Find states from the current person, task, events, data, system, setting, input, time, and risk. Keep the set open.",
+      "evidence": "platform-guidance; human-centered-evaluation; pattern-sources",
+      "counterexample": "Common state names can start a check. They never close the set."
+    },
+    {
+      "id": "HUMAN_SWEEP",
+      "always": true,
+      "lens": "human",
+      "rule": "Apply every named eye, brain, and touch factor to every check. Add a new factor when current proof finds one.",
+      "evidence": "WCAG22; human-centered-evaluation; platform-guidance",
+      "counterexample": "The named set is a floor. It is never the full human set."
+    },
+    {
+      "id": "HARM_CHECKS",
+      "always": true,
+      "lens": "harm",
+      "rule": "Check each objective failure, bad design, bad output, and bad practice invariant before PASS.",
+      "evidence": "WCAG22; platform-guidance; service-guidance; human-centered-evaluation",
+      "counterexample": "A context-shaped harm may pass with proof. An objective failure may not."
+    },
+    {
+      "id": "ONE_CHECK_ONE_MEANING",
+      "always": true,
+      "lens": "review",
+      "rule": "Use the exact question, evidence, probe order, and decision rules named by each check.",
+      "evidence": "human-centered-evaluation; generation-contract",
+      "counterexample": "None. Add a new check instead of changing another check's meaning."
+    }
+  ],
+  "decisions": {
+    "source": [
+      "Use first-party rules for hard limits.",
+      "Use live product views for current norms.",
+      "Mark a source gap as BLOCKED."
+    ],
+    "convention": [
+      "Keep a known pattern when it cuts learning.",
+      "Break it only with proof and a clear new cue."
+    ],
+    "disclosure": [
+      "Keep risk, cost, state, and control in view.",
+      "Hide extra detail only when it stays easy to find."
+    ],
+    "error": ["Name the issue near the cause.", "Keep safe work.", "Give one clear fix."],
+    "layers": [
+      "Promote each new need to the right low layer.",
+      "Mark all linked high parts stale."
+    ],
+    "state": [
+      "Use common states as prompts, not an enum.",
+      "Record causes, transitions, context, and unknown states.",
+      "Have the model answer every eye, brain, and touch checklist item.",
+      "Apply the full human sweep to each item.",
+      "Check all objective and context-shaped harm items."
+    ],
+    "review": [
+      "Use each check's one exact question and probe order.",
+      "Do not swap a check for taste, a score, or another check.",
+      "Let the model judge the answer from current proof."
+    ]
+  },
+  "reason_codes": [
+    "CLEAR",
+    "NEEDS_PROOF",
+    "RULES_OLD",
+    "SOURCE_GAP",
+    "VISION_GAP",
+    "LAYER_SKIP",
+    "STALE_DEP",
+    "VETO",
+    "OBJECTIVE_FAILURE",
+    "HARM_CHECK",
+    "CHECK_MEANING",
+    "PASS",
+    "BLOCKED"
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  { "query": "Design the full app and keep the core flow simple.", "should_trigger": true },
+  { "query": "Review every state in this checkout design.", "should_trigger": true },
+  { "query": "Fix our design system and rebuild linked screens.", "should_trigger": true },
+  { "query": "Make a full game menu that works with many inputs.", "should_trigger": true },
+  { "query": "Change this button from blue to green.", "should_trigger": false },
+  { "query": "Write a short launch email.", "should_trigger": false },
+  { "query": "Tell me what this logo means.", "should_trigger": false },
+  { "query": "What is the weather today?", "should_trigger": false }
+]

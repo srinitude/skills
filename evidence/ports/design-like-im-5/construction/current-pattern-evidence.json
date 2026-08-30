@@ -1,0 +1,132 @@
+{
+  "constructed_at": "2026-08-30",
+  "limits": "Pattern repetition is not proof. Each rule stays bound to its source scope.",
+  "platform_sources": [
+    "https://www.w3.org/TR/WCAG22/",
+    "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+    "https://developer.android.com/develop/ui/compose/layouts/adaptive",
+    "https://m3.material.io/foundations/layout/canonical-layouts/overview",
+    "https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/",
+    "https://www.gov.uk/service-manual/service-standard",
+    "https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/input-assistance.html",
+    "https://www.w3.org/WAI/cognitive/",
+    "https://www.nist.gov/itl/iad/human-centered-technologies/human-factors-human-centered-design",
+    "https://developer.apple.com/design/human-interface-guidelines/feedback",
+    "https://developer.apple.com/design/human-interface-guidelines/undo-and-redo",
+    "https://developer.android.com/topic/architecture/ui-layer/state-production",
+    "https://www.ftc.gov/reports/bringing-dark-patterns-light"
+  ],
+  "records": [
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "A long guide can delay direct use for repeat users.",
+      "observed_pattern": "An 18-step guide shows one action at a time in product context.",
+      "platform": "responsive web",
+      "product_context": "Google Drive onboarding",
+      "retrieved_at": "2026-08-30",
+      "scope": "guided first use",
+      "source": "Mobbin",
+      "support": "The sequence keeps the next task near the working area.",
+      "url": "https://mobbin.com/flows/1fa6557b-451b-40bf-b00e-4f74347f174b"
+    },
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "A checklist can add weight when the task is already known.",
+      "observed_pattern": "An eight-step flow uses a checklist, inline checks, and a clear end state.",
+      "platform": "responsive web",
+      "product_context": "Oyster onboarding",
+      "retrieved_at": "2026-08-30",
+      "scope": "account setup",
+      "source": "Mobbin",
+      "support": "Progress and input feedback stay visible.",
+      "url": "https://mobbin.com/flows/62a7c4ed-2059-4c8a-8179-db149adb2dc4"
+    },
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "The same path may be too slow for a skilled user.",
+      "observed_pattern": "A four-step guide shows progress and ends in the main work view.",
+      "platform": "responsive web",
+      "product_context": "Uxcel start guide",
+      "retrieved_at": "2026-08-30",
+      "scope": "short first-use guide",
+      "source": "Mobbin",
+      "support": "The end state links teaching to real use.",
+      "url": "https://mobbin.com/flows/ea3013ba-22f2-49ac-ac58-f9f60c400199"
+    },
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "A modal can hide order context if it carries too much text.",
+      "observed_pattern": "A payment error stays close to the blocked action and gives a next step.",
+      "platform": "responsive web",
+      "product_context": "Instacart payment error",
+      "retrieved_at": "2026-08-30",
+      "scope": "payment failure",
+      "source": "Refero",
+      "support": "The user can see the issue at the point of risk.",
+      "url": "https://refero.design/pages/4d703e25-a06f-4d63-9976-23d1179a4a5b"
+    },
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "Extra checks add cost to safe and easy-to-undo actions.",
+      "observed_pattern": "A destructive action names the object and separates cancel from the risk action.",
+      "platform": "responsive web",
+      "product_context": "Resend destructive action",
+      "retrieved_at": "2026-08-30",
+      "scope": "destructive choice",
+      "source": "Refero",
+      "support": "The choice and its target remain clear before change.",
+      "url": "https://refero.design/pages/c2a360c1-3b92-400c-9919-0f1333ada4ec"
+    },
+    {
+      "confidence": "HIGH_DIRECT_VIEW",
+      "conflict": "Many escape links can compete with the main next step.",
+      "observed_pattern": "An empty state keeps Back and Help near the missing-content message.",
+      "platform": "responsive web",
+      "product_context": "Mixpanel empty state",
+      "retrieved_at": "2026-08-30",
+      "scope": "empty state",
+      "source": "Lazyweb",
+      "support": "Recovery remains present when content is absent.",
+      "url": "https://www.lazyweb.com/agentic-search/387d199c-079f-4bc6-88e4-48872fe67bdf"
+    },
+    {
+      "confidence": "HIGH_PRIMARY_SOURCE",
+      "conflict": "A live message can be too loud or repeat too much.",
+      "observed_pattern": "A status can state success, wait, progress, error, or a changed result without moving focus.",
+      "platform": "web",
+      "product_context": "status after an action",
+      "retrieved_at": "2026-08-30",
+      "scope": "status messages",
+      "source": "W3C",
+      "support": "The current result stays clear to sight and access tools.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html"
+    },
+    {
+      "confidence": "HIGH_PRIMARY_SOURCE",
+      "conflict": "A state owner does not choose the best human response.",
+      "observed_pattern": "UI state comes from inputs, events, time, and change held by the right state owner.",
+      "platform": "adaptive app",
+      "product_context": "UI state production",
+      "retrieved_at": "2026-08-30",
+      "scope": "state production",
+      "source": "Android",
+      "support": "The model can find mixed and short states from current facts.",
+      "url": "https://developer.android.com/topic/architecture/ui-layer/state-production"
+    },
+    {
+      "confidence": "HIGH_PRIMARY_SOURCE",
+      "conflict": "A pattern label alone cannot prove intent or harm in every case.",
+      "observed_pattern": "Hidden terms, false time, fake rank, hard exit, and unfair data prompts can hurt informed choice.",
+      "platform": "digital service",
+      "product_context": "choice and consent",
+      "retrieved_at": "2026-08-30",
+      "scope": "consumer choice",
+      "source": "FTC",
+      "support": "The harm checks make cost, control, and consent visible before action.",
+      "url": "https://www.ftc.gov/reports/bringing-dark-patterns-light"
+    }
+  ],
+  "schema": "design-like-im-5-pattern-evidence/v1"
+}

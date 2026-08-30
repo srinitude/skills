@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "skill": "tool-call-configuration-for",
+  "public_version": "0.1.0",
+  "test_classes": [
+    "positive_activation",
+    "rejection",
+    "behavior",
+    "failure_handling",
+    "recovery",
+    "speed"
+  ],
+  "conditions": ["with_skill", "without_skill"],
+  "repetitions": 2,
+  "case_source": "cases.json",
+  "trigger_source": "trigger-cases.json",
+  "rubric": "rubric.md",
+  "contract": "contract.md",
+  "speed_budgets": "speed-budgets.json"
+}

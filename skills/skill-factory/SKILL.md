@@ -4,7 +4,7 @@ description: "Use when a workflow, recipe, or capability needs to be packaged as
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Skill Factory
@@ -24,6 +24,13 @@ Interpret the user's request as one of these commands.
 | doctor | Run scripts/doctor.py and report readiness. |
 
 `--help` on any bundled script prints its flags, exit codes, and an example. Suppose the request matches no command, or a needed fact is missing and cannot be inferred. In this case stop, report exactly what is missing, and wait. Do not guess.
+
+<!-- tccf:exec-command-configuration-v1:start -->
+## What configuration applies to `exec_command`?
+
+Before any command in this skill invokes the exact native callable `exec_command`, read `references/exec-command-configuration.md` and apply all eight traced rules. Keep that configuration active through result classification, follow-up sessions, readback, and cleanup. It is instruction-only, applies only to `exec_command`, and does not change sibling tools or other callable paths.
+
+<!-- tccf:exec-command-configuration-v1:end -->
 
 ## How do I build a new skill?
 

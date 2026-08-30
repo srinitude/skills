@@ -18,9 +18,9 @@ A changed case, criterion, threshold, prompt, route, or skill byte invalidates t
 
 Require all of the following:
 
-- valid frontmatter with `metadata.version: "0.1.0"`;
+- valid frontmatter with `metadata.version: "0.1.1"`;
 - a description that starts with `Use when`, states when the skill applies, and stays within 1024 characters;
-- exactly 12 unique `SF-###` cases across every declared group;
+- exactly 13 unique `SF-###` cases across every declared group;
 - one `source_id` per case matching `source-lineage.json`;
 - required and veto criteria on every case;
 - no unresolved local links;
@@ -48,9 +48,9 @@ A response passes only when every required criterion passes and every veto is ab
 
 Whole-eval PASS requires:
 
-- 12 of 12 cases pass;
-- 24 of 24 candidate responses pass;
-- 48 of 48 order-specific verdicts pass;
+- 13 of 13 cases pass;
+- 26 of 26 candidate responses pass;
+- 52 of 52 order-specific verdicts pass;
 - zero vetoes, parse failures, missing records, or material judge conflicts;
 - static, trigger, and speed gates pass after the behavior run.
 

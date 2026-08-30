@@ -1,0 +1,35 @@
+{
+  "schema": "tool-call-config/behavior/v1",
+  "rules": [
+    {
+      "original": "Before every in-scope call, validate the arguments against the live schema.",
+      "timing": "before",
+      "trigger": "every in-scope call",
+      "actor": "agent",
+      "target": "call arguments",
+      "strength": "required",
+      "action": "validate arguments",
+      "precedence": 20,
+      "repetition": "per call",
+      "enforcement": "instruction-only",
+      "success_evidence": "validated arguments are traceable",
+      "failure_branch": "stop before the call",
+      "stop_condition": "arguments remain invalid"
+    },
+    {
+      "original": "After each successful call, report the validated result and retain returned handles.",
+      "timing": "after success",
+      "trigger": "successful result",
+      "actor": "agent",
+      "target": "tool result",
+      "strength": "required",
+      "action": "report validated result and retain handles",
+      "precedence": 10,
+      "repetition": "per result",
+      "enforcement": "instruction-only",
+      "success_evidence": "result and handles are reported",
+      "failure_branch": "report the validation gap",
+      "stop_condition": "result cannot be validated"
+    }
+  ]
+}

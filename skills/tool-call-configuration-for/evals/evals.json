@@ -1,0 +1,87 @@
+{
+  "skill_name": "tool-call-configuration-for",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate a tool-specific skill from @evals/fixtures/established-mcp-read.json using @evals/fixtures/behavior-report.json.",
+      "expected_output": "A complete collision-safe skill package plus separate tool, behavior, matrix, and lineage evidence.",
+      "assertions": [
+        "The exact callable catalog.lookup and origin established-mcp appear in the package.",
+        "Read-only safeguards omit state-change approval and independent readback claims."
+      ],
+      "files": [
+        "evals/fixtures/established-mcp-read.json",
+        "evals/fixtures/behavior-report.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a skill for @evals/fixtures/owned-mcp-write.json with @evals/fixtures/behavior-approval.json.",
+      "expected_output": "A state-changing lifecycle with exact-input approval, safe retry rules, and independent readback.",
+      "assertions": [
+        "The instructions require approval before each write.",
+        "The instructions require the separate readback before completion."
+      ],
+      "files": [
+        "evals/fixtures/owned-mcp-write.json",
+        "evals/fixtures/behavior-approval.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Resolve runtime.inspect through @evals/fixtures/native-registry.json and generate with inline behavior Report the validated structured result.",
+      "expected_output": "One native tool package with a contract-hash identity and no protocol-only semantics.",
+      "assertions": [
+        "The exact name resolves to one registry entry.",
+        "The generated name is stable across two runs."
+      ],
+      "files": ["evals/fixtures/native-registry.json"]
+    },
+    {
+      "id": 4,
+      "prompt": "Generate for the custom callable in @evals/fixtures/custom-descriptor.json and preserve its punctuation.",
+      "expected_output": "A normalized filesystem name that retains ledger::status? as the exact callable in the body and identity asset.",
+      "assertions": [
+        "The package directory uses a safe normalized name and stable suffix.",
+        "The body does not replace the exact callable with its normalized name."
+      ],
+      "files": ["evals/fixtures/custom-descriptor.json"]
+    },
+    {
+      "id": 5,
+      "prompt": "Generate with an empty behavior file.",
+      "expected_output": "A checked input error with no generated skill.",
+      "assertions": [
+        "The diagnostic names the empty behavior input.",
+        "The run exits 2 before writing a package."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Generate for a registry where two origins expose the short name status.",
+      "expected_output": "A checked identity error requesting a discriminator.",
+      "assertions": [
+        "The diagnostic reports two matches.",
+        "No origin, owner, runtime, or namespace is guessed."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Apply one exact tool behavior to an existing multi-tool skill, then run the same apply command again.",
+      "expected_output": "A minimal validated patch on the first run and status no-op with zero changed files on the second.",
+      "assertions": [
+        "Unrelated sibling-tool behavior remains present.",
+        "The configured block appears exactly once."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Apply a hash-bound plan after another writer changes SKILL.md.",
+      "expected_output": "A stale-plan error before any mutation.",
+      "assertions": [
+        "The changed path appears in the diagnostic.",
+        "No declared target file is modified by the rejected run."
+      ]
+    }
+  ]
+}

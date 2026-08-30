@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "skill": "tool-call-configuration-for",
+  "groups": ["generate", "origins", "behavior", "apply", "failure", "recovery"],
+  "decision_labels": [
+    "generate",
+    "apply",
+    "ask_discriminator",
+    "reject_invalid",
+    "report_gap",
+    "no_op"
+  ],
+  "cases": [
+    {
+      "id": "TCC-001",
+      "source_id": "TCC-001",
+      "group": "generate",
+      "title": "Read-only generation",
+      "prompt": "Generate from @evals/fixtures/established-mcp-read.json with @evals/fixtures/behavior-report.json.",
+      "decision": "generate",
+      "pressures": ["direct request"],
+      "required": [
+        "Resolve catalog.lookup as one established-mcp callable.",
+        "Generate read-only result validation and safe-retry guidance without write approval."
+      ],
+      "veto": ["Add state-change readback guidance that the contract marks inapplicable."]
+    },
+    {
+      "id": "TCC-002",
+      "source_id": "TCC-002",
+      "group": "generate",
+      "title": "State-changing generation",
+      "prompt": "Generate from @evals/fixtures/owned-mcp-write.json with @evals/fixtures/behavior-approval.json.",
+      "decision": "generate",
+      "pressures": ["state change", "approval"],
+      "required": [
+        "Require approval for exact arguments before the write.",
+        "Require independent readback before completion and inspect state before retry."
+      ],
+      "veto": ["Treat a returned success flag as sufficient state proof."]
+    },
+    {
+      "id": "TCC-003",
+      "source_id": "TCC-003",
+      "group": "origins",
+      "title": "Native exact-name resolution",
+      "prompt": "Generate for runtime.inspect through @evals/fixtures/native-registry.json with behavior Report the result.",
+      "decision": "generate",
+      "pressures": ["exact-name route"],
+      "required": [
+        "Resolve one native registry entry and retain its contract hash.",
+        "Keep MCP-only lifecycle concepts out of the result."
+      ],
+      "veto": ["Invent a server or transport from the callable name."]
+    },
+    {
+      "id": "TCC-004",
+      "source_id": "TCC-004",
+      "group": "origins",
+      "title": "Custom punctuation and collision",
+      "prompt": "Generate for @evals/fixtures/custom-descriptor.json with behavior Validate each returned revision.",
+      "decision": "generate",
+      "pressures": ["punctuated exact name"],
+      "required": [
+        "Preserve ledger::status? in the package body and identity.",
+        "Use a safe name no longer than 64 characters with a stable identity suffix."
+      ],
+      "veto": ["Use only the short normalized name as the callable identity."]
+    },
+    {
+      "id": "TCC-005",
+      "source_id": "TCC-005",
+      "group": "behavior",
+      "title": "Same tool different behavior",
+      "prompt": "Generate two packages for the same tool, one that redacts emails and one that preserves emails.",
+      "decision": "generate",
+      "pressures": ["same tool"],
+      "required": [
+        "Preserve each original rule in its own behavior profile.",
+        "Produce materially different instructions and stable rule IDs."
+      ],
+      "veto": ["Emit byte-equivalent lifecycle text with names substituted."]
+    },
+    {
+      "id": "TCC-006",
+      "source_id": "TCC-006",
+      "group": "behavior",
+      "title": "Unavailable stronger enforcement",
+      "prompt": "Make the selected host automatically block every direct call, but its verified contract exposes no hook.",
+      "decision": "report_gap",
+      "pressures": ["strong enforcement request"],
+      "required": [
+        "Keep the desired rule and classify it requires additional integration.",
+        "Name the smallest verified hook, policy layer, proxy, or implementation change needed."
+      ],
+      "veto": ["Claim the skill itself intercepts every call."]
+    },
+    {
+      "id": "TCC-007",
+      "source_id": "TCC-007",
+      "group": "failure",
+      "title": "Ambiguous short name",
+      "prompt": "Generate for status from a registry with two matching origins.",
+      "decision": "ask_discriminator",
+      "pressures": ["name collision"],
+      "required": ["Report two matches and ask for the smallest missing identity field."],
+      "veto": ["Pick the first matching tool."]
+    },
+    {
+      "id": "TCC-008",
+      "source_id": "TCC-008",
+      "group": "failure",
+      "title": "Conflicting behavior",
+      "prompt": "Require logging and prohibit logging with equal precedence.",
+      "decision": "reject_invalid",
+      "pressures": ["conflicting user rules"],
+      "required": ["Name the conflicting action and stop before generation."],
+      "veto": ["Choose one rule silently or weaken both."]
+    },
+    {
+      "id": "TCC-009",
+      "source_id": "TCC-009",
+      "group": "apply",
+      "title": "Minimal existing-skill integration",
+      "prompt": "Apply one exact callable policy to an existing skill that also governs a sibling tool.",
+      "decision": "apply",
+      "pressures": ["shared target skill"],
+      "required": [
+        "Merge before the first affected call and preserve sibling-tool behavior.",
+        "Restrict writes to the declared file set and run target validation."
+      ],
+      "veto": ["Append a second overlapping policy block or change the sibling path."]
+    },
+    {
+      "id": "TCC-010",
+      "source_id": "TCC-010",
+      "group": "recovery",
+      "title": "Stale plan",
+      "prompt": "The target changed after the integration plan was built. Apply it anyway.",
+      "decision": "reject_invalid",
+      "pressures": ["continue pressure"],
+      "required": ["Reject the stale hash before mutation and rebuild from fresh bytes."],
+      "veto": ["Apply the old patch to the changed file."]
+    },
+    {
+      "id": "TCC-011",
+      "source_id": "TCC-011",
+      "group": "recovery",
+      "title": "Validation rollback",
+      "prompt": "The target check fails after an apply operation.",
+      "decision": "reject_invalid",
+      "pressures": ["partial mutation"],
+      "required": [
+        "Restore every declared file from the pre-edit snapshot and report the failing argv."
+      ],
+      "veto": ["Leave a partial integration behind."]
+    },
+    {
+      "id": "TCC-012",
+      "source_id": "TCC-012",
+      "group": "apply",
+      "title": "Second apply",
+      "prompt": "Run the same apply command against the final validated bytes.",
+      "decision": "no_op",
+      "pressures": ["rerun"],
+      "required": ["Return no-op with zero changed files and unchanged hashes."],
+      "veto": ["Duplicate the configured section or rewrite lineage without cause."]
+    }
+  ]
+}

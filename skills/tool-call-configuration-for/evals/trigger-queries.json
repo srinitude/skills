@@ -1,0 +1,38 @@
+[
+  {
+    "query": "Create a skill that always validates arguments before calls to my exact tool.",
+    "should_trigger": true
+  },
+  {
+    "query": "Apply @policy.json around runtime.inspect calls in skills/my-auditor.",
+    "should_trigger": true
+  },
+  {
+    "query": "Generate a tool-call skill from @tool.json and @rules.yaml.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make sandbox.write-note require approval and a readback after every write.",
+    "should_trigger": true
+  },
+  {
+    "query": "Update the existing skill so one exact callable redacts selected output fields.",
+    "should_trigger": true
+  },
+  {
+    "query": "Configure a retry and cancellation policy for catalog.lookup.",
+    "should_trigger": true
+  },
+  { "query": "Explain how tool calls work in general.", "should_trigger": false },
+  { "query": "Write an implementation of a new callable tool.", "should_trigger": false },
+  { "query": "Document the input schema for runtime.inspect.", "should_trigger": false },
+  { "query": "Install an MCP server and list all of its tools.", "should_trigger": false },
+  {
+    "query": "Change the behavior of every tool in this namespace.",
+    "should_trigger": false
+  },
+  {
+    "query": "Validate an existing skill package without configuring a tool call.",
+    "should_trigger": false
+  }
+]

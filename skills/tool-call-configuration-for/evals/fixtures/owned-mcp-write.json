@@ -1,0 +1,47 @@
+{
+  "schema": "tool-call-config/tool-descriptor/v1",
+  "origin_class": "owned-mcp",
+  "callable_name": "sandbox.write-note",
+  "provider_or_owner": "local-fixture-owner",
+  "runtime_or_server": "owned-fixture",
+  "namespace": "sandbox",
+  "version": "1.0.0",
+  "discovery_route": "scripts/fixture_server.py tools/list",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "key": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "text": { "type": "string" }
+    },
+    "required": ["key", "text"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": { "content": { "type": "array" } },
+    "required": ["content"]
+  },
+  "capabilities": {
+    "read_only": false,
+    "state_changing": true,
+    "approval_required": true,
+    "idempotent": false,
+    "supports_progress": false,
+    "supports_cancellation": false,
+    "supports_readback": true,
+    "readback_tool": "sandbox.read-note",
+    "returns_state_handle": true,
+    "safe_retry_conditions": ["independent readback proves the write is absent"],
+    "known_failures": ["invalid key", "unwritable fixture root"]
+  },
+  "sources": [
+    {
+      "locator": "scripts/fixture_server.py",
+      "owner": "local fixture",
+      "retrieved": "2026-08-30",
+      "version": "1.0.0",
+      "claim": "registration, handler, confined state, and readback",
+      "kind": "source and runtime probe",
+      "status": "verified"
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "tool-call-configuration-for",
+  "source_kind": "repository_baseline",
+  "native_manifest_sha256": "283396ec44e9f65bd232f504718166b092707fabf5683805d4585a9cfbeb9109",
+  "evidence_packet_sha256": "283396ec44e9f65bd232f504718166b092707fabf5683805d4585a9cfbeb9109",
+  "files": [
+    {
+      "source_path": ".github/workflows/ci.yml",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/.github/workflows/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0",
+      "bytes": 423
+    },
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/SKILL.md",
+      "sha256": "b7d42256d781fe46395f818456707d97fb88b37417fa6642d9015ce345e90931",
+      "bytes": 9495
+    },
+    {
+      "source_path": "assets/eval-case-template.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/assets/eval-case-template.json",
+      "sha256": "89cff553a7d700331104d6dedf95ee5961d014fca3b7283044b1dd1369175563",
+      "bytes": 392
+    },
+    {
+      "source_path": "assets/generated-ci.yml",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/assets/generated-ci.yml",
+      "sha256": "ef17d227ced2b78e436fbc50667a994a07833c28f9c54fb5045e5dc340514271",
+      "bytes": 181
+    },
+    {
+      "source_path": "assets/generated-contract-test.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/assets/generated-contract-test.py",
+      "sha256": "a80348a0feeb09c88c94f16d6c4943f90ffa29fd71cbeb127675537c4fc71f15",
+      "bytes": 878
+    },
+    {
+      "source_path": "assets/generated-mise.toml",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/assets/generated-mise.toml",
+      "sha256": "168307eddfcb73071657ba1d411e41e0c0de1e13e226dd8e041239e2de5d6e20",
+      "bytes": 873
+    },
+    {
+      "source_path": "assets/generated-skill-template.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/assets/generated-skill-template.md",
+      "sha256": "33dabf2b7ac87d8c114e3e3e00a46d3a1ec5c245d092de44be7e4a01b0be2732",
+      "bytes": 3119
+    },
+    {
+      "source_path": "evals/cases.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/cases.json",
+      "sha256": "6babafb2ce772754267daf2178aea6462f13659e490a70f3207dada5ffbe5f1f",
+      "bytes": 6636
+    },
+    {
+      "source_path": "evals/contract.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/contract.md",
+      "sha256": "8c2eebe864b23f0c2c1f55c83b2001bef20854a7f181695620a0ae1ce6c78a41",
+      "bytes": 616
+    },
+    {
+      "source_path": "evals/evals.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/evals.json",
+      "sha256": "74c67b5eee16d2883761519eabe2af998dccd2dfec1e7cf3b557a774c15f0306",
+      "bytes": 3704
+    },
+    {
+      "source_path": "evals/fixtures/behavior-approval.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/behavior-approval.json",
+      "sha256": "ebcaa5064d6c582bc1a6fb9502bd331e2db3bbcf87a233b149e8bf9621630df9",
+      "bytes": 1384
+    },
+    {
+      "source_path": "evals/fixtures/behavior-report.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/behavior-report.json",
+      "sha256": "2acbe9df697a634182b0b074530af2cba506c276466b11776200a3ad3f4e48e2",
+      "bytes": 1228
+    },
+    {
+      "source_path": "evals/fixtures/custom-descriptor.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/custom-descriptor.json",
+      "sha256": "eceac138f46b2fdc56cfb50d4697ae369e4aa7d1bb1dffd156a182037a9c380c",
+      "bytes": 1205
+    },
+    {
+      "source_path": "evals/fixtures/established-mcp-read.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/established-mcp-read.json",
+      "sha256": "a0ef5296d9b6c9e9918dec65cdc124652899e777e6bac523bbe5069ffc4e9e8b",
+      "bytes": 1260
+    },
+    {
+      "source_path": "evals/fixtures/native-registry.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/native-registry.json",
+      "sha256": "c0ff0701bd644071d9e4ecb3e3c7bde43b61b47ecfb33084bf7b1be806bc0af4",
+      "bytes": 1300
+    },
+    {
+      "source_path": "evals/fixtures/owned-mcp-write.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/fixtures/owned-mcp-write.json",
+      "sha256": "80f3805608d77a449b9e2aa11c1cb4373a245b0fa14ae5e7f63332accad2fd61",
+      "bytes": 1417
+    },
+    {
+      "source_path": "evals/manifest.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/manifest.json",
+      "sha256": "4c7d637e37960608696065a22cdba744b5b87c0c576286e2a63e49e2e3b17dc3",
+      "bytes": 471
+    },
+    {
+      "source_path": "evals/rubric.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/rubric.md",
+      "sha256": "e5d3e952c95093b8ce77a229fa5702fe54247e84fa6cc54c5a219b5880d1fbc0",
+      "bytes": 679
+    },
+    {
+      "source_path": "evals/speed-budgets.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/speed-budgets.json",
+      "sha256": "ed98924c11b002324e06afd79cdcd1bd45bf3e33e5a586e59c43f98c3d94aac8",
+      "bytes": 349
+    },
+    {
+      "source_path": "evals/trigger-cases.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/trigger-cases.json",
+      "sha256": "15c7f27175f990f0db25f4d3c296822b189842024cc3383ce49e0e6deb455587",
+      "bytes": 2271
+    },
+    {
+      "source_path": "evals/trigger-queries.json",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/evals/trigger-queries.json",
+      "sha256": "2044b24dc3bf0d4f8913d1f7e82dbc73ebc5afb560cf9718c486b084a1e8fe8f",
+      "bytes": 1323
+    },
+    {
+      "source_path": "examples/example-apply.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/examples/example-apply.md",
+      "sha256": "c2725bc648fe9a85182f909ef4d27df0b458c1773637612d6f5fbae1da7eaf14",
+      "bytes": 2766
+    },
+    {
+      "source_path": "examples/example-generate.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/examples/example-generate.md",
+      "sha256": "1796e8b9d55e8596f10d07cf3e89655d3e29b9c6a476646722562734479ebdf4",
+      "bytes": 3058
+    },
+    {
+      "source_path": "examples/example-help.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/examples/example-help.md",
+      "sha256": "b7009dc152514597874e51e3fe33df993edc7cabafd173514d6ffe631a466424",
+      "bytes": 1193
+    },
+    {
+      "source_path": "examples/example-identity-failure.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/examples/example-identity-failure.md",
+      "sha256": "4074932d1fadda671db2b4b810b736e3fe0fed2fd75663333cf6624966ee6170",
+      "bytes": 886
+    },
+    {
+      "source_path": "mise.toml",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/mise.toml",
+      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558",
+      "bytes": 1155
+    },
+    {
+      "source_path": "references/apply-contract.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/apply-contract.md",
+      "sha256": "60c2eac7ac553fcb3897c85528a2edf9ec92d2a917e2b38e96e879b872637eff",
+      "bytes": 1962
+    },
+    {
+      "source_path": "references/behavior-profile.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/behavior-profile.md",
+      "sha256": "86a8932432d3366bb45386f6b35bb7c6d2efc2e33892acb22cd681bc3e3bf97a",
+      "bytes": 2131
+    },
+    {
+      "source_path": "references/decisions.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/decisions.md",
+      "sha256": "45d9ae0e388c205cea78452762a8a4899bce4ab53b55a7f3f48805423fc92fb6",
+      "bytes": 934
+    },
+    {
+      "source_path": "references/generation-contract.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
+      "bytes": 5517
+    },
+    {
+      "source_path": "references/research-protocol.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/research-protocol.md",
+      "sha256": "1f1c2060b4dd7be6af22a1fb3ea5fd8f0c3fb12b4d49186ca8498539a5becae9",
+      "bytes": 2277
+    },
+    {
+      "source_path": "references/tool-profile.md",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/references/tool-profile.md",
+      "sha256": "701db1ff88b883974f3e41d07ac79ff65cab52677a3b69e2c90bcb2e74298f66",
+      "bytes": 2291
+    },
+    {
+      "source_path": "scripts/check_code_rules.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
+      "bytes": 4197
+    },
+    {
+      "source_path": "scripts/check_evals.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/check_evals.py",
+      "sha256": "0cf4a802871dab8c9fe8f17f106908405dbd9a0000d790292c0934c57e508a48",
+      "bytes": 6672
+    },
+    {
+      "source_path": "scripts/check_placeholders.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a",
+      "bytes": 3496
+    },
+    {
+      "source_path": "scripts/fixture_server.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/fixture_server.py",
+      "sha256": "0c20a08cbf268c5238a6c89a9cdc92cd2f7fb010e2fce3bca88007f70c4d4733",
+      "bytes": 2997
+    },
+    {
+      "source_path": "scripts/lib/__init__.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/__init__.py",
+      "sha256": "fe2eb58e954a0ecac9e5f05a3645fbc0f0ac91230bf3857b420cb6f259898c8c",
+      "bytes": 63
+    },
+    {
+      "source_path": "scripts/lib/apply_plan.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/apply_plan.py",
+      "sha256": "cc48865a20d305c1b9b0259f2a4748946183f0a6aba91e951c4a20a696d7b54c",
+      "bytes": 7275
+    },
+    {
+      "source_path": "scripts/lib/common.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/common.py",
+      "sha256": "4386b1dc2c5212975669973c286a4f8e93815f908b52da504870e55066fb84f8",
+      "bytes": 2288
+    },
+    {
+      "source_path": "scripts/lib/lineage.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/lineage.py",
+      "sha256": "6d1988b2cb8f3a2eff31652e9bc42e620cd60d8e359cf2aec7822b3364926bd2",
+      "bytes": 2465
+    },
+    {
+      "source_path": "scripts/lib/matrix.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/matrix.py",
+      "sha256": "171336977ec07789808374cc572f1f8ef8c03a7826166200a62b8792f7765013",
+      "bytes": 1288
+    },
+    {
+      "source_path": "scripts/lib/profiles.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/profiles.py",
+      "sha256": "d6ee64a4ac10ad963b36b0f1bd66d4f22719283a52fcb8ba72e06dfb101b7ac4",
+      "bytes": 6868
+    },
+    {
+      "source_path": "scripts/lib/render_evals.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/render_evals.py",
+      "sha256": "572360bd37fd13b74f2c28138ee6502656b1f3aeb39c71d027e92c97bad3e832",
+      "bytes": 4642
+    },
+    {
+      "source_path": "scripts/lib/render_skill.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lib/render_skill.py",
+      "sha256": "e7724d173d77f19cefe21e69ee1a2c0f00e797baa82cd9cfab750cc12ec333d1",
+      "bytes": 8108
+    },
+    {
+      "source_path": "scripts/lint_writing.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399",
+      "bytes": 5481
+    },
+    {
+      "source_path": "scripts/skill_info.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/skill_info.py",
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28",
+      "bytes": 1586
+    },
+    {
+      "source_path": "scripts/tests/test_apply_workflow.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_apply_workflow.py",
+      "sha256": "4dadffac4d242ece565426c57a7a2392effa2b7e395805dc8959ad1896797afd",
+      "bytes": 7143
+    },
+    {
+      "source_path": "scripts/tests/test_behavior_inputs.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_behavior_inputs.py",
+      "sha256": "dabe8a15e0784866bf98ff4df75095f5aab9872efbfb7bfb2fc52cb660d0d981",
+      "bytes": 4265
+    },
+    {
+      "source_path": "scripts/tests/test_ci_contract.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_ci_contract.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652",
+      "bytes": 2394
+    },
+    {
+      "source_path": "scripts/tests/test_fixture_server.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_fixture_server.py",
+      "sha256": "2f8b5085069191d5011432c3e9785738ac53b0c0e1f21d6e6f247fb186cbc060",
+      "bytes": 2257
+    },
+    {
+      "source_path": "scripts/tests/test_generation.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_generation.py",
+      "sha256": "04a1e1c8dd6213a113ed524968cb601c52cb5d284a9c8f92887754d7eea11209",
+      "bytes": 9866
+    },
+    {
+      "source_path": "scripts/tests/test_registry_contract.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_registry_contract.py",
+      "sha256": "62c584b118ba2f1a16e627f4f55e3dac1f2298b3332981066439bb03aed5cf6f",
+      "bytes": 1999
+    },
+    {
+      "source_path": "scripts/tests/test_scripts.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_scripts.py",
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73",
+      "bytes": 1214
+    },
+    {
+      "source_path": "scripts/tests/test_source_lineage.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_source_lineage.py",
+      "sha256": "6992dac572e2f08204f1655bfd07d0fe27ab7e9a5ba97f50fe1985a0ab9fac7e",
+      "bytes": 1612
+    },
+    {
+      "source_path": "scripts/tests/test_trace_fixture.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tests/test_trace_fixture.py",
+      "sha256": "9b17c03887d69cda2b56fcb16d1512682b2a1fa707ed238ebe81df1f203884e1",
+      "bytes": 1697
+    },
+    {
+      "source_path": "scripts/tool_call_config.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/tool_call_config.py",
+      "sha256": "1dd0b73c3cf6cff72b4aba3c409a87315d5f186ad4f6cbfea282b7aa777582ab",
+      "bytes": 4281
+    },
+    {
+      "source_path": "scripts/trace_fixture.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/trace_fixture.py",
+      "sha256": "a7996897f39756f57f2e327efa90fc4bda40f26ce02af815e7faade620b6913e",
+      "bytes": 2261
+    },
+    {
+      "source_path": "scripts/validate_skill.py",
+      "location_kind": "repository",
+      "location_path": "skills/tool-call-configuration-for/scripts/validate_skill.py",
+      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a",
+      "bytes": 4310
+    }
+  ]
+}

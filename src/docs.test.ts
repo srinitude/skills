@@ -140,6 +140,9 @@ test('keeps the root guide concise and the Aider route portable', async () => {
   expect(aider).toContain('--read /absolute/path/to/skills/skills/timebox/SKILL.md');
   expect(aider).toContain('--read /absolute/path/to/skills/skills/skill-factory/SKILL.md');
   expect(aider).toContain(
+    '--read /absolute/path/to/skills/skills/tool-call-configuration-for/SKILL.md',
+  );
+  expect(aider).toContain(
     '--read /absolute/path/to/skills/skills/visual-design-system-extractor/SKILL.md',
   );
   expect(aider).toContain(

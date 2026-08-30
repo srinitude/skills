@@ -1,0 +1,45 @@
+{
+  "tools": [
+    {
+      "schema": "tool-call-config/tool-descriptor/v1",
+      "origin_class": "native",
+      "callable_name": "runtime.inspect",
+      "provider_or_owner": "fixture-host",
+      "runtime_or_server": "fixture-runtime",
+      "namespace": "runtime",
+      "version": null,
+      "discovery_route": "captured native registry fixture",
+      "input_schema": {
+        "type": "object",
+        "properties": { "path": { "type": "string" } },
+        "required": ["path"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": { "exists": { "type": "boolean" } },
+        "required": ["exists"]
+      },
+      "capabilities": {
+        "read_only": true,
+        "state_changing": false,
+        "approval_required": false,
+        "idempotent": true,
+        "supports_progress": false,
+        "supports_cancellation": false,
+        "supports_readback": false,
+        "structured_output": true
+      },
+      "sources": [
+        {
+          "locator": "evals/fixtures/native-registry.json",
+          "owner": "local fixture",
+          "retrieved": "2026-08-30",
+          "version": "contract hash",
+          "claim": "exact native registry entry",
+          "kind": "captured registry",
+          "status": "verified"
+        }
+      ]
+    }
+  ]
+}

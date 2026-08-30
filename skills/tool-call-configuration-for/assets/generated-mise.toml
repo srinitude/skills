@@ -1,0 +1,34 @@
+[tasks.ci]
+description = "Full generated-skill pipeline"
+run = [
+  "mise run test",
+  "mise run validate",
+  "mise run lint-writing",
+  "mise run lint-code",
+  "mise run lint-placeholders",
+  "mise run evals",
+]
+
+[tasks.test]
+description = "Generated skill contract tests"
+run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+
+[tasks.validate]
+description = "Static package validation"
+run = "python3 scripts/validate_skill.py ."
+
+[tasks.lint-writing]
+description = "Markdown writing checks"
+run = "python3 scripts/lint_writing.py ."
+
+[tasks.lint-code]
+description = "Code size and shape checks"
+run = "python3 scripts/check_code_rules.py ."
+
+[tasks.lint-placeholders]
+description = "Unresolved placeholder checks"
+run = "python3 scripts/check_placeholders.py ."
+
+[tasks.evals]
+description = "Eval schema checks"
+run = "python3 scripts/check_evals.py ."

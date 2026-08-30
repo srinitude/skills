@@ -73,7 +73,7 @@ test('validates the repository as an Agent Plugins 1.0.0 package', async () => {
   expect(report.status, report.findings.map((finding) => finding.message).join('\n')).toBe(
     'PASS',
   );
-  expect(report.skills).toHaveLength(20);
+  expect(report.skills).toHaveLength(21);
   expect(report.servers).toEqual(['srinitude-skills']);
   expect(report.schema_version).toBe('1.0.0');
 });

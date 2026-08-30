@@ -22,9 +22,10 @@ const expectedSkills = [
   ['prompt-enhancer', '0.1.0'],
   ['reify', '0.1.0'],
   ['simplify-skill', '0.1.0'],
-  ['skill-factory', '0.1.0'],
+  ['skill-factory', '0.1.1'],
   ['starting-point', '0.1.0'],
   ['timebox', '0.1.1'],
+  ['tool-call-configuration-for', '0.1.0'],
   ['visual-design-system-extractor', '0.2.1'],
   ['would-agents-actually', '0.1.0'],
   ['would-humans-actually', '0.1.0'],
@@ -42,7 +43,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 20,
+    skillCount: 21,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',

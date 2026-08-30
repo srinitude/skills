@@ -1,0 +1,42 @@
+{
+  "schema": "tool-call-config/tool-descriptor/v1",
+  "origin_class": "custom",
+  "callable_name": "ledger::status?",
+  "provider_or_owner": "fixture-owner",
+  "runtime_or_server": "fixture-callable-registry",
+  "namespace": "ledger",
+  "version": "2026.08",
+  "discovery_route": "descriptor-backed fixture",
+  "input_schema": {
+    "type": "object",
+    "properties": { "handle": { "type": "string" } },
+    "required": ["handle"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": { "state": { "type": "string" }, "revision": { "type": "integer" } },
+    "required": ["state", "revision"]
+  },
+  "capabilities": {
+    "read_only": true,
+    "state_changing": false,
+    "approval_required": false,
+    "idempotent": true,
+    "supports_progress": false,
+    "supports_cancellation": false,
+    "supports_readback": true,
+    "structured_output": true,
+    "returns_state_handle": true
+  },
+  "sources": [
+    {
+      "locator": "evals/fixtures/custom-descriptor.json",
+      "owner": "local fixture",
+      "retrieved": "2026-08-30",
+      "version": "2026.08",
+      "claim": "exact custom callable descriptor",
+      "kind": "supplied contract",
+      "status": "verified"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "tool-call-config/behavior/v1",
+  "rules": [
+    {
+      "original": "Before each write, obtain approval for the exact key and text, then stop if approval is denied.",
+      "timing": "before",
+      "trigger": "each write",
+      "actor": "agent",
+      "target": "write arguments",
+      "strength": "required",
+      "action": "obtain exact-input approval",
+      "authorization": "explicit current approval",
+      "precedence": 30,
+      "repetition": "per call",
+      "enforcement": "instruction-only",
+      "success_evidence": "approval covers exact arguments",
+      "failure_branch": "do not call",
+      "stop_condition": "approval denied or missing"
+    },
+    {
+      "original": "After a returned success, read the note through the separate readback tool and compare its text before reporting completion.",
+      "timing": "after success",
+      "trigger": "returned success",
+      "actor": "agent",
+      "target": "saved note",
+      "strength": "required",
+      "action": "perform independent readback and compare",
+      "dependencies": ["approved write"],
+      "precedence": 20,
+      "repetition": "per call",
+      "enforcement": "instruction-only",
+      "success_evidence": "readback text equals requested text",
+      "failure_branch": "report unproved state and do not retry",
+      "stop_condition": "readback fails or differs"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "skill": "tool-call-configuration-for",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "pair_id": "configure-vs-build-tool",
+      "prompt": "Create a skill that validates every call to my exact tool.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Apply @rules.json around runtime.inspect in skills/auditor.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Make sandbox.write-note require approval and readback.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "pair_id": "generate-vs-summarize",
+      "prompt": "Generate from @tool.json with behavior redact emails after success.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "pair_id": "configure-vs-discuss",
+      "prompt": "Configure retry behavior for catalog.lookup results.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-006",
+      "kind": "positive",
+      "prompt": "Wrap one custom callable with cleanup instructions.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-007",
+      "kind": "near_neighbor",
+      "pair_id": "configure-vs-discuss",
+      "prompt": "Explain how tool calls work.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "near_neighbor",
+      "pair_id": "configure-vs-build-tool",
+      "prompt": "Implement a new callable tool.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-009",
+      "kind": "hard_negative",
+      "prompt": "Configure every tool in this server.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "pair_id": "generate-vs-summarize",
+      "prompt": "Summarize the docs for runtime.inspect.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-011",
+      "kind": "hard_negative",
+      "prompt": "Install a server plugin and list all tools.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-012",
+      "kind": "hard_negative",
+      "prompt": "Validate this skill package without changing tool behavior.",
+      "should_trigger": false
+    }
+  ]
+}

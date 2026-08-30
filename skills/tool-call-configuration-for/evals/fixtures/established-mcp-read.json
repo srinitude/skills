@@ -1,0 +1,43 @@
+{
+  "schema": "tool-call-config/tool-descriptor/v1",
+  "origin_class": "established-mcp",
+  "callable_name": "catalog.lookup",
+  "provider_or_owner": "fixture-catalog-owner",
+  "runtime_or_server": "fixture-catalog-server",
+  "namespace": "catalog",
+  "version": "1.0.0",
+  "discovery_route": "captured tools/list fixture",
+  "input_schema": {
+    "type": "object",
+    "properties": { "query": { "type": "string" } },
+    "required": ["query"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": { "items": { "type": "array" } },
+    "required": ["items"]
+  },
+  "capabilities": {
+    "read_only": true,
+    "state_changing": false,
+    "approval_required": false,
+    "idempotent": true,
+    "supports_progress": false,
+    "supports_cancellation": false,
+    "supports_readback": false,
+    "structured_output": true,
+    "safe_retry_conditions": ["transport failure before execution"],
+    "known_failures": ["invalid query", "rate limit"]
+  },
+  "sources": [
+    {
+      "locator": "evals/fixtures/established-mcp-read.json",
+      "owner": "local fixture",
+      "retrieved": "2026-08-30",
+      "version": "1.0.0",
+      "claim": "exact read-only callable schema",
+      "kind": "recorded contract",
+      "status": "verified"
+    }
+  ]
+}

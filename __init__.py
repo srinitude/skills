@@ -115,6 +115,15 @@ _SKILLS = (
         "Use when work must finish within a stated time limit.",
     ),
     (
+        "tool-call-configuration-for",
+        "Use when one exact callable tool and a user-authored behavior"
+        " configuration must become a tool-specific Agent Skill, or when that"
+        " behavior must be integrated into one exact existing Agent Skill."
+        " Supports established or owned MCP, native, and custom tool contracts;"
+        " stops on ambiguous identity, behavior, authority, source, or update"
+        " target.",
+    ),
+    (
         "visual-design-system-extractor",
         "Use when reference images, screenshots, moodboards, style frames,"
         " brand boards, cinematic stills, product interface shots, or a live"

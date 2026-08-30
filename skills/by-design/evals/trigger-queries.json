@@ -1,0 +1,94 @@
+[
+  {
+    "query": "here's the orders table before we ship it, what am I missing",
+    "should_trigger": true
+  },
+  {
+    "query": "can you review this checkout screen for me",
+    "should_trigger": true
+  },
+  {
+    "query": "which of these two onboarding directions should we go with",
+    "should_trigger": true
+  },
+  {
+    "query": "we're adding bulk export to the reports page next sprint, nothing designed yet",
+    "should_trigger": true
+  },
+  {
+    "query": "read design-brief-onboarding.md and tell me if anything looks off",
+    "should_trigger": true
+  },
+  {
+    "query": "why did we pick 32px row height, do you remember",
+    "should_trigger": true
+  },
+  {
+    "query": "just give me the accessibility questions for a form",
+    "should_trigger": true
+  },
+  {
+    "query": "does this landing page look generic compared to our competitors",
+    "should_trigger": true
+  },
+  {
+    "query": "write the CSS for a 12 column grid with 24px gutters",
+    "should_trigger": true
+  },
+  {
+    "query": "what is the contrast ratio between #1F2430 and #FFFFFF",
+    "should_trigger": true
+  },
+  {
+    "query": "here's a screenshot, what do you think",
+    "should_trigger": true
+  },
+  {
+    "query": "polish the empty state copy before we ship",
+    "should_trigger": true
+  },
+  {
+    "query": "i want to restyle the sidebar",
+    "should_trigger": true
+  },
+  {
+    "query": "what time is my next meeting",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the failing test in auth.py",
+    "should_trigger": false
+  },
+  {
+    "query": "extract the tables from this PDF report",
+    "should_trigger": false
+  },
+  {
+    "query": "rewrite this launch tweet in my voice",
+    "should_trigger": false
+  },
+  {
+    "query": "design a database schema for users and orders",
+    "should_trigger": false
+  },
+  {
+    "query": "we are deciding whether teen conversations stay private or parents can see them",
+    "should_trigger": true
+  },
+  {
+    "query": "at what point does the user become responsible for a mistake the system made",
+    "should_trigger": true
+  },
+  {
+    "query": "does the second column still read as secondary at this width",
+    "should_trigger": true
+  },
+  {
+    "query": "resolve the merge conflict in main.py",
+    "should_trigger": false
+  },
+  {
+    "query": "write a sql query joining orders and users",
+    "should_trigger": false
+  }
+]

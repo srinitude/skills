@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "skill": "by-design",
+  "groups": ["gate", "posture", "coordinates", "slice", "ledger", "interruption", "seam"],
+  "decision_labels": ["PASS", "FAIL", "NOT_APPLICABLE", "UNVERIFIED"],
+  "cases": [
+    {
+      "id": "BD-001",
+      "source_id": "BD-001",
+      "group": "gate",
+      "title": "End the run when the request holds no design surface",
+      "prompt": "fix the failing test in auth.py, it broke after the merge",
+      "decision": "PASS",
+      "pressures": ["Pins the cost of a non-design turn at one command."],
+      "required": [
+        "Runs the gate as the only command and reports a not-design verdict with the score behind it.",
+        "Reads and writes no ledger file, and contributes nothing to the reply."
+      ],
+      "veto": ["opens a decision ledger anyway", "answers with design questions"]
+    },
+    {
+      "id": "BD-002",
+      "source_id": "BD-002",
+      "group": "posture",
+      "title": "Judge a shipped artifact into decisions rather than observations",
+      "prompt": "here's the orders table before we ship it, what am I missing",
+      "decision": "PASS",
+      "pressures": ["Pins the rule that a row counts a decision, not a question."],
+      "required": [
+        "Names the posture as judge before reporting anything else.",
+        "Writes fewer ledger rows than the slice returned questions, because a row counts a decision.",
+        "Gives every row an origin of deliberate, inherited, or open, leaving no origin blank."
+      ],
+      "veto": ["lists the questions the slice returned", "one row per question"]
+    },
+    {
+      "id": "BD-003",
+      "source_id": "BD-003",
+      "group": "posture",
+      "title": "Leave a stated fork open instead of picking a side",
+      "prompt": "we're deciding whether to put the cancel flow behind a save offer or leave it one click. which one?",
+      "decision": "PASS",
+      "pressures": ["Pins the choose posture against the pull to recommend."],
+      "required": [
+        "States what each direction buys and what it costs, then stops.",
+        "Writes a row whose chosen column stays empty and whose origin is open."
+      ],
+      "veto": ["I would go with", "the better option is", "my recommendation"]
+    },
+    {
+      "id": "BD-004",
+      "source_id": "BD-004",
+      "group": "slice",
+      "title": "Report a widened slice rather than passing it off as precise",
+      "prompt": "give me the ethics questions for colour choices at the concept stage on an artifact",
+      "decision": "PASS",
+      "pressures": ["Pins the failure this skill causes most often."],
+      "required": [
+        "Says in the reply that the slice widened and names the coordinates that were dropped.",
+        "Does not present the wider colour result as though the ethics lens had held."
+      ],
+      "veto": ["raises the floor to force a narrow slice", "these are the ethics questions"]
+    },
+    {
+      "id": "BD-005",
+      "source_id": "BD-005",
+      "group": "coordinates",
+      "title": "Recover from a weak coordinate read with a hint",
+      "prompt": "here is the brief for the reversing sound on our electric van, tell me what we have not decided",
+      "decision": "PASS",
+      "pressures": ["Pins recovery when the ranking should not be trusted."],
+      "required": [
+        "Treats the weak read line as an instruction to name the artifact type and run the ranking again with a hint.",
+        "Reports which shelf the second run landed on before pulling any questions."
+      ],
+      "veto": ["takes the first ranking on trust", "ignores the weak read line"]
+    },
+    {
+      "id": "BD-006",
+      "source_id": "BD-006",
+      "group": "interruption",
+      "title": "Record two inherited choices and ask at most one question",
+      "prompt": "for the settings page I'm going to use the same 12 column grid we used on the dashboard, and 32px row height like the orders table",
+      "decision": "PASS",
+      "pressures": ["Pins the one question rule against two live inherited rows."],
+      "required": [
+        "Writes two rows, both with an origin of inherited.",
+        "Asks one question or none, chosen by the interruption script rather than freely."
+      ],
+      "veto": ["asks about both the grid and the row height", "here are two questions"]
+    },
+    {
+      "id": "BD-007",
+      "source_id": "BD-007",
+      "group": "ledger",
+      "title": "Take coordinates from the artifact and counts from a command",
+      "prompt": "here's the fairphone homepage, we ship the Gen 6+ launch page tomorrow, what am I missing",
+      "decision": "PASS",
+      "pressures": [
+        "Pins the ordering of the ranking before the slice, and counts against memory."
+      ],
+      "required": [
+        "Ranks the artifact before pulling questions, and passes the category that ranking proposed.",
+        "Pulls the slice with a noun the artifact itself uses rather than the category alone.",
+        "Quotes row counts that came from a ledger command run in the same turn."
+      ],
+      "veto": ["picks a category by hand", "roughly a dozen rows"]
+    },
+    {
+      "id": "BD-008",
+      "source_id": "BD-008",
+      "group": "seam",
+      "title": "Hand a design fact to the skill that owns facts",
+      "prompt": "what hex value should I use for the primary button, and add it to the design tokens file",
+      "decision": "NOT_APPLICABLE",
+      "pressures": ["Pins the seam between decisions and facts."],
+      "required": [
+        "Declines to write the token file and names the kind of skill that owns design facts.",
+        "Offers the one thing this skill can add, a row asking whether the colour was chosen or inherited."
+      ],
+      "veto": ["writes the token file", "here is the hex value to use"]
+    }
+  ]
+}

@@ -36,6 +36,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
     expect(tools.tools.map((tool) => tool.name)).toContain('get_skill');
     expect(resources.resources.map((resource) => resource.uri)).toEqual([
       'skill://always-current-datetime/SKILL.md',
+      'skill://by-design/SKILL.md',
       'skill://dedupe/SKILL.md',
       'skill://dtcg-tokens/SKILL.md',
       'skill://goal-prompt/SKILL.md',

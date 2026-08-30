@@ -1,0 +1,1078 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "native_version": "0.1.0",
+  "native_manifest_sha256": "e5ff0173e293b190c01de0daeed224e0a28dc03bb560f7b6363489b66616e499",
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [".github/workflows/ci.yml"]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/disciplines.yaml",
+      "source_paths": ["assets/disciplines.yaml"]
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "source_paths": ["assets/eval-case-template.json"]
+    },
+    {
+      "path": "assets/gate-terms.yaml",
+      "source_paths": ["assets/gate-terms.yaml"]
+    },
+    {
+      "path": "assets/index.yaml",
+      "source_paths": ["assets/index.yaml"]
+    },
+    {
+      "path": "assets/questions/accessibility.yaml",
+      "source_paths": ["assets/questions/accessibility.yaml"]
+    },
+    {
+      "path": "assets/questions/accounts-security-and-admin.yaml",
+      "source_paths": ["assets/questions/accounts-security-and-admin.yaml"]
+    },
+    {
+      "path": "assets/questions/acquisition-marketing-surfaces-and-growth-loops.yaml",
+      "source_paths": [
+        "assets/questions/acquisition-marketing-surfaces-and-growth-loops.yaml"
+      ]
+    },
+    {
+      "path": "assets/questions/ai-honesty-provenance-and-disclosure.yaml",
+      "source_paths": ["assets/questions/ai-honesty-provenance-and-disclosure.yaml"]
+    },
+    {
+      "path": "assets/questions/ai-interaction-agents-and-personalization.yaml",
+      "source_paths": ["assets/questions/ai-interaction-agents-and-personalization.yaml"]
+    },
+    {
+      "path": "assets/questions/brand-distinctiveness-and-positioning.yaml",
+      "source_paths": ["assets/questions/brand-distinctiveness-and-positioning.yaml"]
+    },
+    {
+      "path": "assets/questions/collaboration-community-and-safety.yaml",
+      "source_paths": ["assets/questions/collaboration-community-and-safety.yaml"]
+    },
+    {
+      "path": "assets/questions/color-theming-and-dark-mode.yaml",
+      "source_paths": ["assets/questions/color-theming-and-dark-mode.yaml"]
+    },
+    {
+      "path": "assets/questions/design-process-stakeholders-and-journeys.yaml",
+      "source_paths": ["assets/questions/design-process-stakeholders-and-journeys.yaml"]
+    },
+    {
+      "path": "assets/questions/design-systems-and-developer-surfaces.yaml",
+      "source_paths": ["assets/questions/design-systems-and-developer-surfaces.yaml"]
+    },
+    {
+      "path": "assets/questions/empty-loading-error-and-edge-states.yaml",
+      "source_paths": ["assets/questions/empty-loading-error-and-edge-states.yaml"]
+    },
+    {
+      "path": "assets/questions/forms-and-input.yaml",
+      "source_paths": ["assets/questions/forms-and-input.yaml"]
+    },
+    {
+      "path": "assets/questions/game-feel-teaching-and-difficulty.yaml",
+      "source_paths": ["assets/questions/game-feel-teaching-and-difficulty.yaml"]
+    },
+    {
+      "path": "assets/questions/habit-retention-and-churn.yaml",
+      "source_paths": ["assets/questions/habit-retention-and-churn.yaml"]
+    },
+    {
+      "path": "assets/questions/handoff-spec-and-design-qa.yaml",
+      "source_paths": ["assets/questions/handoff-spec-and-design-qa.yaml"]
+    },
+    {
+      "path": "assets/questions/icons-illustration-and-photography.yaml",
+      "source_paths": ["assets/questions/icons-illustration-and-photography.yaml"]
+    },
+    {
+      "path": "assets/questions/internationalization-and-locale.yaml",
+      "source_paths": ["assets/questions/internationalization-and-locale.yaml"]
+    },
+    {
+      "path": "assets/questions/keyboard-commands-and-power-surfaces.yaml",
+      "source_paths": ["assets/questions/keyboard-commands-and-power-surfaces.yaml"]
+    },
+    {
+      "path": "assets/questions/layout-grid-hierarchy-and-density.yaml",
+      "source_paths": ["assets/questions/layout-grid-hierarchy-and-density.yaml"]
+    },
+    {
+      "path": "assets/questions/motion-film-and-moving-image.yaml",
+      "source_paths": ["assets/questions/motion-film-and-moving-image.yaml"]
+    },
+    {
+      "path": "assets/questions/naming-and-brand-architecture.yaml",
+      "source_paths": ["assets/questions/naming-and-brand-architecture.yaml"]
+    },
+    {
+      "path": "assets/questions/navigation-ia-and-search.yaml",
+      "source_paths": ["assets/questions/navigation-ia-and-search.yaml"]
+    },
+    {
+      "path": "assets/questions/notifications-email-and-interruption.yaml",
+      "source_paths": ["assets/questions/notifications-email-and-interruption.yaml"]
+    },
+    {
+      "path": "assets/questions/onboarding-activation-and-first-run.yaml",
+      "source_paths": ["assets/questions/onboarding-activation-and-first-run.yaml"]
+    },
+    {
+      "path": "assets/questions/performance-weight-and-network-reality.yaml",
+      "source_paths": ["assets/questions/performance-weight-and-network-reality.yaml"]
+    },
+    {
+      "path": "assets/questions/persuasion-defaults-and-dark-patterns.yaml",
+      "source_paths": ["assets/questions/persuasion-defaults-and-dark-patterns.yaml"]
+    },
+    {
+      "path": "assets/questions/physical-product-packaging-and-print.yaml",
+      "source_paths": ["assets/questions/physical-product-packaging-and-print.yaml"]
+    },
+    {
+      "path": "assets/questions/platform-conventions-and-responsive-fit.yaml",
+      "source_paths": ["assets/questions/platform-conventions-and-responsive-fit.yaml"]
+    },
+    {
+      "path": "assets/questions/pricing-checkout-and-billing.yaml",
+      "source_paths": ["assets/questions/pricing-checkout-and-billing.yaml"]
+    },
+    {
+      "path": "assets/questions/privacy-consent-and-compliance.yaml",
+      "source_paths": ["assets/questions/privacy-consent-and-compliance.yaml"]
+    },
+    {
+      "path": "assets/questions/sound-and-haptics.yaml",
+      "source_paths": ["assets/questions/sound-and-haptics.yaml"]
+    },
+    {
+      "path": "assets/questions/spatial-ambient-and-built-space.yaml",
+      "source_paths": ["assets/questions/spatial-ambient-and-built-space.yaml"]
+    },
+    {
+      "path": "assets/questions/tables-charts-and-dashboards.yaml",
+      "source_paths": ["assets/questions/tables-charts-and-dashboards.yaml"]
+    },
+    {
+      "path": "assets/questions/typography-and-editorial-typesetting.yaml",
+      "source_paths": ["assets/questions/typography-and-editorial-typesetting.yaml"]
+    },
+    {
+      "path": "assets/questions/voice-tone-and-ui-copy.yaml",
+      "source_paths": ["assets/questions/voice-tone-and-ui-copy.yaml"]
+    },
+    {
+      "path": "assets/reply-template.md",
+      "source_paths": ["assets/reply-template.md"]
+    },
+    {
+      "path": "assets/terms-index.yaml",
+      "source_paths": ["assets/terms-index.yaml"]
+    },
+    {
+      "path": "assets/trade-terms.yaml",
+      "source_paths": ["assets/trade-terms.yaml"]
+    },
+    {
+      "path": "evals/baseline.json",
+      "source_paths": ["evals/baseline.json"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["evals/cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["evals/contract.md"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["evals/evals.json"]
+    },
+    {
+      "path": "evals/files/brief-01-typeface.txt",
+      "source_paths": ["evals/files/brief-01-typeface.txt"]
+    },
+    {
+      "path": "evals/files/brief-02-wayfinding.txt",
+      "source_paths": ["evals/files/brief-02-wayfinding.txt"]
+    },
+    {
+      "path": "evals/files/brief-03-clinic.txt",
+      "source_paths": ["evals/files/brief-03-clinic.txt"]
+    },
+    {
+      "path": "evals/files/brief-04-broadcast.txt",
+      "source_paths": ["evals/files/brief-04-broadcast.txt"]
+    },
+    {
+      "path": "evals/files/brief-05-packaging.txt",
+      "source_paths": ["evals/files/brief-05-packaging.txt"]
+    },
+    {
+      "path": "evals/files/brief-06-social-brand.txt",
+      "source_paths": ["evals/files/brief-06-social-brand.txt"]
+    },
+    {
+      "path": "evals/files/brief-07-service.txt",
+      "source_paths": ["evals/files/brief-07-service.txt"]
+    },
+    {
+      "path": "evals/files/brief-08-industry.txt",
+      "source_paths": ["evals/files/brief-08-industry.txt"]
+    },
+    {
+      "path": "evals/files/brief-09-checkout.txt",
+      "source_paths": ["evals/files/brief-09-checkout.txt"]
+    },
+    {
+      "path": "evals/files/brief-10-cockpit.txt",
+      "source_paths": ["evals/files/brief-10-cockpit.txt"]
+    },
+    {
+      "path": "evals/files/brief-11-hud.txt",
+      "source_paths": ["evals/files/brief-11-hud.txt"]
+    },
+    {
+      "path": "evals/files/brief-12-service.txt",
+      "source_paths": ["evals/files/brief-12-service.txt"]
+    },
+    {
+      "path": "evals/files/brief-13-avas.txt",
+      "source_paths": ["evals/files/brief-13-avas.txt"]
+    },
+    {
+      "path": "evals/files/brief-14-methane.txt",
+      "source_paths": ["evals/files/brief-14-methane.txt"]
+    },
+    {
+      "path": "evals/files/brief-15-wallet.txt",
+      "source_paths": ["evals/files/brief-15-wallet.txt"]
+    },
+    {
+      "path": "evals/files/brief-16-seatmap.txt",
+      "source_paths": ["evals/files/brief-16-seatmap.txt"]
+    },
+    {
+      "path": "evals/files/brief-17-pill.txt",
+      "source_paths": ["evals/files/brief-17-pill.txt"]
+    },
+    {
+      "path": "evals/files/brief-18-palette.txt",
+      "source_paths": ["evals/files/brief-18-palette.txt"]
+    },
+    {
+      "path": "evals/files/brief-19-report.txt",
+      "source_paths": ["evals/files/brief-19-report.txt"]
+    },
+    {
+      "path": "evals/files/brief-20-assistant.txt",
+      "source_paths": ["evals/files/brief-20-assistant.txt"]
+    },
+    {
+      "path": "evals/files/brief-21-arrowfly.txt",
+      "source_paths": ["evals/files/brief-21-arrowfly.txt"]
+    },
+    {
+      "path": "evals/files/brief-22-eaa.txt",
+      "source_paths": ["evals/files/brief-22-eaa.txt"]
+    },
+    {
+      "path": "evals/files/brief-23-emoji.txt",
+      "source_paths": ["evals/files/brief-23-emoji.txt"]
+    },
+    {
+      "path": "evals/files/brief-24-consent.txt",
+      "source_paths": ["evals/files/brief-24-consent.txt"]
+    },
+    {
+      "path": "evals/files/brief-25-i18n.txt",
+      "source_paths": ["evals/files/brief-25-i18n.txt"]
+    },
+    {
+      "path": "evals/files/brief-26-exhibition.txt",
+      "source_paths": ["evals/files/brief-26-exhibition.txt"]
+    },
+    {
+      "path": "evals/files/briefs.json",
+      "source_paths": ["evals/files/briefs.json"]
+    },
+    {
+      "path": "evals/files/decision-ledger-cancel.md",
+      "source_paths": ["evals/files/decision-ledger-cancel.md"]
+    },
+    {
+      "path": "evals/files/decision-ledger-orders.md",
+      "source_paths": ["evals/files/decision-ledger-orders.md"]
+    },
+    {
+      "path": "evals/files/decision-ledger-settings.md",
+      "source_paths": ["evals/files/decision-ledger-settings.md"]
+    },
+    {
+      "path": "evals/files/non-design.json",
+      "source_paths": ["evals/files/non-design.json"]
+    },
+    {
+      "path": "evals/files/occupations.json",
+      "source_paths": ["evals/files/occupations.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["evals/manifest.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["evals/rubric.md"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["evals/speed-budgets.json"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["evals/trigger-cases.json"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["evals/trigger-queries.json"]
+    },
+    {
+      "path": "examples/example-ask.md",
+      "source_paths": ["examples/example-ask.md"]
+    },
+    {
+      "path": "examples/example-audit.md",
+      "source_paths": ["examples/example-audit.md"]
+    },
+    {
+      "path": "examples/example-choose.md",
+      "source_paths": ["examples/example-choose.md"]
+    },
+    {
+      "path": "examples/example-field-run.md",
+      "source_paths": ["examples/example-field-run.md"]
+    },
+    {
+      "path": "examples/example-help.md",
+      "source_paths": ["examples/example-help.md"]
+    },
+    {
+      "path": "examples/example-image-artifact.md",
+      "source_paths": ["examples/example-image-artifact.md"]
+    },
+    {
+      "path": "examples/example-judge.md",
+      "source_paths": ["examples/example-judge.md"]
+    },
+    {
+      "path": "examples/example-no-question.md",
+      "source_paths": ["examples/example-no-question.md"]
+    },
+    {
+      "path": "examples/example-not-design.md",
+      "source_paths": ["examples/example-not-design.md"]
+    },
+    {
+      "path": "examples/example-shape.md",
+      "source_paths": ["examples/example-shape.md"]
+    },
+    {
+      "path": "examples/example-watch.md",
+      "source_paths": ["examples/example-watch.md"]
+    },
+    {
+      "path": "examples/example-weak-read.md",
+      "source_paths": ["examples/example-weak-read.md"]
+    },
+    {
+      "path": "examples/example-widened-slice.md",
+      "source_paths": ["examples/example-widened-slice.md"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["mise.toml"]
+    },
+    {
+      "path": "references/coordinates.md",
+      "source_paths": ["references/coordinates.md"]
+    },
+    {
+      "path": "references/decisions-field.md",
+      "source_paths": ["references/decisions-field.md"]
+    },
+    {
+      "path": "references/decisions.md",
+      "source_paths": ["references/decisions.md"]
+    },
+    {
+      "path": "references/disciplines.md",
+      "source_paths": ["references/disciplines.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["references/generation-contract.md"]
+    },
+    {
+      "path": "references/interruption.md",
+      "source_paths": ["references/interruption.md"]
+    },
+    {
+      "path": "references/ledger-format.md",
+      "source_paths": ["references/ledger-format.md"]
+    },
+    {
+      "path": "scripts/bench.py",
+      "source_paths": ["scripts/bench.py"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["scripts/check_code_rules.py"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["scripts/check_evals.py"]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["scripts/check_placeholders.py"]
+    },
+    {
+      "path": "scripts/check_reply.py",
+      "source_paths": ["scripts/check_reply.py"]
+    },
+    {
+      "path": "scripts/crafts.py",
+      "source_paths": ["scripts/crafts.py"]
+    },
+    {
+      "path": "scripts/gate.py",
+      "source_paths": ["scripts/gate.py"]
+    },
+    {
+      "path": "scripts/ledger.py",
+      "source_paths": ["scripts/ledger.py"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["scripts/lint_writing.py"]
+    },
+    {
+      "path": "scripts/locate.py",
+      "source_paths": ["scripts/locate.py"]
+    },
+    {
+      "path": "scripts/skill_info.py",
+      "source_paths": ["scripts/skill_info.py"]
+    },
+    {
+      "path": "scripts/slice.py",
+      "source_paths": ["scripts/slice.py"]
+    },
+    {
+      "path": "scripts/speak.py",
+      "source_paths": ["scripts/speak.py"]
+    },
+    {
+      "path": "scripts/tests/test_bench.py",
+      "source_paths": ["scripts/tests/test_bench.py"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["scripts/tests/test_ci_contract.py"]
+    },
+    {
+      "path": "scripts/tests/test_crafts.py",
+      "source_paths": ["scripts/tests/test_crafts.py"]
+    },
+    {
+      "path": "scripts/tests/test_disciplines.py",
+      "source_paths": ["scripts/tests/test_disciplines.py"]
+    },
+    {
+      "path": "scripts/tests/test_gate.py",
+      "source_paths": ["scripts/tests/test_gate.py"]
+    },
+    {
+      "path": "scripts/tests/test_ledger.py",
+      "source_paths": ["scripts/tests/test_ledger.py"]
+    },
+    {
+      "path": "scripts/tests/test_locate.py",
+      "source_paths": ["scripts/tests/test_locate.py"]
+    },
+    {
+      "path": "scripts/tests/test_scripts.py",
+      "source_paths": ["scripts/tests/test_scripts.py"]
+    },
+    {
+      "path": "scripts/tests/test_slice.py",
+      "source_paths": ["scripts/tests/test_slice.py"]
+    },
+    {
+      "path": "scripts/tests/test_speak.py",
+      "source_paths": ["scripts/tests/test_speak.py"]
+    },
+    {
+      "path": "scripts/tests/test_yamlread.py",
+      "source_paths": ["scripts/tests/test_yamlread.py"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["scripts/validate_skill.py"]
+    },
+    {
+      "path": "scripts/yamlread.py",
+      "source_paths": ["scripts/yamlread.py"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ef17d227ced2b78e436fbc50667a994a07833c28f9c54fb5045e5dc340514271"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "7e4f528cfd508ba8900e039002627821501a16d55c706d42858daf058725ada9"
+    },
+    {
+      "path": "assets/disciplines.yaml",
+      "sha256": "55963af0134c8de2c052554606dd467abdcc7c1f6203c36aee673b9fb205720e"
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "sha256": "89cff553a7d700331104d6dedf95ee5961d014fca3b7283044b1dd1369175563"
+    },
+    {
+      "path": "assets/gate-terms.yaml",
+      "sha256": "965aadbb1cd9a3422f8476630ad32c519982e2203cba73481a646b0ce642b606"
+    },
+    {
+      "path": "assets/index.yaml",
+      "sha256": "40a1ee17fed002002d6abdcdd39d2f67e1c5776b978ede7bd906070c1fc60fe7"
+    },
+    {
+      "path": "assets/questions/accessibility.yaml",
+      "sha256": "c1be608ae5375c3ddfe1ed32bc499632f7c43ef334953ad4e521c7dab491698a"
+    },
+    {
+      "path": "assets/questions/accounts-security-and-admin.yaml",
+      "sha256": "8cc740d57a89fc73c8082daf7f8204a4f3f21171dbe7f228a39dd2ff3451a4bc"
+    },
+    {
+      "path": "assets/questions/acquisition-marketing-surfaces-and-growth-loops.yaml",
+      "sha256": "c8a431300ba8bda801c4cdef4fd4374d82c0f9966736f95ce671cce125e5d29a"
+    },
+    {
+      "path": "assets/questions/ai-honesty-provenance-and-disclosure.yaml",
+      "sha256": "68d0bcdcb1d80bc2b69a8ae9264d014b9f05d93d0792def2c8d52d8553896132"
+    },
+    {
+      "path": "assets/questions/ai-interaction-agents-and-personalization.yaml",
+      "sha256": "dfab382bb6287aff505b8ec59561491901ce6f9c60cf41b68a7201d74a15dd67"
+    },
+    {
+      "path": "assets/questions/brand-distinctiveness-and-positioning.yaml",
+      "sha256": "381d208cef54fcb8876d8aacf989c14f1974f7c70f57fd83d8c63fcef8864543"
+    },
+    {
+      "path": "assets/questions/collaboration-community-and-safety.yaml",
+      "sha256": "1ffbbe88f3c4d98e8f3b68f52fd277853922f87c3500d57d80e31c489b228b4c"
+    },
+    {
+      "path": "assets/questions/color-theming-and-dark-mode.yaml",
+      "sha256": "fc7a6224a295a5e7e7b800f1d93bd7b934d1e0d5afb305659135a6b91a8b96d4"
+    },
+    {
+      "path": "assets/questions/design-process-stakeholders-and-journeys.yaml",
+      "sha256": "5b9668f50ebf07601a41c0ebd847f9939cf5b538fa25cd9decbd183cd7ca4571"
+    },
+    {
+      "path": "assets/questions/design-systems-and-developer-surfaces.yaml",
+      "sha256": "2c430fdb15ecd119c74493fd5f9458e1c47cedf73ca4987d6aa361b1fc936047"
+    },
+    {
+      "path": "assets/questions/empty-loading-error-and-edge-states.yaml",
+      "sha256": "5db1976e58d60afac38c697ce6382467bdbbad68dee5d57dad145e400a26b20e"
+    },
+    {
+      "path": "assets/questions/forms-and-input.yaml",
+      "sha256": "b6818e6fd1dbd0d57a7a563a21ab48de150996f1d20b6b6025dcfcf658ddc92f"
+    },
+    {
+      "path": "assets/questions/game-feel-teaching-and-difficulty.yaml",
+      "sha256": "ec460c9d5181bf13d5528e3d2cab31b15eba4a9b0b54b2aeaa1a48a4d47875e5"
+    },
+    {
+      "path": "assets/questions/habit-retention-and-churn.yaml",
+      "sha256": "99b924a77383b417b5b4ac3119cd9cee52276bb6cbe22cbfb6e34120557aa971"
+    },
+    {
+      "path": "assets/questions/handoff-spec-and-design-qa.yaml",
+      "sha256": "1c6ef45d1b946ff5d16037617a1bcdf7d41753a5adda0b36ac0ee34128bd45ee"
+    },
+    {
+      "path": "assets/questions/icons-illustration-and-photography.yaml",
+      "sha256": "024c4d3119dfac6c6034f6293b74d9763be23e3b2cef58f5c8112c089f1ad748"
+    },
+    {
+      "path": "assets/questions/internationalization-and-locale.yaml",
+      "sha256": "6288f89469c7353633e98de74b0a9c327349528e688b306b9675c3414c40f957"
+    },
+    {
+      "path": "assets/questions/keyboard-commands-and-power-surfaces.yaml",
+      "sha256": "8f7395509015fa784031beda4a29a853f6ff84be5e9a867f17ca624cf68663ee"
+    },
+    {
+      "path": "assets/questions/layout-grid-hierarchy-and-density.yaml",
+      "sha256": "5b75d8884d40fc7efaf1f4d48808bcfe2cdcb81e05a7ef07cbca7f8aba83948b"
+    },
+    {
+      "path": "assets/questions/motion-film-and-moving-image.yaml",
+      "sha256": "d73bf917bd776be8c0716c3fbb06b64a7550eafb67ac57878f6e8f039361336b"
+    },
+    {
+      "path": "assets/questions/naming-and-brand-architecture.yaml",
+      "sha256": "8074cf8dd5ae3246ec1115774f8873665d58918437fb7e778bbc2f6424a4b56b"
+    },
+    {
+      "path": "assets/questions/navigation-ia-and-search.yaml",
+      "sha256": "9480df6b2bbf5bf4d240e4b4ec399f635d586d0d8ffab53e738ad38712d641ad"
+    },
+    {
+      "path": "assets/questions/notifications-email-and-interruption.yaml",
+      "sha256": "e098ee22cb297d3dcfd1d4d0bef28a0420ad015c18354526109c8d66c56b968c"
+    },
+    {
+      "path": "assets/questions/onboarding-activation-and-first-run.yaml",
+      "sha256": "b02469ef287bca0f88b5138377d962afe5c888eee651b9f06f92482d9cf0b7d6"
+    },
+    {
+      "path": "assets/questions/performance-weight-and-network-reality.yaml",
+      "sha256": "5c740d76d10541c6a3996f26f0b864930a9078704a4f8e784b2f598bc969c301"
+    },
+    {
+      "path": "assets/questions/persuasion-defaults-and-dark-patterns.yaml",
+      "sha256": "adfeab1d45037ae544096342c71c4003273369ec10194604a530037bf8584967"
+    },
+    {
+      "path": "assets/questions/physical-product-packaging-and-print.yaml",
+      "sha256": "14fe629fa5efc32f03901b5f1ac6aa136659c0d7406d6a595b3ddfce1bda50d8"
+    },
+    {
+      "path": "assets/questions/platform-conventions-and-responsive-fit.yaml",
+      "sha256": "bb655385e0d07c45dc623f11ec278250417aca399987cf9f0a5ac78ff8b85e2b"
+    },
+    {
+      "path": "assets/questions/pricing-checkout-and-billing.yaml",
+      "sha256": "13da4709b65ff675ce025becda12059e48a917d60acdfade9e0e96e87f750dbb"
+    },
+    {
+      "path": "assets/questions/privacy-consent-and-compliance.yaml",
+      "sha256": "8df50d1f9b27228f30f926ca125f4332464a5a67d069a45b65b3937fae7cc43b"
+    },
+    {
+      "path": "assets/questions/sound-and-haptics.yaml",
+      "sha256": "64e630860858d07ff6948622aae4f5c57dbfcd2da7db5121389b19ebf78be5e2"
+    },
+    {
+      "path": "assets/questions/spatial-ambient-and-built-space.yaml",
+      "sha256": "ce015262b05ec15c6eb94ce517c291a7b9bbc8c0483415cbcc4f42cdbb295c1c"
+    },
+    {
+      "path": "assets/questions/tables-charts-and-dashboards.yaml",
+      "sha256": "eb9e2c6780dae4782b1b65b8b562f4453934ceee5e795a05492475a5ea786e8a"
+    },
+    {
+      "path": "assets/questions/typography-and-editorial-typesetting.yaml",
+      "sha256": "0ad8025621b63fd84d89bd4633f66f542319b23aba08bcf55967fe99212fa603"
+    },
+    {
+      "path": "assets/questions/voice-tone-and-ui-copy.yaml",
+      "sha256": "a4801912895c547b2a87c6a4320be2fcaaedf6a23e6de3b8899ee7b901ecfcc2"
+    },
+    {
+      "path": "assets/reply-template.md",
+      "sha256": "3f106d4d3db58c11d1d415c2897e4ec5d316667a35fd6b57f38ac86d26f28d33"
+    },
+    {
+      "path": "assets/terms-index.yaml",
+      "sha256": "d6270335571d2cd255552aa2c465c9847fbddd28303a37fe69d31fff249af98f"
+    },
+    {
+      "path": "assets/trade-terms.yaml",
+      "sha256": "0abc77deec3538749a94bfa1aac70ffa27722b506634dc8a5edcdba2189177ee"
+    },
+    {
+      "path": "evals/baseline.json",
+      "sha256": "56ac9aad9e52195e370934ae5458c0f9a5f5b5bfab9f1c1a29e5754ce1e21819"
+    },
+    {
+      "path": "evals/cases.json",
+      "sha256": "19fa027d79a56b4e2bd8dbdf749bfcf21af974c3787b9f953aa7e962480b5bf0"
+    },
+    {
+      "path": "evals/contract.md",
+      "sha256": "2a4b2c935c73f879ad76f31a7a3e8258265891dcf98c4a3675a5fecc4452fa4e"
+    },
+    {
+      "path": "evals/evals.json",
+      "sha256": "b560b9fa22e08a23dd3ddfbff64f261155a676c343750ecff3c2979497740f8e"
+    },
+    {
+      "path": "evals/files/brief-01-typeface.txt",
+      "sha256": "7e86a335ecded8771a9c28363de5c4675238c14c79bf5173bd212af27568ccf6"
+    },
+    {
+      "path": "evals/files/brief-02-wayfinding.txt",
+      "sha256": "5be6616d4d2c4a8a3daa386d7fc719f35e5c8f3389ce29d2a25297c112d1002d"
+    },
+    {
+      "path": "evals/files/brief-03-clinic.txt",
+      "sha256": "12e322ff10b951aa26cb96a38577bacc9af6425faa705ae4abbc2d66e63fc29e"
+    },
+    {
+      "path": "evals/files/brief-04-broadcast.txt",
+      "sha256": "2e660b6596d43f03e2b8736453a3342d79c7be8e2a6cb0dad109bf5481cb49ec"
+    },
+    {
+      "path": "evals/files/brief-05-packaging.txt",
+      "sha256": "f2bd16ad3f9b20a8eedb667a524aca0641400c37bde47a0648861dd394e33463"
+    },
+    {
+      "path": "evals/files/brief-06-social-brand.txt",
+      "sha256": "6d0f0e89529f5fa014082124ae351766d79535c092d2e516794a749cdefcb341"
+    },
+    {
+      "path": "evals/files/brief-07-service.txt",
+      "sha256": "fec3fb4c7bcea669f27fd99946f7645507c3d0d205b29ab7f7371f1b97e9778b"
+    },
+    {
+      "path": "evals/files/brief-08-industry.txt",
+      "sha256": "94fe7bd245522ca38dbb73ff87ea2a98f2cf7445b8bcb7f24ff7be4d4ba3c256"
+    },
+    {
+      "path": "evals/files/brief-09-checkout.txt",
+      "sha256": "491258fd0b0846b647c4a6f50b1f43e4976abbfff0515fad80fbf87062e39476"
+    },
+    {
+      "path": "evals/files/brief-10-cockpit.txt",
+      "sha256": "f0007085fcca553866b8c231f3664ae707be86a66692e2336bf13e061dcda0c6"
+    },
+    {
+      "path": "evals/files/brief-11-hud.txt",
+      "sha256": "6eac09506ae3578cb0fa1f004e27f778f13c82eca817c93dacf83073061c642c"
+    },
+    {
+      "path": "evals/files/brief-12-service.txt",
+      "sha256": "52d56605fdb358b878a4e2562292400fc0a627d5dce97b2b2183430b6f12f7f5"
+    },
+    {
+      "path": "evals/files/brief-13-avas.txt",
+      "sha256": "15eaf2634591653e3dee5bf77a268742154ba9394c0fcc04e98dfa30be20e983"
+    },
+    {
+      "path": "evals/files/brief-14-methane.txt",
+      "sha256": "27bd31c0bca1ff4ccc776c72dee7555d47acd686a4ea4cd8661ad87d355c76ff"
+    },
+    {
+      "path": "evals/files/brief-15-wallet.txt",
+      "sha256": "c2cc02a6be67a0f14c95a5cd6bfcb7a2cd2bc8dab61311cf5da4eb8c115cdbeb"
+    },
+    {
+      "path": "evals/files/brief-16-seatmap.txt",
+      "sha256": "6e1be54d3091ed8c068f2275c923f8a06edc23a4e7627188924d9d400ce2c2ff"
+    },
+    {
+      "path": "evals/files/brief-17-pill.txt",
+      "sha256": "948722fd6edea56af31d9e39e242ba50090e5aed49fa03f05e867c4a607feb85"
+    },
+    {
+      "path": "evals/files/brief-18-palette.txt",
+      "sha256": "5b953ba24cff988eed5d896f7cee95da1433e295d587c0971923ee8c3d9a7111"
+    },
+    {
+      "path": "evals/files/brief-19-report.txt",
+      "sha256": "8846be02c702bcf93ca3da8e41aa7bc7facdb2f30658ca875e6d4eebb57f655c"
+    },
+    {
+      "path": "evals/files/brief-20-assistant.txt",
+      "sha256": "f691bd0fa752166a3dd4580791dc38dab075e8739c151b877cccf2ce72949499"
+    },
+    {
+      "path": "evals/files/brief-21-arrowfly.txt",
+      "sha256": "7d02dd3d9c75875c0f6b2b1ae12091bcc3646d8843b6680f1200d357f46b231c"
+    },
+    {
+      "path": "evals/files/brief-22-eaa.txt",
+      "sha256": "4861881d71d09f43e2f96e09a19e681ffde9fd79027f6bcd4eed8b6386e42712"
+    },
+    {
+      "path": "evals/files/brief-23-emoji.txt",
+      "sha256": "98b83bee62161438078c0db55b58f503bac87b699e8258b89339c586f1b2c6fb"
+    },
+    {
+      "path": "evals/files/brief-24-consent.txt",
+      "sha256": "9ad225964ce6fe9ceff1512f143e1241a0a47f32e17444544e6049262d80d6ec"
+    },
+    {
+      "path": "evals/files/brief-25-i18n.txt",
+      "sha256": "7e03fad8a2bf30764d2872fe137bbb62315e06754358a31c6c2aa2575f64243c"
+    },
+    {
+      "path": "evals/files/brief-26-exhibition.txt",
+      "sha256": "f8794abf53da2c8a34557b2a2a2a3e0047b18bb81cab5936e93b86a2f1555e5d"
+    },
+    {
+      "path": "evals/files/briefs.json",
+      "sha256": "a0cc2e9666ef96137448564ecf5a0638fe18193a56edff33cc473391229e40f6"
+    },
+    {
+      "path": "evals/files/decision-ledger-cancel.md",
+      "sha256": "0ef750d7d50813bb83358769ba5bf12c0e23a9729aeea8755e0d9a801b6f476d"
+    },
+    {
+      "path": "evals/files/decision-ledger-orders.md",
+      "sha256": "8f28325739e5f44f3242d1677452f92c73ee380e114818d4d34b0c9aa1082f24"
+    },
+    {
+      "path": "evals/files/decision-ledger-settings.md",
+      "sha256": "ab15db99ebc744b007e8ef5b15ff4977062fca010a4f71e11412ff176cf39da7"
+    },
+    {
+      "path": "evals/files/non-design.json",
+      "sha256": "f9b5df42fd9c6872a8789a224bc87fb0c4c44a516733f58a952b3f31cc2f4a18"
+    },
+    {
+      "path": "evals/files/occupations.json",
+      "sha256": "d410953664db934658ef904a92bb3a467569ccaaee1ca43bf44283ccd34f4606"
+    },
+    {
+      "path": "evals/manifest.json",
+      "sha256": "2200e6038e1120fc0f2500699cbe9a32bc74fd2492d5c75b4ef3bcdf3bc8ba74"
+    },
+    {
+      "path": "evals/rubric.md",
+      "sha256": "e7f14ce992383186d019f1678f026d498d029d94844779e9f194cb1bfc266a90"
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "sha256": "c89727cb9c3ef46914f948ead7ff929d87c2152c8db6f5335c8eafa5f17f678b"
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "sha256": "a46af90176240096c782b21bf753a10e4e47c2d860975255e0df9725611adb5b"
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "sha256": "266ecfe5b8b02e1eb0210240ae90db6f7a8c4d650c6b9a4068109efeb9b7bb66"
+    },
+    {
+      "path": "examples/example-ask.md",
+      "sha256": "5385caa526c1752687fba8cd41c0148688118af47d1de68d8fbd3f4e640cba61"
+    },
+    {
+      "path": "examples/example-audit.md",
+      "sha256": "dba63bef9e1de21cf34ed94fdb1ec15d5a7e870b0a9fec0d8db0afe3efb9be62"
+    },
+    {
+      "path": "examples/example-choose.md",
+      "sha256": "4d358a6849e150e90ab0c499d6c0d164c9e6b6cbeb6c9638b927ca5acb214d8d"
+    },
+    {
+      "path": "examples/example-field-run.md",
+      "sha256": "6a09bea18fd4acec99f304d3940f57a44f92c98f97e6742c034bc6cfc6541d55"
+    },
+    {
+      "path": "examples/example-help.md",
+      "sha256": "ccc95c9e99baa47a79aadd72d2a296555abe82c431e60a4b45cc62da863ab228"
+    },
+    {
+      "path": "examples/example-image-artifact.md",
+      "sha256": "b3940ea9cb725d5a1f1ab19ad54fdf32e462874c06bbb0c2d7c3da096d5be7aa"
+    },
+    {
+      "path": "examples/example-judge.md",
+      "sha256": "851a9cf121093d5d852f6116116323abe5d7d6e3143732047a2600765aba4024"
+    },
+    {
+      "path": "examples/example-no-question.md",
+      "sha256": "89e3a7add543c5304855ddeef734d635741dfc28b42c71e1de4fbed071d01169"
+    },
+    {
+      "path": "examples/example-not-design.md",
+      "sha256": "5e416aa513d373b151ebd0b4a6a44c84726e8ce5bfa736340493ecac25358f48"
+    },
+    {
+      "path": "examples/example-shape.md",
+      "sha256": "7a5327cf717fd808b513a69fe0f95a8c2d5986b908e5ef6ba18d6247a44b93fc"
+    },
+    {
+      "path": "examples/example-watch.md",
+      "sha256": "d37f2903f2e3ef9c9e7d5d42a2d632188c8efd8bc53c4bfdaaa7c546d31ba8af"
+    },
+    {
+      "path": "examples/example-weak-read.md",
+      "sha256": "b9d7b61a56d26c6ae24be2c003bb4814187a8c7060609eef9662235adbc76357"
+    },
+    {
+      "path": "examples/example-widened-slice.md",
+      "sha256": "266cad8677424c21b663930f8740bb8c8aa1fd2f5f1106cf0499ee57579ad48a"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "c5d69698744e7311581759873233b0d30f0b5e64667a77aa2948f2a36056f361"
+    },
+    {
+      "path": "references/coordinates.md",
+      "sha256": "4b5c39833cbc81ca6663901a78573d54355373587c556388aa0f86e382e3d2c9"
+    },
+    {
+      "path": "references/decisions-field.md",
+      "sha256": "ce6ed2e1fd25ec815aa459b109a36ec6f4329af142630f781944bbe2c81619e7"
+    },
+    {
+      "path": "references/decisions.md",
+      "sha256": "b63bbe9b9a17ff521b7bde5614911c5ff9cdb0224c39dcbbed6f13d357d56db1"
+    },
+    {
+      "path": "references/disciplines.md",
+      "sha256": "33997fb529b0db9e227ed2573c11a307f0cb0a9237e48846cc4c57571bb5c9b8"
+    },
+    {
+      "path": "references/generation-contract.md",
+      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
+    },
+    {
+      "path": "references/interruption.md",
+      "sha256": "3eeddd72867fbb4794862f8773970ebfe20ec5a7f8e42846de0fa11a6eb11344"
+    },
+    {
+      "path": "references/ledger-format.md",
+      "sha256": "acb35278310255372b09a4ac6aed68ddd0e77e8264a999f5fb42d4bcd702bef8"
+    },
+    {
+      "path": "scripts/bench.py",
+      "sha256": "bfcbbde750af863a5f7c05ea731a2f2cec078a52abfd9a0892827797a5b0074f"
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+    },
+    {
+      "path": "scripts/check_reply.py",
+      "sha256": "7be844f53136a508583ad94a8b16c7d6fab1b3b7acb54cb21feb7320785952e3"
+    },
+    {
+      "path": "scripts/crafts.py",
+      "sha256": "74305fe263e3ac5875fbbf9014ed966f5966bf9f44f0977842c7dadddbdff8fe"
+    },
+    {
+      "path": "scripts/gate.py",
+      "sha256": "7f1ddb1779f10835928ad70331f37ee809be8ee3c0fdad57329992be90a61d33"
+    },
+    {
+      "path": "scripts/ledger.py",
+      "sha256": "394618325c3dab97ae161c21bfbbaf55223f3532341f2178e235b6cadedd5b4e"
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399"
+    },
+    {
+      "path": "scripts/locate.py",
+      "sha256": "12eed4c58b58f5a9f0b9bf49d8c3b9936cdc71f91e1fa355e3b6dcf8a9fb7b50"
+    },
+    {
+      "path": "scripts/skill_info.py",
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28"
+    },
+    {
+      "path": "scripts/slice.py",
+      "sha256": "9c7d2a0ef650e9c14b4f92c327f8ae25e17b910b5e161dafc8e74622cf502741"
+    },
+    {
+      "path": "scripts/speak.py",
+      "sha256": "842f4b2600f710e8e9580e541a71cdc51d8bbbf073ff3459cc1032636938eb27"
+    },
+    {
+      "path": "scripts/tests/test_bench.py",
+      "sha256": "8242c2f4894dc467fa2f2a8287dbd554578e40565bc7c96581c35646a18928b4"
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652"
+    },
+    {
+      "path": "scripts/tests/test_crafts.py",
+      "sha256": "38681c11abaeb2b7819d15d92514cb81ef13e80db9258dc2a1d8c9b74cfe7db0"
+    },
+    {
+      "path": "scripts/tests/test_disciplines.py",
+      "sha256": "6292ccaee185c843f0e2c461771afcaf75fcc7e2309a1375c149e51be8fea62d"
+    },
+    {
+      "path": "scripts/tests/test_gate.py",
+      "sha256": "1bc293770fdacf8f95a0d6d726c0a6b56144a73488170f73085f81884ab13769"
+    },
+    {
+      "path": "scripts/tests/test_ledger.py",
+      "sha256": "e7d40f9d2d79380db424f7c7af58b5adec1786def051b188ba971a757a396590"
+    },
+    {
+      "path": "scripts/tests/test_locate.py",
+      "sha256": "7badec60be9ccb6d3c1d872a4b7bc0aa1f5309901e8d4ebfdf9e5d58194fc9be"
+    },
+    {
+      "path": "scripts/tests/test_scripts.py",
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73"
+    },
+    {
+      "path": "scripts/tests/test_slice.py",
+      "sha256": "6e39d5cad00f2f44eaae3d3b387ebd6634062bb41ed4c0df7d3ab1c379be02ca"
+    },
+    {
+      "path": "scripts/tests/test_speak.py",
+      "sha256": "3f482e1e30256f84f0573769cdf7f809ff72c693a25e1819a16aa4f2ab8787db"
+    },
+    {
+      "path": "scripts/tests/test_yamlread.py",
+      "sha256": "12b963b6e63341b2093f8e54efdb33b3f411fb2c3becdfd2b6ed5d1b1585f2da"
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a"
+    },
+    {
+      "path": "scripts/yamlread.py",
+      "sha256": "9dbd516c9a138406720841a96f02119ae0b0a218db026ab6a465430f0f98c0b2"
+    }
+  ],
+  "source_case_ids": [
+    "BD-001",
+    "BD-002",
+    "BD-003",
+    "BD-004",
+    "BD-005",
+    "BD-006",
+    "BD-007",
+    "BD-008"
+  ]
+}

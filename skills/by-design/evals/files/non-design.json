@@ -1,0 +1,20 @@
+[
+  "what time is my next meeting",
+  "fix the failing test in auth.py",
+  "extract the tables from this PDF report",
+  "rewrite this launch tweet in my voice",
+  "design a database schema for users and orders",
+  "what is the weather tomorrow",
+  "run npm install and start the dev server",
+  "write a sql query joining orders and users",
+  "summarize this article for me",
+  "translate this paragraph into french",
+  "book a flight to lisbon",
+  "resolve the merge conflict in main.py",
+  "what does this stack trace mean",
+  "git push the branch and open a pull request",
+  "refactor the auth service and rerun the migration",
+  "add a caching layer in front of the postgres query",
+  "upgrade the dependency and fix the type errors",
+  "set up a cron job to rotate the logs"
+]

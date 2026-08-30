@@ -1,0 +1,262 @@
+{
+  "accessibility specialist": {
+    "shelf": "Accessibility",
+    "task": "Remediation programme: the success criteria, focus order, screen reader announcements, and an accessibility statement that matches the product."
+  },
+  "ai interaction designer": {
+    "shelf": "AI interaction, agents and personalization",
+    "task": "Agent interface: what the agent may do unsupervised, how a plan is shown before it runs, and where the person can stop it."
+  },
+  "ai provenance designer": {
+    "shelf": "AI honesty, provenance and disclosure",
+    "task": "Labelling generated media: what the badge says, where it lives, what survives a screenshot, and what we claim we can detect."
+  },
+  "animator": {
+    "shelf": "Motion, film and moving image",
+    "task": "Character animation pass: weight, anticipation and the timing of the beat before the hit, at twenty four frames a second."
+  },
+  "architect": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Housing block: the entrance sequence, daylight into a north facing flat, and where the bins and bikes actually go."
+  },
+  "art director": {
+    "shelf": "Brand distinctiveness and positioning",
+    "task": "Campaign art direction for a launch: which image carries the idea, and what the crop, the cast and the palette say about who this brand is."
+  },
+  "automotive designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Cabin interior: seat material wear at three years, storage a driver reaches without looking, and the switchgear that stays physical."
+  },
+  "behavioural designer": {
+    "shelf": "Persuasion, defaults and dark patterns",
+    "task": "Default settings and prompts: which default the business prefers, which the person would choose, and whether the difference is defensible."
+  },
+  "book designer": {
+    "shelf": "Typography and editorial typesetting",
+    "task": "Interior typesetting: measure, leading, running heads, and the point where an orphan is worth a rewrite rather than a reset."
+  },
+  "brand strategist": {
+    "shelf": "Brand distinctiveness and positioning",
+    "task": "Positioning for a challenger: the category codes we keep, the one we refuse, and what the refusal costs in the first year."
+  },
+  "colour specialist": {
+    "shelf": "Color, theming and dark mode",
+    "task": "Dark mode pass: surface elevation, contrast on the accent, and which brand colour cannot survive being inverted."
+  },
+  "content designer": {
+    "shelf": "Voice, tone and UI copy",
+    "task": "Error message set for a payments flow: what happened, what it costs, what to do next, in the words a person would use."
+  },
+  "conversation designer": {
+    "shelf": "AI interaction, agents and personalization",
+    "task": "Voice flow for a support line: turn taking, barge in, what the system says when it is not sure, and how a caller reaches a person."
+  },
+  "costume designer": {
+    "shelf": "Motion, film and moving image",
+    "task": "Period drama wardrobe: silhouette per character arc, fabric under tungsten light, continuity across a six week shoot."
+  },
+  "craft artist": {
+    "shelf": "Physical product, packaging and print",
+    "task": "A run of two hundred stoneware mugs: glaze consistency, handle comfort in the hand, and which variation reads as handmade rather than as a defect."
+  },
+  "data visualisation designer": {
+    "shelf": "Tables, charts and dashboards",
+    "task": "Quarterly dashboard: the chart choice, the axis baseline, the legend, and which comparison the reader is actually being invited to make."
+  },
+  "design quality engineer": {
+    "shelf": "Handoff, spec and design QA",
+    "task": "Handoff and design QA: the redlines, the token names, the states the spec forgot, and what the build got wrong that nobody logged."
+  },
+  "design researcher": {
+    "shelf": "Design process, stakeholders and journeys",
+    "task": "Discovery for a clinic booking service: who we recruit, what the diary study asks, and which finding would change the roadmap rather than decorate it."
+  },
+  "design systems designer": {
+    "shelf": "Design systems and developer surfaces",
+    "task": "Component library release: the breaking change, the migration path, and what adopters have already built on top of the token you want to rename."
+  },
+  "drafter": {
+    "shelf": "Handoff, spec and design QA",
+    "task": "Construction drawing set: dimension strategy, sheet numbering, revision clouds, and what a contractor can build without phoning the office."
+  },
+  "exhibition designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Gallery route: object spacing, label height, dwell time per case, and where a visitor is allowed to sit down."
+  },
+  "fashion designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Capsule collection: the shoulder line, the drape of the fabric on a moving body, the sizing curve, and what the fastening asks of the wearer."
+  },
+  "floral designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Event centrepiece: stem counts, colour balance, water uptake through the evening, and how the arrangement reads from a seated guest's eye line."
+  },
+  "forms designer": {
+    "shelf": "Forms and input",
+    "task": "Benefit claim form: question order, the address model, error recovery, and what happens to a part finished claim."
+  },
+  "game designer": {
+    "shelf": "Game feel, teaching and difficulty",
+    "task": "Difficulty curve for the second act: the failure loop, what the player learns from dying, and where the game stops teaching."
+  },
+  "graphic designer": {
+    "shelf": "Layout, grid, hierarchy and density",
+    "task": "Poster for a festival: the grid, the type hierarchy, the ink limits of the print run, and what reads from across a street."
+  },
+  "growth designer": {
+    "shelf": "Acquisition, marketing surfaces and growth loops",
+    "task": "Landing page for a paid campaign: the promise above the fold, the proof, the single conversion, and what the ad promised before they arrived."
+  },
+  "icon designer": {
+    "shelf": "Icons, illustration and photography",
+    "task": "Icon set: the grid, stroke weight at sixteen pixels, the metaphor for a concept that has no picture, and consistency with the ones we inherited."
+  },
+  "identity and access designer": {
+    "shelf": "Accounts, security and admin",
+    "task": "Sign in and recovery: the second factor, the shared account, the admin who must revoke a device tonight."
+  },
+  "illustrator": {
+    "shelf": "Icons, illustration and photography",
+    "task": "Book cover illustration: what the figure withholds, how the drawing survives a thumbnail on a retail grid, and whether the style dates the book."
+  },
+  "industrial designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Kettle housing: the parting line, the grip radius, the click of the switch, and what the spout does at the moment of pouring."
+  },
+  "information architect": {
+    "shelf": "Navigation, IA and search",
+    "task": "Site taxonomy: the top level cut, what a facet is worth, and whether search is the plan or the apology for the plan."
+  },
+  "instructional designer": {
+    "shelf": "Game feel, teaching and difficulty",
+    "task": "Course module: what the learner can do at the end, the practice before the assessment, and where the scaffolding comes off."
+  },
+  "interior designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Hotel lobby: circulation from door to desk, acoustic treatment, lighting temperature through the day, and what the seating tells a guest they may do here."
+  },
+  "jewellery designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Engagement ring: stone setting height, band comfort over a working day, hallmark placement, and how the piece wears after ten years."
+  },
+  "landscape architect": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Park masterplan: desire lines, planting that survives year three, shade at midday in August, and sight lines after dark."
+  },
+  "lifecycle designer": {
+    "shelf": "Notifications, email and interruption",
+    "task": "Email programme: the send cadence, the digest that replaces four alerts, and the unsubscribe that is easier to find than the offer."
+  },
+  "lighting designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Theatre rig: cue stack, colour temperature per scene, the blackout, and sight lines from the cheapest seat."
+  },
+  "localisation specialist": {
+    "shelf": "Internationalization and locale",
+    "task": "Locale readiness: text expansion in German, right to left mirroring, date and currency formats, and what the pseudo locale pass exposes."
+  },
+  "medical device designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Infusion pump housing and interface: alarm hierarchy, one handed operation, cleaning survivability, and use error under fatigue."
+  },
+  "monetisation designer": {
+    "shelf": "Pricing, checkout and billing",
+    "task": "Plan page and upgrade path: the tier boundaries, the proration message, and whether cancelling is as short as subscribing."
+  },
+  "motion designer": {
+    "shelf": "Motion, film and moving image",
+    "task": "Title sequence: the easing on the wordmark, the cut points against the music, and what survives on a phone with the sound off."
+  },
+  "naming strategist": {
+    "shelf": "Naming and brand architecture",
+    "task": "Naming the new tier: how it sits against the existing family, the trademark search, and what it implies about the tier below it."
+  },
+  "naval architect": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Ferry passenger deck: seating density against sea state, handrail continuity, and the route from car deck to seat with luggage."
+  },
+  "onboarding designer": {
+    "shelf": "Onboarding, activation and first run",
+    "task": "First run: the shortest path to the first real outcome, what setup can wait, and what an empty account looks like on day one."
+  },
+  "packaging designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Carton for a new line: die line, dieline lock, shelf face at arm's length, recycled substrate print quality, and what the pack does once it is open."
+  },
+  "patternmaker": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Blocks for a jacket: ease across the back, seam allowance for alteration, and grading from a size eight to a size twenty two."
+  },
+  "performance designer": {
+    "shelf": "Performance, weight and network reality",
+    "task": "Page weight budget: the hero image, the font loading strategy, and what the screen shows during the second before anything arrives."
+  },
+  "platform designer": {
+    "shelf": "Platform conventions and responsive fit",
+    "task": "Watch and tablet variants: what a glance can carry, which gestures are the platform's, and what does not belong on the small screen at all."
+  },
+  "power user designer": {
+    "shelf": "Keyboard, commands and power surfaces",
+    "task": "Command surface for an editor: the shortcut map, the palette ranking, and where focus goes when the palette closes."
+  },
+  "privacy designer": {
+    "shelf": "Privacy, consent and compliance",
+    "task": "Consent experience: layer one, the parity between accept and reject, and what the preference centre does with twenty switches."
+  },
+  "production designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Standing set for a series: sight lines for three camera positions, wall floats, and what the room says about who lives there."
+  },
+  "resilience designer": {
+    "shelf": "Empty, loading, error and edge states",
+    "task": "Edge states across the app: empty, offline, partial failure, and the difference between nothing here yet and something broke."
+  },
+  "retention designer": {
+    "shelf": "Habit, retention and churn",
+    "task": "Streak and reminder design: what a broken streak costs a person, and whether the product earns the return or nags for it."
+  },
+  "service designer": {
+    "shelf": "Design process, stakeholders and journeys",
+    "task": "End to end clinic journey: the referral, the reminder, the arrival, the wait, the follow up, and every handoff between staff who never meet."
+  },
+  "sonic brand designer": {
+    "shelf": "Sound and haptics",
+    "task": "Audio identity: the logo sound, the notification family, what plays at start up, and how it behaves on a cheap speaker."
+  },
+  "sound designer": {
+    "shelf": "Sound and haptics",
+    "task": "Foley and ambience for the corridor scene: the reverb tail, what the door tells you about the building, and where silence is doing the work."
+  },
+  "spatial computing designer": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Headset interface: where content is anchored, comfort over twenty minutes, and what happens when a person walks into another room."
+  },
+  "toy designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Preschool ride on toy: stability angle, small parts, the sound it makes at seven in the morning, and the box it has to fit in."
+  },
+  "trust and safety designer": {
+    "shelf": "Collaboration, community and safety",
+    "task": "Reporting flow: the reason taxonomy, what the reporter sees afterwards, and how fast the content leaves their view."
+  },
+  "type designer": {
+    "shelf": "Typography and editorial typesetting",
+    "task": "Variable font: weight axis endpoints, spacing at text sizes, the italic angle, and what the accented characters do to line height."
+  },
+  "urban planner": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "High street scheme: kerb line, crossing distances, servicing windows, and what the plan does to a shopkeeper at seven in the morning."
+  },
+  "visual merchandiser": {
+    "shelf": "Spatial, ambient and built space",
+    "task": "Window display for the season: the sight line from the pavement, the depth of the scene, and which single garment the whole window is arguing for."
+  },
+  "wayfinding designer": {
+    "shelf": "Physical product, packaging and print",
+    "task": "Hospital signage system: decision points, naming consistency with the letters people receive, and the sign at the moment someone is late and lost."
+  },
+  "web designer": {
+    "shelf": "Layout, grid, hierarchy and density",
+    "task": "Marketing site layout: the fold, the grid at three breakpoints, and how the page reads when the hero image never loads."
+  }
+}

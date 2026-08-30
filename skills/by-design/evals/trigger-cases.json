@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "skill": "by-design",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "here's the orders table before we ship it, what am I missing"
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "can you review this checkout screen for me"
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "which of these two onboarding directions should we go with"
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "we're adding bulk export to the reports page next sprint, nothing designed yet"
+    },
+    {
+      "id": "TR-005",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "does this landing page look generic compared to our competitors"
+    },
+    {
+      "id": "TR-006",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "why did we pick 32px row height, do you remember"
+    },
+    {
+      "id": "TR-007",
+      "kind": "positive",
+      "should_trigger": true,
+      "prompt": "we are deciding whether teen conversations stay private or parents can see them"
+    },
+    {
+      "id": "TR-008",
+      "kind": "near_neighbor",
+      "should_trigger": true,
+      "pair_id": "grid",
+      "prompt": "write the CSS for a 12 column grid with 24px gutters"
+    },
+    {
+      "id": "TR-009",
+      "kind": "near_neighbor",
+      "should_trigger": true,
+      "pair_id": "contrast",
+      "prompt": "what is the contrast ratio between #1F2430 and #FFFFFF"
+    },
+    {
+      "id": "TR-010",
+      "kind": "near_neighbor",
+      "should_trigger": false,
+      "pair_id": "schema",
+      "prompt": "design a database schema for users and orders"
+    },
+    {
+      "id": "TR-011",
+      "kind": "near_neighbor",
+      "should_trigger": false,
+      "pair_id": "voice",
+      "prompt": "rewrite this launch tweet in my voice"
+    },
+    {
+      "id": "TR-012",
+      "kind": "hard_negative",
+      "should_trigger": false,
+      "prompt": "fix the failing test in auth.py"
+    },
+    {
+      "id": "TR-013",
+      "kind": "hard_negative",
+      "should_trigger": false,
+      "prompt": "resolve the merge conflict in main.py"
+    },
+    {
+      "id": "TR-014",
+      "kind": "hard_negative",
+      "should_trigger": false,
+      "prompt": "extract the tables from this PDF report"
+    },
+    {
+      "id": "TR-015",
+      "kind": "hard_negative",
+      "should_trigger": false,
+      "prompt": "write a sql query joining orders and users"
+    },
+    {
+      "id": "TR-016",
+      "kind": "hard_negative",
+      "should_trigger": false,
+      "prompt": "what time is my next meeting"
+    }
+  ]
+}

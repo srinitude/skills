@@ -1,0 +1,1 @@
+The checkout form rejects valid postcodes and the error copy blames the shopper. Guest checkout is behind an account wall, the card fields reformat while you type, and the address block assumes a five digit zip. Two thirds of the drop off happens on this one step.

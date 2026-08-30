@@ -1,0 +1,4173 @@
+# Sound and haptics
+# 278 questions. Generated, ordered by id. Do not hand edit.
+questions:
+  - id: "Q14071"
+    question: "Are success and error distinguishable here by timbre and direction, or only by how loud they are?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "loudness as urgency vs. structural differentiation"
+    failure_it_catches: "A pair of cues that become indistinguishable the moment the volume is low."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14072"
+    question: "Have we auditioned this at fifteen percent system volume on a phone speaker, or only on studio monitors?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "studio fidelity vs. real playback conditions"
+    failure_it_catches: "A cue whose entire low end vanishes on the device it ships to."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14073"
+    question: "Does this sound library share a family resemblance, or was each cue sourced separately over three years?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "per-cue optimization vs. one coherent sonic material"
+    failure_it_catches: "A product that sounds like five different applications stitched together."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14074"
+    question: "Is this cue shorter than the animation it accompanies, or does it trail past the moment it explains?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion", "component"]
+    stage: "refinement"
+    tension: "sonic completeness vs. interaction speed"
+    failure_it_catches: "A tail that is still ringing when the user has already tapped the next thing."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14075"
+    question: "Are these abstract earcons requiring learning, or auditory icons users decode on first hearing?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "exploration"
+    tension: "brandable abstraction vs. immediate comprehension"
+    failure_it_catches: "Choosing abstract tones for a product users touch twice a year."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14076"
+    question: "If someone recorded ten minutes of this app's audio, would it sound like one product or five?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "feature-team autonomy vs. one sonic material"
+    failure_it_catches: "Sound drift across teams that erodes any sense of a single product."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q14077"
+    question: "Which sound marks an irreversible action, and does it carry more weight than the reversible ones?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["trust"]
+    applies_to: ["system", "flow"]
+    stage: "post-ship"
+    tension: "uniform feedback vs. encoding consequence"
+    failure_it_catches: "Deleting an account and dismissing a tooltip sounding exactly the same."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14078"
+    question: "Are we using a loop where a one-shot would do, or a one-shot where an ongoing state needs a loop?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "discrete event marking vs. state representation"
+    failure_it_catches: "A recording session with no audible ongoing state, so users record for ten minutes unaware."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14079"
+    question: "Does our onboarding teach what our earcons mean, or assume they are self-evident?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "abstract sonic vocabulary vs. the cost of teaching it"
+    failure_it_catches: "A learned-meaning system nobody ever learns."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14080"
+    question: "Does our sonic logo raise brand appeal when paired with the visual mark, or lower it?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "data"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "a sound that tests well alone vs. one that works in combination"
+    failure_it_catches: "A sonic logo that reads as a movie effect and cheapens a premium visual identity."
+    provenance: "sourced"
+    source_publisher: "Made Music Studio"
+    source_title: "Sound Data: Sonic Branding Research on Top Car Companies"
+    source_url: "https://www.mademusicstudio.com/blog/sound-data-sonic-research-on-top-car-companies"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14081"
+    question: "Does the error sound inform or punish, and which of those did we choose on purpose?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "memorable negative feedback vs. making users feel scolded"
+    failure_it_catches: "A dissonant fail tone that shames the learner instead of correcting them."
+    provenance: "sourced"
+    source_publisher: "Los Doggies"
+    source_title: "Duolingo: The Sound of Failure"
+    source_url: "https://www.losdoggies.com/archives/8842"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14082"
+    question: "Has the sonic identity been documented well enough that a contractor could add a correct new cue?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "craft held by individuals vs. a transferable system"
+    failure_it_catches: "Sonic drift the moment the original sound designer leaves."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice (build a sound style guide)"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14083"
+    question: "Have we written down what each sound means, or does the meaning live in one designer's head?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "fast authoring vs. a documented vocabulary others can extend"
+    failure_it_catches: "The next team adding a cue that contradicts the meanings already taught."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice (build a sound style guide)"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14084"
+    question: "What does the wearer hear when the assistant has nothing useful to say?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["ai-native", "copy", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "always answering vs. admitting the empty result"
+    failure_it_catches: "A confident but wrong spoken answer where a short 'I can't see that clearly' would have preserved trust."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14085"
+    question: "What is the loudest sound we ship, and does its importance justify sitting at the top of the mix?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "cutting through vs. hierarchy honesty"
+    failure_it_catches: "A trivial event mastered louder than the one alert that actually matters."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14086"
+    question: "What is the shortest version of this cue that still reads as itself?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "recognizability vs. brevity"
+    failure_it_catches: "A 900-millisecond flourish attached to a 120-millisecond interaction."
+    provenance: "synthesized"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14087"
+    question: "Which UI sound descends from our sonic logo, and which was bought from a stock library?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system", "brand"]
+    stage: "refinement"
+    tension: "brand coherence vs. per-cue expedience"
+    failure_it_catches: "A brand theme in advertising that has no relationship to what the product sounds like."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch (the Super G sonic logo as a throughline)"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14088"
+    question: "Which frequencies of this sound disappear entirely on a laptop speaker across a desk?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail", "desktop"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "full-range mix vs. tinny playback hardware"
+    failure_it_catches: "A cue designed around bass weight that reads as a click on the target device."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14089"
+    question: "Which of our sounds is doing branding work at a moment the user urgently needs information?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "brand expression vs. informational clarity under pressure"
+    failure_it_catches: "A signature flourish delaying the cue that says the transfer failed."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14090"
+    question: "When two of our sounds fire within two hundred milliseconds, which one wins, and did anyone decide that?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "per-event completeness vs. a mix that stays legible"
+    failure_it_catches: "Overlapping cues that mask each other and read as a glitch."
+    provenance: "synthesized"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14091"
+    question: "Which emotional register does our wrong-answer sound leave the user in: corrected, or humiliated?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["component", "flow"]
+    stage: "refinement"
+    tension: "motivating correction vs. shaming"
+    failure_it_catches: "A sound that makes a learning product feel like a punishment machine."
+    provenance: "synthesized"
+    source_publisher: "Los Doggies"
+    source_title: "Duolingo: The Sound of Failure"
+    source_url: "https://www.losdoggies.com/archives/8842"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14092"
+    question: "Which of these is a genuine sonic metaphor for the action, and which is a stock file nobody chose?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand"]
+    applies_to: ["system", "artifact"]
+    stage: "exploration"
+    tension: "considered metaphor vs. convenient library asset"
+    failure_it_catches: "A sound set assembled from whatever was free, with no relationship to the product."
+    provenance: "sourced"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14093"
+    question: "Do old and new versions of our cues coexist across screens, or is the library versioned?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "incremental rollout vs. a coherent audible product"
+    failure_it_catches: "Two generations of the same success sound playing in one session."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14094"
+    question: "Has 'new message' been separated from 'message from your manager', or do they share one file?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "one recognizable cue vs. differentiated importance"
+    failure_it_catches: "Users checking the phone for every ping because the sound never says which matters."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14095"
+    question: "Has our audio brand ever been tested with people who will never see the visual logo?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "accessibility"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "sound as visual accompaniment vs. sound as standalone identity"
+    failure_it_catches: "An identity that only works when the logo is on screen beside it."
+    provenance: "synthesized"
+    source_publisher: "Made Music Studio"
+    source_title: "Sound Data: Sonic Branding Research on Top Car Companies"
+    source_url: "https://www.mademusicstudio.com/blog/sound-data-sonic-research-on-top-car-companies"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14096"
+    question: "Is our sonic identity a single logo, or a system with rules for UI cues, ads and hold music?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "one memorable asset vs. a coherent audible world"
+    failure_it_catches: "A beautiful audio mark surrounded by unrelated sounds in the actual product."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Made Music Studio"
+    source_url: "https://www.mademusicstudio.com/"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14097"
+    question: "Is the pitch of this cue tuned to anything, or does it clash with whatever music users play while working?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "post-ship"
+    tension: "sonic independence vs. harmony with ambient audio"
+    failure_it_catches: "A cue that lands dissonantly against background music and reads as an error."
+    provenance: "sourced"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14098"
+    question: "Swap our sound files for a competitor's: would anyone using the product notice?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "safe generic pleasantness vs. an identifiable sonic signature"
+    failure_it_catches: "A sound set indistinguishable from every other app in the category."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14099"
+    question: "Which of our sounds will date fastest because it uses this year's production texture?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["artifact"]
+    stage: "exploration"
+    tension: "contemporary appeal vs. durability"
+    failure_it_catches: "An audio identity that sounds like a specific year forever after."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14100"
+    question: "Would our sonic logo still be recognisable through a car speaker at highway speed?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "detailed production vs. survivability in bad playback conditions"
+    failure_it_catches: "An identity whose distinguishing detail lives in frequencies nobody hears."
+    provenance: "synthesized"
+    source_publisher: "Made Music Studio"
+    source_title: "Sound Data: Sonic Branding Research on Top Car Companies"
+    source_url: "https://www.mademusicstudio.com/blog/sound-data-sonic-research-on-top-car-companies"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14101"
+    question: "Does the failure tone resolve, or is it deliberately left hanging to create dread?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "emotional bite vs. residual anxiety"
+    failure_it_catches: "An unresolved interval that leaves users tense long after a trivial mistake."
+    provenance: "sourced"
+    source_publisher: "Los Doggies"
+    source_title: "Duolingo: The Sound of Failure"
+    source_url: "https://www.losdoggies.com/archives/8842"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14102"
+    question: "Has anyone checked whether our brand theme and our error sound sit in the same key?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "independently composed assets vs. tonal coherence"
+    failure_it_catches: "Cues that clash whenever they overlap with the brand theme in an ad or intro."
+    provenance: "sourced"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14103"
+    question: "Is this sound expressing the brand, or expressing whichever composer we hired that quarter?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "outside craft vs. an owned, documented identity"
+    failure_it_catches: "A sonic identity that changes character every time the vendor changes."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14104"
+    question: "Which three notes carry our sonic logo, and can they survive a one-second pre-roll?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand", "artifact"]
+    stage: "exploration"
+    tension: "expressive composition vs. the shortest usable window"
+    failure_it_catches: "A four-second theme that never gets played in full anywhere it matters."
+    provenance: "synthesized"
+    source_publisher: "Made Music Studio"
+    source_title: "Sound Data: Sonic Branding Research on Top Car Companies"
+    source_url: "https://www.mademusicstudio.com/blog/sound-data-sonic-research-on-top-car-companies"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14105"
+    question: "Has anyone played this cue immediately after the system's own notification sound to check they don't collide?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "distinct app identity vs. living inside the OS soundscape"
+    failure_it_catches: "A cue users mistake for a system alert, or that muddies one."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q14106"
+    question: "How much of the 'premium' feeling here comes from mastering and headroom rather than the melody?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "composition vs. production quality"
+    failure_it_catches: "Rewriting a cue when the real problem is level, clipping, or noise floor."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q14107"
+    question: "Which cue shipped without anyone with audio training ever listening to it?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "shipping speed vs. audio review as a real gate"
+    failure_it_catches: "Clipped, off-brand, or badly normalised assets reaching production unnoticed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q14108"
+    question: "What does this loading loop communicate after fifteen seconds that it didn't at three?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "reassurance during waits vs. audible impatience"
+    failure_it_catches: "A loop that turns a slow operation into an anxiety generator."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14109"
+    question: "Which of our sounds is louder than the system keyboard click, and why did we win that fight?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "app presence vs. sitting politely under system audio"
+    failure_it_catches: "An app whose sounds shout over the OS the user already calibrated."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14110"
+    question: "Which of our sounds is memorable for the wrong reason, the way a system error chime is?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["artifact"]
+    stage: "post-ship"
+    tension: "memorability vs. the emotion attached to the memory"
+    failure_it_catches: "A cue that becomes shorthand for the product failing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14111"
+    question: "Who on this team has actually heard the full sound set played back to back in one sitting?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "per-cue review vs. reviewing the set as one instrument"
+    failure_it_catches: "Individually fine sounds that are mutually inconsistent in level and timbre."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14112"
+    question: "Is on-screen copy doing the emotional work here, or are we asking a 400-millisecond sound to carry the apology?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "sonic expressiveness vs. what language does better"
+    failure_it_catches: "A sad tone standing in for an explanation the user actually needed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q14113"
+    question: "Does our sonic identity translate in markets with different musical conventions?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "one global audio mark vs. locally legible affect"
+    failure_it_catches: "A triumphant motif that reads as funereal somewhere we're launching."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q14114"
+    question: "Would our sonic identity still be ours if a rival used a sound one semitone away?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "distinctiveness vs. defensibility of a short motif"
+    failure_it_catches: "An identity so generic it cannot be owned or protected."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.77
+  - id: "Q14115"
+    question: "How would this descending minor cue read to a listener whose musical culture codes it differently?"
+    category: "Sound and haptics"
+    subcategory: "Earcon craft and sonic system"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["artifact"]
+    stage: "exploration"
+    tension: "emotional shorthand vs. cultural specificity of intervals"
+    failure_it_catches: "Assuming Western tonal conventions carry the same affect worldwide."
+    provenance: "synthesized"
+    source_publisher: "Los Doggies"
+    source_title: "Duolingo: The Sound of Failure"
+    source_url: "https://www.losdoggies.com/archives/8842"
+    seniority: "senior"
+    confidence: 0.75
+  - id: "Q14116"
+    question: "Did we choose this audio session category, or inherit a default that stops other people's music?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "owning the audio output vs. coexisting with the user's media"
+    failure_it_catches: "A UI blip that kills the podcast a user was listening to."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (audio categories)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14117"
+    question: "If the product were muted forever, which single piece of information would disappear with no visual equivalent?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow", "system"]
+    stage: "pre-ship"
+    tension: "audio as enrichment vs. audio as the only channel"
+    failure_it_catches: "A state that only exists as a sound, invisible to muted and deaf users alike."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.89
+  - id: "Q14118"
+    question: "At what point does a confidence percentage stop informing the user and start laundering a guess as a measurement?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["trust", "ai-native", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "legible precision vs. honest calibration"
+    failure_it_catches: "A '87% confident' badge generated by the model itself, read by users as a statistical guarantee."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "AI Hallucinations: What Designers Need to Know"
+    source_url: "https://www.nngroup.com/articles/ai-hallucinations/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14119"
+    question: "Does this warning interrupt in proportion to the damage it prevents?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "safety vs. interruption cost"
+    failure_it_catches: "An alert-grade sound for a recoverable action, devaluing real warnings."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback (match importance to interruption)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14120"
+    question: "Have we designed the silence between our sounds with the same care as the sounds themselves?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "sonic presence vs. negative space"
+    failure_it_catches: "A continuously scored product in which no single moment can stand out."
+    provenance: "sourced"
+    source_publisher: "Google Design"
+    source_title: "Designing Sound and Silence"
+    source_url: "https://medium.com/google-design/designing-sound-and-silence-1b9674301ec1"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q14121"
+    question: "When a user flips the ring/silent switch, which of our sounds go quiet, and is that list correct?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile", "trust"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "audibility of our feedback vs. honoring an explicit silence request"
+    failure_it_catches: "Game or effect audio that keeps playing after the user has asked for silence."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (silence)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14122"
+    question: "Which lapsed segment is this designed for: gone eight days, or gone eight months?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["flow", "system"]
+    stage: "exploration"
+    tension: "one win-back flow vs. distinct reactivated and resurrected cohorts"
+    failure_it_catches: "Sending the same re-onboarding to someone who missed a week and someone who missed a year."
+    provenance: "sourced"
+    source_publisher: "Duolingo Blog"
+    source_title: "Meaningful metrics: how data sharpened product focus"
+    source_url: "https://blog.duolingo.com/growth-model-duolingo/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14123"
+    question: "Are we confirming an action nobody doubted, or one users would genuinely want proof of?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "reassurance vs. teaching users to ignore confirmations"
+    failure_it_catches: "Confirmation inflation that leaves the important confirmation indistinguishable."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14124"
+    question: "Can a user attribute this sound to its cause within half a second, or do they scan the screen hunting?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "sonic richness vs. legible causality"
+    failure_it_catches: "Feedback that reads as a random noise because nothing on screen claims it."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (causality)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14125"
+    question: "Is the success chime doing work, or confirming an outcome the user already assumed would happen?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow", "component"]
+    stage: "refinement"
+    tension: "closure vs. informational emptiness"
+    failure_it_catches: "Confirming every routine success until confirmations carry no signal when one matters."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14126"
+    question: "Is this sound essential, or embellishment we've declared essential to the system so it dodges silent mode?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "reach vs. honest classification of our own audio"
+    failure_it_catches: "Choosing the playback category purely so effects survive a muted phone."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (audio categories)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14127"
+    question: "Does the payment confirmation feel as significant as the amount being spent?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "one reusable success pattern vs. weight matched to stakes"
+    failure_it_catches: "A four-thousand-dollar transfer confirmed with the same tick as a like."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback (Apple Pay confirmation)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14128"
+    question: "Does this cue duck the user's podcast, or talk straight over it?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "audibility of our cue vs. coexisting with someone's media"
+    failure_it_catches: "A blip that becomes unintelligible against music, or that mutes it entirely."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14129"
+    question: "How would this feature behave if the user's goal were to spend less time in the product?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["ethics", "long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "time-on-app vs. time well spent"
+    failure_it_catches: "A design that has no coherent answer for the user who wants to finish and leave."
+    provenance: "synthesized"
+    source_publisher: "UX Magazine"
+    source_title: "The Psychology of Hot Streak Game Design"
+    source_url: "https://uxmag.medium.com/the-psychology-of-hot-streak-game-design-how-to-keep-players-coming-back-every-day-without-shame-3dde153f239c"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q14130"
+    question: "Is this a sound for something the user caused, or for something that merely happened to them?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "responsive feedback vs. unsolicited announcement"
+    failure_it_catches: "Treating server-side events as if they were user actions worth confirming."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (causality)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14131"
+    question: "Name the one moment in this flow that genuinely deserves audio, then justify every other cue against it?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "coverage vs. reserving audio for significant moments"
+    failure_it_catches: "Feedback sprayed evenly across a flow so nothing is emphasized."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (utility)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14132"
+    question: "What does this sound tell the user that the screen isn't already showing a tenth of a second earlier?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "reassurance vs. redundant noise"
+    failure_it_catches: "A confirmation chime that duplicates a visible state change and adds only volume."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14133"
+    question: "When headphones are unplugged mid-flow, does anything about our audio behaviour change, or is it identical?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile", "trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "continuity vs. privacy of what was being heard"
+    failure_it_catches: "Private audio suddenly broadcast to a room when a cable is pulled."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (headphones)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14134"
+    question: "Does the strongest moment of feedback in this product align with the behaviour we most want repeated?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "feedback distributed evenly vs. reinforcing the one habit that matters"
+    failure_it_catches: "Peak sensory reward attached to a step that predicts nothing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14135"
+    question: "Is the mute control for our cues independent of media volume, or do we ride the user's music level?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "single volume simplicity vs. separable control"
+    failure_it_catches: "Users forced to silence music to escape a UI blip."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14136"
+    question: "Which failure in this flow gets no feedback at all because it happens off-screen?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "quiet background handling vs. surfacing silent failures"
+    failure_it_catches: "Uploads that fail invisibly while the user believes the work is saved."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14137"
+    question: "What would we lose if this product made no sound at all, and would anyone actually churn?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "investment in audio vs. demonstrable value"
+    failure_it_catches: "A sound programme funded on vibes with no articulated loss if removed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q14138"
+    question: "What would this product sound like if we deleted every cue except three?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "coverage vs. hierarchy"
+    failure_it_catches: "A flat sound library where no cue has priority because everything has one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14139"
+    question: "Where does a user go to turn this sound off, and how many taps does that take?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow", "system"]
+    stage: "refinement"
+    tension: "a clean settings screen vs. easy escape from our audio"
+    failure_it_catches: "Sound that can only be escaped by uninstalling."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (make feedback optional)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14140"
+    question: "Are we shipping a sound for an error the user has no way to fix?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["ethics"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "transparency vs. useless alarm"
+    failure_it_catches: "Audibly notifying users of failures only our backend can resolve."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14141"
+    question: "How much of this screen's first paint is one hero image chosen for mood rather than for meaning?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["performance", "brand"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "atmosphere vs. time-to-content"
+    failure_it_catches: "A decorative full-bleed image becoming the largest contentful paint and delaying the actual message."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Core Web Vitals for Designers: A Visual Breakdown"
+    source_url: "https://robertcelt95.medium.com/core-web-vitals-for-designers-a-visual-breakdown-2025-edition-7fc83d8db0a2"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14142"
+    question: "Where in this app does sound stop being feedback and start being decoration?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "atmosphere vs. informational value"
+    failure_it_catches: "A soundscape nobody can justify per-cue, defended as 'personality'."
+    provenance: "synthesized"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (utility principle)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14143"
+    question: "Which moment in this flow currently has zero feedback and probably deserves some?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "trimming excess vs. leaving genuine gaps"
+    failure_it_catches: "Over-correcting into silence and losing the one acknowledgement users needed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14144"
+    question: "Which of our cues would a user rather feel than hear during a meeting?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "audible clarity vs. discretion"
+    failure_it_catches: "Forcing sound where a haptic would carry the same meaning invisibly."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14145"
+    question: "When this event fires while the app is backgrounded, does the sound still play, and should it?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["mobile", "trust"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "keeping users informed vs. speaking when unaddressed"
+    failure_it_catches: "An app that makes noise from the background about something the user never asked to hear."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q14146"
+    question: "What proportion of our sounds fire without any user action at all?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["ethics", "data"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "keeping users updated vs. unrequested interruption"
+    failure_it_catches: "An audio profile dominated by the product talking at people."
+    provenance: "synthesized"
+    source_publisher: "The Guardian"
+    source_title: "Rise in 'alert fatigue' risks phone users disabling notifications"
+    source_url: "https://www.theguardian.com/media/2025/jun/20/increase-alert-fatigue-phone-users-disable-news-notifications-study-finds"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q14147"
+    question: "Which sound was added because a stakeholder wanted the demo to feel alive?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "demo impact vs. daily-use tolerance"
+    failure_it_catches: "Cues tuned for a five-minute pitch shipping into a five-hour workday."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q14148"
+    question: "Could a designer on this team open this screen at 400% zoom in under a minute, or does no such path exist?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["accessibility", "enterprise"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "tooling friction vs. routine verification"
+    failure_it_catches: "a zoom check nobody performs because it takes twenty minutes to set up"
+    provenance: "synthesized"
+    source_publisher: "Qian Wan"
+    source_title: "Design For 400% Zoom Reflow (VMware Design)"
+    source_url: "https://medium.com/vmwaredesign/design-for-400-zoom-reflow-a50091fc08b3"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q14149"
+    question: "Does the loudness of this alert scale with how bad the news is, or with how easy it was to author?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "authoring convenience vs. calibrated urgency"
+    failure_it_catches: "An alert hierarchy that reflects implementation order rather than stakes."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q14150"
+    question: "Which feedback in this flow would a user describe as the app talking back at them?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["brand", "ethics"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "expressive personality vs. perceived nagging"
+    failure_it_catches: "Feedback read as scolding rather than informing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q14151"
+    question: "Should the empty state make any sound, or is the absence of content best left silent?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "warmth in a bare moment vs. drawing attention to nothing"
+    failure_it_catches: "A cheerful cue celebrating the fact that the user has nothing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q14152"
+    question: "Which sound would we cut first if a reviewer called this product a noisy toy?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["brand"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "playful character vs. professional credibility"
+    failure_it_catches: "A sound set that signals 'consumer novelty' to buyers who need to look serious."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q14153"
+    question: "How does this screen read at the end of a long day, when the user is tired rather than fresh?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "peak-capacity testing vs low-capacity reality"
+    failure_it_catches: "Interfaces that only work for a well-rested, fully attentive user."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.77
+  - id: "Q14154"
+    question: "At what point does our background soundtrack stop earning the headphone attention it costs?"
+    category: "Sound and haptics"
+    subcategory: "Earning the sound and silent contexts"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "immersion vs. attentional rent"
+    failure_it_catches: "Ambient audio kept because it was expensive to make, not because it helps."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.75
+  - id: "Q14155"
+    question: "How subtle is the haptic on our most frequent interaction compared with our rarest one?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "uniform strength vs. strength scaled to frequency and importance"
+    failure_it_catches: "Scroll ticks as strong as a payment confirmation, numbing both."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.90
+  - id: "Q14156"
+    question: "What is our haptic for 'no', and is it unmistakably different from our haptic for 'yes'?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "a single confirm buzz vs. a legible accept/reject pair"
+    failure_it_catches: "Users assuming a rejected biometric scan was accepted."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events (CONFIRM / REJECT)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.90
+  - id: "Q14157"
+    question: "Which system haptic pattern are we reusing here, and does its documented meaning match what we're saying?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "convenient reuse vs. honoring meanings the platform already taught"
+    failure_it_catches: "Borrowing the system's success pattern for an event that isn't a success."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.90
+  - id: "Q14158"
+    question: "Are we still calling a legacy one-shot vibration that keeps ringing after the touch ends?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "implementation inertia vs. crisp modern primitives"
+    failure_it_catches: "Buzzy tails that make every tap feel cheap on low-end actuators."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (avoid legacy one-shot vibrations)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14159"
+    question: "Is this 'success' haptic the same pattern we use for a failure anywhere else in the product?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "reusing a good pattern vs. keeping cause-and-effect learnable"
+    failure_it_catches: "Users learning a pattern means 'bad', then feeling it on a win."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (consistency)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14160"
+    question: "Has this been felt on a mid-range Android handset, or only on a flagship Taptic Engine?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "designing to the best actuator vs. the median device"
+    failure_it_catches: "A rich effect that renders as a dull buzz for most of the install base."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Analyze vibration waveforms (actuators)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/actuators"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14161"
+    question: "Have we designed a fallback for devices whose actuator cannot render this rich effect?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "expressive custom haptics vs. graceful degradation"
+    failure_it_catches: "Nothing at all firing on hardware that can't play the composed primitive."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (rich haptics fallback)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14162"
+    question: "Have we tested whether this haptic disrupts the camera, gyroscope, or microphone during capture?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "tactile confirmation vs. physically interfering with sensors"
+    failure_it_catches: "A shutter haptic that visibly blurs the photo it confirms."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14163"
+    question: "Which haptic did we ship because the framework made it easy, not because the moment needed it?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "capability vs. necessity"
+    failure_it_catches: "Haptics scattered wherever a one-line API call fit."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (don't add feedback just because you can)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14164"
+    question: "Which of our haptics is buzzy, and is that buzz reserved for something that genuinely needs alarming?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "attention-grabbing texture vs. touch feedback that should feel clean"
+    failure_it_catches: "Alarm-grade buzz used for an ordinary button, training users to dread taps."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (clear, rich, buzzy)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14165"
+    question: "Would users miss this haptic if it were removed, or only notice it when it fires?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "noticeable delight vs. invisible rightness"
+    failure_it_catches: "Haptics tuned to be impressive in a demo rather than unconsciously correct."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14166"
+    question: "Are we mapping haptics to functional meanings, or to sensations we happened to like in the editor?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "authored aesthetics vs. semantic function users can learn"
+    failure_it_catches: "A haptic set that feels nice individually but teaches nothing collectively."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events (focus on functionality)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14167"
+    question: "At what point does a scroll texture stop being a texture and start being a numbing buzz?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "physicality vs. desensitization"
+    failure_it_catches: "Continuous scroll haptics that dull the hand to every later signal."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (excessive vibration is numbing)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14168"
+    question: "Does this continuous haptic have an end, or does it run until the user leaves the screen?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "immersive texture vs. diluted meaning"
+    failure_it_catches: "A long-running vibration that distracts from the task it was meant to support."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (prefer short haptics)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14169"
+    question: "Does this pattern read as one event or three, and which did we intend?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "transient pulses vs. continuous sensation"
+    failure_it_catches: "A three-tap pattern used for a single atomic action, implying three things happened."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (transient vs. continuous)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14170"
+    question: "Is the void fill doing structural work, or apologising for a box sized to a pallet rather than to the product?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "warehouse standardisation vs. empty-space limits"
+    failure_it_catches: "An e-commerce carton half full of paper that will breach the 50% empty-space ratio."
+    provenance: "sourced"
+    source_publisher: "Latham & Watkins"
+    source_title: "European Packaging and Packaging Waste Regulation"
+    source_url: "https://www.lw.com/en/insights/european-packaging-and-packaging-waste-regulation-summary-of-provisions-and-new-guidance"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14171"
+    question: "Which state change here deserves a notification haptic rather than a selection tick?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "outcome feedback vs. value-change feedback"
+    failure_it_catches: "Announcing a completed task with the same tick used for scrolling a picker."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (notification, impact, selection)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14172"
+    question: "Are 'snapped into place' and 'hit the end of the list' distinguishable by feel alone?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "one generic tick vs. a differentiated tactile vocabulary"
+    failure_it_catches: "A single click standing in for alignment, limits, and level changes alike."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (macOS alignment, level change, generic)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14173"
+    question: "Are we spending three channels of feedback on an event that deserves one?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "reinforcement vs. proportionality"
+    failure_it_catches: "A trivial toggle that animates, clicks and buzzes."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (utility)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14174"
+    question: "Are we using impact haptics for events that involve no collision metaphor whatsoever?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "convenient physical metaphor vs. semantic accuracy"
+    failure_it_catches: "A 'thud' for a form submission, implying a physicality that isn't there."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (impact haptics)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14175"
+    question: "Does the amplitude build toward the snap, or does one flat pulse fire at the end?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion", "component"]
+    stage: "refinement"
+    tension: "simple event marking vs. gradient that communicates approach"
+    failure_it_catches: "A snapping control that gives no tactile warning it is about to snap."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (gradient approach)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14176"
+    question: "Does the strongest haptic in our set belong to the most consequential action in the product?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "authoring order vs. a hierarchy that maps to stakes"
+    failure_it_catches: "The heaviest sensation attached to a cosmetic interaction."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (correlate importance with strength)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14177"
+    question: "Is this delight haptic still delightful on the twentieth encounter, or only the first?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "first-run charm vs. long-run tolerance"
+    failure_it_catches: "A signature flourish that users grow to resent."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (avoid overusing)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14178"
+    question: "What does our haptic vocabulary consist of, and could a new designer list it from memory?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "expressive freedom vs. a finite learnable set"
+    failure_it_catches: "Dozens of near-identical patterns nobody can name or reuse correctly."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (be consistent)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q14179"
+    question: "How many distinct haptic patterns do we ship, and can users actually tell them apart?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "expressive range vs. discriminability"
+    failure_it_catches: "Twelve patterns that users experience as two."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14180"
+    question: "In practice, what is the felt difference between our heavy impact and our medium impact?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "documented distinctions vs. perceptible ones"
+    failure_it_catches: "Shipping three impact weights users experience as one."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (impact haptics)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14181"
+    question: "Is the haptic on this toggle telling users the state changed, or only that they touched glass?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "touch acknowledgement vs. state confirmation"
+    failure_it_catches: "A tap buzz that fires even when the toggle refuses to change."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14182"
+    question: "What in this moment is doing the work of 'it worked' and could one thing do it instead of four?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "layered reassurance vs. economy"
+    failure_it_catches: "A success moment so decorated that none of its parts carry meaning."
+    provenance: "synthesized"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (utility)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14183"
+    question: "What is the haptic budget for a single scroll through the feed, counted in ticks per second?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["performance", "mobile"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "tactile richness vs. numbing the hand"
+    failure_it_catches: "A feed that vibrates continuously and leaves the thumb dead."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (less is more)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14184"
+    question: "Would sharpness or intensity better express the difference we're trying to convey here?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "exploration"
+    tension: "louder vs. crisper as the axis of distinction"
+    failure_it_catches: "Solving every design problem by turning the haptic up."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (sharpness and intensity)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14185"
+    question: "Would this interaction feel cheap if the haptic were removed and everything else stayed?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "visual polish vs. tactile confirmation carrying perceived quality"
+    failure_it_catches: "Assuming premium feel comes from pixels when it comes from the tick."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14186"
+    question: "Does the watch haptic assume a still wrist, or does it survive a run?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "subtle taps vs. detectability under motion"
+    failure_it_catches: "Auto-lap confirmations that runners never feel."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Principles of Wear OS development"
+    source_url: "https://developer.android.com/training/wearables/principles"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14187"
+    question: "Is a haptic doing the job of an error message we were too polite to write?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "gentle non-verbal correction vs. an explanation the user needs"
+    failure_it_catches: "A buzz where an explanation of what went wrong belongs."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14188"
+    question: "Is the long-press haptic strong enough to teach the gesture, or so subtle nobody discovers it?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "restraint vs. discoverability of a hidden affordance"
+    failure_it_catches: "A hidden long-press feature nobody finds because the cue is imperceptible."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14189"
+    question: "What does this vibration feel like with the phone flat on a wooden desk versus in a coat pocket?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "tactile subtlety vs. the coupling conditions we can't control"
+    failure_it_catches: "A refined haptic that becomes a loud rattle on a hard surface."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Analyze vibration waveforms (actuators)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/actuators"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14190"
+    question: "Which haptic fires inside a text field, and does it fight the system keyboard's own feedback?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "custom feedback vs. the platform's existing keyboard haptics"
+    failure_it_catches: "Doubled taps per keystroke that feel like a stutter."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (be consistent with the system)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14191"
+    question: "Which part of this multimodal moment was designed, and which part is a framework default?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "authored intent vs. inherited behaviour"
+    failure_it_catches: "Claiming a designed experience that is three-quarters platform default."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14192"
+    question: "Would a first-time user work out what our custom haptic means without being told?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "novel expressive patterns vs. learnability"
+    failure_it_catches: "Inventing a tactile language nobody has time to learn."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14193"
+    question: "Would someone switching phones mid-year have to relearn anything in this app that they shouldn't have to?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "per-platform nativeness vs. cross-device continuity for one person"
+    failure_it_catches: "An IA that diverges so far between platforms that a switching user is a new user."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The State of Mobile User Experience"
+    source_url: "https://www.nngroup.com/articles/state-mobile-ux/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q14194"
+    question: "Does the slider haptic get denser as values get finer, or click identically across the whole range?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "uniform detents vs. tactile resolution matching value resolution"
+    failure_it_catches: "A precision control that gives no tactile sense of precision."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (Digital Crown detents)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14195"
+    question: "How does this drag haptic behave when someone drags for eight seconds instead of one?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "continuous feedback vs. fatigue over long gestures"
+    failure_it_catches: "A satisfying short drag that becomes unbearable when reordering fifty rows."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14196"
+    question: "Is the haptic here a stand-in for a visual we couldn't find room for?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "layout constraints vs. putting meaning in a channel users may disable"
+    failure_it_catches: "Hiding a needed status in the one channel with no persistence."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14197"
+    question: "This toggle animates, ticks and vibrates: would two of the three be enough?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "multimodal richness vs. restraint on a high-frequency control"
+    failure_it_catches: "A settings screen that becomes a percussion instrument."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14198"
+    question: "Which haptic here duplicates a sound, and is that redundancy deliberate or unexamined?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "multimodal reinforcement vs. doubled interruption"
+    failure_it_catches: "Two channels shouting the same trivial thing at the same moment."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14199"
+    question: "Which haptic would we keep if the device allowed only three per session?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "coverage vs. reserving touch for what matters"
+    failure_it_catches: "A tactile layer with no internal hierarchy."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14200"
+    question: "Which of our haptics could be mistaken for an incoming call?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "distinct in-app patterns vs. collision with OS-level meanings"
+    failure_it_catches: "Users pulling out the phone expecting a call because of an in-app buzz."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14201"
+    question: "Has anyone counted how many haptics fire across the checkout flow end to end?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "per-step confirmation vs. cumulative buzz"
+    failure_it_catches: "Eleven vibrations between cart and receipt, none of them memorable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14202"
+    question: "Has the feedback budget for this screen ever been written down anywhere?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["screen"]
+    stage: "concept"
+    tension: "per-feature decisions vs. a shared ceiling"
+    failure_it_catches: "Each team adding one reasonable cue until the screen is unusable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14203"
+    question: "What does undo feel like, and does it feel like the reverse of the action it undoes?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "reusing one pattern vs. encoding direction in touch"
+    failure_it_catches: "Undo feeling identical to do, so users can't tell which happened."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14204"
+    question: "What marks the boundary of a scrollable area, and does that marker exist in more than one channel?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "single-channel elegance vs. reachable boundaries for everyone"
+    failure_it_catches: "Users repeatedly pulling at a list that has already ended."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (macOS alignment feedback)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14205"
+    question: "Which of our wearable haptics is strong enough to wake someone sleeping with the watch on?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["ethics"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "reliable alerting vs. intrusion into sleep"
+    failure_it_catches: "A non-urgent notification vibrating a sleeper awake at 2am."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (watchOS)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14206"
+    question: "Which sound and haptic pair should be swapped, having been mapped by whoever built the component first?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "historical accident vs. deliberate mapping"
+    failure_it_catches: "A feedback vocabulary shaped by build order rather than meaning."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (be consistent)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14207"
+    question: "Which two haptics in our set are functionally identical and should be merged?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "per-feature authorship vs. a compact shared vocabulary"
+    failure_it_catches: "Vocabulary sprawl that makes each pattern less meaningful."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14208"
+    question: "Would this haptic still read as confirmation with the phone at the bottom of a bag?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "subtlety vs. detectability through clothing and cases"
+    failure_it_catches: "A confirmation nobody feels in the situation where it matters most."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q14209"
+    question: "Has this been tuned for a bare phone only, or also with a thick case damping the chassis?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "calibrating to ideal hardware vs. how devices are actually carried"
+    failure_it_catches: "Feedback that disappears for the majority of users who use cases."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14210"
+    question: "Would a user who leaves haptics on all day notice the battery cost of our drag feedback?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["performance", "mobile"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "continuous tactile texture vs. actuator power draw"
+    failure_it_catches: "A signature interaction that measurably shortens the day's battery."
+    provenance: "sourced"
+    source_publisher: "Boreas Technologies"
+    source_title: "Why iOS 16 keyboard haptics drains battery"
+    source_url: "https://pages.boreas.ca/blog/piezo-haptics/why-the-ios-16-keyboard-haptics-is-draining-your-battery"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14211"
+    question: "How does our haptic behave when the device is already vibrating for an incoming call?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["mobile"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "our feedback vs. the system's claim on the same actuator"
+    failure_it_catches: "Two patterns overlapping into an unreadable buzz at the worst moment."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q14212"
+    question: "Are our haptic amplitude curves authored, or are we relying on whatever the default primitive does?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "post-ship"
+    tension: "platform abstraction vs. authored feel"
+    failure_it_catches: "Assuming a default primitive matches an intended sensation nobody specified."
+    provenance: "sourced"
+    source_publisher: "Android 16"
+    source_title: "features (haptic APIs for amplitude and frequency curves)"
+    source_url: "https://developer.android.com/about/versions/16/features"
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q14213"
+    question: "Which haptic in this app fires most often, and when did we last question it?"
+    category: "Sound and haptics"
+    subcategory: "Haptic vocabulary, restraint and hardware reality"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "inherited defaults vs. re-examining the most-felt habit"
+    failure_it_catches: "The most-felt haptic in the product never receiving design attention."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.72
+  - id: "Q14214"
+    question: "Which sound in this library would survive being heard five hundred times in one working day?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "distinctiveness on first hearing vs. tolerability on the five-hundredth"
+    failure_it_catches: "A charming cue that becomes the reason power users mute the product in week two."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.90
+  - id: "Q14215"
+    question: "How many times a day does the median user trigger this cue, and was it designed at that frequency?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["data"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "expressiveness vs. frequency of occurrence"
+    failure_it_catches: "A rich, ornamented sound attached to an action that fires two hundred times per session."
+    provenance: "sourced"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch (the more often an interaction happens, the less intrusive its sound)"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14216"
+    question: "What varies between the first playback of this sound and the fiftieth?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "recognizability of a fixed asset vs. tolerability under repetition"
+    failure_it_catches: "One identical file replayed until the sameness itself becomes irritating."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (varying repetitive sounds)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14217"
+    question: "How many audible notifications does a heavy user receive from us in a day?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["data", "ethics"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "per-alert justification vs. cumulative volume"
+    failure_it_catches: "A per-notification review process that never looks at the daily total."
+    provenance: "sourced"
+    source_publisher: "The Guardian"
+    source_title: "Rise in 'alert fatigue' risks phone users disabling news notifications"
+    source_url: "https://www.theguardian.com/media/2025/jun/20/increase-alert-fatigue-phone-users-disable-news-notifications-study-finds"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q14218"
+    question: "Is this alert a status tone or a status shout, and does the event deserve a shout?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail", "ethics"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "urgency escalation vs. alarm inflation"
+    failure_it_catches: "A smoke-alarm-grade sound for a low-battery warning, teaching users to ignore every future alarm."
+    provenance: "sourced"
+    source_publisher: "Calm Technology"
+    source_title: "Principles"
+    source_url: "https://calmtech.com/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14219"
+    question: "Which of our alerts would a user name as the reason they silenced everything from us?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "one team's engagement win vs. the whole product losing its voice"
+    failure_it_catches: "A single overused alert costing the ability to reach users at all."
+    provenance: "sourced"
+    source_publisher: "The Guardian"
+    source_title: "Rise in 'alert fatigue' risks phone users disabling news notifications"
+    source_url: "https://www.theguardian.com/media/2025/jun/20/increase-alert-fatigue-phone-users-disable-news-notifications-study-finds"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q14220"
+    question: "Are we teaching users to ignore our confirmations by confirming everything?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["trust"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "helpfulness vs. signal devaluation"
+    failure_it_catches: "The one confirmation that mattered being tuned out with the rest."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback (alerts lose impact when overused)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q14221"
+    question: "Has the tone reserved for critical events ever been used by marketing, even once?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "campaign reach vs. the integrity of an urgent signal"
+    failure_it_catches: "Users learning to ignore the sound reserved for genuine emergencies."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q14222"
+    question: "Have we heard this soundscape on a noisy bus and in a silent library, or only at a desk?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["mobile"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "one mix vs. wildly different ambient noise floors"
+    failure_it_catches: "Cues inaudible on the street and mortifying in a quiet room."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14223"
+    question: "How does this feedback behave when someone triggers it ten times in two seconds?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "per-event fidelity vs. burst behaviour"
+    failure_it_catches: "Rapid taps stacking into an unrecognisable smear of sound and vibration."
+    provenance: "synthesized"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14224"
+    question: "Which of our sounds accumulates the highest nuisance score across a full shift?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "individually tolerable cues vs. combined subconscious irritation"
+    failure_it_catches: "Death by a thousand small annoyances that no single review would flag."
+    provenance: "sourced"
+    source_publisher: "A Sound Effect"
+    source_title: "Bjørn Jacobsen on the nuisance score"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14225"
+    question: "Are we treating the actuator as a speaker, playing patterns loud enough to be heard across a table?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail", "ethics"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "strong tactile signal vs. audible rattle in a quiet room"
+    failure_it_catches: "A 'silent' mode that is audibly buzzing for everyone nearby."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Analyze vibration waveforms (actuators)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/actuators"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14226"
+    question: "Could we randomize pitch and gain slightly at playback instead of shipping one frozen file forever?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "asset simplicity vs. perceived liveliness"
+    failure_it_catches: "Authoring dozens of variant files when runtime variation would be cheaper and better."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14227"
+    question: "Does every push we send need to be audible, or is silent delivery a default we never chose?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics", "mobile"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "guaranteed attention vs. preserving the right to interrupt"
+    failure_it_catches: "Every message shipping with sound because that's what the template did."
+    provenance: "synthesized"
+    source_publisher: "The Guardian"
+    source_title: "Rise in 'alert fatigue' risks phone users disabling news notifications"
+    source_url: "https://www.theguardian.com/media/2025/jun/20/increase-alert-fatigue-phone-users-disable-news-notifications-study-finds"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14228"
+    question: "Is our sound design tested by people who use the product all day, or by people who demo it?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "novelty appeal vs. daily-use tolerance"
+    failure_it_catches: "Audio validated exclusively by people encountering it fresh."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14229"
+    question: "Is there a cooldown on this cue, or will fast repeats simply pile up?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["performance", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "responsiveness to every event vs. protecting the user's ears and hand"
+    failure_it_catches: "Feedback with no rate limit turning a fast interaction into a buzz."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14230"
+    question: "When the assistant speaks aloud in a shared room, whose information does that audio leak?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics", "ai-native", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "hands-free convenience vs. audible privacy"
+    failure_it_catches: "An assistant reading a medical result aloud in an open-plan office."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14231"
+    question: "Would eight hours of this app's audio drive a full-time operator to mute the machine?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "designed for the first hour vs. the eighth"
+    failure_it_catches: "Professional users disabling audio and missing the alerts that mattered."
+    provenance: "synthesized"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14232"
+    question: "Has anyone listened to our haptics, rather than felt them, in a silent room?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "tactile design intent vs. unintended acoustic output"
+    failure_it_catches: "A haptic whose audible artifact sounds cheap and plasticky."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14233"
+    question: "What does this product sound like in a room where four people are using it at once?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "single-user tuning vs. collective soundscape"
+    failure_it_catches: "Cues that are pleasant alone and chaotic in a classroom or call centre."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14234"
+    question: "What happens to the meaning of the 'sent' sound when someone fires forty messages in two minutes?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["mobile"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "per-event confirmation vs. burst behaviour"
+    failure_it_catches: "A confirmation cue that machine-guns into a buzz during normal heavy use."
+    provenance: "synthesized"
+    source_publisher: "A Sound Effect"
+    source_title: "How to maintain immersion and reduce repetition in game audio"
+    source_url: "https://www.asoundeffect.com/game-audio-immersion/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14235"
+    question: "When the same action succeeds twice in a row, does the second confirmation start to feel like noise?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "consistent per-event feedback vs. diminishing returns"
+    failure_it_catches: "Bulk operations turning confirmations into a stream of interruptions."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (less is more)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14236"
+    question: "Does the voice interface still make sense with the speaker muted on a train?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ai-native", "mobile"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "voice-first design vs. contexts where nobody can listen"
+    failure_it_catches: "A voice feature unusable in exactly the places people use their phones most."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14237"
+    question: "Is the keyboard click on by default, and did we decide that or inherit it?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "typing confidence vs. audible presence in every room"
+    failure_it_catches: "A default that makes every user audibly typing in a meeting."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio (nonessential sounds)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14238"
+    question: "Which of our sounds fires in a shared space, and who besides the user hears it?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "user feedback vs. bystander exposure"
+    failure_it_catches: "Audio decisions made without counting who else is in the room."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14239"
+    question: "Which sound do power users mute first, and what does that tell us about its design?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "designed intent vs. observed abandonment"
+    failure_it_catches: "Never learning which cue drives the settings toggle that kills all audio."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14240"
+    question: "Whose attention is this sound spending: the user's, or the stranger sitting beside them?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "user delight vs. bystander cost"
+    failure_it_catches: "Audio designed as if every user were alone in a room with headphones."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14241"
+    question: "At what point does our delight become the annoyance of the person at the next desk?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics", "enterprise"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "expressive personality vs. shared acoustic space"
+    failure_it_catches: "A team-wide tool banned by office consensus because of its sounds."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14242"
+    question: "Does our sound design assume every user has free hands and a quiet room?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "ideal-condition design vs. the environments people actually work in"
+    failure_it_catches: "Cues that are inaudible or antisocial in every real deployment."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14243"
+    question: "How many distinct alert sounds can a trained user reliably learn, and are we past that number?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "expressive differentiation vs. the limits of auditory memory"
+    failure_it_catches: "A twelve-sound alert vocabulary users experience as generic noise."
+    provenance: "sourced"
+    source_publisher: "AAMI"
+    source_title: "Updated IEC 60601-1-8 breaks new ground in development of alarm sounds"
+    source_url: "https://array.aami.org/content/news/updated-iec-60601-1-8-breaks-new-ground-development-alarm-sounds"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14244"
+    question: "Is the launch sound a greeting, or a tax on everyone else in the room?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["brand", "ethics"]
+    applies_to: ["brand", "flow"]
+    stage: "pre-ship"
+    tension: "brand moment vs. unsolicited broadcast"
+    failure_it_catches: "A startup sting users learn to mute the device before triggering."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14245"
+    question: "What is our policy for audio in the enterprise tier, where this runs in a call centre all day?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "one consumer sound profile vs. deployment-specific needs"
+    failure_it_catches: "Consumer-tuned audio driving an operations floor to disable it wholesale."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14246"
+    question: "What share of our sound-enabled alerts lead to the user opening the app within a minute?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["data", "business-model"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "sending because we can vs. evidence the sound earned its interruption"
+    failure_it_catches: "Audible alerts kept alive by habit rather than measured response."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14247"
+    question: "Would this alert still be appropriate arriving at 3am on a bedside table?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics", "mobile"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "reach vs. respect for context we can't see"
+    failure_it_catches: "A cheerful marketing tone waking a household."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14248"
+    question: "Where does our sonic brand play in places the user never chose to hear it?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["brand", "ethics"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "brand exposure vs. consent to be marketed to audibly"
+    failure_it_catches: "A logo sting on app launch that users experience as an ad they can't skip."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q14249"
+    question: "In a room with six of our devices alarming, could an operator tell which one needs them?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "one recognisable brand alarm vs. distinguishability at scale"
+    failure_it_catches: "Identical alarms across devices producing paralysis in a crisis."
+    provenance: "sourced"
+    source_publisher: "AAMI"
+    source_title: "Updated IEC 60601-1-8 breaks new ground in development of alarm sounds"
+    source_url: "https://array.aami.org/content/news/updated-iec-60601-1-8-breaks-new-ground-development-alarm-sounds"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q14250"
+    question: "Is the urgency of this alarm encoded in its rhythm, or only in how loud we made it?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "loudness as the urgency axis vs. structural encoding"
+    failure_it_catches: "Urgency that disappears the moment someone turns the volume down."
+    provenance: "sourced"
+    source_publisher: "AAMI"
+    source_title: "Updated IEC 60601-1-8 breaks new ground in development of alarm sounds"
+    source_url: "https://array.aami.org/content/news/updated-iec-60601-1-8-breaks-new-ground-development-alarm-sounds"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14251"
+    question: "Should this cue default to haptic in public and sound in private, and do we know which we're in?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["mobile", "ethics"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "context-adaptive feedback vs. predictability and privacy of inference"
+    failure_it_catches: "One fixed modality that is wrong in half of the situations users are in."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q14252"
+    question: "Which sound means 'you must act now', and is it used for anything else in the product?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "a reusable attention-grabber vs. a protected urgency signal"
+    failure_it_catches: "Urgency inflation that leaves no cue for genuine urgency."
+    provenance: "synthesized"
+    source_publisher: "AAMI"
+    source_title: "Updated IEC 60601-1-8 breaks new ground in development of alarm sounds"
+    source_url: "https://array.aami.org/content/news/updated-iec-60601-1-8-breaks-new-ground-development-alarm-sounds"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14253"
+    question: "Would this cue embarrass someone in a quiet open-plan office at nine in the morning?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["ethics"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "playfulness vs. the user's social exposure"
+    failure_it_catches: "A cartoon sound that makes the product unusable in the room where people actually work."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14254"
+    question: "Which sounds would have to change if this product entered healthcare or aviation?"
+    category: "Sound and haptics"
+    subcategory: "Repetition, alert fatigue and shared spaces"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "consumer expressiveness vs. regulated alarm conventions"
+    failure_it_catches: "A sound library that blocks entry into a serious market later."
+    provenance: "synthesized"
+    source_publisher: "AAMI"
+    source_title: "Updated IEC 60601-1-8 breaks new ground in development of alarm sounds"
+    source_url: "https://array.aami.org/content/news/updated-iec-60601-1-8-breaks-new-ground-development-alarm-sounds"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q14255"
+    question: "Would a screen-reader user get the same hierarchy from audio that a sighted user gets from the layout?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen", "system"]
+    stage: "pre-ship"
+    tension: "visual hierarchy vs. linear announcement order"
+    failure_it_catches: "A dashboard whose most important figure is announced fourteenth in the reading order."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14256"
+    question: "How does this alert land at 3am on a phone on a nightstand?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["ethics", "mobile"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "urgency in office conditions vs. the worst context of receipt"
+    failure_it_catches: "A marketing push with an alarm-like tone waking users, who then uninstall."
+    provenance: "synthesized"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14257"
+    question: "Is there a sonic depth of field here (a foreground alert and a background ambience) or is everything at one volume?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["system", "motion"]
+    stage: "refinement"
+    tension: "every sound equally present vs. audio hierarchy"
+    failure_it_catches: "Six notification sounds at identical loudness, so users cannot triage by ear."
+    provenance: "sourced"
+    source_publisher: "FilmSound.org"
+    source_title: "Worldizing (Walter Murch)"
+    source_url: "http://www.filmsound.org/terminology/worldizing.htm"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14258"
+    question: "When a recording or listening feature is active, does anything but a red dot tell the user?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["trust", "ethics", "ai-native"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "unobtrusive indicators vs. unmistakable disclosure"
+    failure_it_catches: "A microphone left live behind a 6px indicator, discovered later and read as surveillance."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q14259"
+    question: "Does the success sound match the emotional size of the success?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["component", "motion"]
+    stage: "exploration"
+    tension: "one reusable success cue vs. proportionate celebration"
+    failure_it_catches: "The same chime for 'draft autosaved' and 'mortgage application approved'."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14260"
+    question: "What does this sound tell the user that the screen does not?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "redundant audio feedback vs. audio carrying its own channel"
+    failure_it_catches: "Sounds that duplicate visible state, so muting the app costs nothing and adding them cost weeks."
+    provenance: "sourced"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14261"
+    question: "When the user mutes this app, what information disappears with no visual equivalent?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "audio as a real channel vs. audio as optional garnish"
+    failure_it_catches: "A queue whose 'job finished' state is only ever announced by a sound most users have silenced."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14262"
+    question: "Is this sound designed to be heard once, or a hundred times a day?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "memorable character vs. repeat tolerance"
+    failure_it_catches: "A distinctive send sound that becomes unbearable for anyone sending 200 messages a day."
+    provenance: "synthesized"
+    source_publisher: "Emil Kowalski"
+    source_title: "Great Animations"
+    source_url: "https://emilkowal.ski/ui/great-animations"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q14263"
+    question: "Which moment in this product deserves silence?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system", "flow"]
+    stage: "exploration"
+    tension: "feedback everywhere vs. tension through absence"
+    failure_it_catches: "A product that plays a sound for every event, so nothing sonic can ever mean 'this one matters'."
+    provenance: "sourced"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14264"
+    question: "Are the sounds in this product drawn from one instrument family, or assembled from three libraries?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system", "brand"]
+    stage: "refinement"
+    tension: "per-feature convenience vs. one sonic identity"
+    failure_it_catches: "A sound set where the messaging chime, the error and the success clearly come from different worlds."
+    provenance: "synthesized"
+    source_publisher: "FilmSound.org"
+    source_title: "Worldizing (Walter Murch)"
+    source_url: "http://www.filmsound.org/terminology/worldizing.htm"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14265"
+    question: "Does the error sound scold?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["component", "brand"]
+    stage: "exploration"
+    tension: "clear failure signal vs. making the user feel punished"
+    failure_it_catches: "A harsh buzz on validation failure that makes typo correction feel like a reprimand."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14266"
+    question: "Is this notification sound distinguishable from every other app's, with the phone in a pocket?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["brand", "mobile"]
+    applies_to: ["brand", "component"]
+    stage: "post-ship"
+    tension: "pleasant and generic vs. identifiable"
+    failure_it_catches: "A default-adjacent tone that users attribute to a different app, so our alerts never get answered."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14267"
+    question: "What does this product sound like, and has anyone on this team ever described it in those terms?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["accessibility", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "visual identity vs. an unowned auditory identity"
+    failure_it_catches: "a brand that has never considered its second, spoken product"
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q14268"
+    question: "What is the first sound a new user hears, and is that the impression we intend?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["brand"]
+    applies_to: ["brand", "flow"]
+    stage: "concept"
+    tension: "an unmanaged first audio moment vs. a chosen one"
+    failure_it_catches: "A permission-denied error being the product's opening note."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Saul Bass: Anatomy of Film Design"
+    source_url: "https://www.academia.edu/164978398/Saul_Bass_Anatomy_of_Film_Design"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14269"
+    question: "Do we ever remove sound to create tension, or only add it to create feedback?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system", "motion"]
+    stage: "exploration"
+    tension: "additive sound design vs. subtractive"
+    failure_it_catches: "A sound palette that only ever grows, with no moment where withheld audio does the work."
+    provenance: "sourced"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q14270"
+    question: "Does the audio cue arrive before or after the visual, and which order did we actually choose?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["craft-detail", "motion"]
+    applies_to: ["motion", "component"]
+    stage: "refinement"
+    tension: "sound as anticipation vs. sound as confirmation"
+    failure_it_catches: "Audio firing 80ms late, so every interaction feels fractionally out of sync without anyone knowing why."
+    provenance: "synthesized"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14271"
+    question: "Is the background audio in this product video doing work, or is it there because silence felt awkward in review?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "filling the track vs. earning every sound"
+    failure_it_catches: "Stock music that flattens a demo's rhythm and makes an original product feel like a template."
+    provenance: "synthesized"
+    source_publisher: "16:9"
+    source_title: "An Interview with Sound Designer Walter Murch"
+    source_url: "https://16-9.dk/2018/09/interview-with-walter-murch/"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14272"
+    question: "Which of these sounds still makes sense played through a laptop speaker in an open office?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["desktop", "enterprise"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "designed on studio monitors vs. heard on tinny hardware in public"
+    failure_it_catches: "Low-frequency cues that are inaudible on laptops and embarrassing when audible."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q14273"
+    question: "Do haptics and sound both fire here, and is one of them redundant?"
+    category: "Sound and haptics"
+    subcategory: "Sonic identity and brand sound"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "multi-channel confirmation vs. sensory clutter"
+    failure_it_catches: "A double-buzz-and-chime on every keystroke in a numeric pad, which users disable in settings."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q14274"
+    question: "Is the audio continuous while the haptic is three discrete taps, and did anyone notice the mismatch?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "assets authored separately vs. one coherent sensation"
+    failure_it_catches: "A pairing where each half is good and the combination feels wrong."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (shield example)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.90
+  - id: "Q14275"
+    question: "Is the keypress haptic inside ten to twenty milliseconds, or does it smear into the next keystroke?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "perceptible confirmation vs. clean separation between keys"
+    failure_it_catches: "A fast typist feeling one continuous buzz instead of discrete keys."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (10-20ms keyclick)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.90
+  - id: "Q14276"
+    question: "Does the haptic land on the same frame as the visual it explains, or sixty milliseconds later?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion", "component"]
+    stage: "refinement"
+    tension: "independent channel timing vs. a single perceived event"
+    failure_it_catches: "A lag users interpret as a broken device rather than a design choice."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (harmony)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14277"
+    question: "Does the sharpness of this haptic match the sharpness of the animation it accompanies?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion", "component"]
+    stage: "refinement"
+    tension: "independently authored channels vs. one coherent sensation"
+    failure_it_catches: "A crisp tap paired with a soft, slow ease, reading as a mistake."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q14278"
+    question: "Is haptics carrying information here that exists nowhere else, and what breaks when a user disables it?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "expressive tactile channel vs. degrading gracefully when it's off"
+    failure_it_catches: "A flow that becomes ambiguous for anyone with system haptics turned off."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics (make haptics optional)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "senior"
+    confidence: 0.89
+  - id: "Q14279"
+    question: "Is our haptic intensity fixed, or does it respect the system haptic-strength setting the user already chose?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "consistent authored feel vs. honoring a stated preference"
+    failure_it_catches: "Overriding a user who deliberately turned touch feedback down."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events (respects user settings)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q14280"
+    question: "Is there a visual equivalent for every audible state, and an audible one for every critical visual state?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "channel economy vs. equivalent access"
+    failure_it_catches: "Critical information reachable through exactly one sense."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14281"
+    question: "What does this interaction feel like with VoiceOver on and haptics off?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "designing for the default configuration vs. real assistive settings"
+    failure_it_catches: "A flow that only works in the configuration the designer happened to use."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback (make all feedback accessible)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14282"
+    question: "Would a small object in this interface sound small and feel small, or does everything share one weight?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["component", "motion"]
+    stage: "exploration"
+    tension: "one reusable feedback asset vs. mass expressed consistently"
+    failure_it_catches: "A lightweight chip landing with the same thud as a full-screen sheet."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (harmony)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14283"
+    question: "Could a blindfolded user tell 'saved' from 'failed to save' using sound alone?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "aesthetic subtlety vs. semantic discriminability"
+    failure_it_catches: "Two cues so similar that non-visual users cannot tell success from failure."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14284"
+    question: "Does this feedback fire on touch-down or touch-up, and which matches how users think about the action?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "immediate acknowledgement vs. commitment confirmation"
+    failure_it_catches: "Confirming on press-down for an action the user could still cancel by sliding off."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events (VIRTUAL_KEY and release)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14285"
+    question: "Has this moment been reviewed on a device, or approved from a silent prototype with no actuator?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "design-tool fidelity vs. what ships to a hand"
+    failure_it_catches: "Signing off a multimodal moment that has never been experienced multimodally."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (simulator doesn't play haptics)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14286"
+    question: "Have we run this flow with a screen reader speaking over our sound effects?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "expressive audio vs. intelligibility of speech output"
+    failure_it_catches: "Cues that mask the announcement a blind user relies on."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14287"
+    question: "When a user turns haptics off entirely, does anything in this flow become ambiguous?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "leaning on touch vs. resilience without it"
+    failure_it_catches: "A silent, still screen that gives no confirmation at all once haptics are disabled."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing haptics"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-haptics"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14288"
+    question: "When the haptic and the visual disagree by eighty milliseconds, which one do users end up trusting?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion"]
+    stage: "refinement"
+    tension: "asynchronous implementation vs. perceptual unity"
+    failure_it_catches: "A mismatch users read as a broken actuator rather than a timing bug."
+    provenance: "sourced"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (co-design visual, audio, haptic)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14289"
+    question: "When the request fails on a slow network, does the confirming haptic still fire optimistically?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["trust", "performance"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "perceived responsiveness vs. truthful confirmation"
+    failure_it_catches: "A physical 'done' sensation for something that never saved."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q14290"
+    question: "Which of our four feedback channels is redundant here, and which one is load-bearing?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "deliberate redundancy for reach vs. unexamined duplication"
+    failure_it_catches: "Cutting the one channel that was carrying the information, because it looked redundant."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14291"
+    question: "Are error, warning and information distinguishable without reading, in under half a second?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "a coherent sound family vs. within-family discriminability"
+    failure_it_catches: "Three severity levels that all sound like 'something happened'."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14292"
+    question: "Are we firing a success haptic before the server has confirmed success?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "instant feedback vs. accuracy of the claim"
+    failure_it_catches: "Users trusting a felt confirmation that a later error contradicts."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14293"
+    question: "Does our audio cue collide with the screen reader's announcement, or wait for a gap?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "immediate feedback vs. yielding the audio channel to speech"
+    failure_it_catches: "A chime landing exactly on the spoken word that identified the control."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14294"
+    question: "Does the confirmation fire before the operation is durable, or after?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "optimistic responsiveness vs. honesty about state"
+    failure_it_catches: "A celebratory cue for work that is later lost."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14295"
+    question: "Is the long-press haptic firing when the gesture is recognized, or when the menu finishes painting?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "engineering convenience vs. teaching the gesture threshold"
+    failure_it_catches: "Users never learning where long-press triggers because the cue arrives late."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Add haptic feedback to events"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptic-feedback"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14296"
+    question: "With the sound removed, would the haptic still be intelligible on its own?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "designed-together feedback vs. each channel standing alone"
+    failure_it_catches: "A pairing that only makes sense when both halves play."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14297"
+    question: "Are visual, audio and haptic all saying 'success', or is one of them merely saying 'something happened'?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "channel-by-channel authoring vs. a shared semantic"
+    failure_it_catches: "A neutral tick paired with a celebratory animation, muddying the outcome."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (co-design visual, audio, haptic)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14298"
+    question: "Does the completion sound land when the task actually completes, or when the animation finishes pretending?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["trust", "motion"]
+    applies_to: ["motion", "flow"]
+    stage: "refinement"
+    tension: "perceived responsiveness vs. truthful signalling"
+    failure_it_catches: "A success chime playing before the write has landed, then a later failure."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14299"
+    question: "Does this audio asset still assume the 500-millisecond animation engineering later shortened to 200?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "asset stability vs. drift between design and implementation"
+    failure_it_catches: "A sound that outlives its animation and hangs in empty space."
+    provenance: "sourced"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design (500ms shield animation)"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14300"
+    question: "Has anyone felt this feedback on a three-year-old phone where the animation drops frames?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance", "motion"]
+    applies_to: ["motion"]
+    stage: "pre-ship"
+    tension: "flagship-tuned timing vs. degraded playback conditions"
+    failure_it_catches: "Sound and haptic drifting out of sync exactly on the devices that need clarity most."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14301"
+    question: "How does this moment read for a user with Reduce Motion on and sound off?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "motion"]
+    applies_to: ["motion"]
+    stage: "pre-ship"
+    tension: "motion-led feedback vs. resilience when motion is suppressed"
+    failure_it_catches: "An entire feedback moment vanishing under accessibility settings."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14302"
+    question: "How many senses does this cue require at once, and who does that requirement exclude?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "richly layered feedback vs. single-channel sufficiency"
+    failure_it_catches: "A moment that is only complete for a user with full sight, hearing and touch."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14303"
+    question: "Is the earcon short enough to precede a spoken label, or does it delay every announcement?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "sonic character vs. speed of non-visual navigation"
+    failure_it_catches: "A 600-millisecond flourish added to every element a screen reader passes."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14304"
+    question: "Is the pull-to-refresh haptic firing at the threshold, or when the fingers lift?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "confirming commitment vs. teaching where the threshold is"
+    failure_it_catches: "Users over-pulling every time because nothing marks the trigger point."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles (gradient and snapping)"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14305"
+    question: "What would a blind user lose if we removed haptics from the picker?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "visual sufficiency vs. non-visual navigation"
+    failure_it_catches: "Stripping the only cue that tells a non-visual user a value changed."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback (multiple feedback channels)"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14306"
+    question: "Which arrives first in this moment: the sound, the haptic, or the pixel change?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion"]
+    applies_to: ["motion"]
+    stage: "refinement"
+    tension: "whichever channel is cheapest to fire vs. a deliberate order"
+    failure_it_catches: "An ordering nobody chose, producing a smeared, uncertain moment."
+    provenance: "synthesized"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q14307"
+    question: "Which non-interactive decoration could a user hide, and would hiding it make the task measurably easier?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "atmosphere vs. cognitive load"
+    failure_it_catches: "A visually rich screen with no simplified mode for users who cannot filter the noise."
+    provenance: "sourced"
+    source_publisher: "Game Accessibility Guidelines"
+    source_title: "Advanced"
+    source_url: "https://gameaccessibilityguidelines.com/advanced/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14308"
+    question: "Would a deaf user get everything from haptics that a hearing user gets from our sounds?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "channel-specific design vs. equivalent information across channels"
+    failure_it_catches: "Audio-only warnings with no tactile or visual counterpart."
+    provenance: "synthesized"
+    source_publisher: "AudioEye"
+    source_title: "The Designer's Guide to Web Accessibility"
+    source_url: "https://www.audioeye.com/guides/the-designer-s-guide-to-web-accessibility-the-new-standard-in-ux/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14309"
+    question: "Does anything acknowledge the tap before the result is known?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "waiting for truth vs. acknowledging input immediately"
+    failure_it_catches: "A dead half-second in which users assume the tap missed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14310"
+    question: "Does the scan-success cue fire fast enough that the user can look away immediately?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance", "mobile"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "certainty of the result vs. releasing the user's attention"
+    failure_it_catches: "Users holding a phone over a code for two extra seconds waiting for permission to move."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14311"
+    question: "What is the feedback for 'we heard you, but this will take a while'?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "binary success/failure vocabulary vs. an acknowledged-but-pending state"
+    failure_it_catches: "Long operations with only two states, so users cannot tell working from stuck."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14312"
+    question: "What is the measured delay between the finger lifting and any feedback at all?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "measuring by feel vs. measuring in milliseconds"
+    failure_it_catches: "A latency problem argued about subjectively for months and never quantified."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Haptics design principles"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/haptics-principles"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14313"
+    question: "When the network is slow, does the feedback pattern make the delay legible or just repeat itself?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "consistent per-event feedback vs. communicating duration"
+    failure_it_catches: "A user tapping four times because nothing distinguishes 'working' from 'ignored'."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14314"
+    question: "Which of our multimodal moments would break if the animation duration changed by a hundred milliseconds?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "long-term"]
+    applies_to: ["motion"]
+    stage: "pre-ship"
+    tension: "tightly coupled channels vs. resilience to timing changes"
+    failure_it_catches: "A performance optimisation silently desynchronising the whole feedback set."
+    provenance: "synthesized"
+    source_publisher: "Apple WWDC21"
+    source_title: "Practice audio haptic design"
+    source_url: "https://developer.apple.com/videos/play/wwdc2021/10278/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14315"
+    question: "Who reviewed the audio, haptic and motion of this component together, in one sitting, on hardware?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "specialist review per channel vs. reviewing the combined sensation"
+    failure_it_catches: "Three separately approved channels that nobody has experienced simultaneously."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q14316"
+    question: "Would a user watching a muted screen recording understand this state change?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "audio-carried meaning vs. visual sufficiency"
+    failure_it_catches: "A state whose only marker is a sound, invisible in support tickets and demos."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14317"
+    question: "Are haptics treated here as an accessibility feature, or as decoration we'd cut under deadline?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "polish framing vs. access framing"
+    failure_it_catches: "Cutting the tactile layer late and silently removing a non-visual channel."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q14318"
+    question: "Is there any moment in this flow where the haptic is the only feedback, with the screen dark?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "mobile"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "eyes-free capability vs. reliance on an easily disabled channel"
+    failure_it_catches: "Designing an eyes-free interaction that silently fails when haptics are off."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Feedback"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/feedback"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14319"
+    question: "When did we last measure tap-to-haptic delay in milliseconds rather than argue about it by feel?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance", "data"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "subjective review vs. instrumented measurement"
+    failure_it_catches: "A latency regression shipping because nobody had a number to compare against."
+    provenance: "synthesized"
+    source_publisher: "Android"
+    source_title: "Analyze vibration waveforms"
+    source_url: "https://developer.android.com/develop/ui/views/haptics/actuators"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14320"
+    question: "Which sense is leading this moment, and are the other two supporting it or competing with it?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion"]
+    stage: "exploration"
+    tension: "equal emphasis across channels vs. a clear lead"
+    failure_it_catches: "Three channels all peaking simultaneously, cancelling each other out."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14321"
+    question: "Would this feedback still work if the user's eyes were on the road?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "mobile"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "screen-first design vs. eyes-free usability"
+    failure_it_catches: "Requiring a glance for a confirmation that could have been felt or heard."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q14322"
+    question: "What plays while the user waits, and does it change once the wait exceeds what they expected?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["performance"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "steady reassurance vs. acknowledging that this is taking too long"
+    failure_it_catches: "An unchanging loop that gives no signal something has gone wrong."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UI Sound Design: The Complete Guide to Interface Sound Effects"
+    source_url: "https://uisfx.com/ui-sound-design"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14323"
+    question: "Which cue would still be legible if the user's hearing rolls off above 8 kHz?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "bright, crisp character vs. audibility for older ears"
+    failure_it_catches: "A sparkly high-frequency cue inaudible to a large share of users."
+    provenance: "synthesized"
+    source_publisher: "Toptal"
+    source_title: "Sound Advice: A Quick Guide to Designing UX Sounds"
+    source_url: "https://www.toptal.com/designers/ux/ux-sounds-guide"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14324"
+    question: "Which feedback survives the phone lying face-down on a table?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["mobile"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "screen-dependent feedback vs. reaching a user who isn't looking"
+    failure_it_catches: "A visual-only confirmation for an action users routinely start then put the phone down."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14325"
+    question: "Would drag-and-drop here be usable with both sound and haptics disabled?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "feedback-rich manipulation vs. visual sufficiency"
+    failure_it_catches: "A drag interaction whose drop targets are only discoverable by feel."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q14326"
+    question: "If the animation is the star here, why is the sound mixed louder than the moment deserves?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["motion"]
+    stage: "refinement"
+    tension: "supporting channel vs. competing channel"
+    failure_it_catches: "Audio that overpowers the visual it was written to accompany."
+    provenance: "synthesized"
+    source_publisher: "Google Design"
+    source_title: "Sound & Touch: Design Beyond the Screen"
+    source_url: "https://design.google/library/ux-sound-haptic-material-design"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q14327"
+    question: "Which feedback would we keep on a device with no actuator and no speaker?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "designing for capable hardware vs. a floor that always works"
+    failure_it_catches: "An experience that depends on hardware a meaningful share of users lack."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q14328"
+    question: "What happens to this experience for a user with a cochlear implant in a loud room?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "sound-carried meaning vs. degraded hearing conditions"
+    failure_it_catches: "Assuming an audible cue reaches everyone who has some hearing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q14329"
+    question: "Whose attention is this particle burst buying, and what does it cost the person who just wanted to read the confirmation number?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["screen", "motion"]
+    stage: "refinement"
+    tension: "delight vs. legibility of the payload"
+    failure_it_catches: "An animation that obscures the transaction amount for the two seconds the user most wants to see it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q14330"
+    question: "Where is the escalation that tells a user they are on a run, before they have consciously counted anything?"
+    category: "Sound and haptics"
+    subcategory: "Sync, latency and cross-modal parity"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["flow", "motion"]
+    stage: "exploration"
+    tension: "felt momentum vs. numeric reporting"
+    failure_it_catches: "A streak the user only learns about from a number, never from the way the interface behaves."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Game feel on the web: squash, shake, and the art of juice"
+    source_url: "https://valdemird.com/blog/game-feel-on-the-web/"
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q14331"
+    question: "How long is the gap between a user finishing a sentence and any audible acknowledgement?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "performance"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "waiting for certainty about end-of-turn vs. sounding responsive"
+    failure_it_catches: "A pause long enough that users assume the agent didn't hear them."
+    provenance: "sourced"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide (200-450ms P95 targets)"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14332"
+    question: "When a user interrupts the assistant, how quickly does the voice actually stop?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "performance"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "completing the sentence vs. yielding the floor instantly"
+    failure_it_catches: "An agent that keeps talking over the user, reading as rude and machine-like."
+    provenance: "sourced"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide (TTS flush budget)"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q14333"
+    question: "Is there an audible difference between listening, thinking and speaking?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "a seamless human-like feel vs. legible machine state"
+    failure_it_catches: "Users unable to tell whether the microphone is open, so they repeat themselves."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14334"
+    question: "Would our turn-taking still work for a user who speaks slowly with long mid-sentence pauses?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "accessibility"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "snappy response times vs. not cutting off slower speakers"
+    failure_it_catches: "An agent that interrupts elderly or disfluent users every few seconds."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide (turn-taking policies)"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q14335"
+    question: "Does the listening tone fire before the microphone is actually open?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "prompt-sounding responsiveness vs. truthfully marking capture"
+    failure_it_catches: "Users speaking into a gap and losing the first three words every time."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q14336"
+    question: "What sound marks the assistant handing the turn back to the user?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "natural conversational flow vs. an explicit cue that it's your turn"
+    failure_it_catches: "Users talking over the agent because nothing signalled the floor was free."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q14337"
+    question: "Are we filling the assistant's thinking time with a sound, or with speech that says what's happening?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "exploration"
+    tension: "non-verbal cue vs. spoken status"
+    failure_it_catches: "A processing tone where 'I'm pulling your account' would have reassured."
+    provenance: "sourced"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide (visible thinking signals)"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14338"
+    question: "Are we using a spoken sentence where a two-note earcon would be faster and less intrusive?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "explicitness of speech vs. the speed of a learned tone"
+    failure_it_catches: "Five spoken words for a state a 200-millisecond cue could convey."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14339"
+    question: "Which cue tells users their interruption was heard rather than ignored?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "silence on interruption vs. an explicit acknowledgement"
+    failure_it_catches: "Users repeating an interruption because stopping looks the same as crashing."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14340"
+    question: "While the assistant is thinking, what does the user hear, and does it imply progress or just presence?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "filling silence vs. implying work that isn't happening"
+    failure_it_catches: "An ambient hum that keeps users waiting through a request that already failed."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q14341"
+    question: "Are we adding backchannel murmurs because they're human, or because they hide our latency?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "conversational naturalness vs. papering over a slow system"
+    failure_it_catches: "Filler sounds that make a lagging agent feel evasive rather than attentive."
+    provenance: "sourced"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide (backchanneling)"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14342"
+    question: "Does our AI voice have any sonic relationship to the brand, or is it a vendor default?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "shipping fast on a stock voice vs. owning how the product sounds"
+    failure_it_catches: "A product whose most-heard sound was chosen from a dropdown."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Made Music Studio"
+    source_url: "https://www.mademusicstudio.com/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q14343"
+    question: "Does this look designed for a photograph, or for the hand that will hold it for an hour?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["screen", "brand"]
+    stage: "refinement"
+    tension: "portfolio-ready imagery versus sustained usability"
+    failure_it_catches: "Compositions that photograph beautifully and become fatiguing after ten minutes of use."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Design Philosophy: Kenya Hara, Emptiness, Not Simplicity"
+    source_url: "https://blakecrosley.com/blog/design-philosophy-kenya-hara"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14344"
+    question: "Is the assistant's voice ducking our UI sounds, or are they layering into mush?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "keeping UI feedback audible vs. speech intelligibility"
+    failure_it_catches: "A notification chime landing on the one word that carried the answer."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Playing audio"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/playing-audio"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q14345"
+    question: "When the assistant and the notification system both want to speak, who yields?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "responsive conversation vs. timely alerts"
+    failure_it_catches: "An alert cutting an answer in half, leaving neither message understood."
+    provenance: "synthesized"
+    source_publisher: "Future AGI"
+    source_title: "Voice AI Barge-In and Turn-Taking: 2026 Guide"
+    source_url: "https://futureagi.com/blog/voice-ai-barge-in-turn-taking-2026/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q14346"
+    question: "Which earcon could replace 'Sorry, I didn't catch that', and would it be less demeaning than the sentence?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "exploration"
+    tension: "speed of a tone vs. the specificity of language"
+    failure_it_catches: "A spoken apology repeated so often it becomes an insult."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Earcons: Infrastructure of Accessible Interfaces"
+    source_url: "https://medium.com/design-bootcamp/earcons-infrastructure-of-accessible-interfaces-d9261311fcf5"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q14347"
+    question: "Which qualities of our assistant's voice would we defend if a user called them grating?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "distinctive character vs. long-exposure comfort"
+    failure_it_catches: "A voice chosen for demo charisma that wears badly over hours."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q14348"
+    question: "What does the assistant sound like when it fails, and does it apologize with tone or with words?"
+    category: "Sound and haptics"
+    subcategory: "Voice and turn-taking"
+    secondary_tags: ["ai-native", "copy", "brand"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "prosodic contrition vs. plain explanation"
+    failure_it_catches: "A performatively sorry voice that never says what actually went wrong."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80

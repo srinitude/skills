@@ -1,0 +1,86 @@
+{
+  "skill_name": "by-design",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "fix the failing test in auth.py, it broke after the merge",
+      "expected_output": "The gate returns not-design and the run ends at step 0, adding nothing to the reply.",
+      "assertions": [
+        "Exactly one command runs, and it is scripts/gate.py.",
+        "The verdict line starts with not-design and names the score.",
+        "No ledger file is read or written.",
+        "The reply carries nothing from this skill."
+      ],
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "here's the orders table before we ship it, what am I missing",
+      "expected_output": "A judge run: a decision ledger file named decision-ledger-orders.md holding one row per decision found, and a reply naming the posture, the ledger path, the row count, and how many rows were marked inherited.",
+      "assertions": [
+        "The gate runs first and returns a design verdict before any other command.",
+        "The reply names the posture as judge before it reports anything else.",
+        "The ledger holds fewer rows than the slice returned questions, because rows count decisions rather than questions.",
+        "Every row carries an origin of deliberate, inherited, or open, with no row left blank in that column.",
+        "The reply quotes counts that came from a ledger.py run in the same turn, not from an estimate."
+      ],
+      "files": ["evals/files/decision-ledger-orders.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "we're deciding whether to put the cancel flow behind a save offer or leave it one click. which one?",
+      "expected_output": "A choose run: the trade-off laid out for both directions with what each buys and costs, a ledger row whose chosen column stays empty, and no recommendation.",
+      "assertions": [
+        "The reply states the trade-off for both options and stops without picking one.",
+        "The ledger row for this decision has a dash in the chosen column and an origin of open.",
+        "The reply must not contain a recommendation, a preference, or a phrase that names a winner."
+      ],
+      "files": ["evals/files/decision-ledger-cancel.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "give me the ethics questions for colour choices at the concept stage on an artifact",
+      "expected_output": "A slice that widened, reported on stderr as dropped lens and applies-to, with the reply saying plainly that no ethics material exists for colour at concept stage and that the wider colour slice came back instead.",
+      "assertions": [
+        "The reply states that the slice widened and names which coordinates were dropped.",
+        "The reply does not present the wider colour result as though the ethics lens had held.",
+        "The run does not raise the floor to force a narrow slice."
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "what hex value should I use for the primary button, and add it to the design tokens file",
+      "expected_output": "A handoff rather than an answer: this skill records decisions, and a token value is a fact that belongs in the file a design context skill owns.",
+      "assertions": [
+        "The reply declines to write the token file and names the skill that owns design facts.",
+        "The reply offers the one thing this skill can add, which is a ledger row asking whether the colour was chosen or inherited.",
+        "No token file is created by this run."
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "for the settings page I'm going to use the same 12 column grid we used on the dashboard, and 32px row height like the orders table",
+      "expected_output": "A watch run: both choices recorded as inherited, and at most one question asked, about the grid rather than both decisions.",
+      "assertions": [
+        "The ledger gains two rows, both with an origin of inherited.",
+        "The reply asks exactly one question, or none, and never two.",
+        "The reply does not list the questions the slice returned."
+      ],
+      "files": ["evals/files/decision-ledger-settings.md"]
+    },
+    {
+      "id": 6,
+      "prompt": "here's the fairphone homepage, we ship the Gen 6+ launch page tomorrow, what am I missing",
+      "expected_output": "A judge run whose coordinates came from reading the page: locate ranks physical product alongside notifications, the slice uses a word the page itself uses, and the ledger holds fewer rows than the slice returned questions.",
+      "assertions": [
+        "locate.py runs before slice.py and its top result informs the category passed.",
+        "slice.py is called with --match carrying a noun taken from the artifact.",
+        "The reply names at most one question, chosen by speak.py --rank rather than picked freely.",
+        "Rows for the unwritten UI copy and the out-of-stock listings are marked inherited."
+      ],
+      "files": []
+    }
+  ]
+}

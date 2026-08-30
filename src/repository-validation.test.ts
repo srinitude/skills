@@ -9,6 +9,7 @@ import { validateRepository } from './repository-validation.js';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const expectedSkills = [
   ['always-current-datetime', '0.1.0'],
+  ['by-design', '0.1.0'],
   ['dedupe', '0.1.0'],
   ['dtcg-tokens', '0.2.2'],
   ['goal-prompt', '0.1.0'],
@@ -39,7 +40,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 17,
+    skillCount: 18,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',

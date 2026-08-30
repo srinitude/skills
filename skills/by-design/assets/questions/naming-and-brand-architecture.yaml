@@ -1,0 +1,2973 @@
+# Naming and brand architecture
+# 198 questions. Generated, ordered by id. Do not hand edit.
+questions:
+  - id: "Q09749"
+    question: "Which decision rule tells us whether to keep, merge, retire or endorse this acquired name, and was it written before the deal closed?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "case-by-case politics vs. pre-agreed criteria"
+    failure_it_catches: "Every acquisition renegotiated from scratch, so the loudest founder keeps their name and the quietest loses theirs."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q09750"
+    question: "Does the combined name tell a story of transformation, or does it just say which side won the negotiation?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "honouring both legacies vs. a name that means something to the market"
+    failure_it_catches: "A hyphenated merger name that signals internal compromise rather than a new proposition."
+    provenance: "sourced"
+    source_publisher: "Siegel+Gale"
+    source_title: "How to protect and enhance brand value after a merger, split or spin-off"
+    source_url: "https://www.siegelgale.com/how-to-protect-and-enhance-brand-value-after-a-merger-split-or-spin-off/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09751"
+    question: "What is the trigger event that ends the transitional endorsement, and is it a date or a metric?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "an indefinite grace period vs. a committed migration point"
+    failure_it_catches: "A 'by [Parent]' endorsement still in place five years later because no one defined when it comes off."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09752"
+    question: "Which words in the acquired product's UI conflict with words in ours, where the same noun means two different objects?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "refinement"
+    tension: "speed of integration vs. resolving a collided vocabulary"
+    failure_it_catches: "A merged product where 'project' means one thing on the left nav and another on the right."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09753"
+    question: "Do the merged entity's two products now overlap enough that keeping both names invites them to compete on price?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "preserving both customer bases vs. internal cannibalisation"
+    failure_it_catches: "Two sales teams discounting against each other because the portfolio never resolved the duplicate offer."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09754"
+    question: "Which contracts, certifications and procurement records name the old entity, and who is unpicking them?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["system", "artifact"]
+    stage: "pre-ship"
+    tension: "a clean brand story vs. the paperwork the old name is embedded in"
+    failure_it_catches: "A renamed product removed from a customer's approved vendor list because the legal name no longer matches."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09755"
+    question: "Which name have we kept alive purely because retiring it would require a conversation nobody wants to have?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "political cost of retirement vs. ongoing cost of maintenance"
+    failure_it_catches: "A zombie brand consuming design, legal and support attention for a shrinking revenue line."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09756"
+    question: "Which naming conventions did the last three acquisitions bring in that we are now quietly maintaining?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "respecting inherited systems vs. one coherent language"
+    failure_it_catches: "A portfolio running three incompatible naming grammars because nobody decided which one wins."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09757"
+    question: "Do partners and resellers know which name to put on their site this quarter, and did they hear it from us or from a customer?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["brand", "system"]
+    stage: "pre-ship"
+    tension: "internal decision speed vs. channel readiness"
+    failure_it_catches: "Resellers selling under a retired name for months, so the market sees two companies."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09758"
+    question: "How many names in our portfolio have zero marketing spend behind them, and what are they still doing on the site?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "portfolio breadth as an asset vs. unfunded names as clutter"
+    failure_it_catches: "A navigation menu listing eleven brands, eight of which nobody has invested in for two years."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09759"
+    question: "Is the parent's name appearing here because customers need it, or because an executive wanted visibility on the acquisition?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["enterprise", "brand"]
+    applies_to: ["brand", "screen"]
+    stage: "refinement"
+    tension: "customer-facing benefit vs. internal signalling"
+    failure_it_catches: "A parent lockup added to a beloved product for reasons no user benefits from."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09760"
+    question: "Are we in a hybrid architecture by design, or did we arrive here by never deciding after each acquisition?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "pragmatic flexibility vs. accumulated indecision"
+    failure_it_catches: "A 'hybrid' label used to justify a portfolio nobody has audited since the last three deals."
+    provenance: "sourced"
+    source_publisher: "Embark Agency"
+    source_title: "Brand Architecture: The 5 Types Explained"
+    source_url: "https://embarkagency.com.au/insights/brand-architecture-types-explained"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09761"
+    question: "Which acquired name are we keeping for its customer base, and what is our plan for the day that base renews?"
+    category: "Naming and brand architecture"
+    subcategory: "Acquisition and portfolio cleanup"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "short-term retention vs. eventual consolidation"
+    failure_it_catches: "Deferring a naming decision until renewal season, when the migration message competes with a price conversation."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09762"
+    question: "Are we choosing this name because we hope people will verb it, and would we still choose it if they never did?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "engineered verbability vs. fit to the actual product"
+    failure_it_catches: "Optimising a name for a cultural outcome that only ever arrives organically, and getting a worse name for it."
+    provenance: "sourced"
+    source_publisher: "Siegel+Gale"
+    source_title: "Stop obsessing over the verbing of your product names"
+    source_url: "https://www.siegelgale.com/stop-obsessing-over-the-verbing-of-your-product-names/"
+    seniority: "senior"
+    confidence: 0.89
+  - id: "Q09765"
+    question: "Which of these two labels wins in the nav (the one marketing sells or the one users say) and can they be the same word?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "campaign vocabulary vs. in-product vocabulary"
+    failure_it_catches: "A campaign name in the ad and a different label in the app, so the click lands on an unrecognisable page."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q09766"
+    question: "How many named features are visible on this screen at once, and which of them could revert to a plain description?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "branded surface area vs. cognitive load per screen"
+    failure_it_catches: "A dashboard where five proper nouns compete and the user cannot parse any hierarchy between them."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09767"
+    question: "Is the word in this button the word a user would type into our search box if they were looking for it?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "branded label vs. discoverable label"
+    failure_it_catches: "A named feature nobody can find because the name shares no words with what people search for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09769"
+    question: "Would a boring name here cost us anything a customer would actually notice, or only cost us the fun of naming it?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "designer enjoyment vs. user comprehension"
+    failure_it_catches: "An invented word chosen for the launch narrative that adds a translation step to every task."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09770"
+    question: "Does the empty state for this feature use the feature's name, or does it explain the job the name is hiding?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "reinforcing the brand name vs. teaching what it does"
+    failure_it_catches: "An empty state that repeats an invented word three times and never says what will appear here."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09771"
+    question: "Have we replaced our domain jargon in this label with the words the customer uses in their own support ticket?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "internally precise terminology vs. the customer's vocabulary"
+    failure_it_catches: "A nav item using a term that exists only in our data model and nowhere in the customer's world."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09773"
+    question: "Which screens in this product earn a distinctive name, and which should use the dullest accurate word available?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "consistent brand voice vs. selective plainness where comprehension matters most"
+    failure_it_catches: "Branded vocabulary applied evenly, so billing and security read as playfully as the marketing site."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09774"
+    question: "Where does this name have to be truncated first (mobile nav, tab title, or a chart legend) and does it survive?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "expressive length vs. the tightest container it must fit"
+    failure_it_catches: "A three-word feature name that renders as an ellipsis everywhere it matters."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09776"
+    question: "Who inside the company will be the last person to stop using the old word for this, and what changes their habit?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "post-ship"
+    tension: "a published new name vs. internal muscle memory that undermines it"
+    failure_it_catches: "Sales decks, help centre and release notes each using a different generation of the name."
+    provenance: "synthesized"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09777"
+    question: "Which codename did we pick that we would be embarrassed to explain publicly if it leaked in a changelog?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["ethics", "craft-detail"]
+    applies_to: ["system", "artifact"]
+    stage: "exploration"
+    tension: "internal humour vs. the certainty that internal strings escape"
+    failure_it_catches: "A joke codename surfacing in a public API response and becoming the story of the launch."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09778"
+    question: "Has this name been read aloud into a voice interface, and does the assistant hear it as the product or as a common word?"
+    category: "Naming and brand architecture"
+    subcategory: "Feature naming"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "visual distinctiveness vs. acoustic distinctiveness"
+    failure_it_catches: "A brand name that voice assistants resolve to three different businesses, costing leads at the point of intent."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q09786"
+    question: "Can we afford to build awareness for a second name, or are we choosing a house of brands with a branded-house budget?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "strategic independence vs. the marketing spend independence actually requires"
+    failure_it_catches: "Launching three distinct brands that each get a third of the budget and none of them become known."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 1: branded house vs house of brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-1-difference-branded-house-house-brands/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09787"
+    question: "Does this sub-brand aim at an audience the master brand cannot reach, or the same audience with a fresh coat of paint?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "reaching a new segment vs. cannibalising the one we have"
+    failure_it_catches: "A sub-brand that splits existing customers across two identities instead of adding new ones."
+    provenance: "sourced"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09788"
+    question: "How many proper nouns does a new customer have to learn before they can complete the first useful task?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["flow", "system"]
+    stage: "refinement"
+    tension: "branded vocabulary vs. onboarding load"
+    failure_it_catches: "An onboarding flow that teaches four invented words before it teaches one job to be done."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09790"
+    question: "Is the endorsement here permanent, or are these training wheels with a date on them?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "reassuring transitional endorsement vs. a 'part of' line nobody ever removes"
+    failure_it_catches: "An 'a [Parent] company' tag that becomes a permanent fixture, muddying both brands for a decade."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09791"
+    question: "Is this name a noun our customers will own, or a label our internal roadmap needs and they will never repeat?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["brand", "copy"]
+    stage: "concept"
+    tension: "internal planning vocabulary vs. customer-facing vocabulary"
+    failure_it_catches: "Publishing a roadmap epic name as a product name because it was already in every Jira ticket."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09792"
+    question: "What exactly are we naming here (a platform, a product, a module, a feature, or a pricing tier) and can everyone in the room say the same word?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "creative energy vs. unresolved scope upstream of it"
+    failure_it_catches: "Three weeks of naming exploration for something that turns out to be a checkbox in settings."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09793"
+    question: "Which name in this architecture is doing the most work, and is it the one we are actually investing behind?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "the name customers use vs. the name the budget supports"
+    failure_it_catches: "Spending against a corporate brand nobody says while the product nickname carries all the recognition."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09794"
+    question: "Which name in this portfolio is quietly outgrowing the master brand, and what do we do the day it does?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "a successful sub-brand vs. the parent it was meant to serve"
+    failure_it_catches: "A parent brand nobody recognises because one child absorbed all the attention and none of it flowed back."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09796"
+    question: "How much reputational risk does one product in this portfolio carry, and would a scandal there reach every other name on the shelf?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["ethics", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "marketing efficiency of one name vs. blast radius when one thing goes wrong"
+    failure_it_catches: "Putting a regulated, high-liability product under the master brand and exposing the whole company to its worst day."
+    provenance: "sourced"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 1: branded house vs house of brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-1-difference-branded-house-house-brands/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09797"
+    question: "If this sub-brand succeeds wildly, does the master brand get stronger or does it get quieter?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a sub-brand that earns its own equity vs. one that drains the parent's"
+    failure_it_catches: "Building a famous child brand that customers stop associating with the company paying for it."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09798"
+    question: "If we killed the sub-brand and rolled it into the master brand tomorrow, which customers would object and why?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "consolidation efficiency vs. loyalty attached to the sub-brand specifically"
+    failure_it_catches: "Absorbing a sub-brand whose community identity was the actual retention mechanism."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09799"
+    question: "What does this architecture cost us if we want to sell this business unit in three years?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "integration efficiency now vs. separability later"
+    failure_it_catches: "Fusing a divestible unit into the master brand and destroying its standalone value at sale time."
+    provenance: "synthesized"
+    source_publisher: "Embark Agency"
+    source_title: "Brand Architecture: The 5 Types Explained"
+    source_url: "https://embarkagency.com.au/insights/brand-architecture-types-explained"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09800"
+    question: "When the sub-brand is used in the wild, does anyone say the parent's name in the same sentence, and should they?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "post-ship"
+    tension: "sub-brand autonomy vs. equity flowing back to the parent"
+    failure_it_catches: "Paying for a sub-brand's growth while the parent gets no lift from any of it."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09801"
+    question: "Which audience is this separate name actually for: a genuinely different buyer, or the internal team that wanted a launch of its own?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "real segmentation vs. org-chart segmentation"
+    failure_it_catches: "A brand architecture that mirrors the reporting structure instead of the way customers shop."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09803"
+    question: "Which is cheaper for us: building awareness for this new sub-brand, or extending the master brand and living with its baggage?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a clean slate vs. borrowed recognition with inherited assumptions"
+    failure_it_catches: "Choosing independence for aesthetic reasons and paying twice for awareness we already had."
+    provenance: "sourced"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 1: branded house vs house of brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-1-difference-branded-house-house-brands/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09804"
+    question: "Would sales be able to close this without a proper noun for it, using only the category words buyers already say?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["brand", "copy"]
+    stage: "concept"
+    tension: "marketing's desire for a name vs. the sentence a rep actually says on a call"
+    failure_it_catches: "Naming something that will never appear on an invoice, so the name only adds a translation step for buyers."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09805"
+    question: "When a customer has a good experience with one product here, does the naming let that goodwill travel to the next one?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "independent positioning vs. cross-sell physics"
+    failure_it_catches: "Two products loved by the same customer that share no visible relationship, so neither sells the other."
+    provenance: "synthesized"
+    source_publisher: "Embark Agency"
+    source_title: "Brand Architecture: The 5 Types Explained"
+    source_url: "https://embarkagency.com.au/insights/brand-architecture-types-explained"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09806"
+    question: "Which associations does this sub-brand add back to the parent that the parent could not have generated on its own?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "differentiation for a segment vs. redundancy with what the parent already says"
+    failure_it_catches: "A sub-brand created for novelty that communicates nothing the master brand did not already communicate."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09807"
+    question: "Will this thing still be on the roadmap in two years, or are we spending naming equity on something we will fold in by spring?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "launch-moment excitement vs. the durability a name deserves"
+    failure_it_catches: "A trademarked name attached to a feature that gets merged into the core product six months later."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09808"
+    question: "In the lockup, who is driving (the parent or the sub-brand) and does the visual hierarchy match the strategy we wrote down?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "stated architecture vs. what the relative type sizes actually declare"
+    failure_it_catches: "A deck that says 'masterbrand as driver' next to a logo where the sub-brand is twice the size."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 2: sub-brands and endorsed brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-2-difference-sub-brands-endorsed-brands/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09809"
+    question: "Is this an endorsed brand or a house-of-brands orphan, and would a customer discovering the parent feel reassured or deceived?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "distance from the parent vs. honesty about ownership"
+    failure_it_catches: "A deliberately unlinked sub-brand whose parentage surfaces in a news cycle and reads as concealment."
+    provenance: "synthesized"
+    source_publisher: "BrandStruck"
+    source_title: "Brand Architecture Part 1: branded house vs house of brands"
+    source_url: "https://brandstruck.co/blog_post/brand-architecture-part-1-difference-branded-house-house-brands/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09810"
+    question: "Would a competitor's portfolio look identical to ours with the words swapped, and if so which structural choice differentiates us?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["brand"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "category convention vs. structural distinctiveness"
+    failure_it_catches: "A naming system copied from the market leader that inherits their positioning along with their pattern."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09811"
+    question: "Where in the product does the customer first meet this name, and does that surface explain it or assume it?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["screen", "brand"]
+    stage: "refinement"
+    tension: "a name that works in a keynote vs. one that works in a nav item with no context"
+    failure_it_catches: "A poetic sub-brand landing cold in a sidebar where users cannot tell what it does."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q09812"
+    question: "Which one thing does this architecture make harder to explain, and is that the thing our best customers care most about?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "portfolio tidiness vs. explaining the thing that closes deals"
+    failure_it_catches: "A rationalised structure that obscures the flagship capability buyers actually shortlist us for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q09813"
+    question: "How does the name change when this product is sold through a partner who puts their own logo next to ours?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "our brand hierarchy vs. the channel's brand hierarchy"
+    failure_it_catches: "A lockup that collapses in a reseller's collateral, leaving our product visually subordinate to theirs."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q09814"
+    question: "How does this name behave when it sits under a partner's masterbrand in a marketplace listing?"
+    category: "Naming and brand architecture"
+    subcategory: "Masterbrand vs standalone, sub-brand and endorsement"
+    secondary_tags: ["enterprise", "brand"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "our hierarchy vs. the marketplace's fixed template"
+    failure_it_catches: "A name that reads as a feature of the platform rather than a product of ours in third-party stores."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q09815"
+    question: "Is this the moment the name should be boring: where clarity beats character because the stakes are money or safety?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "brand personality vs. unambiguous comprehension where errors are costly"
+    failure_it_catches: "A charming name on a destructive action, so users misread what they are about to authorise."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.89
+  - id: "Q09816"
+    question: "Which part of the roadmap does this name quietly forbid?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "immediate descriptive clarity vs. future category expansion"
+    failure_it_catches: "A name so tied to today's use case that expanding into the adjacent market needs a full rebrand."
+    provenance: "sourced"
+    source_publisher: "Siegel+Gale"
+    source_title: "Stop obsessing over the verbing of your product names"
+    source_url: "https://www.siegelgale.com/stop-obsessing-over-the-verbing-of-your-product-names/"
+    seniority: "director"
+    confidence: 0.89
+  - id: "Q09817"
+    question: "Are we naming ourselves after the topic we want to rank for, and therefore competing with every article about that topic?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "keyword match in the name vs. navigational clarity for our own brand"
+    failure_it_catches: "A descriptive company name that forces the homepage to fight aggregators for informational intent forever."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q09818"
+    question: "When someone searches this name in an incognito window, do they meet our product or a dictionary definition?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "keyword-shaped names vs. names search engines can resolve to an entity"
+    failure_it_catches: "A name that permanently loses page one to Wikipedia and the category itself."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q09819"
+    question: "Are the vowels being dropped here for a reason a customer would respect, or because the URL was taken?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "availability-driven spelling vs. sayability"
+    failure_it_catches: "A name that is hard to spell and harder to say, adopted purely because the clean domain was gone."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09820"
+    question: "Have we mocked this name onto a nav item, a billing line and a support macro, or have we only seen it on a slide?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "artifact"]
+    stage: "refinement"
+    tension: "a name judged naked on a page vs. a name judged in its real containers"
+    failure_it_catches: "Choosing a name that breaks the second it has to live in a 20-character menu label."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09821"
+    question: "How much of our forever marketing budget goes to buying visibility for our own name because the name is a common phrase?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a name that explains itself vs. an ongoing tax on being found"
+    failure_it_catches: "Paying indefinitely for branded search because the brand string is indistinguishable from the category term."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09822"
+    question: "Instead of asking where this name stands out, ask where it wants to fit in, which brands should it sit beside on a shelf?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "forced originality vs. deliberate category membership"
+    failure_it_catches: "Chasing uniqueness until the name signals no category at all and the buyer cannot place it."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09823"
+    question: "When the sales rep says 'we use X to do Y' out loud, does the sentence work or does it stumble?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["copy", "business-model"]
+    applies_to: ["brand", "copy"]
+    stage: "refinement"
+    tension: "how a name looks written vs. how it behaves inside a spoken sentence"
+    failure_it_catches: "A name that reads elegantly in the deck and jams every time someone has to say it on a call."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09824"
+    question: "Where did this candidate come from: the model's most likely next word, or an actual proof point about our product?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "generative volume vs. names that predictably converge on cliché"
+    failure_it_catches: "Shipping a name an LLM would generate for any competitor in the category given the same prompt."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09825"
+    question: "Which is more expensive for us right now: educating the market about an empty vessel, or fighting for distinctiveness with a literal name?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "coined-name education cost vs. descriptive-name commodity risk"
+    failure_it_catches: "Choosing a fanciful name with no budget to teach it, or a descriptive one with no way to own it."
+    provenance: "sourced"
+    source_publisher: "Bell Davis Pitt"
+    source_title: "Spectrum of Distinctiveness"
+    source_url: "https://www.belldavispitt.com/blog-post/spectrum-of-distinctiveness-fanciful-arbitrary-suggestive-and-descriptive-trademarks"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09827"
+    question: "Which naming trend does this candidate belong to, and how will that date-stamp it when we look back in 2032?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "contemporary appeal vs. carbon-dating the founding year"
+    failure_it_catches: "A name whose suffix instantly tells everyone which two-year window the company was founded in."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09828"
+    question: "Are we rejecting this candidate because of an initial association that will fade, or because of a meaning that will not?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "first-reaction discomfort vs. durable semantic problems"
+    failure_it_catches: "Killing the strongest name in the room over a fruit joke that would have died within a month of launch."
+    provenance: "synthesized"
+    source_publisher: "Siegel+Gale"
+    source_title: "Stop obsessing over the verbing of your product names"
+    source_url: "https://www.siegelgale.com/stop-obsessing-over-the-verbing-of-your-product-names/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09830"
+    question: "Does the abbreviation people will inevitably use (the first letters) say anything we would not want said?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "i18n"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "the full name we designed vs. the contraction users will actually adopt"
+    failure_it_catches: "A three-word product name whose unavoidable acronym is an existing brand or an unfortunate word."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09831"
+    question: "Does the story behind this name feel robust, or does it read as a masterclass in post-rationalisation?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand", "copy"]
+    stage: "refinement"
+    tension: "a name that carries a story vs. a story bolted onto a name we already picked"
+    failure_it_catches: "A launch narrative that collapses the first time a journalist asks why the product is called that."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09832"
+    question: "How does this name read on an invoice a customer forwards to their finance director?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "an expressive brand vs. legitimacy in a document the buyer does not control"
+    failure_it_catches: "A playful name on a line item that gets queried, delaying renewal or triggering a spend review."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09833"
+    question: "If a listener heard this name on a podcast with no visual, could they spell it correctly on the first attempt?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "i18n"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "distinctive orthography vs. traffic leaking to the correctly spelled competitor"
+    failure_it_catches: "A deliberate misspelling that sends every word-of-mouth search to someone else's site."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09835"
+    question: "Is this name at an extreme (pure description or pure invention) and do we know both extremes are hardest to remember?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "clarity or novelty at the poles vs. memorability in the middle"
+    failure_it_catches: "A name so generic or so abstract that nobody can recall it a week after the demo."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09836"
+    question: "What does this name promise that the product does not yet deliver, and how long is the gap allowed to stay open?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["brand", "system"]
+    stage: "pre-ship"
+    tension: "aspirational naming vs. an unprovable claim in the label"
+    failure_it_catches: "A name that functions as an over-claim, triggering buyer scepticism at first contact."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09837"
+    question: "Which category cliché does this shortlist keep landing on (the IQ suffix, the Flow, the Hub) and are we refusing it deliberately?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "instant category legibility vs. becoming indistinguishable inside it"
+    failure_it_catches: "Shipping a name that sits in a lineup of twelve competitors whose names differ by one syllable."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09838"
+    question: "Which is the harder problem right now: that people cannot find us, or that people cannot tell us apart?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "discoverability through description vs. distinctiveness through invention"
+    failure_it_catches: "Solving for search volume when the actual failure is being indistinguishable in a crowded shortlist."
+    provenance: "synthesized"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09839"
+    question: "Which naming territory does each shortlisted candidate come from, or did they all come from the same three-hour brainstorm mood?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "exploration"
+    tension: "breadth of strategic territories vs. a shortlist that is one idea in five costumes"
+    failure_it_catches: "Presenting five options that are functionally the same choice, so the decision is fake."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09840"
+    question: "Can this name justify a premium price, or does it sound like the free tier of something else?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "approachability vs. perceived worth"
+    failure_it_catches: "A friendly name that caps the price the market will accept before the pricing page loads."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09841"
+    question: "Does the name we are defending describe the product we are building, or the product as it was scoped nine months ago?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term"]
+    applies_to: ["brand", "system"]
+    stage: "pre-ship"
+    tension: "naming early for alignment vs. naming late for accuracy"
+    failure_it_catches: "Shipping a name locked to a discarded scope, so the label argues with the product on day one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09842"
+    question: "Does the new name give the identity team something to build with, or does it hand them a blank?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand", "artifact"]
+    stage: "exploration"
+    tension: "a name chosen in isolation vs. one that seeds the visual system"
+    failure_it_catches: "A name with no symbol, no letterform hook and no story, leaving the identity to invent meaning from nothing."
+    provenance: "sourced"
+    source_publisher: "Pentagram"
+    source_title: "Achieve"
+    source_url: "https://www.pentagram.com/work/achieve"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09843"
+    question: "Does this name come from something true about the founding, the mechanism or the customer, or from a thesaurus session?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "a name rooted in something real vs. an aesthetically pleasing arbitrary word"
+    failure_it_catches: "A name with no story, so every retelling of the brand has to start somewhere else."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09844"
+    question: "Had this company named itself after its first product, which of today's revenue lines would be unsayable?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "launch-day precision vs. decade-long stretch"
+    failure_it_catches: "A literal name that traps the business inside its opening act."
+    provenance: "synthesized"
+    source_publisher: "Siegel+Gale"
+    source_title: "Stop obsessing over the verbing of your product names"
+    source_url: "https://www.siegelgale.com/stop-obsessing-over-the-verbing-of-your-product-names/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09845"
+    question: "Has someone completely outside the project read this name cold, and did they land on the pronunciation we intend?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "i18n"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "insider familiarity vs. first-encounter legibility"
+    failure_it_catches: "Discovering after launch that half the market says the name a different way than the ads do."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09847"
+    question: "If this name were the only thing a stranger knew about us, which audience would feel invited and which would feel excluded?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "a name with a strong point of view vs. who it quietly filters out"
+    failure_it_catches: "A name legible only to insiders of a subculture, closing the door on the market we need to grow into."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09848"
+    question: "Is the discomfort we feel about this name a signal of distinctiveness, or a signal that it is genuinely wrong?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "safe names that are forgettable vs. edgy names that are risky"
+    failure_it_catches: "Retreating to the most comfortable candidate, which is reliably the most forgettable one."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09849"
+    question: "Is the new name a call to action, and does the product actually deliver the action it promises?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "an active, aspirational name vs. the product's ability to earn it"
+    failure_it_catches: "A verb-shaped name that sets an outcome expectation the experience does not meet."
+    provenance: "sourced"
+    source_publisher: "Pentagram"
+    source_title: "Achieve"
+    source_url: "https://www.pentagram.com/work/achieve"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09851"
+    question: "When an AI assistant is asked to recommend a tool in our category, does our name give it anything to anchor to?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["ai-native", "business-model"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a name that reads as a topic vs. one that reads as an entity"
+    failure_it_catches: "A generic name that models resolve to the category definition rather than to us."
+    provenance: "synthesized"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09852"
+    question: "Which name here has personality, and which is merely inoffensive?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "safety in a stakeholder review vs. a name with a point of view"
+    failure_it_catches: "A shortlist of neutral candidates where the winner is chosen for causing the least argument."
+    provenance: "sourced"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09853"
+    question: "Which of these names would look right in a serious enterprise procurement document without a wink?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "playful personality vs. credibility at the signature line"
+    failure_it_catches: "A whimsical name that quietly disqualifies the product in risk-averse buying committees."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09855"
+    question: "Does this name feel human rather than techy, and is that what this category's buyers are short of?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "technical credibility vs. warmth in a category people find intimidating"
+    failure_it_catches: "A coldly technical name in a category where the buyer's real problem is feeling out of their depth."
+    provenance: "sourced"
+    source_publisher: "Pentagram"
+    source_title: "Achieve"
+    source_url: "https://www.pentagram.com/work/achieve"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09856"
+    question: "Which emotion should someone feel one second after hearing this name, and does the shortlist deliver it or only describe it?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "functional accuracy vs. emotional payload"
+    failure_it_catches: "A perfectly precise name with no feeling attached, which the brand then has to add at great expense."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09857"
+    question: "Does this name have a second layer that rewards someone who learns the story, or is what you see all there is?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "immediate legibility vs. depth that sustains a decade of storytelling"
+    failure_it_catches: "A flat name that gives the brand team nothing to say after the launch press release."
+    provenance: "sourced"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09858"
+    question: "Is 'short' actually a requirement here, or a habit we inherited from a decade when domains were scarce?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "brevity as a reflex vs. length that carries meaning"
+    failure_it_catches: "Compressing a meaningful phrase into an opaque syllable because short felt more modern."
+    provenance: "synthesized"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09859"
+    question: "Which candidate on this list is the one an evocative-name shop would pick, and can our marketing budget carry it?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "metaphor-rich power names vs. the spend required to give them meaning"
+    failure_it_catches: "A beautiful abstract name adopted by a company with no budget to explain it."
+    provenance: "sourced"
+    source_publisher: "Catchword"
+    source_title: "Best Naming Agencies in 2026"
+    source_url: "https://catchwordbranding.com/catchthis/best-naming-agencies-2026/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09860"
+    question: "Which longlist reject deserves a second look now that the strategy has sharpened since we wrote it?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact"]
+    stage: "refinement"
+    tension: "early filtering efficiency vs. names whose value only appears later"
+    failure_it_catches: "Discarding the eventual winner in round one because it was judged against an older brief."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09861"
+    question: "Would this name age well with the customers who love us now, as their life stage moves on?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a name pitched at today's cohort vs. one they can grow with"
+    failure_it_catches: "A youthful name that becomes embarrassing to the same customers ten years later."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09862"
+    question: "Would this name still look intentional in five years, or does it need the current category vibe to make sense?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "of-the-moment resonance vs. durability"
+    failure_it_catches: "A name tuned to a trend cycle that reads as dated the moment the cycle turns."
+    provenance: "synthesized"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09863"
+    question: "Would we be comfortable if this name became permanently attached to the worst thing our product ever does?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["ethics", "trust", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "an ownable distinctive name vs. an inescapable one when things go wrong"
+    failure_it_catches: "A memorable name that becomes the headline shorthand for a failure and cannot be distanced from it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q09864"
+    question: "What does this name look like set in our own typeface at 12px, and does it still hold its shape?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "conceptual strength vs. typographic behaviour at real sizes"
+    failure_it_catches: "A name with awkward letter pairs that reads as a smear in the favicon and the nav."
+    provenance: "synthesized"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q09865"
+    question: "Which assumption about the customer is baked into this name that we would not say out loud in a brief?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "evocative shorthand vs. an unexamined assumption about who buys"
+    failure_it_catches: "A name that encodes a stereotype about the user and alienates a third of the addressable market."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q09866"
+    question: "Which word do we use for the people who use this (users, customers, members) and does the name agree with that choice?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["brand", "copy"]
+    stage: "refinement"
+    tension: "a relationship implied by the name vs. the noun the product actually uses"
+    failure_it_catches: "A partnership-flavoured name paired with transactional language throughout the interface."
+    provenance: "sourced"
+    source_publisher: "Pentagram"
+    source_title: "Achieve"
+    source_url: "https://www.pentagram.com/work/achieve"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q09867"
+    question: "Would a stranger reading only this name guess the category within one step, and is that step one we want them to take?"
+    category: "Naming and brand architecture"
+    subcategory: "Name type, meaning and what it signals"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["brand", "copy"]
+    stage: "exploration"
+    tension: "immediate comprehension vs. room for the brand to mean more"
+    failure_it_catches: "A name that requires a tagline to be intelligible, in a channel where taglines get cropped."
+    provenance: "synthesized"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q09869"
+    question: "Did we validate this name by asking which one people liked, or by asking what they thought it did?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "data"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "preference testing vs. comprehension testing"
+    failure_it_catches: "Research that surfaces the most familiar option rather than the most effective one."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09871"
+    question: "If this name proves right, what will we have to call the second, third and fourth things in the same family?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "a great one-off name vs. a pattern that has to scale"
+    failure_it_catches: "A clever name with no siblings, forcing an incoherent second launch and a system reset a year later."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09872"
+    question: "What do customers already call this thing in tickets and forums, and is our official name losing to their name?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["brand", "copy"]
+    stage: "post-ship"
+    tension: "official taxonomy vs. vernacular that already won"
+    failure_it_catches: "Docs and UI using a formal name that no user has ever typed into search."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09874"
+    question: "Are any two of our scoring criteria mutually exclusive: can a name really be both maximally descriptive and highly protectable?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["long-term"]
+    applies_to: ["system", "artifact"]
+    stage: "exploration"
+    tension: "clarity for buyers vs. defensibility in law"
+    failure_it_catches: "A rubric that guarantees every candidate scores badly because it demands contradictory things."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09878"
+    question: "Which of these modules deserves a proper noun, and which should stay a functional descriptor forever?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "reserving equity for platforms vs. naming every add-on"
+    failure_it_catches: "A portfolio where a minor connector carries as much naming weight as the flagship platform."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09879"
+    question: "Which single name does the sales team already default to under pressure, and is that the one we should formalise?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "the official architecture vs. the vocabulary that survives contact with a customer"
+    failure_it_catches: "Maintaining an official name that no revenue-facing person uses in a live conversation."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09881"
+    question: "Have we tested the name in the exact context where most people will first meet it, rather than on a clean slide?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "data"]
+    applies_to: ["artifact", "screen"]
+    stage: "refinement"
+    tension: "an isolated evaluation vs. the real, crowded context of encounter"
+    failure_it_catches: "Choosing a name that tests well alone and disappears inside a comparison grid or app store list."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09882"
+    question: "Is the discomfort with this name likely to fade once it is everywhere, and who decides how long we wait to find out?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "long-term"]
+    applies_to: ["brand"]
+    stage: "post-ship"
+    tension: "early negative reaction vs. a name that becomes normal through use"
+    failure_it_catches: "Reversing a sound decision three weeks in because launch-week noise was mistaken for a verdict."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09883"
+    question: "What is the rule that tells a PM next quarter whether their thing gets a name, and can they apply it without asking us?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "case-by-case judgement vs. a rule that scales without the brand team"
+    failure_it_catches: "Naming decisions bottlenecked on one person, so teams route around the system entirely."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09886"
+    question: "Which name in this system would a new joiner get wrong on their first day, and is that a training problem or a naming problem?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "blaming onboarding vs. accepting the system is unlearnable"
+    failure_it_catches: "Treating chronic internal confusion as an education gap rather than evidence the architecture failed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09887"
+    question: "Which of the qualities we say we want (distinctive, easy to say, extendable, protectable) are we prepared to trade away first?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "long-term"]
+    applies_to: ["brand", "artifact"]
+    stage: "exploration"
+    tension: "a long wish list vs. an explicit ranking of what matters most"
+    failure_it_catches: "A shortlist judged against a dozen equally weighted criteria, so the blandest compromise wins."
+    provenance: "synthesized"
+    source_publisher: "How Brands Are Built"
+    source_title: "What makes a great brand name?"
+    source_url: "https://howbrandsarebuilt.com/what-makes-a-great-brand-name/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09891"
+    question: "Do our own guidelines say how this name is capitalised, hyphenated and possessed, or is every team guessing?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "expressive typographic treatment vs. writeable consistency at scale"
+    failure_it_catches: "Four spellings of the same product name across the app, the docs, the invoice and the ad."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09892"
+    question: "Does our naming intake form ask what is being named before it asks for name ideas?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["artifact", "system"]
+    stage: "concept"
+    tension: "a process that starts with creativity vs. one that starts with scope"
+    failure_it_catches: "Requests arriving as name wish lists, so the team names things that should never have been named."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09894"
+    question: "If two finalists are equally strong, which practical fact decides it: the mark, the domain, or the shorter sentence?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "business-model"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "endless deliberation vs. letting a concrete constraint break the tie"
+    failure_it_catches: "A decision that stalls for weeks because the team keeps re-litigating taste instead of using a tiebreaker."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09895"
+    question: "When did we last audit the portfolio against the naming rules we wrote, and how many things now violate them?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "a documented system vs. drift nobody is measuring"
+    failure_it_catches: "Naming guidelines quietly obsolete while the live portfolio has moved on without them."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09896"
+    question: "Which criteria were written down before the shortlist appeared, and would we still apply them to our own favourite?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact", "system"]
+    stage: "exploration"
+    tension: "stated criteria vs. taste dressed as rationale"
+    failure_it_catches: "A scorecard invented after the fact to justify the name the loudest stakeholder liked."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09897"
+    question: "Which invented word in this product could be deleted tomorrow with no loss of meaning?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "post-ship"
+    tension: "accumulated branded vocabulary vs. the smallest teachable set"
+    failure_it_catches: "A glossary of nine proprietary nouns where four are synonyms for things users already had words for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09898"
+    question: "Which of our existing names would have to be retired for this new one to make the portfolio simpler rather than longer?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "exploration"
+    tension: "additive naming vs. net portfolio complexity"
+    failure_it_catches: "A portfolio that only ever grows, because every launch adds a name and no launch removes one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09899"
+    question: "Which team will be first to break this naming convention, and what pressure will make them do it?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "a written system vs. the launch deadline that overrides it"
+    failure_it_catches: "A naming standard that survives exactly one quarter before the first exception becomes precedent."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q09900"
+    question: "Whose comprehension are we testing: the champion who already knows us, or the sceptic hearing the name cold?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["craft-detail", "data"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "friendly-audience validation vs. first-encounter reality"
+    failure_it_catches: "A name that tests brilliantly with existing customers and means nothing to the market we need next."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09901"
+    question: "Do the names in this portfolio imply a hierarchy that matches the actual dependency between the products?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "system"]
+    applies_to: ["system", "brand"]
+    stage: "refinement"
+    tension: "naming symmetry vs. real architectural dependency"
+    failure_it_catches: "A naming scheme suggesting two products are peers when one cannot function without the other."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09902"
+    question: "Has anyone written the one-sentence scope statement: we are naming X that does Y, and it is not a Z?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "artifact"]
+    stage: "concept"
+    tension: "open-ended exploration vs. a bounded brief"
+    failure_it_catches: "A naming round that quietly redefines the product's scope because nobody fixed what was being named."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09903"
+    question: "How many terms are in the help centre glossary, and would a new hire pass a test on them after a week?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "rich branded vocabulary vs. learnability for staff and customers alike"
+    failure_it_catches: "A product language so large that even employees use the wrong term in customer conversations."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09905"
+    question: "Which number do customers currently quote when they file a bug, and does our public versioning match it?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "marketing version names vs. the build identifiers support needs"
+    failure_it_catches: "A support process where the customer's version word and the engineer's version number never align."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09906"
+    question: "Which of our own product names would we have to explain twice in a thirty-second elevator answer?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "portfolio expressiveness vs. explainability under time pressure"
+    failure_it_catches: "A lineup where every conversation starts with untangling what each name refers to."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09907"
+    question: "Does the name of this feature match the name of the metric we report on it, and will finance recognise either?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["data", "enterprise"]
+    applies_to: ["system", "artifact"]
+    stage: "refinement"
+    tension: "customer-facing naming vs. internal reporting taxonomy"
+    failure_it_catches: "A renamed product whose dashboards, contracts and revenue reports each use a different label."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09908"
+    question: "Does the release name imply an upgrade is optional, when our support policy says it is not?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["copy", "system"]
+    stage: "pre-ship"
+    tension: "friendly release framing vs. the hard end-of-support date behind it"
+    failure_it_catches: "Customers on an unsupported version who genuinely believed the new name was a cosmetic refresh."
+    provenance: "synthesized"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09909"
+    question: "If someone bought only the thing on the left of this name, would they get anything usable?"
+    category: "Naming and brand architecture"
+    subcategory: "Naming system governance"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "platform-plus-module naming vs. what is actually purchasable alone"
+    failure_it_catches: "A platform name sold as a product when it does nothing without a module the name never mentions."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09911"
+    question: "How much recognition are we destroying, and can we name a customer behaviour that will improve enough to pay for it?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "accumulated brand equity vs. the promise of a fresher story"
+    failure_it_catches: "Trashing years of goodwill in a name for a change with no measurable upside."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q09912"
+    question: "How will a customer who bought the old product know, on their next login, that they still have the thing they paid for?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["screen", "flow"]
+    stage: "pre-ship"
+    tension: "a confident new identity vs. continuity of ownership"
+    failure_it_catches: "A rename that reads as a product being taken away rather than relabelled."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09914"
+    question: "Is there a hard date when the old name stops being supported, and would we honour it if our biggest account escalated?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "a firm cutover vs. exceptions for large customers"
+    failure_it_catches: "A migration that stalls at eighty percent because one exception invited a hundred more."
+    provenance: "sourced"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q09915"
+    question: "What problem does this rename solve that a better description on the same screen would not?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "copy"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "a full rename vs. a cheaper fix to the same confusion"
+    failure_it_catches: "Spending a year of migration cost on a problem that was a bad nav label, not a bad name."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q09916"
+    question: "When a user searches the old name in our help centre, do they land somewhere useful or nowhere at all?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["flow", "system"]
+    stage: "pre-ship"
+    tension: "consistency with the new vocabulary vs. meeting users where their memory is"
+    failure_it_catches: "A knowledge base scrubbed of the old term, so every long-time customer searches and finds nothing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q09917"
+    question: "Where is the old name still the correct answer (in a customer's bookmark, an integration, a purchase order) and does it keep working?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["system", "flow"]
+    stage: "pre-ship"
+    tension: "a clean cut to the new name vs. everything already pointing at the old one"
+    failure_it_catches: "A rename that breaks saved links, webhook labels and PO references on day one."
+    provenance: "synthesized"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09919"
+    question: "Are we changing the name to freshen things up, and is that reason alone ever enough?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "the appeal of newness vs. the compounding value of staying put"
+    failure_it_catches: "A refresh-driven rename with no strategic trigger, spending equity to relieve internal boredom."
+    provenance: "sourced"
+    source_publisher: "Attest"
+    source_title: "The Complete Guide to Rebranding in 2026"
+    source_url: "https://www.askattest.com/blog/articles/rebranding"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09920"
+    question: "Does the new name create room for the offerings on next year's plan, or only cover what exists today?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "naming for the present business vs. the architecture the roadmap needs"
+    failure_it_catches: "A rename that has to be redone the moment the company enters its next planned category."
+    provenance: "sourced"
+    source_publisher: "Pentagram"
+    source_title: "Achieve"
+    source_url: "https://www.pentagram.com/work/achieve"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09921"
+    question: "For how long do we show 'formerly X' alongside the new name, and what evidence tells us we can stop?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "anchoring on the old name vs. establishing the new one"
+    failure_it_catches: "Dropping the bridge too early and losing customers who never connected the two names."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09922"
+    question: "What does our organic traffic depend on that is tied to the old name, and is there a redirect plan or only a launch plan?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["system", "brand"]
+    stage: "pre-ship"
+    tension: "brand ambition vs. accumulated search authority"
+    failure_it_catches: "A rebrand that resets years of ranking because the entity association was never transferred."
+    provenance: "sourced"
+    source_publisher: "WISE Digital Partners"
+    source_title: "The SEO Risks of Generic Business Names"
+    source_url: "https://www.wisedigitalpartners.com/learn/blog/seo/seo-risks-generic-business-names"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09923"
+    question: "Which customer-visible thing must not change on the day of the rename, so people can tell it is still their product?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["screen", "brand"]
+    stage: "refinement"
+    tension: "a full reset vs. deliberate continuity anchors"
+    failure_it_catches: "Changing name, logo, colour and layout together, so users cannot recognise anything they had learned."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09924"
+    question: "Which single sentence explains this rename to a customer who did not ask for it, and does it lead with their benefit?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "pre-ship"
+    tension: "internal rationale vs. a reason a customer would accept"
+    failure_it_catches: "An announcement full of strategy language that leaves users feeling the change was done to them."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09925"
+    question: "Which surfaces still carry the old name three months after the rename, and who owns the list?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "a launch-day rename vs. the long tail of strings, emails and PDFs"
+    failure_it_catches: "A rename declared complete while invoices, exports and onboarding emails still use the retired word."
+    provenance: "synthesized"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09926"
+    question: "Would reverting this rename in twelve months be possible, or are we crossing a one-way door?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "decisive commitment vs. reversibility"
+    failure_it_catches: "A rename that cannot be undone without a second, more expensive rename and a public admission."
+    provenance: "synthesized"
+    source_publisher: "Attest"
+    source_title: "The Complete Guide to Rebranding in 2026"
+    source_url: "https://www.askattest.com/blog/articles/rebranding"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09927"
+    question: "Are we renaming because the name stopped being true, or because the leadership changed?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "ethics"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a strategic reason to rename vs. an internal one"
+    failure_it_catches: "A rebrand that costs recognition and reads to customers as churn at the top rather than progress."
+    provenance: "synthesized"
+    source_publisher: "Attest"
+    source_title: "The Complete Guide to Rebranding in 2026"
+    source_url: "https://www.askattest.com/blog/articles/rebranding"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09928"
+    question: "Has anyone checked whether the new name is already in use somewhere inside our own product for something else?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "external clearance rigour vs. internal vocabulary collisions nobody screens for"
+    failure_it_catches: "A renamed product colliding with an existing object type, so one word means two things in one screen."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09929"
+    question: "What is the reversal cost if the market rejects this name, and has anyone put a figure next to it?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "confidence in the new name vs. budgeting for being wrong"
+    failure_it_catches: "A rebrand launched with no contingency, so reversal becomes an unbudgeted crisis rather than an option."
+    provenance: "sourced"
+    source_publisher: "Attest"
+    source_title: "The Complete Guide to Rebranding in 2026"
+    source_url: "https://www.askattest.com/blog/articles/rebranding"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09930"
+    question: "What signal will tell us the new name has landed: support questions falling, or just the announcement going out?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["data", "trust"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "declaring success at launch vs. measuring comprehension afterwards"
+    failure_it_catches: "Treating the press release as the finish line while confusion tickets rise for six months."
+    provenance: "sourced"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09931"
+    question: "Which cohort of customers can migrate to the new name with zero change to their workflow, and can we move them first?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "flow"]
+    stage: "refinement"
+    tension: "a single big-bang switch vs. sequenced cohorts"
+    failure_it_catches: "Attempting one simultaneous cutover and stalling permanently on the hardest accounts."
+    provenance: "sourced"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09932"
+    question: "Which search terms on our own site spiked after the rename, and what does that tell us about what people lost?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["data", "copy"]
+    applies_to: ["system", "flow"]
+    stage: "post-ship"
+    tension: "trusting the rollout plan vs. reading the behavioural evidence"
+    failure_it_catches: "Ignoring an internal search spike for the old term that predicts the next quarter's churn."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09933"
+    question: "Which team owns the inventory of every place this name appears, and has anyone actually counted?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system", "artifact"]
+    stage: "pre-ship"
+    tension: "an announced rename vs. the unbounded surface it touches"
+    failure_it_catches: "A rename discovered to be incomplete months later, in emails, exports and printed collateral."
+    provenance: "synthesized"
+    source_publisher: "brandRUSSO"
+    source_title: "Brand Architecture for M&A: Post-Acquisition Integration Playbook"
+    source_url: "https://brandrusso.com/brand-architecture-for-ma/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09934"
+    question: "Are we renaming the product, the company, or both at once, and can the market absorb both in one quarter?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "one decisive moment vs. two changes competing for the same attention"
+    failure_it_catches: "A simultaneous corporate and product rename where neither message registers."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09935"
+    question: "When we ship this rename, which metric would have to move within a quarter for us to call it correct?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["data", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "pre-ship"
+    tension: "brand change as an act of faith vs. a testable claim"
+    failure_it_catches: "A rebrand that can never be judged, so the same argument recurs at every leadership change."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09936"
+    question: "Which audience did we build this name's recognition with, and are they the audience we need next year?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "equity with today's customers vs. relevance to tomorrow's"
+    failure_it_catches: "Protecting a name that only means something to a segment we are deliberately leaving."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09937"
+    question: "Which internal system will break when the display name changes but the identifier does not?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "decoupling human-readable names from stable IDs vs. the work of doing it properly"
+    failure_it_catches: "Analytics, billing and entitlement systems disagreeing about what the product is called and therefore what it is."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09938"
+    question: "Who on the team still has to maintain the old name in code, docs and support macros after launch, and for how long?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "a clean public rename vs. a permanent internal dual vocabulary"
+    failure_it_catches: "Engineers reading one word in the codebase and another in the ticket for the next five years."
+    provenance: "synthesized"
+    source_publisher: "Rich Mironov"
+    source_title: "Major Migrations Are An Organizational Challenge"
+    source_url: "https://www.mironov.com/migrate/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09939"
+    question: "How will third parties who write about us learn the new name, and what do we do about the ones who never update?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["long-term", "trust"]
+    applies_to: ["brand"]
+    stage: "post-ship"
+    tension: "our announcement vs. the internet's long memory"
+    failure_it_catches: "Review sites, comparison pages and integrations frozen on the old name for years after the change."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09940"
+    question: "When we retire a name, do we say so publicly, or does it just stop appearing and leave people wondering?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["brand", "copy"]
+    stage: "post-ship"
+    tension: "a quiet sunset vs. explicit closure for the people who relied on it"
+    failure_it_catches: "A discontinued product name lingering in search results with no page explaining what happened."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09941"
+    question: "Which parts of the old name should survive into the new one so the transition has a handrail?"
+    category: "Naming and brand architecture"
+    subcategory: "Rename, migration and redirects"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "a total break vs. a phonetic or visual thread back to what people knew"
+    failure_it_catches: "A rename with no connective tissue, so recognition restarts from zero."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09942"
+    question: "Can a first-time visitor tell these three plan names apart in one glance, or do they have to read the feature grid to decode them?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "evocative tier names vs. instant self-selection"
+    failure_it_catches: "Poetic plan names that force every prospect through a 40-row comparison table before they can choose."
+    provenance: "synthesized"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q09943"
+    question: "When we add a fourth tier next year, where does its name sit in this ladder without breaking the existing order?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["system", "screen"]
+    stage: "concept"
+    tension: "a tidy three-tier story now vs. an extensible ladder later"
+    failure_it_catches: "Having to insert a plan between Pro and Premium and finding no word left that reads as higher."
+    provenance: "synthesized"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09945"
+    question: "Are our tier names proprietary when they should be conventional: is there a reason not to just say Pro and Enterprise?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["brand", "screen"]
+    stage: "concept"
+    tension: "brand expression in packaging vs. the buyer's existing mental model"
+    failure_it_catches: "Invented tier names that force procurement to translate our pricing into their standard categories."
+    provenance: "sourced"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q09946"
+    question: "Do our tier names describe the plan, or describe the customer, and which one do we want them to identify with?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "feature-descriptive tiers vs. tiers people see themselves in"
+    failure_it_catches: "A pricing table where nobody can locate themselves, so everyone defaults to the cheapest row."
+    provenance: "sourced"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09947"
+    question: "Does the tier name collide with a product name in our portfolio, so that 'Enterprise' means two different things in two places?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system", "brand"]
+    stage: "refinement"
+    tension: "reusing familiar words vs. one word meaning one thing"
+    failure_it_catches: "A support conversation where 'the Business plan' and 'the Business product' are indistinguishable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09948"
+    question: "When a user hits a paywall, does the name of the thing they cannot access tell them what they are missing?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["screen", "flow"]
+    stage: "refinement"
+    tension: "branded gating vs. a concrete description of the withheld value"
+    failure_it_catches: "An upgrade prompt naming a tier without naming the capability, so the value proposition is invisible."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09949"
+    question: "Which tier is the hero, and does its name pull people upward without making the tier below feel like a punishment?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "upsell pressure vs. dignity for the customers who stay put"
+    failure_it_catches: "A 'Basic' label that reads as an insult and pushes budget-constrained users to churn rather than upgrade."
+    provenance: "sourced"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q09950"
+    question: "If a feature name and a plan name are the same word, how does a user know whether they are missing the feature or the plan?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "naming economy vs. upgrade-path clarity"
+    failure_it_catches: "An upsell modal that cannot explain what is being purchased because the word covers both."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09951"
+    question: "Which plan name will look wrong the day we change what is in that plan, and how tightly is the name coupled to the contents?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["screen", "system"]
+    stage: "concept"
+    tension: "a name that describes the bundle vs. one that survives repackaging"
+    failure_it_catches: "A tier named after a feature that later moves to a different tier, orphaning the label."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09952"
+    question: "Do the add-on names read as part of the same family as the core plan, or as a separate product we forgot to integrate?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["system", "screen"]
+    stage: "refinement"
+    tension: "expressive add-on branding vs. a coherent purchase story"
+    failure_it_catches: "Add-ons named as standalone brands, so the invoice looks like four vendors rather than one."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09953"
+    question: "Does the free tier's name make people feel resourceful or make them feel poor?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["copy", "business-model"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "honest limitation vs. dignity for the largest user group"
+    failure_it_catches: "A free-tier label that shames the users who become the strongest word-of-mouth channel."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09954"
+    question: "How many words does a customer have to say to order exactly the configuration they want?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system", "copy"]
+    stage: "refinement"
+    tension: "granular naming precision vs. orderability"
+    failure_it_catches: "A SKU vocabulary so long that reps and customers routinely transact the wrong configuration."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09955"
+    question: "Which tier name would a customer be happy to say out loud to a colleague, and which one would they hide?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "honest capability signalling vs. status the buyer carries internally"
+    failure_it_catches: "A 'Lite' label that stops an internal champion from advocating for the tool at all."
+    provenance: "synthesized"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09956"
+    question: "Are we naming the seat, the workspace, or the outcome, and which one does the buyer's budget line item match?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "our packaging logic vs. how the buyer's finance team categorises spend"
+    failure_it_catches: "A pricing vocabulary that does not map to any line the buyer can actually create in their system."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q09957"
+    question: "Which of our plan names would still make sense if a competitor adopted the identical set tomorrow?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["screen", "brand"]
+    stage: "refinement"
+    tension: "conventional legibility vs. any distinctiveness in packaging"
+    failure_it_catches: "A pricing page indistinguishable from four competitors, so price becomes the only variable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09958"
+    question: "Which words in our packaging did we borrow from a category the buyer does not belong to?"
+    category: "Naming and brand architecture"
+    subcategory: "Tier and plan naming"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "borrowed convention vs. our actual customer's language"
+    failure_it_catches: "Consumer-style tier names on an enterprise price sheet, undercutting credibility at the moment of purchase."
+    provenance: "synthesized"
+    source_publisher: "T2D3"
+    source_title: "Guide to SaaS Pricing Tier Names"
+    source_url: "https://www.t2d3.pro/learn/naming-your-saas-pricing-plans-packages-tiers"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09959"
+    question: "Are we trying to find one name that is easy to say everywhere, and have we accepted that this is close to impossible?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "global pronounceability as a filter vs. the good ideas it kills"
+    failure_it_catches: "A shortlist stripped of every distinctive candidate by a universal-pronunciation rule no name can pass."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09960"
+    question: "Where on the distinctiveness spectrum does this sit, and are we knowingly trading protectability for instant comprehension?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "descriptive clarity vs. inherent legal distinctiveness"
+    failure_it_catches: "Picking a merely descriptive mark and discovering we can never stop a competitor using it."
+    provenance: "sourced"
+    source_publisher: "INTA"
+    source_title: "Trademark Strength"
+    source_url: "https://www.inta.org/fact-sheets/trademark-strength/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09961"
+    question: "Which is worth more here: the exact-match .com, or a name we would actually be proud to say?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "domain purity vs. name quality"
+    failure_it_catches: "Mutilating a good name into an unpronounceable string because a domain was available."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q09962"
+    question: "If this name became the generic word for the category, would that be a win or the first step toward losing the mark?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "cultural ubiquity vs. genericide risk"
+    failure_it_catches: "Celebrating a name entering the dictionary while quietly forfeiting the ability to defend it."
+    provenance: "sourced"
+    source_publisher: "Bell Davis Pitt"
+    source_title: "Spectrum of Distinctiveness"
+    source_url: "https://www.belldavispitt.com/blog-post/spectrum-of-distinctiveness-fanciful-arbitrary-suggestive-and-descriptive-trademarks"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q09963"
+    question: "Are we asking legal to bless a name, or asking them to find the one candidate that survives, and do they know which?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "legal as a rubber stamp vs. legal as a filter with real input"
+    failure_it_catches: "A single name sent to counsel with no alternates, so a conflict stops the whole launch."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09964"
+    question: "Does this name require imagination to connect it to the function, or does it hand the meaning over with no step at all?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "copy"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "suggestive names that are ownable vs. descriptive names that are not"
+    failure_it_catches: "Choosing a name one word away from suggestive, and losing registration over that one word."
+    provenance: "sourced"
+    source_publisher: "USPTO"
+    source_title: "Strong trademarks"
+    source_url: "https://www.uspto.gov/trademarks/basics/strong-trademarks"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09965"
+    question: "If we cannot get the handle, the domain and the mark, which of the three are we genuinely willing to live without?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "completeness of the asset set vs. an unnecessary veto on good names"
+    failure_it_catches: "Rejecting every strong candidate because one asset was unavailable, and shipping the weakest complete set."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09966"
+    question: "Which is the real constraint on this decision: what we believe about the name, or what the trademark register permits?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "creative conviction vs. legal availability as the binding constraint"
+    failure_it_catches: "Spending months on rationale for a name that was never going to clear in our classes."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q09967"
+    question: "Which word in this name will be the first thing a translator has to invent, and what will they invent?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["i18n", "copy"]
+    applies_to: ["brand", "copy"]
+    stage: "refinement"
+    tension: "an English pun that carries the concept vs. markets where it cannot travel"
+    failure_it_catches: "A feature name that becomes a different concept in every locale because it was untranslatable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q09968"
+    question: "Would a localised name in our largest non-English market be a retreat, or the same move the biggest global brands already made?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "one global name vs. a market-specific name that shares a theme"
+    failure_it_catches: "Forcing an unpronounceable global name into a market where a thematic local name would land better."
+    provenance: "sourced"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q09969"
+    question: "Are we near enough to a large company's mark that a polite email could force a rename after launch?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "a name that echoes a market leader vs. a rename under someone else's timetable"
+    failure_it_catches: "Building recognition for a name that has to be abandoned within months of launch."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09971"
+    question: "Which competitor could use our exact feature name tomorrow with no legal consequence, and does that matter to us?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "refinement"
+    tension: "a generic feature label that teaches the market vs. one we can defend"
+    failure_it_catches: "Investing in category education for a term every rival will adopt within a quarter."
+    provenance: "synthesized"
+    source_publisher: "USPTO"
+    source_title: "Strong trademarks"
+    source_url: "https://www.uspto.gov/trademarks/basics/strong-trademarks"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09972"
+    question: "Which competitor's name would this be confused with in a noisy conference hall, and does that matter for us?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "category-adjacent familiarity vs. auditory distinctiveness"
+    failure_it_catches: "A name so close to a rival's that word of mouth routinely sends prospects to them."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q09973"
+    question: "Which cultural reference is this name borrowing, and have we checked who else has a claim on it?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["ethics", "i18n"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "rich borrowed meaning vs. appropriation and unintended association"
+    failure_it_catches: "A mythological or indigenous reference that reads as extraction rather than homage in its home culture."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09974"
+    question: "Which trademark classes actually matter for this thing, and have we checked sound-alikes rather than only exact strings?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "a clean search-engine result vs. real likelihood-of-confusion risk"
+    failure_it_catches: "Assuming a name is safe because Google was quiet, then receiving a cease and desist from a near-homophone."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q09975"
+    question: "Have we fallen in love with a name before legal cleared it, and what is the plan for that grief?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "emotional conviction vs. clearance reality"
+    failure_it_catches: "A team so attached to one candidate that a conflict letter derails the launch instead of the shortlist."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09976"
+    question: "How many years of marketing would it take for a descriptive name here to acquire secondary meaning, and do we have that long?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "a name that explains itself now vs. one that can be owned later"
+    failure_it_catches: "Betting on secondary meaning with a runway that ends before it could ever accrue."
+    provenance: "synthesized"
+    source_publisher: "INTA"
+    source_title: "Trademark Strength"
+    source_url: "https://www.inta.org/fact-sheets/trademark-strength/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q09977"
+    question: "Which characters in this name break in a URL, a handle, or a filename, and did we discover that before or after launch?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["craft-detail", "i18n"]
+    applies_to: ["brand", "system"]
+    stage: "pre-ship"
+    tension: "typographic personality vs. machine-readability"
+    failure_it_catches: "An ampersand or accent in the name that mangles every slug, handle and support macro."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q09978"
+    question: "Which markets have we actually filed in, and is our rollout plan larger than our protection?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["i18n", "enterprise"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "speed of international launch vs. jurisdiction-by-jurisdiction registration"
+    failure_it_catches: "Launching into a market where a local holder already owns the mark in our class."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q09979"
+    question: "Is there a restricted or regulated word inside this candidate that legal will veto after we have printed the packaging?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["enterprise", "ethics"]
+    applies_to: ["brand", "artifact"]
+    stage: "exploration"
+    tension: "evocative vocabulary vs. regulated terminology"
+    failure_it_catches: "Discovering at the eleventh hour that a word in the name is reserved in our regulated category."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09980"
+    question: "Is this name ownable enough that we could file it, and boring enough that a buyer instantly knows what it is?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "protectability vs. plain comprehension"
+    failure_it_catches: "Ending up with a name that is neither ownable nor clear, having chased both at once."
+    provenance: "sourced"
+    source_publisher: "Catchword"
+    source_title: "Best Naming Agencies in 2026"
+    source_url: "https://catchwordbranding.com/catchthis/best-naming-agencies-2026/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q09981"
+    question: "Which noun follows this name when we write it in the UI: the brand plus a generic descriptor, or the brand standing alone?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "clean brand-only usage vs. the generic descriptor that protects the mark"
+    failure_it_catches: "Copy that trains users to treat the trademark as the product noun itself."
+    provenance: "sourced"
+    source_publisher: "Bell Davis Pitt"
+    source_title: "Spectrum of Distinctiveness"
+    source_url: "https://www.belldavispitt.com/blog-post/spectrum-of-distinctiveness-fanciful-arbitrary-suggestive-and-descriptive-trademarks"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q09982"
+    question: "Does this name accidentally collide with a well-known model, framework or library that developers will search first?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["ai-native", "enterprise"]
+    applies_to: ["brand"]
+    stage: "exploration"
+    tension: "a name that sounds technical and current vs. one already occupied in developer space"
+    failure_it_catches: "A product name buried under an unrelated open-source project in every technical search."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q09983"
+    question: "Have we budgeted the weeks between filing and protection, or does the launch calendar assume the name is already ours?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["brand"]
+    stage: "pre-ship"
+    tension: "launch momentum vs. the lag before a mark is registered"
+    failure_it_catches: "A public launch during the filing window that invites an opportunistic conflicting application."
+    provenance: "synthesized"
+    source_publisher: "Koto"
+    source_title: "Naming your brand, from start to finish"
+    source_url: "https://offbrandkoto.substack.com/p/naming-your-brand-from-start-to-finish"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q09984"
+    question: "Has the product name been checked for pronunciation and meaning in each launch language before we set it in the logo?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["brand", "i18n", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "naming for the home market vs. names that travel"
+    failure_it_catches: "A product name that is unpronounceable or crude in a market you plan to enter next year."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q09985"
+    question: "Would adding 'get' or 'try' to the domain quietly tell every visitor that someone else owns the real name?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["brand"]
+    stage: "refinement"
+    tension: "a workable URL vs. the signal that workaround sends"
+    failure_it_catches: "A prefix that reads as second-place to anyone who tries the bare domain first."
+    provenance: "synthesized"
+    source_publisher: "WANT Branding"
+    source_title: "B2B Product Naming: A Repeatable Process for Scale"
+    source_url: "https://wantbranding.com/product-naming/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q09986"
+    question: "Does the name read the same in a right-to-left layout, and does the lockup still put the parent where the strategy wants it?"
+    category: "Naming and brand architecture"
+    subcategory: "Trademark, availability and global/linguistic checks"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["brand", "artifact"]
+    stage: "refinement"
+    tension: "a hierarchy designed left-to-right vs. mirrored reading order"
+    failure_it_catches: "An endorsement lockup that inverts its hierarchy in Arabic and Hebrew markets."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78

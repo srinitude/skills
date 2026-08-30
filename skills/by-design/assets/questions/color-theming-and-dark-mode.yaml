@@ -1,0 +1,3333 @@
+# Color, theming and dark mode
+# 222 questions. Generated, ordered by id. Do not hand edit.
+questions:
+  - id: "Q03729"
+    question: "Which two adjacent series in this chart converge under deuteranopia, and did you check or assume?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "aesthetic sequencing vs. verified separability"
+    failure_it_catches: "Orange and green sitting side by side in a stacked bar for millions of users."
+    provenance: "sourced"
+    source_publisher: "David Nichols"
+    source_title: "Coloring for Colorblindness"
+    source_url: "https://davidmathlogic.com/colorblind/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q03730"
+    question: "Can the user see the consequence of this choice before committing, and if not, is the surprise fair?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["trust"]
+    applies_to: ["flow", "component"]
+    stage: "refinement"
+    tension: "preserving discovery vs. informed decision"
+    failure_it_catches: "A plan selection whose real implications only surface after the card is charged."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03731"
+    question: "Is tritanopia in your test matrix, or does colourblind-safe here quietly mean red-green only?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["system", "component"]
+    stage: "pre-ship"
+    tension: "common-case testing vs. full coverage"
+    failure_it_catches: "A blue-and-teal palette that fails an entire deficiency type nobody simulated."
+    provenance: "sourced"
+    source_publisher: "European Data Portal"
+    source_title: "Accessible colour palettes"
+    source_url: "https://data.europa.eu/apps/data-visualisation-guide/accessible-colour-palettes"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q03732"
+    question: "Are the pairings in this legend noticeably different, or merely different by hex value?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "nominal difference vs. perceptible difference"
+    failure_it_catches: "A legend that is technically eight colors and functionally five."
+    provenance: "synthesized"
+    source_publisher: "Artera"
+    source_title: "Categorical Data Visualization Color Palette"
+    source_url: "https://innovation.artera.io/blog/clarity-creates-confidence-arteras-categorical-data-visualization-color-palette/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03733"
+    question: "What separates these bars besides hue: lightness, a border, a direct label, a pattern?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "minimal chart chrome vs. redundant encoding"
+    failure_it_catches: "Adjacent segments that merge for any reader with reduced color discrimination."
+    provenance: "sourced"
+    source_publisher: "European Data Portal"
+    source_title: "Accessible colour palettes"
+    source_url: "https://data.europa.eu/apps/data-visualisation-guide/accessible-colour-palettes"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03734"
+    question: "If you greyed out every accent but one, would the survivor be the right one?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "accent proliferation vs. accent restraint"
+    failure_it_catches: "An accent budget spent before reaching the element that needed it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03735"
+    question: "Is this kebab icon close enough to the object it acts on that the relationship needs no explanation?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "desktop"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "layout tidiness vs. proximity as the carrier of meaning"
+    failure_it_catches: "An overflow icon in the corner of a card that nobody associates with the row it controls."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "NN/g, Designing Effective Contextual Menus: 10 Guidelines"
+    source_url: "https://www.nngroup.com/articles/contextual-menus-guidelines/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03736"
+    question: "Has the brand's most saturated colour been kept out of the areas users stare at longest?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "accessibility"]
+    applies_to: ["screen", "brand"]
+    stage: "refinement"
+    tension: "brand presence vs. sustained viewing comfort"
+    failure_it_catches: "A saturated brand fill behind a data table people read for hours."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03737"
+    question: "How many distinct accent colours are competing on this screen, and which one is the actual next step?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "expressive variety vs. a single legible path forward"
+    failure_it_catches: "Four saturated colors on one screen and no clear primary action."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Using Color to Enhance Your Design"
+    source_url: "https://www.nngroup.com/articles/color-enhance-design/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03738"
+    question: "What has this screen's use of brand colour cost the user's ability to find the primary action?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "brand presence vs. functional wayfinding"
+    failure_it_catches: "Brand color applied so widely that it no longer marks anything."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Using Color to Enhance Your Design"
+    source_url: "https://www.nngroup.com/articles/color-enhance-design/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03739"
+    question: "Where is colour carrying brand personality that no other element carries, and is that fragile?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "color as identity vs. identity that survives without color"
+    failure_it_catches: "A brand that disappears entirely in grayscale, forced colors, or a partner's template."
+    provenance: "synthesized"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q03740"
+    question: "Which of these colours would a user with monochromacy still be able to act on?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen", "component"]
+    stage: "pre-ship"
+    tension: "hue-based differentiation vs. lightness-based differentiation"
+    failure_it_catches: "An interface that only works if you can perceive hue at all."
+    provenance: "synthesized"
+    source_publisher: "European Data Portal"
+    source_title: "Accessible colour palettes"
+    source_url: "https://data.europa.eu/apps/data-visualisation-guide/accessible-colour-palettes"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03741"
+    question: "Would removing chroma from this interface entirely still leave the primary action findable?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "color as hierarchy vs. structure as hierarchy"
+    failure_it_catches: "A layout whose only hierarchy is hue, invisible in grayscale or forced colors."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03742"
+    question: "Where is your call-to-action colour used for something that is not a call to action?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "visual liveliness vs. trained click affordance"
+    failure_it_catches: "Users learning that the accent color sometimes means nothing, and stopping trusting it."
+    provenance: "sourced"
+    source_publisher: "UXArmy"
+    source_title: "Color Theory In UI Design: Principles And Palettes"
+    source_url: "https://uxarmy.com/blog/principles-of-colour-in-ui-design/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03743"
+    question: "Which colour here is doing brand work and which is doing wayfinding work, and can both survive together?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["screen", "brand"]
+    stage: "exploration"
+    tension: "identity signalling vs. navigational signalling"
+    failure_it_catches: "One hue asked to mean the company and mean click here at the same time."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03744"
+    question: "Which element here is coloured because it is important, and which because colouring it was easy?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "exploration"
+    tension: "deliberate emphasis vs. incidental decoration"
+    failure_it_catches: "Color spent on ornament while the decision the user must make stays neutral."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03745"
+    question: "Which surface in this product is loud enough that the content has to compete with it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "chrome expressiveness vs. content primacy"
+    failure_it_catches: "A colored navigation rail that outshouts the document the user is editing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03746"
+    question: "Would a competitor's screenshot be indistinguishable from yours with the accent hue swapped?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["screen", "brand"]
+    stage: "exploration"
+    tension: "category conventions vs. distinctiveness"
+    failure_it_catches: "A product whose only differentiator is which blue it picked."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q03747"
+    question: "Has the accent colour been used often enough to read as a system and rarely enough to still mean something?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "brand presence vs. semantic scarcity"
+    failure_it_catches: "Brand colour applied to headings, links, badges and borders until it no longer marks the primary action."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03748"
+    question: "Which colours in this interface would a user describe from memory, and is that the set you would choose?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "screen"]
+    stage: "post-ship"
+    tension: "what you emphasized vs. what actually registered"
+    failure_it_catches: "Discovering the memorable color is the error banner, not the brand."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q03749"
+    question: "Which screen in this product uses the most colours, and does it also carry the most decisions?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "system"]
+    stage: "post-ship"
+    tension: "color quantity vs. decision density"
+    failure_it_catches: "The busiest palette sitting on the screen where users most need calm."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03750"
+    question: "Has anyone counted how many hues appear in a single viewport of your densest screen?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "incremental additions vs. cumulative noise"
+    failure_it_catches: "A screen that grew to fourteen hues one ticket at a time."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03751"
+    question: "Is the celebration colour earned by this moment, or applied to every confirmation equally?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "flow"]
+    stage: "refinement"
+    tension: "consistent treatment vs. proportionate emotion"
+    failure_it_catches: "The same confetti-grade color for finishing setup and for saving a draft."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03752"
+    question: "Which colour here would you keep if the whole interface had to work in a single ink?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "full palette expression vs. essential signal"
+    failure_it_catches: "Discovering that no single color is carrying the product's core meaning."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q03753"
+    question: "Has the accent covered more than a tenth of this screen's area, and does it still read as an accent?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "brand saturation vs. accent function"
+    failure_it_catches: "An accent used so broadly it becomes the background and stops pointing at anything."
+    provenance: "synthesized"
+    source_publisher: "Shannon Cabeen"
+    source_title: "How To Actually Implement Your UI Color Palette"
+    source_url: "https://medium.com/@shannon.cabeen/how-to-actually-implement-your-ui-color-palette-a5a7e266dc6f"
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q03754"
+    question: "What did you delete from this palette in the last redesign, and did anything actually get worse?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "fear of removal vs. evidence of need"
+    failure_it_catches: "A palette that only ever grows because nobody tests whether removal hurts."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.77
+  - id: "Q03755"
+    question: "Which colour decision here would you defend to a CFO as revenue-relevant, and which is taste?"
+    category: "Color, theming and dark mode"
+    subcategory: "Accent hierarchy, data color and color vision"
+    secondary_tags: ["business-model", "brand"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "craft investment vs. commercial justification"
+    failure_it_catches: "A palette overhaul funded on aesthetics that cannot survive the next budget cycle."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.76
+  - id: "Q03756"
+    question: "Which state in this component becomes invisible when forced colours strips its box-shadow?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "shadow-based styling vs. forced-colors survival"
+    failure_it_catches: "A focus ring built from box-shadow that vanishes entirely for high-contrast users."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q03757"
+    question: "Does 4.5:1 actually look readable for this near-black pair, or does the ratio flatter it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "compliance number vs. observed readability"
+    failure_it_catches: "Shipping technically compliant dark-on-dark text that most people cannot read."
+    provenance: "sourced"
+    source_publisher: "APCA"
+    source_title: "Why APCA"
+    source_url: "https://git.apcacontrast.com/documentation/WhyAPCA.html"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03758"
+    question: "Is forced-color-adjust set to none anywhere here, and can you justify each instance in one sentence?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "preserving essential color vs. overriding a user's setting"
+    failure_it_catches: "An entire page opted out of forced colors to protect a visual style."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03759"
+    question: "What distinguishes these two cards when every background collapses to the same Canvas colour?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "fill-based separation vs. border-based separation"
+    failure_it_catches: "A grid of cards that merges into one undifferentiated block in forced colors."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q03760"
+    question: "What does your focus ring do when both its outline colour and its shadow are overridden?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "styled focus vs. guaranteed focus"
+    failure_it_catches: "A beautiful custom focus treatment that is invisible where it matters most."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q03761"
+    question: "Would this interface stay legible with Increase Contrast and Reduce Transparency both switched on?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "layered translucent design vs. accessibility settings"
+    failure_it_catches: "Dark text on a dark background once the blur that separated them is removed."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03762"
+    question: "Which icons here rely on fill colour for meaning, and what do they mean once the fill is overridden?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "color-coded iconography vs. shape-coded iconography"
+    failure_it_catches: "A green tick and a red cross rendering identically when colors are forced."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q03763"
+    question: "At what font weight does this low-contrast label stop being legible, and is that weight guaranteed by the component?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "contrast budget vs. typographic weight"
+    failure_it_catches: "A caption that passes in the spec at 600 weight and ships at 400."
+    provenance: "sourced"
+    source_publisher: "APCA"
+    source_title: "Why APCA"
+    source_url: "https://git.apcacontrast.com/documentation/WhyAPCA.html"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03764"
+    question: "Has the selected state in this list got anything besides background colour to announce itself?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "minimal visual noise vs. redundant selection cues"
+    failure_it_catches: "Selection state lost entirely for users whose backgrounds are all forced to one color."
+    provenance: "synthesized"
+    source_publisher: "Smashing Magazine"
+    source_title: "The Guide To Windows High Contrast Mode"
+    source_url: "https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03765"
+    question: "Have you tabbed through this screen in forced colours, or only in the browser you design in?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["screen", "flow"]
+    stage: "pre-ship"
+    tension: "automated checks vs. lived inspection"
+    failure_it_catches: "A keyboard path that is unusable for exactly the users forced colors exists to serve."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03766"
+    question: "Have your custom components been mapped to colour roles, or do they hardcode values no contrast setting can reach?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "enterprise"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "speed of building custom UI vs. participation in the system"
+    failure_it_catches: "An accessibility feature that works everywhere except the screens your team built."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03767"
+    question: "If a user selects the medium contrast setting, which of your custom components stops adapting?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "custom component freedom vs. system-wide adaptation"
+    failure_it_catches: "A bespoke control frozen at standard contrast while everything around it adapts."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03768"
+    question: "Which element here uses a system colour keyword, and which one guessed a hex that merely looks similar?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "honoring the user's chosen palette vs. approximating it"
+    failure_it_catches: "A custom control that ignores the user's theme and sits wrong in every high-contrast scheme."
+    provenance: "synthesized"
+    source_publisher: "Microsoft Learn"
+    source_title: "Windows High contrast mode"
+    source_url: "https://learn.microsoft.com/en-us/fluent-ui/web-components/design-system/high-contrast"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03769"
+    question: "Which text on this screen would become unreadable if the user turned contrast up rather than down?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "assumption that more contrast is always safe vs. real outcomes"
+    failure_it_catches: "Dark text on a dark background emerging only when Increase Contrast is on."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03770"
+    question: "Would a user running a custom high-contrast theme with green-on-black still find the primary action?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "designed emphasis vs. user-controlled palette"
+    failure_it_catches: "Prominence that exists only in your palette and not in the structure of the page."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03771"
+    question: "Does anything in this interface depend on transparency that vanishes under Reduce Transparency?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["screen", "component"]
+    stage: "pre-ship"
+    tension: "material and blur effects vs. robust layering"
+    failure_it_catches: "A sidebar that loses all separation from content when blur is disabled."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03772"
+    question: "Have you rendered this in Windows High Contrast Black and looked at it, not merely run an automated check?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "desktop", "enterprise"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "tooling coverage vs. human inspection"
+    failure_it_catches: "Passing every automated rule while being visually unusable in the mode itself."
+    provenance: "sourced"
+    source_publisher: "Smashing Magazine"
+    source_title: "The Guide To Windows High Contrast Mode"
+    source_url: "https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03773"
+    question: "When forced colours is active, is the product still recognisably yours, and should it be?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["brand", "accessibility", "ethics"]
+    applies_to: ["brand", "screen"]
+    stage: "concept"
+    tension: "brand persistence vs. deference to the user's palette"
+    failure_it_catches: "Fighting a user's accessibility setting to preserve brand color."
+    provenance: "sourced"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q03774"
+    question: "Where does this design carry information in a background image that forced colours will delete?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "decorative richness vs. information robustness"
+    failure_it_catches: "A status conveyed by a background gradient that simply disappears."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03775"
+    question: "Which contrast level did you make default: the one that looks best, or the one most people can read?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "aesthetic default vs. inclusive default"
+    failure_it_catches: "Accessibility parked behind a setting most users never discover."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q03776"
+    question: "Would this pairing hold up for body text, or does it only survive because the type here happens to be 24px?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "headline-grade contrast vs. body-grade contrast"
+    failure_it_catches: "A color pair proven on a hero headline then reused for a dense settings list."
+    provenance: "sourced"
+    source_publisher: "APCA"
+    source_title: "Why APCA"
+    source_url: "https://git.apcacontrast.com/documentation/WhyAPCA.html"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03777"
+    question: "Is there a point past which raising this pair's contrast stops looking clearer, and are you paying design cost beyond it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "maximum contrast vs. comfortable contrast"
+    failure_it_catches: "Black on white everywhere because more contrast was assumed to always be better."
+    provenance: "sourced"
+    source_publisher: "APCA"
+    source_title: "Why APCA"
+    source_url: "https://git.apcacontrast.com/documentation/WhyAPCA.html"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03778"
+    question: "Is your high-contrast theme genuinely higher contrast, or just a different arrangement of mid-tones?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "the label high contrast vs. measured increase"
+    failure_it_catches: "A theme marketed as accessible that improves nothing for the people who enable it."
+    provenance: "synthesized"
+    source_publisher: "PatternFly"
+    source_title: "High contrast handbook"
+    source_url: "https://www.patternfly.org/foundations-and-styles/theming/high-contrast-handbook"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03779"
+    question: "Which users are you serving with a dimmed low-contrast theme, and did you name them before building it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "lower contrast as comfort vs. lower contrast as failure"
+    failure_it_catches: "A dimmed theme built for aesthetics and later defended as an accessibility feature."
+    provenance: "synthesized"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q03780"
+    question: "Is the contrast between adjacent steps roughly constant, or does it collapse at the light end of the ramp?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "even distribution vs. crowding near white"
+    failure_it_catches: "Three pale steps that are functionally the same color in a light theme."
+    provenance: "sourced"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03781"
+    question: "Is your high-contrast theme a separate token set, or the default set with values nudged?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "true alternate theme vs. cosmetic adjustment"
+    failure_it_catches: "A high-contrast option that raises some values and leaves the failing ones untouched."
+    provenance: "synthesized"
+    source_publisher: "dbanks design"
+    source_title: "Dark Mode with Style Dictionary"
+    source_url: "https://dbanks.design/blog/dark-mode-with-style-dictionary/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03782"
+    question: "Which contrast number here is a target you designed toward, and which is one you measured afterward and accepted?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "designing to a target vs. auditing after the fact"
+    failure_it_catches: "A palette assembled by trial and error that cannot be regenerated or extended safely."
+    provenance: "synthesized"
+    source_publisher: "Nate Baldwin"
+    source_title: "Creating contrast-based themes with Leonardo"
+    source_url: "https://uxdesign.cc/creating-contrast-based-themes-with-leonardo-32b6219a090f"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03783"
+    question: "Where does the user's operating-system accent colour enter this interface, and does it collide with yours?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "platform-native personalization vs. product identity"
+    failure_it_catches: "Native checkboxes in the user's purple sitting beside your green primary button."
+    provenance: "sourced"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q03784"
+    question: "Rendered in greyscale at half size, would a first-time user still read this element as pressable?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "visual subtlety versus perceptual legibility"
+    failure_it_catches: "Buttons that only read as buttons because of colour the user cannot reliably perceive."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "Liquid Glass Is Cracked, and Usability Suffers in iOS 26"
+    source_url: "https://www.nngroup.com/articles/liquid-glass/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03785"
+    question: "Which text on this screen sits at placeholder-grade contrast, and does anyone need to read it to finish the task?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "visual calm vs. functional legibility"
+    failure_it_catches: "Instructions styled as decoration that the user must read to proceed."
+    provenance: "synthesized"
+    source_publisher: "APCA"
+    source_title: "Why APCA"
+    source_url: "https://git.apcacontrast.com/documentation/WhyAPCA.html"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03786"
+    question: "Have you checked that the contrast you claim survives the browser's gamut mapping, or only the number in the spec?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "specified color vs. rendered color"
+    failure_it_catches: "Shipping a contrast guarantee measured on a value the display never actually produces."
+    provenance: "synthesized"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03787"
+    question: "Is the difference between step 500 and 600 visible on a phone at arm's length, or only when swatches sit adjacent?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["system", "screen"]
+    stage: "pre-ship"
+    tension: "fine-grained scale vs. perceptible difference"
+    failure_it_catches: "Adjacent ramp steps used for two different meanings that no user can separate."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03788"
+    question: "Which contrast complaint have you received twice, and did it change a token or only a single screen?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "patching instances vs. fixing the source"
+    failure_it_catches: "The same complaint recurring on every new screen because the token never moved."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q03789"
+    question: "Which color in this set was defined as a percentage of available contrast rather than a fixed ratio, and why that one?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "absolute ratios vs. relative range allocation"
+    failure_it_catches: "Every high-contrast token collapsing to pure black because absolute targets left no room."
+    provenance: "synthesized"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q03790"
+    question: "Has anyone rendered this palette at 30% screen brightness in daylight, or only at full brightness indoors?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["mobile", "accessibility"]
+    applies_to: ["screen", "system"]
+    stage: "pre-ship"
+    tension: "studio conditions vs. field conditions"
+    failure_it_catches: "Subtle low-contrast dividers that disappear entirely outdoors on a dimmed phone."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.76
+  - id: "Q03791"
+    question: "Which of these colors stays distinguishable if a user reads at night with a warm display filter on?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["accessibility", "mobile"]
+    applies_to: ["screen", "system"]
+    stage: "pre-ship"
+    tension: "designed color vs. filtered color"
+    failure_it_catches: "Blue and teal statuses becoming identical under Night Shift."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.76
+  - id: "Q03792"
+    question: "Where does this interface get quiet, and is the quiet long enough to actually be felt?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["motion", "craft-detail"]
+    applies_to: ["screen", "flow"]
+    stage: "exploration"
+    tension: "continuous stimulation vs. intervals of rest"
+    failure_it_catches: "Flows with no pause between prompts, so every moment carries the same pressure and none lands."
+    provenance: "synthesized"
+    source_publisher: "Christopher Alexander"
+    source_title: "15 Fundamental Properties (iamronen summary)"
+    source_url: "https://iamronen.com/blog/2018/01/21/christopher-alexander-15-fundamental-properties/"
+    seniority: "IC"
+    confidence: 0.75
+  - id: "Q03793"
+    question: "Have you looked at this palette after the compression a screenshot in a support ticket goes through?"
+    category: "Color, theming and dark mode"
+    subcategory: "Contrast, forced colors and high contrast"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "pristine rendering vs. real-world reproduction"
+    failure_it_catches: "Support unable to tell warning from error state in a customer screenshot."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.72
+  - id: "Q03794"
+    question: "Is this dark theme derived from its own tonal logic, or is it the light theme with the lightness values flipped?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["system", "screen"]
+    stage: "exploration"
+    tension: "cheap inversion vs. authored dark palette"
+    failure_it_catches: "A dark mode where every hue is technically present and nothing sits at a comfortable brightness."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03795"
+    question: "Were the dark theme's contrast targets raised independently, or copied from light and assumed to transfer?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "one set of targets vs. per-theme perceptual correction"
+    failure_it_catches: "Dark-mode grays that read as identical because simultaneous brightness contrast was ignored."
+    provenance: "sourced"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03796"
+    question: "Which illustration in this set was drawn once for both modes, and does it survive the dark one?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["artifact", "screen"]
+    stage: "pre-ship"
+    tension: "one asset to maintain vs. two that both look right"
+    failure_it_catches: "Dark linework disappearing into a dark background and losing the illustration's subject."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q03797"
+    question: "Does the dark theme carry its own contrast targets, or the light theme's numbers reused verbatim?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "one standard for both modes vs. per-mode calibration"
+    failure_it_catches: "Dark surfaces that pass on paper and read as mush on screen."
+    provenance: "sourced"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03798"
+    question: "Has this pure-black background been read at night with white body text, or only judged in a bright studio?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "mobile"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "OLED power saving vs. reading comfort"
+    failure_it_catches: "Halation on a maximum-contrast pairing that makes long text painful to read."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03799"
+    question: "Is there a surface here that deliberately holds the same tone in both modes, and is the reason written down?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "fixed brand moments vs. adaptive surfaces"
+    failure_it_catches: "Fixed colors used where contrast matters, producing unreadable pairings in one mode."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03800"
+    question: "What happens to the brand's signature colour in dark mode: is it re-derived, or the same hex on black?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["brand", "accessibility"]
+    applies_to: ["brand", "system"]
+    stage: "exploration"
+    tension: "brand hex fidelity vs. dark-surface legibility"
+    failure_it_catches: "A brand navy that is invisible on a dark theme and still called the brand color."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03801"
+    question: "When a modal opens over this screen, does the background recede, and by what mechanism, exactly?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "flow"]
+    stage: "refinement"
+    tension: "scrim vs. base-and-elevated surface pairs"
+    failure_it_catches: "Modal and page reading as one flat plane in dark mode."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03802"
+    question: "Where does elevation come from in dark mode here, and does that story stay consistent across five stacked layers?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "desktop"]
+    applies_to: ["system", "screen"]
+    stage: "refinement"
+    tension: "a single depth model vs. per-screen improvisation"
+    failure_it_catches: "Layer four ending up darker than layer two because nobody defined the ladder."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03803"
+    question: "Which saturated accent vibrates against this dark background, and did anyone check it at full brightness?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "vivid brand accent vs. eye comfort on dark"
+    failure_it_catches: "A brand color that shimmers and strains on dark surfaces at full saturation."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03804"
+    question: "Which shadow on this dark screen is doing any work, and would a lighter surface do that work better?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "shadow as depth vs. lightness as depth"
+    failure_it_catches: "Shadows on a near-black background that convey nothing but still cost paint time."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03805"
+    question: "At what point does raising contrast in dark mode start causing halation for astigmatic readers?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "more contrast as accessibility vs. more contrast as harm"
+    failure_it_catches: "Treating maximum contrast as the accessible answer for every reader."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03806"
+    question: "Did anyone dim the white background inside this embedded screenshot, or does it flare in dark mode?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "artifact"]
+    stage: "refinement"
+    tension: "content fidelity vs. surrounding comfort"
+    failure_it_catches: "A help article where every inline screenshot is a light box in a dark page."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03807"
+    question: "Is there an in-app theme toggle here, and does it fight the user's system preference?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "product-level control vs. respecting the OS setting"
+    failure_it_catches: "Users adjusting two settings and concluding the app is broken."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03808"
+    question: "Is your dark-mode white actually white, or has it been dimmed enough to stop glowing?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system", "screen"]
+    stage: "refinement"
+    tension: "maximum contrast vs. comfortable reading"
+    failure_it_catches: "Body text at pure white producing bloom on dark backgrounds."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03809"
+    question: "What tells the user this sheet sits above the page: its shadow, or its surface colour?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "exploration"
+    tension: "one depth mechanism vs. two competing ones"
+    failure_it_catches: "Elevation communicated twice in light mode and not at all in dark."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03810"
+    question: "Which brand asset here has no dark variant and is being asked to survive anyway?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["brand", "artifact"]
+    stage: "pre-ship"
+    tension: "single-asset economy vs. mode-specific artwork"
+    failure_it_catches: "A logo with a black wordmark sitting on a near-black header."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03811"
+    question: "What does a user copy out of this app hourly, and does our clipboard output paste cleanly into their destination?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["enterprise", "data", "craft-detail"]
+    applies_to: ["flow", "system"]
+    stage: "post-ship"
+    tension: "internal data fidelity vs. usefulness in someone else's document"
+    failure_it_catches: "Copying a table that pastes into a deck as one unformatted line."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "NN/g, 8 Design Guidelines for Complex Applications"
+    source_url: "https://www.nngroup.com/articles/complex-application-design/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03812"
+    question: "What is the elevated version of this colour, and does the system define one, or does each screen invent it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "systemic elevation pairs vs. per-screen guesses"
+    failure_it_catches: "Three different popover backgrounds across three teams in the same product."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03813"
+    question: "When this Live Activity ends, how long should the summary linger before it becomes clutter?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "post-task usefulness vs. lingering on someone else's screen"
+    failure_it_catches: "A completed delivery card still sitting on the lock screen four hours later."
+    provenance: "synthesized"
+    source_publisher: "Apple HIG"
+    source_title: "Live Activities"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/live-activities"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03814"
+    question: "Which parts of this product should stay permanently dark regardless of preference, and is media the real reason?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["screen", "system"]
+    stage: "concept"
+    tension: "immersive dark-only surfaces vs. respecting the appearance setting"
+    failure_it_catches: "A dark-only decision justified as immersion when it was actually a brand preference."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q03815"
+    question: "How does this scrim behave over dark content: does it still separate, or just add murk?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "one scrim value for both modes vs. mode-specific overlays"
+    failure_it_catches: "A 60% black scrim over a near-black page that changes nothing perceptually."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03816"
+    question: "How many distinct dark surfaces does this product use, and can a user tell any two of them apart?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "granular depth ladder vs. perceptible steps"
+    failure_it_catches: "Five surface tokens whose differences vanish on a phone at low brightness."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03817"
+    question: "How many rows fit above the fold at your default density, and is that enough to see a pattern?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["data", "desktop"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "breathing room vs. pattern visibility"
+    failure_it_catches: "A table so airy that trends only appear after scrolling twice."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03818"
+    question: "How much of the available contrast range does your dark theme actually use, or does it bottom out at pure black?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "headroom for hierarchy vs. maximum darkness"
+    failure_it_catches: "A dark theme with nowhere left to go once the background is already black."
+    provenance: "sourced"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03819"
+    question: "What is the darkest surface a user will ever see here, and how far is it from pure black?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "OLED battery savings vs. depth headroom"
+    failure_it_catches: "Choosing true black and then having no darker layer for scrims and wells."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03820"
+    question: "When the operating system switches to dark at sunset mid-session, what visibly breaks in this flow?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "mobile"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "static design review vs. live appearance changes"
+    failure_it_catches: "A half-rendered chart or cached inline style stuck in the previous mode."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03821"
+    question: "Which is the default here (the user's system setting or your product's opinion) and what argues for that?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["trust", "brand"]
+    applies_to: ["system", "flow"]
+    stage: "concept"
+    tension: "brand-preferred appearance vs. user preference"
+    failure_it_catches: "A dark-only product forcing light-preferring users to squint or leave."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q03822"
+    question: "Which piece of chrome gets brighter in dark mode when it should have got quieter?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "mechanical inversion vs. preserved emphasis order"
+    failure_it_catches: "A toolbar that recedes in light mode and dominates in dark."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Dark Mode"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/dark-mode"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03823"
+    question: "Is there a documented rule for when a dark surface gets lighter versus when it gets a border?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "long-term"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "two valid separation techniques vs. consistent application"
+    failure_it_catches: "Half the components using tonal separation and half using outlines, at random."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color overview"
+    source_url: "https://carbondesignsystem.com/elements/color/overview/"
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q03824"
+    question: "Would removing every shadow from this dark theme actually lose any hierarchy?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "inherited light-mode conventions vs. what dark mode needs"
+    failure_it_catches: "Shadow layers maintained in dark mode purely out of habit."
+    provenance: "synthesized"
+    source_publisher: "Atmos"
+    source_title: "Dark mode UI design best practices"
+    source_url: "https://atmos.style/blog/dark-mode-ui-best-practices"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03825"
+    question: "Has the loading skeleton been checked in dark mode, or is it still a light-mode grey on a dark card?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "attention on final states vs. transitional states"
+    failure_it_catches: "A shimmer that flashes brighter than the content it is standing in for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03826"
+    question: "Is your dark theme a mode of one system, or a second design system maintained by different people?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "unified system vs. parallel divergence"
+    failure_it_catches: "Dark mode drifting into its own aesthetic nobody signed off on."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03827"
+    question: "Which border in this dark interface is only visible because of a shadow you cannot consciously see?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "implicit separation vs. explicit separation"
+    failure_it_catches: "Component edges that vanish the moment shadows are disabled or forced away."
+    provenance: "synthesized"
+    source_publisher: "Polypane"
+    source_title: "Forced colors explained: a practical guide"
+    source_url: "https://polypane.app/blog/forced-colors-explained-a-practical-guide/"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03828"
+    question: "Which elements are lifted purely to escape a stacking bug, and is that documented anywhere?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "expedient fix vs. maintainable layer model"
+    failure_it_catches: "Undocumented z-index hacks that break the next time a parent gets a transform."
+    provenance: "sourced"
+    source_publisher: "Lullabot"
+    source_title: "Layer elements deliberately with stacking contexts"
+    source_url: "https://architecture.lullabot.com/adr/20251210-create-deliberate-stacking-contexts/"
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q03829"
+    question: "Which of these dark greys is the background and which is a card, and would a stranger agree with you?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "subtle depth vs. legible structure"
+    failure_it_catches: "A layout whose containment is invisible without the designer's mental model."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03830"
+    question: "Is your dark palette's chroma curve the mirror of the light one, or was it authored separately?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "symmetric generation vs. asymmetric perception"
+    failure_it_catches: "Dark steps that carry more chroma than the eye tolerates because the curve was flipped."
+    provenance: "synthesized"
+    source_publisher: "Paleta Color Pro"
+    source_title: "Tailwind CSS Color System guide"
+    source_url: "https://paletacolorpro.com/en/tailwind-color-guide"
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q03831"
+    question: "What does your empty state look like in dark mode: was it designed, or inherited from light?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "attention on primary flows vs. completeness of edge screens"
+    failure_it_catches: "A first-run screen, the one every new user sees, looking unfinished in dark mode."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q03832"
+    question: "Would you still ship dark mode if you could only afford to maintain one theme properly?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["long-term", "business-model"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "user expectation vs. sustainable quality"
+    failure_it_catches: "Two half-maintained themes instead of one excellent one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q03833"
+    question: "What tells you this dark screen is finished: a designer's eye, or a measurement taken in both modes?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "taste as completion signal vs. evidence as completion signal"
+    failure_it_catches: "Dark mode shipped on vibes and failing audit two sprints later."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.77
+  - id: "Q03834"
+    question: "Which single screen in the product looks obviously worse in dark mode, and why has it not been fixed?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["screen", "system"]
+    stage: "post-ship"
+    tension: "known debt vs. prioritized work"
+    failure_it_catches: "A known dark-mode failure that quietly becomes the product's reputation."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.76
+  - id: "Q03835"
+    question: "What did the dark theme cost this quarter in QA, and does usage justify carrying it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Dark mode, elevation and surfaces"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "expected feature vs. measured value"
+    failure_it_catches: "Sustained cost defended by assumption rather than by usage data."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.75
+  - id: "Q03836"
+    question: "Is this HDR image constrained to reference white, or allowed to outshine every SDR element around it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "image impact vs. interface coherence"
+    failure_it_catches: "One HDR thumbnail glowing so hard the rest of the gallery looks broken."
+    provenance: "sourced"
+    source_publisher: "MDN"
+    source_title: "dynamic-range-limit CSS property"
+    source_url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/dynamic-range-limit"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03837"
+    question: "Is your P3 fallback a second authored color, or whatever the browser's clipping happens to produce?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "authored degradation vs. automatic degradation"
+    failure_it_catches: "An sRGB fallback that arrives at a different hue than the wide-gamut original."
+    provenance: "sourced"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03838"
+    question: "What does this accent do at the lightness where its chroma runs out: clip to sRGB, or shift hue visibly?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "vividness at the edge vs. hue fidelity"
+    failure_it_catches: "A generated dark step that silently turns purple because the browser clipped RGB channels instead of reducing chroma."
+    provenance: "sourced"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03839"
+    question: "When an HDR thumbnail sits in a grid of SDR thumbnails, which one wins the eye, and did you choose that?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "data"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "per-asset fidelity vs. fair visual weighting"
+    failure_it_catches: "Ranking implied by brightness rather than by relevance in a results grid."
+    provenance: "sourced"
+    source_publisher: "W3C"
+    source_title: "CSS Color HDR Module Level 1"
+    source_url: "https://www.w3.org/TR/css-color-hdr-1/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03840"
+    question: "Whose monitor approved this P3 accent, and what does it collapse to on a five-year-old sRGB laptop?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["screen", "system"]
+    stage: "pre-ship"
+    tension: "designer hardware vs. installed base"
+    failure_it_catches: "A brand color signed off on a Studio Display that renders muddy for most paying customers."
+    provenance: "synthesized"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03841"
+    question: "How many stops of headroom did you design for, and what does this look like on a display with none?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "artifact"]
+    stage: "refinement"
+    tension: "designing for the best display vs. the median one"
+    failure_it_catches: "An HDR-dependent design that reads as flat and washed out on most screens."
+    provenance: "synthesized"
+    source_publisher: "Greg Benz Photography"
+    source_title: "Create and edit true HDR images"
+    source_url: "https://gregbenzphotography.com/hdr/"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03842"
+    question: "Would you still ship this HDR treatment knowing a user opens it at 2am in a dark room?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "visual impact vs. physical comfort"
+    failure_it_catches: "A brightness spike that hurts, in a context where the user cannot dim it."
+    provenance: "synthesized"
+    source_publisher: "W3C"
+    source_title: "CSS Color HDR Module Level 1"
+    source_url: "https://www.w3.org/TR/css-color-hdr-1/"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03843"
+    question: "Has anyone set a brightness ceiling for user-uploaded media, or does the first uncapped upload set the norm?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["system", "flow"]
+    stage: "concept"
+    tension: "creator expression vs. feed-level comfort"
+    failure_it_catches: "An arms race where every uploader boosts brightness to win attention."
+    provenance: "synthesized"
+    source_publisher: "Chrome Platform Status"
+    source_title: "CSS dynamic-range-limit property"
+    source_url: "https://chromestatus.com/feature/5146250411769856"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03844"
+    question: "Which element on this page is brighter than paper white, and does its importance justify that?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "ethics"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "attention-grabbing luminance vs. earned prominence"
+    failure_it_catches: "An avatar or ad rendered in HDR outshining the content the user came for."
+    provenance: "synthesized"
+    source_publisher: "W3C"
+    source_title: "CSS Color HDR Module Level 1"
+    source_url: "https://www.w3.org/TR/css-color-hdr-1/"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03845"
+    question: "Which is more expensive to lose here: the vividness of P3, or the guarantee both users see the same hierarchy?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system", "screen"]
+    stage: "exploration"
+    tension: "saturation vs. cross-device parity"
+    failure_it_catches: "A visual hierarchy that only resolves correctly on wide-gamut displays."
+    provenance: "synthesized"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03846"
+    question: "Have you set a chroma budget per screen, or does every wide-gamut element compete at full saturation?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen", "system"]
+    stage: "refinement"
+    tension: "local vividness vs. global calm"
+    failure_it_catches: "A screen where six elements are all maximally saturated and none reads as primary."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.75
+  - id: "Q03847"
+    question: "Which hues in your ramp gain most from P3, and are those the hues carrying meaning or merely decoration?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "wide-gamut payoff vs. cross-device consistency"
+    failure_it_catches: "Spending the wide-gamut budget on a decorative gradient while the status colors stay flat."
+    provenance: "synthesized"
+    source_publisher: "Tailwind Color Tools"
+    source_title: "Wide Gamut Colors for the Web"
+    source_url: "https://tailwindcolor.tools/guides/wide-gamut-colors-web"
+    seniority: "senior"
+    confidence: 0.75
+  - id: "Q03848"
+    question: "What does the wide-gamut version of this danger red communicate that the sRGB version does not?"
+    category: "Color, theming and dark mode"
+    subcategory: "Gamut, HDR and display variance"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "more saturation vs. more meaning"
+    failure_it_catches: "Reaching for a wider gamut when the semantic problem was never saturation."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.72
+  - id: "Q03849"
+    question: "Does the org switcher tell a user which tenant they are currently acting in, without them clicking it to check?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["trust", "craft-detail", "enterprise"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "chrome minimalism vs. the cost of acting in the wrong tenant"
+    failure_it_catches: "A consultant posting client-confidential material into the wrong client's workspace."
+    provenance: "synthesized"
+    source_publisher: "WorkOS"
+    source_title: "The 10 enterprise features every B2B SaaS needs"
+    source_url: "https://workos.com/blog/enterprise-readiness-checklist-2026"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q03850"
+    question: "What breaks first when a tenant's primary color is a pale yellow rather than a deep blue?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "business-model", "enterprise"]
+    applies_to: ["system", "component"]
+    stage: "exploration"
+    tension: "open customization vs. guaranteed legibility"
+    failure_it_catches: "White label text on a yellow primary button, discovered by the customer rather than by you."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03851"
+    question: "What happens to your semantic red when a tenant's brand colour is also red?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["system", "component"]
+    stage: "exploration"
+    tension: "brand expression vs. reserved signal colors"
+    failure_it_catches: "Error messages that read as branding, and branding that reads as errors."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03852"
+    question: "Which parts of this scheme must stay static no matter what source color the system picks?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "full personalization vs. stable safety signals"
+    failure_it_catches: "An error color that drifts with the wallpaper and stops reading as danger."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03853"
+    question: "Are theme and mode separate axes here, or tangled into one flat list of colour files?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "one dimension of variation vs. two orthogonal ones"
+    failure_it_catches: "Six brands times three modes becoming eighteen hand-maintained files that drift apart."
+    provenance: "synthesized"
+    source_publisher: "dbanks design"
+    source_title: "Dark Mode with Style Dictionary"
+    source_url: "https://dbanks.design/blog/dark-mode-with-style-dictionary/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q03854"
+    question: "Which tokens must a new tenant supply, and which must they never be permitted to touch?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "accessibility", "enterprise"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "customization surface vs. safety floor"
+    failure_it_catches: "A tenant overriding focus-ring color and quietly removing keyboard accessibility."
+    provenance: "synthesized"
+    source_publisher: "Workday Canvas"
+    source_title: "Color Tokens"
+    source_url: "https://canvas.workday.com/guidelines/color/color-tokens"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q03855"
+    question: "Have you decided whether a tenant may override the error red, and written down the reason?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["trust", "enterprise", "accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "brand consistency vs. universal danger signal"
+    failure_it_catches: "An error state themed into invisibility because the rule was never made explicit."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03856"
+    question: "Have you tested a tenant theme where the brand hue and the success hue sit within ten degrees of each other?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["system", "screen"]
+    stage: "pre-ship"
+    tension: "brand freedom vs. distinguishable semantics"
+    failure_it_catches: "A green-branded tenant where every button looks like a success message."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03857"
+    question: "Where does this screen ask the user to hold something in memory that could simply be shown?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow", "screen"]
+    stage: "pre-ship"
+    tension: "clean surface vs. offloaded working memory"
+    failure_it_catches: "A confirmation step that hides the values being confirmed one screen back."
+    provenance: "synthesized"
+    source_publisher: "Springer"
+    source_title: "How to create video games with cognitive accessibility features"
+    source_url: "https://link.springer.com/article/10.1007/s10209-025-01231-5"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03858"
+    question: "Which accessibility guarantee survives tenant customization, and who verifies it at onboarding?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "enterprise", "trust"]
+    applies_to: ["system", "flow"]
+    stage: "pre-ship"
+    tension: "flexibility sold vs. compliance owned"
+    failure_it_catches: "A VPAT claim invalidated the moment a customer picks their own colors."
+    provenance: "synthesized"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q03859"
+    question: "Who decides whether a new tenant's brand color is allowed to become the call-to-action color?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "enterprise", "brand"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "customer autonomy vs. product usability contract"
+    failure_it_catches: "Sales promising full color control, then engineering discovering the buttons are unreadable."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q03860"
+    question: "Has anyone tried theming this component with a palette that has no light tint of the primary?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "assumed palette shape vs. real customer palettes"
+    failure_it_catches: "Tonal buttons that collapse when a brand supplies only two colors, not a full ramp."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03861"
+    question: "Is typography and spacing shared across brands while only colour varies, and did anyone test whether that is enough differentiation?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "exploration"
+    tension: "reuse efficiency vs. distinguishable brands"
+    failure_it_catches: "Two brands that are the same product with a hue rotation applied."
+    provenance: "sourced"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q03862"
+    question: "Could you generate a full tenant theme from one brand hex, and would you ship the result unreviewed?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["ai-native", "business-model", "accessibility"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "onboarding speed vs. design review"
+    failure_it_catches: "Automated themes going live with contrast failures nobody looked at."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03863"
+    question: "What is the one colour in this product you would never let a tenant override, and why that one?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["trust", "enterprise", "accessibility"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "customization breadth vs. an inviolable signal"
+    failure_it_catches: "A theming policy with no stated floor, so every color is eventually negotiable."
+    provenance: "synthesized"
+    source_publisher: "Workday Canvas"
+    source_title: "Color Tokens"
+    source_url: "https://canvas.workday.com/guidelines/color/color-tokens"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q03864"
+    question: "Where does this system draw the line between brand expression and usability contract?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "accessibility", "enterprise"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "expression vs. obligation"
+    failure_it_catches: "An unwritten line that different teams place in different places."
+    provenance: "sourced"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q03865"
+    question: "What is the smallest set of tokens a brand must supply to still feel like itself in your product?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "minimum onboarding effort vs. brand fidelity"
+    failure_it_catches: "Demanding a full 200-token handoff from a customer who has one hex and a logo."
+    provenance: "synthesized"
+    source_publisher: "Workday Canvas"
+    source_title: "Color Tokens"
+    source_url: "https://canvas.workday.com/guidelines/color/color-tokens"
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q03866"
+    question: "When two tenants both look correct, does anything in the interface still read as your product?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "white-label neutrality vs. platform identity"
+    failure_it_catches: "Building a product so themeable it has no equity of its own."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "The Challenges of Creating a White Label Design System"
+    source_url: "https://www.designsystemscollective.com/the-challenges-of-creating-a-white-label-design-system-d7b1313b59bb"
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q03867"
+    question: "Who is accountable when a tenant's theme ships with an unreadable disabled state?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["accessibility", "enterprise", "trust"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "customer-configured output vs. vendor responsibility"
+    failure_it_catches: "Accessibility failures with no owner because the customer chose the values."
+    provenance: "synthesized"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q03868"
+    question: "At what point does per-tenant customization stop being theming and start being a fork?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "revenue from bespoke work vs. maintainability"
+    failure_it_catches: "Three enterprise customers each on a code branch nobody can upgrade."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "The Challenges of Creating a White Label Design System"
+    source_url: "https://www.designsystemscollective.com/the-challenges-of-creating-a-white-label-design-system-d7b1313b59bb"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q03869"
+    question: "At what tenant count does hand-tuning each theme stop being viable, and are you already past it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "bespoke quality vs. scalable generation"
+    failure_it_catches: "A design team whose whole capacity is consumed by theme maintenance."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "The Challenges of Creating a White Label Design System"
+    source_url: "https://www.designsystemscollective.com/the-challenges-of-creating-a-white-label-design-system-d7b1313b59bb"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q03870"
+    question: "Which parts of the brand did you decide not to make themeable, and can you defend that in a sales call?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "brand", "enterprise"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "commercial flexibility vs. design integrity"
+    failure_it_catches: "A no that the sales team cannot explain, so it becomes a yes in the contract."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "The Challenges of Creating a White Label Design System"
+    source_url: "https://www.designsystemscollective.com/the-challenges-of-creating-a-white-label-design-system-d7b1313b59bb"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q03871"
+    question: "Which tokens should a tenant's designer be shown, and which are internal plumbing they should never see?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system", "artifact"]
+    stage: "refinement"
+    tension: "transparency vs. guided customization"
+    failure_it_catches: "Handing a customer 400 tokens and getting back an incoherent theme."
+    provenance: "synthesized"
+    source_publisher: "Workday Canvas"
+    source_title: "Color Tokens"
+    source_url: "https://canvas.workday.com/guidelines/color/color-tokens"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03872"
+    question: "How does a tenant's logo interact with the header surface it sits on, across every theme they are allowed?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "enterprise"]
+    applies_to: ["screen", "brand"]
+    stage: "pre-ship"
+    tension: "header flexibility vs. logo legibility"
+    failure_it_catches: "A dark logo disappearing into a dark header the customer chose themselves."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03873"
+    question: "What did you learn from the first tenant whose brand broke this system, and did the architecture change?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "patching the case vs. fixing the model"
+    failure_it_catches: "A special case shimmed in that becomes the template for the next five special cases."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03874"
+    question: "Which state token would break if a theme's ramp were seven steps deep instead of eleven?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "assumed ramp depth vs. supplied palettes"
+    failure_it_catches: "An active state defined as two steps darker with nothing two steps darker to reach."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color overview"
+    source_url: "https://carbondesignsystem.com/elements/color/overview/"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03875"
+    question: "Which tenant's theme is your real stress test, and is it running in continuous integration?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "testing the default theme vs. testing the hardest one"
+    failure_it_catches: "Regressions caught only by the customer with the most unusual palette."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q03876"
+    question: "Which token here encodes an opinion the next brand onboarded will disagree with?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "opinionated defaults vs. neutral scaffolding"
+    failure_it_catches: "Baking one brand's restraint into a system a louder brand has to fight."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "Opinionated vs. global design tokens"
+    source_url: "https://zeroheight.com/blog/opinionated-vs-global-design-tokens-simplifying-multi-brand-design-systems/"
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q03877"
+    question: "What is theming actually buying the business here: pricing power, shorter sales cycles, or a checkbox?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["business-model", "long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "engineering investment vs. commercial return"
+    failure_it_catches: "Building a full theming engine for a feature no customer uses after onboarding."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q03878"
+    question: "Would this colour system still work if the company acquired a product with a clashing brand?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["long-term", "business-model", "brand"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "single-brand coherence vs. portfolio flexibility"
+    failure_it_catches: "A system that cannot absorb an acquisition without a full rebrand of one side."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "The Challenges of Creating a White Label Design System"
+    source_url: "https://www.designsystemscollective.com/the-challenges-of-creating-a-white-label-design-system-d7b1313b59bb"
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q03879"
+    question: "Which tokens does your marketing site genuinely share with the product, and which only pretend to?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "post-ship"
+    tension: "marketing vividness vs. product restraint"
+    failure_it_catches: "A brand blue on the site that no product surface can legally use."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.75
+  - id: "Q03880"
+    question: "If the brand colour changed overnight, how many screenshots in your documentation would go stale?"
+    category: "Color, theming and dark mode"
+    subcategory: "Multi-brand and white-label theming contracts"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["artifact", "system"]
+    stage: "post-ship"
+    tension: "illustrative docs vs. maintainable docs"
+    failure_it_catches: "Documentation that teaches the old palette long after the product moved on."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.72
+  - id: "Q03881"
+    question: "Was the yellow allowed to sit at the same numeric lightness as the blue, knowing yellow reads far brighter to the eye?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "numeric consistency vs. perceptual consistency"
+    failure_it_catches: "A yellow that blinds the user at the same token position where the blue is comfortable."
+    provenance: "sourced"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q03882"
+    question: "Have the grays been kept fully desaturated so image and color-picking work is not shifted by simultaneous contrast?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail", "desktop"]
+    applies_to: ["system", "screen"]
+    stage: "refinement"
+    tension: "tinted grays as personality vs. neutral grays as measurement surface"
+    failure_it_catches: "A creative tool whose warm-gray chrome makes users misjudge the color of their own content."
+    provenance: "sourced"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03883"
+    question: "Which of these twelve tints was derived from a contrast target, and which was picked because it sat nicely beside the logo?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["accessibility", "craft-detail", "brand"]
+    applies_to: ["system", "artifact"]
+    stage: "exploration"
+    tension: "brand-led picking vs. contrast-led generation"
+    failure_it_catches: "A ramp that looks systematic but has three hand-picked swatches that fail their intended usage."
+    provenance: "synthesized"
+    source_publisher: "Nate Baldwin"
+    source_title: "Leonardo: an open source contrast-based color generator"
+    source_url: "https://medium.com/@NateBaldwin/leonardo-an-open-source-contrast-based-color-generator-92d61b6521d2"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03884"
+    question: "How does this palette behave when the source color is a user's wallpaper rather than a designer's choice?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "accessibility"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "personalization vs. brand recognizability"
+    failure_it_catches: "A product that becomes visually anonymous once dynamic color takes over."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03885"
+    question: "Is this palette perceptually even, or evenly spaced in a number system that lies about perception?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "mathematical tidiness vs. what the eye reports"
+    failure_it_catches: "Equal HSL increments producing wildly unequal perceived steps across hues."
+    provenance: "sourced"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03886"
+    question: "What is your palette's answer when a product team needs a warm hue and the brand is entirely cool?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "data"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "brand coherence vs. functional range"
+    failure_it_catches: "Running out of distinguishable hues in charts because the brand skews one temperature."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color palettes and accessibility features for data visualization"
+    source_url: "https://medium.com/carbondesign/color-palettes-and-accessibility-features-for-data-visualization-7869f4874fca"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03887"
+    question: "When the brand refreshes in two years, how many hex values change and how many token names change?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "today's convenience vs. tomorrow's rebrand cost"
+    failure_it_catches: "A rebrand that requires touching every component because names encode hues."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q03888"
+    question: "Would a designer regenerate this exact palette from your written rules, or is it frozen hexes with a story attached?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system", "artifact"]
+    stage: "pre-ship"
+    tension: "documented constraints vs. inherited values"
+    failure_it_catches: "A palette nobody can extend because the reasoning left with the designer who made it."
+    provenance: "synthesized"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q03889"
+    question: "Is this palette documented as values, or as the constraints that produced the values?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["artifact", "system"]
+    stage: "pre-ship"
+    tension: "shipping swatches vs. shipping a method"
+    failure_it_catches: "A palette that cannot be extended to a new theme without redoing the original work."
+    provenance: "sourced"
+    source_publisher: "Adobe Design"
+    source_title: "Reinventing Adobe Spectrum's colors"
+    source_url: "https://adobe.design/ideas/reinventing-adobe-spectrum-s-colors"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q03890"
+    question: "What is the maximum chroma this hue can hold at the tone your text token needs, and did anyone check before promising it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "saturation ambition vs. physical limits of the space"
+    failure_it_catches: "Promising a vivid light red for text when no such color exists at that tone."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03891"
+    question: "Where does your gray sit on the neutral-to-tinted axis, and was that tint chosen or inherited from the brand blue?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "warmth as brand signal vs. neutrality for content"
+    failure_it_catches: "A blue-tinted gray that shifts every photograph and swatch the user is trying to judge."
+    provenance: "sourced"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03892"
+    question: "Where in this scale does the perceived hue drift, and is that drift a bug or a deliberate warming?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "mechanical interpolation vs. intentional hue shift"
+    failure_it_catches: "A blue ramp that turns purple in the dark steps and nobody decided it should."
+    provenance: "synthesized"
+    source_publisher: "Evil Martians"
+    source_title: "OKLCH in CSS: why we moved from RGB and HSL"
+    source_url: "https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03893"
+    question: "If you desaturate this whole scale to gray, do the steps stay evenly spaced, or does one hue jump two stops?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "hue harmony vs. lightness evenness"
+    failure_it_catches: "A palette where the green-500 and blue-500 are not interchangeable in a chart because their lightness differs."
+    provenance: "synthesized"
+    source_publisher: "Lincoln Loop"
+    source_title: "10 Steps to Adapt Brand Colors for Data Visualizations"
+    source_url: "https://lincolnloop.com/blog/10-steps-to-adapt-brand-colors-for-data-visualizations/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03894"
+    question: "Which color space did you interpolate this gradient through, and does its midpoint go muddy or gray?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "artifact"]
+    stage: "refinement"
+    tension: "convenient interpolation vs. attractive midpoints"
+    failure_it_catches: "A brand gradient with a dead gray band in the middle nobody explains."
+    provenance: "synthesized"
+    source_publisher: "Nate Baldwin"
+    source_title: "Leonardo: an open source contrast-based color generator"
+    source_url: "https://medium.com/@NateBaldwin/leonardo-an-open-source-contrast-based-color-generator-92d61b6521d2"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03895"
+    question: "Who owns the decision when the brand's approved hex fails the contrast target the product needs?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "accessibility", "enterprise"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "brand authority vs. accessibility obligation"
+    failure_it_catches: "An unresolvable standoff that ends with the product shipping an inaccessible color."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q03896"
+    question: "What does the app do when someone hands the headset to a friend mid-session?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["system", "flow"]
+    stage: "exploration"
+    tension: "personal calibration vs. the pass-around reality"
+    failure_it_catches: "A guest who sees the owner's private content because handoff was never treated as a state."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q03897"
+    question: "If your ramp is generated, name the three inputs, and could a new designer reproduce it from documentation alone?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "generated systems vs. transferable knowledge"
+    failure_it_catches: "A generated palette that becomes unmaintainable the moment its author leaves."
+    provenance: "synthesized"
+    source_publisher: "Nate Baldwin"
+    source_title: "Leonardo: an open source contrast-based color generator"
+    source_url: "https://medium.com/@NateBaldwin/leonardo-an-open-source-contrast-based-color-generator-92d61b6521d2"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03898"
+    question: "What did you give up by letting the algorithm pick, and is that loss visible on the brand's most recognizable screen?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "screen"]
+    stage: "refinement"
+    tension: "automated accessibility vs. authored identity"
+    failure_it_catches: "Algorithmic color that is compliant, adaptive, and completely forgettable."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q03899"
+    question: "Which came first here: the brand hex, or the tone value the interface needed at that position?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "brand fidelity vs. interface need"
+    failure_it_catches: "Forcing a print-derived brand hex into a UI slot where it cannot carry the required contrast."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "How the color system works"
+    source_url: "https://m3.material.io/styles/color/system/how-the-system-works"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03900"
+    question: "Which is your true neutral, and does every surface in the product trace back to it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "single neutral anchor vs. per-screen improvisation"
+    failure_it_catches: "Three near-identical grays coexisting because nobody declared the canonical one."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03901"
+    question: "Does the palette have a rule for when a new hue may enter, or does it grow one ad-hoc request at a time?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "responsiveness to teams vs. system integrity"
+    failure_it_catches: "Forty-eight hues in the library, half of them one-offs from a single campaign."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color palettes and accessibility features for data visualization"
+    source_url: "https://medium.com/carbondesign/color-palettes-and-accessibility-features-for-data-visualization-7869f4874fca"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03902"
+    question: "If the user drags a brightness control, do these colors regenerate, or do they just get an overlay filter?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["accessibility", "performance"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "true adaptive generation vs. cheap filter"
+    failure_it_catches: "A personalization feature that destroys contrast relationships rather than preserving them."
+    provenance: "synthesized"
+    source_publisher: "Nate Baldwin"
+    source_title: "Creating contrast-based themes with Leonardo"
+    source_url: "https://uxdesign.cc/creating-contrast-based-themes-with-leonardo-32b6219a090f"
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q03903"
+    question: "Is step nine of this scale the purest version of the hue, or just the swatch the picker landed on?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "algorithmic purity vs. eyeballed choice"
+    failure_it_catches: "A solid fill step that is off-hue, so every button in the product carries a slightly wrong brand color."
+    provenance: "synthesized"
+    source_publisher: "Radix Colors"
+    source_title: "Understanding the scale"
+    source_url: "https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale"
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q03904"
+    question: "Which of these colors exists because a stakeholder asked for it, and does the system have a way to say no?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "stakeholder accommodation vs. system governance"
+    failure_it_catches: "Palette bloat driven by seniority rather than need."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.77
+  - id: "Q03905"
+    question: "At what point does adding another tint stop buying hierarchy and start buying inconsistency?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "expressive granularity vs. enforceable consistency"
+    failure_it_catches: "A ramp so fine that two designers pick different steps for the same job."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.76
+  - id: "Q03906"
+    question: "Was the number of steps in this scale set by a real need, or by matching whatever count the last system used?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "inherited convention vs. derived requirement"
+    failure_it_catches: "Ten steps per hue because the previous employer used ten."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.74
+  - id: "Q03907"
+    question: "Which of these swatches would you delete if you had to ship eight instead of eighteen?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "expressive range vs. enforceable discipline"
+    failure_it_catches: "A palette so large that no two teams use it the same way."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.74
+  - id: "Q03908"
+    question: "At what tone does your brand blue stop being your brand blue and start being generic interface blue?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand", "system"]
+    stage: "exploration"
+    tension: "recognizability vs. usable range"
+    failure_it_catches: "A ramp whose usable steps have all drifted to a hue nobody would identify as the brand."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.72
+  - id: "Q03909"
+    question: "Did the move to OKLCH change any color a user will notice, or only the notation in the stylesheet?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["craft-detail", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "engineering modernization vs. user-visible benefit"
+    failure_it_catches: "A migration sold as a design improvement that no user could detect."
+    provenance: "synthesized"
+    source_publisher: "DEV"
+    source_title: "The Mystery of Tailwind Colors (v4)"
+    source_url: "https://dev.to/matfrana/the-mystery-of-tailwind-colors-v4-hjh"
+    seniority: "director"
+    confidence: 0.72
+  - id: "Q03910"
+    question: "How many of your palette's steps exist only to complete the ramp, and which ones does a real component reference?"
+    category: "Color, theming and dark mode"
+    subcategory: "Palette derivation and ramps"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "completeness of the scale vs. cost of maintaining it"
+    failure_it_catches: "Eleven steps per hue maintained forever when only four are ever used."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.70
+  - id: "Q03911"
+    question: "Does anything in this system express this must contrast with its parent, or only this is a hex?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "static values vs. encoded relationships"
+    failure_it_catches: "Color pairs that are only accessible by accident, and stop being when one side changes."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03912"
+    question: "Is the alias tier real here, or do components reach straight into the primitive ramp?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "fewer layers now vs. themeability later"
+    failure_it_catches: "A system where adding dark mode means editing every component instead of one alias file."
+    provenance: "sourced"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q03913"
+    question: "Where does the projection start, and is the shift from measured to modeled visible without reading the legend?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["trust", "data"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "continuous visual line vs. epistemic break"
+    failure_it_catches: "A forecast tail styled identically to history and quoted as observed data."
+    provenance: "sourced"
+    source_publisher: "Datawrapper"
+    source_title: "What to consider when creating line charts"
+    source_url: "https://www.datawrapper.de/blog/line-charts"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q03914"
+    question: "Which of these tokens names a role, and which just names a color wearing a role's clothes?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "descriptive naming vs. semantic naming"
+    failure_it_catches: "A token called text-grey that resolves to near-white in dark mode and misleads everyone reading the code."
+    provenance: "sourced"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03915"
+    question: "Would you perform this gesture on a crowded bus, or does it look like you are swatting at nothing?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["component", "flow"]
+    stage: "exploration"
+    tension: "expressive input vs. social acceptability in public"
+    failure_it_catches: "An air-tap raised to shoulder height that users refuse to do outside their living room."
+    provenance: "synthesized"
+    source_publisher: "Calm Technology"
+    source_title: "Principles"
+    source_url: "https://calmtech.com/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q03916"
+    question: "Are hover, active and selected defined as steps on a scale, or as one-off hexes per component?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "systematic state derivation vs. per-component taste"
+    failure_it_catches: "Hover feeling twice as strong on the toolbar as on the sidebar."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color overview"
+    source_url: "https://carbondesignsystem.com/elements/color/overview/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03917"
+    question: "If dark mode landed tomorrow, which token names in this file would become actively dishonest?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "naming for today's theme vs. naming for all themes"
+    failure_it_catches: "Names like border-light surviving into a dark theme where they resolve to something dark."
+    provenance: "sourced"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03918"
+    question: "Was border-subtle given a contrast requirement, or is it just lighter than the other one?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "pre-ship"
+    tension: "decorative subtlety vs. functional visibility"
+    failure_it_catches: "A divider used to define a tap target that carries no measurable contrast."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q03919"
+    question: "What did the pseudo-bidi locale reveal that a real Arabic build did not, and what did the real build catch that pseudo missed?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["i18n", "craft-detail", "long-term"]
+    applies_to: ["system", "screen"]
+    stage: "pre-ship"
+    tension: "synthetic direction testing vs. real translated content"
+    failure_it_catches: "Treating a pseudo-locale pass as proof of RTL readiness when it cannot show font or wording problems."
+    provenance: "sourced"
+    source_publisher: "Firefox Source Docs"
+    source_title: "RTL Guidelines"
+    source_url: "https://firefox-source-docs.mozilla.org/code-quality/coding-style/rtl_guidelines.html"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03920"
+    question: "What does primary mean in your system: the brand's color, or the color of the most important action?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "brand ownership of a word vs. functional ownership"
+    failure_it_catches: "Brand and product each using primary for different things, producing two competing accents."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q03921"
+    question: "Is there a token for the thing the user is currently doing, or does focus borrow from primary?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "token economy vs. distinct focus signal"
+    failure_it_catches: "Focus rings invisible on primary buttons because both use the same color."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color overview"
+    source_url: "https://carbondesignsystem.com/elements/color/overview/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q03922"
+    question: "Are dark values stored alongside light in one token, or in a parallel file that can drift?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "co-located pairs vs. separate theme files"
+    failure_it_catches: "A new token added to light and forgotten in dark, discovered by a user."
+    provenance: "synthesized"
+    source_publisher: "dbanks design"
+    source_title: "Dark Mode with Style Dictionary"
+    source_url: "https://dbanks.design/blog/dark-mode-with-style-dictionary/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03923"
+    question: "Does the component-token layer earn its existence here, or is it a pass-through nobody ever overrides?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system", "component"]
+    stage: "post-ship"
+    tension: "future flexibility vs. present overhead"
+    failure_it_catches: "Hundreds of component tokens that all resolve one-to-one to an alias and add only noise."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03924"
+    question: "Does your disabled gray sit low enough to read as unavailable, but high enough to read as present?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "clear unavailability vs. discoverability"
+    failure_it_catches: "A disabled control so faint that users never learn the feature exists."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q03925"
+    question: "If two tokens resolve to the same hex today, is that a coincidence or a rule you intend to hold?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "convenient collapse vs. preserved distinction"
+    failure_it_catches: "Two meanings merged by accident, then split painfully when one theme needs them apart."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03926"
+    question: "What tells a developer that a token is theme-swappable versus fixed across every theme?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "one flat namespace vs. legible mutability"
+    failure_it_catches: "Fixed colors used where adaptive ones were needed, breaking contrast in dark mode."
+    provenance: "sourced"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q03927"
+    question: "Did anyone define what hover means as a colour operation, or does each component improvise?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "defined transformation vs. per-component judgment"
+    failure_it_catches: "Inconsistent interactive feedback that makes the product feel assembled from parts."
+    provenance: "synthesized"
+    source_publisher: "IBM Carbon"
+    source_title: "Color overview"
+    source_url: "https://carbondesignsystem.com/elements/color/overview/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03928"
+    question: "Has anyone checked that the dark theme's disabled state still reads as disabled rather than as low priority?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "visual quietness vs. unambiguous unavailability"
+    failure_it_catches: "Users repeatedly tapping a control they believe is merely de-emphasized."
+    provenance: "synthesized"
+    source_publisher: "Adobe Spectrum"
+    source_title: "Color system"
+    source_url: "https://spectrum.adobe.com/page/color-system/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03929"
+    question: "Is the destructive action's red identical to the error red, and should those two be the same?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "palette simplicity vs. distinct meanings for danger and failure"
+    failure_it_catches: "Users unable to tell a warning about what happened from a warning about what will."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03930"
+    question: "Is your error red distinguishable from your brand red at 16px on a phone in direct sunlight?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["mobile", "accessibility", "trust"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "palette harmony vs. signal separation in the field"
+    failure_it_catches: "Two reds that are clearly different on a calibrated monitor and identical outdoors."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03931"
+    question: "Which token here would have to be renamed if the brand moved from blue to green, and is that a design smell?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "literal clarity vs. rebrand resilience"
+    failure_it_catches: "A token vocabulary that has to be rewritten every time marketing changes direction."
+    provenance: "synthesized"
+    source_publisher: "Design Systems Collective"
+    source_title: "Color token naming: what works, what fails"
+    source_url: "https://www.designsystemscollective.com/color-token-naming-what-works-what-fails-the-best-approach-for-your-design-system-50f844d25f01"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q03932"
+    question: "Which tokens are load-bearing for accessibility, and are they marked as such in the file itself?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["accessibility", "enterprise"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "uniform token treatment vs. flagged critical values"
+    failure_it_catches: "A routine visual tweak silently dropping a focus indicator below threshold."
+    provenance: "synthesized"
+    source_publisher: "GitHub Primer"
+    source_title: "Color considerations"
+    source_url: "https://primer.style/accessibility/design-guidance/color-considerations/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q03933"
+    question: "Does this seasonal campaign assume a northern-hemisphere summer, and what does it show in São Paulo?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["brand", "i18n", "business-model"]
+    applies_to: ["brand", "artifact"]
+    stage: "exploration"
+    tension: "one seasonal creative calendar vs. hemispheres"
+    failure_it_catches: "A snow-themed December promotion running into a Brazilian midsummer."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03934"
+    question: "How many components still reference a raw hex, and which one will be found last?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system", "component"]
+    stage: "post-ship"
+    tension: "shipping speed vs. themeability"
+    failure_it_catches: "A rebrand that misses one hardcoded value in a rarely visited flow."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03935"
+    question: "How many levels of aliasing does this token pass through before a hex, and can anyone trace it in under a minute?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "abstraction power vs. debuggability"
+    failure_it_catches: "A five-hop token chain that nobody can resolve when a color looks wrong in production."
+    provenance: "synthesized"
+    source_publisher: "The Design System Guide"
+    source_title: "Design tokens"
+    source_url: "https://thedesignsystem.guide/design-tokens"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03936"
+    question: "What does a screenshot of this screen communicate to someone who has never used the product?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["screen", "brand"]
+    stage: "pre-ship"
+    tension: "in-context legibility vs. out-of-context readability"
+    failure_it_catches: "A product whose marketing screenshots need three captions to make any sense."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03937"
+    question: "Which decision does color-bg-card make that neutral-100 does not?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "raw value vs. named intent"
+    failure_it_catches: "Aliases that add a layer without adding a decision, so the abstraction is pure cost."
+    provenance: "synthesized"
+    source_publisher: "The Design System Guide"
+    source_title: "Design tokens"
+    source_url: "https://thedesignsystem.guide/design-tokens"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q03938"
+    question: "Which of these token names would a backend engineer understand without a glossary?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "systemic precision vs. everyday usability"
+    failure_it_catches: "Namespaced names so long that the meaningful part is truncated in every tool."
+    provenance: "synthesized"
+    source_publisher: "Sam Ami Designs"
+    source_title: "A new approach to naming design tokens"
+    source_url: "https://samiamdesigns.substack.com/p/a-new-approach-to-naming-design-tokens"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q03939"
+    question: "When a component needs a colour the system lacks, what happens in practice on a Friday afternoon?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system", "component"]
+    stage: "post-ship"
+    tension: "stated process vs. actual behavior under pressure"
+    failure_it_catches: "A governance model that only describes what people do when they are not in a hurry."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03940"
+    question: "Where would a designer go to change every danger surface in one edit, and does that place actually exist?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "single point of change vs. scattered decisions"
+    failure_it_catches: "Seventeen components each holding their own version of the error background."
+    provenance: "synthesized"
+    source_publisher: "Zeroheight"
+    source_title: "How design tokens work: types, structure and hierarchy"
+    source_url: "https://zeroheight.com/learn/how-design-tokens-work-types-structure-and-hierarchy/"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q03941"
+    question: "Whose job is it to reject a token that describes appearance instead of purpose?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "contribution velocity vs. vocabulary discipline"
+    failure_it_catches: "Semantic drift that turns the alias tier into a second primitive tier."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.79
+  - id: "Q03942"
+    question: "How would you prove light and dark stayed in sync after six months of independent edits?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "parallel maintenance vs. verifiable parity"
+    failure_it_catches: "Dark mode quietly falling a quarter behind light on every new component."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q03943"
+    question: "If a designer wants a new colour, what is the documented path, and how long does it take in practice?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "governance rigor vs. team velocity"
+    failure_it_catches: "A process so slow that designers bypass it with hardcoded hexes."
+    provenance: "synthesized"
+    source_publisher: "Clearleft"
+    source_title: "Designing with tokens for a flexible multi-brand design system"
+    source_url: "https://clearleft.com/thinking/designing-with-tokens-for-a-flexible-multi-brand-design-system"
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q03944"
+    question: "Is primary permitted to style destructive actions in any theme, and what mechanically prevents it?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "pre-ship"
+    tension: "token reuse vs. semantic separation"
+    failure_it_catches: "Delete rendered in the brand color because primary was the only filled variant available."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q03945"
+    question: "Is surface-raised a color decision or an elevation decision, and does the token name admit which?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "naming by appearance vs. naming by intent"
+    failure_it_catches: "A token used for elevation in one theme and for emphasis in another."
+    provenance: "synthesized"
+    source_publisher: "Material Design 3"
+    source_title: "Color roles"
+    source_url: "https://m3.material.io/styles/color/roles"
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q03946"
+    question: "Which tokens are safe to change without a visual regression run, and how do you know that?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "speed of iteration vs. blast radius"
+    failure_it_catches: "A one-token tweak that changes forty screens nobody thought to check."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.76
+  - id: "Q03947"
+    question: "Which token would you most regret naming this way three years from now?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "naming for now vs. naming for the system's lifespan"
+    failure_it_catches: "A vocabulary calcified around an assumption that expires."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.75
+  - id: "Q03948"
+    question: "Would a token audit today find more entries than your team can name from memory?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "expressive coverage vs. cognitive load"
+    failure_it_catches: "A system too large to be used correctly without searching every time."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.75
+  - id: "Q03949"
+    question: "Which of these tokens has never been referenced by anything, and why is it still shipping?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "completeness vs. maintenance debt"
+    failure_it_catches: "A token library that keeps growing while the used subset stays the same size."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.74
+  - id: "Q03950"
+    question: "Have you named a token after a component that no longer exists?"
+    category: "Color, theming and dark mode"
+    subcategory: "Semantic color tokens and state colors"
+    secondary_tags: ["long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "historical accuracy vs. present clarity"
+    failure_it_catches: "Tokens whose names actively mislead newcomers about where they belong."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.70

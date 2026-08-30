@@ -1,5 +1,6 @@
 read:
   - skills/always-current-datetime/SKILL.md
+  - skills/by-design/SKILL.md
   - skills/dedupe/SKILL.md
   - skills/goal-prompt/SKILL.md
   - skills/logic-audit/SKILL.md

@@ -1,0 +1,75 @@
+# Trade words per category, written by hand rather than counted from the questions.
+# The counted index in terms-index.yaml holds what the library talks about. This file
+# holds what a discipline calls things when it is briefing the work. A single word is
+# stemmed when it loads, a term holding a space is read as a phrase.
+categories:
+  - name: "AI honesty, provenance and disclosure"
+    terms: ["hallucination", "watermark", "provenance", "deepfake", "model card", "confidence score", "ai label", "synthetic media", "fact check", "generated media", "generated image", "labelling", "provenance badge", "detection claim"]
+  - name: "AI interaction, agents and personalization"
+    terms: ["chatbot", "inline assistant", "prompt box", "tool call", "guardrail", "recommendation feed", "assistant", "autonomy", "agentic", "voice flow", "turn taking", "barge in", "reaches a person", "escalate to a human"]
+  - name: "Accessibility"
+    terms: ["screen reader", "voiceover", "talkback", "wcag", "aria", "keyboard only", "alt text", "low vision", "sign language", "captioning", "assistive", "accessibility statement", "success criterion", "success criteria", "remediation", "accessibility overlay", "screen magnifier", "focus order", "assistive technology", "reduced motion", "contrast ratio"]
+  - name: "Accounts, security and admin"
+    terms: ["single sign on", "two factor", "password", "permission", "role", "tenant", "audit log", "session", "sign in", "admin console", "wallet address", "public key", "private key", "seed phrase", "recovery phrase", "self custody", "self-custody", "recovery key", "passkey", "biometric"]
+  - name: "Acquisition, marketing surfaces and growth loops"
+    terms: ["landing page", "campaign", "referral", "funnel", "ad creative", "waitlist", "growth loop", "conversion rate", "signup page"]
+  - name: "Brand distinctiveness and positioning"
+    terms: ["rebrand", "brand refresh", "visual identity", "logotype", "brand guidelines", "competitor", "category codes", "brand world", "mascot", "brand platform", "identity system", "campaign art direction", "casting", "crop", "category code"]
+  - name: "Collaboration, community and safety"
+    terms: ["moderation", "comment thread", "forum", "reporting flow", "community guidelines", "harassment", "shared workspace", "member", "report a post", "report this", "reporting a post", "flagged", "blocking", "muting", "block a user", "hate speech", "spam", "abuse", "moderator", "takedown", "appeal", "trust and safety", "safety team", "bystander"]
+  - name: "Color, theming and dark mode"
+    terms: ["dark mode", "palette", "swatch", "tint", "theming", "contrast ratio", "colour token", "light mode", "hue"]
+  - name: "Design process, stakeholders and journeys"
+    terms: ["stakeholder", "workshop", "roadmap", "journey map", "research finding", "sign off", "design review", "handover", "junior designer", "hiring", "portfolio", "studio", "end to end journey", "service blueprint", "front stage", "back stage", "touchpoint", "diary study", "referral"]
+  - name: "Design systems and developer surfaces"
+    terms: ["design system", "component library", "storybook", "breaking change", "versioning", "adopter", "deprecation", "documentation site", "release notes", "consuming service", "frontend package"]
+  - name: "Empty, loading, error and edge states"
+    terms: ["empty state", "error message", "skeleton", "spinner", "offline", "retry", "timeout", "edge case", "zero data", "sold out", "no results", "nothing available", "out of stock", "unavailable", "no data", "placeholder content"]
+  - name: "Forms and input"
+    terms: ["form field", "validation", "autofill", "dropdown", "checkbox", "date picker", "required field", "input mask", "address form", "file upload", "hint text", "paste", "scan", "input field", "helper text", "disabled button", "character limit", "question order", "address model", "claim form", "part finished", "save and return"]
+  - name: "Game feel, teaching and difficulty"
+    terms: ["hud", "kill feed", "killfeed", "respawn", "loadout", "matchmaking", "gameplay", "patch notes", "difficulty curve", "cooldown", "minimap", "heads up display", "game feel", "player", "shooter", "quest", "boss", "learner", "course module", "assessment", "scaffolding", "curriculum", "failure loop"]
+  - name: "Habit, retention and churn"
+    terms: ["streak", "retention", "churn", "re-engagement", "daily active", "habit loop", "win back", "lapsed user"]
+  - name: "Handoff, spec and design QA"
+    terms: ["redline", "handoff", "acceptance criteria", "design qa", "developer handoff", "spec sheet", "ticket", "drawing set", "sheet numbering", "revision cloud", "contractor", "dimension strategy", "annotation set"]
+  - name: "Icons, illustration and photography"
+    terms: ["icon set", "illustration", "photography", "pictogram", "image library", "stock photo", "glyph", "art direction", "book cover", "thumbnail", "cover art", "drawing style", "stroke weight", "icon grid"]
+  - name: "Internationalization and locale"
+    terms: ["localisation", "localization", "right to left", "translation", "locale", "pseudo locale", "character set", "date format", "transliteration"]
+  - name: "Keyboard, commands and power surfaces"
+    terms: ["keyboard shortcut", "command palette", "hotkey", "power user", "bulk edit", "macro", "modifier key"]
+  - name: "Layout, grid, hierarchy and density"
+    terms: ["grid", "whitespace", "hierarchy", "above the fold", "spacing scale", "visual weight", "column width", "page layout"]
+  - name: "Motion, film and moving image"
+    terms: ["motion design", "easing", "keyframe", "title sequence", "lower thirds", "storyboard", "broadcast", "on air", "frame rate", "shot", "cut", "sequence", "opening titles", "animation", "edit suite", "moving image", "period drama", "continuity", "tungsten", "six week shoot", "camera position", "wardrobe"]
+  - name: "Naming and brand architecture"
+    terms: ["product name", "naming", "sub brand", "endorsed brand", "trademark", "house of brands", "nomenclature", "name change", "brand architecture", "umbrella brand", "masterbrand", "brand portfolio", "corporate name", "naming convention", "descriptor", "parent brand", "brand family", "brand renaming", "umbrella", "sub-brand", "endorsed", "house brand"]
+  - name: "Navigation, IA and search"
+    terms: ["information architecture", "sitemap", "breadcrumb", "search results", "menu structure", "facet", "wayfinding in product", "nav"]
+  - name: "Notifications, email and interruption"
+    terms: ["push notification", "inbox", "digest", "unsubscribe", "badge count", "interruption", "notification", "email campaign"]
+  - name: "Onboarding, activation and first run"
+    terms: ["onboarding", "first run", "activation", "sign up flow", "welcome screen", "product tour", "setup wizard"]
+  - name: "Performance, weight and network reality"
+    terms: ["latency", "page weight", "bundle size", "lazy load", "low bandwidth", "cold start", "frame drop", "offline first"]
+  - name: "Persuasion, defaults and dark patterns"
+    terms: ["dark pattern", "opt out", "nudge", "urgency", "scarcity", "cancellation flow", "consent banner", "default setting", "upsell", "upgrade prompt", "premium users", "go premium", "locked feature", "gated", "social proof", "testimonial", "limited time", "countdown", "free tier", "pre-checked", "confirmshaming"]
+  - name: "Physical product, packaging and print"
+    terms: ["packaging", "carton", "unboxing", "signage", "substrate", "die line", "foil", "retail shelf", "print run", "label", "glaze", "kiln", "stoneware", "parting line", "grip", "switchgear", "housing", "injection moulding", "tooling", "stone setting", "hallmark", "silhouette", "drape", "seam allowance", "grading", "garment", "stitch", "small parts", "ride on", "one handed", "dieline", "shelf face", "decision point", "seat material", "hospital signage", "handle radius", "fastening", "sizing curve"]
+  - name: "Platform conventions and responsive fit"
+    terms: ["infotainment", "touchscreen", "dashboard cluster", "steering wheel", "desktop app", "responsive", "breakpoint", "native app", "platform convention", "watch face", "tv app", "in car", "head unit", "hard button", "physical button", "glanceable", "cockpit", "touch target", "physical control", "hard control", "seat control", "head up display", "in-car", "driver", "phone projection"]
+  - name: "Pricing, checkout and billing"
+    terms: ["checkout", "pricing page", "cart", "subscription", "invoice", "refund", "paywall", "free trial", "payment", "plan page", "proration", "upgrade path", "tier boundary", "subscribing"]
+  - name: "Privacy, consent and compliance"
+    terms: ["consent", "cookie banner", "data retention", "privacy policy", "opt in", "regulator", "compliance", "personal data"]
+  - name: "Sound and haptics"
+    terms: ["sound design", "earcon", "haptics", "vibration", "chime", "audio cue", "sonic branding", "alerting sound", "ringtone", "loudness", "decibel", "sound pressure", "acoustic", "audio identity", "warning sound", "foley", "ambience", "reverb", "sound effect", "silence", "notification family"]
+  - name: "Spatial, ambient and built space"
+    terms: ["floor plan", "room", "corridor", "exhibition", "built environment", "furniture", "acoustic treatment", "waiting room", "gallery", "lighting design", "interior design", "clinic", "reception", "waiting area", "daylight", "acoustics", "consulting room", "public realm", "wayfinding", "stem", "bouquet", "arrangement", "centrepiece", "planting", "shade", "sight line", "sight lines", "kerb", "crossing", "pavement", "circulation", "entrance sequence", "handrail", "passenger deck", "seating density", "dwell time", "label height", "cue stack", "blackout", "anchored", "headset", "masterplan", "standing set", "wall float", "desire line"]
+  - name: "Tables, charts and dashboards"
+    terms: ["chart", "dashboard", "data visualisation", "data visualization", "axis", "legend", "bar chart", "scatter", "heat map", "data story", "encoding", "sparkline", "infographic", "dataset", "data art", "graphic"]
+  - name: "Typography and editorial typesetting"
+    terms: ["typeface", "font", "kerning", "leading", "type specimen", "ligature", "baseline grid", "typesetting", "serif", "italic"]
+  - name: "Voice, tone and UI copy"
+    terms: ["microcopy", "tone of voice", "ui copy", "error copy", "button label", "plain language", "readability", "headline", "wording", "message set", "in the words", "plain english", "sentence case"]

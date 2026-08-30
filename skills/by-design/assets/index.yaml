@@ -1,0 +1,108 @@
+# Category index. Maps every category name to its questions file.
+# 35 categories, 16112 questions total.
+categories:
+  - name: "AI honesty, provenance and disclosure"
+    file: "ai-honesty-provenance-and-disclosure.yaml"
+    count: 512
+  - name: "AI interaction, agents and personalization"
+    file: "ai-interaction-agents-and-personalization.yaml"
+    count: 594
+  - name: "Accessibility"
+    file: "accessibility.yaml"
+    count: 506
+  - name: "Accounts, security and admin"
+    file: "accounts-security-and-admin.yaml"
+    count: 545
+  - name: "Acquisition, marketing surfaces and growth loops"
+    file: "acquisition-marketing-surfaces-and-growth-loops.yaml"
+    count: 501
+  - name: "Brand distinctiveness and positioning"
+    file: "brand-distinctiveness-and-positioning.yaml"
+    count: 539
+  - name: "Collaboration, community and safety"
+    file: "collaboration-community-and-safety.yaml"
+    count: 489
+  - name: "Color, theming and dark mode"
+    file: "color-theming-and-dark-mode.yaml"
+    count: 222
+  - name: "Design process, stakeholders and journeys"
+    file: "design-process-stakeholders-and-journeys.yaml"
+    count: 650
+  - name: "Design systems and developer surfaces"
+    file: "design-systems-and-developer-surfaces.yaml"
+    count: 720
+  - name: "Empty, loading, error and edge states"
+    file: "empty-loading-error-and-edge-states.yaml"
+    count: 782
+  - name: "Forms and input"
+    file: "forms-and-input.yaml"
+    count: 280
+  - name: "Game feel, teaching and difficulty"
+    file: "game-feel-teaching-and-difficulty.yaml"
+    count: 305
+  - name: "Habit, retention and churn"
+    file: "habit-retention-and-churn.yaml"
+    count: 476
+  - name: "Handoff, spec and design QA"
+    file: "handoff-spec-and-design-qa.yaml"
+    count: 403
+  - name: "Icons, illustration and photography"
+    file: "icons-illustration-and-photography.yaml"
+    count: 468
+  - name: "Internationalization and locale"
+    file: "internationalization-and-locale.yaml"
+    count: 287
+  - name: "Keyboard, commands and power surfaces"
+    file: "keyboard-commands-and-power-surfaces.yaml"
+    count: 464
+  - name: "Layout, grid, hierarchy and density"
+    file: "layout-grid-hierarchy-and-density.yaml"
+    count: 435
+  - name: "Motion, film and moving image"
+    file: "motion-film-and-moving-image.yaml"
+    count: 512
+  - name: "Naming and brand architecture"
+    file: "naming-and-brand-architecture.yaml"
+    count: 198
+  - name: "Navigation, IA and search"
+    file: "navigation-ia-and-search.yaml"
+    count: 577
+  - name: "Notifications, email and interruption"
+    file: "notifications-email-and-interruption.yaml"
+    count: 442
+  - name: "Onboarding, activation and first run"
+    file: "onboarding-activation-and-first-run.yaml"
+    count: 305
+  - name: "Performance, weight and network reality"
+    file: "performance-weight-and-network-reality.yaml"
+    count: 290
+  - name: "Persuasion, defaults and dark patterns"
+    file: "persuasion-defaults-and-dark-patterns.yaml"
+    count: 670
+  - name: "Physical product, packaging and print"
+    file: "physical-product-packaging-and-print.yaml"
+    count: 439
+  - name: "Platform conventions and responsive fit"
+    file: "platform-conventions-and-responsive-fit.yaml"
+    count: 428
+  - name: "Pricing, checkout and billing"
+    file: "pricing-checkout-and-billing.yaml"
+    count: 462
+  - name: "Privacy, consent and compliance"
+    file: "privacy-consent-and-compliance.yaml"
+    count: 467
+  - name: "Sound and haptics"
+    file: "sound-and-haptics.yaml"
+    count: 278
+  - name: "Spatial, ambient and built space"
+    file: "spatial-ambient-and-built-space.yaml"
+    count: 403
+  - name: "Tables, charts and dashboards"
+    file: "tables-charts-and-dashboards.yaml"
+    count: 525
+  - name: "Typography and editorial typesetting"
+    file: "typography-and-editorial-typesetting.yaml"
+    count: 685
+  - name: "Voice, tone and UI copy"
+    file: "voice-tone-and-ui-copy.yaml"
+    count: 253

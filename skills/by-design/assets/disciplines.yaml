@@ -1,0 +1,75 @@
+# Design occupations and the shelf each one's decisions live on.
+# Naming the craft is the strongest signal there is about where the questions are,
+# so these carry more weight than the trade words in trade-terms.yaml. Add a line here
+# when a discipline this skill has never seen turns up, then run scripts/bench.py.
+categories:
+  - name: "AI honesty, provenance and disclosure"
+    terms: ["ai provenance designer", "provenance lead", "responsible ai designer", "trust designer"]
+  - name: "AI interaction, agents and personalization"
+    terms: ["agent designer", "ai interaction designer", "chatbot designer", "conversation designer", "personalisation designer", "prompt designer"]
+  - name: "Accessibility"
+    terms: ["a11y engineer", "accessibility designer", "accessibility specialist", "inclusive design lead"]
+  - name: "Accounts, security and admin"
+    terms: ["admin experience designer", "identity and access designer", "identity designer", "security designer"]
+  - name: "Acquisition, marketing surfaces and growth loops"
+    terms: ["campaign designer", "conversion designer", "growth designer", "marketing designer", "seo designer"]
+  - name: "Brand distinctiveness and positioning"
+    terms: ["art director", "brand designer", "brand director", "brand strategist", "creative strategist", "identity designer"]
+  - name: "Collaboration, community and safety"
+    terms: ["community designer", "moderation designer", "safety designer", "trust and safety designer"]
+  - name: "Color, theming and dark mode"
+    terms: ["colour designer", "colour specialist", "theming designer"]
+  - name: "Design process, stakeholders and journeys"
+    terms: ["creative director", "design director", "design lead", "design manager", "design ops", "design researcher", "service designer", "ux researcher"]
+  - name: "Design systems and developer surfaces"
+    terms: ["api designer", "component librarian", "design systems designer", "design systems engineer", "design technologist", "developer experience designer"]
+  - name: "Empty, loading, error and edge states"
+    terms: ["resilience designer", "states designer"]
+  - name: "Forms and input"
+    terms: ["application designer", "form designer", "forms designer", "intake designer"]
+  - name: "Game feel, teaching and difficulty"
+    terms: ["curriculum designer", "game designer", "instructional designer", "learning designer", "level designer", "narrative designer", "systems designer"]
+  - name: "Habit, retention and churn"
+    terms: ["churn analyst", "engagement designer", "retention designer"]
+  - name: "Handoff, spec and design QA"
+    terms: ["design engineer", "design qa analyst", "design quality engineer", "drafter", "drafting technician", "spec writer"]
+  - name: "Icons, illustration and photography"
+    terms: ["icon designer", "illustration director", "illustrator", "photo editor", "pictogram designer", "picture editor"]
+  - name: "Internationalization and locale"
+    terms: ["internationalisation engineer", "localisation designer", "localisation specialist", "translation manager"]
+  - name: "Keyboard, commands and power surfaces"
+    terms: ["editor designer", "ide designer", "power tools designer", "power user designer"]
+  - name: "Layout, grid, hierarchy and density"
+    terms: ["graphic designer", "layout artist", "presentation designer", "product designer", "ui designer", "visual designer", "web designer"]
+  - name: "Motion, film and moving image"
+    terms: ["animator", "broadcast designer", "costume designer", "editor", "motion designer", "motion graphics designer", "storyboard artist", "title designer", "vfx artist"]
+  - name: "Naming and brand architecture"
+    terms: ["naming consultant", "naming strategist", "verbal identity designer"]
+  - name: "Navigation, IA and search"
+    terms: ["content architect", "information architect", "search designer", "taxonomist"]
+  - name: "Notifications, email and interruption"
+    terms: ["crm designer", "email designer", "lifecycle designer", "notification designer"]
+  - name: "Onboarding, activation and first run"
+    terms: ["activation designer", "first run designer", "onboarding designer"]
+  - name: "Performance, weight and network reality"
+    terms: ["front end performance designer", "performance designer", "performance engineer"]
+  - name: "Persuasion, defaults and dark patterns"
+    terms: ["behavioural designer", "behavioural scientist", "experimentation designer"]
+  - name: "Physical product, packaging and print"
+    terms: ["automotive designer", "ceramicist", "craft artist", "fashion designer", "footwear designer", "furniture designer", "hardware designer", "industrial designer", "jewellery designer", "medical device designer", "packaging designer", "packaging engineer", "patternmaker", "print designer", "production artist", "prosthetics designer", "shoe designer", "textile designer", "toy designer", "wayfinding designer"]
+  - name: "Platform conventions and responsive fit"
+    terms: ["android designer", "automotive hmi designer", "ios designer", "platform designer", "responsive designer", "tv designer", "watch designer"]
+  - name: "Pricing, checkout and billing"
+    terms: ["billing designer", "checkout designer", "commerce designer", "monetisation designer", "pricing designer"]
+  - name: "Privacy, consent and compliance"
+    terms: ["compliance designer", "consent designer", "privacy designer", "privacy engineer"]
+  - name: "Sound and haptics"
+    terms: ["audio designer", "composer for interfaces", "haptics engineer", "sonic brand designer", "sonic branding", "sound designer", "voice designer"]
+  - name: "Spatial, ambient and built space"
+    terms: ["architect", "environmental designer", "exhibition designer", "floral designer", "interior architect", "interior designer", "landscape architect", "lighting designer", "museum designer", "naval architect", "production designer", "retail designer", "scenographer", "spatial computing designer", "stage designer", "themed entertainment designer", "urban planner", "visual merchandiser", "workplace designer", "xr designer"]
+  - name: "Tables, charts and dashboards"
+    terms: ["analytics designer", "data designer", "data journalist", "data visualisation designer", "information designer"]
+  - name: "Typography and editorial typesetting"
+    terms: ["book designer", "editorial designer", "font engineer", "lettering artist", "type designer", "typesetter", "typographer"]
+  - name: "Voice, tone and UI copy"
+    terms: ["content designer", "content strategist", "copywriter", "technical writer", "ux writer"]

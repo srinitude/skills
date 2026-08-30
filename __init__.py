@@ -6,6 +6,21 @@ _SKILLS = (
         "Use when replying. Refresh current date and time.",
     ),
     (
+        "by-design",
+        "Use when any request arrives, and especially when it touches a"
+        " screen, component, flow, brand, layout, typography, colour,"
+        " motion, copy, icon, form, table, dashboard, navigation,"
+        " onboarding, pricing, checkout, notification, accessibility, design"
+        " system, or brief. Use when choosing between directions, when"
+        " shaping something unbuilt, when reviewing, critiquing, or shipping"
+        " work, and during ordinary design conversation. A request that"
+        " holds no design surface costs one command and nothing else."
+        " Keywords: design, redesign, review, crit, critique, feedback,"
+        " mockup, wireframe, prototype, trade-off, decision, rationale,"
+        " pre-ship, ready to ship, looks generic, which direction, style"
+        " guide, design token.",
+    ),
+    (
         "dedupe",
         "Use when deduplicating bounded collections.",
     ),

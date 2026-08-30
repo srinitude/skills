@@ -1,0 +1,3798 @@
+# Voice, tone and UI copy
+# 253 questions. Generated, ordered by id. Do not hand edit.
+questions:
+  - id: "Q15962"
+    question: "If this AI acts on the user's behalf, does the confirmation copy name the part that cannot be undone?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "frictionless automation vs. informed authorization"
+    failure_it_catches: "An agent sending emails or making purchases behind a confirmation that says only 'Continue'."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q15963"
+    question: "At what point does this conversation offer a human, and is it before the user has given up?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "deflection savings vs. escalation before frustration peaks"
+    failure_it_catches: "Users cycling through five failed bot turns before discovering a human was available."
+    provenance: "sourced"
+    source_publisher: "Microsoft Style Guide"
+    source_title: "Writing for bots"
+    source_url: "https://learn.microsoft.com/en-us/style-guide/chatbots-virtual-agents/writing-bots"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15964"
+    question: "Does this feature's copy say plainly that it is AI, or leave the user to work it out?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "seamless magic vs. honest disclosure"
+    failure_it_catches: "Users believing a human wrote a response, and losing trust when they discover otherwise."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15965"
+    question: "Has this assistant been given an 'ask me anything' framing it cannot actually honour?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "concept"
+    tension: "open-ended promise vs. narrow real capability"
+    failure_it_catches: "An empty prompt box inviting any question from a bot that only handles billing."
+    provenance: "sourced"
+    source_publisher: "Microsoft Style Guide"
+    source_title: "Writing for bots"
+    source_url: "https://learn.microsoft.com/en-us/style-guide/chatbots-virtual-agents/writing-bots"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15966"
+    question: "Is 'Processing…' on screen where 'Finding substitutions for your ingredients' would say something true?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "generic reusable status vs. specific reassuring feedback"
+    failure_it_catches: "A long generation wait made to feel broken by a status message that describes nothing."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q15967"
+    question: "Is the assistant's voice audibly our product's voice, or did the model default to its own register?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "brand"]
+    applies_to: ["copy", "brand"]
+    stage: "post-ship"
+    tension: "model fluency vs. brand distinctiveness"
+    failure_it_catches: "Generated copy that is competent, generic, and indistinguishable from every other assistant."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "AI voice and tone"
+    source_url: "https://contentdesign.intuit.com/ai/voice-tone/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15968"
+    question: "Was the breezy tone in this AI copy tested with customers, or assumed to be charming?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "brand levity vs. what users tolerate from a machine"
+    failure_it_catches: "Jokes from an assistant handling someone's payroll, read as flippancy rather than warmth."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "AI voice and tone"
+    source_url: "https://contentdesign.intuit.com/ai/voice-tone/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15969"
+    question: "Where does this feature state its limits: before the first use, or after the first bad result?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow", "copy"]
+    stage: "exploration"
+    tension: "showcasing capability vs. setting an accurate mental model"
+    failure_it_catches: "Users forming expectations from a demo and abandoning after the first hallucination."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15970"
+    question: "Does the warning that output may contain errors sit where users read, or where lawyers look?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "unobtrusive disclaimer vs. effective warning"
+    failure_it_catches: "Grey six-point text below the fold satisfying policy while informing nobody."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q15971"
+    question: "Is the prompt placeholder teaching what good input looks like, or just saying 'Ask anything'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "open canvas vs. guided starting points"
+    failure_it_catches: "An empty input where first-time users type one vague word and get a poor first result."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q15972"
+    question: "What does this assistant say to a nonsense prompt, and would that joke backfire on an offensive one?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["copy", "flow"]
+    stage: "pre-ship"
+    tension: "personality under provocation vs. reputational risk"
+    failure_it_catches: "A witty fallback line that becomes a screenshot when paired with an abusive input."
+    provenance: "synthesized"
+    source_publisher: "Microsoft Style Guide"
+    source_title: "Writing for bots"
+    source_url: "https://learn.microsoft.com/en-us/style-guide/chatbots-virtual-agents/writing-bots"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q15973"
+    question: "What does this feature's copy say when the model is unavailable on this device or in this region?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "i18n"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "one AI-forward experience vs. graceful degradation"
+    failure_it_catches: "An entry point that fails silently for users whose device or locale cannot run the model."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q15974"
+    question: "When the assistant is wrong and the user says so, what does it say next?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "graceful correction vs. reflexive apology loops"
+    failure_it_catches: "An assistant that apologizes and repeats the same wrong answer in slightly different words."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q15975"
+    question: "When this model refuses, does the copy coach the user toward a request that would work?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "enforcing policy vs. keeping the user productive"
+    failure_it_catches: "A flat refusal that leaves users guessing which part of their request was disallowed."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q15976"
+    question: "Which of our style rules have actually been written down for the model, and which live only in a designer's head?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "enterprise"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "tacit craft judgment vs. rules a model can apply"
+    failure_it_catches: "AI-generated copy that violates unwritten conventions nobody thought to articulate."
+    provenance: "sourced"
+    source_publisher: "Intercom"
+    source_title: "How to build a Content Design Agent"
+    source_url: "https://www.intercom.com/blog/how-to-build-a-content-design-agent/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q15977"
+    question: "Which sentence in this generated summary would we be liable for if it turned out to be wrong?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "useful synthesis vs. unverified factual claims"
+    failure_it_catches: "A confident generated figure presented in the same visual weight as verified account data."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q15978"
+    question: "Whose job is the tone of a sentence no human wrote, and is that written down anywhere?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "enterprise"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "distributed generation vs. single accountable owner of voice"
+    failure_it_catches: "Nobody owning the voice of generated output, so quality regressions go unnoticed for months."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q15979"
+    question: "Are generated strings reviewed by a person before shipping, or only sampled after?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "enterprise"]
+    applies_to: ["system", "artifact"]
+    stage: "pre-ship"
+    tension: "throughput of machine drafting vs. accountability for what ships"
+    failure_it_catches: "Voice drift accumulating across hundreds of auto-generated strings nobody read."
+    provenance: "synthesized"
+    source_publisher: "Intercom"
+    source_title: "How to build a Content Design Agent"
+    source_url: "https://www.intercom.com/blog/how-to-build-a-content-design-agent/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q15980"
+    question: "Do the words Edit, Undo, and Retry near this output match what those controls actually do?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "familiar control vocabulary vs. what generation actually permits"
+    failure_it_catches: "'Undo' that regenerates rather than restores, quietly destroying the user's earlier result."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q15981"
+    question: "Does the loading copy for generation set an expectation about time, or leave the user guessing?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "performance"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "honest wait estimates vs. promising a speed we cannot guarantee"
+    failure_it_catches: "Users cancelling a 20-second generation at 6 seconds because nothing said how long it takes."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q15982"
+    question: "Does this AI-drafted microcopy sound like our product, or like every product built this year?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "brand"]
+    applies_to: ["copy", "brand"]
+    stage: "post-ship"
+    tension: "speed of generation vs. distinctiveness"
+    failure_it_catches: "A product whose copy converges on the same fluent, characterless house style as its competitors."
+    provenance: "synthesized"
+    source_publisher: "Intercom"
+    source_title: "How to build a Content Design Agent"
+    source_url: "https://www.intercom.com/blog/how-to-build-a-content-design-agent/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q15983"
+    question: "Does this refusal describe the boundary, or does it imply the user did something wrong?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "policy enforcement vs. presumption of good faith"
+    failure_it_catches: "Refusal copy that reads as an accusation to a user with an entirely benign request."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q15984"
+    question: "Is the hedging in this response calibrated to actual model confidence, or applied uniformly to everything?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "post-ship"
+    tension: "blanket caution vs. signal that discriminates"
+    failure_it_catches: "Every answer wrapped in 'I think', so users cannot tell the certain answers from the guesses."
+    provenance: "sourced"
+    source_publisher: "Parallel"
+    source_title: "Designing Trust into AI Products"
+    source_url: "https://www.parallelhq.com/blog/designing-trust-ai-products"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q15985"
+    question: "Which hedge in this answer protects us legally, and which one just makes the answer useless?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "liability management vs. actionable guidance"
+    failure_it_catches: "Answers so qualified that users go elsewhere for a straight response."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q15986"
+    question: "Which pronoun does this assistant use for itself, and do the buttons the user presses agree with it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "concept"
+    tension: "assistant persona vs. user voice in controls"
+    failure_it_catches: "A bot saying 'I' while its quick-reply chips also say 'I', collapsing who is speaking."
+    provenance: "sourced"
+    source_publisher: "Microsoft Style Guide"
+    source_title: "Writing for bots"
+    source_url: "https://learn.microsoft.com/en-us/style-guide/chatbots-virtual-agents/writing-bots"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q15987"
+    question: "Does the feedback affordance here use words, or two ambiguous thumbs?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "data"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "frictionless signal vs. interpretable signal"
+    failure_it_catches: "Thumbs-down data that cannot distinguish wrong, rude, slow, or simply not what was wanted."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q15988"
+    question: "Has this assistant been stopped from agreeing with everything, and does its copy ever push back?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "post-ship"
+    tension: "agreeableness vs. usefulness"
+    failure_it_catches: "An assistant that validates a bad plan because its copy was tuned to sound pleasant."
+    provenance: "sourced"
+    source_publisher: "Intercom"
+    source_title: "How to build a Content Design Agent"
+    source_url: "https://www.intercom.com/blog/how-to-build-a-content-design-agent/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q15989"
+    question: "Is there a sentence anywhere that tells the user what this feature will never do?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy", "screen"]
+    stage: "concept"
+    tension: "marketing openness vs. bounded promise"
+    failure_it_catches: "Users assuming an assistant can read files or take actions it has no access to."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q15990"
+    question: "Which words here signal uncertainty, and would a user act differently if they were deleted?"
+    category: "Voice, tone and UI copy"
+    subcategory: "AI-written copy and confidence"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "hedges as disclaimers vs. hedges as decision input"
+    failure_it_catches: "Uncertainty language that satisfies legal review while changing nobody's behavior."
+    provenance: "synthesized"
+    source_publisher: "Parallel"
+    source_title: "Designing Trust into AI Products"
+    source_url: "https://www.parallelhq.com/blog/designing-trust-ai-products"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q15991"
+    question: "What is the measured time from tap to first visible change here, and is it inside 100 milliseconds or only fast on your laptop?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["performance", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "measured responsiveness vs. anecdotal speed"
+    failure_it_catches: "A control that feels crisp in the studio and mushy on a three-year-old phone on cellular."
+    provenance: "sourced"
+    source_publisher: "Liz England"
+    source_title: "Review: Game Feel by Steve Swink"
+    source_url: "https://lizengland.com/blog/review-game-feel-by-steve-swink/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q15992"
+    question: "Would plain 'Send' work better here than 'Let's do it!' and what exactly is the second version buying?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "concept"
+    tension: "cleverness vs. clarity in the highest-stakes two words on screen"
+    failure_it_catches: "Cute CTAs that force users to guess what the button does before committing."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q15993"
+    question: "Can someone tell what happens after tapping this, without reading the paragraph above it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "context-dependent brevity vs. standalone legibility"
+    failure_it_catches: "Labels that only make sense in reading order, failing for scanners and screen-reader link lists."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q15994"
+    question: "Does 'OK' in this dialog tell anyone what they are agreeing to?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "generic acknowledgement vs. named consequence"
+    failure_it_catches: "Users clicking OK on a dialog whose action they never understood, then filing a bug."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q15995"
+    question: "How many synonyms does this product currently use for deleting something?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "local phrasing freedom vs. one word per concept"
+    failure_it_catches: "Remove, delete, archive, and clear all meaning the same thing in four different screens."
+    provenance: "synthesized"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15996"
+    question: "Is the promise in this label instantly met on the next screen, or is there a gap the user has to forgive?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["flow", "component"]
+    stage: "refinement"
+    tension: "enticing label vs. what actually appears"
+    failure_it_catches: "'More info and book' opening a contact form, teaching users that our labels lie."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q15997"
+    question: "Name the version of this that ships on Friday, and say plainly what it would fail to do?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: []
+    applies_to: ["flow", "screen"]
+    stage: "pre-ship"
+    tension: "speed vs. honest acknowledgment of the gap"
+    failure_it_catches: "A rushed cut whose omissions are discovered by customers rather than declared by the team."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q15998"
+    question: "What do users call this feature in support tickets, and why is that not the label?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["system", "copy"]
+    stage: "post-ship"
+    tension: "internal naming heritage vs. observed user vocabulary"
+    failure_it_catches: "A feature nobody can find because its official name exists only inside the company."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q15999"
+    question: "Would this label still fit its container if German made it forty percent longer?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "tight English copy vs. layout that must absorb expansion"
+    failure_it_catches: "Truncated or wrapped CTAs in Romance and Germanic locales that were never mocked up."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16000"
+    question: "Does the destructive confirmation repeat the verb from the trigger, or has it drifted to 'Yes'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component", "flow"]
+    stage: "post-ship"
+    tension: "conversational answer vs. restating the irreversible act"
+    failure_it_catches: "A confirm dialog answered reflexively because 'Yes' carries none of the weight of 'Delete 400 files'."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16001"
+    question: "How many 'Learn more' links sit on this page, and what does each one actually lead to?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "post-ship"
+    tension: "consistent affordance vs. informative destination"
+    failure_it_catches: "Four identical links whose destinations can only be discovered by clicking each one."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16002"
+    question: "Is there a printed fallback for everything the code promises, for the customer who will never scan?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["artifact", "copy"]
+    stage: "refinement"
+    tension: "moving information off-pack vs. serving non-scanners"
+    failure_it_catches: "Ingredients or usage moved behind a code, excluding anyone without a working smartphone."
+    provenance: "synthesized"
+    source_publisher: "MyProductPassport"
+    source_title: "Packaging and the Digital Product Passport"
+    source_url: "https://myproductpassport.eu/blog/packaging-and-the-digital-product-passport"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16003"
+    question: "What single verb should describe this action everywhere, and does anything in the product currently disagree?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "screen-level phrasing vs. product-wide term discipline"
+    failure_it_catches: "Upload, add, and import all describing the same operation across three adjacent surfaces."
+    provenance: "synthesized"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16004"
+    question: "Where does the interface use one word and the help article use another for the same object?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "post-ship"
+    tension: "independently authored surfaces vs. a single lexicon"
+    failure_it_catches: "Support docs saying 'campaign' while the UI says 'send', so search inside the product fails."
+    provenance: "sourced"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16005"
+    question: "Which affordance here relies on a real-world association, and does that association hold in every market you ship to?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "intuitive metaphor vs. cultural specificity"
+    failure_it_catches: "A mailbox icon or hand gesture that means nothing, or something rude, in half your markets."
+    provenance: "sourced"
+    source_publisher: "Alex Pine"
+    source_title: "Methods of creating invisible tutorials"
+    source_url: "https://www.gamedeveloper.com/design/methods-of-creating-invisible-tutorials"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16006"
+    question: "Which does this button name: the outcome the user wants, or the mechanism we happened to build?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "system vocabulary vs. user intent"
+    failure_it_catches: "A primary button labelled 'Sync' when the user is trying to get their photos onto their laptop."
+    provenance: "synthesized"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16007"
+    question: "Which specialist term here is genuinely necessary, and is it explained the first time it appears?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "exploration"
+    tension: "precision of the domain term vs. exclusion of the newcomer"
+    failure_it_catches: "Legal or financial terms used without a first-use gloss, stalling users mid-task."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16008"
+    question: "Are Continue, Next, and Done used consistently across this multi-step flow, or interchangeably?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "per-screen wording choices vs. a learnable pattern"
+    failure_it_catches: "Users unsure whether 'Next' saves or discards, because the flow used three different words."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16009"
+    question: "Are the first two words of this link the information-carrying ones for somebody scanning?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "natural sentence order vs. front-loaded scanning"
+    failure_it_catches: "Links beginning with 'How to' or 'Find out about' where the distinguishing noun arrives last."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16010"
+    question: "Which noun here is doing double duty as a verb, and is that ambiguity deliberate?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "compact English vs. translatable grammar"
+    failure_it_catches: "A string like 'Share' that translators cannot render without knowing if it is a noun or command."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16011"
+    question: "Which verb opens this CTA, and is it the verb the user would use for this action out loud?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "product vocabulary vs. spoken vocabulary"
+    failure_it_catches: "'Provision access' on a button where the user would say 'invite'."
+    provenance: "sourced"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16012"
+    question: "Does this word mean something different to an accountant than it does to us?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "system"]
+    stage: "refinement"
+    tension: "everyday meaning vs. regulated professional meaning"
+    failure_it_catches: "Using a term like 'reconcile' loosely where it carries a precise professional obligation."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Readability"
+    source_url: "https://contentdesign.intuit.com/accessibility-and-inclusion/readability/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16013"
+    question: "What does this link promise, and would you defend that promise to the person who just clicked it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "click-earning language vs. honest expectation setting"
+    failure_it_catches: "Labels engineered for clicks that produce a bounce and a small loss of trust each time."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16014"
+    question: "What is the highest-contrast thing in this environment, and is it the content or the backdrop?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["artifact", "screen"]
+    stage: "refinement"
+    tension: "beautiful environment vs. content that must win"
+    failure_it_catches: "A gorgeous sunset skybox that outshines the video the user came to watch."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16015"
+    question: "Which term on this screen did we invent, and does the invented one earn its teaching cost?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["system", "brand"]
+    stage: "concept"
+    tension: "proprietary language as moat vs. comprehension tax"
+    failure_it_catches: "A coined noun users must learn before they can complete a task they already understood."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q16016"
+    question: "Which two features have names so similar that support disambiguates them on every call?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "brand"]
+    stage: "post-ship"
+    tension: "family naming coherence vs. distinguishability"
+    failure_it_catches: "A product family where 'Insights' and 'Analytics' cost the support team hours weekly."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q16017"
+    question: "Which word in this toggle describes what happens when it is on, and does the off state need spelling out?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "explaining both states vs. trusting the inverse to be obvious"
+    failure_it_catches: "Settings copy that describes both directions and doubles the reading load for no gain."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16018"
+    question: "Whose side of the conversation is this button on: ours, or the user's?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "second-person instruction vs. first-person user voice"
+    failure_it_catches: "A flow that says 'you' everywhere and then puts 'Get my report' on the button with no rule."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16019"
+    question: "With the colors removed, can you tell which of these two buttons destroys something?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "visual signalling vs. wording that carries the warning alone"
+    failure_it_catches: "Destructive intent encoded only in red, invisible to colorblind users and in high-contrast modes."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16020"
+    question: "Does the dismiss option in this dialog name what continues, or just say Cancel?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "conventional shorthand vs. stating the consequence of backing out"
+    failure_it_catches: "Users unsure whether Cancel abandons the dialog or abandons the whole operation."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16021"
+    question: "Does this term describe what the thing is, or what the team that built it calls it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "org-chart naming vs. user-facing meaning"
+    failure_it_catches: "Nav sections mirroring team boundaries rather than the tasks users came to do."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16022"
+    question: "Has anyone read every button label in this flow as a single list, stripped of its screens?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "artifact"]
+    stage: "pre-ship"
+    tension: "screen-by-screen review vs. seeing the pattern whole"
+    failure_it_catches: "Inconsistent verb tenses and register discovered only after launch by a localization vendor."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16023"
+    question: "If we rename this object next quarter, how many strings break, and does anyone know the number?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "artifact"]
+    stage: "concept"
+    tension: "naming flexibility vs. accumulated string debt"
+    failure_it_catches: "Committing to a name with no inventory of where it appears, making a later rename unaffordable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16024"
+    question: "Is 'Submit' the word this user would use, or the word the form's endpoint is named after?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "engineering default vs. human phrasing"
+    failure_it_catches: "Generic Submit labels that leave users unsure whether they just applied, saved, or paid."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16025"
+    question: "Is it 'block list' or 'blacklist' in this string, and did anyone check the rest of the product?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["ethics", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "refinement"
+    tension: "legacy technical vocabulary vs. current inclusive standard"
+    failure_it_catches: "Half the product updated to inclusive terminology and half still shipping the old term."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "A to Z style guide"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16026"
+    question: "Would searching our own product for the word a user would type surface this screen?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["system", "flow"]
+    stage: "pre-ship"
+    tension: "brand-preferred term vs. searchable term"
+    failure_it_catches: "In-product search returning nothing for the exact phrase customers use for the feature."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16027"
+    question: "Which label here changes meaning when the user's role changes from admin to member?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "one string for all roles vs. role-accurate wording"
+    failure_it_catches: "'Delete workspace' shown to a member who can only leave it, producing a dead-end permission error."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q16028"
+    question: "Which word in this settings label is doing the work, and is it the first word?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "grammatical flow vs. scannable ordering"
+    failure_it_catches: "A settings list where twelve rows begin with the same three words and diverge at the end."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Better Link Labels: 4 Ss"
+    source_url: "https://www.nngroup.com/articles/better-link-labels/"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q16029"
+    question: "Would a competitor's user understand this label on day one, or must they learn our mental model first?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["business-model", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "distinctive model vs. switching cost"
+    failure_it_catches: "Migration friction created entirely by vocabulary rather than by missing capability."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q16030"
+    question: "If the button label and the modal title say the same thing twice, which one goes?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "reinforcement vs. redundancy"
+    failure_it_catches: "Dialogs where title, body, and CTA all restate one idea, wasting the reader's only scan."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16031"
+    question: "Is title case or sentence case in force here, and did anyone decide, or did two components decide differently?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "brand"]
+    applies_to: ["system", "component"]
+    stage: "refinement"
+    tension: "formality signal vs. system-wide consistency"
+    failure_it_catches: "A screen mixing title-case alerts with sentence-case headings because no rule was recorded."
+    provenance: "sourced"
+    source_publisher: "Intercom"
+    source_title: "How to build a Content Design Agent"
+    source_url: "https://www.intercom.com/blog/how-to-build-a-content-design-agent/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16032"
+    question: "Which internal codename has leaked into user-facing copy?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "team shorthand vs. customer language"
+    failure_it_catches: "A settings toggle named after a project that shipped two years ago and means nothing to anyone."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16033"
+    question: "Has 'workspace' been defined anywhere the user can actually find it, or are we assuming shared understanding?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "copy"]
+    stage: "exploration"
+    tension: "adopted industry term vs. product-specific meaning"
+    failure_it_catches: "Users importing a competitor's definition of the term and configuring permissions wrong."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q16034"
+    question: "Is this label a noun where the user expects a verb, and does that cost a beat of hesitation?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "object naming vs. action naming"
+    failure_it_catches: "A button reading 'Invoice' when the user needs to know whether it creates, sends, or opens one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16035"
+    question: "Is this name descriptive enough to survive without the illustration sitting next to it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "visual scaffolding vs. words that stand alone"
+    failure_it_catches: "A nav label that only makes sense beside its icon, and is meaningless in a text-only context."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16036"
+    question: "Which action here is primary, and does the wording make that obvious without relying on the fill color?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "refinement"
+    tension: "visual hierarchy vs. semantic hierarchy"
+    failure_it_catches: "Two equally-worded options where only the button treatment says which is recommended."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q16037"
+    question: "Has the plural of this invented noun been decided, or will engineering decide it for us at build time?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["craft-detail", "i18n"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "coined vocabulary vs. grammatical loose ends"
+    failure_it_catches: "Strings like '1 Flowz' shipping because nobody defined singular and plural forms."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.77
+  - id: "Q16038"
+    question: "How many words does this CTA need before the meaning survives, and how many before the tone does?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Button, label and in-product vocabulary copy"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "brevity budget vs. voice"
+    failure_it_catches: "Trimming a CTA to two words and losing the distinction that made it decidable."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.77
+  - id: "Q16039"
+    question: "Where on this screen does copy explain the interface rather than the task?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "documenting our UI versus supporting the user's goal"
+    failure_it_catches: "Help text that describes buttons, which is the clearest evidence the layout is too complicated."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Service Manual"
+    source_title: "Designing good questions"
+    source_url: "https://www.gov.uk/service-manual/design/designing-good-questions"
+    seniority: "senior"
+    confidence: 0.90
+  - id: "Q16040"
+    question: "When this list is empty because a request failed rather than because it is new, does the copy change?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "one empty template vs. truthful system status"
+    failure_it_catches: "'No records found' shown during an outage, telling users their data no longer exists."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q16041"
+    question: "Does this empty state say why it is empty, or only that it is?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "terse status vs. explanation of cause"
+    failure_it_catches: "Users unable to tell whether a blank list means no data, a bad filter, or a failed request."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16042"
+    question: "Has the filtered-to-nothing state been written separately from the never-had-anything state?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "component"]
+    stage: "concept"
+    tension: "one reusable empty component vs. two genuinely different situations"
+    failure_it_catches: "A power user with 4,000 records being told to 'get started by adding your first item'."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16043"
+    question: "Which action does this blank screen make possible in one tap, and is it the action that matters?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "describing what to do vs. providing the means"
+    failure_it_catches: "Empty states that instruct users to create something without offering a button to do it."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16044"
+    question: "Would this empty state's content still be needed after the first item is added, or does it vanish too soon to matter?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "one-time education vs. persistent guidance"
+    failure_it_catches: "Putting the only explanation of a feature in a state that disappears after the first use."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16045"
+    question: "Is any crucial instruction living only in this empty state, where it disappears once data arrives?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "flow"]
+    stage: "pre-ship"
+    tension: "contextual teaching vs. permanent reference"
+    failure_it_catches: "Users unable to re-find the setup instructions after adding their first record."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16046"
+    question: "Is this empty state teaching, or apologizing?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["screen", "copy"]
+    stage: "post-ship"
+    tension: "acknowledging emptiness vs. using it as product education"
+    failure_it_catches: "'Nothing here yet' occupying the single most attention-rich screen a new user will see."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16047"
+    question: "Where is the education actually happening: in a modal nobody reads, or in the empty state they must pass through?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["flow", "screen"]
+    stage: "exploration"
+    tension: "front-loaded tours vs. in-context learning cues"
+    failure_it_catches: "A five-slide welcome carousel dismissed instantly while the teachable moment goes unwritten."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16048"
+    question: "Does this tooltip explain the control, or just restate its label in longer words?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "help affordance present vs. help actually delivered"
+    failure_it_catches: "Tooltips that expand 'Auto-sync' into 'Automatically synchronize' and teach nothing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16049"
+    question: "Has the onboarding language been checked against what the empty states say six screens later?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "system"]
+    stage: "pre-ship"
+    tension: "polished first-run script vs. the vocabulary of the live product"
+    failure_it_catches: "Onboarding teaching 'projects' while every downstream empty state says 'boards'."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16050"
+    question: "Which of the empty states across this product say the same thing in three different voices?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "post-ship"
+    tension: "per-team authorship vs. one recognizable voice"
+    failure_it_catches: "Three teams each writing a charming empty state, none of which sound like the same product."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16051"
+    question: "Is the illustration here doing the explaining that the sentence should be doing?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen", "component"]
+    stage: "post-ship"
+    tension: "visual charm vs. information carried in words"
+    failure_it_catches: "A beautiful empty state whose meaning disappears entirely for a screen-reader user."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q16052"
+    question: "Does this zero state show what a populated version looks like, or only describe it in words?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "words explaining value vs. showing the end state"
+    failure_it_catches: "Prose describing a dashboard the user cannot picture, so they never populate it."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q16053"
+    question: "What does this empty state assume the user already knows about how the product is organized?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "concise instruction vs. unstated mental model"
+    failure_it_catches: "'Add a source to see results' shown to someone who does not yet know what a source is."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16054"
+    question: "Would a first-run user learn one useful thing from this screen even if they take no action at all?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "call-to-action focus vs. teaching value on a passive read"
+    failure_it_catches: "An empty state that converts or teaches nothing when the user is not ready to act yet."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q16055"
+    question: "Does this empty-state copy name a benefit, or only issue an instruction?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Empty-state and educational copy"
+    secondary_tags: ["copy", "business-model"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "task efficiency vs. motivation to start"
+    failure_it_catches: "'Connect an account' with no reason given, so nobody connects an account."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Designing Empty States in Complex Applications"
+    source_url: "https://www.nngroup.com/articles/empty-state-interface-design/"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16056"
+    question: "Which is on screen: 'That password is too short', or 'Choose a password with at least 8 characters'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "stating the violation vs. stating the rule"
+    failure_it_catches: "Rejection messages that never reveal the requirement, causing repeated failed attempts."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q16057"
+    question: "Whose fault does this error message imply the problem is, and is that attribution accurate?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "naming a cause vs. blaming the person"
+    failure_it_catches: "System-side failures worded as user mistakes, leaving people feeling incompetent for our bug."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q16058"
+    question: "After this error, does the user still have what they typed, or do they type it again?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["flow", "component"]
+    stage: "pre-ship"
+    tension: "clean-slate recovery vs. respecting effort already spent"
+    failure_it_catches: "A validation failure that wipes a long form and converts an annoyance into abandonment."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q16059"
+    question: "Does this error name the fix, or only the failure?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "accurate diagnosis vs. actionable remedy"
+    failure_it_catches: "A precisely worded problem statement that leaves the user with no idea what to do next."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q16060"
+    question: "If words alone cannot make this error acceptable, should the interaction be redesigned instead?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "screen"]
+    stage: "pre-ship"
+    tension: "copy as patch vs. copy as diagnostic of a design flaw"
+    failure_it_catches: "Endless rewriting of a message that only exists because the flow permits an impossible state."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q16061"
+    question: "Does 'Oops' appear here, and what is it doing that a plain sentence would not?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "softening interjection vs. sincerity"
+    failure_it_catches: "Performed cheerfulness on a failure that costs the user real money or real time."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16062"
+    question: "Does this message tell the user their work is safe, when their first fear is that it is not?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "explaining the failure vs. answering the unasked question"
+    failure_it_catches: "A save error that never says whether the previous version survived."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16063"
+    question: "If we genuinely do not know why this failed, does the copy admit it or invent a plausible reason?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy"]
+    stage: "exploration"
+    tension: "appearing competent vs. being honest about uncertainty"
+    failure_it_catches: "A confident but wrong cause that sends users down a fix that cannot possibly work."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16064"
+    question: "Whose name is on this apology: the product's, or a passive construction with no author?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "owning the failure vs. institutional distance"
+    failure_it_catches: "'Your changes weren't saved' where 'We couldn't save your changes' would take responsibility."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16065"
+    question: "Would swapping 'you' for 'we' in this sentence stop the user feeling held responsible?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "direct address vs. distance from blame"
+    failure_it_catches: "'You entered the wrong format' where 'We need this as DD/MM/YYYY' would carry no accusation."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16066"
+    question: "Does this field error state the rule positively, or list what the user must not do?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "accessibility"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "prohibition framing vs. instruction framing"
+    failure_it_catches: "'Do not use numbers or symbols' where 'Use only letters' would be shorter and clearer."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16067"
+    question: "Has anyone watched a two-year customer use this feature and counted their workarounds?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system", "flow"]
+    stage: "post-ship"
+    tension: "testing with new users versus learning from tenured ones"
+    failure_it_catches: "Research programmes that only ever recruit new users, so friction for practised users is never discovered."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Help and Documentation (Usability Heuristic #10)"
+    source_url: "https://www.nngroup.com/articles/help-and-documentation/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16068"
+    question: "Is passive voice here softening a genuinely soft situation, or hiding who did what?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "compassionate distance vs. evasion"
+    failure_it_catches: "'Your account was suspended' used to avoid saying we suspended it, when the user deserves to know."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16069"
+    question: "Is the word 'invalid' in this message, and what would the sentence say without it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "engineering vocabulary vs. non-judgmental plain language"
+    failure_it_catches: "'Invalid name' telling the user they are wrong without telling them what is allowed."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16070"
+    question: "Is there a backup path in the second sentence for when the first fix does not work?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "one confident remedy vs. an escape hatch for the recurring case"
+    failure_it_catches: "Users stuck in a loop retrying the only suggested fix with no route to support."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16071"
+    question: "Is this error a modal because it is severe, or because a modal was the easiest component to reach for?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "flow"]
+    stage: "pre-ship"
+    tension: "guaranteed attention vs. proportionate interruption"
+    failure_it_catches: "Blocking dialogs for recoverable hiccups, training users to dismiss modals unread."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16072"
+    question: "What can a user show someone else after finishing this feature?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["flow", "artifact"]
+    stage: "exploration"
+    tension: "internal completion versus shareable evidence of competence"
+    failure_it_catches: "Work that produces no artifact the user can point at, so nobody talks about the product."
+    provenance: "synthesized"
+    source_publisher: "Joel Hooks"
+    source_title: "Badass: Making Users Awesome (notes on Kathy Sierra)"
+    source_url: "https://joelhooks.com/badass-making-users-awesome-by-kathy-sierra/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16073"
+    question: "Which failure in this flow currently has no copy at all: just a spinner that never resolves?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["flow", "screen"]
+    stage: "pre-ship"
+    tension: "designing states that exist vs. states that only occur in production"
+    failure_it_catches: "An unhandled timeout leaving users staring at an animation with no message ever written."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16074"
+    question: "Which is worse in this context: a premature 'Saved', or an honest 'Saving'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "reassuring speed vs. truthful status"
+    failure_it_catches: "Optimistic confirmation copy that lies when the request later fails silently."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16075"
+    question: "Which validation message here fires before the user has finished typing?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["component", "flow"]
+    stage: "refinement"
+    tension: "real-time guidance vs. premature hostility"
+    failure_it_catches: "An email field flashing red at the third character, making the form feel adversarial."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16076"
+    question: "Does this error explain what happens if the user does nothing at all?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "prompting action vs. describing consequences of inaction"
+    failure_it_catches: "Users dismissing a warning without knowing that ignoring it loses their draft."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16077"
+    question: "Has the copy for a full outage been written before the day of the outage?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "long-term"]
+    applies_to: ["system", "copy"]
+    stage: "concept"
+    tension: "improvising under pressure vs. pre-authored crisis language"
+    failure_it_catches: "Status-page copy drafted at 2am by whoever is awake, in a voice nobody approved."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16078"
+    question: "How far is this message from the thing that went wrong, in pixels and in scroll distance?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "a single consolidated error summary vs. errors adjacent to their cause"
+    failure_it_catches: "A banner at the top of a long form while the offending field sits three screens down."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16079"
+    question: "How many words of this error are technical detail the user cannot act on?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "diagnostic completeness vs. scannable brevity"
+    failure_it_catches: "A stack-trace fragment shipped to end users as the entire explanation."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16080"
+    question: "If a user gets this wrong, does the interface make them feel careless or does it take responsibility?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["accessibility", "copy", "trust"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "clear correction vs blame in the wording"
+    failure_it_catches: "Error copy that reads as a scolding to someone already anxious."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "UK Home Office accessibility posters"
+    source_url: "https://ukhomeoffice.github.io/accessibility-posters/posters/accessibility-posters.pdf"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16081"
+    question: "Is the severity of this warning proportionate, or has everything in the product escalated to red?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "post-ship"
+    tension: "urgency for this message vs. the credibility of all messages"
+    failure_it_catches: "Alert fatigue where the one genuinely dangerous warning looks like the other forty."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16082"
+    question: "Is the title of this error understandable read entirely alone, without the body text?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "title as label vs. title as complete message"
+    failure_it_catches: "Titles like 'Something happened' that carry no meaning for someone who scans only headings."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16083"
+    question: "Is this error teaching something that prevents recurrence, or just clearing the screen?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "long-term"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "fastest dismissal vs. durable understanding"
+    failure_it_catches: "The same user hitting the same avoidable error weekly because nothing explained the cause."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16084"
+    question: "Reading only this message, would a user know whether to retry, wait, or contact support?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "vague reassurance vs. a specific next move"
+    failure_it_catches: "'Something went wrong. Try again later.' generating a support ticket instead of a retry."
+    provenance: "synthesized"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16085"
+    question: "What feature shows high adoption in week one and near-zero use by month three?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "activation success versus durable value"
+    failure_it_catches: "Counting an onboarding step as a win when the behaviour never becomes a habit."
+    provenance: "synthesized"
+    source_publisher: "Skilljar"
+    source_title: "How In-App Guidance Complements Customer Education"
+    source_url: "https://www.skilljar.com/blog/better-together-how-in-app-guidance-complements-customer-education"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16086"
+    question: "Does this message distinguish 'you cannot do this' from 'you cannot do this yet'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "one denial string vs. permanent versus temporary states"
+    failure_it_catches: "Users abandoning a workflow they were seconds away from being allowed to complete."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16087"
+    question: "Has the offline state been written, or does the online copy simply fail in place?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["screen", "flow"]
+    stage: "pre-ship"
+    tension: "connected-happy-path assumptions vs. real network conditions"
+    failure_it_catches: "A commuter on a train seeing a generic failure instead of 'You are offline. We will retry.'"
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16088"
+    question: "How does this message read to someone already on their third support ticket this week?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "message-in-isolation review vs. cumulative user history"
+    failure_it_catches: "Cheerful recovery copy that reads as mockery to a customer already at their limit."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16089"
+    question: "Would a support agent reading this message alone know which system failed?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["copy", "system"]
+    stage: "pre-ship"
+    tension: "user-facing simplicity vs. diagnosability downstream"
+    failure_it_catches: "Identical 'Something went wrong' copy for six distinct failures, making triage impossible."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16090"
+    question: "Would this error read as an accusation if it appeared three times in a row?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "single-instance tone vs. cumulative effect"
+    failure_it_catches: "Neutral-sounding copy that becomes hectoring under repetition nobody tested for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16091"
+    question: "How many words is this error title, and could it survive at four?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "descriptive completeness vs. scannable length"
+    failure_it_catches: "A twelve-word title that wraps to three lines on mobile and is skipped entirely."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q16092"
+    question: "At what error rate does an apologetic, friendly tone start reading as sarcasm?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Error and failure copy"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "warmth vs. credibility under repetition"
+    failure_it_catches: "A cheerful 'Oops!' shown to a developer for the ninetieth time in an outage."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Smashing Magazine - Designing Better Error Messages UX"
+    source_url: "https://www.smashingmagazine.com/2022/08/error-messages-ux-design/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16093"
+    question: "Does this friction fall hardest on the users with the least bandwidth to absorb it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "accessibility"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "uniform process vs. unequal burden"
+    failure_it_catches: "An evidence-upload requirement that filters out exactly the applicants the service exists to help."
+    provenance: "sourced"
+    source_publisher: "The Decision Lab"
+    source_title: "Sludge audits and unequal impact"
+    source_url: "https://thedecisionlab.com/reference-guide/psychology/sludge"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q16094"
+    question: "Has the friendly rewrite of this disclosure quietly become misleading?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "warmth vs. truthfulness under scrutiny"
+    failure_it_catches: "Softening 'we share data with partners' into something a regulator would call inaccurate."
+    provenance: "synthesized"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing Legal Content"
+    source_url: "https://styleguide.mailchimp.com/writing-legal-content/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q16095"
+    question: "Has the plain-language rewrite of this clause changed what it actually permits?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy", "artifact"]
+    stage: "pre-ship"
+    tension: "readability vs. legal accuracy"
+    failure_it_catches: "A friendlier paraphrase that narrows or widens a right without anyone in legal noticing."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing Legal Content"
+    source_url: "https://styleguide.mailchimp.com/writing-legal-content/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q16096"
+    question: "Is the opt-out written with the same clarity and prominence as the opt-in?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "accessibility"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "conversion incentive vs. symmetrical choice"
+    failure_it_catches: "A bold 'Yes, keep me updated' beside a faint, wordier decline that users cannot parse."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16097"
+    question: "Which word here is 'must', and is that obligation actually a legal one?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "concept"
+    tension: "emphasis for compliance vs. accuracy about consequences"
+    failure_it_catches: "'Must' applied to a product preference, devaluing it where a real legal duty exists."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16098"
+    question: "Which words in this fraud alert would a scammer's message also use?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "urgency that prompts action vs. sounding like the attack itself"
+    failure_it_catches: "Legitimate security copy indistinguishable from phishing, so users learn to ignore both."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16099"
+    question: "Would a user summarizing this permission dialog back to us get it right?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "concise request vs. accurate mental model of what is granted"
+    failure_it_catches: "Consent obtained for something the user believed was narrower than what we actually take."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16100"
+    question: "Does this copy inform about a legal issue, or cross into giving the user legal advice?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "being genuinely helpful vs. assuming liability"
+    failure_it_catches: "Helpful microcopy telling a small business what they are allowed to do, and being wrong."
+    provenance: "synthesized"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing Legal Content"
+    source_url: "https://styleguide.mailchimp.com/writing-legal-content/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16101"
+    question: "Does this delete confirmation state what is lost and whether it can be recovered?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "post-ship"
+    tension: "dialog brevity vs. irreversibility"
+    failure_it_catches: "'Are you sure?' with no statement that there is no undo and no backup."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16102"
+    question: "Does this incident message say what we know, what we do not, and when we will speak again?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "enterprise"]
+    applies_to: ["copy", "artifact"]
+    stage: "post-ship"
+    tension: "saying less to limit exposure vs. saying enough to keep trust"
+    failure_it_catches: "A status update that reassures without committing to a next update, so customers keep refreshing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16103"
+    question: "Has this security warning been written for someone who is being actively phished right now?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "generic caution vs. copy that works under active manipulation"
+    failure_it_catches: "A warning worded so abstractly that a user mid-scam reads straight past it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16104"
+    question: "Is 'need' the right word for this step, or does the consequence of skipping it justify 'must'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "refinement"
+    tension: "administrative requirement vs. legal requirement"
+    failure_it_catches: "Blurring a procedural step with a statutory one so users cannot judge the risk of skipping."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16105"
+    question: "Is the appeal path stated in the same message as the rejection, or one support search away?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "exploration"
+    tension: "finality of the decision vs. the user's right to contest it"
+    failure_it_catches: "A rejection that terminates the conversation, forcing users to social media to be heard."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16106"
+    question: "Is the cost stated in the same sentence as the commitment, or one scroll below it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "business-model"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "conversion smoothness vs. informed consent"
+    failure_it_catches: "A subscribe button where the recurring price only appears after the tap."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16107"
+    question: "Which euphemism here is standing in for 'we will charge your card'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "business-model"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "smooth commercial language vs. plain statement of a debit"
+    failure_it_catches: "'Continue to premium' hiding an immediate charge behind a neutral verb."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16108"
+    question: "Which risk is named in this confirmation, and which one did we leave to the user to infer?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "brevity in a dialog vs. full disclosure of consequences"
+    failure_it_catches: "A delete confirmation naming the file count but not that shared links will break for others."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16109"
+    question: "Which sentence on this consent screen is legally required, and which did we add to sound reassuring?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "legal obligation vs. persuasive framing"
+    failure_it_catches: "Comfort language padding a consent flow so the actual disclosure gets skimmed past."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16110"
+    question: "Are these terms written as 'we' and 'you', or as 'the Corporation' and 'the User'?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "artifact"]
+    stage: "exploration"
+    tension: "formal definitional style vs. comprehension by the person bound by it"
+    failure_it_catches: "Terms nobody reads because the parties are named in a way that hides who is who."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing Legal Content"
+    source_url: "https://styleguide.mailchimp.com/writing-legal-content/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16111"
+    question: "Does this consent banner describe what we actually do, or only what the law requires us to say?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "compliance minimum vs. honest description"
+    failure_it_catches: "Boilerplate consent language that technically complies and leaves users materially misinformed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16112"
+    question: "Has anyone written what this product says when it must refuse a user on policy grounds?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "ai-native"]
+    applies_to: ["copy", "flow"]
+    stage: "exploration"
+    tension: "enforcing policy vs. treating the person as legitimate"
+    failure_it_catches: "A blunt refusal with no reason and no route, read as an accusation of wrongdoing."
+    provenance: "synthesized"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Generative AI"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/generative-ai"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16113"
+    question: "Which number in this pricing sentence will users misread, and have we checked which one they quote back?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["business-model", "trust"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "compact pricing copy vs. unambiguous arithmetic"
+    failure_it_catches: "'$12/user/mo billed annually' generating refund requests from people who expected $12 monthly."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16114"
+    question: "Would this copy about our data use survive being quoted in a news article?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy", "brand"]
+    stage: "pre-ship"
+    tension: "internal comfort vs. external scrutiny"
+    failure_it_catches: "Phrasing that reads fine in review and damning in a headline."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16115"
+    question: "Does 'can' in this sentence mean permitted, or capable?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["copy", "i18n"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "conversational modal verbs vs. unambiguous permission"
+    failure_it_catches: "'You can export your data' read as a right when it is a technical possibility subject to plan limits."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16116"
+    question: "Is 'permanently' in this sentence doing real work, or is it decoration on a reversible action?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "deterrent language vs. accuracy about what is recoverable"
+    failure_it_catches: "Crying wolf with 'permanent' on soft deletes, so the word means nothing at the real one."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16117"
+    question: "Do the contractions in this agreement make it friendlier without making it weaker?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "artifact"]
+    stage: "pre-ship"
+    tension: "human register vs. perceived enforceability"
+    failure_it_catches: "Legal teams rejecting plain language wholesale because nobody established that contractions are fine."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing Legal Content"
+    source_url: "https://styleguide.mailchimp.com/writing-legal-content/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16118"
+    question: "How long does the user have to change their mind, and does any copy say so?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Legal and high-stakes copy"
+    secondary_tags: ["trust", "business-model"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "clean commitment vs. stated reversibility window"
+    failure_it_catches: "A cancellation grace period that exists in policy but is invisible at the moment of anxiety."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16119"
+    question: "Are we writing plainly by choice, or did a specialist audience become the excuse to stop?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy", "system"]
+    stage: "concept"
+    tension: "respecting expertise vs. the evidence that specialists prefer plain English"
+    failure_it_catches: "Dense copy justified by 'our users are professionals', which the research contradicts."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q16120"
+    question: "How much longer does this sentence get in French, and does the container still hold it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "English-optimized layout vs. expansion headroom"
+    failure_it_catches: "Cards and buttons designed to the English string length and broken in every Romance locale."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16121"
+    question: "Is there a negative contraction in this warning that a stressed reader could invert?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "conversational rhythm vs. unmisreadable negation"
+    failure_it_catches: "'Don't submit until verified' read as its opposite by someone skimming under pressure."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16122"
+    question: "Which string in this flow is assembled from fragments, and how will it read in a verb-final language?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["system", "copy"]
+    stage: "pre-ship"
+    tension: "engineering convenience of concatenation vs. grammatical integrity"
+    failure_it_catches: "Sentences stitched from variables that become nonsense once word order changes."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16123"
+    question: "Would this content still be understandable to a reader with a low reading age on their worst day?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["copy", "flow"]
+    stage: "pre-ship"
+    tension: "average-case writing vs. worst-case reading conditions"
+    failure_it_catches: "Critical eligibility copy written for a calm, literate reader with time to spare."
+    provenance: "sourced"
+    source_publisher: "Home Office User-Centred Design Manual"
+    source_title: "Readability"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/written-content/readability"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q16124"
+    question: "Does 'utilise', 'facilitate', or 'streamline' appear anywhere in this flow, and what specific thing does each replace?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "system"]
+    stage: "exploration"
+    tension: "professional-sounding vocabulary vs. saying what happens"
+    failure_it_catches: "Buzzwords that survive review because they sound competent and describe nothing."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "A to Z style guide"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16125"
+    question: "Does this copy assume a date format, a currency, or a name order that only holds in one country?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "concrete formatting vs. locale-independent phrasing"
+    failure_it_catches: "'03/04' meaning two different dates to two customers reading the same confirmation."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16126"
+    question: "Is this idiom carrying meaning, or is it decoration a translator will have to invent around?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "copy"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "voice in English vs. translatability"
+    failure_it_catches: "An idiom that becomes an unrelated literal phrase in every localized build."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16127"
+    question: "What reading level is this paragraph, and was that level chosen or simply inherited from whoever wrote it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "practised register vs. a deliberate comprehension target"
+    failure_it_catches: "Copy pitched at the writer's vocabulary rather than at a stated benchmark anyone can check."
+    provenance: "synthesized"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16128"
+    question: "Which metaphor in this copy would slow comprehension for someone reading in their third language?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "accessibility"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "vivid writing vs. literal comprehension"
+    failure_it_catches: "'Drive adoption' or 'move the needle' shipping into a product used in forty countries."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "A to Z style guide"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q16129"
+    question: "Are amounts here written as symbols, and which of them will a reader outside the US misread?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "compact symbols vs. unambiguous currency"
+    failure_it_catches: "'$25' read as Canadian or Australian dollars by customers who are charged in USD."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16130"
+    question: "Does this specialist term stay because users need it, or because cutting it feels like dumbing down?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy"]
+    stage: "exploration"
+    tension: "professional credibility vs. comprehension"
+    failure_it_catches: "Jargon retained for the team's self-image rather than the reader's need."
+    provenance: "sourced"
+    source_publisher: "Home Office User-Centred Design Manual"
+    source_title: "Readability"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/written-content/readability"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16131"
+    question: "Which acronym here is defined at the start of the journey but not on the page users actually land on?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow", "copy"]
+    stage: "exploration"
+    tension: "define-once economy vs. non-linear entry points"
+    failure_it_catches: "Deep-linked users landing mid-flow on an undefined acronym they never saw expanded."
+    provenance: "synthesized"
+    source_publisher: "Home Office User-Centred Design Manual"
+    source_title: "Readability"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/written-content/readability"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16132"
+    question: "Which culturally specific example did we use here, and what does it become in Brazil?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "concrete relatable examples vs. regional legibility"
+    failure_it_catches: "Sample data and analogies drawn from one country's tax system, meaningless elsewhere."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16133"
+    question: "Which sentence here runs past 25 words, and can it split without losing the condition it carries?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["copy"]
+    stage: "concept"
+    tension: "conditional precision vs. sentence length"
+    failure_it_catches: "A single long sentence bundling eligibility, deadline, and consequence that nobody parses."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16134"
+    question: "Has this screen been run through a readability check, and did we accept the score or argue with it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "formula-driven scoring vs. contextual judgment"
+    failure_it_catches: "Either ignoring readability entirely, or gaming a formula into choppy, meaningless sentences."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "Readability"
+    source_url: "https://contentdesign.intuit.com/accessibility-and-inclusion/readability/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16135"
+    question: "Is the humor in this string localizable, or will it flatten into a literal sentence in nine languages?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["copy", "brand"]
+    stage: "pre-ship"
+    tension: "distinctive voice vs. globally consistent experience"
+    failure_it_catches: "A product that is funny in English and flatly bureaucratic in every other market."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16136"
+    question: "Is the important information in the first sentence, or after the throat-clearing?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "narrative build-up vs. front-loaded priority"
+    failure_it_catches: "The deadline buried in sentence three, after two sentences of context nobody reads."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Accessibility"
+    source_url: "https://styleguide.mailchimp.com/writing-for-accessibility/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16137"
+    question: "Which -ing word here could be read as a gerund, an adjective, or a command?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "compact English vs. grammatical clarity for translators"
+    failure_it_catches: "A tab labelled 'Reporting' that translators render as an instruction in half the locales."
+    provenance: "synthesized"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16138"
+    question: "Which noun ending in -ion or -ment here is hiding a perfectly good verb?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "formal register vs. direct action language"
+    failure_it_catches: "'Complete the verification of your account' where 'Verify your account' would do."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16139"
+    question: "Would a translator replace this pun or preserve it, and did anyone tell them which?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["copy", "artifact"]
+    stage: "pre-ship"
+    tension: "brand wordplay vs. localization instructions"
+    failure_it_catches: "A signature joke translated literally into nine languages where it is simply confusing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16140"
+    question: "Does this sentence follow subject-verb-object order, or was it rearranged for rhythm?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "cadence vs. structural translatability"
+    failure_it_catches: "An inverted clause that reads elegantly in English and ambiguously everywhere else."
+    provenance: "synthesized"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16141"
+    question: "Has the verb tense here been kept simple, or does a progressive form add length without meaning?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "natural speech vs. processing speed and translation cost"
+    failure_it_catches: "'You'll be receiving a confirmation' where 'We'll email you' is shorter and clearer."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16142"
+    question: "Is the style guide the source of truth here, or is the shipped string?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "documented standard vs. accumulated production reality"
+    failure_it_catches: "A guide nobody follows, so every review re-litigates decisions already written down."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16143"
+    question: "Which stakeholder believes plain language insults our users, and has anyone shown them the reading research?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["enterprise", "accessibility"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "perceived sophistication vs. measured comprehension"
+    failure_it_catches: "A simplification effort blocked by seniority rather than evidence."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use clear language"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16144"
+    question: "Has anyone read this product in a right-to-left script, or only in mirrored mockups?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["system", "screen"]
+    stage: "pre-ship"
+    tension: "layout mirroring vs. reading the actual sentences"
+    failure_it_catches: "RTL builds where the layout flips correctly and the copy still assumes left-to-right reading order."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q16145"
+    question: "How many screens need re-approval if we change this one term across the product?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["enterprise", "long-term"]
+    applies_to: ["system", "artifact"]
+    stage: "concept"
+    tension: "terminology improvement vs. rework cost"
+    failure_it_catches: "A known-bad term surviving indefinitely because nobody scoped what changing it costs."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16146"
+    question: "Which sentence here front-loads the condition when the action should come first?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["copy"]
+    stage: "concept"
+    tension: "logical order vs. scanning order"
+    failure_it_catches: "'If you have completed step two and hold a business account, click Continue' losing the reader before the verb."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16147"
+    question: "Which word here means something unfortunate in another market we already sell into?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Plain language, translation and copy at scale"
+    secondary_tags: ["i18n", "brand"]
+    applies_to: ["copy", "brand"]
+    stage: "pre-ship"
+    tension: "English-first naming vs. global exposure"
+    failure_it_catches: "A feature name that has to be renamed post-launch after a regional team flags it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q16148"
+    question: "Is the camera running continuously here, and what did that buy relative to what it costs in battery and trust?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["ethics", "performance"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "ambient context vs. power draw and surveillance perception"
+    failure_it_catches: "An always-watching assistant that halves battery life and makes the wearer socially radioactive."
+    provenance: "sourced"
+    source_publisher: "Android AI Glasses"
+    source_title: "AI patterns"
+    source_url: "https://developer.android.com/design/ui/ai-glasses/guides/interaction/ai-patterns"
+    seniority: "director"
+    confidence: 0.89
+  - id: "Q16149"
+    question: "Where does 'please' appear in this flow, and is it making a required step sound optional?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "post-ship"
+    tension: "politeness vs. clarity of obligation"
+    failure_it_catches: "Users skipping a mandatory verification step because 'Please verify' read as a suggestion."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q16150"
+    question: "Will this joke still be funny on the fourth time someone hits this error?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "delight on first encounter vs. rage on repeat"
+    failure_it_catches: "A stale joke attached to an error users hit repeatedly, amplifying frustration."
+    provenance: "sourced"
+    source_publisher: "Nielsen Norman Group"
+    source_title: "Error-Message Guidelines"
+    source_url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q16151"
+    question: "Has 'sorry' been used here in a way that makes the problem sound worse than it actually is?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "empathy vs. proportionate severity"
+    failure_it_catches: "An apology on a recoverable hiccup that makes users think their data is gone."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Error messages"
+    source_url: "https://atlassian.design/foundations/content/designing-messages/error-messages"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16152"
+    question: "Who reads this string most often, and does the tone survive the hundredth reading?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "first-encounter charm vs. repeat-exposure fatigue"
+    failure_it_catches: "A witty empty-state line that daily users see forty times a week and come to resent."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16153"
+    question: "Is the friendliness in this sentence costing precision, and can you name exactly what it cost?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "warmth vs. incisiveness"
+    failure_it_catches: "Conversational padding that turns a specific instruction into a vague suggestion."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use the right tone"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16154"
+    question: "What is the user's emotional state on this exact screen, and does the copy assume a different one?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "authored intent vs. arrival state"
+    failure_it_catches: "Upbeat copy on a screen users only reach after something failed."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16155"
+    question: "When money is at stake on this screen, has the personality been pulled back, or is the copy still doing bits?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "business-model"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "brand distinctiveness vs. financial seriousness"
+    failure_it_catches: "Levity in a payment or tax flow where users are already anxious and read jokes as carelessness."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "AI voice and tone"
+    source_url: "https://contentdesign.intuit.com/ai/voice-tone/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16156"
+    question: "Which setting takes effect only on next launch, and does the interface admit that or pretend it is instant?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "desktop"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "uniform instant-apply appearance vs. honest latency"
+    failure_it_catches: "A user toggling a setting repeatedly because nothing changed and nothing said to restart."
+    provenance: "synthesized"
+    source_publisher: "Chromium"
+    source_title: "Preferences and policies"
+    source_url: "https://www.chromium.org/chromium-os/developer-library/guides/preferences/policy-prefs/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q16157"
+    question: "How does this screen behave for someone arriving straight from the interactive demo and expecting the identical layout?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust"]
+    applies_to: ["screen", "flow"]
+    stage: "refinement"
+    tension: "demo fidelity vs. product reality"
+    failure_it_catches: "A prospect who memorised the demo's button placement and cannot find it in the real app."
+    provenance: "synthesized"
+    source_publisher: "Navattic"
+    source_title: "Sandbox Demos"
+    source_url: "https://www.navattic.com/blog/what-is-a-sandbox-demo"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16158"
+    question: "Is the wink in this copy landing on a success moment, or on someone who is currently blocked?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["copy", "component"]
+    stage: "post-ship"
+    tension: "brand levity vs. user frustration"
+    failure_it_catches: "A playful aside attached to the message telling someone their upload failed."
+    provenance: "sourced"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16159"
+    question: "Was this joke reached for, or did it arrive, and can you tell the difference reading the line cold?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "brand obligation to be funny vs. humor that earns its place"
+    failure_it_catches: "Forced humor inserted to satisfy a voice guideline, which reads worse than plain copy."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Voice and Tone"
+    source_url: "https://styleguide.mailchimp.com/voice-and-tone/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16160"
+    question: "Which laugh are we buying here, and what does it cost in comprehension for a non-native reader?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["i18n", "accessibility"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "wordplay vs. global comprehension"
+    failure_it_catches: "A pun that carries the whole meaning of a button and dies in every other language."
+    provenance: "synthesized"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q16161"
+    question: "Which screens in this flow deserve celebration, and where would celebration read as tone-deaf?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "consistent enthusiasm vs. situational restraint"
+    failure_it_catches: "Confetti language on a screen that follows a data loss or a downgrade."
+    provenance: "sourced"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Tone"
+    source_url: "https://design.duolingo.com/writing/tone"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16162"
+    question: "Which word describes this sentence (brisk, or terse) and did anyone choose between them?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "economy vs. coldness"
+    failure_it_catches: "Ruthless trimming that lands on curt instructions users experience as hostile."
+    provenance: "sourced"
+    source_publisher: "GOV.UK content and publishing guidance"
+    source_title: "Use the right tone"
+    source_url: "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q16163"
+    question: "At what point in this flow should the tone stop being encouraging and start being precise?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "warmth vs. exactness when stakes rise"
+    failure_it_catches: "Encouraging language carried into an irreversible step, softening what should be unambiguous."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16164"
+    question: "How many exclamation points survive in this flow, and does each one sit on a genuine win?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "post-ship"
+    tension: "energy vs. credibility"
+    failure_it_catches: "Exclamation inflation that makes the one real success moment indistinguishable from routine confirmations."
+    provenance: "sourced"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Tone"
+    source_url: "https://design.duolingo.com/writing/tone"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16165"
+    question: "How would this copy read to someone whose account was just suspended?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "refinement"
+    tension: "explaining fault vs. giving the person a way forward"
+    failure_it_catches: "Copy that assigns blame at the exact moment the user most needs a next step."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q16166"
+    question: "Where does our tone assume the user chose to be here, when they were actually assigned this tool by their employer?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "concept"
+    tension: "consumer enthusiasm vs. mandated-software reality"
+    failure_it_catches: "Excited onboarding copy for people who have no say in using the product at all."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q16167"
+    question: "Which cultural reference in this string will be stale in eighteen months, and who owns removing it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["long-term", "i18n"]
+    applies_to: ["copy", "system"]
+    stage: "pre-ship"
+    tension: "topical resonance now vs. maintenance debt later"
+    failure_it_catches: "A meme reference frozen into a shipped string with no owner and no expiry date."
+    provenance: "synthesized"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Writing for Translation"
+    source_url: "https://styleguide.mailchimp.com/writing-for-translation/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16168"
+    question: "Which sentence here would we be embarrassed to see screenshotted next to a one-star review?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "brand"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "playfulness vs. worst-case reading"
+    failure_it_catches: "A jokey line that becomes evidence of indifference when a customer is genuinely harmed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16169"
+    question: "Would you say this sentence out loud to a customer standing in front of you?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "written formality vs. spoken naturalness"
+    failure_it_catches: "Copy like 'All pending items have been processed' that no human would ever say aloud."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "Our principles"
+    source_url: "https://contentdesign.intuit.com/style-and-usage/our-principles"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q16170"
+    question: "Does the humor here punch at the product, at the situation, or at the user?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["ethics", "copy"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "self-deprecating charm vs. copy that mocks the person"
+    failure_it_catches: "A 'nice try' style joke that lands as ridicule for someone who just made a mistake."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16171"
+    question: "Does this screen's tone match the physical situation: someone walking, driving, or sitting in a waiting room?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["mobile", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "desk-written copy vs. real reading conditions"
+    failure_it_catches: "Three-sentence guidance written at a desk and read one-handed on a train platform."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16172"
+    question: "Has anyone written the tone for the moment a user is leaving: cancellation, deletion, export?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "business-model"]
+    applies_to: ["flow", "copy"]
+    stage: "exploration"
+    tension: "retention pressure vs. dignified exit"
+    failure_it_catches: "A cancellation screen that guilt-trips and becomes the last thing the user remembers."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16173"
+    question: "Has the tone shift between the marketing page and the first product screen been designed, or did it just happen at the handoff?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "business-model"]
+    applies_to: ["flow", "brand"]
+    stage: "pre-ship"
+    tension: "acquisition energy vs. product plainness"
+    failure_it_catches: "Users arriving from a warm landing page into a cold, systems-language dashboard."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16174"
+    question: "Is the eccentricity here weird but not inappropriate, or has it crossed into something support will have to explain?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy", "brand"]
+    stage: "pre-ship"
+    tension: "distinctive strangeness vs. confusion cost"
+    failure_it_catches: "An oblique joke in a button label that generates support tickets asking what it means."
+    provenance: "sourced"
+    source_publisher: "Mailchimp Content Style Guide"
+    source_title: "Voice and Tone"
+    source_url: "https://styleguide.mailchimp.com/voice-and-tone/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16175"
+    question: "Is this playfulness clever in quick doses, or is it a bit that runs the length of the screen?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "personality vs. reading time"
+    failure_it_catches: "Three sentences of voice where one sentence of information was needed."
+    provenance: "sourced"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16176"
+    question: "Where does delight here become a small flourish rather than a joke, and is a flourish enough?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "comedy vs. quiet warmth"
+    failure_it_catches: "Reaching for jokes when a single well-chosen verb would have carried the same warmth."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16177"
+    question: "Which sentence here reads as necessary to a first-timer and condescending to a power user, and who actually sees it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "onboarding hand-holding vs. practised respect"
+    failure_it_catches: "Explanatory microcopy shipped to an audience that is 90% returning admins."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q16178"
+    question: "Would this cheerful confirmation still land if the user arrived here after failing three times?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "single happy path vs. the path most users take"
+    failure_it_catches: "Success copy written for the first attempt and read mostly on the fourth."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Tone"
+    source_url: "https://design.duolingo.com/writing/tone"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16179"
+    question: "Does this copy dial down when someone is new, or stay confident because confidence is the brand?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "brand boldness vs. newcomer uncertainty"
+    failure_it_catches: "Assertive voice applied to a trial user who has no context and reads it as pressure."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q16180"
+    question: "Has anyone outside our office read this and said whether it lands as charming or as smug?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy", "brand"]
+    stage: "pre-ship"
+    tension: "insider delight vs. outsider perception"
+    failure_it_catches: "A voice the team loves that reads to customers as self-satisfied."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q16181"
+    question: "What would this voice sound like if the company doubled in seriousness, and is that version already needed?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["long-term", "brand"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "startup irreverence vs. the enterprise buyer arriving next year"
+    failure_it_catches: "A voice tuned to early adopters that reads as unserious to the customers now signing contracts."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q16182"
+    question: "Which moment in this flow makes users angriest, and who wrote the string they see there?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "pre-ship"
+    tension: "attention on happy paths vs. attention where emotion peaks"
+    failure_it_catches: "The highest-stakes sentence in the product being the only one nobody reviewed."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q16183"
+    question: "Is the mascot's voice separate from the product's voice, and can the user tell which one is speaking?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["brand", "copy"]
+    stage: "exploration"
+    tension: "character charm vs. institutional credibility"
+    failure_it_catches: "A mascot delivering a billing failure notice, undermining the seriousness of the message."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q16184"
+    question: "What does this product sound like at 3am when something has gone badly wrong?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "flow"]
+    stage: "exploration"
+    tension: "daylight brand voice vs. crisis register"
+    failure_it_catches: "No one having authored the crisis register, so incident copy is improvised under pressure."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16185"
+    question: "Would this copy read the same way to a 19-year-old and a 55-year-old first-time user, and which did we write for?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["copy", "brand"]
+    stage: "refinement"
+    tension: "generational idiom vs. broad legibility"
+    failure_it_catches: "Slang that signals belonging to one cohort and alienates the segment actually paying."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16186"
+    question: "If the same sentence appears in onboarding and in a billing failure, should it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["copy", "system"]
+    stage: "post-ship"
+    tension: "string reuse efficiency vs. context-appropriate tone"
+    failure_it_catches: "A shared string tuned for welcome that reads as flippant when payment declines."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16187"
+    question: "Which context here justifies a longer sentence, and which one deserves three words?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "uniform brevity rule vs. contextual sufficiency"
+    failure_it_catches: "A blanket word limit that starves a consequential decision of the context it needs."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Product content design"
+    source_url: "https://contentdesign.intuit.com/product-and-ui/product-content-design"
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16188"
+    question: "Which line in this flow applies pressure, and does it end on warmth or leave the user squirming?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["flow", "copy"]
+    stage: "pre-ship"
+    tension: "motivating guilt vs. manipulation"
+    failure_it_catches: "Streak-loss or nudge copy that pressures without the closing beat that makes it affectionate."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Tone"
+    source_url: "https://design.duolingo.com/writing/tone"
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q16189"
+    question: "Has the humor been placed where users have time to enjoy it, or where they are trying to leave?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["flow", "copy"]
+    stage: "post-ship"
+    tension: "brand moments vs. task velocity"
+    failure_it_catches: "Wit inserted into a high-frequency utility path where every extra word is friction."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q16190"
+    question: "What percentage of this screen's words exist for personality rather than for the task?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "post-ship"
+    tension: "brand expression vs. task completion"
+    failure_it_catches: "A modal where the personality line is longer than the instruction it precedes."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q16191"
+    question: "Would deleting the funny line change anything except our own enjoyment of it?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Tone by context and humor"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["copy"]
+    stage: "pre-ship"
+    tension: "writerly attachment vs. user value"
+    failure_it_catches: "Keeping a line because the team likes it, not because it does anything for the reader."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.77
+  - id: "Q16192"
+    question: "Is the 'we' in this message a team, a company, or nobody, and would 'Unable to load' be clearer?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "warm first person vs. unambiguous attribution"
+    failure_it_catches: "Error copy saying 'We're having trouble' when the user cannot tell who 'we' is or what failed."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q16193"
+    question: "Has anyone written down what our voice is not, or does the guide only list flattering adjectives?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "positive traits vs. explicit anti-patterns"
+    failure_it_catches: "A voice guide where 'playful' has no boundary, so every writer picks a different edge of it."
+    provenance: "sourced"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q16194"
+    question: "Are we writing as a guide who keeps the user the hero, or as the authority who is the hero?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "concept"
+    tension: "demonstrating expertise vs. centering the user"
+    failure_it_catches: "Copy that showcases how clever the system is rather than what the person just accomplished."
+    provenance: "sourced"
+    source_publisher: "Intuit Content Design"
+    source_title: "AI voice and tone"
+    source_url: "https://contentdesign.intuit.com/ai/voice-tone/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q16195"
+    question: "What does this product's voice sound like at its most restrained, and has anyone written that version down?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand", "system"]
+    stage: "concept"
+    tension: "expressive brand vs. the moments that need it muted"
+    failure_it_catches: "Writers with only the loud version of the voice, applying it to a failed payment."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q16196"
+    question: "Where in this product does our voice have to disappear entirely, and is that boundary written anywhere?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "trust"]
+    applies_to: ["system", "flow"]
+    stage: "exploration"
+    tension: "consistent personality vs. contexts that reject it"
+    failure_it_catches: "Brand voice bleeding into a security warning where only plainness is appropriate."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q16197"
+    question: "Which three words define this product's voice, and would a stranger reading only our error messages guess any of them?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy", "system"]
+    stage: "concept"
+    tension: "aspirational voice deck vs. the strings that actually ship"
+    failure_it_catches: "A voice defined in marketing copy that never reaches the 400 utility strings users read most."
+    provenance: "synthesized"
+    source_publisher: "Atlassian Design System"
+    source_title: "Voice and tone"
+    source_url: "https://atlassian.design/foundations/content/voice-tone"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q16198"
+    question: "Are the possessive pronouns here earning their space, or would 'Favorites' say what 'Your Favorites' says?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "felt ownership vs. economy"
+    failure_it_catches: "Nav labels padded with 'my' and 'your' that break under translation and add nothing."
+    provenance: "sourced"
+    source_publisher: "Apple Human Interface Guidelines"
+    source_title: "Writing"
+    source_url: "https://developer.apple.com/design/human-interface-guidelines/writing"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q16199"
+    question: "Is the voice described in the brand deck the voice actually shipping in the settings pages?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["system", "screen"]
+    stage: "post-ship"
+    tension: "front-door polish vs. back-room neglect"
+    failure_it_catches: "A distinctive homepage voice and a generic, machine-translated-sounding settings tree."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "Product content design"
+    source_url: "https://contentdesign.intuit.com/product-and-ui/product-content-design"
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q16200"
+    question: "Did anyone decide whether this product refers to itself by name or as 'we', or does the flow do both?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["flow", "system"]
+    stage: "pre-ship"
+    tension: "brand-name recall vs. conversational brevity"
+    failure_it_catches: "A single screen where the product is named twice and then becomes 'we' with no rule behind it."
+    provenance: "sourced"
+    source_publisher: "Shopify"
+    source_title: "App design guidelines: Content"
+    source_url: "https://shopify.dev/docs/apps/design/content"
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q16201"
+    question: "Has the voice been defined as a personality, or as a character who wants something from the user?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand", "copy"]
+    stage: "concept"
+    tension: "adjective list vs. a speaker with motive"
+    failure_it_catches: "Copy that is 'friendly' in the abstract and therefore identical to everyone else's friendly copy."
+    provenance: "synthesized"
+    source_publisher: "Duolingo Brand Guidelines"
+    source_title: "Voice"
+    source_url: "https://design.duolingo.com/writing/voice"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16202"
+    question: "How many voices does this product actually have, and can you name the boundary between them?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "ai-native"]
+    applies_to: ["system", "brand"]
+    stage: "exploration"
+    tension: "one house voice vs. distinct assistant and product voices"
+    failure_it_catches: "An AI assistant and the surrounding UI speaking in the same register, so users cannot tell who is answering."
+    provenance: "synthesized"
+    source_publisher: "Intuit Content Design"
+    source_title: "AI voice and tone"
+    source_url: "https://contentdesign.intuit.com/ai/voice-tone/"
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16203"
+    question: "Where does the voice audibly change hands in this flow: designer here, legal there, an engineer's raw string in the middle?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "distributed authorship vs. one consistent speaker"
+    failure_it_catches: "A checkout where three sentences in a row were written by three departments and sound like it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q16204"
+    question: "Which sentence on this screen would a lawyer, a marketer, and a support agent each write differently, and who won?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["screen", "copy"]
+    stage: "pre-ship"
+    tension: "internal stakeholder pull vs. one coherent speaker"
+    failure_it_catches: "Copy that reads as a negotiated settlement rather than a message to a person."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q16205"
+    question: "Would this sentence still read as ours with the logo cropped out of the screenshot?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "generic clarity vs. recognizable voice"
+    failure_it_catches: "Interface copy so neutral it could belong to any of four competitors."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q16206"
+    question: "Can a writer who joined last week reproduce this voice from the guide alone, or do they still have to ask you?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["system", "artifact"]
+    stage: "post-ship"
+    tension: "tacit house style vs. transferable rules"
+    failure_it_catches: "A voice that lives in one person's head and degrades the moment they go on leave."
+    provenance: "synthesized"
+    source_publisher: "Kinneret Yifrah"
+    source_title: "6 reasons to design a voice and tone for your digital product"
+    source_url: "https://uxdesign.cc/6-reasons-to-define-a-voice-and-tone-for-your-digital-product-75d27917f87f"
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q16207"
+    question: "Where does content go when the wearer turns 90 degrees to talk to someone: does it follow, wait, or vanish?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["trust"]
+    applies_to: ["system", "flow"]
+    stage: "exploration"
+    tension: "persistence vs. social interruption"
+    failure_it_catches: "A layout that scatters the moment the wearer looks away and requires a rebuild every time they re-engage."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.78
+  - id: "Q16208"
+    question: "Which competitor's voice have we quietly absorbed, and did anyone choose that?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "post-ship"
+    tension: "category convention vs. deliberate differentiation"
+    failure_it_catches: "Drifting into the dominant player's cadence because their copy is what everyone reads."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.78
+  - id: "Q16209"
+    question: "Whose voice speaks in this toast: the product's, the company's, or the database schema's?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "system truth vs. product persona"
+    failure_it_catches: "Toasts that leak internal object names because nobody assigned them a speaker."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q16210"
+    question: "Which of our voice traits is load-bearing, and which one would nobody miss if it vanished from the guide?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "long-term"]
+    applies_to: ["brand"]
+    stage: "concept"
+    tension: "comprehensive trait list vs. traits that change sentences"
+    failure_it_catches: "A five-adjective voice where only one adjective ever alters a draft."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.77
+  - id: "Q16211"
+    question: "Name the vocabulary this product owns: words nobody else in the category uses this way?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["brand", "system"]
+    stage: "exploration"
+    tension: "familiar category terms vs. proprietary language worth teaching"
+    failure_it_catches: "A product with no lexicon of its own, so nothing users say back to us is ours."
+    provenance: "synthesized"
+    source_publisher: "Kinneret Yifrah"
+    source_title: "Microcopy: The Complete Guide"
+    source_url: "https://www.microcopybook.com/"
+    seniority: "director"
+    confidence: 0.76
+  - id: "Q16212"
+    question: "Would this voice survive being read aloud by a screen reader with no visual styling to carry the tone?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "pre-ship"
+    tension: "typographic personality vs. words that must carry it alone"
+    failure_it_catches: "Charm that lived entirely in type treatment and vanishes in a linear audio read."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.76
+  - id: "Q16213"
+    question: "Which word in this headline is doing brand work and which is doing comprehension work: can both survive the edit?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "post-ship"
+    tension: "personality vs. plain understanding"
+    failure_it_catches: "Cutting the wrong word in a trim pass and losing either the meaning or the voice entirely."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.75
+  - id: "Q16214"
+    question: "What is the most boring sentence in this product, and does it still sound like us?"
+    category: "Voice, tone and UI copy"
+    subcategory: "Voice definition and personality"
+    secondary_tags: ["brand", "craft-detail"]
+    applies_to: ["copy", "system"]
+    stage: "concept"
+    tension: "voice on hero moments vs. voice in the plumbing"
+    failure_it_catches: "Voice work concentrated on twelve marquee screens while 3,000 utility strings drift."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.55

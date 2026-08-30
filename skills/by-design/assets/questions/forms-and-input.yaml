@@ -1,0 +1,4203 @@
+# Forms and input
+# 280 questions. Generated, ordered by id. Do not hand edit.
+questions:
+  - id: "Q06113"
+    question: "Could this file upload be replaced by a question about a document you already hold?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["data", "mobile"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "cross-system coordination vs. the most laborious interaction in forms"
+    failure_it_catches: "Asking for a photo you already have on file, and losing users to the camera trip."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The perfect file upload pattern"
+    source_url: "https://adamsilver.io/blog/the-perfect-file-upload-pattern/"
+    seniority: "director"
+    confidence: 0.89
+  - id: "Q06114"
+    question: "Does a password manager recognise these fields, or has a custom component hidden them from it?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "bespoke component styling vs. browser and manager heuristics"
+    failure_it_catches: "A beautifully custom login that no password manager can fill."
+    provenance: "sourced"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06115"
+    question: "Is paste disabled on this password field, and which specific threat does that stop?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "perceived security theatre vs. actual usability harm"
+    failure_it_catches: "Blocking password managers and forcing weaker, memorable passwords."
+    provenance: "sourced"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06116"
+    question: "Which value are you asking a user to type twice within the same process?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "per-step independence vs. carrying answers forward"
+    failure_it_catches: "Redundant entry that penalises anyone slow to type or reliant on memory aids."
+    provenance: "sourced"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.7 Redundant Entry"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06117"
+    question: "Do the name and id attributes on these inputs stay stable across deploys so autofill can learn them?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["craft-detail", "performance"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "generated class names vs. persistent browser memory"
+    failure_it_catches: "Randomised field identifiers that reset every user's autofill on each release."
+    provenance: "sourced"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06118"
+    question: "Does the prefilled value appear as an editable input, or as static text the user cannot correct?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "confident automation vs. correctability"
+    failure_it_catches: "A wrong geo-detected city presented as a fact rather than a field."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06119"
+    question: "What happens when autofill supplies a value longer than this field's character limit?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "length constraints vs. browser-supplied values"
+    failure_it_catches: "A password manager or autofill entry silently cut off mid-string."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Don't use the maxlength attribute"
+    source_url: "https://adamsilver.io/blog/dont-use-the-maxlength-attribute-to-stop-users-from-exceeding-the-limit/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06120"
+    question: "Is a type-selector dropdown still here when the value the user typed already reveals the type?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["data"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "explicit selection vs. automatic detection"
+    failure_it_catches: "A card-type or format dropdown that the entered value already determined."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06121"
+    question: "Which autocomplete token is on this field, and is it the right one from the specification?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "approximate token vs. correct semantic purpose"
+    failure_it_catches: "A wrong token that makes the browser fill a county into a postcode box."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Addresses pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/addresses/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06122"
+    question: "Which fields should be left empty rather than filled by a model with middling confidence?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["ai-native", "ethics"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "completion rate from prefill vs. accountability for the answer"
+    failure_it_catches: "Automating exactly the fields the user will be held legally responsible for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06123"
+    question: "Which piece of data on this form could be inferred rather than asked for?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow", "system"]
+    stage: "exploration"
+    tension: "engineering cost of inference vs. user cost of typing"
+    failure_it_catches: "Asking for something the system could derive in one line of code."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06124"
+    question: "What does this form do when a geolocated prefill is confidently and completely wrong?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "speed from guessing vs. graceful failure of the guess"
+    failure_it_catches: "Users on a VPN or travelling silently filing against the wrong region."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06125"
+    question: "Which internal tool forces staff to re-key data they just exported from another internal tool?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "integration cost vs. daily transcription labour"
+    failure_it_catches: "Paying skilled staff to be a copy-paste bridge between two of your own systems."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q06126"
+    question: "Has anyone checked that the prefill is right for this case, not just right for the account?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "convenient reuse vs. context-specific truth"
+    failure_it_catches: "Defaulting a delivery address that is correct for the account and wrong for this order."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06127"
+    question: "Which control here sits on the primary path for a minority and in the way of the majority?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["desktop", "enterprise"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "serving specialists vs. the median session"
+    failure_it_catches: "An advanced filter bar occupying the top of a screen most people scroll past."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06128"
+    question: "If a model prefills these fields from a document, can the user see which values were guessed?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["ai-native", "trust"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "seamless extraction vs. reviewable provenance"
+    failure_it_catches: "A confidently wrong extracted value submitted because it looked like the user typed it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06129"
+    question: "What proportion of this form could be replaced by one thing the user uploads, scans or connects?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["mobile", "ai-native"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "structured typing vs. extraction from a source document"
+    failure_it_catches: "Twenty fields transcribed by hand from a document the user is holding."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q06130"
+    question: "Which of these fields would vanish entirely if the form knew who was signed in?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow", "system"]
+    stage: "exploration"
+    tension: "stateless simplicity vs. personalised effort savings"
+    failure_it_catches: "Logged-in users retyping facts their account already contains."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q06131"
+    question: "Could this two-hundred-option dropdown be derived from something you already know about the account?"
+    category: "Forms and input"
+    subcategory: "Autofill, inference and smart defaults"
+    secondary_tags: ["data"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "asking is cheap to build vs. inferring is cheap to use"
+    failure_it_catches: "A giant select that exists because inference was never attempted."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q06132"
+    question: "Does the preselected option here reflect the most common answer, or the answer you would prefer?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["ethics", "business-model"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "helpful default vs. quiet nudge in your favour"
+    failure_it_catches: "A default that reads as convenience but functions as an upsell."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q06133"
+    question: "Are you asking for a title, and therefore asking users to disclose gender and marital status they may not want to give?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["ethics", "i18n"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "salutation convention vs. forced disclosure"
+    failure_it_catches: "A Mr/Mrs dropdown that excludes people and collects data nothing uses."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06134"
+    question: "Which optional field is currently making every user stop and wonder whether it is safe to leave blank?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["copy"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "optional flexibility vs. hesitation cost"
+    failure_it_catches: "Optional fields that cost more in pause time than the answers are worth."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The second law of form design"
+    source_url: "https://adamsilver.io/blog/the-second-law-of-form-design/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06135"
+    question: "Does marking required fields with an asterisk tell users anything they had not already assumed?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "convention vs. signal-to-noise"
+    failure_it_catches: "Decorating every label with a symbol that adds noise and still needs a legend."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Don't mark required fields with an asterisk"
+    source_url: "https://adamsilver.io/blog/how-to-highlight-required-and-optional-form-fields/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06136"
+    question: "Have you measured completion time for this form split into answering time and hesitating time?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "aggregate duration vs. diagnosing where the time goes"
+    failure_it_catches: "Optimising typing speed when the real cost is uncertainty before the button."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The second law of form design"
+    source_url: "https://adamsilver.io/blog/the-second-law-of-form-design/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06137"
+    question: "Which default on this form will almost nobody change, and did anyone choose it on purpose?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["ethics"]
+    applies_to: ["component", "system"]
+    stage: "refinement"
+    tension: "speed from defaults vs. responsibility for what defaults decide"
+    failure_it_catches: "An accidental default becoming the de facto choice for the whole user base."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06138"
+    question: "What share of your users will never disclose this particular data, and is the field still marked required?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "data completeness vs. hard refusal rates"
+    failure_it_catches: "Forcing an answer a measurable slice of users will abandon rather than give."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "Required and Optional Form Fields"
+    source_url: "https://baymard.com/blog/required-optional-form-fields"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06139"
+    question: "How many of the answers on this form are already sitting somewhere in your own system?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow", "system"]
+    stage: "exploration"
+    tension: "integration effort vs. user typing"
+    failure_it_catches: "Re-asking for data the org already holds because retrieval was harder than a text input."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06140"
+    question: "If branching hides half these fields, is the branching question early enough to actually shorten the path?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "natural question order vs. earliest useful branch"
+    failure_it_catches: "Conditional logic that fires after the user has already waded through irrelevant questions."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06141"
+    question: "When a default is wrong for a user, how visible is the cost of not noticing it before submit?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "frictionless defaults vs. reversibility of consequence"
+    failure_it_catches: "Users discovering an unwanted default only in the confirmation email or the invoice."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06142"
+    question: "When did this form last lose a field rather than gain one?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "additive stakeholder requests vs. subtractive discipline"
+    failure_it_catches: "A form that only ever ratchets longer because removal has no owner."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q06143"
+    question: "Where does the word 'optional' sit: in the label, or in placeholder text that disappears on focus?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "tidy field vs. persistent information"
+    failure_it_catches: "An optionality cue that vanishes exactly when the user acts on the field."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "Required and Optional Form Fields"
+    source_url: "https://baymard.com/blog/required-optional-form-fields"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06144"
+    question: "Which three questions would you keep if you could only keep three?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data"]
+    applies_to: ["screen"]
+    stage: "concept"
+    tension: "comprehensive capture vs. forced prioritisation"
+    failure_it_catches: "A form with no hierarchy, where the essential and the nice-to-have look identical."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06145"
+    question: "Does the enterprise version of this form ask forty questions because forty customers each demanded one?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["enterprise", "business-model"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "per-customer accommodation vs. a coherent product"
+    failure_it_catches: "A form that is the union of every sales promise ever made."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q06146"
+    question: "Where does a smart default cross into deciding something the user would want to decide themselves?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["ethics"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "paternalism vs. effort saved"
+    failure_it_catches: "Automation that quietly removes a choice the user considers theirs to make."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q06147"
+    question: "Which optional field on this page would serve users better hidden behind a link than shown to everyone?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["mobile"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "discoverability for the few vs. clutter for the many"
+    failure_it_catches: "A rarely-used input taxing every user's scan of the form."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06148"
+    question: "Count the fields visible before the first scroll: how many of them would survive a written question protocol?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["mobile"]
+    applies_to: ["screen"]
+    stage: "concept"
+    tension: "perceived effort vs. data richness"
+    failure_it_catches: "An intimidating wall of inputs that users judge before reading a single label."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06149"
+    question: "Has anyone opened this form on a brand-new account and counted the empty boxes waiting there?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "designer's populated mock vs. the newcomer's blank page"
+    failure_it_catches: "Designing against a filled-in prototype and shipping an intimidating void."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06150"
+    question: "Which questions on this page apply to under a fifth of users, and why does everyone see them?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "one form for all vs. branching complexity"
+    failure_it_catches: "Making the majority scan and dismiss questions written for a minority."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06151"
+    question: "If ninety percent of these fields are required, is marking the other ten cheaper than marking the ninety?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "clarity per field vs. total visual noise"
+    failure_it_catches: "Highlighting everything, which highlights nothing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q06152"
+    question: "At what point does one more optional field start costing completions you have never measured?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["data", "business-model"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "marginal data value vs. invisible drop-off"
+    failure_it_catches: "Field creep that nobody attributes to falling completion because nobody instrumented it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q06153"
+    question: "Which failure does your form actually produce: users missing required fields, or users feeling pressured to over-share?"
+    category: "Forms and input"
+    subcategory: "Field count, required vs optional and defaults"
+    secondary_tags: ["trust", "ethics"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "Baymard's mark-both vs. Silver's mark-neither, decided by your own error data"
+    failure_it_catches: "Copying a marking convention from an article instead of from your own validation logs."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "Required and Optional Form Fields"
+    source_url: "https://baymard.com/blog/required-optional-form-fields"
+    seniority: "director"
+    confidence: 0.55
+  - id: "Q06154"
+    question: "If submission fails on the server, is the user's input still sitting on the screen?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "clean re-render vs. preserving typed values"
+    failure_it_catches: "A server error that clears the form and asks the user to start again."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06155"
+    question: "Is this warning a panel that looks like an advert, or a question with real form controls?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "visual emphasis vs. looking dismissible"
+    failure_it_catches: "An interruption screen users banner-blind past without a conscious decision."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Why I don't use interruption pages"
+    source_url: "https://adamsilver.io/blog/why-i-dont-use-interruption-pages/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06156"
+    question: "Would this page still work if you split it into one question per screen and merged back only where research demanded?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "page count vs. focus per question"
+    failure_it_catches: "Cramming a page because splitting felt slow, without testing whether it actually is."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "End with one thing per page"
+    source_url: "https://adamsilver.io/blog/end-with-one-thing-per-page/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06157"
+    question: "After changing one answer from the summary, does the user come straight back, or restart the flow?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "linear routing simplicity vs. return-to-summary behaviour"
+    failure_it_catches: "Punishing a single correction by making the user walk the entire form again."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06158"
+    question: "Are you replacing this form with a chat because it is better, or because it was faster to build?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ai-native"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "conversational novelty vs. structured usability"
+    failure_it_catches: "Turning a five-field form into a slower, less reviewable conversation."
+    provenance: "sourced"
+    source_publisher: "UX Planet"
+    source_title: "AI chat or not? If it's a form, it should stay a form"
+    source_url: "https://uxplanet.org/ai-chat-or-not-if-its-a-form-it-should-stay-a-form-0294c59332d6"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06159"
+    question: "Have you tested this form without a progress indicator before deciding it needs one?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "reassurance chrome vs. fixing the underlying length"
+    failure_it_catches: "Adding a progress bar to a form whose real problem is the number of questions."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06160"
+    question: "How much of this product's difficulty is intrinsic, and how much is interface friction masquerading as challenge?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system", "flow"]
+    stage: "exploration"
+    tension: "real domain complexity vs. accidental complexity"
+    failure_it_catches: "Praising a tool as powerful when what users are actually mastering is a bad interface."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "Defining Complexity and Depth in Game Design"
+    source_url: "https://boardgamegeek.com/blog/6993/blogpost/108921/defining-complexity-and-depth-in-game-design"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06161"
+    question: "Is there a check-answers page, or does submit happen the instant the last field is filled?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "one fewer screen vs. a chance to catch mistakes"
+    failure_it_catches: "Irreversible submission of an application the user never got to read back."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06162"
+    question: "Where does a 'Change' link on the summary page land, and does that page match what the link promised?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "grouped edit pages vs. link-to-destination fidelity"
+    failure_it_catches: "Clicking 'change emergency contact name' and arriving at a page of title and initials."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "End with one thing per page"
+    source_url: "https://adamsilver.io/blog/end-with-one-thing-per-page/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06163"
+    question: "Where does the back link go, and does the previous page still hold exactly what was typed?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "stateless routing vs. reversible navigation"
+    failure_it_catches: "Going back one step and finding the fields wiped clean."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06164"
+    question: "Does the browser back button work here, or does it resubmit something it should not?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "in-app navigation control vs. browser conventions"
+    failure_it_catches: "A duplicate submission created by a habit every web user has."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06165"
+    question: "Does the confirmation button label make sense read on its own, without the sentence above it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["copy", "accessibility"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "conversational phrasing vs. standalone button semantics"
+    failure_it_catches: "A button reading 'Yes, this is correct' that means nothing in a list of links."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Why I don't use interruption pages"
+    source_url: "https://adamsilver.io/blog/why-i-dont-use-interruption-pages/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06166"
+    question: "Does the form state upfront whether progress is saved, or leave the user to find out the hard way?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy", "flow"]
+    stage: "concept"
+    tension: "clean opening screen vs. setting the right expectation"
+    failure_it_catches: "Users pacing themselves wrong because they assumed the wrong save behaviour."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06167"
+    question: "Does this multi-column layout have a tab order anyone could predict?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "horizontal density vs. predictable reading and tab order"
+    failure_it_catches: "Keyboard focus jumping sideways in an order that matches neither column."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06168"
+    question: "How many steps outside the browser does uploading this document actually require?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "one visible control vs. the offline work behind it"
+    failure_it_catches: "Counting an upload as one interaction when it is a scanner, a device switch and a transfer."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The perfect file upload pattern"
+    source_url: "https://adamsilver.io/blog/the-perfect-file-upload-pattern/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06169"
+    question: "What does a returning power user lose when the labels are generated fresh on every visit?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ai-native", "enterprise"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "adaptive phrasing vs. learnability through repetition"
+    failure_it_catches: "Preventing anyone from ever becoming fast at a task they do daily."
+    provenance: "sourced"
+    source_publisher: "UX Planet"
+    source_title: "AI chat or not? If it's a form, it should stay a form"
+    source_url: "https://uxplanet.org/ai-chat-or-not-if-its-a-form-it-should-stay-a-form-0294c59332d6"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06170"
+    question: "Which action in this flow must only ever happen once, and what does pressing back do to it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust", "enterprise"]
+    applies_to: ["flow", "system"]
+    stage: "pre-ship"
+    tension: "idempotency work vs. shipping the happy path"
+    failure_it_catches: "Two applications, two payments, or two accounts from one user pressing back."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06171"
+    question: "Which of the practised user's habits did we accidentally make harder in the last redesign?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["long-term", "data"]
+    applies_to: ["screen", "system"]
+    stage: "post-ship"
+    tension: "improving the new user path versus preserving practised throughput"
+    failure_it_catches: "A redesign that tests better with new users and quietly costs the daily cohort minutes per session."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06172"
+    question: "Which pages did you merge together, and what specific research said the merge was safe?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "fewer screens vs. evidence for combining them"
+    failure_it_catches: "Merging steps on aesthetic instinct and inheriting every multi-question problem."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "End with one thing per page"
+    source_url: "https://adamsilver.io/blog/end-with-one-thing-per-page/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06173"
+    question: "Are these fields grouped the way the user thinks, or the way your services are divided?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "Conway's law vs. the user's mental model"
+    failure_it_catches: "A form whose seams reveal the org chart rather than the task."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06174"
+    question: "Can a user resume this application tomorrow, on a different device?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile", "trust"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "single-session simplicity vs. how long forms are actually filled"
+    failure_it_catches: "Designing a two-hour application as a one-sitting task."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06175"
+    question: "Can the user see how much work remains in this conversational flow, or only what is on screen?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ai-native"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "one-question-at-a-time focus vs. visibility of scope"
+    failure_it_catches: "An open-ended chat that users abandon because it might never end."
+    provenance: "synthesized"
+    source_publisher: "UX Planet"
+    source_title: "AI chat or not? If it's a form, it should stay a form"
+    source_url: "https://uxplanet.org/ai-chat-or-not-if-its-a-form-it-should-stay-a-form-0294c59332d6"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06176"
+    question: "Have we designed the first run for someone who was told to use this, not someone who chose it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise", "copy"]
+    applies_to: ["flow", "copy"]
+    stage: "concept"
+    tension: "enthusiast framing vs. conscript framing"
+    failure_it_catches: "Welcome copy assuming excitement from a user who resents the rollout."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06177"
+    question: "How many ways can a user proceed from this confirmation screen, and does the choice slow them usefully?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "deliberate pause vs. accidental primary-button press"
+    failure_it_catches: "A stressed or rushing user clicking straight past the thing you meant them to check."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "Why I don't use interruption pages"
+    source_url: "https://adamsilver.io/blog/why-i-dont-use-interruption-pages/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06178"
+    question: "If changing an answer unlocks new questions, do they appear before the summary or after submission?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "branch integrity vs. a summary that stays true"
+    failure_it_catches: "A submitted application missing questions the changed answer should have triggered."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06179"
+    question: "On the summary, is a skipped optional question shown as 'Not provided' or simply absent?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "compact summary vs. confirming what was deliberately left blank"
+    failure_it_catches: "Users unable to tell whether they skipped a question or the form dropped it."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06180"
+    question: "What does this form do offline, halfway through, on a train?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile", "performance"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "always-connected assumption vs. real network conditions"
+    failure_it_catches: "Silent loss of everything typed when connectivity drops mid-form."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06181"
+    question: "What happens if someone closes the tab at step four of seven?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "stateless simplicity vs. interruption tolerance"
+    failure_it_catches: "Losing everything on a phone call, and losing the user with it."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06182"
+    question: "Where in this flow does the user first hit something they cannot answer without leaving the screen?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "uninterrupted flow vs. real-world lookups"
+    failure_it_catches: "An abandonment caused by needing a policy number that was never mentioned upfront."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06183"
+    question: "Which capability becomes genuinely invisible when this form turns into a conversation?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ai-native"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "clean chat surface vs. discoverable options"
+    failure_it_catches: "Optional features nobody can discover because nothing hints they exist."
+    provenance: "synthesized"
+    source_publisher: "UX Planet"
+    source_title: "AI chat or not? If it's a form, it should stay a form"
+    source_url: "https://uxplanet.org/ai-chat-or-not-if-its-a-form-it-should-stay-a-form-0294c59332d6"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06184"
+    question: "Which part of this flow assumes the user owns a printer, a scanner, or a second device?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "verification requirements vs. equipment users actually have"
+    failure_it_catches: "Excluding people whose only device is the phone they are holding."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06185"
+    question: "Which progress indicator style are you using, and does it survive a conditional branch?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "showing all steps vs. steps that change based on answers"
+    failure_it_catches: "A five-dot stepper that goes stale the moment branching skips a step."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06186"
+    question: "Would a user at high magnification find the second column at all?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["accessibility", "desktop"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "screen real estate vs. zoomed viewport"
+    failure_it_catches: "Half a form living outside the visible area of a magnified screen."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06187"
+    question: "Could password creation move to after the task rather than before it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["business-model"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "account-first architecture vs. task completion"
+    failure_it_catches: "Blocking a first task behind credentials the user has no reason to want yet."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06188"
+    question: "Do these section headings preview what is coming, or just name the team that owns the fields?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "internal structure vs. user-facing orientation"
+    failure_it_catches: "Headings like 'Compliance' that tell the user nothing about what to expect."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06189"
+    question: "Does this form warn before discarding a draft, and can that draft be recovered afterwards?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "clean state management vs. protecting user work"
+    failure_it_catches: "One misclick erasing an hour of typing with no undo."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06190"
+    question: "How long does the user wait between answers here, and would that lag be tolerated in a form?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ai-native", "performance"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "model latency vs. typing rhythm"
+    failure_it_catches: "Two seconds of thinking inserted after every single field."
+    provenance: "synthesized"
+    source_publisher: "UX Planet"
+    source_title: "AI chat or not? If it's a form, it should stay a form"
+    source_url: "https://uxplanet.org/ai-chat-or-not-if-its-a-form-it-should-stay-a-form-0294c59332d6"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06191"
+    question: "Is the total step count honest when the number of steps depends on earlier answers?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "motivating certainty vs. accurate promises"
+    failure_it_catches: "Promising 'step 3 of 5' and delivering nine."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06192"
+    question: "Where in this flow does the product ask the user to remember something it could have remembered for them?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "explicit user control versus removing cognitive load"
+    failure_it_catches: "Making users carry a code, a name or a setting between two screens of our own product."
+    provenance: "synthesized"
+    source_publisher: "Design Sojourn"
+    source_title: "Naoto Fukasawa: Without a Thought"
+    source_url: "https://designsojourn.com/naoto-fukasawa-without-a-thought/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06193"
+    question: "Which step of this flow has the highest drop-off, and has anyone watched a recording of it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "aggregate funnel numbers vs. seeing the actual behaviour"
+    failure_it_catches: "Knowing where users leave without ever learning why."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06194"
+    question: "Does the upload state its size and format limits before the user picks a file, or after?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["craft-detail", "copy"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "clean drop zone vs. preventing a wasted round trip"
+    failure_it_catches: "A rejected 12MB photo after the user already left the device to fetch it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06195"
+    question: "Has this flow been walked end to end, on a phone, on cellular, with a real account?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["mobile"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "prototype conditions vs. shipping conditions"
+    failure_it_catches: "Discovering after launch that step five never worked on a phone."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06196"
+    question: "If the session expires, does the user lose their answers or only their session?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust", "enterprise"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "security timeout policy vs. work in progress"
+    failure_it_catches: "A twenty-minute timeout that deletes forty minutes of typing."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06197"
+    question: "When two people fill in one application, does the design still assume one person and one sitting?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "single-user model vs. how the work is really shared"
+    failure_it_catches: "A form that cannot be handed to a colleague, a partner or a carer mid-way."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q06198"
+    question: "Which field on this two-column form gets skipped most often, and does the layout explain it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["data", "desktop"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "layout aesthetics vs. measured omission rates"
+    failure_it_catches: "Blaming users for skipping a field the layout made easy to miss."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06199"
+    question: "Which section of this long application would benefit from its own check-answers page partway through?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "one final review vs. sectional confidence"
+    failure_it_catches: "A ninety-question application reviewed only once, at the very end."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Check answers pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/check-answers/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06200"
+    question: "Is the confirmation before this irreversible action readable in the two seconds a user will actually give it?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "thorough warning vs. warning that gets read"
+    failure_it_catches: "A 60-word modal users dismiss reflexively, then delete a year of data."
+    provenance: "synthesized"
+    source_publisher: "UI/UX design trends 2026"
+    source_title: "high-stakes confirmations"
+    source_url: "https://www.sanjaydey.com/ui-ux-design-trends-2026/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06201"
+    question: "Is the save action explicit here, or does the form autosave without ever saying so?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust", "enterprise"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "invisible persistence vs. user confidence"
+    failure_it_catches: "Users repeatedly re-entering data because they never saw evidence it saved."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06202"
+    question: "What did the last redesign delete that people are still recreating by hand in spreadsheets?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "simplification vs. removed capability"
+    failure_it_catches: "Cutting a niche view that a small, high-value segment depended on, invisibly pushing work off-platform."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q06203"
+    question: "What does the user believe is still ahead of them, and is that belief true?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "perceived remaining effort vs. real remaining effort"
+    failure_it_catches: "Abandonment at the point where the form turns out to be longer than advertised."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06204"
+    question: "How many days does an abandoned application survive before you delete it, and who decided that?"
+    category: "Forms and input"
+    subcategory: "Flow, save state and resumption"
+    secondary_tags: ["ethics", "long-term", "enterprise"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "data retention policy vs. the returning user"
+    failure_it_catches: "Deleting drafts on a retention schedule set for storage, not for people."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.81
+  - id: "Q06205"
+    question: "Can a user change the name on their account later without contacting support?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "identity integrity vs. respecting a changed life"
+    failure_it_catches: "Trapping someone in a former name after marriage, transition or estrangement."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q06206"
+    question: "Does this name field accept an apostrophe, a diacritic, a hyphen, and a single-word name?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "accessibility"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "validation strictness vs. the actual range of human names"
+    failure_it_catches: "Rejecting O'Neill, Ståhl, or a mononym as invalid input."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06207"
+    question: "When the address lookup finds nothing, is there a typeable route through, or a dead end?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "structured lookup coverage vs. addresses outside the database"
+    failure_it_catches: "Rural, new-build and international users blocked by a lookup with no manual fallback."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Addresses pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/addresses/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06208"
+    question: "Does the example date use a day above thirteen so users can tell the order without counting?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["copy", "component"]
+    stage: "pre-ship"
+    tension: "generic example vs. self-disambiguating example"
+    failure_it_catches: "An example like 03 04 2024 that teaches nothing about field order."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Dates pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/dates/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06209"
+    question: "Does the postcode field reject a lower-case, space-free entry that is otherwise perfectly correct?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "canonical formatting vs. tolerant intake"
+    failure_it_catches: "An error message for a valid postcode typed without a space."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Addresses pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/addresses/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06210"
+    question: "Is 'Full name' one field here, and if you split it, which downstream feature justifies the risk?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "data"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "extractable name parts vs. names that do not split"
+    failure_it_catches: "A first/last split that misfiles anyone whose name does not follow that shape."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06211"
+    question: "Is spellcheck underlining a user's own surname in red as they type it?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "default browser behaviour vs. dignity of the input"
+    failure_it_catches: "Telling someone their name is misspelled."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06212"
+    question: "Would a calendar picker help here, or is the user simply typing a date they already know?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "picker convenience vs. typing a remembered value"
+    failure_it_catches: "Forcing someone to scroll back forty years through a calendar to enter their birthday."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Dates pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/dates/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06213"
+    question: "Can users give an approximate date when they genuinely cannot remember the exact one?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["data", "trust"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "precise data vs. honest data"
+    failure_it_catches: "Users inventing a day-precise date because the field will not accept 'December 2017'."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Dates pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/dates/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06214"
+    question: "Would a single textarea serve this address better than five inputs you never actually parse?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "data"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "parseable sub-parts vs. accepting any address shape"
+    failure_it_catches: "Five rigid inputs collecting a string you only ever print back out whole."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Addresses pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/addresses/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06215"
+    question: "Is this date input shaped like the document the user is copying from, or like your database?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["craft-detail", "data"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "storage format vs. transcription accuracy"
+    failure_it_catches: "Transcription errors caused by reordering fields relative to the card in the user's hand."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Dates pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/dates/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06216"
+    question: "Is this date split into three inputs because the format is genuinely ambiguous, or because it looked neat?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "ambiguity removal vs. extra interaction cost"
+    failure_it_catches: "Splitting an unambiguous value out of habit and paying the cost three times."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "Multiple inputs versus one input"
+    source_url: "https://adamsilver.io/blog/form-design-multiple-inputs-versus-one-input/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06217"
+    question: "What does this form do with a person who has no middle name at all?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "complete records vs. names that do not fit the template"
+    failure_it_catches: "A required middle-name field that forces a placeholder character into the record."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06218"
+    question: "Is the county field still here, and does anything downstream read it?"
+    category: "Forms and input"
+    subcategory: "Identity and locale-sensitive fields"
+    secondary_tags: ["i18n", "data"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "familiar form shape vs. fields the postal system ignores"
+    failure_it_catches: "An input kept for tradition that adds a line to every address form."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Addresses pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/addresses/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06219"
+    question: "Is the primary button disabled until everything is valid, and how does a stuck user learn why?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "preventing invalid submits vs. giving feedback at all"
+    failure_it_catches: "A greyed-out button that gives no reason, no focus, and no path forward."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with disabled buttons"
+    source_url: "https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q06220"
+    question: "Can this reference field accept spaces, dashes, and a pasted value carrying both?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "strict parsing vs. tolerant intake"
+    failure_it_catches: "Rejecting a correct answer because of punctuation the system could have stripped."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06221"
+    question: "Does the upgrade prompt inside this limit message state the new limit, or only the new price?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["business-model", "trust"]
+    applies_to: ["copy", "screen"]
+    stage: "post-ship"
+    tension: "conversion pressure vs. giving people the number they need to decide"
+    failure_it_catches: "An upsell that cannot be evaluated because the ceiling on the paid plan is unstated."
+    provenance: "synthesized"
+    source_publisher: "UX Handbook"
+    source_title: "Design Rate Limit and Quota Messaging"
+    source_url: "https://ux.tfmstyle.com/guide/design-rate-limit-and-quota-messaging"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06222"
+    question: "How many separate inputs does this one value occupy, and what does splitting it actually buy you?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "chunked legibility vs. interaction cost"
+    failure_it_catches: "Four boxes for one code, none of which can be pasted into or labelled meaningfully."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Multiple inputs versus one input"
+    source_url: "https://adamsilver.io/blog/form-design-multiple-inputs-versus-one-input/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06223"
+    question: "Is maxlength quietly truncating what people type without telling them anything happened?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "error prevention vs. silent data loss"
+    failure_it_catches: "A user who looks at the keyboard, not the screen, saving a truncated account number."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Don't use the maxlength attribute"
+    source_url: "https://adamsilver.io/blog/dont-use-the-maxlength-attribute-to-stop-users-from-exceeding-the-limit/"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06224"
+    question: "Are we deferring this explanation because it is genuinely secondary, or because the primary screen got too crowded to admit it?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "visual cleanliness versus surfacing what users need"
+    failure_it_catches: "Hiding a constraint users need before typing inside an icon most of them will never click."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "Why So Many Info Tips Are Bad (and How to Make Them Better)"
+    source_url: "https://www.nngroup.com/articles/info-tips-bad/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06225"
+    question: "Can a keyboard user even reach the disabled button to discover that it exists?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "visual state signalling vs. focusability"
+    failure_it_catches: "A non-focusable button that keyboard users never find, leaving no visible way to proceed."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with disabled buttons"
+    source_url: "https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06226"
+    question: "Does focus jump automatically between these boxes, and what happens when someone mistypes a digit?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "perceived speed vs. recoverable mistakes"
+    failure_it_catches: "Auto-advance that moves focus early and strands the user hunting for the box to fix."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Multiple inputs versus one input"
+    source_url: "https://adamsilver.io/blog/form-design-multiple-inputs-versus-one-input/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06227"
+    question: "Does this hint explain the question, or explain the interface, and if the latter, what is broken?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["copy"]
+    applies_to: ["copy", "component"]
+    stage: "exploration"
+    tension: "documentation vs. self-evident design"
+    failure_it_catches: "Patching a confusing control with instructions instead of fixing the control."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Service Manual"
+    source_title: "Designing good questions"
+    source_url: "https://www.gov.uk/service-manual/design/designing-good-questions"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06228"
+    question: "Has anyone checked whether this tooltip hides a constraint the user needs before typing, not after?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "decluttering versus preventing avoidable failure"
+    failure_it_catches: "Character limits buried in an info tip, discovered only when the form rejects the user's work."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Why So Many Info Tips Are Bad (and How to Make Them Better)"
+    source_url: "https://www.nngroup.com/articles/info-tips-bad/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06229"
+    question: "What does this info icon promise, and does the content behind it keep that promise?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "signalling help versus delivering it"
+    failure_it_catches: "An i icon that reveals a marketing line, teaching users that our help icons are worthless."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Why So Many Info Tips Are Bad (and How to Make Them Better)"
+    source_url: "https://www.nngroup.com/articles/info-tips-bad/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06230"
+    question: "What does this input mask do when someone pastes a value that already carries its own formatting?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "guided entry vs. paste and autofill behaviour"
+    failure_it_catches: "A mask that mangles a correctly pasted number and reports it as the user's error."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with input masks"
+    source_url: "https://adamsilver.io/blog/the-problem-with-input-masks-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06231"
+    question: "Can a user paste a whole sort code or membership number into this field in one action?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "structured entry vs. copy-paste from another document"
+    failure_it_catches: "A split field where a pasted value lands entirely in the first box and gets cropped."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "Multiple inputs versus one input"
+    source_url: "https://adamsilver.io/blog/form-design-multiple-inputs-versus-one-input/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06232"
+    question: "Can the user get this hint back after dismissing it, or did we make forgetting permanent?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["trust"]
+    applies_to: ["component", "system"]
+    stage: "pre-ship"
+    tension: "unobtrusiveness versus recoverability"
+    failure_it_catches: "Help that is easy to dismiss and impossible to find again when it finally becomes relevant."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Onboarding Tutorials vs. Contextual Help"
+    source_url: "https://www.nngroup.com/articles/onboarding-tutorials/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06233"
+    question: "Have you tested this input mask with your own users, or adopted a conclusion from someone else's study?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "Baymard found masks reduce hesitation, Silver found they confuse: your context decides"
+    failure_it_catches: "Importing a contested pattern as settled fact and never checking it locally."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06234"
+    question: "Is autocapitalisation switched on for a field where every user will type in lower case?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "platform default vs. field-specific behaviour"
+    failure_it_catches: "An email field that capitalises the first letter and makes users wonder if it matters."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06235"
+    question: "Is this slider the only way to set the value, or can a number be typed instead?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "expressive control vs. precise and reachable input"
+    failure_it_catches: "A drag-only control that excludes anyone who cannot perform a pointer gesture."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06236"
+    question: "When one of four errors is fixed, does anything on screen respond, or does the button stay dead?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "all-or-nothing gating vs. incremental feedback"
+    failure_it_catches: "An interface that feels broken because progress produces no visible change."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with disabled buttons"
+    source_url: "https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06237"
+    question: "Where does the label go once the user starts typing: above the field, or nowhere at all?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "visual tidiness vs. persistent context"
+    failure_it_catches: "A placeholder-as-label that vanishes exactly when the user needs to check what they are answering."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Placeholders in Form Fields Are Harmful"
+    source_url: "https://www.nngroup.com/articles/form-design-placeholders/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06238"
+    question: "Where does the mobile keyboard sit relative to the submit button on a small handset?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "page layout on desktop vs. occluded viewport on phone"
+    failure_it_catches: "A primary button hidden behind the keyboard so users think the form is stuck."
+    provenance: "sourced"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06239"
+    question: "Where does this custom control break the behaviour users already expect from its native equivalent?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "brand-consistent styling vs. learned conventions"
+    failure_it_catches: "A checkbox that deselects its siblings, or a radio drawn as a tick."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06240"
+    question: "Which hint text on this page runs past three lines, and who exactly is going to read it?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["copy", "accessibility"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "thorough explanation vs. read-ability in practice"
+    failure_it_catches: "A wall of hint text that screen readers announce in full and sighted users skip entirely."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06241"
+    question: "Whose format is this phone mask enforcing, and what does a user outside that country see?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["i18n"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "local convention vs. international users"
+    failure_it_catches: "A US-shaped phone mask that makes a valid international number impossible to enter."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with input masks"
+    source_url: "https://adamsilver.io/blog/the-problem-with-input-masks-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06242"
+    question: "Are these labels top-aligned for completion speed, or left-aligned because the desktop mock looked tidier?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail", "desktop"]
+    applies_to: ["screen"]
+    stage: "concept"
+    tension: "aesthetic alignment vs. eye-fixation cost"
+    failure_it_catches: "Choosing a label position from the mock rather than from what it costs to read."
+    provenance: "synthesized"
+    source_publisher: "Luke Wroblewski"
+    source_title: "Top, Right or Left Aligned Form Labels"
+    source_url: "https://www.lukew.com/ff/entry.asp?504"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06243"
+    question: "Does this masked field look filled in before anybody has typed a character?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail", "accessibility"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "format guidance vs. false completeness"
+    failure_it_catches: "Users skipping a field because the mask made it look already answered."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The problem with input masks"
+    source_url: "https://adamsilver.io/blog/the-problem-with-input-masks-and-what-to-do-instead/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06244"
+    question: "Is the help attached to the element it describes, or floating in a modal that hides the thing?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "pre-ship"
+    tension: "room for explanation versus proximity to the referent"
+    failure_it_catches: "An overlay that obscures exactly the control the user is trying to understand."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Why So Many Info Tips Are Bad (and How to Make Them Better)"
+    source_url: "https://www.nngroup.com/articles/info-tips-bad/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06245"
+    question: "Is there a show-password control, and does it warn before revealing text on a shared screen?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "typo recovery vs. shoulder-surfing risk"
+    failure_it_catches: "Users failing login repeatedly because they cannot see what they mistyped."
+    provenance: "synthesized"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06246"
+    question: "Is this placeholder carrying information the user still needs after the first character is typed?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "space saving vs. short-term memory load"
+    failure_it_catches: "Format instructions that only exist while the field is empty."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06247"
+    question: "What does this range control do for someone who cannot click and drag accurately?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "novel interaction vs. motor accessibility"
+    failure_it_catches: "A slider that makes a whole form impossible for users with tremor or limited dexterity."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06248"
+    question: "Which keyboard opens on iOS for this field, and has anyone checked on an actual phone?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "desktop-built forms vs. mobile input reality"
+    failure_it_catches: "An alphabetic keyboard on a numeric field, doubling entry time on the phone."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "Touch Keyboard Implementations"
+    source_url: "https://baymard.com/blog/mobile-touch-keyboards"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06249"
+    question: "Which of these grouped inputs carries a label that means nothing when read on its own?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "visual grouping vs. announced meaning"
+    failure_it_catches: "Labels like 'digits 1 and 2' that make no sense to a screen reader user."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "Multiple inputs versus one input"
+    source_url: "https://adamsilver.io/blog/form-design-multiple-inputs-versus-one-input/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06250"
+    question: "Which of these labels uses your internal term rather than the word the user would say?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "domain precision vs. plain language"
+    failure_it_catches: "A label like 'chief complaint' where 'reason for visit' would have worked."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06251"
+    question: "Does the submit button name the action being taken, or does it say Submit?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["copy"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "generic reusable label vs. specific consequence"
+    failure_it_catches: "A button that gives no clue whether it saves a draft or files a legal application."
+    provenance: "synthesized"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06252"
+    question: "Have you tried raising the backend limit instead of policing users at the front end?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "UI workaround vs. fixing the constraint"
+    failure_it_catches: "Designing around an arbitrary column width nobody has questioned since migration."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "Don't use the maxlength attribute"
+    source_url: "https://adamsilver.io/blog/dont-use-the-maxlength-attribute-to-stop-users-from-exceeding-the-limit/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06253"
+    question: "Is there a link buried inside hint text that a screen reader will read as ordinary words?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "helpful reference vs. announcement clarity"
+    failure_it_catches: "A link in hint text that non-sighted users can hear but not identify as clickable."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06254"
+    question: "Which characters does this field silently strip, and does the user ever see it happen?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["trust", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "silent normalisation vs. visible change to what was typed"
+    failure_it_catches: "A value that changes under the user's hands with no explanation."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06255"
+    question: "Would this field's width still say anything about expected length if every field were the same width?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "layout consistency vs. affordance from size"
+    failure_it_catches: "A uniform grid that makes a postcode box look like it wants a paragraph."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06256"
+    question: "Does this numeric field use inputmode, or a type that also blocks leading zeros and spinners?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "numeric keyboard vs. numeric semantics"
+    failure_it_catches: "A postcode or PIN field that strips a leading zero because it was typed as a number."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06257"
+    question: "How long is this label in German, and does the layout survive the extra forty percent?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["i18n", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "post-ship"
+    tension: "tight English layout vs. localisation headroom"
+    failure_it_catches: "A label column sized to English that wraps into three lines everywhere else."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06258"
+    question: "Which dropdown here holds fewer than five options and should have been visible radio buttons?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "compact chrome vs. one-glance comparison"
+    failure_it_catches: "Hiding three choices behind a tap so users cannot compare them."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06259"
+    question: "Are these radio options large enough for a thumb, or sized for a mouse pointer?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "visual density vs. touch reliability"
+    failure_it_catches: "Mis-taps on adjacent options that users never notice before submitting."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06260"
+    question: "Does anything animate here that the user did not touch, and what is it claiming?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["motion", "trust"]
+    applies_to: ["motion", "screen"]
+    stage: "refinement"
+    tension: "system expressiveness versus attributing motion to user intent"
+    failure_it_catches: "Unrelated controls changing colour or shape after an action, implying causation that does not exist."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "Liquid Glass Is Cracked, and Usability Suffers in iOS 26"
+    source_url: "https://www.nngroup.com/articles/liquid-glass/"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06261"
+    question: "Does the character counter appear while there is still room, or only once the user has overrun?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "unobtrusive UI vs. warning in time to matter"
+    failure_it_catches: "Telling someone they wrote too much only after they finished writing it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06262"
+    question: "Does the placeholder text in this field carry information, and would you defend its legibility to a low-vision user?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "copy", "craft-detail"]
+    applies_to: ["component", "copy"]
+    stage: "refinement"
+    tension: "placeholder as hint vs. placeholder as unreadable ghost"
+    failure_it_catches: "format requirements only visible to people with good vision"
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06263"
+    question: "Does this form have a reset button anyone has ever wanted to press on purpose?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "symmetry of controls vs. destructive proximity"
+    failure_it_catches: "A clear-everything button sitting next to submit, wiping ten minutes of work."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q06264"
+    question: "Can we name the rule each tip fires on, or did some appear because a tooltip component existed?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["system", "component"]
+    stage: "exploration"
+    tension: "component availability versus editorial discipline"
+    failure_it_catches: "Help proliferating wherever the pattern was easy to drop in, with no per-instance justification."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q06265"
+    question: "How far below the last field does the submit button sit on a long form, and is it ever in view?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["mobile", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "natural document flow vs. visibility of the way out"
+    failure_it_catches: "A button so far down that users never see its state change."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q06266"
+    question: "If you want users to slow down and weigh each answer, is the label placement doing that deliberately?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "speed vs. deliberate consideration"
+    failure_it_catches: "Optimising a high-stakes form for velocity when care was the point."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q06267"
+    question: "Has anyone compared the interaction cost of this long select against a plain list of radios?"
+    category: "Forms and input"
+    subcategory: "Labels, hints and input format masking"
+    secondary_tags: ["accessibility", "mobile"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "vertical space vs. selection effort"
+    failure_it_catches: "Assuming a dropdown is always tidier without measuring what it costs to use."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.78
+  - id: "Q06268"
+    question: "Who inside the organisation actually reads the answer to this field, and can you name that person?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["screen", "flow"]
+    stage: "concept"
+    tension: "organisational data appetite vs. user effort"
+    failure_it_catches: "A field kept alive by folklore that no named person has used in years."
+    provenance: "sourced"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "director"
+    confidence: 0.88
+  - id: "Q06269"
+    question: "Can users answer 'I do not know' where that is genuinely true, or must they invent something?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "trust"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "clean enumerations vs. honest uncertainty"
+    failure_it_catches: "Forcing a guess and recording it as fact."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06270"
+    question: "If a user typed any old thing into this required field just to get past it, would anyone downstream notice?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "enforcement vs. data quality"
+    failure_it_catches: "Required fields that generate confident garbage nobody validates."
+    provenance: "sourced"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06271"
+    question: "Is any required field here present because a downstream team wants the data, not because the behavior needs it?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise"]
+    applies_to: ["screen", "component"]
+    stage: "refinement"
+    tension: "internal data needs vs. the user's completion odds"
+    failure_it_catches: "A mandatory company-size dropdown that costs eight percent of signups so sales can segment."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06272"
+    question: "Is this form derived from the user's task, or from the shape of the record you save at the end?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "enterprise"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "task model vs. storage model"
+    failure_it_catches: "A flow the user has to translate into their own goal before they can start."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The first law of form design"
+    source_url: "https://adamsilver.io/blog/the-first-law-of-form-design/"
+    seniority: "director"
+    confidence: 0.87
+  - id: "Q06273"
+    question: "Which fields here exist because a database column exists, rather than because a person needs to answer them?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "enterprise"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "schema-shaped form vs. task-shaped form"
+    failure_it_catches: "A form that is a table editor wearing a UI, asking in storage order."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06274"
+    question: "Which radio option here is phrased so generally that users cannot tell whether it describes them?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy"]
+    applies_to: ["component", "copy"]
+    stage: "exploration"
+    tension: "tidy short options vs. self-recognition"
+    failure_it_catches: "A yes/no that users cannot answer because they do not know what counts."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Service Manual"
+    source_title: "Designing good questions"
+    source_url: "https://www.gov.uk/service-manual/design/designing-good-questions"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06275"
+    question: "Does the order of questions minimise the user's effort, or mirror the order of your database tables?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "engineering convenience vs. conversational logic"
+    failure_it_catches: "Asking for a name before establishing whether the person is even eligible."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06276"
+    question: "Does this page say what happens after submit: where it goes, who sees it, and when they respond?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "minimal chrome vs. reducing pause time"
+    failure_it_catches: "Users stalling because submitting feels like dropping paper into a void."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The second law of form design"
+    source_url: "https://adamsilver.io/blog/the-second-law-of-form-design/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06277"
+    question: "How much of this signup exists to help sales qualify a lead rather than help the user start?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model", "ethics"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "pipeline quality vs. activation volume"
+    failure_it_catches: "A qualification questionnaire disguised as onboarding."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06278"
+    question: "What decision changes based on this field's answer, and if the answer is none, why is the field on screen?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data"]
+    applies_to: ["screen"]
+    stage: "concept"
+    tension: "completeness of the record vs. cost of asking"
+    failure_it_catches: "Collecting data that feeds no decision, paid for in abandonment."
+    provenance: "synthesized"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06279"
+    question: "What is the cheapest thing you could ask instead of this field and still make the same decision?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data"]
+    applies_to: ["screen", "system"]
+    stage: "concept"
+    tension: "precision of the answer vs. burden of producing it"
+    failure_it_catches: "Demanding an exact figure when a range or a yes/no would have been enough."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06280"
+    question: "What is the maximum number of fields we will allow on this form before the behavior stops being worth it, and who set that ceiling?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model"]
+    applies_to: ["screen", "component"]
+    stage: "concept"
+    tension: "data appetite vs. a declared budget"
+    failure_it_catches: "A form that grows one field per quarter until conversion has quietly halved."
+    provenance: "synthesized"
+    source_publisher: "Unbounce"
+    source_title: "CRO best practices (friction audit)"
+    source_url: "https://unbounce.com/conversion-rate-optimization/cro-best-practices/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06281"
+    question: "Which of these required documents would you name up front, knowing the warning itself will cost you some starts?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["flow", "copy"]
+    stage: "refinement"
+    tension: "low-friction start vs. informed preparation"
+    failure_it_catches: "Users hitting question nine, discovering they need a reference number, and never coming back."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06282"
+    question: "Whose effort does this design spend to save ours, and by how many seconds per user per week?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["ethics", "enterprise"]
+    applies_to: ["flow", "system"]
+    stage: "exploration"
+    tension: "internal operating cost vs. aggregate user cost"
+    failure_it_catches: "Pushing a reformatting task onto ten thousand users to avoid one parser."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "Cass Sunstein on removing sludge from the gears of city hall"
+    source_url: "https://bloombergcities.jhu.edu/news/cass-sunstein-removing-sludge-gears-city-hall"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06283"
+    question: "Would you rather have this field answered honestly by sixty percent of users, or half-invented by ninety-five?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "trust"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "response rate vs. data truthfulness"
+    failure_it_catches: "Mandatory fields that manufacture Mickey Mouse records and a cleanup bill."
+    provenance: "synthesized"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06284"
+    question: "Does this question ask two things at once and then demand a single answer to both?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy", "data"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "fewer fields vs. answerable questions"
+    failure_it_catches: "A double-barrelled question producing data that means nothing."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06285"
+    question: "Is the most sensitive question first, or placed after enough small commitments that it feels earned?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "data priority vs. trust accumulation"
+    failure_it_catches: "Opening with a national ID number and losing users at question one."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06286"
+    question: "Which team would object loudest to deleting this field, and what evidence can they actually produce?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "stakeholder confidence vs. documented use"
+    failure_it_catches: "Losing the argument to whoever speaks with most certainty rather than most data."
+    provenance: "synthesized"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q06287"
+    question: "Whose request put the 'how did you hear about us' field here, and is analytics already answering it better?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "business-model"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "marketing curiosity vs. signup friction"
+    failure_it_catches: "A legacy attribution question that survived the arrival of the analytics that replaced it."
+    provenance: "synthesized"
+    source_publisher: "Caroline Jarrett"
+    source_title: "The Question Protocol (UXmatters)"
+    source_url: "https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06288"
+    question: "Would you be comfortable reading this question aloud, in these exact words, to a user sitting opposite you?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "institutional phrasing vs. human phrasing"
+    failure_it_catches: "Legalistic labels nobody would ever say out loud, and nobody quite understands."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06289"
+    question: "Have you gone back to the team that requested this field and asked whether they still use the data?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "political cost of asking vs. permanent user cost"
+    failure_it_catches: "A field defended by a department that stopped using it three years ago."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q06290"
+    question: "Is an estimated completion time stated anywhere, and is your estimate honest for a first-timer?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "encouraging optimism vs. credible expectation-setting"
+    failure_it_catches: "A 'takes two minutes' promise that takes eleven and costs trust."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06291"
+    question: "Is the reason for this sensitive question written next to it, or nowhere on the page at all?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["copy", "screen"]
+    stage: "exploration"
+    tension: "page brevity vs. justifying an intrusion"
+    failure_it_catches: "An unexplained sensitive question that reads as overreach and triggers abandonment."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06292"
+    question: "Name the single question on this page that carries real consequence if it is answered wrongly?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "uniform treatment of fields vs. proportionate care"
+    failure_it_catches: "Designing every field with equal weight so the one that matters gets no extra help."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06293"
+    question: "What would you delete from this page if every element had to be defended with a use case?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "accumulated content vs. justified content"
+    failure_it_catches: "A page where nothing is wrong individually and the whole is unreadable."
+    provenance: "synthesized"
+    source_publisher: "John Maeda"
+    source_title: "The Laws of Simplicity"
+    source_url: "https://lawsofsimplicity.com/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06294"
+    question: "Where does one step consume more than a third of this path's whole effort, and what does it buy?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["mobile", "performance"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "an even-looking flow vs. one expensive step hiding in it"
+    failure_it_catches: "A five-step wizard where step three is a document scan and the other four are trivial."
+    provenance: "synthesized"
+    source_publisher: "Unbounce"
+    source_title: "CRO best practices (friction audit)"
+    source_url: "https://unbounce.com/conversion-rate-optimization/cro-best-practices/"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06295"
+    question: "Which question here could be asked next week instead of now, after the user has seen something worth the effort?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "collect everything upfront vs. earn the right to ask"
+    failure_it_catches: "Front-loading a signup with questions that belong after first value."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06296"
+    question: "Which question sits before the user has any evidence that answering anything is worth it?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "gating for lead capture vs. showing value first"
+    failure_it_catches: "A wall of questions in front of the thing the user came to see."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "The EAS Framework for Simplifying Forms"
+    source_url: "https://www.nngroup.com/articles/eas-framework-simplify-forms/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06297"
+    question: "Would reversing this yes/no question change how many people answer it honestly?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy", "data"]
+    applies_to: ["copy"]
+    stage: "exploration"
+    tension: "framing convenience vs. acquiescence bias"
+    failure_it_catches: "A question whose phrasing quietly signals the 'right' answer."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Service Manual"
+    source_title: "Designing good questions"
+    source_url: "https://www.gov.uk/service-manual/design/designing-good-questions"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06298"
+    question: "Has anyone checked how many users stop at the date-of-birth field and never return?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust", "data"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "identity verification needs vs. privacy refusal"
+    failure_it_catches: "Treating a high-refusal field as routine because nobody segmented the drop-off."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06299"
+    question: "How would this form change if every field cost the team a pound per submission to store?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model", "data"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "free-to-ask illusion vs. real cost of collection"
+    failure_it_catches: "Treating questions as costless because the cost lands on the user, not the P&L."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q06300"
+    question: "If this field's answer is read once a year in a report, does it belong on every single submission?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["data", "business-model"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "annual analytical value vs. per-user cost"
+    failure_it_catches: "Taxing every submission to feed a quarterly slide."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.82
+  - id: "Q06301"
+    question: "If this form were a conversation, where would the other person stop and ask why you need that?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "transactional efficiency vs. social plausibility"
+    failure_it_catches: "A sequence of questions that would be rude or bizarre in person."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06302"
+    question: "Which single fact would make finishing this form feel safe, and is it currently anywhere on screen?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "reassurance copy vs. page economy"
+    failure_it_catches: "Omitting the return policy, deadline or reversibility that unblocks the decision."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06303"
+    question: "Would a user who is late, holding a coffee and mildly annoyed still complete this step?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["mobile"]
+    applies_to: ["screen", "flow"]
+    stage: "pre-ship"
+    tension: "the ideal test conditions vs. the real ones"
+    failure_it_catches: "A two-handed drag interaction shipped for a task performed on a moving train."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06304"
+    question: "Which two fields here ask for the same thing in different words, for two different teams?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "per-team data ownership vs. one coherent question set"
+    failure_it_catches: "Duplicate questions that produce two conflicting values for one fact."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q06305"
+    question: "When did this flow last lose a step, and what got added in its place the same month?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["long-term"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "one-way accretion vs. an enforced budget"
+    failure_it_catches: "A checkout that only ever gains screens because nothing forces an equal removal."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q06306"
+    question: "Which field on this internal admin form exists only because the original spec was a spreadsheet column?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["enterprise", "data"]
+    applies_to: ["screen", "system"]
+    stage: "exploration"
+    tension: "migration fidelity vs. fresh task design"
+    failure_it_catches: "Porting a spreadsheet's columns into a UI and calling it a product."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q06307"
+    question: "Which field would a competitor's form not ask, and what would you actually lose by dropping it?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["business-model"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "internal norms vs. market baseline of effort"
+    failure_it_catches: "Asking more than the alternative and never noticing the switching cost."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q06308"
+    question: "Is the phone number here for delivery, fraud checks, or sales calls, and does anything on screen say which?"
+    category: "Forms and input"
+    subcategory: "Question protocol: what earns a field"
+    secondary_tags: ["trust", "copy"]
+    applies_to: ["screen", "copy"]
+    stage: "refinement"
+    tension: "business use vs. user suspicion"
+    failure_it_catches: "An unexplained phone field that users read as a sales trap and either skip or fake."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q06309"
+    question: "After a validation failure, are the user's earlier answers still sitting in the fields?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["trust"]
+    applies_to: ["screen"]
+    stage: "refinement"
+    tension: "clean re-render vs. preserving work"
+    failure_it_catches: "A form that punishes one mistake by wiping every correct answer."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "IC"
+    confidence: 0.89
+  - id: "Q06310"
+    question: "Where in our reporting does the mute rate sit relative to the open rate?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "celebrating engagement vs. tracking attrition of permission"
+    failure_it_catches: "A campaign declared a success while quietly shrinking the addressable base every week."
+    provenance: "sourced"
+    source_publisher: "Push Notification Trends 2026"
+    source_title: "NVECTA"
+    source_url: "https://www.nvecta.com/blog/push-notification-trends-2026/"
+    seniority: "director"
+    confidence: 0.89
+  - id: "Q06311"
+    question: "Can a password manager complete this login, or does a script block it from filling?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "perceived security control vs. accessible authentication"
+    failure_it_catches: "Locking out users who cannot transcribe a long password by hand."
+    provenance: "sourced"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06312"
+    question: "Does the inline error clear the instant the input becomes valid, or only when focus leaves the field?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "cheap re-check on blur vs. responsiveness while correcting"
+    failure_it_catches: "A user staring at a stale error message after they already fixed the value."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "Usability Testing of Inline Form Validation"
+    source_url: "https://baymard.com/blog/inline-form-validation"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06313"
+    question: "Has your own research justified inline validation here, or did it arrive with a component library?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "GOV.UK says validate on submit, Baymard says validate live: your users settle it"
+    failure_it_catches: "Adopting one camp's rule as universal law without testing it in your context."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06314"
+    question: "Have you watched someone fail this form, or only watched someone succeed at it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "demo-friendly testing vs. the lowest point of the journey"
+    failure_it_catches: "Research that never exercises the recovery path where users actually leave."
+    provenance: "sourced"
+    source_publisher: "Adam Silver"
+    source_title: "The third law of form design"
+    source_url: "https://adamsilver.io/blog/the-third-law-of-form-design/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06315"
+    question: "Is this genuinely an error, or a formatting preference you could have normalised silently?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data", "craft-detail"]
+    applies_to: ["system"]
+    stage: "refinement"
+    tension: "canonical storage vs. tolerant intake"
+    failure_it_catches: "Error rates driven entirely by punctuation the backend could strip."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06316"
+    question: "When does validation fire on this field (on keystroke, on blur, or on submit) and who actually decided?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "early feedback vs. interrupting someone mid-answer"
+    failure_it_catches: "Validation timing that accumulated by accident across three different developers."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.88
+  - id: "Q06317"
+    question: "Which field here errors while the user is still halfway through typing a long number?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["craft-detail", "trust"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "immediate feedback vs. premature accusation"
+    failure_it_catches: "An error at digit eight of a sixteen-digit number that makes the site feel broken."
+    provenance: "sourced"
+    source_publisher: "Baymard Institute"
+    source_title: "Usability Testing of Inline Form Validation"
+    source_url: "https://baymard.com/blog/inline-form-validation"
+    seniority: "IC"
+    confidence: 0.88
+  - id: "Q06318"
+    question: "After a failed submit, does keyboard focus move to the error summary, or stay where it was?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "not stealing focus vs. announcing failure at all"
+    failure_it_catches: "A screen reader user who never learns the submission failed."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Error summary component"
+    source_url: "https://design-system.service.gov.uk/components/error-summary/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06319"
+    question: "Can a user click an item in the error summary and land directly on the field it names?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "a summary as decoration vs. a summary as navigation"
+    failure_it_catches: "An error list that reports problems without helping anyone reach them."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Error summary component"
+    source_url: "https://design-system.service.gov.uk/components/error-summary/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06320"
+    question: "Does a screen reader announce this error, or does it appear silently below the input?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "visual proximity vs. programmatic association"
+    failure_it_catches: "An error that exists visually and not at all for assistive technology."
+    provenance: "sourced"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06321"
+    question: "Does logging in here require remembering, transcribing or solving anything, and which of those did you assume was unavoidable?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "security ritual vs cognitive burden"
+    failure_it_catches: "An authentication flow that is a memory test wearing a security costume."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06322"
+    question: "Does this error blame the user for something the system could simply have accepted?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "strict intake vs. forgiving what does not matter"
+    failure_it_catches: "Rejecting a value over a space, a hyphen or a capital letter."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06323"
+    question: "How long does this undo toast stay on screen, and is that enough time for someone who reads slowly and aims slowly?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "unobtrusive toast timing vs realistic reaction time"
+    failure_it_catches: "A four-second undo window that expires before a switch user reaches it."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 2.2.1 Timing Adjustable"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06324"
+    question: "If a screen reader user tabs into a failed field, do they hear why it failed?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "error placement on screen vs. error reachable by keyboard"
+    failure_it_catches: "A user tabbing through fields with no idea which one is wrong."
+    provenance: "sourced"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06325"
+    question: "Is this checkbox worded as an opt-out that must be ticked in order to say no?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["ethics", "copy"]
+    applies_to: ["copy", "component"]
+    stage: "refinement"
+    tension: "legal phrasing vs. comprehension under speed"
+    failure_it_catches: "Negative wording that gets people the opposite of what they chose."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06326"
+    question: "What does this form do when JavaScript fails and every client-side rule disappears?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["performance", "accessibility"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "rich client validation vs. guaranteed server enforcement"
+    failure_it_catches: "A form that silently accepts invalid data when a script fails to load."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.87
+  - id: "Q06327"
+    question: "Which error message tells the user what went wrong but not a single thing about how to fix it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "describing the fault vs. prescribing the fix"
+    failure_it_catches: "'Invalid input' as a complete sentence."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Error message component"
+    source_url: "https://design-system.service.gov.uk/components/error-message/"
+    seniority: "IC"
+    confidence: 0.87
+  - id: "Q06328"
+    question: "Are HTML5 validation bubbles doing the talking, and can you style, translate or test them?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "i18n"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "free browser validation vs. controllable, accessible messaging"
+    failure_it_catches: "Untranslatable native tooltips that vanish and never reach a screen reader."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06329"
+    question: "Are the password rules shown before the user types, or only revealed as a failure?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "minimal field vs. preventing a guaranteed error"
+    failure_it_catches: "Three failed attempts before the user learns a symbol is required."
+    provenance: "sourced"
+    source_publisher: "web.dev"
+    source_title: "Sign-in form best practices"
+    source_url: "https://web.dev/articles/sign-in-form-best-practices"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06330"
+    question: "Can a one-time code be pasted into this field, or did the six separate boxes make that impossible?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "segmented input aesthetics vs paste and autofill"
+    failure_it_catches: "A stylish six-box OTP that defeats password managers and shaky hands alike."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06331"
+    question: "Do your client-side and server-side rules ever disagree, and which one wins on screen?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["enterprise", "craft-detail"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "two validation layers vs. one consistent truth"
+    failure_it_catches: "A value the browser accepts and the server rejects with a different message."
+    provenance: "sourced"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06332"
+    question: "Does this form ask again for information already given earlier in the same process?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "data"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "step independence vs. carrying answers forward"
+    failure_it_catches: "Repeated entry that costs the most for the users who type slowest."
+    provenance: "sourced"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.7 Redundant Entry"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06333"
+    question: "Has anyone actually written the error copy, or is it whatever the backend happens to return?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["copy"]
+    stage: "concept"
+    tension: "ownership of failure states vs. shipping the success path"
+    failure_it_catches: "User-facing text authored by an exception handler."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06334"
+    question: "How does this form treat a value that is unusual but genuinely, verifiably correct?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["i18n", "trust"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "plausibility heuristics vs. real outliers"
+    failure_it_catches: "Telling a real person their real details are impossible."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Names pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/names/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06335"
+    question: "How does this product change as a user gets better, or does it stay frozen in a day-one posture?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["long-term"]
+    applies_to: ["system", "flow"]
+    stage: "concept"
+    tension: "stability of the interface vs. adaptation to skill"
+    failure_it_catches: "Onboarding scaffolding that never retires, insulting the user for their entire tenure."
+    provenance: "synthesized"
+    source_publisher: "Gabriel Padinha"
+    source_title: "A take on A Theory of Fun by Raph Koster"
+    source_url: "https://medium.com/@gabrielpadinha/a-take-on-a-theory-of-fun-from-raph-koster-dcca2946b1b"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06336"
+    question: "How many distinct error messages exist for this one field, or is there a single generic catch-all?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy"]
+    applies_to: ["component"]
+    stage: "concept"
+    tension: "maintaining many messages vs. saying something specific"
+    failure_it_catches: "One message covering empty, too short, wrong format and already taken."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Service Manual"
+    source_title: "Designing good questions"
+    source_url: "https://www.gov.uk/service-manual/design/designing-good-questions"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06337"
+    question: "Is an error appearing before the user has had any chance to finish the field?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["trust"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "error prevention vs. hostile scolding"
+    failure_it_catches: "Premature validation that makes users feel wrong for having started."
+    provenance: "sourced"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06338"
+    question: "Is the wording in the error summary identical to the wording next to the field?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "accessibility"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "summary brevity vs. matching what the user then reads"
+    failure_it_catches: "Two different phrasings for one problem, leaving users unsure they found the right field."
+    provenance: "sourced"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Error summary component"
+    source_url: "https://design-system.service.gov.uk/components/error-summary/"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06339"
+    question: "What does this form show when the server returns a 500 after a ten-minute application?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["trust", "enterprise"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "generic error page vs. protecting the user's investment"
+    failure_it_catches: "A stack-trace page that loses ten minutes of work and offers no route back."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06340"
+    question: "Which cognitive test does this login impose: remembering, transcribing, or solving a puzzle?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "anti-bot friction vs. the memory and dexterity of real people"
+    failure_it_catches: "An authentication step that excludes people with cognitive or motor differences."
+    provenance: "synthesized"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06341"
+    question: "Which custom control here replaces a native input, and what did you lose to gain the styling?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "brand consistency vs. free platform behaviour"
+    failure_it_catches: "Rebuilding a select and losing keyboard, autofill and screen reader support."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06342"
+    question: "Which pre-ticked box on this form would embarrass you in a screenshot on social media?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["ethics", "brand"]
+    applies_to: ["screen"]
+    stage: "post-ship"
+    tension: "opt-in numbers vs. reputational exposure"
+    failure_it_catches: "A default consent that reads as a dark pattern the moment it is shown to anyone."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.86
+  - id: "Q06343"
+    question: "Which rules for this field are revealed only after a failed submit, and how many rules is that to hold at once?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "copy"]
+    applies_to: ["component", "copy"]
+    stage: "pre-ship"
+    tension: "clean field appearance vs upfront constraints"
+    failure_it_catches: "Five password rules disclosed on rejection, exceeding working memory in one hit."
+    provenance: "sourced"
+    source_publisher: "Jakob Nielsen"
+    source_title: "Cognitive Load Is a Budget, Not an Enemy"
+    source_url: "https://www.uxtigers.com/post/cognitive-load"
+    seniority: "IC"
+    confidence: 0.86
+  - id: "Q06344"
+    question: "Whose definition of ready for dev is this: a file state, or a promise that every state is drawn?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["enterprise"]
+    applies_to: ["artifact"]
+    stage: "pre-ship"
+    tension: "workflow marker vs. completeness guarantee"
+    failure_it_catches: "A frame flagged ready while its error and empty states are still in a scratch page."
+    provenance: "sourced"
+    source_publisher: "Figma Learn"
+    source_title: "Guide to Dev Mode"
+    source_url: "https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode"
+    seniority: "senior"
+    confidence: 0.86
+  - id: "Q06345"
+    question: "After a validation error, does the user still have everything they typed, or did the page reload take some of it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow", "screen"]
+    stage: "pre-ship"
+    tension: "server-side simplicity vs preserving effort"
+    failure_it_catches: "A cleared form that costs a fatigued user the whole session's work."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06346"
+    question: "Does a user who fails three times get more help, or the same message a third time?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "trust"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "consistent messaging vs. escalating support"
+    failure_it_catches: "Repeating an unhelpful message until the user gives up entirely."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06347"
+    question: "Does retry preserve the payload, or does it ask the user to start again from the top?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["trust"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "stateless retry vs. respecting effort already spent"
+    failure_it_catches: "A network blip turning into a full re-entry of the entire form."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06348"
+    question: "Does the fieldset legend read as the question, or repeat the page heading twice to a screen reader?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "post-ship"
+    tension: "visual heading hierarchy vs. announced duplication"
+    failure_it_catches: "Non-sighted users hearing the same sentence twice on every question page."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Question pages pattern"
+    source_url: "https://design-system.service.gov.uk/patterns/question-pages/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06349"
+    question: "Does this checkbox behave like a checkbox, or does it clear the others like a radio?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "clever multi-select logic vs. learned expectations"
+    failure_it_catches: "A control whose behaviour contradicts its own shape."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06350"
+    question: "How many fields must be crossed before this form can be saved as a draft, and can it be saved at all?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "single-sitting completion assumption vs interrupted lives"
+    failure_it_catches: "A 40-field application that cannot be paused when energy runs out."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06351"
+    question: "If an answer is carried forward automatically, does the user get to see and change it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "convenience of reuse vs. silent assumptions"
+    failure_it_catches: "A copied billing address the user never noticed and cannot amend."
+    provenance: "synthesized"
+    source_publisher: "W3C"
+    source_title: "Understanding SC 3.3.7 Redundant Entry"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06352"
+    question: "Is the CAPTCHA on this page protecting revenue worth more than the users it turns away, and do you know that number?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "business-model", "ethics"]
+    applies_to: ["flow"]
+    stage: "concept"
+    tension: "abuse prevention vs exclusion at the door"
+    failure_it_catches: "A puzzle gate quietly filtering out legitimate users with cognitive disabilities."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06353"
+    question: "What share of errors on this form are the system refusing a correct answer in the wrong shape?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "counting errors vs. classifying whose fault they are"
+    failure_it_catches: "Treating a formatting intolerance as a user education problem."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "8 Recommendations for Creating Effective Input Fields"
+    source_url: "https://baymard.com/learn/input-fields"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06354"
+    question: "What would you delete from this form if completions mattered more than data richness?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["business-model", "data"]
+    applies_to: ["system"]
+    stage: "concept"
+    tension: "analytical appetite vs. throughput"
+    failure_it_catches: "A form optimised for the reporting team at the expense of the people filling it."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06355"
+    question: "When this form fails, what does a screen reader hear first: the error count, the first bad field, or nothing until the user re-reads the page?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "invisible detail vs. earliest possible notification"
+    failure_it_catches: "Silent failure that a non-sighted user discovers only by re-reading the whole page."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06356"
+    question: "Where does a genuinely stuck user go from this error, and is there a human at the end of it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["trust", "business-model"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "self-service ideal vs. an exit for the edge case"
+    failure_it_catches: "A validation dead end with no contact route and no alternative channel."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06357"
+    question: "Which error states have you designed for this form, and how many have you not?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["screen"]
+    stage: "exploration"
+    tension: "designing the happy path vs. enumerating failure"
+    failure_it_catches: "Three error states in the mock and fifteen in production, all unstyled."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06358"
+    question: "Which field has the highest error rate in production, and has anyone looked at the rejected values?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "privacy of logged input vs. learning what users actually type"
+    failure_it_catches: "A chronically failing field nobody has diagnosed because nobody looked."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06359"
+    question: "Which fields get wiped on error, and has anyone deliberately failed this form to find out?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["craft-detail"]
+    applies_to: ["flow"]
+    stage: "post-ship"
+    tension: "testing the happy path vs. testing the recovery path"
+    failure_it_catches: "A password or file input silently cleared on every failed submit."
+    provenance: "synthesized"
+    source_publisher: "Baymard Institute"
+    source_title: "Usability Testing of Inline Form Validation"
+    source_url: "https://baymard.com/blog/inline-form-validation"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06360"
+    question: "Which fields in this multi-step process ask for something the user already gave you two steps ago?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "per-step independence vs carried-forward state"
+    failure_it_catches: "Re-typed data that fails to match and blocks completion for no reason."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 3.3.7 Redundant Entry"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06361"
+    question: "Which validation rule here exists to protect the database rather than to protect the user?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data", "enterprise"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "data integrity vs. accepting reality"
+    failure_it_catches: "Rejecting truthful input because a schema constraint was set arbitrarily."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06362"
+    question: "Would a user ticking this consent box be agreeing to something the label does not mention?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["ethics", "trust"]
+    applies_to: ["copy"]
+    stage: "post-ship"
+    tension: "broad legal coverage vs. informed consent"
+    failure_it_catches: "A consent whose scope only exists in a linked document nobody opened."
+    provenance: "synthesized"
+    source_publisher: "NN/g"
+    source_title: "4 Principles to Reduce Cognitive Load in Forms"
+    source_url: "https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06363"
+    question: "Would someone using magnification see this error, or does it sit outside their viewport?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "page-top summary vs. proximity to the field"
+    failure_it_catches: "An error banner far above a zoomed user's visible area."
+    provenance: "synthesized"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "senior"
+    confidence: 0.85
+  - id: "Q06364"
+    question: "Would this error message make sense to someone who has never seen your data model?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "enterprise"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "precise system language vs. language the user can act on"
+    failure_it_catches: "Error copy that names a constraint the user has no way to understand."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Error message component"
+    source_url: "https://design-system.service.gov.uk/components/error-message/"
+    seniority: "IC"
+    confidence: 0.85
+  - id: "Q06365"
+    question: "Would you ship this form if you personally had to complete it on a phone, every week?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["mobile", "enterprise"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "designing for others vs. living with the result"
+    failure_it_catches: "Shipping friction the team would never accept in a tool they used themselves."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The first law of form design"
+    source_url: "https://adamsilver.io/blog/the-first-law-of-form-design/"
+    seniority: "director"
+    confidence: 0.85
+  - id: "Q06366"
+    question: "Before submitting, can the user see everything they entered on one page and change any of it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust"]
+    applies_to: ["flow", "screen"]
+    stage: "exploration"
+    tension: "flow brevity vs a review step that removes doubt"
+    failure_it_catches: "Irreversible submission with no chance to check what was actually entered."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "UK Home Office accessibility posters"
+    source_url: "https://ukhomeoffice.github.io/accessibility-posters/posters/accessibility-posters.pdf"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06367"
+    question: "Does your test data include the ugly cases: very long names, no surname, non-Latin script?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["i18n", "accessibility"]
+    applies_to: ["system"]
+    stage: "pre-ship"
+    tension: "clean demo data vs. the real distribution of people"
+    failure_it_catches: "A form that works for Jane Smith and breaks for everyone else."
+    provenance: "synthesized"
+    source_publisher: "Kalzumeus"
+    source_title: "Falsehoods programmers believe about names"
+    source_url: "https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06368"
+    question: "Has anyone on the team completed this form keyboard-only, from first field to confirmation?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "audit checklists vs. one honest end-to-end attempt"
+    failure_it_catches: "A focus trap or unreachable control discovered only by an external audit."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06369"
+    question: "Have you asked the backend team whether that 'invalid characters' rule is still necessary?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["enterprise", "i18n"]
+    applies_to: ["system"]
+    stage: "exploration"
+    tension: "inherited constraints vs. current capability"
+    failure_it_catches: "A legacy character restriction blocking accents and apostrophes for no live reason."
+    provenance: "synthesized"
+    source_publisher: "GOV.UK Design System"
+    source_title: "Recover from validation errors"
+    source_url: "https://design-system.service.gov.uk/patterns/validation/"
+    seniority: "senior"
+    confidence: 0.84
+  - id: "Q06370"
+    question: "Is red the only thing marking this field as wrong?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "visual economy vs. non-colour signalling"
+    failure_it_catches: "An error state invisible to a user with colour vision deficiency."
+    provenance: "synthesized"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06371"
+    question: "Is this destructive action reversible for a window of time, and what did the engineering cost of that window buy in user trust?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "trust", "long-term"]
+    applies_to: ["flow", "system"]
+    stage: "concept"
+    tension: "immediate finality vs soft-delete complexity"
+    failure_it_catches: "Permanent deletion triggered by a tremor with no path back."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "director"
+    confidence: 0.84
+  - id: "Q06372"
+    question: "Which error message currently contains a field name lifted straight from the database?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "data"]
+    applies_to: ["copy"]
+    stage: "refinement"
+    tension: "debuggability vs. legibility"
+    failure_it_catches: "Showing users 'addr_line_1 must not be null'."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.84
+  - id: "Q06373"
+    question: "How many 'Are you sure?' dialogs does a user meet in this flow, and have they stopped reading them by the third?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "ethics"]
+    applies_to: ["flow"]
+    stage: "refinement"
+    tension: "safety prompts vs confirmation blindness"
+    failure_it_catches: "Prompt fatigue that removes the protection the prompts were added for."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06374"
+    question: "If two errors land on the same field at once, which message wins and why that one?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "craft-detail"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "message precedence vs. showing everything at once"
+    failure_it_catches: "Fixing the message shown only to be told about the second problem afterwards."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06375"
+    question: "Is your error copy in the product's voice, or the voice of whoever wrote the validator?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["copy", "brand"]
+    applies_to: ["copy"]
+    stage: "exploration"
+    tension: "terse system language vs. brand consistency at the worst moment"
+    failure_it_catches: "A warm product that turns cold and clinical precisely when the user is stuck."
+    provenance: "synthesized"
+    source_publisher: "Adam Silver"
+    source_title: "The third law of form design"
+    source_url: "https://adamsilver.io/blog/the-third-law-of-form-design/"
+    seniority: "senior"
+    confidence: 0.83
+  - id: "Q06376"
+    question: "Where does this form rely on colour alone to show which fields still need attention?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "visual shorthand vs. redundant encoding"
+    failure_it_catches: "A colour-coded progress or status indicator that carries no text equivalent."
+    provenance: "synthesized"
+    source_publisher: "Home Office"
+    source_title: "Error messages guidance"
+    source_url: "https://design.homeoffice.gov.uk/accessibility/interactivity/error-messages"
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06377"
+    question: "Which two states of this component are visually distinguishable only to someone who already knows the difference?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component"]
+    stage: "refinement"
+    tension: "understated state design versus discriminability for newcomers"
+    failure_it_catches: "Selected versus hovered versus disabled distinguished by a two-percent tint shift."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.83
+  - id: "Q06378"
+    question: "Who gets told when a field's error rate crosses a threshold, and what are they expected to do?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["enterprise", "data", "long-term"]
+    applies_to: ["system"]
+    stage: "post-ship"
+    tension: "monitoring effort vs. no owner for form health"
+    failure_it_catches: "A field failing thousands of times a week with nobody responsible for noticing."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.83
+  - id: "Q06379"
+    question: "If an error surfaces at step four, does the user land back at step one, and who decided that was acceptable?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "linear wizard integrity vs targeted correction"
+    failure_it_catches: "A four-step form that restarts itself over one mistyped digit."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06380"
+    question: "Is the 'none of the above' option doing real work, or creating a contradictory selection?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["data", "craft-detail"]
+    applies_to: ["component"]
+    stage: "exploration"
+    tension: "exhaustive option sets vs. mutually exclusive logic"
+    failure_it_catches: "A submission where three conditions and 'none of the above' are both ticked."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06381"
+    question: "What granularity does autosave use here (every keystroke, every field, or every step) and what is lost between saves?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "performance"]
+    applies_to: ["system", "flow"]
+    stage: "concept"
+    tension: "write volume vs work at risk"
+    failure_it_catches: "A dropped connection erasing twenty minutes of laboured typing."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06382"
+    question: "Which locale has this form been tested in besides English?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["i18n"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "launch-market focus vs. layouts and formats that will not survive translation"
+    failure_it_catches: "Date order, label length and error copy all breaking in the second market."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.82
+  - id: "Q06383"
+    question: "Why does this form ask for the email address twice, and would a confirmation step have cost less than the retyping?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow", "component"]
+    stage: "exploration"
+    tension: "typo prevention by repetition vs typing burden"
+    failure_it_catches: "Double entry that doubles the effort and still lets a copy-paste typo through."
+    provenance: "sourced"
+    source_publisher: ""
+    source_title: "W3C Understanding SC 3.3.7 Redundant Entry"
+    source_url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    seniority: "IC"
+    confidence: 0.82
+  - id: "Q06384"
+    question: "Are nested groupings making a screen reader read three labels before one simple answer?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["component"]
+    stage: "pre-ship"
+    tension: "semantic grouping vs. announcement verbosity"
+    failure_it_catches: "A deeply nested structure that turns each option into a paragraph of speech."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.81
+  - id: "Q06385"
+    question: "Does this flow ever warn before discarding work, and does the warning arrive before or after the tap that destroys it?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "frictionless navigation vs protecting invested effort"
+    failure_it_catches: "A back gesture that silently drops a half-finished application."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "IC"
+    confidence: 0.81
+  - id: "Q06386"
+    question: "Have you designed the path for a user who pressed the wrong button on purpose-looking screens, or only the intended path?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility"]
+    applies_to: ["flow"]
+    stage: "exploration"
+    tension: "happy-path completeness vs designed recovery"
+    failure_it_catches: "Recovery flows left to engineering defaults and never drawn."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "director"
+    confidence: 0.80
+  - id: "Q06387"
+    question: "Is undo visible as a control, or does it exist only as a keyboard shortcut power users happen to know?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "screen"]
+    stage: "exploration"
+    tension: "chrome minimalism vs affordance for recovery"
+    failure_it_catches: "Recovery available in theory to anyone who already knew about Ctrl+Z."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q06388"
+    question: "When one field fails validation, does correcting it disturb any of the others the user already got right?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "reactive form logic vs stability of prior work"
+    failure_it_catches: "Dependent fields resetting silently and sending the user back three steps."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.80
+  - id: "Q06389"
+    question: "Where does focus go after an error: to the summary, to the first bad field, or nowhere useful?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["screen"]
+    stage: "pre-ship"
+    tension: "visual error display vs programmatic recovery path"
+    failure_it_catches: "Keyboard users tabbing the whole form again to find what failed."
+    provenance: "synthesized"
+    source_publisher: ""
+    source_title: "W3C Making Content Usable for People with Cognitive and Learning Disabilities"
+    source_url: "https://www.w3.org/TR/coga-usable/"
+    seniority: "IC"
+    confidence: 0.80
+  - id: "Q06390"
+    question: "Does the browser back button return the user to their answers here, or to an empty page?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["flow"]
+    stage: "pre-ship"
+    tension: "single-page app routing vs expected browser behaviour"
+    failure_it_catches: "Back destroying state for users who use back as their primary correction tool."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.79
+  - id: "Q06391"
+    question: "When an upload fails, does the user re-pick the file from scratch, or does the product remember what they chose?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "flow"]
+    stage: "pre-ship"
+    tension: "stateless retry vs remembered selection"
+    failure_it_catches: "Re-navigating a file system with a trackball for a second and third attempt."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "senior"
+    confidence: 0.79
+  - id: "Q06392"
+    question: "If someone hits Enter one field too early, what happens: a submit, or a graceful pause?"
+    category: "Forms and input"
+    subcategory: "Validation timing and inline error recovery"
+    secondary_tags: ["accessibility", "craft-detail"]
+    applies_to: ["component", "flow"]
+    stage: "pre-ship"
+    tension: "keyboard convenience vs premature commitment"
+    failure_it_catches: "Half-complete applications submitted by an accidental keypress."
+    provenance: "original"
+    source_publisher: ""
+    source_title: ""
+    source_url: ""
+    seniority: "IC"
+    confidence: 0.76

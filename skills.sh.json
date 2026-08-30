@@ -10,6 +10,10 @@
       "skills": ["dedupe"]
     },
     {
+      "title": "Design Decisions",
+      "skills": ["by-design"]
+    },
+    {
       "title": "Design Systems",
       "skills": ["visual-design-system-extractor"]
     },

@@ -38,6 +38,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/mobile-first-website-design/SKILL.md');
   expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
   expect(result.entries).toContain('package/skills/prompt-enhancer/SKILL.md');
+  expect(result.entries).toContain('package/skills/by-design/SKILL.md');
   expect(result.entries).toContain('package/skills/reify/SKILL.md');
   expect(result.entries).toContain('package/skills/simplify-skill/SKILL.md');
   expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
@@ -50,6 +51,7 @@ test('builds a safe package with canonical skills and client manifests', async (
   expect(result.entries).toContain('package/skills/would-humans-actually/SKILL.md');
   expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
     'package/skills/always-current-datetime/SKILL.md',
+    'package/skills/by-design/SKILL.md',
     'package/skills/dedupe/SKILL.md',
     'package/skills/dtcg-tokens/SKILL.md',
     'package/skills/goal-prompt/SKILL.md',

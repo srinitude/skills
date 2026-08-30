@@ -57,11 +57,13 @@ Each file in `examples/` is one complete run with real command output. Read the 
 
 - `examples/help-command.md` when the user types `help` or asks what this skill can do.
 - `examples/new-vague-memory.md` when starting from a loose thought and you need the first reply, the record file, and the probe object.
+- `examples/new-from-source-file.md` when the user names a readable file and you need the read-before-asking move, the `starting-point` application, and the first reply and probe for a content blocker.
 - `examples/thin-facts-no-invention.md` before writing any first-person prose from a memory that carries no names, places, or dates. This is the failure this skill causes most often.
 - `examples/continue-record.md` when resuming a saved record, including the case where the directory holds more than one.
 - `examples/revert-decision.md` before running `revert`, for the before and after record and what happens to files.
 - `examples/finalize-handoff.md` when building and validating `BRIEF.json`, including the exit 1 and exit 2 branches and a finalize whose milestone stays open.
 - `examples/finalize-artifacts.md` when you need the full contents of a passing brief, a prepared handoff packet, and the record entries a finalize appends.
+- `examples/finalize-open-milestone.md` when a finalize leaves the first milestone open because the author must run the test, including the brief validator exit 2, exit 1, and exit 0 branches.
 - `examples/scrap-direction.md` when the user abandons a direction and the record must stay usable.
 
 ## Gotchas

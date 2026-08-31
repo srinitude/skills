@@ -4,6 +4,9 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Added `scripts/inject-skills.sh`, a self contained POSIX shell tool that copies a selected subset of skills into a target project with a manifest, and removes exactly those files on revert. Two copy modes control the footprint: default drops only evals, local CI, test code, and image prompt shards; `--slim` keeps only `SKILL.md`, `references/`, `examples/`, and `scripts/`. Revert refuses to delete paths outside the destination directory. Documented in `docs/per-project-injection.md`.
+- Rewrote `README.md` as a full project description: scope, intended audience, efficiency properties, global and per-project install paths, revert for both, client support table, included skills table, and validation and evaluation commands.
+
 - Added the `by-design` Agent Skill at `metadata.version: "0.1.0"` with a library of 16,112 execution-time design questions across 35 categories, a gate that ends a non-design turn in one command, coordinate ranking measured over 26 discipline fixtures, a benchmark that refuses any measure below its recorded baseline, thirteen worked examples whose 85 pasted command outputs were replayed against the shipped scripts, skill-local CI, and the full repository evaluation artifact set.
 - Conformed the `by-design` question corpus to the repository writing rules by splitting each citation into `source_publisher` and `source_title`, replacing long dashes in authored text with a colon, a comma, or a parenthetical, and describing what a user has done rather than labeling their ability. A hundred and two questions were dropped rather than misquoted: twelve whose cited page or title could not be written without a banned word, and ninety whose citation named an agent product, a model, or its vendor, which no file under `skills/` may do.
 - Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for `by-design`.

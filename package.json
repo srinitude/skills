@@ -29,6 +29,7 @@
     "mcp.json",
     "mcp/dist/server.mjs",
     "openclaw.plugin.json",
+    "scripts/",
     "opencode.json",
     "plugin.json",
     "plugin.yaml",

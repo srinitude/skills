@@ -24,16 +24,20 @@
     "__init__.py",
     "adapters/",
     "docs/",
-    "evidence/",
+    "evidence/agent-plugins-v1.json",
+    "evidence/agentskills-pages.json",
+    "evidence/skills-sh-pages.json",
     "gemini-extension.json",
     "mcp.json",
     "mcp/dist/server.mjs",
-    "openclaw.plugin.json",
     "opencode.json",
     "plugin.json",
     "plugin.yaml",
     "schemas/",
     "skills/",
+    "!skills/**/scripts/tests/**",
+    "!skills/**/__pycache__/**",
+    "!skills/**/*.pyc",
     "skills.sh.json"
   ],
   "scripts": {
@@ -45,12 +49,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "1.27.1",
-    "yaml": "2.9.0",
-    "zod": "4.3.6"
-  },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.27.1",
     "@eslint/js": "10.0.1",
     "@types/node": "24.13.3",
     "ajv": "8.18.0",
@@ -60,6 +60,8 @@
     "tsx": "4.21.0",
     "typescript": "6.0.2",
     "typescript-eslint": "8.65.0",
-    "vitest": "4.1.1"
+    "vitest": "4.1.1",
+    "yaml": "2.9.0",
+    "zod": "4.3.6"
   }
 }

@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { lstat, readdir, readFile } from 'node:fs/promises';
 import { join, posix } from 'node:path';
 
 import { parse } from 'yaml';
@@ -21,6 +21,10 @@ interface CatalogCandidate extends CatalogEntry {
   directory: string;
 }
 
+export function isSkillName(value: string): boolean {
+  return value.length <= 64 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+}
+
 function parseFrontmatter(source: string): z.infer<typeof frontmatterSchema> {
   if (!source.startsWith('---\n'))
     throw new Error('SKILL.md must start with YAML frontmatter');
@@ -31,7 +35,11 @@ function parseFrontmatter(source: string): z.infer<typeof frontmatterSchema> {
 
 async function readEntry(root: string, directory: string): Promise<CatalogCandidate> {
   const relative = posix.join('skills', directory, 'SKILL.md');
-  const metadata = parseFrontmatter(await readFile(join(root, relative), 'utf8'));
+  const absolute = join(root, relative);
+  if (!(await lstat(absolute)).isFile()) {
+    throw new Error(`catalog entry is not a regular file: ${relative}`);
+  }
+  const metadata = parseFrontmatter(await readFile(absolute, 'utf8'));
   return {
     description: metadata.description,
     directory,
@@ -46,6 +54,9 @@ export async function loadCatalog(root: string): Promise<CatalogEntry[]> {
   const names = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
   const catalog = await Promise.all(names.map((name) => readEntry(root, name)));
   for (const entry of catalog) {
+    if (!isSkillName(entry.directory)) {
+      throw new Error(`skill directory name is invalid: ${entry.directory}`);
+    }
     if (entry.name !== entry.directory) {
       throw new Error(
         `skill directory ${entry.directory} does not match name ${entry.name}`,

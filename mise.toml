@@ -10,59 +10,111 @@ uv = "0.11.29"
 run = "npm ci --include=dev"
 
 [tasks.format]
+depends = ["bootstrap"]
 run = "npm run format:check"
 
+[tasks.format-write]
+depends = ["bootstrap"]
+run = "npm run format"
+
 [tasks.lint]
+depends = ["bootstrap"]
 run = "npm run lint"
 
 [tasks.actionlint]
 run = "actionlint"
 
 [tasks.typecheck]
+depends = ["bootstrap"]
 run = "npm run typecheck"
 
 [tasks.test]
-run = "npm test"
+depends = ["build-mcp"]
+run = "npm test -- --run src/*.test.ts src/eval/*.test.ts"
+
+[tasks.test-focus]
+depends = ["bootstrap"]
+run = "npm test -- --run"
 
 [tasks.build-mcp]
+depends = ["bootstrap"]
 run = "npm run build:mcp"
 
+[tasks.validate]
+depends = ["bootstrap"]
+run = "npm run skills -- validate"
+
+[tasks.eval]
+depends = ["bootstrap"]
+run = "npm run skills -- eval"
+
+[tasks.benchmark]
+depends = ["bootstrap"]
+run = "npm run skills -- benchmark"
+
+[tasks.sweep]
+depends = ["bootstrap"]
+run = "npm run skills -- sweep"
+
+[tasks.audit-release]
+depends = ["bootstrap"]
+run = "npm run skills -- audit-release"
+
+[tasks.audit-dependencies]
+depends = ["bootstrap"]
+run = "npm audit --audit-level=high"
+
+[tasks.smoke-clients]
+depends = ["build-mcp"]
+run = "npm run skills -- smoke-clients --out .artifacts/client-smoke --cursor-receipt \"${CURSOR_RECEIPT:?set CURSOR_RECEIPT to a current Cursor UI receipt}\""
+
 [tasks.validate-skills]
+depends = ["check-integrations"]
 run = "set -eu; npm run skills -- validate --all --report .artifacts/skill-validation.json; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; uvx --from skills-ref==0.1.1 agentskills validate \"$skill_dir\"; done"
 
 [tasks.refresh-source-evidence]
+depends = ["bootstrap"]
 run = "npm run skills -- refresh-source-evidence"
 
 [tasks.eval-offline]
+depends = ["check-integrations"]
 run = "set -eu; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; skill=${skill_dir#skills/}; npm run skills -- eval --skill \"$skill\" --transport fixture --report \".artifacts/eval/$skill\"; done"
 
 [tasks.benchmark-offline]
+depends = ["check-integrations"]
 run = "set -eu; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; skill=${skill_dir#skills/}; npm run skills -- benchmark --skill \"$skill\" --transport fixture --report \".artifacts/benchmark/$skill.json\"; done"
 
 [tasks.test-mcp]
+depends = ["test"]
 run = "npm test -- --run mcp/src"
 
 [tasks.check-integrations]
+depends = ["package"]
 run = "npm run skills -- check-integrations --source . --out .artifacts/integrations"
 
-[tasks.check-copy]
-run = "npm test -- --run src/copy.test.ts"
-
 [tasks.package]
+depends = ["test-mcp"]
 run = "npm run skills -- package --out .artifacts/package"
+
+[tasks.release-github]
+depends = ["ci"]
+run = '''
+set -eu
+: "${GITHUB_REF_NAME:?set GITHUB_REF_NAME to the release tag}"
+if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+  gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes
+fi
+gh release upload "$GITHUB_REF_NAME" .artifacts/package/*.tgz --clobber
+'''
 
 [tasks.ci]
 depends = [
   "actionlint",
+  "audit-dependencies",
   "format",
   "lint",
   "typecheck",
-  "test",
-  "build-mcp",
   "validate-skills",
   "eval-offline",
   "benchmark-offline",
-  "check-integrations",
-  "check-copy",
-  "package",
 ]

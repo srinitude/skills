@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
 import { expect, test } from 'vitest';
 
+import { loadCatalog } from './catalog.js';
+
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 
 async function json(path: string): Promise<Record<string, unknown>> {
@@ -105,50 +107,9 @@ test('opencode adapter starts the bundled read-only server', async () => {
 });
 
 test('Aider adapter reads the canonical skill without copying it', async () => {
-  expect(await yaml('.aider.conf.yml')).toEqual({
-    read: [
-      'skills/always-current-datetime/SKILL.md',
-      'skills/by-design/SKILL.md',
-      'skills/dedupe/SKILL.md',
-      'skills/design-like-im-5/SKILL.md',
-      'skills/goal-prompt/SKILL.md',
-      'skills/logic-audit/SKILL.md',
-      'skills/meaning-preserving-rewrite/SKILL.md',
-      'skills/mobile-first-website-design/SKILL.md',
-      'skills/only-one-interpretation/SKILL.md',
-      'skills/outcome-bounded-work/SKILL.md',
-      'skills/prompt-enhancer/SKILL.md',
-      'skills/reify/SKILL.md',
-      'skills/simplify-skill/SKILL.md',
-      'skills/starting-point/SKILL.md',
-      'skills/skill-factory/SKILL.md',
-      'skills/timebox/SKILL.md',
-      'skills/tool-call-configuration-for/SKILL.md',
-      'skills/visual-design-system-extractor/SKILL.md',
-      'skills/would-agents-actually/SKILL.md',
-      'skills/would-humans-actually/SKILL.md',
-    ],
-  });
-  await expectInside('skills/always-current-datetime/SKILL.md');
-  await expectInside('skills/by-design/SKILL.md');
-  await expectInside('skills/dedupe/SKILL.md');
-  await expectInside('skills/design-like-im-5/SKILL.md');
-  await expectInside('skills/goal-prompt/SKILL.md');
-  await expectInside('skills/logic-audit/SKILL.md');
-  await expectInside('skills/meaning-preserving-rewrite/SKILL.md');
-  await expectInside('skills/mobile-first-website-design/SKILL.md');
-  await expectInside('skills/only-one-interpretation/SKILL.md');
-  await expectInside('skills/outcome-bounded-work/SKILL.md');
-  await expectInside('skills/prompt-enhancer/SKILL.md');
-  await expectInside('skills/reify/SKILL.md');
-  await expectInside('skills/simplify-skill/SKILL.md');
-  await expectInside('skills/starting-point/SKILL.md');
-  await expectInside('skills/skill-factory/SKILL.md');
-  await expectInside('skills/timebox/SKILL.md');
-  await expectInside('skills/tool-call-configuration-for/SKILL.md');
-  await expectInside('skills/visual-design-system-extractor/SKILL.md');
-  await expectInside('skills/would-agents-actually/SKILL.md');
-  await expectInside('skills/would-humans-actually/SKILL.md');
+  const expected = (await loadCatalog(root)).map((entry) => entry.path);
+  expect(await yaml('.aider.conf.yml')).toEqual({ read: expected });
+  await Promise.all(expected.map(expectInside));
 });
 
 test('publishes Claude Code and Codex marketplace indexes', async () => {
@@ -165,6 +126,10 @@ test('publishes Claude Code and Codex marketplace indexes', async () => {
     plugins: [
       {
         name: 'srinitude-skills',
+        policy: {
+          authentication: 'ON_INSTALL',
+          installation: 'AVAILABLE',
+        },
         source: { path: './', source: 'local' },
       },
     ],

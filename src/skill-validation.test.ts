@@ -92,3 +92,13 @@ test.each([
   });
   expect(report.manifestSha256).toMatch(/^[a-f0-9]{64}$/);
 });
+
+test('rejects a traversal-shaped skill name before reading files', async () => {
+  const report = await validateSkill(root, '../AGENTS');
+
+  expect(report).toMatchObject({
+    errors: ['skill name is invalid'],
+    name: '../AGENTS',
+    status: 'BLOCKED',
+  });
+});

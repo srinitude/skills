@@ -27,7 +27,7 @@ The JSON contracts are [`sweep-manifest.schema.json`](../schemas/sweep-manifest.
 Create the request manifest outside the repository. Keep generated output under `.artifacts/`.
 
 ```sh
-npm run skills -- sweep --phase dry-run \
+mise run sweep -- --phase dry-run \
   --manifest .artifacts/openrouter/manifest.json \
   --cap "$APPROVED_CAP_USD" \
   --unknown-price-cap "$APPROVED_UNKNOWN_PRICE_CAP_USD" \
@@ -47,7 +47,7 @@ Never infer approval from a numeric CLI flag. Never store the API key in the man
 Provide `OPENROUTER_API_KEY` through the process environment. The pilot executes only the first request in the manifest.
 
 ```sh
-npm run skills -- sweep --phase pilot \
+mise run sweep -- --phase pilot \
   --manifest .artifacts/openrouter/manifest.json \
   --approval .artifacts/openrouter/approval.json \
   --cap "$APPROVED_CAP_USD" \
@@ -62,7 +62,7 @@ Inspect `report.json`, `spend-ledger.json`, `checkpoints/`, and `raw/` before co
 Use the same manifest, approval, caps, and output directory.
 
 ```sh
-npm run skills -- sweep --phase full \
+mise run sweep -- --phase full \
   --manifest .artifacts/openrouter/manifest.json \
   --approval .artifacts/openrouter/approval.json \
   --cap "$APPROVED_CAP_USD" \

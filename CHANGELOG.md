@@ -4,6 +4,15 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+## GitHub release 0.1.5
+
+- Made the canonical catalog the single inventory owner for Aider, Hermes Agent, the Python plugin, integration validation, client smoke checks, and MCP resource assertions.
+- Hardened the six-tool read-only MCP contract with exact resource-byte checks, strict invalid-input errors, symlink and path-escape rejection, stdio channel checks, and identical consecutive bundle builds.
+- Routed local and GitHub verification through one non-circular Mise graph whose complete `ci` frontier includes dependency audit, source tests, MCP tests, canonical skill validation, offline evals, benchmarks, integration checks, and archive inspection.
+- Hardened the release archive against bytecode, caches, skill test fixtures, source maps, local settings, symlinks, duplicate or unsafe entries, and bulky source-evidence packets that clients do not consume.
+- Replaced the false OpenClaw-native manifest claim with the portable Agent Plugins bundle and tightened route-specific documentation for every supported client.
+- Added a release audit that records one current disposition and content digest for every repository-owned file outside `skills/`.
+
 - Added the `only-one-interpretation` Agent Skill at `metadata.version: "0.1.0"` with a two-branch ambiguity gate, private interpretation ledger, semantic round trip, alternate-reading attacks, constraint tracing, fourteen behavior cases, twenty trigger cases, three deterministic result fixtures, and skill-local CI.
 - Updated Python plugin, skills.sh, Aider, Hermes Agent, package, repository, and MCP discovery routes for `only-one-interpretation`.
 - Added the `by-design` Agent Skill at `metadata.version: "0.1.0"` with a library of 16,112 execution-time design questions across 35 categories, a gate that ends a non-design turn in one command, coordinate ranking measured over 26 discipline fixtures, a benchmark that refuses any measure below its recorded baseline, thirteen worked examples whose 85 pasted command outputs were replayed against the shipped scripts, skill-local CI, and the full repository evaluation artifact set.

@@ -1,160 +1,26 @@
+import json
 from pathlib import Path
 
-_SKILLS = (
-    (
-        "always-current-datetime",
-        "Use when replying. Refresh current date and time.",
-    ),
-    (
-        "by-design",
-        "Use when any request arrives, and especially when it touches a"
-        " screen, component, flow, brand, layout, typography, colour,"
-        " motion, copy, icon, form, table, dashboard, navigation,"
-        " onboarding, pricing, checkout, notification, accessibility, design"
-        " system, or brief. Use when choosing between directions, when"
-        " shaping something unbuilt, when reviewing, critiquing, or shipping"
-        " work, and during ordinary design conversation. A request that"
-        " holds no design surface costs one command and nothing else."
-        " Keywords: design, redesign, review, crit, critique, feedback,"
-        " mockup, wireframe, prototype, trade-off, decision, rationale,"
-        " pre-ship, ready to ship, looks generic, which direction, style"
-        " guide, design token.",
-    ),
-    (
-        "dedupe",
-        "Use when deduplicating bounded collections.",
-    ),
-    (
-        "design-like-im-5",
-        "Use when creating, reviewing, or revising a digital product, full flow,"
-        " design system, or screen set. It keeps the user-facing core simple"
-        " across parts, states, access needs, inputs, and screen sizes. Use it"
-        " for product design, UX, UI, interaction, motion, or design review work.",
-    ),
-    (
-        "dtcg-tokens",
-        "Use when any multimodal source must become source-specific DTCG tokens"
-        " with a vision-reviewed standalone proof artifact.",
-    ),
-    (
-        "figma-code-connect-design-system",
-        "Use when a FigJam board, product requirements document, reference image,"
-        " Figma design file, published library, or codebase must become or update"
-        " an evidence-traceable Figma design system, DTCG token hierarchy,"
-        " platform-specific UI templates, production components, and verified Code"
-        " Connect mappings. Covers create, update, plan, run, validate, resume, and"
-        " source-refresh work for one bounded UI or a larger product system across"
-        " web, mobile, desktop, embedded, and other platforms.",
-    ),
-    (
-        "goal-prompt",
-        "Use when packaging source input for a standing goal.",
-    ),
-    (
-        "logic-audit",
-        "Use when finding contradictions or reasoning gaps.",
-    ),
-    (
-        "meaning-preserving-rewrite",
-        "Use when rewriting rules without meaning loss.",
-    ),
-    (
-        "mobile-first-website-design",
-        "Use when designing landing pages and marketing websites.",
-    ),
-    (
-        "only-one-interpretation",
-        "Use when disambiguating prompts, not improving or running.",
-    ),
-    (
-        "outcome-bounded-work",
-        "Use when instructions mix outcomes with recipes.",
-    ),
-    (
-        "prompt-enhancer",
-        "Use when the user asks to enhance, improve, refine, rewrite,"
-        " strengthen, or validate a prompt, or says \"make this prompt"
-        " better\". Returns a clearer, more specific, better structured"
-        " version of the prompt without executing it, picking validation"
-        " checks from the prompt's own context. Contexts include coding,"
-        " research, writing, image or video generation, agentic tasks, data"
-        " work, and system prompts. Flags ambiguity, contradictions, missing"
-        " constraints, missing success criteria, format gaps, and leaked"
-        " secrets. Do not use when the user wants the prompt's task"
-        " performed.",
-    ),
-    (
-        "reify",
-        "Use when a vague idea, stray thought, remembered fragment, or uncertain"
-        " direction needs to become a concrete outcome, tested design, decision"
-        " record, artifact, or executable handoff.",
-    ),
-    (
-        "simplify-skill",
-        "Use when simplifying a skill without losing behavior.",
-    ),
-    (
-        "skill-factory",
-        "Use when a workflow or capability must become a new agent skill, when an"
-        " existing skill must be updated or standardized without losing its"
-        " purpose, or when a skill needs validation, evaluation, scaffolding,"
-        " scripts, tests, or a Mise task graph.",
-    ),
-    (
-        "starting-point",
-        "Use when a request prescribes a method, tool, metric, or artifact that"
-        " may not reach the result the user described, or when doing the request"
-        " as written would leave that result unproved: \"A/B test the signup"
-        " button color\" for a conversion problem, \"add a cache\" for a slow"
-        " page, \"the focused tests passed, announce the release\". Also use when"
-        " a stated constraint contradicts itself, when an unknown fact would have"
-        " to be invented to finish, or when an external or irreversible step"
-        " needs an authorization decision. Keywords: right approach, wrong"
-        " metric, root cause, outcome versus output, what counts as done, proof,"
-        " is this worth doing. Not for a literal edit, format, translation, or"
-        " lookup whose method is the deliverable. Not a replacement for the"
-        " design, debugging, research, or writing method that performs the work."
-        " Use the reify skill instead when the request is still too vague to have"
-        " any method or outcome yet.",
-    ),
-    (
-        "timebox",
-        "Use when work must finish within a stated time limit.",
-    ),
-    (
-        "tool-call-configuration-for",
-        "Use when one exact callable tool and a user-authored behavior"
-        " configuration must become a tool-specific Agent Skill, or when that"
-        " behavior must be integrated into one exact existing Agent Skill."
-        " Supports established or owned MCP, native, and custom tool contracts;"
-        " stops on ambiguous identity, behavior, authority, source, or update"
-        " target.",
-    ),
-    (
-        "visual-design-system-extractor",
-        "Use when reference images, screenshots, moodboards, style frames,"
-        " brand boards, cinematic stills, product interface shots, or a live"
-        " site URL must become a production design system, design tokens, art"
-        " direction, motion rules, or a YAML style specification. Covers"
-        " reverse engineering visual references into a deterministic YAML"
-        " contract with graded confidence, evidence boundaries, and typefaces"
-        " drawn from the live Google Fonts catalog and ranked as rarely used."
-        " Not for generating images or for ordinary frontend work where no"
-        " reference has to be decoded first.",
-    ),
-    (
-        "would-agents-actually",
-        "Use when a claim depends on an agent taking a real action.",
-    ),
-    (
-        "would-humans-actually",
-        "Use when a claim depends on people taking a real action.",
-    ),
-)
+
+def _frontmatter_value(source, key):
+    prefix = f"{key}:"
+    line = next((item for item in source.splitlines() if item.startswith(prefix)), None)
+    if line is None:
+        raise ValueError(f"missing {key} in SKILL.md")
+    value = line[len(prefix) :].strip()
+    if value.startswith("'") and value.endswith("'"):
+        return value[1:-1].replace("''", "'")
+    if value.startswith('"') and value.endswith('"'):
+        return json.loads(value)
+    return value
 
 
 def register(ctx):
     root = Path(__file__).resolve().parent
-    for name, description in _SKILLS:
-        path = root / "skills" / name / "SKILL.md"
+    for path in sorted((root / "skills").glob("*/SKILL.md")):
+        source = path.read_text(encoding="utf-8")
+        name = _frontmatter_value(source, "name")
+        description = _frontmatter_value(source, "description")
+        if name != path.parent.name:
+            raise ValueError(f"skill directory does not match name: {path}")
         ctx.register_skill(name, path, description=description)

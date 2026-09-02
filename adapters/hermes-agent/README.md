@@ -4,20 +4,7 @@ The Skills Hub tap is the primary route for this skill collection. [`skills.sh.j
 
 ```sh
 hermes skills tap add srinitude/skills
-hermes skills install srinitude/skills/always-current-datetime
-hermes skills install srinitude/skills/by-design
-hermes skills install srinitude/skills/goal-prompt
-hermes skills install srinitude/skills/logic-audit
-hermes skills install srinitude/skills/meaning-preserving-rewrite
-hermes skills install srinitude/skills/mobile-first-website-design
-hermes skills install srinitude/skills/only-one-interpretation
-hermes skills install srinitude/skills/outcome-bounded-work
-hermes skills install srinitude/skills/prompt-enhancer
-hermes skills install srinitude/skills/simplify-skill
-hermes skills install srinitude/skills/reify
-hermes skills install srinitude/skills/starting-point
-hermes skills install srinitude/skills/skill-factory
-hermes skills install srinitude/skills/timebox
+hermes skills install srinitude/skills/<skill-name>
 ```
 
 The repository root is also a native Python plugin. [`plugin.yaml`](../../plugin.yaml) declares it, and [`__init__.py`](../../__init__.py) registers the canonical skill path.

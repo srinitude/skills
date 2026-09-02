@@ -5,7 +5,7 @@ Changes must keep one canonical skill tree and preserve every tested client rout
 ## Before changing code or Markdown
 
 1. Install the pinned tools with `mise install`.
-2. Install dependencies with `npm ci --include=dev`.
+2. Install dependencies with `mise run bootstrap`.
 3. Read `AGENTS.md`.
 4. Find the focused test that owns the behavior.
 
@@ -25,7 +25,7 @@ Do not add skipped tests, placeholder output, or generated attribution.
 Each `skills/<name>/SKILL.md` must:
 
 - use the same name as its directory;
-- have a description shorter than 60 characters;
+- have a non-empty description of at most 1024 characters that starts with `Use when`;
 - use `Kiren Srinivasan` as `metadata.author`;
 - start at version `0.1.0` when new;
 - stay below 200 lines;

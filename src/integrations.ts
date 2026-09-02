@@ -7,6 +7,7 @@ import { parse } from 'yaml';
 import { z } from 'zod';
 
 import { validateAgentPlugin } from './agent-plugin.js';
+import { routeActions } from './integration-routes.js';
 
 const run = promisify(execFile);
 const clients = [
@@ -33,20 +34,11 @@ const requiredPaths = [
   'gemini-extension.json',
   'mcp/dist/server.mjs',
   'mcp.json',
-  'openclaw.plugin.json',
   'opencode.json',
   'plugin.json',
   'plugin.yaml',
   'skills.sh.json',
 ] as const;
-
-const openClawSchema = z
-  .object({
-    configSchema: z.object({ type: z.literal('object') }).passthrough(),
-    id: z.literal('srinitude-skills'),
-    skills: z.array(z.string()).min(1),
-  })
-  .passthrough();
 
 export interface IntegrationCheck {
   error?: string;
@@ -86,18 +78,6 @@ async function checkRequiredPaths(root: string): Promise<void> {
   parse(await readFile(resolve(root, 'plugin.yaml'), 'utf8'));
 }
 
-async function checkOpenClaw(root: string): Promise<void> {
-  const manifest = openClawSchema.parse(
-    JSON.parse(await readFile(resolve(root, 'openclaw.plugin.json'), 'utf8')),
-  );
-  const realRoot = await realpath(root);
-  for (const path of manifest.skills) {
-    const target = await realpath(resolve(root, path));
-    if (!inside(realRoot, target))
-      throw new Error(`OpenClaw skill path escapes root: ${path}`);
-  }
-}
-
 async function checkPythonPlugin(root: string): Promise<void> {
   const script = [
     'import importlib.util,json,pathlib,sys',
@@ -134,12 +114,14 @@ async function checkAgentPlugin(root: string): Promise<void> {
 }
 
 export async function checkIntegrations(root: string): Promise<IntegrationReport> {
+  const routes = await routeActions(root);
   const checks = await Promise.all([
-    check('required-paths', () => checkRequiredPaths(root)),
     check('agent-plugins-v1', () => checkAgentPlugin(root)),
-    check('openclaw-paths', () => checkOpenClaw(root)),
-    check('python-plugin', () => checkPythonPlugin(root)),
+    ...routes.map((route) => check(route.id, route.action)),
+    check('hermes-plugin', () => checkPythonPlugin(root)),
+    check('required-paths', () => checkRequiredPaths(root)),
   ]);
+  checks.sort((left, right) => left.id.localeCompare(right.id));
   return {
     checks,
     clients: [...clients],

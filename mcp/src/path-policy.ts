@@ -1,6 +1,8 @@
 import { readFile, realpath } from 'node:fs/promises';
 import { isAbsolute, join, relative } from 'node:path';
 
+import { isSkillName } from '../../src/catalog.js';
+
 export type PathPolicyCode =
   | 'ABSOLUTE_PATH'
   | 'HIDDEN_PATH'
@@ -26,7 +28,7 @@ function inside(parent: string, child: string): boolean {
 }
 
 function validateSkillName(name: string): void {
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) || name.length > 64) {
+  if (!isSkillName(name)) {
     throw new PathPolicyError('INVALID_SKILL_NAME', 'skill name is invalid');
   }
 }

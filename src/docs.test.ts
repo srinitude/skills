@@ -40,15 +40,17 @@ test('documents every supported client and tested local command', async () => {
     expect(readme).toContain(client);
   }
   for (const command of [
-    'npm ci --include=dev',
+    'mise run bootstrap',
     'mise run ci',
-    'npm run build:mcp',
-    'npm run skills -- eval --skill "$SKILL_NAME" --transport fixture',
+    'mise run build-mcp',
+    'mise run eval -- --skill "$SKILL_NAME"',
   ]) {
     expect(readme).toContain(command);
   }
+  expect(readme).not.toMatch(/npm (?:ci|run|test|pack)\b/);
   const sweep = await readable('docs/openrouter-sweeps.md');
-  expect(sweep).toContain('npm run skills -- sweep --phase dry-run');
+  expect(sweep).toContain('mise run sweep -- --phase dry-run');
+  expect(sweep).not.toMatch(/npm (?:ci|run|test|pack)\b/);
   expect(sweep).toContain('--approval');
 });
 
@@ -58,10 +60,13 @@ test('keeps the root guide skill-neutral', async () => {
   expect(readme).not.toContain('starting-point');
 });
 
-test('records every dependency-campaign unit under Unreleased', async () => {
-  const changelog = (await readable('CHANGELOG.md')).split('## GitHub release')[0]!;
+test('records the release while keeping a fresh Unreleased section', async () => {
+  const changelog = await readable('CHANGELOG.md');
+  const release = changelog.split('## GitHub release 0.1.4')[0]!;
+  expect(release).toContain('## Unreleased');
+  expect(release).toContain('## GitHub release 0.1.5');
   for (const skill of ['goal-prompt', 'meaning-preserving-rewrite', 'simplify-skill']) {
-    expect(changelog).toContain(`\`${skill}\``);
+    expect(release).toContain(`\`${skill}\``);
   }
 });
 
@@ -111,44 +116,33 @@ test('keeps every relative Markdown link resolvable', async () => {
 test('keeps the root guide concise and the Aider route portable', async () => {
   const readme = await readable('README.md');
   const aider = await readable('adapters/aider/README.md');
+  const hermes = await readable('adapters/hermes-agent/README.md');
   expect(readme.split('\n').length).toBeLessThan(150);
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/always-current-datetime/SKILL.md',
-  );
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/by-design/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/dedupe/SKILL.md');
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/design-like-im-5/SKILL.md',
-  );
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/goal-prompt/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/logic-audit/SKILL.md');
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/meaning-preserving-rewrite/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/mobile-first-website-design/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/only-one-interpretation/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/prompt-enhancer/SKILL.md',
-  );
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/reify/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/simplify-skill/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/starting-point/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/timebox/SKILL.md');
-  expect(aider).toContain('--read /absolute/path/to/skills/skills/skill-factory/SKILL.md');
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/tool-call-configuration-for/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/visual-design-system-extractor/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/would-agents-actually/SKILL.md',
-  );
-  expect(aider).toContain(
-    '--read /absolute/path/to/skills/skills/would-humans-actually/SKILL.md',
-  );
+  expect(aider).toContain('--read /absolute/path/to/skills/skills/<skill-name>/SKILL.md');
+  expect(aider).not.toContain('always-current-datetime/SKILL.md\n');
+  expect(hermes).toContain('hermes skills install srinitude/skills/<skill-name>');
+  expect(hermes.match(/hermes skills install/g)).toHaveLength(1);
+});
+
+test('keeps release tags distinct from plugin versions in install guidance', async () => {
+  const openclaw = await readable('adapters/openclaw/README.md');
+
+  expect(openclaw).toContain('git:github.com/srinitude/skills@<release-tag>');
+  expect(openclaw).not.toContain('skills@v0.1.0');
+  expect(openclaw).toContain('Codex-compatible bundle');
+  expect(openclaw).toContain('`.codex-plugin/plugin.json` takes precedence');
+  expect(openclaw).toContain('`.mcp.json`');
+  expect(openclaw).not.toContain('native plugin manifest');
+});
+
+test('keeps contributor and Cursor claims aligned with their owners', async () => {
+  const contributing = await readable('CONTRIBUTING.md');
+  const readme = await readable('README.md');
+  const cursor = readme.split('\n').find((line) => line.startsWith('| Cursor')) ?? '';
+
+  expect(contributing).toContain('at most 1024 characters');
+  expect(contributing).not.toContain('shorter than 60 characters');
+  expect(cursor).toContain('| Agent Plugins bundle');
+  expect(cursor).toContain('| Yes');
+  expect(readme).toContain('root Agent Plugin');
 });

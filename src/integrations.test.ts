@@ -1,6 +1,6 @@
 import { execFile } from 'node:child_process';
-import { access, readFile, readdir, realpath, rm } from 'node:fs/promises';
-import { dirname, isAbsolute, relative, resolve } from 'node:path';
+import { access, readFile, readdir, rm } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
@@ -8,27 +8,11 @@ import { parse } from 'yaml';
 import { expect, test } from 'vitest';
 import { z } from 'zod';
 
+import { validateAgentPlugin } from './agent-plugin.js';
 import { checkIntegrations } from './integrations.js';
 
 const run = promisify(execFile);
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-
-const openClawManifestSchema = z
-  .object({
-    configSchema: z
-      .object({
-        additionalProperties: z.literal(false),
-        properties: z.record(z.string(), z.unknown()),
-        type: z.literal('object'),
-      })
-      .strict(),
-    description: z.string().min(1),
-    id: z.string().min(1),
-    name: z.string().min(1),
-    skills: z.array(z.string()).min(1),
-    version: z.literal('0.1.0'),
-  })
-  .strict();
 
 const pluginManifestSchema = z
   .object({
@@ -43,20 +27,13 @@ const pluginManifestSchema = z
   })
   .strict();
 
-function inside(parent: string, child: string): boolean {
-  const path = relative(parent, child);
-  return path === '' || (!path.startsWith('..') && !isAbsolute(path));
-}
-
-test('the OpenClaw plugin loads the canonical skills directory', async () => {
-  const source = await readFile(resolve(root, 'openclaw.plugin.json'), 'utf8');
-  const manifest = openClawManifestSchema.parse(JSON.parse(source));
-  const realRoot = await realpath(root);
-
-  expect(manifest.id).toBe('srinitude-skills');
-  for (const skillRoot of manifest.skills) {
-    expect(inside(realRoot, await realpath(resolve(root, skillRoot)))).toBe(true);
-  }
+test('OpenClaw uses the portable bundle without a false native manifest', async () => {
+  await expect(access(resolve(root, 'openclaw.plugin.json'))).rejects.toMatchObject({
+    code: 'ENOENT',
+  });
+  const report = await validateAgentPlugin(root);
+  expect(report.status).toBe('PASS');
+  expect(report.skills).toHaveLength(22);
 });
 
 async function registeredPluginSkills() {
@@ -104,9 +81,33 @@ test('the repository-root Python plugin registers every canonical skill', async 
   expect(await registeredPluginSkills()).toEqual(await canonicalPluginSkills());
 });
 
+test('the Python plugin derives its inventory from canonical skill files', async () => {
+  const source = await readFile(resolve(root, '__init__.py'), 'utf8');
+
+  expect(source).not.toContain('_SKILLS =');
+  expect(source).not.toContain('"always-current-datetime"');
+  expect(source).toContain('glob("*/SKILL.md")');
+});
+
 test('integration checks do not leave Python bytecode in the repository', async () => {
   const cache = resolve(root, '__pycache__');
   await rm(cache, { force: true, recursive: true });
-  expect((await checkIntegrations(root)).status).toBe('PASS');
+  const report = await checkIntegrations(root);
+  expect(report.status).toBe('PASS');
+  expect(report.checks.map((entry) => entry.id)).toEqual([
+    'agent-plugins-v1',
+    'aider-catalog',
+    'claude-plugin',
+    'codex-plugin',
+    'continue-adapter',
+    'cursor-plugin',
+    'gemini-extension',
+    'hermes-plugin',
+    'openclaw-plugin',
+    'opencode-config',
+    'required-paths',
+    'shared-mcp-config',
+    'skills-hub-catalog',
+  ]);
   await expect(access(cache)).rejects.toMatchObject({ code: 'ENOENT' });
 });

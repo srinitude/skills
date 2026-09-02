@@ -7,6 +7,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { afterEach, expect, test } from 'vitest';
 import { z } from 'zod';
 
+import { loadCatalog } from '../../src/catalog.js';
 import { createSkillServer } from './server.js';
 
 const root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
@@ -50,30 +51,16 @@ async function connectedClient() {
 test('exposes canonical skill bytes as a fixed read-only resource', async () => {
   const client = await connectedClient();
   const resources = await client.listResources();
-  expect(resources.resources.map((resource) => resource.uri)).toEqual([
-    'skill://always-current-datetime/SKILL.md',
-    'skill://by-design/SKILL.md',
-    'skill://dedupe/SKILL.md',
-    'skill://design-like-im-5/SKILL.md',
-    'skill://dtcg-tokens/SKILL.md',
-    'skill://figma-code-connect-design-system/SKILL.md',
-    'skill://goal-prompt/SKILL.md',
-    'skill://logic-audit/SKILL.md',
-    'skill://meaning-preserving-rewrite/SKILL.md',
-    'skill://mobile-first-website-design/SKILL.md',
-    'skill://only-one-interpretation/SKILL.md',
-    'skill://outcome-bounded-work/SKILL.md',
-    'skill://prompt-enhancer/SKILL.md',
-    'skill://reify/SKILL.md',
-    'skill://simplify-skill/SKILL.md',
-    'skill://skill-factory/SKILL.md',
-    'skill://starting-point/SKILL.md',
-    'skill://timebox/SKILL.md',
-    'skill://tool-call-configuration-for/SKILL.md',
-    'skill://visual-design-system-extractor/SKILL.md',
-    'skill://would-agents-actually/SKILL.md',
-    'skill://would-humans-actually/SKILL.md',
-  ]);
+  const catalog = await loadCatalog(root);
+  expect(resources.resources).toEqual(
+    catalog.map((entry) => ({
+      description: entry.description,
+      mimeType: 'text/markdown',
+      name: `skill-${entry.name}`,
+      title: entry.name,
+      uri: `skill://${entry.name}/SKILL.md`,
+    })),
+  );
 
   const result = await client.readResource({ uri: 'skill://starting-point/SKILL.md' });
   const expected = await readFile(
@@ -101,33 +88,19 @@ test('exposes only the approved read-only tools', async () => {
     'validate_skill',
   ]);
   expect(tools.tools.every((tool) => tool.annotations?.readOnlyHint === true)).toBe(true);
+  expect(tools.tools.every((tool) => tool.annotations?.destructiveHint === false)).toBe(
+    true,
+  );
+  expect(tools.tools.every((tool) => tool.annotations?.idempotentHint === true)).toBe(true);
+  expect(tools.tools.every((tool) => tool.annotations?.openWorldHint === false)).toBe(true);
 
   const listed = await client.callTool({ name: 'list_skills' });
-  expect(JSON.parse(text(listed))).toMatchObject({
-    skills: [
-      { name: 'always-current-datetime' },
-      { name: 'by-design' },
-      { name: 'dedupe' },
-      { name: 'design-like-im-5' },
-      { name: 'dtcg-tokens' },
-      { name: 'figma-code-connect-design-system' },
-      { name: 'goal-prompt' },
-      { name: 'logic-audit' },
-      { name: 'meaning-preserving-rewrite' },
-      { name: 'mobile-first-website-design' },
-      { name: 'only-one-interpretation' },
-      { name: 'outcome-bounded-work' },
-      { name: 'prompt-enhancer' },
-      { name: 'reify' },
-      { name: 'simplify-skill' },
-      { name: 'skill-factory' },
-      { name: 'starting-point' },
-      { name: 'timebox' },
-      { name: 'tool-call-configuration-for' },
-      { name: 'visual-design-system-extractor' },
-      { name: 'would-agents-actually' },
-      { name: 'would-humans-actually' },
-    ],
+  expect(JSON.parse(text(listed))).toEqual({
+    skills: (await loadCatalog(root)).map(({ description, name, version }) => ({
+      description,
+      name,
+      version,
+    })),
   });
 
   const searched = await client.callTool({

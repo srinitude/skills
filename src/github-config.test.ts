@@ -24,10 +24,8 @@ test('defines local and release GitHub Actions gates', async () => {
 test('makes tag release reruns recoverable', async () => {
   const workflow = await readFile(join(root, '.github/workflows/release.yml'), 'utf8');
 
-  expect(workflow).toContain('gh release view "$GITHUB_REF_NAME"');
-  expect(workflow).toContain('gh release upload "$GITHUB_REF_NAME"');
-  expect(workflow).toContain('--clobber');
-  expect(workflow).toContain('gh release create "$GITHUB_REF_NAME"');
+  expect(workflow).toContain('mise run release-github');
+  expect(workflow).not.toContain('gh release');
 });
 
 test('uses Node 24 GitHub actions', async () => {
@@ -38,6 +36,17 @@ test('uses Node 24 GitHub actions', async () => {
     expect(workflow).not.toContain('actions/checkout@v4');
     expect(workflow).not.toContain('jdx/mise-action@v3');
   }
+});
+
+test('routes repeatable workflow commands through Mise', async () => {
+  const ci = await readFile(join(root, '.github/workflows/ci.yml'), 'utf8');
+  const release = await readFile(join(root, '.github/workflows/release.yml'), 'utf8');
+
+  expect(ci).toContain('mise run ci');
+  expect(release).toContain('mise run release-github');
+  expect(`${ci}\n${release}`).not.toContain('mise run bootstrap');
+  expect(`${ci}\n${release}`).not.toContain('mise run package');
+  expect(`${ci}\n${release}`).not.toMatch(/run: npm (?:ci|run|test|pack)\b/);
 });
 
 test('provides issue and pull request templates', async () => {

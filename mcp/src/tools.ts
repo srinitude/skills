@@ -1,4 +1,5 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { isAbsolute } from 'node:path';
 import { z } from 'zod';
 
 import { type CatalogEntry } from '../../src/catalog.js';
@@ -84,12 +85,20 @@ function registerGetSkill(server: McpServer, root: string): void {
 }
 
 function referencePath(reference: string): string {
-  const portable = reference.replaceAll('\\', '/');
-  if (portable.split('/').includes('..')) return `references/${portable}`;
-  if (portable.includes('/')) {
+  if (isAbsolute(reference)) {
+    throw new PathPolicyError('ABSOLUTE_PATH', 'absolute paths are forbidden');
+  }
+  if (reference.includes('\\')) {
+    throw new PathPolicyError('INVALID_PATH', 'backslashes are forbidden');
+  }
+  const segments = reference.split('/');
+  if (segments.includes('.') || segments.includes('..')) {
+    return `references/${reference}`;
+  }
+  if (reference.includes('/')) {
     throw new PathPolicyError('INVALID_PATH', 'nested references are forbidden');
   }
-  return `references/${portable}`;
+  return `references/${reference}`;
 }
 
 function registerGetReference(server: McpServer, root: string): void {

@@ -46,6 +46,17 @@ test('returns BLOCKED for an unknown command without writing a report', async ()
   expect(diagnostics).toContain('unknown command');
 });
 
+test('requires explicit output and Cursor proof for live client smoke', async () => {
+  let diagnostics = '';
+  const code = await runCli(['smoke-clients'], {
+    root,
+    stderr: { write: (text) => (diagnostics += text) },
+  });
+
+  expect(code).toBe(2);
+  expect(diagnostics).toContain('--out and --cursor-receipt are required');
+});
+
 test('runs a fixture eval and writes its report directory', async () => {
   const output = await mkdtemp(join(tmpdir(), 'skills-cli-'));
   temporary.push(output);

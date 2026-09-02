@@ -56,6 +56,15 @@ test('rejects invalid names, absolute paths, traversal, and hidden segments', as
   await expect(errorCode(readSkillFile(root, 'example', '.secret'))).resolves.toBe(
     'HIDDEN_PATH',
   );
+  await expect(errorCode(readSkillFile(root, 'example', 'references\\x.md'))).resolves.toBe(
+    'INVALID_PATH',
+  );
+  await expect(
+    errorCode(readSkillFile(root, 'example', 'references/./x.md')),
+  ).resolves.toBe('PATH_TRAVERSAL');
+  await expect(errorCode(readSkillFile(root, 'missing', 'SKILL.md'))).resolves.toBe(
+    'NOT_FOUND',
+  );
 });
 
 test('rejects a symlink whose real target leaves the skill root', async () => {
@@ -63,4 +72,16 @@ test('rejects a symlink whose real target leaves the skill root', async () => {
   await expect(
     errorCode(readSkillFile(root, 'example', 'references/escape.md')),
   ).resolves.toBe('SYMLINK_ESCAPE');
+});
+
+test('rejects a skill-root symlink that leaves the skills directory', async () => {
+  const { root } = await fixture();
+  const outside = join(root, 'outside-skill');
+  await mkdir(outside);
+  await writeFile(join(outside, 'SKILL.md'), '# Outside\n');
+  await symlink(outside, join(root, 'skills', 'escape'));
+
+  await expect(errorCode(readSkillFile(root, 'escape', 'SKILL.md'))).resolves.toBe(
+    'SYMLINK_ESCAPE',
+  );
 });

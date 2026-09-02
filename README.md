@@ -33,7 +33,7 @@ npx skills add srinitude/skills
 
 Use `npx skills add srinitude/skills --list` to inspect available skills first. The CLI reports anonymous install telemetry to skills.sh unless `DISABLE_TELEMETRY=1` is set.
 
-Clone the repository and run `npm ci --include=dev` plus `npm run build:mcp` when developing the package. Node 24 or newer is required. [Mise](https://mise.jdx.dev/) pins the full local toolchain.
+Clone the repository and run `mise run bootstrap` plus `mise run build-mcp` when developing the package. Node 24 or newer is required. [Mise](https://mise.jdx.dev/) pins the full local toolchain.
 
 ## Client support
 
@@ -44,8 +44,8 @@ Clone the repository and run `npm ci --include=dev` plus `npm run build:mcp` whe
 | Codex                                | Root plugin and marketplace        | Yes         |
 | ChatGPT                              | Codex plugin format                | Yes         |
 | Gemini CLI                           | Root extension                     | Yes         |
-| Cursor                               | Root local plugin                  | No claim    |
-| OpenClaw                             | Root native plugin                 | Skills only |
+| Cursor                               | Agent Plugins bundle               | Yes         |
+| OpenClaw                             | Codex-compatible bundle            | Yes         |
 | Hermes Agent                         | Root Python plugin                 | Skills only |
 | opencode                             | Project config plus skills install | Yes         |
 | Continue                             | Skills CLI adapter                 | Optional    |
@@ -80,11 +80,11 @@ gemini extensions install https://github.com/srinitude/skills
 
 ### Cursor
 
-The root [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) uses automatic `skills/` discovery. Load the checkout as a local plugin. This repository does not claim a Cursor Marketplace listing.
+Load the checkout as a local root Agent Plugin. Cursor reads [`plugin.json`](plugin.json), discovers the canonical [`skills/`](skills/) tree, and starts the read-only MCP route from [`mcp.json`](mcp.json). The [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) manifest keeps Cursor-format compatibility without owning a second skill or MCP definition. This repository does not claim a Cursor Marketplace listing.
 
 ### OpenClaw
 
-Use the tag-pinned native plugin route and cold-discovery check in the [OpenClaw adapter note](adapters/openclaw/README.md).
+Use the tag-pinned compatible bundle route and cold-discovery check in the [OpenClaw adapter note](adapters/openclaw/README.md).
 
 ### Hermes Agent
 
@@ -103,7 +103,7 @@ Use the [Continue adapter note](adapters/continue/README.md) or [Aider adapter n
 Build it with:
 
 ```sh
-npm run build:mcp
+mise run build-mcp
 ```
 
 The stdio server exposes six read-only tools:
@@ -121,9 +121,9 @@ Paths are confined to the repository skill tree. Absolute paths, traversal, hidd
 
 ```sh
 SKILL_NAME=your-skill-name
-npm run skills -- validate --all --report .artifacts/skill-validation.json
-npm run skills -- eval --skill "$SKILL_NAME" --transport fixture --report ".artifacts/evals/$SKILL_NAME-fixture"
-npm run skills -- benchmark --skill "$SKILL_NAME" --transport fixture --samples 1000 --report ".artifacts/benchmarks/$SKILL_NAME-fixture.json"
+mise run validate -- --all --report .artifacts/skill-validation.json
+mise run eval -- --skill "$SKILL_NAME" --transport fixture --report ".artifacts/evals/$SKILL_NAME-fixture"
+mise run benchmark -- --skill "$SKILL_NAME" --transport fixture --samples 1000 --report ".artifacts/benchmarks/$SKILL_NAME-fixture.json"
 ```
 
 Fixture results prove runner behavior only. They are not evidence about a language model. Paid OpenRouter evaluation is a separate post-release step with a frozen model inventory, checkpoint files, a cost estimate, and explicit spend approval.

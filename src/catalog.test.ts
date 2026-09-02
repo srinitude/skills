@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, expect, test } from 'vitest';
@@ -42,4 +42,16 @@ test('discovers skills in name order with public metadata', async () => {
       version: '0.1.0',
     },
   ]);
+});
+
+test('rejects a symlinked canonical skill document', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'skills-catalog-'));
+  roots.push(root);
+  const skill = join(root, 'skills', 'linked-skill');
+  const outside = join(root, 'outside.md');
+  await mkdir(skill, { recursive: true });
+  await writeFile(outside, '# Outside\n');
+  await symlink(outside, join(skill, 'SKILL.md'));
+
+  await expect(loadCatalog(root)).rejects.toThrow('catalog entry is not a regular file');
 });

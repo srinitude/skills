@@ -51,7 +51,7 @@ The Agent Plugins check performs all of these checks offline:
 Run only the focused tests with:
 
 ```sh
-npm test -- --run src/agent-plugin.test.ts mcp/src/stdio-smoke.test.ts src/package.test.ts
+mise run test-focus -- src/agent-plugin.test.ts mcp/src/stdio-smoke.test.ts src/package.test.ts
 ```
 
 ## Schema provenance

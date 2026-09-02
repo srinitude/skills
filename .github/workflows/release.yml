@@ -18,15 +18,7 @@ jobs:
       - uses: jdx/mise-action@v4
         with:
           cache: true
-      - run: npm ci --include=dev
-      - run: mise run ci
-      - run: mkdir -p .artifacts/release
-      - run: npm pack --pack-destination .artifacts/release
-      - name: Create or update GitHub release
-        run: |
-          if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes
-          fi
-          gh release upload "$GITHUB_REF_NAME" .artifacts/release/* --clobber
+      - name: Verify and publish GitHub release
+        run: mise run release-github
         env:
           GH_TOKEN: ${{ github.token }}

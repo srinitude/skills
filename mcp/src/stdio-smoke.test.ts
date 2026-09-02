@@ -1,5 +1,7 @@
-import { readFile, rm } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { copyFile, mkdir, readFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -7,8 +9,10 @@ import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
 import { afterEach, expect, test } from 'vitest';
 
 import { buildMcp } from '../../scripts/build-mcp.js';
+import { loadCatalog } from '../../src/catalog.js';
 
 const root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
+const run = promisify(execFile);
 const outputDirectory = join(root, '.artifacts', 'mcp-test');
 const outputFile = join(outputDirectory, 'server.mjs');
 
@@ -34,30 +38,10 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
     const tools = await client.listTools();
     const resources = await client.listResources();
     expect(tools.tools.map((tool) => tool.name)).toContain('get_skill');
-    expect(resources.resources.map((resource) => resource.uri)).toEqual([
-      'skill://always-current-datetime/SKILL.md',
-      'skill://by-design/SKILL.md',
-      'skill://dedupe/SKILL.md',
-      'skill://design-like-im-5/SKILL.md',
-      'skill://dtcg-tokens/SKILL.md',
-      'skill://figma-code-connect-design-system/SKILL.md',
-      'skill://goal-prompt/SKILL.md',
-      'skill://logic-audit/SKILL.md',
-      'skill://meaning-preserving-rewrite/SKILL.md',
-      'skill://mobile-first-website-design/SKILL.md',
-      'skill://only-one-interpretation/SKILL.md',
-      'skill://outcome-bounded-work/SKILL.md',
-      'skill://prompt-enhancer/SKILL.md',
-      'skill://reify/SKILL.md',
-      'skill://simplify-skill/SKILL.md',
-      'skill://skill-factory/SKILL.md',
-      'skill://starting-point/SKILL.md',
-      'skill://timebox/SKILL.md',
-      'skill://tool-call-configuration-for/SKILL.md',
-      'skill://visual-design-system-extractor/SKILL.md',
-      'skill://would-agents-actually/SKILL.md',
-      'skill://would-humans-actually/SKILL.md',
-    ]);
+    const catalog = await loadCatalog(root);
+    expect(resources.resources.map((resource) => resource.uri)).toEqual(
+      catalog.map((entry) => `skill://${entry.name}/SKILL.md`),
+    );
   } finally {
     await client.close();
   }
@@ -98,5 +82,42 @@ test('starts through the portable Agent Plugins MCP configuration', async () => 
     ]);
   } finally {
     await client.close();
+  }
+});
+
+test('keeps dependency debug output off the MCP stdout channel', async () => {
+  await buildMcp({ outfile: outputFile, root });
+  const transport = new StdioClientTransport({
+    args: [outputFile],
+    command: process.execPath,
+    cwd: root,
+    env: { LOG_STREAM: '1', LOG_TOKENS: '1' },
+    stderr: 'pipe',
+  });
+  const client = new Client({ name: 'stdio-debug-smoke', version: '0.1.0' });
+
+  try {
+    await client.connect(transport);
+    const tools = await client.listTools();
+    expect(tools.tools).toHaveLength(6);
+  } finally {
+    await client.close();
+  }
+});
+
+test('keeps startup diagnostics off the protocol channel', async () => {
+  await buildMcp({ outfile: outputFile, root });
+  const brokenRoot = join(outputDirectory, 'missing-skills');
+  const brokenBundle = join(brokenRoot, 'mcp', 'dist', 'server.mjs');
+  await mkdir(dirname(brokenBundle), { recursive: true });
+  await copyFile(outputFile, brokenBundle);
+
+  try {
+    await run(process.execPath, [brokenBundle], { cwd: brokenRoot });
+    throw new Error('broken MCP startup unexpectedly succeeded');
+  } catch (error) {
+    const result = error as { stderr?: string; stdout?: string };
+    expect(result.stdout).toBe('');
+    expect(result.stderr).toContain('mcp startup failed:');
   }
 });

@@ -3,6 +3,7 @@ import { join, posix } from 'node:path';
 
 import { z } from 'zod';
 
+import { isSkillName } from './catalog.js';
 import { casesSchema, type EvalCases } from './eval/schema.js';
 import { readSkillDocument, type SkillDocument } from './skill-document.js';
 import { validateSourceEvidence } from './source-evidence.js';
@@ -110,6 +111,7 @@ export async function validateSkill(
   root: string,
   name: string,
 ): Promise<SkillValidationReport> {
+  if (!isSkillName(name)) return blocked(name, '', new Error('skill name is invalid'));
   const skillPath = posix.join('skills', name, 'SKILL.md');
   const skillDir = join(root, 'skills', name);
   try {

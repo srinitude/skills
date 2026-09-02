@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, expect, test } from 'vitest';
 
+import { loadCatalog } from './catalog.js';
 import { buildPackage, packOutput } from './package.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -17,6 +18,13 @@ test('accepts npm pack array and keyed-object payloads', () => {
   expect(packOutput({})).toBeUndefined();
 });
 
+test('declares no runtime dependencies for the self-contained archive', async () => {
+  const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf8')) as {
+    dependencies?: Record<string, string>;
+  };
+  expect(manifest.dependencies).toBeUndefined();
+});
+
 afterEach(async () => {
   await Promise.all(
     temporary.splice(0).map((path) => rm(path, { force: true, recursive: true })),
@@ -27,55 +35,12 @@ test('builds a safe package with canonical skills and client manifests', async (
   const destination = await mkdtemp(join(tmpdir(), 'skills-package-'));
   temporary.push(destination);
   const result = await buildPackage(root, destination);
+  const expectedSkills = (await loadCatalog(root)).map((entry) => `package/${entry.path}`);
 
   expect(result.sha256).toMatch(/^[a-f0-9]{64}$/);
-  expect(result.entries).toContain('package/skills/always-current-datetime/SKILL.md');
-  expect(result.entries).toContain('package/skills/dedupe/SKILL.md');
-  expect(result.entries).toContain('package/skills/design-like-im-5/SKILL.md');
-  expect(result.entries).toContain('package/skills/dtcg-tokens/SKILL.md');
-  expect(result.entries).toContain('package/skills/goal-prompt/SKILL.md');
-  expect(result.entries).toContain('package/skills/logic-audit/SKILL.md');
-  expect(result.entries).toContain('package/skills/meaning-preserving-rewrite/SKILL.md');
-  expect(result.entries).toContain('package/skills/mobile-first-website-design/SKILL.md');
-  expect(result.entries).toContain('package/skills/only-one-interpretation/SKILL.md');
-  expect(result.entries).toContain('package/skills/outcome-bounded-work/SKILL.md');
-  expect(result.entries).toContain('package/skills/prompt-enhancer/SKILL.md');
-  expect(result.entries).toContain('package/skills/by-design/SKILL.md');
-  expect(result.entries).toContain('package/skills/reify/SKILL.md');
-  expect(result.entries).toContain('package/skills/simplify-skill/SKILL.md');
-  expect(result.entries).toContain('package/skills/starting-point/SKILL.md');
-  expect(result.entries).toContain('package/skills/skill-factory/SKILL.md');
-  expect(result.entries).toContain('package/skills/timebox/SKILL.md');
-  expect(result.entries).toContain('package/skills/tool-call-configuration-for/SKILL.md');
-  expect(result.entries).toContain(
-    'package/skills/visual-design-system-extractor/SKILL.md',
+  expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual(
+    expectedSkills,
   );
-  expect(result.entries).toContain('package/skills/would-agents-actually/SKILL.md');
-  expect(result.entries).toContain('package/skills/would-humans-actually/SKILL.md');
-  expect(result.entries.filter((entry) => entry.endsWith('/SKILL.md'))).toEqual([
-    'package/skills/always-current-datetime/SKILL.md',
-    'package/skills/by-design/SKILL.md',
-    'package/skills/dedupe/SKILL.md',
-    'package/skills/design-like-im-5/SKILL.md',
-    'package/skills/dtcg-tokens/SKILL.md',
-    'package/skills/figma-code-connect-design-system/SKILL.md',
-    'package/skills/goal-prompt/SKILL.md',
-    'package/skills/logic-audit/SKILL.md',
-    'package/skills/meaning-preserving-rewrite/SKILL.md',
-    'package/skills/mobile-first-website-design/SKILL.md',
-    'package/skills/only-one-interpretation/SKILL.md',
-    'package/skills/outcome-bounded-work/SKILL.md',
-    'package/skills/prompt-enhancer/SKILL.md',
-    'package/skills/reify/SKILL.md',
-    'package/skills/simplify-skill/SKILL.md',
-    'package/skills/skill-factory/SKILL.md',
-    'package/skills/starting-point/SKILL.md',
-    'package/skills/timebox/SKILL.md',
-    'package/skills/tool-call-configuration-for/SKILL.md',
-    'package/skills/visual-design-system-extractor/SKILL.md',
-    'package/skills/would-agents-actually/SKILL.md',
-    'package/skills/would-humans-actually/SKILL.md',
-  ]);
   expect(result.entries).toEqual(
     expect.arrayContaining([
       'package/.agents/plugins/marketplace.json',
@@ -85,9 +50,9 @@ test('builds a safe package with canonical skills and client manifests', async (
       'package/.cursor-plugin/plugin.json',
       'package/docs/openrouter-sweeps.md',
       'package/evidence/agent-plugins-v1.json',
+      'package/evidence/skills-sh-pages.json',
       'package/gemini-extension.json',
       'package/mcp.json',
-      'package/openclaw.plugin.json',
       'package/plugin.json',
       'package/plugin.yaml',
       'package/mcp/dist/server.mjs',
@@ -97,7 +62,14 @@ test('builds a safe package with canonical skills and client manifests', async (
   );
   expect(result.entries.some((entry) => entry.includes('../'))).toBe(false);
   expect(result.entries.some((entry) => entry.includes('.test.'))).toBe(false);
+  expect(result.entries.some((entry) => entry.includes('/scripts/tests/'))).toBe(false);
+  expect(result.entries.some((entry) => entry.startsWith('package/evidence/ports/'))).toBe(
+    false,
+  );
+  expect(result.entries.some((entry) => entry.includes('__pycache__'))).toBe(false);
+  expect(result.entries.some((entry) => entry.endsWith('.pyc'))).toBe(false);
   expect(result.entries).not.toContain('package/CLAUDE.md');
+  expect(result.entries).not.toContain('package/openclaw.plugin.json');
   expect(result.symlinks).toEqual([]);
   const bundle = await readFile(join(root, 'mcp', 'dist', 'server.mjs'), 'utf8');
   expect(bundle).not.toContain('sourceMappingURL=');
@@ -106,11 +78,13 @@ test('builds a safe package with canonical skills and client manifests', async (
   });
 }, 30_000);
 
-test('produces identical MCP bundle bytes in consecutive builds', async () => {
+test('produces identical archive and MCP bytes in consecutive builds', async () => {
   const first = await mkdtemp(join(tmpdir(), 'skills-package-'));
   const second = await mkdtemp(join(tmpdir(), 'skills-package-'));
   temporary.push(first, second);
   const left = await buildPackage(root, first);
   const right = await buildPackage(root, second);
+  expect(left.sha256).toBe(right.sha256);
   expect(left.mcp_sha256).toBe(right.mcp_sha256);
+  expect(left.entries).toEqual(right.entries);
 }, 30_000);

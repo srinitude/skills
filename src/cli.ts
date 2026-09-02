@@ -7,12 +7,14 @@ import { runEvaluation } from './eval/runner.js';
 import { loadEvalDefinition } from './eval/schema.js';
 import { runSkillBenchmark } from './eval/speed.js';
 import type { EvalReport, TerminalStatus } from './eval/types.js';
+import { smokeClients } from './client-smoke.js';
 import { checkIntegrations } from './integrations.js';
 import { buildPackage } from './package.js';
 import { validateRepository } from './repository-validation.js';
 import { validateSkill } from './skill-validation.js';
 import { runSweepCli } from './sweep-cli.js';
 import { refreshRepositoryBaseline } from './source-evidence-refresh.js';
+import { auditRepository } from './release-audit.js';
 
 interface DiagnosticSink {
   write(text: string): unknown;
@@ -145,6 +147,33 @@ async function packageCommand(
   return 0;
 }
 
+async function auditReleaseCommand(
+  args: string[],
+  root: string,
+  stderr: DiagnosticSink,
+): Promise<number> {
+  const baseline = optionValue(args, '--baseline');
+  const reportPath = optionValue(args, '--report');
+  if (!baseline || !reportPath) throw new Error('--baseline and --report are required');
+  await saveReport(reportPath, await auditRepository(root, baseline));
+  stderr.write('release audit: PASS\n');
+  return 0;
+}
+
+async function smokeClientsCommand(
+  args: string[],
+  root: string,
+  stderr: DiagnosticSink,
+): Promise<number> {
+  const directory = optionValue(args, '--out');
+  const receipt = optionValue(args, '--cursor-receipt');
+  if (!directory || !receipt) throw new Error('--out and --cursor-receipt are required');
+  const report = await smokeClients(root, resolve(directory), resolve(receipt));
+  await saveReport(resolve(directory, 'client-smoke.json'), report);
+  stderr.write(`client smoke: ${report.status}\n`);
+  return report.status === 'PASS' ? 0 : 2;
+}
+
 async function dispatch(
   command: string | undefined,
   args: string[],
@@ -156,6 +185,8 @@ async function dispatch(
   if (command === 'benchmark') return benchmarkCommand(args, root, stderr);
   if (command === 'check-integrations') return integrationsCommand(args, root, stderr);
   if (command === 'package') return packageCommand(args, root, stderr);
+  if (command === 'audit-release') return auditReleaseCommand(args, root, stderr);
+  if (command === 'smoke-clients') return smokeClientsCommand(args, root, stderr);
   if (command === 'refresh-source-evidence') {
     if (args.length === 0) throw new Error('at least one skill name is required');
     for (const skill of args) await refreshRepositoryBaseline(root, skill);

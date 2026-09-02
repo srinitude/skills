@@ -5,11 +5,37 @@
   "budget_owner": "evals/speed-budgets.json",
   "objective": "minimum_elapsed_time_to_fully_verified_result",
   "invariants": {
+    "exploration_loss_allowed": false,
     "proof_loss_allowed": false,
     "required_work": "all",
     "scope_loss_allowed": false,
+    "visual_judgment_concurrency": 1,
     "workflow_action_concurrency": 1,
     "writers_per_artifact": 1
+  },
+  "progress": {
+    "requires": ["owning artifact mutation", "current proof"],
+    "does_not_count": [
+      "plan",
+      "commentary",
+      "queued work",
+      "running command",
+      "unviewed output"
+    ],
+    "speed_rule": "Choose the shortest path only after exploratory breadth, experimental breadth, correctness, and same-executor visual judgment remain fixed."
+  },
+  "experiment_policy": {
+    "default_scale": "material_direction",
+    "micro_optimization_allowed": false,
+    "pure_optimization_requires_explicit_user_request": true,
+    "observed_defect_or_required_threshold_repair_is_not_pure_optimization": true,
+    "direct_vision_distinguishability_required": true,
+    "human_judgment": ["eye", "brain", "touch", "bad_design", "bad_output", "bad_practice"]
+  },
+  "optional_skill_improvement": {
+    "cli_owner": "mise",
+    "acceptance": "pareto_non_regression",
+    "failure": "restore_last_accepted_version"
   },
   "parallel_groups": [
     {

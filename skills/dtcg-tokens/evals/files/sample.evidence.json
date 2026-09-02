@@ -1297,6 +1297,13 @@
       "status": "pending_visual_review",
       "entries": []
     },
+    "token_quality_gate": {
+      "scope": "token_and_proof_only",
+      "status": "pending_visual_review",
+      "diagnosis": "SLOP",
+      "whole_product_quality_proved": false,
+      "gates": []
+    },
     "judgment_reviews": { "catalog_version": "1.1.0", "tracks": [] },
     "experimental_review": {
       "status": "pending_visual_review",

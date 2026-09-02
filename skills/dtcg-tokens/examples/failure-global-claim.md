@@ -12,9 +12,9 @@ I cannot make or hide that claim. Global uniqueness is outside this skill's vali
 
 ## Command
 
-| Command                                                                                                                                    | Purpose                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `python3 scripts/tests/test_artifact_contract.py TestArtifactBoundary.test_global_uniqueness_claim_is_rejected_after_candidate_validation` | Supply an in-memory valid structural candidate, reach evidence validation, and assert that the global claim is rejected. |
+| Command                                                                                                          | Purpose                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `python3 mise run test TestArtifactBoundary.test_global_uniqueness_claim_is_rejected_after_candidate_validation` | Supply an in-memory valid structural candidate, reach evidence validation, and assert that the global claim is rejected. |
 
 ## Verified output
 

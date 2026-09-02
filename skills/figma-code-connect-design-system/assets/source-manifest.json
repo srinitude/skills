@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-08-31",
+  "construction_input": {
+    "kind": "user-supplied-skill-request",
+    "sha256": "81ea4f4ab8aefc21def76669980b7760ac8b5637bb67376d4e0f84a5322ebe6b"
+  },
+  "local_reference": {
+    "kind": "figma-code-connect-design-system-reference",
+    "sha256": "00fdaaf7505a571e4879b36fec0854f9a47e00999a48907b61a7e4ccf6e5d89d",
+    "dependency": false
+  },
+  "sources": [
+    {
+      "id": "agent-skills-spec",
+      "url": "https://agentskills.io/specification",
+      "version": "not stated",
+      "role": "portable package format"
+    },
+    {
+      "id": "skill-registry",
+      "url": "https://github.com/srinitude/skills/tree/a80a9f88b6b72c6358f6101e53aed64ed715058a",
+      "version": "a80a9f88b6b72c6358f6101e53aed64ed715058a",
+      "role": "registry package and eval conventions"
+    },
+    {
+      "id": "dtcg-format",
+      "url": "https://www.designtokens.org/TR/2025.10/format/",
+      "version": "2025.10",
+      "published": "2025-10-28",
+      "role": "stable token format"
+    },
+    {
+      "id": "figma-code-connect-docs",
+      "url": "https://developers.figma.com/docs/code-connect/",
+      "version": "not stated",
+      "role": "product behavior and prerequisites"
+    },
+    {
+      "id": "figma-code-connect-cli",
+      "url": "https://developers.figma.com/docs/code-connect/cli-reference/",
+      "version": "2.0.0 source baseline",
+      "role": "commands and lifecycle"
+    },
+    {
+      "id": "figma-code-connect-template-api",
+      "url": "https://developers.figma.com/docs/code-connect/template-api/",
+      "version": "2.0.0 source baseline",
+      "role": "parserless mapping primitives"
+    },
+    {
+      "id": "figma-mcp",
+      "url": "https://developers.figma.com/docs/figma-mcp-server/",
+      "version": "not stated",
+      "role": "design context and Code Connect machine context"
+    },
+    {
+      "id": "figma-code-connect-source",
+      "url": "https://github.com/figma/code-connect/tree/f55fc3a8d9392df0dd80a9e859ffdddbd5c50019",
+      "version": "2.0.0",
+      "published": "2026-08-18",
+      "role": "executable CLI and changelog"
+    },
+    {
+      "id": "figma-capability-schemas",
+      "version": "plugin 2.0.21",
+      "published": "not stated",
+      "role": "live tool names, fields, enums, and effects"
+    }
+  ]
+}

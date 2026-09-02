@@ -1,17 +1,17 @@
 # Execution guide
 
-Run all 25 steps in order. `assets/execution-io-map.json` names each input, output, support file, and decision owner. `assets/execution-step-contract.json` owns status, evidence, and retries. `scripts/run_pipeline.py` creates the run scaffold, prepares step packets, checks prerequisites, hashes outputs, and records state. A step starts only after all named inputs exist and the prior step is `PASS`. A step ends only after every named output is saved. One deliverable never completes the pipeline.
+Run all 25 steps in order. `assets/execution-io-map.json` names each input, output, support file, and decision owner. `assets/execution-step-contract.json` owns status, evidence, and retries. `mise run token-packet -- <args>` creates the run scaffold, prepares step packets, checks prerequisites, hashes outputs, and records state. A step starts only after all named inputs exist and the prior step is `PASS`. A step ends only after every named output is saved. One deliverable never completes the pipeline.
 
 ## Runner commands
 
-| Command                                                                                                                                                    | Use                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `python3 scripts/run_pipeline.py init --run <run.json> --run-id <id> --name <name> --request <request-file> --source <source-file> --anchor <anchor.json>` | Create 25 `PENDING` records and hash the frozen request and sources. Repeat `--source` for more inputs.       |
-| `python3 scripts/run_pipeline.py packet --run <run.json> --step SNN --output <packet.json>`                                                                | Save the exact inputs, outputs, support files, missing inputs, and decision owner for one step.               |
-| `python3 scripts/run_pipeline.py start --run <run.json> --step SNN`                                                                                        | Verify all named inputs and predecessor state, then set the step to `RUNNING`.                                |
-| `python3 scripts/run_pipeline.py pass --run <run.json> --step SNN --output <name>=<path>`                                                                  | Hash every named output and set the step to `PASS`. Repeat `--output`, `--check`, and `--evidence` as needed. |
-| `python3 scripts/run_pipeline.py block --run <run.json> --step SNN --code <code> --reason <text> --recovery <text>`                                        | Save one allowed error, failed check, evidence locator, and exact recovery need.                              |
-| `python3 scripts/run_pipeline.py status --run <run.json>`                                                                                                  | Report state counts and whether all 25 steps are `PASS`.                                                      |
+| Command                                                                                                                                     | Use                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `mise run token-run -- --run <run.json> --run-id <id> --name <name> --request <request-file> --source <source-file> --anchor <anchor.json>` | Create 25 `PENDING` records and hash the frozen request and sources. Repeat `--source` for more inputs.       |
+| `mise run token-packet -- --run <run.json> --step SNN --output <packet.json>`                                                               | Save the exact inputs, outputs, support files, missing inputs, and decision owner for one step.               |
+| `mise run token-start -- --run <run.json> --step SNN`                                                                                       | Verify all named inputs and predecessor state, then set the step to `RUNNING`.                                |
+| `mise run token-pass -- --run <run.json> --step SNN --output <name>=<path>`                                                                 | Hash every named output and set the step to `PASS`. Repeat `--output`, `--check`, and `--evidence` as needed. |
+| `mise run token-block -- --run <run.json> --step SNN --code <code> --reason <text> --recovery <text>`                                       | Save one allowed error, failed check, evidence locator, and exact recovery need.                              |
+| `mise run token-status -- --run <run.json>`                                                                                                 | Report state counts and whether all 25 steps are `PASS`.                                                      |
 
 ## Step fields
 
@@ -24,8 +24,8 @@ Run all 25 steps in order. `assets/execution-io-map.json` names each input, outp
 
 Keep these fields separate in `<name>.run.json`. Use the phase that owns the current step:
 
-| Steps | Guide                            | Scope                                                                   |
-| ----- | -------------------------------- | ----------------------------------------------------------------------- |
-| 01-08 | `references/execution-intake.md` | Freeze, inventory, vision, observation, thesis, universe, experiments.  |
-| 09-17 | `references/execution-build.md`  | Contexts, signatures, tokens, evidence, proof authoring, assembly.      |
-| 18-25 | `references/execution-review.md` | Final visual review, defects, invariants, judgment, repair, completion. |
+| Steps | Guide                            | Scope                                                                                                                                   |
+| ----- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 01-08 | `references/execution-intake.md` | Freeze, inventory, vision, observation, thesis, universe, experiments. Use `mise run token-packet -- <args>` for this routed resource.  |
+| 09-17 | `references/execution-build.md`  | Contexts, signatures, tokens, evidence, proof authoring, assembly. Use `mise run token-packet -- <args>` for this routed resource.      |
+| 18-25 | `references/execution-review.md` | Final visual review, defects, invariants, judgment, repair, completion. Use `mise run token-packet -- <args>` for this routed resource. |

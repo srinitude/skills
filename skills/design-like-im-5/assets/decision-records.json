@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "skill": "design-like-im-5",
+  "records": [
+    {
+      "id": "mise-envelope",
+      "kind": "deterministic",
+      "outcome": "The human eye can guard this choice.",
+      "motivation": "The human eye needs this guard.",
+      "why_this_path": "The human eye gives this check to mise.",
+      "owner": "mise",
+      "inputs": ["product design contract", "current evidence"],
+      "expected_effect": "The human eye can test it.",
+      "proof": "The human eye has fresh proof.",
+      "falsifier": "The human eye sees no proof.",
+      "failure_branch": "The human eye blocks it. Go back to mise-envelope."
+    },
+    {
+      "id": "direct-vision-owner",
+      "kind": "model_owned",
+      "outcome": "The human eye can guard this choice.",
+      "motivation": "The human eye needs this guard.",
+      "why_this_path": "The human eye gives this check to model.",
+      "owner": "model",
+      "inputs": ["product design contract", "current evidence"],
+      "expected_effect": "The human eye can test it.",
+      "proof": "The human eye has fresh proof.",
+      "falsifier": "The human eye sees no proof.",
+      "failure_branch": "The human eye blocks it. Go back to direct-vision-owner."
+    },
+    {
+      "id": "material-experiment-lock",
+      "kind": "model_owned",
+      "outcome": "The human eye can guard this choice.",
+      "motivation": "The human eye needs this guard.",
+      "why_this_path": "The human eye gives this check to model.",
+      "owner": "model",
+      "inputs": ["product design contract", "current evidence"],
+      "expected_effect": "The human eye can test it.",
+      "proof": "The human eye has fresh proof.",
+      "falsifier": "The human eye sees no proof.",
+      "failure_branch": "The human eye blocks it. Go back to material-experiment-lock."
+    },
+    {
+      "id": "human-authority",
+      "kind": "human_owned",
+      "outcome": "The human eye can guard this choice.",
+      "motivation": "The human eye needs this guard.",
+      "why_this_path": "The human eye gives this check to human.",
+      "owner": "human",
+      "inputs": ["product design contract", "current evidence"],
+      "expected_effect": "The human eye can test it.",
+      "proof": "The human eye has fresh proof.",
+      "falsifier": "The human eye sees no proof.",
+      "failure_branch": "The human eye blocks it. Go back to human-authority."
+    },
+    {
+      "id": "nonregressing-improvement",
+      "kind": "deterministic",
+      "outcome": "The human eye can guard this choice.",
+      "motivation": "The human eye needs this guard.",
+      "why_this_path": "The human eye gives this check to mise.",
+      "owner": "mise",
+      "inputs": ["product design contract", "current evidence"],
+      "expected_effect": "The human eye can test it.",
+      "proof": "The human eye has fresh proof.",
+      "falsifier": "The human eye sees no proof.",
+      "failure_branch": "The human eye blocks it. Go back to nonregressing-improvement."
+    }
+  ]
+}

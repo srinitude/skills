@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "figma-code-connect-design-system",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "figma-code-lifecycle": {
+      "discover": "new-run",
+      "research": "domain-research-policy",
+      "experiment": "test",
+      "decide": "decision-policy",
+      "create": "new-run",
+      "inspect": "validate-run",
+      "update": "factory-assets-write",
+      "validate": "complete",
+      "accept": "package-records",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "package-records"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace actors.",
+      "motivation": "Code Connect needs an owner for actors.",
+      "proof": "Component property parity records the actors gate."
+    },
+    "objects": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace objects.",
+      "motivation": "Code Connect needs an owner for objects.",
+      "proof": "Component property parity records the objects gate."
+    },
+    "actions": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace actions.",
+      "motivation": "Code Connect needs an owner for actions.",
+      "proof": "Component property parity records the actions gate."
+    },
+    "states": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace states.",
+      "motivation": "Code Connect needs an owner for states.",
+      "proof": "Component property parity records the states gate."
+    },
+    "invariants": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace invariants.",
+      "motivation": "Code Connect needs an owner for invariants.",
+      "proof": "Component property parity records the invariants gate."
+    },
+    "variants": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace variants.",
+      "motivation": "Code Connect needs an owner for variants.",
+      "proof": "Component property parity records the variants gate."
+    },
+    "interfaces": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace interfaces.",
+      "motivation": "Code Connect needs an owner for interfaces.",
+      "proof": "Component property parity records the interfaces gate."
+    },
+    "authorities": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace authorities.",
+      "motivation": "Code Connect needs an owner for authorities.",
+      "proof": "Component property parity records the authorities gate."
+    },
+    "failures": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace failures.",
+      "motivation": "Code Connect needs an owner for failures.",
+      "proof": "Component property parity records the failures gate."
+    },
+    "recoveries": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace recoveries.",
+      "motivation": "Code Connect needs an owner for recoveries.",
+      "proof": "Component property parity records the recoveries gate."
+    },
+    "evidence": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace evidence.",
+      "motivation": "Code Connect needs an owner for evidence.",
+      "proof": "Component property parity records the evidence gate."
+    },
+    "time": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace time.",
+      "motivation": "Code Connect needs an owner for time.",
+      "proof": "Component property parity records the time gate."
+    },
+    "resources": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace resources.",
+      "motivation": "Code Connect needs an owner for resources.",
+      "proof": "Component property parity records the resources gate."
+    },
+    "quality": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace quality.",
+      "motivation": "Code Connect needs an owner for quality.",
+      "proof": "Component property parity records the quality gate."
+    },
+    "terminology": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace terminology.",
+      "motivation": "Code Connect needs an owner for terminology.",
+      "proof": "Component property parity records the terminology gate."
+    },
+    "exclusions": {
+      "profile": "figma-code-lifecycle",
+      "outcome": "The Figma design system can trace exclusions.",
+      "motivation": "Code Connect needs an owner for exclusions.",
+      "proof": "Component property parity records the exclusions gate."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "figma-code-lifecycle"
+    },
+    "references": {
+      "profile": "figma-code-lifecycle"
+    },
+    "assets": {
+      "profile": "figma-code-lifecycle"
+    },
+    "scripts": {
+      "profile": "figma-code-lifecycle"
+    },
+    "tests": {
+      "profile": "figma-code-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "figma-code-lifecycle"
+    },
+    "examples": {
+      "profile": "figma-code-lifecycle"
+    },
+    "evals": {
+      "profile": "figma-code-lifecycle"
+    },
+    "policies": {
+      "profile": "figma-code-lifecycle"
+    },
+    "schemas": {
+      "profile": "figma-code-lifecycle"
+    },
+    "records": {
+      "profile": "figma-code-lifecycle"
+    }
+  }
+}

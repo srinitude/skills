@@ -21,6 +21,7 @@ ALLOWED_KEYS = {"name", "description", "license", "compatibility",
                 "metadata", "allowed-tools"}
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 REQUIRED_DIRS = ["references", "assets", "examples", "scripts", "evals"]
+BODY_DIRS = ["references", "assets", "examples", "evals"]
 PATH_RE = re.compile(r"\b(?:references|assets|examples|scripts|tests|evals)/[\w./-]+")
 MAX_BODY_LINES = 200
 MAX_FILE_CHARS = 100_000
@@ -77,7 +78,8 @@ def check_layout(skill, body, problems):
     for name in REQUIRED_DIRS + ["scripts/tests"]:
         if not (skill / name).is_dir():
             problems.append(f"missing required directory: {name}/")
-        elif body and f"{name}/" not in body:
+    for name in BODY_DIRS:
+        if body and f"{name}/" not in body:
             problems.append(f"body never references {name}/")
     if not (skill / "evals" / "evals.json").is_file():
         problems.append("missing evals/evals.json")

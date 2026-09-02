@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 
+from lib.controlled_comparisons import validate_controlled_comparisons
+
 NAMESPACE = "org.dtcg-tokens.experimental"
 REQUIRED_META = {
     "experiment_id",
@@ -131,6 +133,7 @@ def validate_experimental_output(tokens, evidence, final=False):
     check_manifest_match(records, evidence, errors)
     if final:
         final_review_paths(evidence, token_paths, errors)
+        errors.extend(validate_controlled_comparisons(tokens, evidence)["errors"])
     return {
         "status": "pass" if not errors else "fail",
         "errors": errors,

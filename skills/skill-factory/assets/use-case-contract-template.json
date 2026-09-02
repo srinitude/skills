@@ -1,0 +1,187 @@
+{
+  "version": "1.1.0",
+  "skill": "{{NAME}}",
+  "outcome": "SCAFFOLD-PLACEHOLDER name the observable {{NAME}} result using its own domain terms.",
+  "motivations": [
+    {
+      "constraint": "SCAFFOLD-PLACEHOLDER name one {{NAME}} constraint.",
+      "reason": "SCAFFOLD-PLACEHOLDER explain why the constraint protects the {{NAME}} outcome.",
+      "failure_prevented": "SCAFFOLD-PLACEHOLDER name the resulting {{NAME}} failure."
+    },
+    {
+      "constraint": "SCAFFOLD-PLACEHOLDER name a second {{NAME}} constraint.",
+      "reason": "SCAFFOLD-PLACEHOLDER explain its causal link to the {{NAME}} outcome.",
+      "failure_prevented": "SCAFFOLD-PLACEHOLDER name the second {{NAME}} failure."
+    }
+  ],
+  "domain_terms": [
+    "SCAFFOLD-PLACEHOLDER first {{NAME}} term",
+    "SCAFFOLD-PLACEHOLDER second {{NAME}} term",
+    "SCAFFOLD-PLACEHOLDER third {{NAME}} term"
+  ],
+  "domain_failures": [
+    "SCAFFOLD-PLACEHOLDER first {{NAME}} failure",
+    "SCAFFOLD-PLACEHOLDER second {{NAME}} failure"
+  ],
+  "domain_evidence": [
+    "SCAFFOLD-PLACEHOLDER first {{NAME}} proof",
+    "SCAFFOLD-PLACEHOLDER second {{NAME}} proof"
+  ],
+  "domain_dimensions": {
+    "actors": ["SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."],
+    "objects": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."],
+    "actions": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."],
+    "states": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."],
+    "invariants": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."],
+    "variants": ["SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."],
+    "interfaces": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."],
+    "authorities": ["SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."],
+    "failures": ["SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."],
+    "recoveries": ["SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."],
+    "evidence": ["SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."],
+    "time": ["SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."],
+    "resources": ["SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."],
+    "quality": ["SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."],
+    "terminology": ["SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."],
+    "exclusions": ["SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."]
+  },
+  "research_questions": {
+    "actors": "SCAFFOLD-PLACEHOLDER which actors define or use {{NAME}}?",
+    "objects": "SCAFFOLD-PLACEHOLDER which objects does {{NAME}} own?",
+    "actions": "SCAFFOLD-PLACEHOLDER which actions produce the {{NAME}} outcome?",
+    "states": "SCAFFOLD-PLACEHOLDER which states and transitions exist in {{NAME}}?",
+    "invariants": "SCAFFOLD-PLACEHOLDER which {{NAME}} rules must never break?",
+    "variants": "SCAFFOLD-PLACEHOLDER which {{NAME}} differences are valid?",
+    "interfaces": "SCAFFOLD-PLACEHOLDER where does {{NAME}} meet another system?",
+    "authorities": "SCAFFOLD-PLACEHOLDER who controls {{NAME}} side effects?",
+    "failures": "SCAFFOLD-PLACEHOLDER how does {{NAME}} fail?",
+    "recoveries": "SCAFFOLD-PLACEHOLDER how does {{NAME}} recover?",
+    "evidence": "SCAFFOLD-PLACEHOLDER what proves the {{NAME}} outcome?",
+    "time": "SCAFFOLD-PLACEHOLDER what timing and freshness govern {{NAME}}?",
+    "resources": "SCAFFOLD-PLACEHOLDER which resources constrain {{NAME}}?",
+    "quality": "SCAFFOLD-PLACEHOLDER what makes {{NAME}} correct and useful?",
+    "terminology": "SCAFFOLD-PLACEHOLDER which terms distinguish {{NAME}} concepts?",
+    "exclusions": "SCAFFOLD-PLACEHOLDER what must {{NAME}} refuse or hand off?"
+  },
+  "research_receipts": [
+    {
+      "source": "SCAFFOLD-PLACEHOLDER first current web source for {{NAME}}",
+      "source_class": "first_party",
+      "claim": "SCAFFOLD-PLACEHOLDER supported {{NAME}} claim",
+      "disposition": "SCAFFOLD-PLACEHOLDER retained, rejected, bounded, or inapplicable",
+      "checked_at": "SCAFFOLD-PLACEHOLDER ISO timestamp with timezone",
+      "limitations": "SCAFFOLD-PLACEHOLDER source limit for {{NAME}}",
+      "dimensions": []
+    },
+    {
+      "source": "SCAFFOLD-PLACEHOLDER second current web source for {{NAME}}",
+      "source_class": "standard",
+      "claim": "SCAFFOLD-PLACEHOLDER supported {{NAME}} claim",
+      "disposition": "SCAFFOLD-PLACEHOLDER retained, rejected, bounded, or inapplicable",
+      "checked_at": "SCAFFOLD-PLACEHOLDER ISO timestamp with timezone",
+      "limitations": "SCAFFOLD-PLACEHOLDER source limit for {{NAME}}",
+      "dimensions": []
+    },
+    {
+      "source": "SCAFFOLD-PLACEHOLDER third current web source for {{NAME}}",
+      "source_class": "research",
+      "claim": "SCAFFOLD-PLACEHOLDER supported {{NAME}} claim",
+      "disposition": "SCAFFOLD-PLACEHOLDER retained, rejected, bounded, or inapplicable",
+      "checked_at": "SCAFFOLD-PLACEHOLDER ISO timestamp with timezone",
+      "limitations": "SCAFFOLD-PLACEHOLDER source limit for {{NAME}}",
+      "dimensions": []
+    },
+    {
+      "source": "SCAFFOLD-PLACEHOLDER fourth current web source for {{NAME}}",
+      "source_class": "practitioner",
+      "claim": "SCAFFOLD-PLACEHOLDER supported {{NAME}} claim",
+      "disposition": "SCAFFOLD-PLACEHOLDER retained, rejected, bounded, or inapplicable",
+      "checked_at": "SCAFFOLD-PLACEHOLDER ISO timestamp with timezone",
+      "limitations": "SCAFFOLD-PLACEHOLDER source limit for {{NAME}}",
+      "dimensions": []
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "SCAFFOLD-PLACEHOLDER strongest challenge to a retained {{NAME}} claim",
+      "source": "SCAFFOLD-PLACEHOLDER current counterevidence URL",
+      "checked_at": "SCAFFOLD-PLACEHOLDER ISO timestamp with timezone",
+      "result": "SCAFFOLD-PLACEHOLDER counterevidence found or bounded absence",
+      "disposition": "SCAFFOLD-PLACEHOLDER how {{NAME}} changed or why it stayed"
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "info",
+        "outcome": "SCAFFOLD-PLACEHOLDER name the {{NAME}} result this operation advances.",
+        "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} needs this operation.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER explain why this is the one {{NAME}} path.",
+        "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} operation proof."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "SCAFFOLD-PLACEHOLDER prove every {{NAME}} task was considered.",
+        "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} cannot silently skip tasks.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER explain the one {{NAME}} receipt path.",
+        "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} invocation proof."
+      },
+      {
+        "task": "agentic-request",
+        "outcome": "SCAFFOLD-PLACEHOLDER name the {{NAME}} result a long prompt, another skill, or another agentic primitive advances.",
+        "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} needs model-owned work through this operation.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER explain the one typed {{NAME}} runner path.",
+        "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} runner output and readback."
+      },
+      {
+        "task": "mise-latest",
+        "outcome": "SCAFFOLD-PLACEHOLDER keep the {{NAME}} runner current after work concludes.",
+        "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} needs current stable Mise behavior.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER explain the deferred {{NAME}} maintenance path.",
+        "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} Mise version receipt."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "SCAFFOLD-PLACEHOLDER name how the {{NAME}} runner primitive catalog advances the skill outcome.",
+        "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} must reconcile upstream Mise primitives.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER explain the post-self-update {{NAME}} catalog path.",
+        "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} catalog and disposition receipt."
+      }
+    ],
+    "tasks": {
+      "ci": {},
+      "info": {},
+      "test": {},
+      "validate": {},
+      "lint-writing": {},
+      "lint-code": {},
+      "lint-placeholders": {},
+      "evals": {},
+      "improvement-policy": {},
+      "domain-research-policy": {},
+      "use-case-policy": {},
+      "mise-primitives-policy": {},
+      "primitive-lifecycle-policy": {},
+      "task-graph-policy": {},
+      "decision-policy": {},
+      "invocation-policy": {},
+      "agentic-request": {},
+      "mise-latest": {},
+      "mise-primitives-update": {}
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {},
+    "references": {},
+    "assets": {},
+    "scripts": {},
+    "tests": {},
+    "mise_tasks": {},
+    "examples": {},
+    "evals": {},
+    "policies": {},
+    "schemas": {},
+    "records": {}
+  }
+}

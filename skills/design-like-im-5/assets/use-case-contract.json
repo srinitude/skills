@@ -1,0 +1,782 @@
+{
+  "version": "1.0.0",
+  "skill": "design-like-im-5",
+  "outcome": "Produce clear, usable, distinctive product design with current direct visual proof.",
+  "motivations": [
+    {
+      "constraint": "Every product design choice needs current human eye, human brain, and human touch proof.",
+      "reason": "Product design metrics and valid files cannot establish visual quality or product fit.",
+      "failure_prevented": "Product design acceptance from unseen pixels or a numeric average."
+    },
+    {
+      "constraint": "Every repeatable product design mechanic uses one Mise task graph path.",
+      "reason": "Product design judgment works better when deterministic checks expose current evidence and failures.",
+      "failure_prevented": "Product design work that bypasses experiments, lower-owner locks, or package proof."
+    }
+  ],
+  "domain_failures": [
+    "Product design passes structure checks but remains generic, confusing, inaccessible, or visually weak.",
+    "Product design claims quality from metadata, hashes, or unviewed captures instead of current human eye proof."
+  ],
+  "domain_evidence": [
+    "Product design experiments, state records, rendered views, interaction paths, and same-executor vision receipts.",
+    "Human brain and human touch judgments with counterevidence, uncertainty, scope, and accepting owners."
+  ],
+  "domain_terms": [
+    "product design",
+    "human eye",
+    "human brain",
+    "human touch",
+    "material design experiment",
+    "Mise task graph"
+  ],
+  "research_questions": {
+    "actors": "How can actors change product design proof or repair?",
+    "objects": "How can objects change product design proof or repair?",
+    "actions": "How can actions change product design proof or repair?",
+    "states": "How can states change product design proof or repair?",
+    "invariants": "How can invariants change product design proof or repair?",
+    "variants": "How can variants change product design proof or repair?",
+    "interfaces": "How can interfaces change product design proof or repair?",
+    "authorities": "How can authorities change product design proof or repair?",
+    "failures": "How can failures change product design proof or repair?",
+    "recoveries": "How can recoveries change product design proof or repair?",
+    "evidence": "How can evidence change product design proof or repair?",
+    "time": "How can time change product design proof or repair?",
+    "resources": "How can resources change product design proof or repair?",
+    "quality": "How can quality change product design proof or repair?",
+    "terminology": "How can terminology change product design proof or repair?",
+    "exclusions": "How can exclusions change product design proof or repair?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.w3.org/TR/WCAG22/",
+      "source_class": "standard",
+      "claim": "WCAG 2.2 sets access rules for product design.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "limitations": "It cannot judge product design fit or visual quality.",
+      "dimensions": [
+        "actors",
+        "states",
+        "invariants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "quality",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "source_class": "first_party",
+      "claim": "Apple links product design size and space to ease of use.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "limitations": "It does not set each product design choice.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "variants",
+        "interfaces",
+        "failures",
+        "recoveries",
+        "evidence",
+        "resources",
+        "quality"
+      ]
+    },
+    {
+      "source": "https://developer.apple.com/design/human-interface-guidelines/focus-and-selection/",
+      "source_class": "first_party",
+      "claim": "Apple keeps product design focus apart from selection when an act changes context.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "limitations": "It does not set one product design style.",
+      "dimensions": [
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "terminology",
+        "quality"
+      ]
+    },
+    {
+      "source": "https://design-system.service.gov.uk/styles/spacing/",
+      "source_class": "practitioner",
+      "claim": "GOV.UK gives product design space a clear role.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "limitations": "Its scale is not product design truth for all work.",
+      "dimensions": [
+        "objects",
+        "actions",
+        "invariants",
+        "variants",
+        "interfaces",
+        "time",
+        "resources",
+        "quality",
+        "terminology"
+      ]
+    },
+    {
+      "source": "https://agentskills.io/specification",
+      "source_class": "standard",
+      "claim": "Agent Skills give product design work a portable file form.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "limitations": "The form does not supply product design judgment or sight.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "interfaces",
+        "authorities",
+        "evidence",
+        "time",
+        "resources",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can product design standards or metrics alone prove visual quality?",
+      "source": "https://www.w3.org/TR/WCAG22/",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "result": "No. Access rules cannot replace current product design sight.",
+      "disposition": "Keep product design measures and direct sight as two gates."
+    }
+  ],
+  "domain_dimensions": {
+    "actors": ["The human eye record must name actors."],
+    "objects": ["The human eye record must name objects."],
+    "actions": ["The human eye record must name actions."],
+    "states": ["The human eye record must name states."],
+    "invariants": ["The human eye record must name invariants."],
+    "variants": ["The human eye record must name variants."],
+    "interfaces": ["The human eye record must name interfaces."],
+    "authorities": ["The human eye record must name authorities."],
+    "failures": ["The human eye record must name failures."],
+    "recoveries": ["The human eye record must name recoveries."],
+    "evidence": ["The human eye record must name evidence."],
+    "time": ["The human eye record must name time."],
+    "resources": ["The human eye record must name resources."],
+    "quality": ["The human eye record must name quality."],
+    "terminology": ["The human eye record must name terminology."],
+    "exclusions": ["The human eye record must name exclusions."]
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this skill body owner.",
+      "outcome": "The human eye can check skill body work.",
+      "motivation": "The human eye needs one skill body owner.",
+      "value": "The human eye gets fresh skill body proof.",
+      "failure_prevented": "The human eye avoids stale skill body work.",
+      "proof": "The human eye gets a fresh skill body task pass."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this references owner.",
+      "outcome": "The human eye can check references work.",
+      "motivation": "The human eye needs one references owner.",
+      "value": "The human eye gets fresh references proof.",
+      "failure_prevented": "The human eye avoids stale references work.",
+      "proof": "The human eye gets a fresh references task pass."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this assets owner.",
+      "outcome": "The human eye can check assets work.",
+      "motivation": "The human eye needs one assets owner.",
+      "value": "The human eye gets fresh assets proof.",
+      "failure_prevented": "The human eye avoids stale assets work.",
+      "proof": "The human eye gets a fresh assets task pass."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this scripts owner.",
+      "outcome": "The human eye can check scripts work.",
+      "motivation": "The human eye needs one scripts owner.",
+      "value": "The human eye gets fresh scripts proof.",
+      "failure_prevented": "The human eye avoids stale scripts work.",
+      "proof": "The human eye gets a fresh scripts task pass."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this tests owner.",
+      "outcome": "The human eye can check tests work.",
+      "motivation": "The human eye needs one tests owner.",
+      "value": "The human eye gets fresh tests proof.",
+      "failure_prevented": "The human eye avoids stale tests work.",
+      "proof": "The human eye gets a fresh tests task pass."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this mise tasks owner.",
+      "outcome": "The human eye can check mise tasks work.",
+      "motivation": "The human eye needs one mise tasks owner.",
+      "value": "The human eye gets fresh mise tasks proof.",
+      "failure_prevented": "The human eye avoids stale mise tasks work.",
+      "proof": "The human eye gets a fresh mise tasks task pass."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this examples owner.",
+      "outcome": "The human eye can check examples work.",
+      "motivation": "The human eye needs one examples owner.",
+      "value": "The human eye gets fresh examples proof.",
+      "failure_prevented": "The human eye avoids stale examples work.",
+      "proof": "The human eye gets a fresh examples task pass."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this evals owner.",
+      "outcome": "The human eye can check evals work.",
+      "motivation": "The human eye needs one evals owner.",
+      "value": "The human eye gets fresh evals proof.",
+      "failure_prevented": "The human eye avoids stale evals work.",
+      "proof": "The human eye gets a fresh evals task pass."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this policies owner.",
+      "outcome": "The human eye can check policies work.",
+      "motivation": "The human eye needs one policies owner.",
+      "value": "The human eye gets fresh policies proof.",
+      "failure_prevented": "The human eye avoids stale policies work.",
+      "proof": "The human eye gets a fresh policies task pass."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this schemas owner.",
+      "outcome": "The human eye can check schemas work.",
+      "motivation": "The human eye needs one schemas owner.",
+      "value": "The human eye gets fresh schemas proof.",
+      "failure_prevented": "The human eye avoids stale schemas work.",
+      "proof": "The human eye gets a fresh schemas task pass."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "The human eye uses this records owner.",
+      "outcome": "The human eye can check records work.",
+      "motivation": "The human eye needs one records owner.",
+      "value": "The human eye gets fresh records proof.",
+      "failure_prevented": "The human eye avoids stale records work.",
+      "proof": "The human eye gets a fresh records task pass."
+    }
+  },
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "complete",
+        "outcome": "The human eye gets the named complete result.",
+        "motivation": "The human eye uses one public complete path.",
+        "why_default_path": "The human eye has one complete route.",
+        "proof": "The human eye gets fresh complete output and an exit code."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "The human eye gets the named invocation-policy result.",
+        "motivation": "The human eye uses one public invocation-policy path.",
+        "why_default_path": "The human eye has one invocation-policy route.",
+        "proof": "The human eye gets fresh invocation-policy output and an exit code."
+      },
+      {
+        "task": "agentic-request",
+        "outcome": "The human eye gets the named agentic-request result.",
+        "motivation": "The human eye uses one public agentic-request path.",
+        "why_default_path": "The human eye has one agentic-request route.",
+        "proof": "The human eye gets fresh agentic-request output and an exit code."
+      },
+      {
+        "task": "factory-assets-write",
+        "outcome": "The human eye gets the named factory-assets-write result.",
+        "motivation": "The human eye uses one public factory-assets-write path.",
+        "why_default_path": "The human eye has one factory-assets-write route.",
+        "proof": "The human eye gets fresh factory-assets-write output and an exit code."
+      },
+      {
+        "task": "skill-info",
+        "outcome": "The human eye gets the named skill-info result.",
+        "motivation": "The human eye uses one public skill-info path.",
+        "why_default_path": "The human eye has one skill-info route.",
+        "proof": "The human eye gets fresh skill-info output and an exit code."
+      },
+      {
+        "task": "run-help",
+        "outcome": "The human eye gets the named run-help result.",
+        "motivation": "The human eye uses one public run-help path.",
+        "why_default_path": "The human eye has one run-help route.",
+        "proof": "The human eye gets fresh run-help output and an exit code."
+      },
+      {
+        "task": "run-scaffold",
+        "outcome": "The human eye gets the named run-scaffold result.",
+        "motivation": "The human eye uses one public run-scaffold path.",
+        "why_default_path": "The human eye has one run-scaffold route.",
+        "proof": "The human eye gets fresh run-scaffold output and an exit code."
+      },
+      {
+        "task": "review-checklist",
+        "outcome": "The human eye gets the named review-checklist result.",
+        "motivation": "The human eye uses one public review-checklist path.",
+        "why_default_path": "The human eye has one review-checklist route.",
+        "proof": "The human eye gets fresh review-checklist output and an exit code."
+      },
+      {
+        "task": "human-sweep",
+        "outcome": "The human eye gets the named human-sweep result.",
+        "motivation": "The human eye uses one public human-sweep path.",
+        "why_default_path": "The human eye has one human-sweep route.",
+        "proof": "The human eye gets fresh human-sweep output and an exit code."
+      },
+      {
+        "task": "lineage-file",
+        "outcome": "The human eye gets the named lineage-file result.",
+        "motivation": "The human eye uses one public lineage-file path.",
+        "why_default_path": "The human eye has one lineage-file route.",
+        "proof": "The human eye gets fresh lineage-file output and an exit code."
+      },
+      {
+        "task": "run-start",
+        "outcome": "The human eye gets the named run-start result.",
+        "motivation": "The human eye uses one public run-start path.",
+        "why_default_path": "The human eye has one run-start route.",
+        "proof": "The human eye gets fresh run-start output and an exit code."
+      },
+      {
+        "task": "run-packet",
+        "outcome": "The human eye gets the named run-packet result.",
+        "motivation": "The human eye uses one public run-packet path.",
+        "why_default_path": "The human eye has one run-packet route.",
+        "proof": "The human eye gets fresh run-packet output and an exit code."
+      },
+      {
+        "task": "run-record",
+        "outcome": "The human eye gets the named run-record result.",
+        "motivation": "The human eye uses one public run-record path.",
+        "why_default_path": "The human eye has one run-record route.",
+        "proof": "The human eye gets fresh run-record output and an exit code."
+      },
+      {
+        "task": "run-select-rules",
+        "outcome": "The human eye gets the named run-select-rules result.",
+        "motivation": "The human eye uses one public run-select-rules path.",
+        "why_default_path": "The human eye has one run-select-rules route.",
+        "proof": "The human eye gets fresh run-select-rules output and an exit code."
+      },
+      {
+        "task": "run-check",
+        "outcome": "The human eye gets the named run-check result.",
+        "motivation": "The human eye uses one public run-check path.",
+        "why_default_path": "The human eye has one run-check route.",
+        "proof": "The human eye gets fresh run-check output and an exit code."
+      },
+      {
+        "task": "generate",
+        "outcome": "The human eye gets the named generate result.",
+        "motivation": "The human eye uses one public generate path.",
+        "why_default_path": "The human eye has one generate route.",
+        "proof": "The human eye gets fresh generate output and an exit code."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "The human eye gets the named mise-primitives-update result.",
+        "motivation": "The human eye uses one public mise-primitives-update path.",
+        "why_default_path": "The human eye has one mise-primitives-update route.",
+        "proof": "The human eye gets fresh mise-primitives-update output and an exit code."
+      }
+    ],
+    "tasks": {
+      "complete": {
+        "outcome": "The human eye uses complete. Check all product design work before PASS.",
+        "motivation": "The human eye needs complete. It stops skipped work.",
+        "value": "The human eye gets fresh proof from complete.",
+        "proof": "The human eye gets a zero exit from complete.",
+        "applicability": "Use complete for its human eye gate."
+      },
+      "ci": {
+        "outcome": "The human eye uses ci. Check design use, shape, proof, text, and factory rules.",
+        "motivation": "The human eye needs ci. It stops skipped work.",
+        "value": "The human eye gets fresh proof from ci.",
+        "proof": "The human eye gets a zero exit from ci.",
+        "applicability": "Use ci for its human eye gate."
+      },
+      "test": {
+        "outcome": "The human eye uses test. Test all product design use.",
+        "motivation": "The human eye needs test. It stops skipped work.",
+        "value": "The human eye gets fresh proof from test.",
+        "proof": "The human eye gets a zero exit from test.",
+        "applicability": "Use test for its human eye gate."
+      },
+      "structure": {
+        "outcome": "The human eye uses structure. Check each design owner, route, and heading.",
+        "motivation": "The human eye needs structure. It stops skipped work.",
+        "value": "The human eye gets fresh proof from structure.",
+        "proof": "The human eye gets a zero exit from structure.",
+        "applicability": "Use structure for its human eye gate."
+      },
+      "task-graph": {
+        "outcome": "The human eye uses task-graph. Reject lost design links and task loops.",
+        "motivation": "The human eye needs task-graph. It stops skipped work.",
+        "value": "The human eye gets fresh proof from task-graph.",
+        "proof": "The human eye gets a zero exit from task-graph.",
+        "applicability": "Use task-graph for its human eye gate."
+      },
+      "validate": {
+        "outcome": "The human eye uses validate. Check fixed design skill rules.",
+        "motivation": "The human eye needs validate. It stops skipped work.",
+        "value": "The human eye gets fresh proof from validate.",
+        "proof": "The human eye gets a zero exit from validate.",
+        "applicability": "Use validate for its human eye gate."
+      },
+      "ownership": {
+        "outcome": "The human eye uses ownership. Check one design owner for each step.",
+        "motivation": "The human eye needs ownership. It stops skipped work.",
+        "value": "The human eye gets fresh proof from ownership.",
+        "proof": "The human eye gets a zero exit from ownership.",
+        "applicability": "Use ownership for its human eye gate."
+      },
+      "directories": {
+        "outcome": "The human eye uses directories. Check each design file use.",
+        "motivation": "The human eye needs directories. It stops skipped work.",
+        "value": "The human eye gets fresh proof from directories.",
+        "proof": "The human eye gets a zero exit from directories.",
+        "applicability": "Use directories for its human eye gate."
+      },
+      "context-routing": {
+        "outcome": "The human eye uses context-routing. Check each design route and source.",
+        "motivation": "The human eye needs context-routing. It stops skipped work.",
+        "value": "The human eye gets fresh proof from context-routing.",
+        "proof": "The human eye gets a zero exit from context-routing.",
+        "applicability": "Use context-routing for its human eye gate."
+      },
+      "section-support": {
+        "outcome": "The human eye uses section-support. Check design help for each heading.",
+        "motivation": "The human eye needs section-support. It stops skipped work.",
+        "value": "The human eye gets fresh proof from section-support.",
+        "proof": "The human eye gets a zero exit from section-support.",
+        "applicability": "Use section-support for its human eye gate."
+      },
+      "file-manifest": {
+        "outcome": "The human eye uses file-manifest. Check the design file list.",
+        "motivation": "The human eye needs file-manifest. It stops skipped work.",
+        "value": "The human eye gets fresh proof from file-manifest.",
+        "proof": "The human eye gets a zero exit from file-manifest.",
+        "applicability": "Use file-manifest for its human eye gate."
+      },
+      "proof": {
+        "outcome": "The human eye uses proof. Check design links, cases, and proof.",
+        "motivation": "The human eye needs proof. It stops skipped work.",
+        "value": "The human eye gets fresh proof from proof.",
+        "proof": "The human eye gets a zero exit from proof.",
+        "applicability": "Use proof for its human eye gate."
+      },
+      "lineage": {
+        "outcome": "The human eye uses lineage. Check design part order and links.",
+        "motivation": "The human eye needs lineage. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lineage.",
+        "proof": "The human eye gets a zero exit from lineage.",
+        "applicability": "Use lineage for its human eye gate."
+      },
+      "source-lineage": {
+        "outcome": "The human eye uses source-lineage. Check each design source link.",
+        "motivation": "The human eye needs source-lineage. It stops skipped work.",
+        "value": "The human eye gets fresh proof from source-lineage.",
+        "proof": "The human eye gets a zero exit from source-lineage.",
+        "applicability": "Use source-lineage for its human eye gate."
+      },
+      "lineage-build": {
+        "outcome": "The human eye uses lineage-build. Check built design source links.",
+        "motivation": "The human eye needs lineage-build. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lineage-build.",
+        "proof": "The human eye gets a zero exit from lineage-build.",
+        "applicability": "Use lineage-build for its human eye gate."
+      },
+      "evals": {
+        "outcome": "The human eye uses evals. Check design use cases and start queries.",
+        "motivation": "The human eye needs evals. It stops skipped work.",
+        "value": "The human eye gets fresh proof from evals.",
+        "proof": "The human eye gets a zero exit from evals.",
+        "applicability": "Use evals for its human eye gate."
+      },
+      "examples": {
+        "outcome": "The human eye uses examples. Check each design example.",
+        "motivation": "The human eye needs examples. It stops skipped work.",
+        "value": "The human eye gets fresh proof from examples.",
+        "proof": "The human eye gets a zero exit from examples.",
+        "applicability": "Use examples for its human eye gate."
+      },
+      "proof-ladder": {
+        "outcome": "The human eye uses proof-ladder. Check design proof steps and pairs.",
+        "motivation": "The human eye needs proof-ladder. It stops skipped work.",
+        "value": "The human eye gets fresh proof from proof-ladder.",
+        "proof": "The human eye gets a zero exit from proof-ladder.",
+        "applicability": "Use proof-ladder for its human eye gate."
+      },
+      "quality": {
+        "outcome": "The human eye uses quality. Check design text and code.",
+        "motivation": "The human eye needs quality. It stops skipped work.",
+        "value": "The human eye gets fresh proof from quality.",
+        "proof": "The human eye gets a zero exit from quality.",
+        "applicability": "Use quality for its human eye gate."
+      },
+      "reading": {
+        "outcome": "The human eye uses reading. Check plain design text.",
+        "motivation": "The human eye needs reading. It stops skipped work.",
+        "value": "The human eye gets fresh proof from reading.",
+        "proof": "The human eye gets a zero exit from reading.",
+        "applicability": "Use reading for its human eye gate."
+      },
+      "lint-writing": {
+        "outcome": "The human eye uses lint-writing. Check design Markdown rules.",
+        "motivation": "The human eye needs lint-writing. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lint-writing.",
+        "proof": "The human eye gets a zero exit from lint-writing.",
+        "applicability": "Use lint-writing for its human eye gate."
+      },
+      "lint-code": {
+        "outcome": "The human eye uses lint-code. Check design code size and depth.",
+        "motivation": "The human eye needs lint-code. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lint-code.",
+        "proof": "The human eye gets a zero exit from lint-code.",
+        "applicability": "Use lint-code for its human eye gate."
+      },
+      "lint-placeholders": {
+        "outcome": "The human eye uses lint-placeholders. Reject blank or draft design text.",
+        "motivation": "The human eye needs lint-placeholders. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lint-placeholders.",
+        "proof": "The human eye gets a zero exit from lint-placeholders.",
+        "applicability": "Use lint-placeholders for its human eye gate."
+      },
+      "factory-policy": {
+        "outcome": "The human eye uses factory-policy. Check design factory and change rules.",
+        "motivation": "The human eye needs factory-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from factory-policy.",
+        "proof": "The human eye gets a zero exit from factory-policy.",
+        "applicability": "Use factory-policy for its human eye gate."
+      },
+      "factory-assets-write": {
+        "outcome": "The human eye uses factory-assets-write. Build design factory rules.",
+        "motivation": "The human eye needs factory-assets-write. It stops skipped work.",
+        "value": "The human eye gets fresh proof from factory-assets-write.",
+        "proof": "The human eye gets a zero exit from factory-assets-write.",
+        "applicability": "Use factory-assets-write for its human eye gate."
+      },
+      "domain-research-policy": {
+        "outcome": "The human eye uses domain-research-policy. Check design research proof.",
+        "motivation": "The human eye needs domain-research-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from domain-research-policy.",
+        "proof": "The human eye gets a zero exit from domain-research-policy.",
+        "applicability": "Use domain-research-policy for its human eye gate."
+      },
+      "use-case-policy": {
+        "outcome": "The human eye uses use-case-policy. Reject generic design parts.",
+        "motivation": "The human eye needs use-case-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from use-case-policy.",
+        "proof": "The human eye gets a zero exit from use-case-policy.",
+        "applicability": "Use use-case-policy for its human eye gate."
+      },
+      "mise-primitives-policy": {
+        "outcome": "The human eye uses mise-primitives-policy. Check each Mise part used for design.",
+        "motivation": "The human eye needs mise-primitives-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from mise-primitives-policy.",
+        "proof": "The human eye gets a zero exit from mise-primitives-policy.",
+        "applicability": "Use mise-primitives-policy for its human eye gate."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "The human eye uses primitive-lifecycle-policy. Check each design part life cycle.",
+        "motivation": "The human eye needs primitive-lifecycle-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from primitive-lifecycle-policy.",
+        "proof": "The human eye gets a zero exit from primitive-lifecycle-policy.",
+        "applicability": "Use primitive-lifecycle-policy for its human eye gate."
+      },
+      "task-graph-policy": {
+        "outcome": "The human eye uses task-graph-policy. Reject bad design task paths.",
+        "motivation": "The human eye needs task-graph-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from task-graph-policy.",
+        "proof": "The human eye gets a zero exit from task-graph-policy.",
+        "applicability": "Use task-graph-policy for its human eye gate."
+      },
+      "decision-policy": {
+        "outcome": "The human eye uses decision-policy. Check design choice owners and reasons.",
+        "motivation": "The human eye needs decision-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from decision-policy.",
+        "proof": "The human eye gets a zero exit from decision-policy.",
+        "applicability": "Use decision-policy for its human eye gate."
+      },
+      "improvement-policy": {
+        "outcome": "The human eye uses improvement-policy. Check the safe design change rule.",
+        "motivation": "The human eye needs improvement-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from improvement-policy.",
+        "proof": "The human eye gets a zero exit from improvement-policy.",
+        "applicability": "Use improvement-policy for its human eye gate."
+      },
+      "invocation-policy": {
+        "outcome": "The human eye uses invocation-policy. Check one design run receipt after --.",
+        "motivation": "The human eye needs invocation-policy. It stops skipped work.",
+        "value": "The human eye gets fresh proof from invocation-policy.",
+        "proof": "The human eye gets a zero exit from invocation-policy.",
+        "applicability": "Use invocation-policy for its human eye gate."
+      },
+      "agentic-request": {
+        "outcome": "The human eye uses agentic-request. Send one typed design request.",
+        "motivation": "The human eye needs agentic-request. It stops skipped work.",
+        "value": "The human eye gets fresh proof from agentic-request.",
+        "proof": "The human eye gets a zero exit from agentic-request.",
+        "applicability": "Use agentic-request for its human eye gate."
+      },
+      "runtime-contracts": {
+        "outcome": "The human eye uses runtime-contracts. Check fixed routes before run state.",
+        "motivation": "The human eye needs runtime-contracts. It stops skipped work.",
+        "value": "The human eye gets fresh proof from runtime-contracts.",
+        "proof": "The human eye gets a zero exit from runtime-contracts.",
+        "applicability": "Use runtime-contracts for its human eye gate."
+      },
+      "skill-info": {
+        "outcome": "The human eye uses skill-info. Print the design skill name and trigger.",
+        "motivation": "The human eye needs skill-info. It stops skipped work.",
+        "value": "The human eye gets fresh proof from skill-info.",
+        "proof": "The human eye gets a zero exit from skill-info.",
+        "applicability": "Use skill-info for its human eye gate."
+      },
+      "run-help": {
+        "outcome": "The human eye uses run-help. Print design help without a change.",
+        "motivation": "The human eye needs run-help. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-help.",
+        "proof": "The human eye gets a zero exit from run-help.",
+        "applicability": "Use run-help for its human eye gate."
+      },
+      "run-scaffold": {
+        "outcome": "The human eye uses run-scaffold. Print the fixed design run form.",
+        "motivation": "The human eye needs run-scaffold. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-scaffold.",
+        "proof": "The human eye gets a zero exit from run-scaffold.",
+        "applicability": "Use run-scaffold for its human eye gate."
+      },
+      "review-checklist": {
+        "outcome": "The human eye uses review-checklist. Print fixed design review checks.",
+        "motivation": "The human eye needs review-checklist. It stops skipped work.",
+        "value": "The human eye gets fresh proof from review-checklist.",
+        "proof": "The human eye gets a zero exit from review-checklist.",
+        "applicability": "Use review-checklist for its human eye gate."
+      },
+      "human-sweep": {
+        "outcome": "The human eye uses human-sweep. Print the eye, brain, and touch sweep.",
+        "motivation": "The human eye needs human-sweep. It stops skipped work.",
+        "value": "The human eye gets fresh proof from human-sweep.",
+        "proof": "The human eye gets a zero exit from human-sweep.",
+        "applicability": "Use human-sweep for its human eye gate."
+      },
+      "lineage-file": {
+        "outcome": "The human eye uses lineage-file. Check one design part link file.",
+        "motivation": "The human eye needs lineage-file. It stops skipped work.",
+        "value": "The human eye gets fresh proof from lineage-file.",
+        "proof": "The human eye gets a zero exit from lineage-file.",
+        "applicability": "Use lineage-file for its human eye gate."
+      },
+      "run-start": {
+        "outcome": "The human eye uses run-start. Start one design run.",
+        "motivation": "The human eye needs run-start. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-start.",
+        "proof": "The human eye gets a zero exit from run-start.",
+        "applicability": "Use run-start for its human eye gate."
+      },
+      "run-packet": {
+        "outcome": "The human eye uses run-packet. Make one routed design work packet.",
+        "motivation": "The human eye needs run-packet. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-packet.",
+        "proof": "The human eye gets a zero exit from run-packet.",
+        "applicability": "Use run-packet for its human eye gate."
+      },
+      "run-record": {
+        "outcome": "The human eye uses run-record. Check and save one design result.",
+        "motivation": "The human eye needs run-record. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-record.",
+        "proof": "The human eye gets a zero exit from run-record.",
+        "applicability": "Use run-record for its human eye gate."
+      },
+      "run-select-rules": {
+        "outcome": "The human eye uses run-select-rules. Pick fixed rules after state proof.",
+        "motivation": "The human eye needs run-select-rules. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-select-rules.",
+        "proof": "The human eye gets a zero exit from run-select-rules.",
+        "applicability": "Use run-select-rules for its human eye gate."
+      },
+      "run-check": {
+        "outcome": "The human eye uses run-check. Check design records and links.",
+        "motivation": "The human eye needs run-check. It stops skipped work.",
+        "value": "The human eye gets fresh proof from run-check.",
+        "proof": "The human eye gets a zero exit from run-check.",
+        "applicability": "Use run-check for its human eye gate."
+      },
+      "examples-write": {
+        "outcome": "The human eye uses examples-write. Build design use cases.",
+        "motivation": "The human eye needs examples-write. It stops skipped work.",
+        "value": "The human eye gets fresh proof from examples-write.",
+        "proof": "The human eye gets a zero exit from examples-write.",
+        "applicability": "Use examples-write for its human eye gate."
+      },
+      "file-manifest-write": {
+        "outcome": "The human eye uses file-manifest-write. Build the design file role list.",
+        "motivation": "The human eye needs file-manifest-write. It stops skipped work.",
+        "value": "The human eye gets fresh proof from file-manifest-write.",
+        "proof": "The human eye gets a zero exit from file-manifest-write.",
+        "applicability": "Use file-manifest-write for its human eye gate."
+      },
+      "source-manifest-write": {
+        "outcome": "The human eye uses source-manifest-write. Refresh design source hashes.",
+        "motivation": "The human eye needs source-manifest-write. It stops skipped work.",
+        "value": "The human eye gets fresh proof from source-manifest-write.",
+        "proof": "The human eye gets a zero exit from source-manifest-write.",
+        "applicability": "Use source-manifest-write for its human eye gate."
+      },
+      "source-lineage-write": {
+        "outcome": "The human eye uses source-lineage-write. Build design source links.",
+        "motivation": "The human eye needs source-lineage-write. It stops skipped work.",
+        "value": "The human eye gets fresh proof from source-lineage-write.",
+        "proof": "The human eye gets a zero exit from source-lineage-write.",
+        "applicability": "Use source-lineage-write for its human eye gate."
+      },
+      "generate": {
+        "outcome": "The human eye uses generate. Build design examples and source links.",
+        "motivation": "The human eye needs generate. It stops skipped work.",
+        "value": "The human eye gets fresh proof from generate.",
+        "proof": "The human eye gets a zero exit from generate.",
+        "applicability": "Use generate for its human eye gate."
+      },
+      "mise-latest": {
+        "outcome": "The human eye uses mise-latest. Update Mise after design work.",
+        "motivation": "The human eye needs mise-latest. It stops skipped work.",
+        "value": "The human eye gets fresh proof from mise-latest.",
+        "proof": "The human eye gets a zero exit from mise-latest.",
+        "applicability": "Use mise-latest for its human eye gate."
+      },
+      "mise-primitives-update": {
+        "outcome": "The human eye uses mise-primitives-update. Refresh design Mise parts after update.",
+        "motivation": "The human eye needs mise-primitives-update. It stops skipped work.",
+        "value": "The human eye gets fresh proof from mise-primitives-update.",
+        "proof": "The human eye gets a zero exit from mise-primitives-update.",
+        "applicability": "Use mise-primitives-update for its human eye gate."
+      },
+      "refresh-lineage": {
+        "outcome": "The human eye uses refresh-lineage. Refresh design links after all checks.",
+        "motivation": "The human eye needs refresh-lineage. It stops skipped work.",
+        "value": "The human eye gets fresh proof from refresh-lineage.",
+        "proof": "The human eye gets a zero exit from refresh-lineage.",
+        "applicability": "Use refresh-lineage for its human eye gate."
+      }
+    }
+  }
+}

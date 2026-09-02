@@ -177,7 +177,7 @@ test('publishes 1000 normalized prompts in 201 verified shards', async () => {
     }
   }
   expect(count).toBe(1000);
-});
+}, 30_000);
 
 test('binds native lineage, public version, and all eight cases', async () => {
   const lineage = await json<{

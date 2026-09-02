@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.2.0",
   "purpose": "Freeze experiments before confirmation and keep retained tokens traceable.",
   "frozen_fields": [
     "question",
@@ -27,6 +27,39 @@
     "rollback"
   ],
   "variable_groups": ["independent", "held_constant", "nuisance", "blocked"],
+  "controlled_comparisons": {
+    "classification": "controlled_visual_comparison",
+    "not_live_user_ab_test": true,
+    "coverage": "every_concrete_primitive_and_owned_relationship",
+    "changed_factor_count": 1,
+    "held_constant": [
+      "specimen",
+      "content",
+      "state",
+      "viewport",
+      "input_path",
+      "all_non_tested_tokens"
+    ],
+    "relationship_roles": [
+      "related-item",
+      "inset",
+      "group",
+      "section",
+      "shell",
+      "wide-aperture",
+      "part-weight"
+    ],
+    "required_links": ["exploration_candidate_id", "experiment_id"],
+    "required_experiment_fields": [
+      "hypothesis",
+      "null_hypothesis",
+      "measure",
+      "falsifier",
+      "frozen_before_view"
+    ],
+    "vision_required": true,
+    "stale_after_owner_change": true
+  },
   "methods": {
     "few_interacting_factors": "full_factorial",
     "many_early_factors": "screening_design",

@@ -1,6 +1,6 @@
 # Evidence file schema
 
-Start from `assets/evidence-template.json`. The evidence file is the canonical record for source accounting, decisions, review, claims, and limits. The standalone HTML embeds it without changing its meaning.
+Start from `assets/evidence-template.json`. The evidence file is the canonical record for source accounting, decisions, review, claims, and limits. The standalone HTML embeds it without changing its meaning. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Source and intent
 
@@ -8,19 +8,19 @@ Start from `assets/evidence-template.json`. The evidence file is the canonical r
 - `sources` lists every input with stable identifier, kind, locator, SHA-256, and visual-inspection state.
 - Every visual source records `whole-frame`, `detail`, and `comparative` native-vision passes.
 - `observations` stores atomic facts with source, locator, region, basis, confidence, and counterevidence when present.
-- `input_manifest` enumerates format and access facets from `assets/multimodal-input-catalog.json`.
+- `input_manifest` enumerates format and access facets from `assets/multimodal-input-catalog.json`. Use `mise run token-packet -- <args>` for this routed resource.
 - `intent_manifest` records request intent and each source's role, authority, allowed influence, target scope, conflicts, and disposition.
 
 ## Token decisions and full-universe narrowing
 
 - `identity_thesis` names audience, context, intended feeling, and source-specific visual idea.
 - `signature_decisions` contains at least five source-linked decisions across at least three applicable axes.
-- `possibility_ledger` starts from every leaf in `assets/token-possibility-catalog.json` and assigns exactly one disposition.
+- `possibility_ledger` starts from every leaf in `assets/token-possibility-catalog.json` and assigns exactly one disposition. Use `mise run token-packet -- <args>` for this routed resource.
 - `context_requirements` maps source and intent requirements to retained possibilities and token paths.
 - `permutation_space` declares applicable type, role, state, mode, component, context, and value branches plus exclusions and equivalence classes.
-- `experimental_output` lists every token in the required top-level experimental partition. It contains at least three paths using at least three strategies from `assets/exploration-strategy-catalog.json`, including one inversion or antithesis. Each entry exactly repeats the stable experiment identifier, exploration strategy, hypothesis, intended context, status, visible-specimen requirement, invariant disposition, and inversion flag.
+- `experimental_output` lists every token in the required top-level experimental partition. It contains at least three paths using at least three strategies from `assets/exploration-strategy-catalog.json`, including one inversion or antithesis. Each entry exactly repeats the stable experiment identifier, exploration strategy, hypothesis, intended context, status, visible-specimen requirement, invariant disposition, and inversion flag. Use `mise run token-packet -- <args>` for this routed resource.
 - `temporal_context` stores exactly one fresh local clock anchor, the pinned conformance target, the current specification check, and every current primary source.
-- `google_fonts` follows `references/google-font-selection.md` and `assets/google-font-policy.json`. It stores the local run date, live catalog URL, server date, exact capture hash, total family count, popular-half cutoff, required subsets, at least three eligible candidates, selected families, token paths, exact WOFF2 asset hashes, license identifiers and text, and comparative vision review.
+- `google_fonts` follows `references/google-font-selection.md` and `assets/google-font-policy.json`. It stores the local run date, live catalog URL, server date, exact capture hash, total family count, popular-half cutoff, required subsets, at least three eligible candidates, selected families, token paths, exact WOFF2 asset hashes, license identifiers and text, and comparative vision review. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Quality checks
 
@@ -53,15 +53,15 @@ Preliminary evidence may use `pending_visual_review`. Final evidence requires ev
 
 `viewports` contains final wide and narrow reviews. Each record names width, height, pass status, whole-frame and detail regions, and located findings.
 
-`defect_review` uses `assets/visual-defect-catalog.json`. Final evidence lists every marker identifier exactly once in `reviewed_ids`, records findings with marker and region, and has zero unresolved vetoes or major defects.
+`defect_review` uses `assets/visual-defect-catalog.json`. Final evidence lists every marker identifier exactly once in `reviewed_ids`, records findings with marker and region, and has zero unresolved vetoes or major defects. Use `mise run token-packet -- <args>` for this routed resource.
 
-`invariant_review` uses `assets/perceptual-motor-invariant-catalog.json`. Final evidence lists every invariant exactly once. Final statuses are:
+`invariant_review` uses `assets/perceptual-motor-invariant-catalog.json`. Final evidence lists every invariant exactly once. Final statuses are: Use `mise run token-packet -- <args>` for this routed resource.
 
 - `pass`: the claimed use passed token feasibility and rendered review;
 - `not_applicable`: the context cannot produce this condition and the evidence states why;
 - `not_used_experimental`: the token branch remains available for exploration but no published use claims the invariant.
 
-`judgment_reviews` uses `assets/judgment-review-catalog.json` and `references/qualitative-judgment.md`. It contains separate tracks for taste, originality, corpus uniqueness, and non-AI-slop. Each track lists every obligation, the full qualitative-lens disposition, emergent findings, competing readings, located evidence, strongest counterevidence, uncertainty, rationale, and limits.
+`judgment_reviews` uses `assets/judgment-review-catalog.json` and `references/qualitative-judgment.md`. It contains separate tracks for taste, originality, corpus uniqueness, and non-AI-slop. Each track lists every obligation, the full qualitative-lens disposition, emergent findings, competing readings, located evidence, strongest counterevidence, uncertainty, rationale, and limits. Use `mise run token-packet -- <args>` for this routed resource.
 
 `experimental_review` lists every experimental token path exactly once and confirms that the final artifact contains a visible specimen and explicit use boundary. A raw embedded JSON path alone does not satisfy the visible-specimen requirement.
 

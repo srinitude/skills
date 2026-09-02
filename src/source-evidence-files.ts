@@ -28,6 +28,7 @@ function inside(root: string, candidate: string): boolean {
 export async function repositoryFiles(directory: string, prefix = ''): Promise<string[]> {
   const found: string[] = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
+    if (entry.name === '__pycache__') continue;
     const relative = prefix ? posix.join(prefix, entry.name) : entry.name;
     if (entry.isDirectory()) {
       found.push(...(await repositoryFiles(join(directory, entry.name), relative)));

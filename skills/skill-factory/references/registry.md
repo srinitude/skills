@@ -1,11 +1,11 @@
 # Registry reuse
 
-Before building new behavior, check whether an existing skill covers it. The shared registry lives at https://github.com/srinitude/skills and currently ships two skills: starting-point, a scoping skill whose trigger reads "Use when an outcome is stated, inferred, or hidden.", and skill-factory itself at skills/skill-factory. An installed copy of this skill may already sit beside the skills it builds, so never scaffold a second copy of it.
+Before building new behavior, check whether an existing skill covers it. The shared registry lives at https://github.com/srinitude/skills. Run `mise run source-corpus` for the current source inventory; this reference never owns a fixed count. Start with starting-point for outcome scoping and proof discipline. An installed copy of skill-factory may already sit beside the skills it builds, so never scaffold a second copy of it.
 
 ## How do I detect an installed skill?
 
 1. Find the skills directory: at run time it is the parent of this skill's own directory.
-2. Look for skills/starting-point/SKILL.md there, then any other registry skill by the same pattern.
+2. Look for skills/starting-point/SKILL.md through `mise run source-corpus`, then inspect any other registry skill by the same pattern.
 3. On a hit, read its description and defer to it for the jobs it names instead of duplicating them. starting-point owns outcome scoping and proof discipline; apply it before planning a build.
 
 ## What if nothing is installed?

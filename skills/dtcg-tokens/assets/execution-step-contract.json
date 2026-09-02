@@ -41,6 +41,20 @@
     "recovery",
     "retry_count"
   ],
+  "optional_skill_improvement": {
+    "cli_owner": "mise",
+    "policy_owner": "assets/improvement-contract.json",
+    "acceptance": "pareto_non_regression",
+    "failure": "restore_last_accepted_version",
+    "protected_dimensions": [
+      "correctness",
+      "elapsed_time",
+      "visual_judgment",
+      "experimental_range",
+      "exploratory_range",
+      "current_skill_contract"
+    ]
+  },
   "rules": [
     "Create one record per numbered step before its action starts.",
     "Set status to RUNNING before the first action and save after every material action.",

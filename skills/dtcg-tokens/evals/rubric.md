@@ -23,5 +23,6 @@ Score each criterion as `PASS` or `BLOCKED`. A case passes only when every appli
 19. **Proof integrity:** Final wide and narrow readback, embedded data, hashes, visible status, failures, and limits agree.
 20. **Recovery:** Failed gates cause source, token, evidence, or artifact repair, never verdict-only editing.
 21. **Typography currency:** A same-date live Google Fonts capture proves at least three candidates outside the most popular 50%; selected families appear in tokens and final pixels, WOFF2 data and licenses are embedded and hashed, and comparative vision review finds no fallback or source-fit failure.
+22. **Experiment lock:** Every material experiment ran before canonical token authoring, current direct vision owns the disposition, the accepted sequence is recorded, and no higher part consumes a provisional token.
 
 The judge cites visible output or supplied trace for every pass. An unsupported assumption is `BLOCKED`.

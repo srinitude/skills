@@ -7,6 +7,20 @@ from human_capability_sweep import HUMAN_CAPABILITY_SWEEP
 
 ANSWER_FIELDS = ["scene", "observation", "evidence", "decision", "reason", "alternatives", "uncertainty"]
 REVIEW_DECISIONS = {"PASS", "REVISE", "BLOCKED", "NOT_APPLICABLE"}
+QUALITY_GATE_CONTRACT = {
+    "owner": "model",
+    "gate_ids": [
+        "truth", "access", "task", "perception", "familiarity",
+        "standards", "uniqueness", "craft", "resilience",
+    ],
+    "checkpoints": ["direction", "artifact", "integrated"],
+    "statuses": ["PASS", "REVISE", "BLOCKED"],
+    "diagnoses": ["DEFECT", "MEDIOCRE", "SLOP", "PASS"],
+    "noncompensating": True,
+    "numeric_score_allowed": False,
+    "scripts_may_judge": False,
+    "rule": "Every applicable gate needs current evidence. One failed gate prevents PASS.",
+}
 SCENE = ("Picture the exact moment supported by the intake and evidence. Name the person's current goal, prior action, setting, device, input mode, and relevant access or time pressure. Describe what appears where, what the person can notice or control, what changes after action, and what the consequence is. Use exact labels, positions, distances, timings, and transitions when the evidence provides them. Do not invent feelings, intent, ability, culture, or bodily response. Separate the visible or measured scene from your inference. Then answer this review: ")
 DECISION_RULES = {
     "PASS": "The named proof shows no listed failure in this scene.",
@@ -159,6 +173,7 @@ REVIEW_CHECKLIST = {
     "method": ["Review one found product state in one real context at a time.", "Use rendered pixels, interaction evidence, source facts, and known limits.", "Keep observation apart from inference and proposed change.", "Check whole use, close detail, transitions, and changed context when they apply.", "Name counterevidence, alternatives, doubt, and missing proof for every item.", "Use NOT_APPLICABLE only with evidence and a reason."],
     "context_fields": ["person", "goal", "task", "prior_action", "data", "system", "setting", "device", "input", "access", "time", "content", "social_setting", "risk"],
     "answer_contract": {"scene": "Give a detailed, evidence-bound account of the person, context, action, change, and consequence.", "observation": "State only what the evidence shows.", "evidence": "Name each source, view, location, event, or interaction used.", "decision": "Use PASS, REVISE, BLOCKED, or NOT_APPLICABLE.", "reason": "Link the evidence to the decision and current context.", "alternatives": "Name at least one other valid response and its tradeoff.", "uncertainty": "Name doubt, missing proof, and what could change the decision."},
+    "quality_gate_contract": QUALITY_GATE_CONTRACT,
     "human_capability_sweep": HUMAN_CAPABILITY_SWEEP,
     "lenses": LENSES, "negative_checks": NEGATIVE_CHECKS,
 }
@@ -178,6 +193,7 @@ REVIEW_INDEX = {
     "item_count": sum(len(items) for items in LENSES.values()) +
     sum(len(items) for items in NEGATIVE_CHECKS.values()),
     "meaning_lock": "Each ID uses the one question, probe order, proof list, failure signs, and result rules in the source script.",
+    "quality_gate_contract": QUALITY_GATE_CONTRACT,
 }
 
 

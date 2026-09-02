@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.2.2",
+  "public_version": "0.4.1",
   "native_version": "0.2.1",
   "native_manifest_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
   "public_files": [
@@ -18,6 +18,10 @@
     },
     {
       "path": "assets/current-date-policy.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/decision-records.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -97,7 +101,23 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/judgment-review-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -110,6 +130,10 @@
     },
     {
       "path": "assets/perceptual-motor-invariant-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -126,6 +150,10 @@
     },
     {
       "path": "assets/token-possibility-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -253,6 +281,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/controlled-comparisons.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/creative-transfer.md",
       "source_paths": ["target-scaffolding"]
     },
@@ -333,11 +365,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/screen-decision.md",
       "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/subagent-orchestration.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -377,7 +417,23 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_lineage.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/check_placeholders.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_token_invocation.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_token_policy.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -398,6 +454,10 @@
     },
     {
       "path": "scripts/lib/catalogs.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/controlled_comparisons.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -445,6 +505,22 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/lib/token_policy_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/token_policy_graph.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/token_policy_research.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/lib/token_policy_text.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/lint_writing.py",
       "source_paths": ["target-scaffolding"]
     },
@@ -465,6 +541,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_accounting.py",
       "source_paths": ["target-scaffolding"]
     },
@@ -478,6 +558,14 @@
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_comparison_support.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_controlled_comparisons.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -509,7 +597,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/tests/test_invocation_policy_fail_closed.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_judgment_review_catalog.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_lifecycle_mise_policy.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_ordered_workflow_contract.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -521,6 +621,10 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/tests/test_research_policy_fail_closed.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_run_pipeline.py",
       "source_paths": ["target-scaffolding"]
     },
@@ -529,7 +633,19 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/tests/test_skill_factory_policy.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/tests/test_skill_readability_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_token_policy_fail_closed.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/tests/test_token_quality_gate.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -556,7 +672,7 @@
   "source_files": [
     {
       "path": "SKILL.md",
-      "sha256": "9242dd3007d9b80a1dfa039b5de8c54142fc83d9505436fa07964260d97723d5"
+      "sha256": "71fda88a4228f06ecb06408030d868a9ed2a9ebd99e278447e8737ab4902d687"
     }
   ],
   "source_case_ids": [
@@ -582,6 +698,10 @@
     "DTCG-008",
     "DTCG-009",
     "DTCG-010",
-    "DTCG-011"
+    "DTCG-011",
+    "DTCG-012",
+    "DTCG-013",
+    "DTCG-014",
+    "DTCG-015"
   ]
 }

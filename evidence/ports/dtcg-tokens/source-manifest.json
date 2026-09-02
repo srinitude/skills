@@ -3,14 +3,14 @@
   "skill": "dtcg-tokens",
   "source_kind": "repository_baseline",
   "native_manifest_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
-  "evidence_packet_sha256": "09e8803ddd27eb97be355d821634cf23c42d86d9d0b3ad73db8094948c047ad8",
+  "evidence_packet_sha256": "5cce94dfd2e7d58422a0d3cddc6e449757cad940e1e57082a3f7913d9b8a12a9",
   "files": [
     {
-      "source_path": "SKILL.md",
+      "bytes": 19537,
       "location_kind": "repository",
       "location_path": "skills/dtcg-tokens/SKILL.md",
-      "sha256": "9242dd3007d9b80a1dfa039b5de8c54142fc83d9505436fa07964260d97723d5",
-      "bytes": 18526
+      "sha256": "71fda88a4228f06ecb06408030d868a9ed2a9ebd99e278447e8737ab4902d687",
+      "source_path": "SKILL.md"
     }
   ]
 }

@@ -1,22 +1,30 @@
 # Visual review contract
 
-Read `references/qualitative-judgment.md` before any taste, originality, uniqueness, non-AI-slop, or open-ended visual judgment. It standardizes evidence fields while preserving subjective interpretation, competing readings, emergent lenses, and source-specific expression.
+Read `references/qualitative-judgment.md` before any taste, originality, uniqueness, non-AI-slop, or open-ended visual judgment. It standardizes evidence fields while preserving subjective interpretation, competing readings, emergent lenses, and source-specific expression. Use `mise run token-packet -- <args>` for this routed resource.
 
 This review has five independent tracks. No average or blended score exists. A pass in one track cannot offset a failure in another.
 
+## 0. Token-local quality gate
+
+Load `token_quality_gate` from `assets/judgment-review-catalog.json`. Review source fidelity, semantic role, accessible range, spacing relationships, responsive behavior, familiarity, standards, uniqueness, and rendered proof. Record one result per gate with current located evidence and counterevidence. One failed gate blocks the token-and-proof PASS. Use `mise run token-packet -- <args>` for this routed resource.
+
+Inspect spacing as relationships rather than scale membership. Check related-item gaps, insets, group separation, section rhythm, shell separation, wide-aperture spacing, readable measure, gutters, and target separation in actual specimens. Compare wide and narrow states, short and long content, whole views, and details. A scale pass cannot certify pixels, grouping, or rhythm.
+
+Diagnose the reviewed output as `DEFECT`, `MEDIOCRE`, `SLOP`, or `PASS`. `DEFECT` means an explicit contract fails. `MEDIOCRE` means floors pass but the system stays generic or under-resolved. `SLOP` means intent or ownership is missing through defaults, arbitrary values, false semantics, shallow proof, or unsupported claims. These labels describe the output, not its creator.
+
 ## 1. Objective defects
 
-Load `assets/visual-defect-catalog.json`. Account for every marker exactly once. Use `pass`, `fail`, `not_applicable`, or `unresolved` at working time. A final pass requires every applicable marker checked, zero unresolved vetoes, and zero unresolved major defects.
+Load `assets/visual-defect-catalog.json`. Account for every marker exactly once. Use `pass`, `fail`, `not_applicable`, or `unresolved` at working time. A final pass requires every applicable marker checked, zero unresolved vetoes, and zero unresolved major defects. Use `mise run token-packet -- <args>` for this routed resource.
 
 The catalog covers render integrity, geometry, typography, contrast, interaction, accessibility, responsive behavior, information architecture, design coherence, source specificity, proof integrity, technical integrity, content integrity, corpus similarity, state coverage, production readiness, and time validity. Its unknown-defect marker keeps the review open to failure modes that were not known when the catalog was written.
 
 Machine measurements prove only the property measured. A width calculation can prove overflow, not good composition. A contrast calculation can prove a ratio, not readable hierarchy. Strong native vision performs the whole-frame and detail judgments after machine checks.
 
-For typography, also load `references/google-font-selection.md`. Confirm the catalog rank and cutoff from the saved same-date capture, then compare at least three eligible families in final-content specimens. Inspect computed family resolution, smallest and largest claimed text, numerals, punctuation, mixed case, required scripts, every selected weight and style, line breaks, fallback, collision, hierarchy, voice, and source relation. The final proof must work with network access blocked, and each embedded WOFF2 SHA-256 must match evidence.
+For typography, also load `references/google-font-selection.md`. Confirm the catalog rank and cutoff from the saved same-date capture, then compare at least three eligible families in final-content specimens. Inspect computed family resolution, smallest and largest claimed text, numerals, punctuation, mixed case, required scripts, every selected weight and style, line breaks, fallback, collision, hierarchy, voice, and source relation. The final proof must work with network access blocked, and each embedded WOFF2 SHA-256 must match evidence. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## 2. Perceptual and motor invariants
 
-Load `assets/perceptual-motor-invariant-catalog.json`. Start with all invariants, then narrow each to `pass`, `not_applicable`, or `not_used_experimental` with a reason.
+Load `assets/perceptual-motor-invariant-catalog.json`. Start with all invariants, then narrow each to `pass`, `not_applicable`, or `not_used_experimental` with a reason. Use `mise run token-packet -- <args>` for this routed resource.
 
 Each applicable invariant needs both:
 
@@ -40,7 +48,7 @@ When a new direction departs from a familiar implementation:
 
 ## 3. Taste
 
-Load the `taste` obligations in `assets/judgment-review-catalog.json`. Taste is not objectively provable. It becomes auditable through reasoned visual judgment.
+Load the `taste` obligations in `assets/judgment-review-catalog.json`. Taste is not objectively provable. It becomes auditable through reasoned visual judgment. Use `mise run token-packet -- <args>` for this routed resource.
 
 Review fitness for audience and task, reading order, rhythm, typographic voice, color relations, earned expression, restraint, detail resolution, memorability, and coherence across states. For every pass, cite visible regions, compare a credible alternative, and record the strongest counterexample.
 
@@ -48,7 +56,7 @@ Personal dislike, fashion, novelty, minimalism, maximalism, symmetry, and asymme
 
 ## 4. Originality and corpus-bounded uniqueness
 
-Load the `originality` and `corpus_uniqueness` obligations in `assets/judgment-review-catalog.json`.
+Load the `originality` and `corpus_uniqueness` obligations in `assets/judgment-review-catalog.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 Originality requires source-derived signature decisions, cross-axis interaction, non-default relations, claim-to-implementation alignment, and a complete lineage from source to observation to decision to token to rendered region. Apply noun substitution and transplant tests. A shell that accepts unrelated nouns and content without structural change fails.
 
@@ -66,7 +74,7 @@ Color-only distance cannot prove distinctiveness. Global uniqueness remains unpr
 
 ## 5. Non-AI-slop output traits
 
-Load the `non_ai_slop` obligations in `assets/judgment-review-catalog.json`. Review the artifact, not presumed authorship.
+Load the `non_ai_slop` obligations in `assets/judgment-review-catalog.json`. Review the artifact, not presumed authorship. Use `mise run token-packet -- <args>` for this routed resource.
 
 Check reasoning-to-implementation alignment, source-clause coverage, template dependence, filler, unsupported ornament, microdetail consistency, purposeless repetition, truthful examples, compound-constraint accuracy, and provenance boundaries. Appearance or a detector score never proves who or what made an artifact. Authorship claims require provenance.
 
@@ -82,7 +90,7 @@ Review every visual source and the actual proof artifact at:
 
 Each finding records viewport, state, region, marker or obligation, observed condition, evidence, countercheck, status, and repair if needed.
 
-Before visual judgment, confirm that `scripts/lib/artifact_contract.py` found exact equality between the coverage plan and decoded `data-token-path`, `data-stress-cell`, and `data-permutation-cell` attributes on renderable, non-hidden elements. Then inspect the corresponding visible regions. Attribute equality proves structural presence and uniqueness only; it cannot prove that CSS left the region visible or that a specimen is meaningful, legible, or well designed.
+Before visual judgment, confirm that `mise run artifact-contract` found exact equality between the coverage plan and decoded `data-token-path`, `data-stress-cell`, and `data-permutation-cell` attributes on renderable, non-hidden elements. Then inspect the corresponding visible regions. Attribute equality proves structural presence and uniqueness only; it cannot prove that CSS left the region visible or that a specimen is meaningful, legible, or well designed.
 
 ## Current basis
 

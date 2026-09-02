@@ -1,6 +1,6 @@
 # Product states
 
-Parent and backlink: [SKILL.md](../SKILL.md), Discover product states.
+Parent and backlink: [SKILL.md](../SKILL.md), Discover product states, loaded through `mise run run-packet`.
 
 Read this file before `state_judgment`. Use it again when proof shows a new state, change, clash, or old guess.
 
@@ -133,7 +133,7 @@ These are hard bars when named fail proof exists. The model still checks current
 
 ## Record and stop
 
-- Use [state-record.schema.json](../assets/state-record.schema.json) for the record shape. Use the current packet for required context paths.
+- Use [state-record.schema.json](../assets/state-record.schema.json) for the record shape through `mise run run-record`. Use the current packet for required context paths.
 - Record the open-world flag, states, links, changes, reply options, choice, proof, counterproof, doubt, and linked work.
 - Record shown reasons and proof. Do not ask for or save private thought traces.
 - Return `BLOCKED` for the affected claim when needed proof, sight, input, rights, access, or safe recovery is missing.

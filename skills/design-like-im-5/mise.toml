@@ -1,171 +1,285 @@
-# One task graph owns each command in this skill.
+# One product-design task graph owns local and remote execution.
+
+min_version = "2026.9.0"
 
 [settings]
 jobs = 8
 
+[tools]
+python = "3.11"
+
+[env]
+PYTHONDONTWRITEBYTECODE = "1"
+PYTHONHASHSEED = "0"
+
+[task_config]
+dir = "{{config_root}}"
+
+[tasks.complete]
+description = "Check all product design work before PASS"
+depends = ["ci"]
+run = "echo 'complete: every required product-design task passed'"
+
+[tasks.ci]
+description = "Check design use, shape, proof, text, and factory rules"
+alias = "c"
+output = "prefix"
+depends = ["test", "structure", "proof", "quality", "factory-policy"]
+
+[tasks.test]
+description = "Test all product design use"
+depends = []
+run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+timeout = "180s"
+
+[tasks.structure]
+description = "Check each design owner, route, and heading"
+depends = ["task-graph", "validate", "ownership", "directories", "context-routing", "section-support", "file-manifest"]
+
+[tasks.task-graph]
+description = "Reject lost design links and task loops"
+depends = []
+run = "mise tasks validate --errors-only"
+
+[tasks.validate]
+description = "Check fixed design skill rules"
+depends = []
+run = "python3 scripts/validate_skill.py ."
+
+[tasks.ownership]
+description = "Check one design owner for each step"
+depends = []
+run = "python3 scripts/audit_ownership.py ."
+
+[tasks.directories]
+description = "Check each design file use"
+depends = []
+run = "python3 scripts/audit_directories.py ."
+
+[tasks.context-routing]
+description = "Check each design route and source"
+depends = []
+run = "python3 scripts/check_context_routing.py ."
+
+[tasks.section-support]
+description = "Check design help for each heading"
+depends = []
+run = "python3 scripts/check_section_support.py ."
+
+[tasks.file-manifest]
+description = "Check the design file list"
+depends = []
+run = "python3 scripts/build_file_manifest.py . --check"
+
+[tasks.proof]
+description = "Check design links, cases, and proof"
+depends = ["lineage", "source-lineage", "lineage-build", "evals", "examples", "proof-ladder"]
+
+[tasks.lineage]
+description = "Check design part order and links"
+depends = []
+run = "python3 scripts/check_lineage.py evals/files/valid-lineage.json"
+
+[tasks.source-lineage]
+description = "Check each design source link"
+depends = []
+run = "python3 scripts/check_source_lineage.py ."
+
+[tasks.lineage-build]
+description = "Check built design source links"
+depends = []
+run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json --check"
+
+[tasks.evals]
+description = "Check design use cases and start queries"
+depends = []
+run = "python3 scripts/check_evals.py ."
+
+[tasks.examples]
+description = "Check each design example"
+depends = []
+run = "python3 scripts/build_examples.py --check"
+
+[tasks.proof-ladder]
+description = "Check design proof steps and pairs"
+depends = []
+run = "python3 scripts/check_proof_ladder.py ."
+
+[tasks.quality]
+description = "Check design text and code"
+depends = ["reading", "lint-writing", "lint-code", "lint-placeholders"]
+
+[tasks.reading]
+description = "Check plain design text"
+depends = []
+run = "python3 scripts/check_reading.py ."
+
+[tasks.lint-writing]
+description = "Check design Markdown rules"
+depends = []
+run = "python3 scripts/lint_writing.py ."
+
+[tasks.lint-code]
+description = "Check design code size and depth"
+depends = []
+run = "python3 scripts/check_code_rules.py ."
+
+[tasks.lint-placeholders]
+description = "Reject blank or draft design text"
+depends = []
+run = "python3 scripts/check_placeholders.py ."
+
+[tasks.factory-policy]
+description = "Check design factory and change rules"
+depends = ["decision-policy", "improvement-policy"]
+
+[tasks.factory-assets-write]
+description = "Build design factory rules"
+depends = []
+run = "python3 scripts/build_factory_policy_assets.py ."
+
+[tasks.domain-research-policy]
+description = "Check design research proof"
+depends = []
+run = "python3 scripts/check_design_policy.py domain-research ."
+
+[tasks.use-case-policy]
+description = "Reject generic design parts"
+depends = ["domain-research-policy"]
+run = "python3 scripts/check_design_policy.py use-case ."
+
+[tasks.mise-primitives-policy]
+description = "Check each Mise part used for design"
+depends = ["use-case-policy"]
+run = "python3 scripts/check_design_policy.py mise-primitives ."
+
+[tasks.primitive-lifecycle-policy]
+description = "Check each design part life cycle"
+depends = ["mise-primitives-policy"]
+run = "python3 scripts/check_design_policy.py primitive-lifecycle ."
+
+[tasks.task-graph-policy]
+description = "Reject bad design task paths"
+depends = ["primitive-lifecycle-policy"]
+run = "python3 scripts/check_design_policy.py task-graph ."
+
+[tasks.decision-policy]
+description = "Check design choice owners and reasons"
+depends = ["task-graph-policy"]
+run = "python3 scripts/check_design_policy.py decisions ."
+
+[tasks.improvement-policy]
+description = "Check the safe design change rule"
+depends = []
+run = "python3 scripts/check_improvement_contract.py ."
+
+[tasks.invocation-policy]
+description = "Check one design run receipt after --"
+depends = []
+run = "python3 scripts/check_design_invocation.py ."
+
+[tasks.agentic-request]
+description = "Send one typed design request"
+depends = []
+run = "python3 scripts/run_design_agentic_request.py"
+
+[tasks.runtime-contracts]
+description = "Check fixed routes before run state"
+depends = ["task-graph", "context-routing", "section-support"]
+
 [tasks.skill-info]
-description = "Print the skill name and when to use it"
+description = "Print the design skill name and trigger"
+depends = []
 run = "python3 scripts/skill_info.py"
 
+[tasks.run-help]
+description = "Print design help without a change"
+depends = []
+run = "python3 scripts/run_pipeline.py --help"
+
 [tasks.run-scaffold]
-description = "Print the fixed run form without a design choice"
+description = "Print the fixed design run form"
+depends = []
 run = "python3 scripts/run_scaffold.py"
 
 [tasks.review-checklist]
-description = "Print all fixed review checks and result rules"
+description = "Print fixed design review checks"
+depends = []
 run = "python3 scripts/review_checklist.py"
 
 [tasks.human-sweep]
-description = "Print the open eye, brain, and touch sweep"
+description = "Print the eye, brain, and touch sweep"
+depends = []
 run = "python3 scripts/human_capability_sweep.py"
 
 [tasks.lineage-file]
-description = "Check one part link file and record final run proof when asked"
+description = "Check one design part link file"
+depends = []
 run = "python3 scripts/check_lineage.py"
 
 [tasks.run-start]
-description = "Make one run from a full intake"
-depends = ["task-graph", "context-routing", "section-support"]
+description = "Start one design run"
+depends = ["runtime-contracts"]
 run = "python3 scripts/run_pipeline.py start"
 
 [tasks.run-packet]
-description = "Make one routed model work packet"
-depends = ["task-graph", "context-routing", "section-support"]
+description = "Make one routed design work packet"
+depends = ["runtime-contracts"]
 run = "python3 scripts/run_pipeline.py packet"
 
 [tasks.run-record]
-description = "Check and save one model result"
-depends = ["task-graph", "context-routing", "section-support"]
+description = "Check and save one design result"
+depends = ["runtime-contracts"]
 run = "python3 scripts/run_pipeline.py record"
 
 [tasks.run-select-rules]
-description = "Pick fixed rules after state work is saved"
-depends = ["task-graph", "context-routing", "section-support"]
+description = "Pick fixed rules after state proof"
+depends = ["runtime-contracts"]
 run = "python3 scripts/select_rules.py"
 
 [tasks.run-check]
-description = "Check ordered records, decisions, rules, and current lineage proof"
-depends = ["task-graph", "context-routing", "section-support"]
+description = "Check design records and links"
+depends = ["runtime-contracts"]
 run = "python3 scripts/run_pipeline.py check"
 
 [tasks.examples-write]
-description = "Build each worked case from real command output"
+description = "Build design use cases"
+depends = []
 run = "python3 scripts/build_examples.py --write"
 
 [tasks.file-manifest-write]
-description = "Build the public file role list"
+description = "Build the design file role list"
 depends = ["examples-write"]
 run = "python3 scripts/build_file_manifest.py ."
 
 [tasks.source-manifest-write]
-description = "Refresh repository baseline hashes after public files"
+description = "Refresh design source hashes"
 depends = ["file-manifest-write"]
 run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json --refresh-claim-only"
 
 [tasks.source-lineage-write]
-description = "Build public source links after all public files"
+description = "Build design source links"
 depends = ["source-manifest-write"]
 run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json"
 
 [tasks.generate]
-description = "Build cases, file roles, and source links in order"
+description = "Build design examples and source links"
 depends = ["source-lineage-write"]
 run = "true"
 
-[tasks.task-graph]
-description = "Reject lost task links and task loops"
-run = "mise tasks validate --errors-only"
+[tasks.mise-latest]
+description = "Update Mise after design work"
+depends = []
+run = "mise self-update --yes --no-plugins"
 
-[tasks.test]
-description = "Run each test and each live command path"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+[tasks.mise-primitives-update]
+description = "Refresh design Mise parts after update"
+depends = ["mise-latest"]
+depends_post = ["refresh-lineage"]
+run = "python3 scripts/sync_mise_primitives.py ."
+timeout = "60s"
 
-[tasks.validate]
-description = "Check fixed skill shape and pack rules"
-run = "python3 scripts/validate_skill.py ."
-
-[tasks.reading]
-description = "Check plain words and short lines"
-run = "python3 scripts/check_reading.py ."
-
-[tasks.lineage]
-description = "Check part order, links, loops, age, and use"
-run = "python3 scripts/check_lineage.py evals/files/valid-lineage.json"
-
-[tasks.source-lineage]
-description = "Check each public hash and source link"
-run = "python3 scripts/check_source_lineage.py ."
-
-[tasks.lineage-build]
-description = "Check that built source links are current"
-run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json --check"
-
-[tasks.ownership]
-description = "Check one fixed owner for each work step"
-run = "python3 scripts/audit_ownership.py ."
-
-[tasks.directories]
-description = "Check that each public file has a named use"
-run = "python3 scripts/audit_directories.py ."
-
-[tasks.file-manifest]
-description = "Check that the public file list is current"
-run = "python3 scripts/build_file_manifest.py . --check"
-
-[tasks.context-routing]
-description = "Check each work route and each source use"
-run = "python3 scripts/check_context_routing.py ."
-
-[tasks.section-support]
-description = "Check direct rich help for each skill head"
-run = "python3 scripts/check_section_support.py ."
-
-[tasks.lint-writing]
-description = "Check fixed writing rules in each public file"
-run = "python3 scripts/lint_writing.py ."
-
-[tasks.lint-code]
-description = "Check code size, depth, and work marks"
-run = "python3 scripts/check_code_rules.py ."
-
-[tasks.lint-placeholders]
-description = "Reject blank draft text in public files"
-run = "python3 scripts/check_placeholders.py ."
-
-[tasks.evals]
-description = "Check test cases and start queries"
-run = "python3 scripts/check_evals.py ."
-
-[tasks.proof-ladder]
-description = "Check bounded proof rungs, pilot cases, repeatability, and pair coverage"
-depends = ["task-graph", "evals", "section-support"]
-run = "python3 scripts/check_proof_ladder.py ."
-
-[tasks.examples]
-description = "Check each case against fresh command output"
-run = "python3 scripts/build_examples.py --check"
-
-[tasks.structure]
-description = "Run each pack, owner, route, and head check"
-depends = ["task-graph", "validate", "ownership", "directories", "context-routing", "section-support", "file-manifest"]
-run = "true"
-
-[tasks.proof]
-description = "Run all link, test, case, and built proof checks"
-depends = ["lineage", "source-lineage", "lineage-build", "evals", "examples", "proof-ladder"]
-run = "true"
-
-[tasks.quality]
-description = "Run all prose, code, and blank text checks"
-depends = ["reading", "lint-writing", "lint-code", "lint-placeholders"]
-run = "true"
-
-[tasks.ci]
-description = "Run tests plus all shape, proof, and prose checks"
-depends = ["test", "structure", "proof", "quality"]
-run = "true"
-
-[tasks.complete]
-description = "Run the full linked gate needed before PASS"
-depends = ["ci"]
-run = "echo 'complete: every required task passed'"
+[tasks.refresh-lineage]
+description = "Refresh design links after all checks"
+depends = ["complete"]
+run = "python3 scripts/build_lineage.py . --claim-file ../../evidence/ports/design-like-im-5/source-manifest.json"

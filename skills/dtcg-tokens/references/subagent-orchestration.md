@@ -1,6 +1,6 @@
 # Runtime worker orchestration
 
-Read this file in Step 01 when the runtime supports independent workers. It owns the dependency graph, task packets, one-writer rule, handoffs, conflicts, and sequential fallback in `assets/subagent-task-contract.json`.
+Read this file in Step 01 when the runtime supports independent workers. It owns the dependency graph, task packets, one-writer rule, handoffs, conflicts, and sequential fallback in `assets/subagent-task-contract.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Decide eligibility
 
@@ -12,7 +12,7 @@ Give each worker the exact objective, input paths and hashes, dependencies, sour
 
 ## Require evidence
 
-Each result records claims, primary sources, located evidence, counterevidence, uncertainty, conflicts, output paths, output hashes, and `PASS` or `BLOCKED`. At least one independent task seeks counterevidence. A visual worker must first pass `assets/vision-probe-manifest.json`.
+Each result records claims, primary sources, located evidence, counterevidence, uncertainty, conflicts, output paths, output hashes, and `PASS` or `BLOCKED`. At least one independent task seeks counterevidence. A visual worker must first pass `assets/vision-probe-manifest.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Integrate
 

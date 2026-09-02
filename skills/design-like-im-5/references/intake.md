@@ -23,6 +23,6 @@ Ask one short question when a missing fact changes the result. Keep other safe w
 
 ## Return
 
-Write a JSON file that fits [assets/run-intake.schema.json](../assets/run-intake.schema.json). Pass it to `scripts/run_pipeline.py start`.
+Write a JSON file that fits [assets/run-intake.schema.json](../assets/run-intake.schema.json). Pass it through `mise run run-start`.
 
 Go next to step 2 in `SKILL.md`.

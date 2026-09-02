@@ -10,6 +10,7 @@ Example:
   python3 scripts/build_examples.py --check
 """
 import argparse, os, subprocess, sys, tempfile
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,13 @@ INTAKE = ROOT / "evals" / "files" / "valid-intake.json"
 MISSING = ROOT / "evals" / "files" / "missing-proof.json"
 VALID_CONTEXT = ROOT / "evals" / "files" / "valid-context-record.json"
 MISSING_CONTEXT = ROOT / "evals" / "files" / "missing-context-record.json"
+SCRIPT_TASKS = {
+    "run_pipeline.py": "run-packet", "check_source_lineage.py": "source-lineage",
+    "run_scaffold.py": "run-scaffold", "review_checklist.py": "review-checklist",
+    "human_capability_sweep.py": "human-sweep", "select_rules.py": "run-select-rules",
+    "audit_ownership.py": "ownership", "check_lineage.py": "lineage-file",
+    "check_reading.py": "reading",
+}
 
 
 def command(*args):
@@ -28,8 +36,16 @@ def command(*args):
                           env=env)
 
 
-def file_block(path, text):
-    return f"`run/{path}`\n\n```text\n{text.rstrip()}\n```\n"
+def routed_text(text):
+    pattern = r"scripts/([A-Za-z0-9_.-]+)"
+    return re.sub(pattern, lambda match: "mise run " +
+                  SCRIPT_TASKS.get(match.group(1), "task-graph"), text)
+
+
+def file_block(path, text, task="run-scaffold"):
+    shown = routed_text(text).rstrip()
+    return (f"`run/{path}` via `mise run {task}`\n\n```text\n"
+            f"Mise owner: mise run {task}\n{shown}\n```\n")
 
 
 def run_data():
@@ -49,7 +65,7 @@ def run_example():
              "Guess removed: A run may hide the rich scaffold or its files.\n",
              "## Request\n", "> Build a clear setup flow for new account owners. It must work on wide and narrow web views.\n",
              "## Visible reply\n", "I will start the fixed run and make the first model packet.\n",
-             "## Commands\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/valid-intake.json --run-dir run\npython3 scripts/run_pipeline.py packet --run-dir run --action source_meaning\n```\n",
+             "## Commands\n", "```sh\nmise run run-start --intake evals/files/valid-intake.json --run-dir run\nmise run run-packet --run-dir run --action source_meaning\n```\n",
              "## Real output\n", f"```text\n{first.stdout}{second.stdout}```\n",
              f"The first command exits with code `{first.returncode}`. The second command exits with code `{second.returncode}`.\n",
              "## Every created file\n"]
@@ -64,7 +80,7 @@ def help_example():
         "# Help example\n",
         "Guess removed: Help starts no run and writes no file.\n",
         "## Request\n", "> Show me the skill commands.\n",
-        "## Command\n", "```sh\npython3 scripts/run_pipeline.py --help\n```\n",
+        "## Command\n", "```sh\nmise run run-help\n```\n",
         "## Real output\n", f"```text\n{result.stdout.rstrip()}\n```\n",
         f"The command exits with code `{result.returncode}`. It creates no files.\n",
     ])
@@ -78,7 +94,7 @@ def failure_example():
         "# Missing proof example\n",
         "Guess removed: A missing proof bar must stop the run without files.\n",
         "## Request\n", "> Start this run now. I have not set the proof bar.\n",
-        "## Command\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/missing-proof.json --run-dir run\n```\n",
+        "## Command\n", "```sh\nmise run run-start --intake evals/files/missing-proof.json --run-dir run\n```\n",
         "## Real output\n", f"```text\n{result.stderr.rstrip()}\n```\n",
         f"The command exits with code `{result.returncode}`. It creates `{len(made)}` files.\n",
         "## Visible reply\n", "The run is blocked. Add a clear proof bar to the intake.\n",
@@ -103,14 +119,14 @@ def context_example():
         "# Context packet example\n",
         "Guess removed: A short action may omit needed judgment context.\n",
         "## Request\n", "> Prepare the source meaning packet before any product judgment.\n",
-        "## Commands\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/valid-intake.json --run-dir run\npython3 scripts/run_pipeline.py packet --run-dir run --action source_meaning\n```\n",
+        "## Commands\n", "```sh\nmise run run-start --intake evals/files/valid-intake.json --run-dir run\nmise run run-packet --run-dir run --action source_meaning\n```\n",
         "## Real output\n", f"```text\n{first.stdout}{second.stdout}```\n",
         f"The commands exit with codes `{first.returncode}` and `{second.returncode}`. The second creates one packet file.\n",
         file_block("packets/source_meaning.json", packet),
         "## Passing context record\n", file_block("../evals/files/valid-context-record.json", valid),
         "## Blocked context record\n", file_block("../evals/files/missing-context-record.json", blocked),
         "The model reads each named path. Missing required context keeps the affected claim blocked.\n",
-        "The script checks that accounting. It does not judge the control.\n",
+        "The owning Mise task checks that accounting. It does not judge the control.\n",
     ])
 
 
@@ -136,7 +152,7 @@ def product_state_example():
         "# Product state example\n",
         "Guess removed: Common state names are a closed product state list.\n",
         "## Request\n", "> Find the account setup states before choosing a response.\n",
-        "## Commands\n", "```sh\npython3 scripts/run_pipeline.py start --intake evals/files/valid-intake.json --run-dir run\npython3 scripts/run_pipeline.py packet --run-dir run --action source_meaning\npython3 scripts/run_pipeline.py record --run-dir run --result evals/files/valid-context-record.json\npython3 scripts/run_pipeline.py packet --run-dir run --action state_judgment\n```\n",
+        "## Commands\n", "```sh\nmise run run-start --intake evals/files/valid-intake.json --run-dir run\nmise run run-packet --run-dir run --action source_meaning\nmise run run-record --run-dir run --result evals/files/valid-context-record.json\nmise run run-packet --run-dir run --action state_judgment\n```\n",
         "## Real output\n", f"```text\n{first.stdout}{second.stdout}{third.stdout}{fourth.stdout}```\n",
         f"The commands exit with codes `{first.returncode}`, `{second.returncode}`, `{third.returncode}`, and `{fourth.returncode}`.\n",
         "## Open state scaffold\n", file_block("state-matrix.json", matrix),

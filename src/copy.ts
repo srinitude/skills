@@ -35,6 +35,10 @@ function isSourceProvenance(path: string): boolean {
   return /\/evals\/source-(lineage|mapping)\.json$/.test(path);
 }
 
+function isSourceShapeCorpus(path: string): boolean {
+  return path.endsWith('/assets/source-shape-corpus.json');
+}
+
 function portable(root: string, path: string): string {
   return relative(root, path).split('\\').join('/');
 }
@@ -83,6 +87,7 @@ function scanText(path: string, source: string): CopyFinding[] {
   if (
     (path.startsWith('skills/') || path === 'AGENTS.md' || path === 'CLAUDE.md') &&
     !isSourceProvenance(path) &&
+    !isSourceShapeCorpus(path) &&
     /hermes/i.test(source)
   ) {
     found.push(

@@ -58,6 +58,7 @@ test('builds a safe package with canonical skills and client manifests', async (
     'package/skills/dedupe/SKILL.md',
     'package/skills/design-like-im-5/SKILL.md',
     'package/skills/dtcg-tokens/SKILL.md',
+    'package/skills/figma-code-connect-design-system/SKILL.md',
     'package/skills/goal-prompt/SKILL.md',
     'package/skills/logic-audit/SKILL.md',
     'package/skills/meaning-preserving-rewrite/SKILL.md',

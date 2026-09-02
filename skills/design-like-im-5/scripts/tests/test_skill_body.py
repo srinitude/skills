@@ -1,4 +1,5 @@
-"""The body must link each result to one owner."""
+"""Test links."""
+import json
 import pathlib
 import re
 import subprocess
@@ -51,16 +52,16 @@ class TestSkillBodyRoutes(unittest.TestCase):
             "[assets/execution-ownership.json](assets/execution-ownership.json) is the only owner map.",
             "Do not skip, merge, replace, or reorder a required step.",
             "The model performs every eye, brain, and touch review.",
-            "The model checks every bad design, bad output, and bad practice invariant.",
+            "The model checks all bad design, bad output, and bad practice rules.",
             "Mise tasks check structure. They do not make design judgments.",
             "It does not pick states, rules, options, or results.",
             "Keep a bold option until evidence or a veto rejects it.",
             "Never infer motion from a still.",
             "Never accept clear words in a false state.",
             "all source tokens and atoms",
-            "standard YAML frontmatter and portable CommonMark only",
+            "standard YAML header and portable CommonMark only",
             "Every block stays clean, readable, and agent-parsable.",
-            "Each runtime task rejects an action before its exact turn.",
+            "Each run task rejects work before its turn.",
         ]
         for phrase in phrases:
             self.assertIn(phrase, text)
@@ -71,7 +72,7 @@ class TestSkillBodyRoutes(unittest.TestCase):
         self.assertEqual(headings, [
             ("#", "Design like I am five"),
             ("##", "One contract"),
-            ("##", "Use the skill"),
+            ("##", "Ordered workflow"),
             ("###", "Commands"),
             ("###", "Prepare the run"),
             ("###", "Complete all actions in order"),
@@ -117,19 +118,19 @@ class TestSkillBodyRoutes(unittest.TestCase):
             text.index("### Discover product states"))
 
     def test_body_minimizes_wall_time_without_weakening_the_contract(self):
-        text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        text = (SKILL / "SKILL.md").read_text(encoding="utf-8").casefold()
         phrases = [
-            "Minimize wall time",
-            "every rule and proof stays fixed",
-            "Do not skip work",
-            "overlap required actions",
+            "minimize_elapsed_time",
+            "verified_owning-artifact_change",
+            "preserve_exploratory_and_experimental_breadth",
+            "same-executor_vision",
             "batch independent reads",
-            "Keep one writer",
+            "keep one writer",
             "invalidates affected captures",
             "never caches or skips",
         ]
         for phrase in phrases:
-            self.assertIn(phrase, text)
+            self.assertIn(phrase.replace("_", " "), text)
 
     def test_body_uses_standard_checklists(self):
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
@@ -144,6 +145,69 @@ class TestSkillBodyRoutes(unittest.TestCase):
              str(SKILL)], capture_output=True, text=True, timeout=120)
         self.assertNotIn("body never references scripts/", result.stdout)
         self.assertNotIn("body never references scripts/tests/", result.stdout)
+
+
+class TestComputerUseAuditContract(unittest.TestCase):
+    def test_goal_specific_sources_stay_outside_the_portable_skill(self):
+        text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        roles = [
+            "current product board or FigJam source",
+            "originating audiovisual source",
+            "originating transcript",
+        ]
+        for role in roles:
+            self.assertNotIn(role, text)
+        self.assertIn("one source record per item", text)
+        self.assertIn("Outside that audit", text)
+
+    def test_same_vision_agent_operates_portable_design_app_control(self):
+        text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        required = [
+            ("paramount", "visual-proof", "rule"),
+            ("every", "applicable", "available", "vision", "capability"),
+            ("before", "and", "after"),
+            ("platform-neutral", "local", "application-control", "capability"),
+            ("same", "invoking", "strong", "vision-capable", "executor"),
+            ("directly", "inspect", "the", "active", "design", "application"),
+            ("including", "Figma"), ("the", "item", "is", "`BLOCKED`"),
+        ]
+        for words in required:
+            self.assertIn(" ".join(words), text)
+
+
+class TestFocusIntentContract(unittest.TestCase):
+    def test_every_design_layer_has_one_canonical_focus_intent(self):
+        text = (SKILL / "references" / "build.md").read_text(encoding="utf-8")
+        levels = [
+            "token", "atom", "molecule", "organism", "UI composition template",
+            "screen", "flow", "transition",
+        ]
+        fields = [
+            "user_task", "focus_target", "focus_location", "focus_timing",
+            "focus_mechanism", "focus_reason", "attention_sequence",
+            "competing_signals", "defocus_and_recovery", "failure_evidence",
+        ]
+        self.assertIn("focus-intent record", text)
+        for level in levels:
+            self.assertIn(level, text)
+        for field in fields:
+            self.assertIn(f"`{field}`", text)
+        self.assertIn("prominence alone is not intent", text)
+
+
+class TestOptionalImprovementContract(unittest.TestCase):
+    def test_mise_gates_one_nonregressing_skill_improvement(self):
+        policy = json.loads(
+            (SKILL / "assets" / "speed-policy.json").read_text(encoding="utf-8")
+        )["optional_skill_improvement"]
+        self.assertEqual(policy["cli_owner"], "mise")
+        self.assertEqual(policy["acceptance"], "pareto_non_regression")
+        self.assertEqual(policy["failure"], "restore_last_accepted_version")
+        text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("**Optional final step:**", text)
+        self.assertIn("one named part", text)
+        self.assertIn("restore the last passed version", text)
+        self.assertIn("mise run complete", text)
 
 if __name__ == "__main__":
     unittest.main()

@@ -37,6 +37,16 @@ _SKILLS = (
         " with a vision-reviewed standalone proof artifact.",
     ),
     (
+        "figma-code-connect-design-system",
+        "Use when a FigJam board, product requirements document, reference image,"
+        " Figma design file, published library, or codebase must become or update"
+        " an evidence-traceable Figma design system, DTCG token hierarchy,"
+        " platform-specific UI templates, production components, and verified Code"
+        " Connect mappings. Covers create, update, plan, run, validate, resume, and"
+        " source-refresh work for one bounded UI or a larger product system across"
+        " web, mobile, desktop, embedded, and other platforms.",
+    ),
+    (
         "goal-prompt",
         "Use when packaging source input for a standing goal.",
     ),
@@ -85,13 +95,10 @@ _SKILLS = (
     ),
     (
         "skill-factory",
-        "Use when a workflow, recipe, or capability needs to be packaged as an"
-        " agent skill, or when an existing skill needs scaffolding, validation,"
-        " linting, or evals. Covers requests to build, create, generate,"
-        " scaffold, check, or evaluate a skill: a folder holding SKILL.md,"
-        " scripts, tests, a task graph, CI, and eval cases. Applies even when"
-        " the request says playbook, runbook, or reusable workflow instead of"
-        " skill.",
+        "Use when a workflow or capability must become a new agent skill, when an"
+        " existing skill must be updated or standardized without losing its"
+        " purpose, or when a skill needs validation, evaluation, scaffolding,"
+        " scripts, tests, or a Mise task graph.",
     ),
     (
         "starting-point",

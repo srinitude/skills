@@ -9,7 +9,7 @@ Guess removed: A missing proof bar must stop the run without files.
 ## Command
 
 ```sh
-python3 scripts/run_pipeline.py start --intake evals/files/missing-proof.json --run-dir run
+mise run run-start --intake evals/files/missing-proof.json --run-dir run
 ```
 
 ## Real output

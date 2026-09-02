@@ -90,6 +90,27 @@ def check_judgment_reviews(review, catalog, errors, final):
             errors.append(f"judgment track {name} needs counterevidence")
 
 
+def check_token_quality_gate(record, contract, errors, final):
+    if record.get("scope") != "token_and_proof_only":
+        errors.append("token quality gate must stay token and proof only")
+    if record.get("whole_product_quality_proved") is not False:
+        errors.append("token quality gate cannot prove whole-product quality")
+    allowed = {"pass"} if final else {"pass", "pending_visual_review"}
+    if record.get("status") not in allowed:
+        errors.append("token quality gate status is not allowed")
+    gates = record.get("gates", [])
+    ids = [item.get("id") for item in gates if isinstance(item, dict)]
+    if final and ids != contract.get("gate_ids"):
+        errors.append("token quality gate coverage mismatch")
+    for item in gates:
+        if final and item.get("status") != "pass":
+            errors.append(f"token quality gate {item.get('id')} must pass")
+        if final and len(str(item.get("evidence", ""))) < 15:
+            errors.append(f"token quality gate {item.get('id')} needs current evidence")
+    if final and record.get("diagnosis") != "PASS":
+        errors.append("token quality gate final diagnosis must be PASS")
+
+
 def check_readback(review, errors, final):
     if not final:
         return
@@ -115,6 +136,10 @@ def check_artifact_review(evidence, catalogs, errors, final):
     if not isinstance(catalogs, dict):
         errors.append("review catalogs are required")
         return
+    check_token_quality_gate(
+        review.get("token_quality_gate", {}),
+        catalogs.get("judgments", {}).get("token_quality_gate", {}),
+        errors, final)
     check_viewports(review, errors, final)
     check_defect_review(review, catalogs.get("defects", {}), errors, final)
     check_invariant_review(review, catalogs.get("invariants", {}), errors, final)

@@ -17,7 +17,7 @@ Allow any inspectable input, intent, token family, DTCG extension, qualitative l
 3. Cite the source locator, task clause, observed condition, or tested hypothesis that requires it.
 4. Define its value shape, applicability, interaction with existing entries, downstream records, and proof method.
 5. Add it to the relevant possibility ledger before narrowing; record included, excluded, experimental, or not-applicable status with a reason.
-6. Route its output through `assets/execution-io-map.json`, validate it with the same gate as its nearest class, and expose it in the evidence and proof artifact when retained.
+6. Route its output through `assets/execution-io-map.json`, validate it with the same gate as its nearest class, and expose it in the evidence and proof artifact when retained. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Customization boundary
 

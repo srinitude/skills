@@ -108,6 +108,13 @@
       "noise"
     ]
   },
+  "familiarity_uniqueness_relation": {
+    "simultaneous_pass_required": true,
+    "rarity_is_not_uniqueness": true,
+    "category_readability_required": true,
+    "product_specific_relationship_required": true,
+    "rule": "Retain familiar values when product-specific relations make them distinctive. Reject novelty that harms access, recognition, or task behavior, and reject familiarity that leaves an interchangeable default."
+  },
   "uniqueness_representations": [
     "exact_bytes",
     "normalized_token_graph",

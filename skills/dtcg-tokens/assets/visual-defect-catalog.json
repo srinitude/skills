@@ -1565,6 +1565,42 @@
     },
 
     {
+      "id": "DC-SPACING-003",
+      "family": "design-coherence",
+      "scope": "both",
+      "severity": "major",
+      "basis": "hybrid",
+      "marker": "One repeated spacing increment erases related, grouped, section, and shell hierarchy",
+      "inspection": "Compare related-item, inset, group, section, shell, and wide-aperture spacing in whole and detail views across required widths.",
+      "fail_when": "The same gap is reused without semantic reason, groups merge, hierarchy flattens, or responsive states become crowded or empty.",
+      "allowed_exception": "Deliberate uniformity may pass when source and task evidence show that equal grouping is the intended meaning.",
+      "required_evidence": "Token paths, semantic roles, measured relationships, wide and narrow renders, counterexample, and visual judgment."
+    },
+    {
+      "id": "SS-FAMILIAR-UNIQUE-001",
+      "family": "source-specificity",
+      "scope": "both",
+      "severity": "major",
+      "basis": "vision",
+      "marker": "Familiarity and uniqueness are treated as a tradeoff instead of simultaneous requirements",
+      "inspection": "Compare the retained system with a relevant category default and a materially unlike alternative while preserving familiar task behavior.",
+      "fail_when": "Novelty harms recognition or access, or familiar values remain an interchangeable default with no product-specific relation.",
+      "allowed_exception": "A low-expression utility may pass with restrained identity when current product evidence supports that choice.",
+      "required_evidence": "Category convention, product meaning, alternatives, retained relations, eye-brain-touch findings, and limits."
+    },
+    {
+      "id": "SS-UNOWNED-NOVELTY-001",
+      "family": "source-specificity",
+      "scope": "both",
+      "severity": "major",
+      "basis": "hybrid",
+      "marker": "A one-off or unusual token has no semantic owner or useful product effect",
+      "inspection": "Trace the value through source evidence, semantic role, component use, responsive states, and proof specimens, then compare removal and familiar alternatives.",
+      "fail_when": "The value exists for rarity, trend, or visual interest alone, or disappears from use without changing meaning, priority, recognition, or interaction.",
+      "allowed_exception": "An explicit experimental token may remain unused when its hypothesis, boundary, and unresolved status are visible.",
+      "required_evidence": "Source locator, token path, owner, rendered uses, alternative, removal test, gain, cost, and status."
+    },
+    {
       "id": "X-UNKNOWN-DEFECT-001",
       "family": "unclassified",
       "scope": "both",

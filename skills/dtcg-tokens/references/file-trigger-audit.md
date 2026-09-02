@@ -1,6 +1,6 @@
 # File trigger audit
 
-Read this file in Step 24 before package completion. It owns the whole-directory current-byte readback performed by `scripts/audit_file_triggers.py` with `assets/file-trigger-policy.json`, checked against the historical source map in `evals/source-lineage.json`.
+Read this file in Step 24 before package completion. It owns the whole-directory current-byte readback performed by `mise run audit-files` with `assets/file-trigger-policy.json`, checked against the historical source map in `evals/source-lineage.json`.
 
 ## What a trigger means
 

@@ -182,7 +182,12 @@ test('groups canonical skills for skills-hub clients', async () => {
       { skills: ['dedupe'], title: 'Data Quality' },
       { skills: ['by-design'], title: 'Design Decisions' },
       {
-        skills: ['design-like-im-5', 'visual-design-system-extractor'],
+        skills: [
+          'design-like-im-5',
+          'dtcg-tokens',
+          'figma-code-connect-design-system',
+          'visual-design-system-extractor',
+        ],
         title: 'Design Systems',
       },
       { skills: ['goal-prompt'], title: 'Goal Packaging' },

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "skill": "figma-code-connect-design-system",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "pair_id": "create-system",
+      "prompt": "Create a Figma design system and Code Connect from this PRD and codebase.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "pair_id": "update-system",
+      "prompt": "Update the existing library, screens, code components, and mappings from these new sources.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Resume our atomic design-system run after a token changed.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Build the full reusable hierarchy and screens for this one Android UI, then connect it to code.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "pair_id": "create-system",
+      "prompt": "Create one Code Connect template for this component.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "pair_id": "update-system",
+      "prompt": "Update one Figma frame to match this code.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Make a token file from this image.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Find mobile checkout references.",
+      "should_trigger": false
+    }
+  ]
+}

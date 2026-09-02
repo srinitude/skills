@@ -5,6 +5,7 @@ evidence/ports/
 mcp/dist/
 schemas/agent-plugins/
 skills/skill-factory/
+skills/dtcg-tokens/SKILL.md
 
 skills/mobile-first-website-design/assets/fixtures/
 skills/mobile-first-website-design/assets/prompts/

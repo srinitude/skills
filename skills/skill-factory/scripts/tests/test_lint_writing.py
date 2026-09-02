@@ -59,6 +59,44 @@ class TestLintWritingRules(unittest.TestCase):
         result = self.lint_text("Line one is fine.\n\nWe delve here.\n")
         self.assertIn("doc.md:3", result.stdout)
 
+    def test_markdown_cannot_reference_script_paths(self):
+        result = self.lint_text("Open scripts/check.py and run it.\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Mise task", result.stdout)
+
+    def test_markdown_can_reference_owning_mise_task(self):
+        result = self.lint_text("Run `mise run validate`.\n")
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_package_resource_requires_owning_mise_task(self):
+        roots = [
+            "references", "assets", "examples", "evals", "fixtures",
+            "schemas", "templates", "data", "config", "docs", "tests",
+            ".github", ".agents",
+        ]
+        for root in roots:
+            with self.subTest(root=root):
+                result = self.lint_text(f"Read {root}/proof.json.\n")
+                self.assertEqual(result.returncode, 1)
+                self.assertIn("owning Mise task", result.stdout)
+
+    def test_package_resource_can_share_a_line_with_mise_task(self):
+        result = self.lint_text(
+            "Read assets/policy.json through `mise run policy`.\n")
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_fenced_resource_can_share_a_block_with_mise_task(self):
+        result = self.lint_text(
+            "```text\n$ mise run budget -- evals/case.json\n"
+            "checked evals/case.json\n```\n")
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_script_path_stays_forbidden_when_task_is_named(self):
+        result = self.lint_text(
+            "Run scripts/check.py through `mise run validate`.\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("not scripts/", result.stdout)
+
 
 class TestOneLineBlocks(unittest.TestCase):
     def lint_text(self, text):
@@ -108,6 +146,13 @@ class TestOneLineBlocks(unittest.TestCase):
     def test_headings_and_tables_are_exempt(self):
         text = ("# Title\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n"
                 "| 3 | 4 |\n")
+        result = self.lint_text(text)
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_execution_card_labels_are_block_boundaries(self):
+        text = ("**Input**\nThe current source bytes.\n\n"
+                "**Action**\nRun the owning Mise task.\n\n"
+                "**Pass**\nThe task exits zero.\n")
         result = self.lint_text(text)
         self.assertEqual(result.returncode, 0, result.stdout)
 

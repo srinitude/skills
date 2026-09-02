@@ -2,6 +2,9 @@
 
 One dated line per decision, newest first. Record the choice, reason, and evidence.
 
+- 2026-09-02: made the standalone DTCG policy envelope reject circular or duplicate Mise routes, domain-decorated generic records, malformed receipts, stale or narrow research, and invalid invocation types because factory-only rejection leaves the skill unsafe when used alone.
+- 2026-09-01: Made visual-canvas cleanliness continuous for token proof and installed-token work. Human eye, brain, and touch judgment now owns before, during, and after cleanliness; bad design, bad output, and bad practice block the affected claim; cleanup preserves evidence and lineage unless separately authorized.
+- 2026-08-31: Made inherited tokens and proof `STALE` under a zero-trust review prior, required inspection before defect diagnosis, rejected perfection as a completion claim, and bounded metrics and strong vision to the claims each can prove.
 - 2026-08-27: Required a same-date Google Fonts catalog capture, exclusion of the most popular 50%, three visually compared eligible candidates, selected-family token paths, embedded WOFF2 hashes, licenses, and final fallback review so uncommon typography is current, inspectable, and offline.
 - 2026-08-27: Required three experimental tokens from three distinct enumerated strategies, including one inversion or antithesis, with exact token, ledger, evidence, specimen, and final-review path equality so exploration cannot disappear during narrowing or presentation.
 - 2026-08-27: Removed the reusable proof renderer and all positive visual fixtures because artifact styling and content must be authored from the current sources and tokens, then reviewed with strong native vision.
@@ -12,4 +15,4 @@ One dated line per decision, newest first. Record the choice, reason, and eviden
 - 2026-08-27: Limited originality claims to a named comparison corpus and kept global uniqueness outside the valid claim scope.
 - 2026-08-27: Pinned DTCG 2025.10 and bundled the official schema because it is the current stable format baseline.
 - 2026-08-27: Made the HTML report self-contained and data-driven so reviewers can inspect tokens, evidence, hashes, limits, and quality gates without a network dependency.
-- 2026-08-27: Scaffolded the package from the generation contract in references/generation-contract.md.
+- 2026-08-27: Scaffolded the package from the generation contract in references/generation-contract.md. Use `mise run token-packet -- <args>` for this routed resource.

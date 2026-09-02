@@ -9,6 +9,7 @@ Exit codes:
 import argparse
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -51,6 +52,12 @@ def mappings(paths, source_paths):
 
 def case_ids(root):
     return [row["source_id"] for row in load(root / "evals/cases.json")["cases"]]
+
+
+def skill_version(root):
+    text = (root / "SKILL.md").read_text(encoding="utf-8")
+    match = re.search(r'^\s*version:\s*["\']?([^"\'\n]+)', text, re.M)
+    return match.group(1).strip() if match else ""
 
 
 def repository_prefix(source, root):
@@ -99,7 +106,7 @@ def document(root, target, claim_file):
         "schema_version": 1,
         "native_manifest_sha256": source["native_manifest_sha256"],
         "native_version": "2026-08-30",
-        "public_version": "0.1.0",
+        "public_version": skill_version(root),
         "source_case_ids": case_ids(root),
         "source_files": source_files,
         "public_files": mappings(paths, {row["path"] for row in source_files}),

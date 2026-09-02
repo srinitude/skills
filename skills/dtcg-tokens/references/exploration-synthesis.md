@@ -1,6 +1,6 @@
 # Exploration synthesis
 
-Read this file in Step 08 after the source identity graph, screen ledger, and current research record exist. It owns the run-local corpus and candidate order defined by `assets/exploration-corpus/manifest.json` and `assets/exploration-corpus/synthesis-contract.json`.
+Read this file in Step 08 after the source identity graph, screen ledger, and current research record exist. It owns the run-local corpus and candidate order defined by `assets/exploration-corpus/manifest.json` and `assets/exploration-corpus/synthesis-contract.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Load typed material
 

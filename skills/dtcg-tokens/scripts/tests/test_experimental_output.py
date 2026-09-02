@@ -4,6 +4,8 @@ import pathlib
 import sys
 import unittest
 
+from test_comparison_support import add_controlled_comparisons
+
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "evals" / "files"
@@ -101,6 +103,7 @@ class ExperimentalOutputTests(unittest.TestCase):
 
         tokens = load("sample.tokens.json")
         evidence = load("sample.evidence.json")
+        add_controlled_comparisons(evidence, tokens)
         paths = [item["path"] for item in evidence["experimental_output"]["entries"]]
         evidence["artifact_review"]["experimental_review"] = {
             "status": "pass",

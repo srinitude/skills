@@ -1,0 +1,596 @@
+{
+  "version": "1.0.0",
+  "skill": "figma-code-connect-design-system",
+  "outcome": "Create a Figma design system with TypeScript React API and Code Connect parity.",
+  "motivations": [
+    {
+      "constraint": "Each Figma design system claim needs current readback and direct visual audit.",
+      "reason": "Code Connect structure cannot prove current pixels or product fit.",
+      "failure_prevented": "A Figma design system PASS from stale or unseen output."
+    },
+    {
+      "constraint": "Each component property parity claim must reach a real TypeScript React API.",
+      "reason": "Code Connect can map only real design and code contracts.",
+      "failure_prevented": "A Code Connect map with fake props or missing nested parts."
+    }
+  ],
+  "domain_failures": [
+    "A Figma design system passes file checks but has wrong pages or weak rendered design.",
+    "Code Connect claims parity while text, boolean, enum, swap, slot, or nested use is missing."
+  ],
+  "domain_evidence": [
+    "Figma design system node readback, page ancestry, rendered states, and direct visual audit.",
+    "Code Connect templates, TypeScript React API tests, property parity, and nested render proof."
+  ],
+  "domain_terms": [
+    "Figma design system",
+    "Code Connect",
+    "TypeScript React API",
+    "direct visual audit",
+    "component property parity",
+    "Mise task graph"
+  ],
+  "research_questions": {
+    "actors": "How can actors change Code Connect proof?",
+    "objects": "How can objects change Code Connect proof?",
+    "actions": "How can actions change Code Connect proof?",
+    "states": "How can states change Code Connect proof?",
+    "invariants": "How can invariants change Code Connect proof?",
+    "variants": "How can variants change Code Connect proof?",
+    "interfaces": "How can interfaces change Code Connect proof?",
+    "authorities": "How can authorities change Code Connect proof?",
+    "failures": "How can failures change Code Connect proof?",
+    "recoveries": "How can recoveries change Code Connect proof?",
+    "evidence": "How can evidence change Code Connect proof?",
+    "time": "How can time change Code Connect proof?",
+    "resources": "How can resources change Code Connect proof?",
+    "quality": "How can quality change Code Connect proof?",
+    "terminology": "How can terminology change Code Connect proof?",
+    "exclusions": "How can exclusions change Code Connect proof?"
+  },
+  "research_receipts": [
+    {
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "disposition": "retained",
+      "source": "https://developers.figma.com/docs/code-connect/react/",
+      "source_class": "first_party",
+      "claim": "Code Connect maps Figma props to React code.",
+      "limitations": "It cannot prove the TypeScript React API or rendered use.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "disposition": "retained",
+      "source": "https://developers.figma.com/docs/plugins/api/ComponentPropertyType/",
+      "source_class": "first_party",
+      "claim": "Figma defines five native component property kinds.",
+      "limitations": "A property kind does not prove a needed product control.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries"
+      ]
+    },
+    {
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "disposition": "retained",
+      "source": "https://developers.figma.com/docs/code-connect/template-files/",
+      "source_class": "first_party",
+      "claim": "Code Connect template files map nested parts and slots.",
+      "limitations": "A valid template does not prove component property parity.",
+      "dimensions": [
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "disposition": "retained",
+      "source": "https://developers.figma.com/docs/rest-api/files/",
+      "source_class": "first_party",
+      "claim": "A Figma design system file is a page and node tree.",
+      "limitations": "Node data does not replace a direct visual audit.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "disposition": "retained",
+      "source": "https://agentskills.io/specification",
+      "source_class": "standard",
+      "claim": "Agent Skills give this Code Connect skill a portable form.",
+      "limitations": "The form cannot supply Figma design system judgment.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can Code Connect alone prove design and code are the same?",
+      "source": "https://developers.figma.com/docs/code-connect/",
+      "checked_at": "2026-09-02T07:26:49-04:00",
+      "result": "No. Code Connect shows code in Figma but does not sync owners.",
+      "disposition": "Keep Figma, TypeScript React API, mapping, and visual proof separate."
+    }
+  ],
+  "domain_dimensions": {
+    "actors": ["The Figma design system record must name actors."],
+    "objects": ["The Figma design system record must name objects."],
+    "actions": ["The Figma design system record must name actions."],
+    "states": ["The Figma design system record must name states."],
+    "invariants": ["The Figma design system record must name invariants."],
+    "variants": ["The Figma design system record must name variants."],
+    "interfaces": ["The Figma design system record must name interfaces."],
+    "authorities": ["The Figma design system record must name authorities."],
+    "failures": ["The Figma design system record must name failures."],
+    "recoveries": ["The Figma design system record must name recoveries."],
+    "evidence": ["The Figma design system record must name evidence."],
+    "time": ["The Figma design system record must name time."],
+    "resources": ["The Figma design system record must name resources."],
+    "quality": ["The Figma design system record must name quality."],
+    "terminology": ["The Figma design system record must name terminology."],
+    "exclusions": ["The Figma design system record must name exclusions."]
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the skill body owner to order the Figma design system and Code Connect workflow.",
+      "outcome": "The Figma design system can trace skill body work.",
+      "motivation": "Code Connect needs skill body evidence at its true owner.",
+      "value": "The TypeScript React API gains current skill body proof.",
+      "failure_prevented": "A direct visual audit rejects stale skill body claims.",
+      "proof": "The Mise task graph checks the skill body output."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the references owner to bound current Figma and Code Connect source meaning.",
+      "outcome": "The Figma design system can trace references work.",
+      "motivation": "Code Connect needs references evidence at its true owner.",
+      "value": "The TypeScript React API gains current references proof.",
+      "failure_prevented": "A direct visual audit rejects stale references claims.",
+      "proof": "The Mise task graph checks the references output."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the assets owner to hold component property parity and run contracts.",
+      "outcome": "The Figma design system can trace assets work.",
+      "motivation": "Code Connect needs assets evidence at its true owner.",
+      "value": "The TypeScript React API gains current assets proof.",
+      "failure_prevented": "A direct visual audit rejects stale assets claims.",
+      "proof": "The Mise task graph checks the assets output."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the scripts owner to perform fixed Figma ledger and package checks.",
+      "outcome": "The Figma design system can trace scripts work.",
+      "motivation": "Code Connect needs scripts evidence at its true owner.",
+      "value": "The TypeScript React API gains current scripts proof.",
+      "failure_prevented": "A direct visual audit rejects stale scripts claims.",
+      "proof": "The Mise task graph checks the scripts output."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the tests owner to disprove false Figma and TypeScript React API passes.",
+      "outcome": "The Figma design system can trace tests work.",
+      "motivation": "Code Connect needs tests evidence at its true owner.",
+      "value": "The TypeScript React API gains current tests proof.",
+      "failure_prevented": "A direct visual audit rejects stale tests claims.",
+      "proof": "The Mise task graph checks the tests output."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the mise tasks owner to order cached Figma checks on one dependency path.",
+      "outcome": "The Figma design system can trace mise tasks work.",
+      "motivation": "Code Connect needs mise tasks evidence at its true owner.",
+      "value": "The TypeScript React API gains current mise tasks proof.",
+      "failure_prevented": "A direct visual audit rejects stale mise tasks claims.",
+      "proof": "The Mise task graph checks the mise tasks output."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the examples owner to show real Figma requests, outputs, and blocked branches.",
+      "outcome": "The Figma design system can trace examples work.",
+      "motivation": "Code Connect needs examples evidence at its true owner.",
+      "value": "The TypeScript React API gains current examples proof.",
+      "failure_prevented": "A direct visual audit rejects stale examples claims.",
+      "proof": "The Mise task graph checks the examples output."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the evals owner to test Figma triggers, behavior, recovery, and speed.",
+      "outcome": "The Figma design system can trace evals work.",
+      "motivation": "Code Connect needs evals evidence at its true owner.",
+      "value": "The TypeScript React API gains current evals proof.",
+      "failure_prevented": "A direct visual audit rejects stale evals claims.",
+      "proof": "The Mise task graph checks the evals output."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the policies owner to separate Figma authority, model judgment, and fixed checks.",
+      "outcome": "The Figma design system can trace policies work.",
+      "motivation": "Code Connect needs policies evidence at its true owner.",
+      "value": "The TypeScript React API gains current policies proof.",
+      "failure_prevented": "A direct visual audit rejects stale policies claims.",
+      "proof": "The Mise task graph checks the policies output."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the schemas owner to fix Figma run, property, state, and proof shapes.",
+      "outcome": "The Figma design system can trace schemas work.",
+      "motivation": "Code Connect needs schemas evidence at its true owner.",
+      "value": "The TypeScript React API gains current schemas proof.",
+      "failure_prevented": "A direct visual audit rejects stale schemas claims.",
+      "proof": "The Mise task graph checks the schemas output."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "The Figma design system uses the records owner to preserve Figma readback, vision, mapping, and invalidation proof.",
+      "outcome": "The Figma design system can trace records work.",
+      "motivation": "Code Connect needs records evidence at its true owner.",
+      "value": "The TypeScript React API gains current records proof.",
+      "failure_prevented": "A direct visual audit rejects stale records claims.",
+      "proof": "The Mise task graph checks the records output."
+    }
+  },
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "complete",
+        "outcome": "The Figma design system gets one complete result.",
+        "motivation": "Code Connect uses one public complete path.",
+        "why_default_path": "The Mise task graph owns the complete route.",
+        "proof": "Component property parity keeps fresh complete output."
+      },
+      {
+        "task": "new-run",
+        "outcome": "The Figma design system gets one new-run result.",
+        "motivation": "Code Connect uses one public new-run path.",
+        "why_default_path": "The Mise task graph owns the new-run route.",
+        "proof": "Component property parity keeps fresh new-run output."
+      },
+      {
+        "task": "validate-run",
+        "outcome": "The Figma design system gets one validate-run result.",
+        "motivation": "Code Connect uses one public validate-run path.",
+        "why_default_path": "The Mise task graph owns the validate-run route.",
+        "proof": "Component property parity keeps fresh validate-run output."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "The Figma design system gets one invocation-policy result.",
+        "motivation": "Code Connect uses one public invocation-policy path.",
+        "why_default_path": "The Mise task graph owns the invocation-policy route.",
+        "proof": "Component property parity keeps fresh invocation-policy output."
+      },
+      {
+        "task": "agentic-request",
+        "outcome": "The Figma design system gets one agentic-request result.",
+        "motivation": "Code Connect uses one public agentic-request path.",
+        "why_default_path": "The Mise task graph owns the agentic-request route.",
+        "proof": "Component property parity keeps fresh agentic-request output."
+      },
+      {
+        "task": "factory-assets-write",
+        "outcome": "The Figma design system gets one factory-assets-write result.",
+        "motivation": "Code Connect uses one public factory-assets-write path.",
+        "why_default_path": "The Mise task graph owns the factory-assets-write route.",
+        "proof": "Component property parity keeps fresh factory-assets-write output."
+      },
+      {
+        "task": "generate",
+        "outcome": "The Figma design system gets one generate result.",
+        "motivation": "Code Connect uses one public generate path.",
+        "why_default_path": "The Mise task graph owns the generate route.",
+        "proof": "Component property parity keeps fresh generate output."
+      },
+      {
+        "task": "skill-info",
+        "outcome": "The Figma design system gets one skill-info result.",
+        "motivation": "Code Connect uses one public skill-info path.",
+        "why_default_path": "The Mise task graph owns the skill-info route.",
+        "proof": "Component property parity keeps fresh skill-info output."
+      },
+      {
+        "task": "mise-catalog-bootstrap",
+        "outcome": "The Figma design system gets one mise-catalog-bootstrap result.",
+        "motivation": "Code Connect uses one public mise-catalog-bootstrap path.",
+        "why_default_path": "The Mise task graph owns the mise-catalog-bootstrap route.",
+        "proof": "Component property parity keeps fresh mise-catalog-bootstrap output."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "The Figma design system gets one mise-primitives-update result.",
+        "motivation": "Code Connect uses one public mise-primitives-update path.",
+        "why_default_path": "The Mise task graph owns the mise-primitives-update route.",
+        "proof": "Component property parity keeps fresh mise-primitives-update output."
+      }
+    ],
+    "tasks": {
+      "complete": {
+        "outcome": "The Figma design system gets the complete result.",
+        "motivation": "Code Connect needs the complete gate.",
+        "value": "Component property parity gains fresh complete proof.",
+        "proof": "The Mise task graph records the complete exit.",
+        "applicability": "Use complete for its TypeScript React API check."
+      },
+      "ci": {
+        "outcome": "The Figma design system gets the ci result.",
+        "motivation": "Code Connect needs the ci gate.",
+        "value": "Component property parity gains fresh ci proof.",
+        "proof": "The Mise task graph records the ci exit.",
+        "applicability": "Use ci for its TypeScript React API check."
+      },
+      "test": {
+        "outcome": "The Figma design system gets the test result.",
+        "motivation": "Code Connect needs the test gate.",
+        "value": "Component property parity gains fresh test proof.",
+        "proof": "The Mise task graph records the test exit.",
+        "applicability": "Use test for its TypeScript React API check."
+      },
+      "structure": {
+        "outcome": "The Figma design system gets the structure result.",
+        "motivation": "Code Connect needs the structure gate.",
+        "value": "Component property parity gains fresh structure proof.",
+        "proof": "The Mise task graph records the structure exit.",
+        "applicability": "Use structure for its TypeScript React API check."
+      },
+      "task-graph": {
+        "outcome": "The Figma design system gets the task-graph result.",
+        "motivation": "Code Connect needs the task-graph gate.",
+        "value": "Component property parity gains fresh task-graph proof.",
+        "proof": "The Mise task graph records the task-graph exit.",
+        "applicability": "Use task-graph for its TypeScript React API check."
+      },
+      "validate": {
+        "outcome": "The Figma design system gets the validate result.",
+        "motivation": "Code Connect needs the validate gate.",
+        "value": "Component property parity gains fresh validate proof.",
+        "proof": "The Mise task graph records the validate exit.",
+        "applicability": "Use validate for its TypeScript React API check."
+      },
+      "lint-writing": {
+        "outcome": "The Figma design system gets the lint-writing result.",
+        "motivation": "Code Connect needs the lint-writing gate.",
+        "value": "Component property parity gains fresh lint-writing proof.",
+        "proof": "The Mise task graph records the lint-writing exit.",
+        "applicability": "Use lint-writing for its TypeScript React API check."
+      },
+      "lint-code": {
+        "outcome": "The Figma design system gets the lint-code result.",
+        "motivation": "Code Connect needs the lint-code gate.",
+        "value": "Component property parity gains fresh lint-code proof.",
+        "proof": "The Mise task graph records the lint-code exit.",
+        "applicability": "Use lint-code for its TypeScript React API check."
+      },
+      "lint-placeholders": {
+        "outcome": "The Figma design system gets the lint-placeholders result.",
+        "motivation": "Code Connect needs the lint-placeholders gate.",
+        "value": "Component property parity gains fresh lint-placeholders proof.",
+        "proof": "The Mise task graph records the lint-placeholders exit.",
+        "applicability": "Use lint-placeholders for its TypeScript React API check."
+      },
+      "proof": {
+        "outcome": "The Figma design system gets the proof result.",
+        "motivation": "Code Connect needs the proof gate.",
+        "value": "Component property parity gains fresh proof proof.",
+        "proof": "The Mise task graph records the proof exit.",
+        "applicability": "Use proof for its TypeScript React API check."
+      },
+      "evals": {
+        "outcome": "The Figma design system gets the evals result.",
+        "motivation": "Code Connect needs the evals gate.",
+        "value": "Component property parity gains fresh evals proof.",
+        "proof": "The Mise task graph records the evals exit.",
+        "applicability": "Use evals for its TypeScript React API check."
+      },
+      "package-records": {
+        "outcome": "The Figma design system gets the package-records result.",
+        "motivation": "Code Connect needs the package-records gate.",
+        "value": "Component property parity gains fresh package-records proof.",
+        "proof": "The Mise task graph records the package-records exit.",
+        "applicability": "Use package-records for its TypeScript React API check."
+      },
+      "factory-policy": {
+        "outcome": "The Figma design system gets the factory-policy result.",
+        "motivation": "Code Connect needs the factory-policy gate.",
+        "value": "Component property parity gains fresh factory-policy proof.",
+        "proof": "The Mise task graph records the factory-policy exit.",
+        "applicability": "Use factory-policy for its TypeScript React API check."
+      },
+      "domain-research-policy": {
+        "outcome": "The Figma design system gets the domain-research-policy result.",
+        "motivation": "Code Connect needs the domain-research-policy gate.",
+        "value": "Component property parity gains fresh domain-research-policy proof.",
+        "proof": "The Mise task graph records the domain-research-policy exit.",
+        "applicability": "Use domain-research-policy for its TypeScript React API check."
+      },
+      "use-case-policy": {
+        "outcome": "The Figma design system gets the use-case-policy result.",
+        "motivation": "Code Connect needs the use-case-policy gate.",
+        "value": "Component property parity gains fresh use-case-policy proof.",
+        "proof": "The Mise task graph records the use-case-policy exit.",
+        "applicability": "Use use-case-policy for its TypeScript React API check."
+      },
+      "mise-primitives-policy": {
+        "outcome": "The Figma design system gets the mise-primitives-policy result.",
+        "motivation": "Code Connect needs the mise-primitives-policy gate.",
+        "value": "Component property parity gains fresh mise-primitives-policy proof.",
+        "proof": "The Mise task graph records the mise-primitives-policy exit.",
+        "applicability": "Use mise-primitives-policy for its TypeScript React API check."
+      },
+      "mise-catalog-bootstrap": {
+        "outcome": "The Figma design system gets the mise-catalog-bootstrap result.",
+        "motivation": "Code Connect needs the mise-catalog-bootstrap gate.",
+        "value": "Component property parity gains fresh mise-catalog-bootstrap proof.",
+        "proof": "The Mise task graph records the mise-catalog-bootstrap exit.",
+        "applicability": "Use mise-catalog-bootstrap for its TypeScript React API check."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "The Figma design system gets the primitive-lifecycle-policy result.",
+        "motivation": "Code Connect needs the primitive-lifecycle-policy gate.",
+        "value": "Component property parity gains fresh primitive-lifecycle-policy proof.",
+        "proof": "The Mise task graph records the primitive-lifecycle-policy exit.",
+        "applicability": "Use primitive-lifecycle-policy for its TypeScript React API check."
+      },
+      "task-graph-policy": {
+        "outcome": "The Figma design system gets the task-graph-policy result.",
+        "motivation": "Code Connect needs the task-graph-policy gate.",
+        "value": "Component property parity gains fresh task-graph-policy proof.",
+        "proof": "The Mise task graph records the task-graph-policy exit.",
+        "applicability": "Use task-graph-policy for its TypeScript React API check."
+      },
+      "decision-policy": {
+        "outcome": "The Figma design system gets the decision-policy result.",
+        "motivation": "Code Connect needs the decision-policy gate.",
+        "value": "Component property parity gains fresh decision-policy proof.",
+        "proof": "The Mise task graph records the decision-policy exit.",
+        "applicability": "Use decision-policy for its TypeScript React API check."
+      },
+      "improvement-policy": {
+        "outcome": "The Figma design system gets the improvement-policy result.",
+        "motivation": "Code Connect needs the improvement-policy gate.",
+        "value": "Component property parity gains fresh improvement-policy proof.",
+        "proof": "The Mise task graph records the improvement-policy exit.",
+        "applicability": "Use improvement-policy for its TypeScript React API check."
+      },
+      "invocation-policy": {
+        "outcome": "The Figma design system gets the invocation-policy result.",
+        "motivation": "Code Connect needs the invocation-policy gate.",
+        "value": "Component property parity gains fresh invocation-policy proof.",
+        "proof": "The Mise task graph records the invocation-policy exit.",
+        "applicability": "Use invocation-policy for its TypeScript React API check."
+      },
+      "agentic-request": {
+        "outcome": "The Figma design system gets the agentic-request result.",
+        "motivation": "Code Connect needs the agentic-request gate.",
+        "value": "Component property parity gains fresh agentic-request proof.",
+        "proof": "The Mise task graph records the agentic-request exit.",
+        "applicability": "Use agentic-request for its TypeScript React API check."
+      },
+      "new-run": {
+        "outcome": "The Figma design system gets the new-run result.",
+        "motivation": "Code Connect needs the new-run gate.",
+        "value": "Component property parity gains fresh new-run proof.",
+        "proof": "The Mise task graph records the new-run exit.",
+        "applicability": "Use new-run for its TypeScript React API check."
+      },
+      "validate-run": {
+        "outcome": "The Figma design system gets the validate-run result.",
+        "motivation": "Code Connect needs the validate-run gate.",
+        "value": "Component property parity gains fresh validate-run proof.",
+        "proof": "The Mise task graph records the validate-run exit.",
+        "applicability": "Use validate-run for its TypeScript React API check."
+      },
+      "skill-info": {
+        "outcome": "The Figma design system gets the skill-info result.",
+        "motivation": "Code Connect needs the skill-info gate.",
+        "value": "Component property parity gains fresh skill-info proof.",
+        "proof": "The Mise task graph records the skill-info exit.",
+        "applicability": "Use skill-info for its TypeScript React API check."
+      },
+      "factory-assets-write": {
+        "outcome": "The Figma design system gets the factory-assets-write result.",
+        "motivation": "Code Connect needs the factory-assets-write gate.",
+        "value": "Component property parity gains fresh factory-assets-write proof.",
+        "proof": "The Mise task graph records the factory-assets-write exit.",
+        "applicability": "Use factory-assets-write for its TypeScript React API check."
+      },
+      "package-records-write": {
+        "outcome": "The Figma design system gets the package-records-write result.",
+        "motivation": "Code Connect needs the package-records-write gate.",
+        "value": "Component property parity gains fresh package-records-write proof.",
+        "proof": "The Mise task graph records the package-records-write exit.",
+        "applicability": "Use package-records-write for its TypeScript React API check."
+      },
+      "generate": {
+        "outcome": "The Figma design system gets the generate result.",
+        "motivation": "Code Connect needs the generate gate.",
+        "value": "Component property parity gains fresh generate proof.",
+        "proof": "The Mise task graph records the generate exit.",
+        "applicability": "Use generate for its TypeScript React API check."
+      },
+      "mise-latest": {
+        "outcome": "The Figma design system gets the mise-latest result.",
+        "motivation": "Code Connect needs the mise-latest gate.",
+        "value": "Component property parity gains fresh mise-latest proof.",
+        "proof": "The Mise task graph records the mise-latest exit.",
+        "applicability": "Use mise-latest for its TypeScript React API check."
+      },
+      "mise-primitives-update": {
+        "outcome": "The Figma design system gets the mise-primitives-update result.",
+        "motivation": "Code Connect needs the mise-primitives-update gate.",
+        "value": "Component property parity gains fresh mise-primitives-update proof.",
+        "proof": "The Mise task graph records the mise-primitives-update exit.",
+        "applicability": "Use mise-primitives-update for its TypeScript React API check."
+      }
+    }
+  }
+}

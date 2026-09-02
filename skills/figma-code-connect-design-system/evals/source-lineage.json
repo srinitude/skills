@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "public_version": "0.3.0",
+  "native_version": "2026-09-02",
+  "native_manifest_sha256": "986acfbfa2c14b19bd565c3e1d79d9c3394c73245c33468a9a66427befc222a6",
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [".github/workflows/ci.yml"]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/capability-contracts.json",
+      "source_paths": ["assets/capability-contracts.json"]
+    },
+    {
+      "path": "assets/code-connect-mechanisms.json",
+      "source_paths": ["assets/code-connect-mechanisms.json"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["assets/decision-records.json"]
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "source_paths": ["assets/eval-case-template.json"]
+    },
+    {
+      "path": "assets/file-manifest.json",
+      "source_paths": ["assets/file-manifest.json"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["assets/improvement-contract.json"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["assets/invocation-receipt-template.json"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["assets/mise-primitives-catalog.json"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["assets/mise-primitives.json"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["assets/primitive-lifecycle.json"]
+    },
+    {
+      "path": "assets/run-contract.json",
+      "source_paths": ["assets/run-contract.json"]
+    },
+    {
+      "path": "assets/source-manifest.json",
+      "source_paths": ["assets/source-manifest.json"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["assets/use-case-contract.json"]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": ["evals/cases.json"]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": ["evals/contract.md"]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": ["evals/evals.json"]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": ["evals/manifest.json"]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": ["evals/rubric.md"]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": ["evals/speed-budgets.json"]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": ["evals/trigger-cases.json"]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": ["evals/trigger-queries.json"]
+    },
+    {
+      "path": "examples/failure-missing-authority.md",
+      "source_paths": ["examples/failure-missing-authority.md"]
+    },
+    {
+      "path": "examples/help.md",
+      "source_paths": ["examples/help.md"]
+    },
+    {
+      "path": "examples/plan.md",
+      "source_paths": ["examples/plan.md"]
+    },
+    {
+      "path": "examples/refresh-sources.md",
+      "source_paths": ["examples/refresh-sources.md"]
+    },
+    {
+      "path": "examples/resume.md",
+      "source_paths": ["examples/resume.md"]
+    },
+    {
+      "path": "examples/run.md",
+      "source_paths": ["examples/run.md"]
+    },
+    {
+      "path": "examples/validate.md",
+      "source_paths": ["examples/validate.md"]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": ["mise.toml"]
+    },
+    {
+      "path": "references/capability-routing.md",
+      "source_paths": ["references/capability-routing.md"]
+    },
+    {
+      "path": "references/code-connect.md",
+      "source_paths": ["references/code-connect.md"]
+    },
+    {
+      "path": "references/decisions.md",
+      "source_paths": ["references/decisions.md"]
+    },
+    {
+      "path": "references/design-system-lineage.md",
+      "source_paths": ["references/design-system-lineage.md"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["references/generation-contract.md"]
+    },
+    {
+      "path": "references/operating-contract.md",
+      "source_paths": ["references/operating-contract.md"]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["references/resource-and-experiment-design.md"]
+    },
+    {
+      "path": "references/source-boundary.md",
+      "source_paths": ["references/source-boundary.md"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["references/use-case-specificity.md"]
+    },
+    {
+      "path": "references/validation-and-recovery.md",
+      "source_paths": ["references/validation-and-recovery.md"]
+    },
+    {
+      "path": "scripts/build_factory_policy_assets.py",
+      "source_paths": ["scripts/build_factory_policy_assets.py"]
+    },
+    {
+      "path": "scripts/build_package_records.py",
+      "source_paths": ["scripts/build_package_records.py"]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": ["scripts/check_code_rules.py"]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": ["scripts/check_evals.py"]
+    },
+    {
+      "path": "scripts/check_factory_policy.py",
+      "source_paths": ["scripts/check_factory_policy.py"]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["scripts/check_placeholders.py"]
+    },
+    {
+      "path": "scripts/lib/agentic_request.py",
+      "source_paths": ["scripts/lib/agentic_request.py"]
+    },
+    {
+      "path": "scripts/lib/comparison_validation.py",
+      "source_paths": ["scripts/lib/comparison_validation.py"]
+    },
+    {
+      "path": "scripts/lib/factory_checks.py",
+      "source_paths": ["scripts/lib/factory_checks.py"]
+    },
+    {
+      "path": "scripts/lib/factory_graph.py",
+      "source_paths": ["scripts/lib/factory_graph.py"]
+    },
+    {
+      "path": "scripts/lib/factory_improvement.py",
+      "source_paths": ["scripts/lib/factory_improvement.py"]
+    },
+    {
+      "path": "scripts/lib/factory_records.py",
+      "source_paths": ["scripts/lib/factory_records.py"]
+    },
+    {
+      "path": "scripts/lib/integrated_validation.py",
+      "source_paths": ["scripts/lib/integrated_validation.py"]
+    },
+    {
+      "path": "scripts/lib/render_validation.py",
+      "source_paths": ["scripts/lib/render_validation.py"]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": ["scripts/lint_writing.py"]
+    },
+    {
+      "path": "scripts/new_run.py",
+      "source_paths": ["scripts/new_run.py"]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["scripts/run_agentic_request.py"]
+    },
+    {
+      "path": "scripts/skill_info.py",
+      "source_paths": ["scripts/skill_info.py"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["scripts/sync_mise_primitives.py"]
+    },
+    {
+      "path": "scripts/tests/runtime_test_support.py",
+      "source_paths": ["scripts/tests/runtime_test_support.py"]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": ["scripts/tests/test_ci_contract.py"]
+    },
+    {
+      "path": "scripts/tests/test_comparison_coverage.py",
+      "source_paths": ["scripts/tests/test_comparison_coverage.py"]
+    },
+    {
+      "path": "scripts/tests/test_factory_adversarial.py",
+      "source_paths": ["scripts/tests/test_factory_adversarial.py"]
+    },
+    {
+      "path": "scripts/tests/test_package_contract.py",
+      "source_paths": ["scripts/tests/test_package_contract.py"]
+    },
+    {
+      "path": "scripts/tests/test_runtime.py",
+      "source_paths": ["scripts/tests/test_runtime.py"]
+    },
+    {
+      "path": "scripts/tests/test_scripts.py",
+      "source_paths": ["scripts/tests/test_scripts.py"]
+    },
+    {
+      "path": "scripts/validate_run.py",
+      "source_paths": ["scripts/validate_run.py"]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": ["scripts/validate_skill.py"]
+    }
+  ],
+  "source_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "0d658bb12f9c69b5ceee7fe1070d6da7ca2095ede303eb9ae988aa9918aadbe1"
+    },
+    {
+      "path": "assets/capability-contracts.json",
+      "sha256": "9f2b88384162cf578699533955a75d28426ebbafb0841b2df3240299cbc3dee5"
+    },
+    {
+      "path": "assets/code-connect-mechanisms.json",
+      "sha256": "e0a351314589236558dd182ae7ba7b700d6054af3dddd6ab8804810d5515cb95"
+    },
+    {
+      "path": "assets/decision-records.json",
+      "sha256": "8b847f9c3b341357384f44958bab11dd18403b915aa700944d1576fbeca76f41"
+    },
+    {
+      "path": "assets/eval-case-template.json",
+      "sha256": "89cff553a7d700331104d6dedf95ee5961d014fca3b7283044b1dd1369175563"
+    },
+    {
+      "path": "assets/file-manifest.json",
+      "sha256": "96de5562ec00762d0fcef4674af36cf2edc9f34b9e405b2dfd97859e7136a9f7"
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "sha256": "6def044334d210258861fa2542c8d1eeec4a8494ab1d256236186d2efe859b0a"
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "sha256": "02fb9afb13f54c24a4e6e932bea0347b5441939da7917f4390847318c5a0f241"
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "sha256": "5e4cf9ffced569c0818a3367df9dd9cc7e817912a42cf5c1b5c7126b3afb158f"
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "sha256": "a2b3fbf303fc55bdc7b504e0c8ee07068eace8728c2d72c1f6f659d55b18da9a"
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "sha256": "2a683d0f0548d2062003a2434956c2495e00ac7e2b8a205171296615d0789a3f"
+    },
+    {
+      "path": "assets/run-contract.json",
+      "sha256": "20e322c672ece8b41b14cc9ea8862b0c27a200245610199de648783980372762"
+    },
+    {
+      "path": "assets/source-manifest.json",
+      "sha256": "986acfbfa2c14b19bd565c3e1d79d9c3394c73245c33468a9a66427befc222a6"
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "sha256": "21e49e4573684f27ca07be8c4476b9734dddde49b86ca5cc7391ac1395bfa45d"
+    },
+    {
+      "path": "evals/cases.json",
+      "sha256": "269ee91f3ffbe0d530a440e1db1cd88893e0dce4423347fd4249577efdcfb7bd"
+    },
+    {
+      "path": "evals/contract.md",
+      "sha256": "ce6051f2ba8e089f98f4116a3dcccfa55fa49da617e38add846e027b7983ac9f"
+    },
+    {
+      "path": "evals/evals.json",
+      "sha256": "585fb2335da410fcdf4a5075f7dfbc1f62646de4291ff2745b99583d5080a793"
+    },
+    {
+      "path": "evals/manifest.json",
+      "sha256": "4af2669fefff73ba6d7c522662efb54e03b1a9cdfbcbd7a7dbfccb5bcf35f420"
+    },
+    {
+      "path": "evals/rubric.md",
+      "sha256": "ae82e82a0cbedd1b3f1ab33edf41081e296de622dbf56a3ad08d117e79210680"
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "sha256": "2a5e89b533b365688c0ec992f20e5a605d0fe2c2e64874a457ea5e8b152dabda"
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "sha256": "ac865765e9450e1d231549defe862a7dfa28c3f0bdf76d33c010ebf8fca217c7"
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "sha256": "2015276a8a2390e4070a7d99b784af0526904c3bc09387b28dfb37d33c2ec7d7"
+    },
+    {
+      "path": "examples/failure-missing-authority.md",
+      "sha256": "4698e4450fc9263d5a8394ecce6ca0001549332a42a7f361341db993425d1c3d"
+    },
+    {
+      "path": "examples/help.md",
+      "sha256": "9b12852dde0e5c4514ea9c6ace75718ef2ba0f2074234739a40a37cc3f201ddf"
+    },
+    {
+      "path": "examples/plan.md",
+      "sha256": "aefa06fcac2e58ba6cb214c096db92ccbe0b29a34cbe678c484c4bb576bacc7b"
+    },
+    {
+      "path": "examples/refresh-sources.md",
+      "sha256": "6436f860877c3c3bf0bf9328a7377a6a0eb559aa64e1c63ecd367a5a8cb85b78"
+    },
+    {
+      "path": "examples/resume.md",
+      "sha256": "522a6c1b98d6f90f12748f83e16d07feaf2bd71798a39191168e79ad789d0a32"
+    },
+    {
+      "path": "examples/run.md",
+      "sha256": "01604dc2937ac104e0fb4ec1f2abe806aaa8127ee19b4907f261e133dd2f10e3"
+    },
+    {
+      "path": "examples/validate.md",
+      "sha256": "42e0ed72f0d7e39955cf963091f80ce44c666bfff4a9e99e7fb1525954a4dbc6"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "408dbf6359b3a3857c5b7dd59af1e249399dcb2c5f309a3e28ee738856785cb2"
+    },
+    {
+      "path": "references/capability-routing.md",
+      "sha256": "3b2e569a73b00a0b4bbe9306bd66b855bba467bebf455434b1ae012e34e5cb62"
+    },
+    {
+      "path": "references/code-connect.md",
+      "sha256": "8cc3d0f2dc5db363c4a34864fca7c40f373f38c1ea2d0bf694ad6cc2d4950384"
+    },
+    {
+      "path": "references/decisions.md",
+      "sha256": "65781fdfeea73897a5d540dd890616de5cb94072df3d3ec3b438504cc19d8826"
+    },
+    {
+      "path": "references/design-system-lineage.md",
+      "sha256": "8477ebe2c8d8c48380ba987cbedfa96ba8a737792d312838680aa1455c7956cd"
+    },
+    {
+      "path": "references/generation-contract.md",
+      "sha256": "4ec21e0f6a2415ff7032286da248021e71a482582e17a7f615137258c7f80adf"
+    },
+    {
+      "path": "references/operating-contract.md",
+      "sha256": "14a7958f3193f438ee395d0734d4eb799b87ce32f05e0b05d97a724e3ba5e3a9"
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "sha256": "26787fe0c0ac3f265236ba20502154ff15dec9331149cce09e41f92ca668843b"
+    },
+    {
+      "path": "references/source-boundary.md",
+      "sha256": "a62b5a2c2ca1a42325f5b90fcd64ec008e19e16aac8606ced98018063b3df395"
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "sha256": "901a25bd28992545ddc3258ce1a1ffa2fd115cba8c0e92c663ed19cb71bed8b8"
+    },
+    {
+      "path": "references/validation-and-recovery.md",
+      "sha256": "1efe586ba894345afcebae64fdfbe739deeb98486480c4a68a78f23f2232eb43"
+    },
+    {
+      "path": "scripts/build_factory_policy_assets.py",
+      "sha256": "e4049f9fcebe18afe146474837c75eee2740d4a0c92ad0e65d026d1f794b3765"
+    },
+    {
+      "path": "scripts/build_package_records.py",
+      "sha256": "fc3cb93ae4d6cf774453e792a2c0796a585d57b7c61b703949a26bfe82a49913"
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
+    },
+    {
+      "path": "scripts/check_factory_policy.py",
+      "sha256": "c14e2b547cfd2fafe15fe9d3f327b50790124a401139c1177656a5b6bf036362"
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+    },
+    {
+      "path": "scripts/lib/agentic_request.py",
+      "sha256": "ffef215f684a3774e6041537beac795d8dc037cba088da73ff78f3a7e7ca2e0f"
+    },
+    {
+      "path": "scripts/lib/comparison_validation.py",
+      "sha256": "f75297ada6170b793a40fa6bccd38d8c204a84672849b7151e47cda2b151bf8e"
+    },
+    {
+      "path": "scripts/lib/factory_checks.py",
+      "sha256": "0cc7f42276ce8b1c6aece45039c057f3c71c1b373657e93139dda75bdaee2d1d"
+    },
+    {
+      "path": "scripts/lib/factory_graph.py",
+      "sha256": "fa8039a12d85c0551ad6ae58d056f019b2686422a5484a9ea356b4b2f00fcfb5"
+    },
+    {
+      "path": "scripts/lib/factory_improvement.py",
+      "sha256": "fff07cc122450696753ad33a8cfcf52b8db5678cefdbd677cd5041e02df9f142"
+    },
+    {
+      "path": "scripts/lib/factory_records.py",
+      "sha256": "3b759053f92776fd74b684cfb13e164db671ce162ac5114d9db1536c5481e32d"
+    },
+    {
+      "path": "scripts/lib/integrated_validation.py",
+      "sha256": "d23578b5185633a602aa628b9ebee5a75c880d79e14386804cd403e79a88be62"
+    },
+    {
+      "path": "scripts/lib/render_validation.py",
+      "sha256": "e3e1ac4c3db3fe5dfba7f3c27cd5292e077fc621e5331e105e2a1970a237a033"
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "sha256": "1b46125d9d58367e0c6c741cc64af023b4bbaf914f3840024b3a5c8e1b032461"
+    },
+    {
+      "path": "scripts/new_run.py",
+      "sha256": "551a010ade02ff4dd70ccc8ce39faf394454c989d72233b4640147e8aaab793f"
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "sha256": "69ed56b015a8f138143774bc471fb523debedbedac80c7a5744570c259f5f1d9"
+    },
+    {
+      "path": "scripts/skill_info.py",
+      "sha256": "184ccafb52eb90718e64067d9ec88c5cc3102687563cf0f0ebeeeaa4f2b4cd28"
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "sha256": "840ffb330b76ec27d1162603234ff37559af8417f2a1d6cd510e877ae51b7e2f"
+    },
+    {
+      "path": "scripts/tests/runtime_test_support.py",
+      "sha256": "297ccc5d271f2964b527757d47c26fac770d8b848370707611758787276ff0fa"
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "sha256": "a2c9786fd4849d3b4ad47a4b07a3e1749f2831a4e9562b85a952a728bee63393"
+    },
+    {
+      "path": "scripts/tests/test_comparison_coverage.py",
+      "sha256": "16ea093be94296f867f340a1ea305705af453aceaf77b81405a1de4fffabe644"
+    },
+    {
+      "path": "scripts/tests/test_factory_adversarial.py",
+      "sha256": "75262ae2c8f659bf70ba94f9e0599a2ae6247214bcb99b79c892daea6220cdc1"
+    },
+    {
+      "path": "scripts/tests/test_package_contract.py",
+      "sha256": "956bda4f84ad31a31571eb333581392b29b6e3be05c8f1066fb9b96de4c8ac2a"
+    },
+    {
+      "path": "scripts/tests/test_runtime.py",
+      "sha256": "828de2730a49c1651680415529557614fad6469e8b28f0a28de02d8347981f37"
+    },
+    {
+      "path": "scripts/tests/test_scripts.py",
+      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73"
+    },
+    {
+      "path": "scripts/validate_run.py",
+      "sha256": "754bbbe07b28e4d460c74aaad989944ade5afc59113d29d89e8b808454bde487"
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "sha256": "a933fc2229bf1cf1b946a4be46ebb111f79758de58ca9b1a91bb3942448bb31b"
+    }
+  ],
+  "source_case_ids": [
+    "FCCDS-001",
+    "FCCDS-002",
+    "FCCDS-003",
+    "FCCDS-004",
+    "FCCDS-005",
+    "FCCDS-006",
+    "FCCDS-007",
+    "FCCDS-008",
+    "FCCDS-009",
+    "FCCDS-010",
+    "FCCDS-011",
+    "FCCDS-012",
+    "FCCDS-013",
+    "FCCDS-014",
+    "FCCDS-015",
+    "FCCDS-016"
+  ]
+}

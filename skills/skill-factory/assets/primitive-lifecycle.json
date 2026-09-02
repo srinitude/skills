@@ -1,0 +1,149 @@
+{
+  "version": "1.0.0",
+  "skill": "skill-factory",
+  "required_phases": [
+    "discover", "research", "experiment", "decide", "create", "inspect",
+    "update", "validate", "accept", "restore", "deprecate", "retire"
+  ],
+  "profiles": {
+    "agent-skill-aspect": {
+      "discover": "source-corpus",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "new",
+      "inspect": "plan-standardize",
+      "update": "plan-standardize",
+      "validate": "ci",
+      "accept": "invocation-policy",
+      "restore": "improvement-policy",
+      "deprecate": "plan-standardize",
+      "retire": "plan-standardize"
+    },
+    "agent-skill-primitive": {
+      "discover": "source-corpus",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "new",
+      "inspect": "plan-standardize",
+      "update": "plan-standardize",
+      "validate": "ci",
+      "accept": "invocation-policy",
+      "restore": "improvement-policy",
+      "deprecate": "plan-standardize",
+      "retire": "plan-standardize"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill actor responsibilities remain explicit across package changes.",
+      "motivation": "A skill package needs named authors, executors, reviewers, users, and owners to preserve authority.",
+      "proof": "Agent skill research and decision records identify each actor and allowed action."
+    },
+    "objects": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Every agent skill object has one owner and a proved role in the package result.",
+      "motivation": "A skill package cannot validate or restore objects whose ownership is implicit.",
+      "proof": "Agent skill inventories and lifecycle records cover every declared object."
+    },
+    "actions": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill actions advance a declared package state through one task path.",
+      "motivation": "A skill package needs bounded create, update, validation, recovery, and retirement behavior.",
+      "proof": "Agent skill task and invocation receipts trace every action to its outcome."
+    },
+    "states": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill states distinguish baselines, candidates, acceptance, rejection, blocks, and restoration.",
+      "motivation": "A skill package cannot make safe transitions when current state is ambiguous.",
+      "proof": "Agent skill records name the prior, candidate, and resulting state."
+    },
+    "invariants": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill purpose, behavior, authority, proof, and portability survive every lifecycle phase.",
+      "motivation": "A skill package change is invalid when it trades away a protected property.",
+      "proof": "Agent skill baseline and acceptance checks show no invariant regression."
+    },
+    "variants": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill domain variants stay distinct while shared package rules remain stable.",
+      "motivation": "A skill package must preserve use-case differences instead of flattening them into boilerplate.",
+      "proof": "Agent skill domain-swap and term-removal attacks fail when specificity is lost."
+    },
+    "interfaces": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill frontmatter, files, tasks, CI, and eval interfaces retain tested contracts.",
+      "motivation": "A skill package can look correct while an executor-facing boundary is broken.",
+      "proof": "Agent skill interface tests exercise real commands, exits, and artifacts."
+    },
+    "authorities": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill mutations and side effects remain within the user's authority.",
+      "motivation": "A skill package must not infer permission for purpose changes, deletion, publication, or deployment.",
+      "proof": "Agent skill decision records name the authority and block unauthorized branches."
+    },
+    "failures": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill failures are detected at their lowest owning package boundary.",
+      "motivation": "A skill package needs explicit failure modes to avoid false completion.",
+      "proof": "Agent skill RED cases reproduce each material failure before repair."
+    },
+    "recoveries": {
+      "profile": "agent-skill-aspect",
+      "outcome": "A rejected agent skill candidate can restore the last accepted package state.",
+      "motivation": "A skill package experiment must not leave a slower or less correct state behind.",
+      "proof": "Agent skill rollback receipts match the frozen accepted digest and checks."
+    },
+    "evidence": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Every accepted agent skill claim points to current, scope-matched proof.",
+      "motivation": "A skill package shape or stale receipt cannot prove domain task success.",
+      "proof": "Agent skill evidence records connect sources, commands, results, limits, and freshness."
+    },
+    "time": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill work reaches verified acceptance quickly without stale evidence.",
+      "motivation": "A skill package loses value through avoidable delay or outdated dependencies.",
+      "proof": "Agent skill receipts retain timestamps, wall time, version, and freshness decisions."
+    },
+    "resources": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill resource choices fit measured access and mutation patterns.",
+      "motivation": "A skill package should reduce CPU, memory, storage, network, cache, context, cost, and attention waste.",
+      "proof": "Agent skill experiment records measure applicable resources or justify non-use."
+    },
+    "quality": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill quality improves without regressing correctness, speed, simplicity, or judgment.",
+      "motivation": "A skill package optimization is invalid when another protected dimension worsens.",
+      "proof": "Agent skill Pareto checks retain only nonregressing candidates."
+    },
+    "terminology": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill terms keep one stable meaning across instructions, files, tasks, and evidence.",
+      "motivation": "A skill package becomes hard to execute when one concept has conflicting names.",
+      "proof": "Agent skill semantic review and domain contracts reconcile every retained term."
+    },
+    "exclusions": {
+      "profile": "agent-skill-aspect",
+      "outcome": "Agent skill exclusions block unsupported facts, side effects, host assumptions, and proxy judgment.",
+      "motivation": "A skill package needs explicit non-goals to avoid authority and scope expansion.",
+      "proof": "Agent skill negative evals and decision records reject excluded behavior."
+    }
+  },
+  "primitives": {
+    "skill_body": {"profile": "agent-skill-primitive"},
+    "references": {"profile": "agent-skill-primitive"},
+    "assets": {"profile": "agent-skill-primitive"},
+    "scripts": {"profile": "agent-skill-primitive"},
+    "tests": {"profile": "agent-skill-primitive"},
+    "mise_tasks": {"profile": "agent-skill-primitive"},
+    "examples": {"profile": "agent-skill-primitive"},
+    "evals": {"profile": "agent-skill-primitive"},
+    "policies": {"profile": "agent-skill-primitive"},
+    "schemas": {"profile": "agent-skill-primitive"},
+    "records": {"profile": "agent-skill-primitive"}
+  }
+}

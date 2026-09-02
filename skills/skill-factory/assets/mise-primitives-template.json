@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "skill": "{{NAME}}",
+  "catalog_version": "2026.9.0",
+  "groups": {
+    "config": {"used": [], "not_applicable": [], "used_reason": "SCAFFOLD-PLACEHOLDER", "nonuse_reason": "SCAFFOLD-PLACEHOLDER", "creative_use": "SCAFFOLD-PLACEHOLDER", "evidence": "SCAFFOLD-PLACEHOLDER"},
+    "task": {"used": [], "not_applicable": [], "used_reason": "SCAFFOLD-PLACEHOLDER", "nonuse_reason": "SCAFFOLD-PLACEHOLDER", "creative_use": "SCAFFOLD-PLACEHOLDER", "evidence": "SCAFFOLD-PLACEHOLDER"},
+    "task_config": {"used": [], "not_applicable": [], "used_reason": "SCAFFOLD-PLACEHOLDER", "nonuse_reason": "SCAFFOLD-PLACEHOLDER", "creative_use": "SCAFFOLD-PLACEHOLDER", "evidence": "SCAFFOLD-PLACEHOLDER"},
+    "tool": {"used": [], "not_applicable": [], "used_reason": "SCAFFOLD-PLACEHOLDER", "nonuse_reason": "SCAFFOLD-PLACEHOLDER", "creative_use": "SCAFFOLD-PLACEHOLDER", "evidence": "SCAFFOLD-PLACEHOLDER"}
+  }
+}

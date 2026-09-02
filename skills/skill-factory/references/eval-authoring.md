@@ -1,8 +1,8 @@
 # Eval authoring
 
-Evals prove a skill helps. Each skill carries two files under evals/.
+Evals prove a skill helps. Load each skill's files under evals/ through `mise run evals`.
 
-## evals/evals.json
+## Behavior cases
 
 The shape:
 
@@ -14,22 +14,22 @@ The shape:
           "prompt": "clean up sales_2025.csv, some emails are missing",
           "expected_output": "A cleaned file plus a count of rows fixed.",
           "assertions": ["The reply states how many emails were missing."],
-          "files": ["evals/files/sales_2025.csv"]
+          "files": ["sales_2025.csv"]
         }
       ]
     }
 
-At least four cases. Prompts read like real requests: file paths, column names, casual phrasing, an occasional typo. Cover at least one edge, such as malformed input or a request the skill must refuse. Input files live under evals/files/ and are listed per case.
+At least four cases. Prompts read like real requests: file paths, column names, casual phrasing, an occasional typo. Cover at least one edge, such as malformed input or a request the skill must refuse. Load input files under evals/files/ through `mise run evals` and list them per case.
 
 Assertions are verifiable statements. "The output file is valid JSON" and "the report holds at least 3 recommendations" work; "the output is good" does not. Grade against quoted evidence, and mark a section header with no substance as a fail. Leave taste and style to human review instead of assertions.
 
-## evals/trigger-queries.json
+## Trigger queries
 
 A list of entries shaped {"query": "...", "should_trigger": true}. The checker enforces a floor of 4 with both labels present, and the shipping bar is about 20, half positive and half negative. Treat the floor as the schema minimum, never as the target. The strongest negatives are near misses: queries that share keywords with the skill yet need something different. Realism helps, so include paths, personal context, and abbreviations.
 
 ## What does the srinitude registry add?
 
-A skill destined for the srinitude/skills registry keeps both files above and also ships the registry eval artifact set under evals/: manifest.json names the run inputs, cases.json holds graded behavior cases with required and veto criteria, trigger-cases.json holds positive, hard negative, and near neighbor prompts, contract.md freezes the regression procedure, rubric.md guides the judge, and speed-budgets.json caps fixture and live timing. The seventh file, source-lineage.json, records a sha256 hash for every source file plus a public_version equal to the skill's metadata.version, so the registry validator can prove which bytes produced the release. Regenerate the hashes whenever a hashed file changes; a stale or invented hash fails registry validation.
+A skill destined for the srinitude/skills registry loads the registry artifact set under evals/ through `mise run evals`: manifest.json names run inputs, cases.json holds graded behavior cases, trigger-cases.json holds trigger prompts, contract.md freezes regression, rubric.md guides the judge, speed-budgets.json caps timing, and source-lineage.json records real source hashes and the public version.
 
 ## How do I run them?
 

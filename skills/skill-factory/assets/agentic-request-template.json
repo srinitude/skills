@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "operation": "SCAFFOLD-PLACEHOLDER name the domain-specific {{NAME}} operation",
+  "use_case": {
+    "path": "assets/use-case-contract.json",
+    "sha256": "SCAFFOLD-PLACEHOLDER sha256 of the completed use-case contract",
+    "promised_outcome": "SCAFFOLD-PLACEHOLDER copy the exact {{NAME}} outcome from the use-case contract"
+  },
+  "prompt": {
+    "file": "SCAFFOLD-PLACEHOLDER path to the long {{NAME}} prompt file",
+    "sha256": "SCAFFOLD-PLACEHOLDER sha256 of the prompt file",
+    "trace": {
+      "domain_role": "SCAFFOLD-PLACEHOLDER state the prompt's {{NAME}} role",
+      "outcome_contribution": "SCAFFOLD-PLACEHOLDER state how the prompt advances the {{NAME}} outcome",
+      "relevance": "SCAFFOLD-PLACEHOLDER state why this prompt belongs in this {{NAME}} operation",
+      "expected_proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} proof this prompt must produce"
+    }
+  },
+  "skills": [
+    {
+      "path": "SCAFFOLD-PLACEHOLDER path to one required SKILL.md",
+      "sha256": "SCAFFOLD-PLACEHOLDER sha256 of that SKILL.md",
+      "trace": {
+        "domain_role": "SCAFFOLD-PLACEHOLDER state the dependency skill's {{NAME}} role",
+        "outcome_contribution": "SCAFFOLD-PLACEHOLDER state how this skill advances the {{NAME}} outcome",
+        "relevance": "SCAFFOLD-PLACEHOLDER state why this skill is required for this {{NAME}} operation",
+        "expected_proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} proof this skill must support"
+      }
+    }
+  ],
+  "primitives": [
+    {
+      "kind": "SCAFFOLD-PLACEHOLDER name the primitive kind",
+      "name": "SCAFFOLD-PLACEHOLDER name the domain-specific {{NAME}} primitive",
+      "configuration": {},
+      "trace": {
+        "domain_role": "SCAFFOLD-PLACEHOLDER state the primitive's {{NAME}} role",
+        "outcome_contribution": "SCAFFOLD-PLACEHOLDER state how it advances the {{NAME}} outcome",
+        "relevance": "SCAFFOLD-PLACEHOLDER state why it is needed in this {{NAME}} operation",
+        "expected_proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} proof this primitive must produce"
+      }
+    }
+  ]
+}

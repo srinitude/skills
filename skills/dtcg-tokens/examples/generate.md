@@ -4,7 +4,7 @@
 
 ## User
 
-> Generate DTCG tokens from `evals/files/sample-brief.txt`. Prove the result is specific to that input.
+> Generate DTCG tokens from `evals/files/sample-brief.txt`. Prove the result is specific to that input. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Visible reply
 
@@ -12,9 +12,9 @@ The only source is text, so no visual-source inspection is claimed. I inventorie
 
 ## Command
 
-| Command                                                           | Purpose                                                              |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `python3 scripts/validate_dtcg.py evals/files/sample.tokens.json` | Validate the committed token fixture against the pinned DTCG checks. |
+| Command                                                     | Purpose                                                              |
+| ----------------------------------------------------------- | -------------------------------------------------------------------- |
+| `mise run token-validate -- evals/files/sample.tokens.json` | Validate the committed token fixture against the pinned DTCG checks. |
 
 ## Verified output
 
@@ -46,4 +46,4 @@ The only source is text, so no visual-source inspection is claimed. I inventorie
 
 Exit code: `0`
 
-The committed token and evidence fixtures are `evals/files/sample.tokens.json` and `evals/files/sample.evidence.json`. This checkpoint creates no new file. No HTML pass is claimed or bundled as a visual precedent.
+The committed token and evidence fixtures are `evals/files/sample.tokens.json` and `evals/files/sample.evidence.json`. This checkpoint creates no new file. No HTML pass is claimed or bundled as a visual precedent. Use `mise run token-packet -- <args>` for this routed resource.

@@ -1,6 +1,6 @@
 # Code rules
 
-These caps bind every code file in this skill and in every generated skill. The checker is scripts/check_code_rules.py, and `mise run lint-code` runs it over the whole tree.
+These caps bind every code file in this skill and in every generated skill. `mise run lint-code` owns the complete tree check.
 
 ## Size and shape
 
@@ -11,7 +11,7 @@ These caps bind every code file in this skill and in every generated skill. The 
 
 ## Script interface
 
-Every script under scripts/ meets one interface:
+Every implementation command behind a Mise task meets one interface:
 
 - prints usage, exit codes, and an example with --help
 - takes input from flags or stdin, never from an interactive prompt
@@ -25,7 +25,7 @@ Every script under scripts/ meets one interface:
 The order is fixed and test-first:
 
 1. mise.toml, so every job has its one command.
-2. The CI workflow plus the tests that pin the task graph. The scaffold ships scripts/tests/test_ci_contract.py for this, and its four tests name the contracts they pin: every required task exists, ci invokes every check job in order, every task carries a description, and the workflow runs the single entry point.
+2. The CI workflow plus the behavior tests that pin the task graph: every required task exists, CI invokes every check job in order, every task carries a description, and the workflow runs the single entry point.
 3. Tests for each script, written against the real interface.
 4. The scripts, until those tests pass.
 5. Docs, checked by the writing lint.

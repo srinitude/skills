@@ -1,0 +1,200 @@
+{
+  "skill_name": "figma-code-connect-design-system",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a web design system from product-map.figjam, prd.md, and /workspace/app, then connect the proved components to code.",
+      "expected_output": "A create-mode run that audits all sources, inventories screens, builds the hierarchy from DTCG tokens upward, and separates repository, Figma, and mapping effects.",
+      "assertions": [
+        "The run uses the exact cumulative hierarchy.",
+        "Code Connect starts only after the mapped primitive and real code export are inspected."
+      ],
+      "files": [
+        "references/operating-contract.md",
+        "references/design-system-lineage.md",
+        "references/code-connect.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Update our existing Figma library from /workspace/mobile and keep every unaffected component unchanged.",
+      "expected_output": "An update-mode gap analysis with keep, modify, add, migrate, stale, and blocked dispositions before any write.",
+      "assertions": [
+        "Existing Figma and repository state are inspected before mutation.",
+        "Unchanged components retain their current owners and proof."
+      ],
+      "files": ["references/operating-contract.md", "references/validation-and-recovery.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "Use this single screenshot to make a desktop design system and all screens needed for the UI.",
+      "expected_output": "A source-bounded plan that extracts visible evidence with vision, labels hidden behavior and states unknown, and avoids inventing product truth.",
+      "assertions": [
+        "The image is not treated as proof of hidden states or code structure.",
+        "The design owner and token owner are routed before component construction."
+      ],
+      "files": ["references/operating-contract.md", "references/design-system-lineage.md"]
+    },
+    {
+      "id": 4,
+      "prompt": "Build a Figma component library from this Android codebase and map one design component to both Compose and web exports.",
+      "expected_output": "A platform-aware create or update plan with two independent mapping labels and shared design identity.",
+      "assertions": [
+        "One-to-many mapping is preserved.",
+        "The result does not claim that the implementations synchronize with each other."
+      ],
+      "files": ["references/code-connect.md", "references/design-system-lineage.md"]
+    },
+    {
+      "id": 5,
+      "prompt": "The checkout screen is wrong because the field spacing is wrong. Patch only the screen so we can finish faster.",
+      "expected_output": "A lowest-cause repair that fixes the owning token, atom, or molecule and marks dependent templates and screens stale.",
+      "assertions": [
+        "The screen does not receive a one-off lower-level rule.",
+        "Affected dependents are rebuilt in topological order."
+      ],
+      "files": [
+        "references/design-system-lineage.md",
+        "references/validation-and-recovery.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write a new Button.figma.tsx file with figma.connect for our current Code Connect 2 project.",
+      "expected_output": "A corrected current-authoring plan that uses Button.figma.ts and figma.code instead of creating a legacy parser file.",
+      "assertions": [
+        "No new .figma.tsx artifact is created.",
+        "The version 2 legacy boundary is stated."
+      ],
+      "files": ["references/code-connect.md", "references/source-boundary.md"]
+    },
+    {
+      "id": 7,
+      "prompt": "Connect this component by path in the Figma UI. It has no property-aware example and I do not want repository changes.",
+      "expected_output": "A simple UI mapping plan that writes only approved Figma mapping metadata and leaves repository files unchanged.",
+      "assertions": [
+        "Simple mapping and property-aware template mapping remain distinct.",
+        "Repository change is reported as none."
+      ],
+      "files": ["references/code-connect.md"]
+    },
+    {
+      "id": 8,
+      "prompt": "Publish the local templates and also delete the old parser files while you are there.",
+      "expected_output": "A blocked result unless publication and deletion are separately authorized, even if parse and preview pass.",
+      "assertions": [
+        "Publish and delete are separate effects.",
+        "No metadata or file deletion occurs without exact authority."
+      ],
+      "files": ["examples/failure-missing-authority.md", "references/code-connect.md"]
+    },
+    {
+      "id": 9,
+      "prompt": "Migrate our existing SwiftUI parser mappings under Code Connect 2 and prove the new templates match before removal.",
+      "expected_output": "A migration plan that preserves legacy inputs, writes parserless outputs, parses both sides, and gates deletion and publication separately.",
+      "assertions": [
+        "Legacy authoring is not treated as maintained version 2 behavior.",
+        "Equal-output proof precedes any deletion."
+      ],
+      "files": ["references/code-connect.md", "assets/code-connect-mechanisms.json"]
+    },
+    {
+      "id": 10,
+      "prompt": "The PRD says one button label and the existing product and Figma file use another. Update both now.",
+      "expected_output": "A source conflict record that resolves the canonical owner or asks before mutating dependent targets.",
+      "assertions": [
+        "The conflict is not silently merged.",
+        "No fixed global source hierarchy is invented."
+      ],
+      "files": ["references/operating-contract.md"]
+    },
+    {
+      "id": 11,
+      "prompt": "Resume /work/run.json after the Input prop API changed yesterday.",
+      "expected_output": "A current readback that invalidates the Input mapping and every dependent component and screen before resuming at the lowest stale node.",
+      "assertions": [
+        "Old proof is not reused after the code API change.",
+        "Unaffected lineage remains current."
+      ],
+      "files": ["examples/resume.md", "references/validation-and-recovery.md"]
+    },
+    {
+      "id": 12,
+      "prompt": "Code Connect is set up, so keep Figma and production code automatically synchronized from now on.",
+      "expected_output": "A boundary correction that explains Code Connect metadata, display, and context without claiming bidirectional synchronization.",
+      "assertions": [
+        "No automatic production-code generation is claimed.",
+        "Repository artifacts, Figma metadata, Dev Mode display, and MCP context remain separate."
+      ],
+      "files": ["references/code-connect.md"]
+    },
+    {
+      "id": 13,
+      "prompt": "The local Code Connect templates parse, but the Figma component exposes a nested connected EmptyState that the React export and mapping do not represent. Mark the integrated result complete.",
+      "expected_output": "A blocked integrated result because nested-connected parity is missing even though local parsing passes.",
+      "assertions": [
+        "Parser success does not compensate for missing Figma, React, and mapping parity.",
+        "The component record names NESTED_CONNECTED as unmapped or absent rather than silently passing it.",
+        "Completion remains blocked until current design, code, mapping, and rendered evidence agree."
+      ],
+      "files": ["references/code-connect.md", "references/validation-and-recovery.md"]
+    },
+    {
+      "id": 14,
+      "prompt": "Add text, boolean, enum, instance-swap, slot, and nested-connected properties to every Figma component so the system is exhaustive, even where the properties have no product use.",
+      "expected_output": "A blocked lifecycle decision that requires justified use or explicit not-applicable disposition for every property kind on every component.",
+      "assertions": [
+        "Property kinds are not added for checklist coverage alone.",
+        "Each component records use or not-applicable with current product and interaction evidence.",
+        "Unjustified property use blocks integrated completion."
+      ],
+      "files": ["references/design-system-lineage.md", "references/code-connect.md"]
+    },
+    {
+      "id": 15,
+      "prompt": "The Figma component has a distinctive verified hierarchy and slot relationship, but the React implementation flattens it into a generic card while keeping the same labels. Reuse the old integrated proof.",
+      "expected_output": "A STALE result that invalidates the component and every dependent proof until the React structure, mapping, and rendered behavior preserve the verified design meaning.",
+      "assertions": [
+        "Matching labels do not prove structural or visual parity.",
+        "The lower-owner divergence invalidates dependent templates, screens, and integrated evidence.",
+        "Current whole, detail, responsive, and input-path evidence is required after repair."
+      ],
+      "files": [
+        "references/design-system-lineage.md",
+        "references/validation-and-recovery.md"
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "Every direct requirement is current, all lifecycle stages pass or are justified not-applicable, all property kinds have component-level dispositions and Figma-code-mapping parity, governance is current, and linked token and design quality records pass. Decide completion.",
+      "expected_output": "Integrated PASS only after the validator confirms every current requirement, stage, parity record, governance scope, and linked quality gate without a stale dependency.",
+      "assertions": [
+        "The direct requirement ledger is nonempty, unique, current, and fully passed or justified not-applicable.",
+        "Every component property kind has current design, code, and mapping disposition evidence.",
+        "Nested component, mapping, and generator directories prove parent-reading AGENTS governance and design-system source truth.",
+        "The integrated result passes only with current token-local and nine-gate design evidence."
+      ],
+      "files": [
+        "references/operating-contract.md",
+        "references/code-connect.md",
+        "references/validation-and-recovery.md"
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "The existing Figma library, React components, and Code Connect mappings passed before. Treat them as good unless a validator fails, then make the whole system perfect.",
+      "expected_output": "A zero-trust update run that starts every inherited design, code, mapping, lineage, and proof claim as STALE, inspects before diagnosis, and accepts only bounded current outcomes across all three specialist owners.",
+      "assertions": [
+        "Prior PASS, parser success, or polished renders cannot carry current integrated quality.",
+        "Presumptive weakness is an audit posture, not a blanket defect verdict or permission for needless mutation.",
+        "Token evidence, noncompensating design judgment, Figma structure, React behavior, mapping parity, lineage, and current rendered proof must each earn PASS.",
+        "The result rejects perfection and names the valid limit of each metric, proxy, measure, objective, and direct visual judgment."
+      ],
+      "files": [
+        "references/operating-contract.md",
+        "references/code-connect.md",
+        "references/validation-and-recovery.md"
+      ]
+    }
+  ]
+}

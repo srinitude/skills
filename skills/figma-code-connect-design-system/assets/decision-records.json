@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "skill": "figma-code-connect-design-system",
+  "records": [
+    {
+      "id": "mise-envelope",
+      "kind": "deterministic",
+      "owner": "mise",
+      "outcome": "The Mise task graph fixes every repeatable Figma check.",
+      "motivation": "Code Connect proof needs deterministic ordering and typed receipts.",
+      "why_this_path": "The Mise task graph owns parsing, task links, hashes, and exit states.",
+      "inputs": ["current Figma readback", "TypeScript React API proof"],
+      "expected_effect": "A Figma design system run exposes missing or stale fixed evidence early.",
+      "proof": "The Mise task graph records each fixed gate and dependency.",
+      "falsifier": "The Figma design system leaves a repeatable check to unrecorded model choice.",
+      "failure_branch": "Code Connect blocks and returns to mise-envelope."
+    },
+    {
+      "id": "direct-vision-owner",
+      "kind": "model_owned",
+      "owner": "model",
+      "outcome": "A direct visual audit owns every Figma visual-quality decision.",
+      "motivation": "A direct visual audit cannot be replaced by Figma node structure.",
+      "why_this_path": "The direct visual audit owner makes current rendered-pixel judgments.",
+      "inputs": ["current Figma readback", "TypeScript React API proof"],
+      "expected_effect": "The Figma design system rejects unseen or visually weak output.",
+      "proof": "Direct visual audit receipts name current pages, views, and findings.",
+      "falsifier": "A direct visual audit PASS exists without current rendered pixels or sight.",
+      "failure_branch": "Code Connect blocks and returns to direct-vision-owner."
+    },
+    {
+      "id": "property-parity-owner",
+      "kind": "model_owned",
+      "owner": "model",
+      "outcome": "Component property parity joins Figma properties to real code APIs.",
+      "motivation": "Code Connect cannot repair a missing TypeScript React API.",
+      "why_this_path": "Component property parity traces product need across Figma, code, mapping, and render.",
+      "inputs": ["current Figma readback", "TypeScript React API proof"],
+      "expected_effect": "Code Connect mappings stop inventing props or hiding nested gaps.",
+      "proof": "Component property parity records every property kind and owner.",
+      "falsifier": "A mapped Figma property lacks a real TypeScript React API or render.",
+      "failure_branch": "Code Connect blocks and returns to property-parity-owner."
+    },
+    {
+      "id": "mutation-authority",
+      "kind": "human_owned",
+      "owner": "human",
+      "outcome": "Figma design system mutations stay inside explicit human authority.",
+      "motivation": "The Figma design system separates writes, publication, and deletion.",
+      "why_this_path": "The Figma design system gives each exact permission to the human owner.",
+      "inputs": ["current Figma readback", "TypeScript React API proof"],
+      "expected_effect": "Code Connect work cannot silently publish or overwrite design state.",
+      "proof": "Figma design system mutation receipts preserve authority and readback.",
+      "falsifier": "The Figma design system has a mutation without exact human permission.",
+      "failure_branch": "Code Connect blocks and returns to mutation-authority."
+    },
+    {
+      "id": "safe-skill-change",
+      "kind": "deterministic",
+      "owner": "mise",
+      "outcome": "The Mise task graph keeps only nonregressing skill changes.",
+      "motivation": "Code Connect workflow speed cannot trade away correctness or model judgment.",
+      "why_this_path": "The Mise task graph owns the baseline, measures, comparison, and restore path.",
+      "inputs": ["current Figma readback", "TypeScript React API proof"],
+      "expected_effect": "Code Connect skill changes improve one part without harming another.",
+      "proof": "The Mise task graph records before and after measures and digests.",
+      "falsifier": "The Mise task graph finds a changed skill worse than its baseline.",
+      "failure_branch": "Code Connect blocks and returns to safe-skill-change."
+    }
+  ]
+}

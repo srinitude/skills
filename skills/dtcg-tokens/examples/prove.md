@@ -4,7 +4,7 @@
 
 ## User
 
-> Prove evals/files/sample.tokens.json with evals/files/sample.evidence.json and make the report standalone.
+> Prove evals/files/sample.tokens.json with evals/files/sample.evidence.json and make the report standalone. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Visible reply
 
@@ -12,9 +12,9 @@ The token and evidence records are valid preflight inputs, but no strong-vision-
 
 ## Command
 
-| Command                                                                                                                                                                                                                    | Purpose                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `python3 scripts/assemble_artifact.py --candidate does-not-exist.html --tokens evals/files/sample.tokens.json --evidence evals/files/sample.evidence.json --output .artifacts/sample-proof.html --run-id sample-preflight` | Confirm that proof assembly blocks when the required run-specific candidate is absent. |
+| Command                                                                                                                                                                                                       | Purpose                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `mise run token-prove -- --candidate does-not-exist.html --tokens evals/files/sample.tokens.json --evidence evals/files/sample.evidence.json --output .artifacts/sample-proof.html --run-id sample-preflight` | Confirm that proof assembly blocks when the required run-specific candidate is absent. |
 
 ## Verified output
 

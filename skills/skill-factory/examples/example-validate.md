@@ -1,84 +1,60 @@
-# Example: validate <path>, one passing skill and one failing skill
+# Example: validate one passing and one failing skill
 
-Guess this example removes: the exact shape of a PASS line, the shape of a FAIL block, and which of the four checks catches which defect.
+Guess this example removes: the difference between a target-validation failure and a passing package.
 
 ## User says
 
 ```
-can you check whether the skill at work-examples/broken/broken-skill meets the contract? someone wrote it by hand
+check whether the skill at work/broken-skill meets the factory contract
 ```
 
 ## Executor replies
 
 ```
-Nine structure problems, two writing problems, one code problem, two eval problems. Every line below is from a run just now, and each one has a fix.
-
-Structure, from validate_skill.py:
-- description must state "Use when": add the trigger phrase to the frontmatter description.
-- references/, assets/, examples/, evals/, scripts/tests/ are missing: create them and reference each from the body with a load condition.
-- body never references scripts/: add the load condition line for scripts/.
-- missing evals/evals.json and missing mise.toml: copy the templates from assets/ and fill them.
-
-Writing, from lint_writing.py:
-- SKILL.md:9 heading nested past three levels: promote it to a level three heading.
-- SKILL.md:12 hard line break inside a wrappable block: join the two physical lines into one.
-
-Code, from check_code_rules.py:
-- scripts/deep.py:1 walk nesting is 4: pull the inner loop into its own function.
-
-Evals, from check_evals.py:
-- evals.json needs at least 4 cases and trigger-queries.json is missing: write four real cases plus positive and negative queries.
-
-For comparison, here is the same set of checks on a skill that passes.
+The target fails. Its trigger omits "Use when", required package owners are absent, one implementation construct exceeds the nesting cap, and its eval set is incomplete. The passing comparison reports zero problems from every selected checker.
 ```
 
 ## Commands run
 
 ```
-$ python3 scripts/validate_skill.py /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
+$ mise run validate-target -- /home/user/work/broken-skill
+[validate_skill]
 FAIL description must state "Use when" the skill applies
 FAIL missing required directory: references/
 FAIL missing required directory: assets/
 FAIL missing required directory: examples/
-FAIL body never references scripts/
 FAIL missing required directory: evals/
-FAIL missing required directory: scripts/tests/
 FAIL missing evals/evals.json
 FAIL missing mise.toml task graph
-FAIL broken-skill: 9 problems
-exit 1
-
-$ python3 scripts/lint_writing.py /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
-/home/user/workspace/test/t-factory/work-examples/broken/broken-skill/SKILL.md:9: heading nested past three levels
-/home/user/workspace/test/t-factory/work-examples/broken/broken-skill/SKILL.md:12: hard line break inside a wrappable block; join the block into one line
+FAIL broken-skill: 7 problems
+[lint_writing]
 checked 1 files, 2 problems
-exit 1
-
-$ python3 scripts/check_code_rules.py /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
-/home/user/workspace/test/t-factory/work-examples/broken/broken-skill/scripts/deep.py:1: walk nesting is 4; cap is 3
+[check_code_rules]
+[private implementation file]:1: walk nesting is 4; cap is 3
 checked 1 files, 1 problems
-exit 1
-
-$ python3 scripts/check_evals.py /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
+[check_evals]
 evals.json: needs at least 4 cases
 missing evals/trigger-queries.json
 eval checks: 2 problems
 exit 1
 
-$ python3 scripts/validate_skill.py /home/user/workspace/test/t-factory/work-examples/line-budget
+$ mise run validate-target -- /home/user/work/line-budget
+[validate_skill]
 PASS line-budget: 0 problems
-exit 0
-
-$ python3 scripts/lint_writing.py /home/user/workspace/test/t-factory/work-examples/line-budget
-checked 5 files, 0 problems
-exit 0
-
-$ python3 scripts/check_code_rules.py /home/user/workspace/test/t-factory/work-examples/line-budget
-checked 10 files, 0 problems
-exit 0
-
-$ python3 scripts/check_placeholders.py /home/user/workspace/test/t-factory/work-examples/line-budget
-checked 7 files, 0 placeholders
+[lint_writing]
+checked 8 files, 0 problems
+[check_code_rules]
+checked 14 files, 0 problems
+[check_placeholders]
+checked 9 files, 0 placeholders
+[check_domain_research]
+domain research: 0 problems
+[check_use_case_contract]
+use-case contract: 0 problems
+[check_task_graph]
+task graph: 0 problems
+[check_decision_records]
+decision records: 0 problems
 exit 0
 ```
 
@@ -88,4 +64,4 @@ None. Validation reads and reports.
 
 ## What the run proves
 
-A passing run prints one line: PASS, the directory name, and a zero count. A failing run prints one FAIL line per problem and then the same summary line with the count, so the last line is enough to decide and the lines above it are enough to fix. The writing lint and the code checker print path and line instead, and both end with a "checked N files, M problems" summary.
+The target task selects the same factory checks for both packages. A zero exit proves only those stated contracts. The failed output identifies the lowest owning class for each repair without exposing private implementation paths in Markdown.

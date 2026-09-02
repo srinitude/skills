@@ -23,7 +23,7 @@ one paragraph of reply, then the evidence
 SCAFFOLD-PLACEHOLDER: the fenced block below must hold real stdout and the real exit code of every command.
 
 ```
-$ python3 scripts/skill_info.py
+$ mise run info
 {"name": "{{NAME}}", "description": "..."}
 exit 0
 ```

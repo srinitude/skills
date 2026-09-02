@@ -5,6 +5,8 @@ SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 SCRIPT = SKILL_DIR / "scripts" / "run_pipeline.py"
 CHECKLIST = SKILL_DIR / "scripts" / "review_checklist.py"
 INTAKE = SKILL_DIR / "evals" / "files" / "valid-intake.json"
+sys.path.insert(0, str(SKILL_DIR / "scripts"))
+from lib import run_validation  # noqa: E402
 
 
 def start(path):
@@ -108,6 +110,41 @@ class TestReviewContract(unittest.TestCase):
                 self.assertEqual(item["human_lenses"],
                                  ["eye", "brain", "touch"])
                 self.assertEqual(item["apply_human_sweep"], "ALL")
+
+    def test_quality_gate_is_canonical_noncompensating_and_human_owned(self):
+        self.assertIn("quality_gate_contract", self.checklist)
+        gate = self.checklist["quality_gate_contract"]
+        self.assertEqual(gate["owner"], "model")
+        self.assertEqual(
+            gate["gate_ids"],
+            [
+                "truth", "access", "task", "perception", "familiarity",
+                "standards", "uniqueness", "craft", "resilience",
+            ],
+        )
+        self.assertEqual(gate["checkpoints"], ["direction", "artifact", "integrated"])
+        self.assertEqual(
+            gate["diagnoses"], ["DEFECT", "MEDIOCRE", "SLOP", "PASS"]
+        )
+        self.assertTrue(gate["noncompensating"])
+        self.assertFalse(gate["numeric_score_allowed"])
+        self.assertFalse(gate["scripts_may_judge"])
+
+    def test_quality_gate_rejects_an_overall_pass_when_one_gate_fails(self):
+        checker = getattr(run_validation, "valid_quality_gate", None)
+        self.assertTrue(callable(checker), "quality gate validator is missing")
+        ids = [
+            "truth", "access", "task", "perception", "familiarity",
+            "standards", "uniqueness", "craft", "resilience",
+        ]
+        record = {
+            "checkpoint": "integrated", "status": "PASS", "diagnosis": "PASS",
+            "gates": [{"id": gate_id, "status": "PASS", "evidence": ["current proof"]}
+                      for gate_id in ids],
+        }
+        record["gates"][4]["status"] = "REVISE"
+        problems = checker(record, "integrated")
+        self.assertTrue(any("familiarity" in problem for problem in problems), problems)
 
 
 if __name__ == "__main__":

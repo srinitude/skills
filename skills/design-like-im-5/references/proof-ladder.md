@@ -1,6 +1,6 @@
 # Proof ladder
 
-Parent and backlink: [SKILL.md](../SKILL.md), Eval owner map.
+Parent and backlink: [SKILL.md](../SKILL.md), Eval owner map, loaded through `mise run proof-ladder`.
 
 Read this file before a skill eval. Use the rungs in their fixed order.
 
@@ -26,7 +26,7 @@ Read this file before a skill eval. Use the rungs in their fixed order.
 
 ## Small pilots
 
-- Start with the five seeded scenes in [pilot-cases.json](../evals/pilot-cases.json).
+- Start with the five seeded scenes in [pilot-cases.json](../evals/pilot-cases.json) through `mise run proof-ladder`.
 - Give each one-fault scene eye, brain, and touch review.
 - Require a current render for the overlap scene and a live trace for the motion scene.
 - Require the named state and input proof for every other scene. Do not replace missing proof with a guess.

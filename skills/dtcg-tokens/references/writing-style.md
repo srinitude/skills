@@ -1,6 +1,6 @@
 # Writing style
 
-Read this file before changing any Markdown in this skill. Step 24 checks every Markdown file against these rules with `scripts/lint_writing.py` and a full human readback.
+Read this file before changing any Markdown in this skill. Step 24 checks every Markdown file against these rules with `mise run lint-writing` and a full human readback.
 
 ## Structure
 

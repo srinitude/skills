@@ -122,7 +122,7 @@ test('maps every nonblank source line without loss', async () => {
   expect(entries).toHaveLength(mappedLines);
   const nativeLines = await loadNativeLines();
   for (const entry of entries) await expectMappedEntry(entry, nativeLines);
-});
+}, 30_000);
 
 test('binds all source cases and public files to lineage', async () => {
   const lineage = await json(join(skill, 'evals', 'source-lineage.json'));

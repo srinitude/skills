@@ -19,23 +19,23 @@ That reply is true about the checks and false about the skill. Nothing in the tr
 ## What the checks print on an untouched scaffold now
 
 ```
-$ python3 scripts/validate_skill.py .
+$ mise run validate
 PASS line-budget: 0 problems
 exit 0
 
-$ python3 scripts/lint_writing.py .
+$ mise run lint-writing
 checked 4 files, 0 problems
 exit 0
 
-$ python3 scripts/check_code_rules.py .
+$ mise run lint-code
 checked 8 files, 0 problems
 exit 0
 
-$ python3 scripts/check_evals.py .
+$ mise run evals
 eval checks: 0 problems
 exit 0
 
-$ python3 scripts/check_placeholders.py .
+$ mise run lint-placeholders
 SKILL.md:14: scaffold sentinel SCAFFOLD-PLACEHOLDER still present
 evals/evals.json:6: scaffold sentinel SCAFFOLD-PLACEHOLDER still present
 evals/evals.json:7: scaffold sentinel SCAFFOLD-PLACEHOLDER still present
@@ -51,12 +51,12 @@ checked 6 files, 26 placeholders
 exit 1
 ```
 
-The listing above is trimmed in the middle: the real run printed 26 lines, 17 of them from evals/evals.json. The four other checks still pass, which is the point. Structure, writing, code shape, and eval schema say nothing about whether the skill does the requested job, so one more check carries that weight.
+The `mise run lint-placeholders` listing above is trimmed in the middle: the real run printed 26 lines, 17 of them from evals/evals.json. The four other checks still pass, which is the point. Structure, writing, code shape, and eval schema say nothing about whether the skill does the requested job, so one more check carries that weight.
 
 ## The same tree after the build
 
 ```
-$ python3 scripts/check_placeholders.py .
+$ mise run lint-placeholders
 checked 7 files, 0 placeholders
 exit 0
 ```
@@ -64,7 +64,7 @@ exit 0
 ## What the executor must say when the gate is red
 
 ```
-Not done. The scaffold exists and four checks pass, and the placeholder check exits 1 with 26 hits across SKILL.md, evals/evals.json, evals/trigger-queries.json, and examples/example-first-run.md. Those files still hold seeded text, so the skill does not do the job yet. Next: write the transcript scan, its tests, the real eval cases, and the worked example, then rerun.
+Not done. The scaffold exists and four checks pass, and `mise run lint-placeholders` exits 1 with 26 hits across SKILL.md, evals/evals.json, evals/trigger-queries.json, and examples/example-first-run.md. Those files still hold seeded text, so the skill does not do the job yet. Next: write the transcript scan, its tests, the real eval cases, and the worked example, then rerun.
 ```
 
 ## Files created

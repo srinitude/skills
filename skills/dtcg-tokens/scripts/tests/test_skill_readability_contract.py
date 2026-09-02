@@ -18,12 +18,12 @@ class TestPackageMap(unittest.TestCase):
         self.assertEqual(cells, ["Path", "Contains", "Load or run when"])
         paths = [
             "`references/`", "`assets/`", "`assets/exploration-corpus/`",
-            "`scripts/`", "`scripts/lib/`", "`scripts/tests/`",
             "`evals/`", "`evals/files/`", "`examples/`", "`mise.toml`",
             "`.github/workflows/`",
         ]
         for path in paths:
             self.assertIn(path, self.package_map)
+        self.assertNotIn("`scripts/`", self.package_map)
 
     def test_package_map_forbids_directory_only_loading(self):
         self.assertIn("A directory name does not load a file", self.package_map)
@@ -71,6 +71,45 @@ class TestClaimScope(unittest.TestCase):
             if path.is_file() and path.suffix in suffixes:
                 text = path.read_text(encoding="utf-8").lower()
                 self.assertNotIn(escape, text, path)
+
+
+class TestComputerUseAuditContract(unittest.TestCase):
+    def test_goal_specific_sources_stay_outside_the_portable_skill(self):
+        skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        roles = [
+            "current product board or FigJam source",
+            "originating audiovisual source",
+            "originating transcript",
+        ]
+        for role in roles:
+            self.assertNotIn(role, skill)
+        self.assertIn("item-level source dispositions", skill)
+        self.assertIn("Outside that audit", skill)
+
+    def test_same_vision_agent_operates_portable_design_app_control(self):
+        skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("paramount visual-proof rule", skill)
+        self.assertIn("every applicable available vision capability", skill)
+        self.assertIn("before and after", skill)
+        self.assertIn("platform-neutral local application-control capability", skill)
+        self.assertIn("same invoking strong vision-capable executor", skill)
+        self.assertIn("directly inspect the active design application", skill)
+        self.assertIn("including Figma", skill)
+        self.assertIn("the item is `BLOCKED`", skill)
+
+
+class TestFocusIntentContract(unittest.TestCase):
+    def test_token_focus_intent_has_stable_fields_and_boundary(self):
+        skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        fields = [
+            "user_task", "focus_target", "focus_location", "focus_timing",
+            "focus_mechanism", "focus_reason", "attention_sequence",
+            "competing_signals", "defocus_and_recovery", "failure_evidence",
+        ]
+        self.assertIn("focus-intent record", skill)
+        for field in fields:
+            self.assertIn(f"`{field}`", skill)
+        self.assertIn("does not prove product-level focus success", skill)
 
 
 if __name__ == "__main__":

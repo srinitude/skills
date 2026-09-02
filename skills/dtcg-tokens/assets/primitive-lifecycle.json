@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "dtcg-tokens",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "dtcg-token-lifecycle": {
+      "discover": "token-help",
+      "research": "token-explore",
+      "experiment": "token-packet",
+      "decide": "decision-policy",
+      "create": "token-run",
+      "inspect": "token-packet",
+      "update": "token-start",
+      "validate": "acceptance",
+      "accept": "token-pass",
+      "restore": "token-block",
+      "deprecate": "token-block",
+      "retire": "token-block"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token actors ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token actors ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token actors evidence names the owner, current state, decision, and accepting task."
+    },
+    "objects": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token objects ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token objects ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token objects evidence names the owner, current state, decision, and accepting task."
+    },
+    "actions": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token actions ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token actions ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token actions evidence names the owner, current state, decision, and accepting task."
+    },
+    "states": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token states ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token states ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token states evidence names the owner, current state, decision, and accepting task."
+    },
+    "invariants": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token invariants ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token invariants ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token invariants evidence names the owner, current state, decision, and accepting task."
+    },
+    "variants": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token variants ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token variants ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token variants evidence names the owner, current state, decision, and accepting task."
+    },
+    "interfaces": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token interfaces ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token interfaces ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token interfaces evidence names the owner, current state, decision, and accepting task."
+    },
+    "authorities": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token authorities ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token authorities ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token authorities evidence names the owner, current state, decision, and accepting task."
+    },
+    "failures": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token failures ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token failures ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token failures evidence names the owner, current state, decision, and accepting task."
+    },
+    "recoveries": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token recoveries ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token recoveries ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token recoveries evidence names the owner, current state, decision, and accepting task."
+    },
+    "evidence": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token evidence ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token evidence ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token evidence evidence names the owner, current state, decision, and accepting task."
+    },
+    "time": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token time ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token time ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token time evidence names the owner, current state, decision, and accepting task."
+    },
+    "resources": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token resources ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token resources ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token resources evidence names the owner, current state, decision, and accepting task."
+    },
+    "quality": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token quality ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token quality ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token quality evidence names the owner, current state, decision, and accepting task."
+    },
+    "terminology": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token terminology ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token terminology ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token terminology evidence names the owner, current state, decision, and accepting task."
+    },
+    "exclusions": {
+      "profile": "dtcg-token-lifecycle",
+      "outcome": "DTCG token exclusions ownership remains explicit from source discovery through accepted proof.",
+      "motivation": "DTCG token exclusions ambiguity can create generic values, false claims, or unsafe changes.",
+      "proof": "DTCG token exclusions evidence names the owner, current state, decision, and accepting task."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "references": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "assets": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "scripts": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "tests": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "examples": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "evals": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "policies": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "schemas": {
+      "profile": "dtcg-token-lifecycle"
+    },
+    "records": {
+      "profile": "dtcg-token-lifecycle"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "query": "Create a Figma design system from this PRD, FigJam product map, and codebase, then set up Code Connect.",
+    "should_trigger": true
+  },
+  {
+    "query": "Update our existing Figma library and every affected Code Connect template from /workspace/app.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn this screenshot into the component hierarchy and screens for an iOS UI, then connect the hardened parts to Swift code.",
+    "should_trigger": true
+  },
+  {
+    "query": "Resume the design-system run and rebuild every component made stale by a token change.",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit our design system, repository components, Figma mappings, Dev Mode output, and MCP context without changing them.",
+    "should_trigger": true
+  },
+  {
+    "query": "Refresh the current Code Connect source and capability baseline for this skill.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create one Code Connect template for this already-selected component.",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement this Figma frame in the existing frontend.",
+    "should_trigger": false
+  },
+  {
+    "query": "Make DTCG tokens and an HTML proof from this mood board.",
+    "should_trigger": false
+  },
+  {
+    "query": "Review this one screen for visual defects without building a design system.",
+    "should_trigger": false
+  },
+  { "query": "Search a pattern library for checkout examples.", "should_trigger": false },
+  { "query": "Explain what Code Connect does.", "should_trigger": false }
+]

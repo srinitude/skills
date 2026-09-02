@@ -11,6 +11,9 @@
     "budget_owner",
     "objective",
     "invariants",
+    "progress",
+    "experiment_policy",
+    "optional_skill_improvement",
     "parallel_groups",
     "never_parallelize",
     "reuse",
@@ -27,17 +30,75 @@
       "additionalProperties": false,
       "required": [
         "proof_loss_allowed",
+        "exploration_loss_allowed",
         "required_work",
         "scope_loss_allowed",
+        "visual_judgment_concurrency",
         "workflow_action_concurrency",
         "writers_per_artifact"
       ],
       "properties": {
+        "exploration_loss_allowed": { "const": false },
         "proof_loss_allowed": { "const": false },
         "required_work": { "const": "all" },
         "scope_loss_allowed": { "const": false },
+        "visual_judgment_concurrency": { "const": 1 },
         "workflow_action_concurrency": { "const": 1 },
         "writers_per_artifact": { "const": 1 }
+      }
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requires", "does_not_count", "speed_rule"],
+      "properties": {
+        "requires": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" }
+        },
+        "does_not_count": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": { "type": "string" }
+        },
+        "speed_rule": { "type": "string", "minLength": 1 }
+      }
+    },
+    "experiment_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_scale",
+        "micro_optimization_allowed",
+        "pure_optimization_requires_explicit_user_request",
+        "observed_defect_or_required_threshold_repair_is_not_pure_optimization",
+        "direct_vision_distinguishability_required",
+        "human_judgment"
+      ],
+      "properties": {
+        "default_scale": { "const": "material_direction" },
+        "micro_optimization_allowed": { "const": false },
+        "pure_optimization_requires_explicit_user_request": { "const": true },
+        "observed_defect_or_required_threshold_repair_is_not_pure_optimization": {
+          "const": true
+        },
+        "direct_vision_distinguishability_required": { "const": true },
+        "human_judgment": {
+          "const": ["eye", "brain", "touch", "bad_design", "bad_output", "bad_practice"]
+        }
+      }
+    },
+    "optional_skill_improvement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cli_owner", "acceptance", "failure"],
+      "properties": {
+        "cli_owner": { "const": "mise" },
+        "acceptance": { "const": "pareto_non_regression" },
+        "failure": { "const": "restore_last_accepted_version" }
       }
     },
     "parallel_groups": {

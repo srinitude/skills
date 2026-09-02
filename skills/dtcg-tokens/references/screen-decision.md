@@ -1,6 +1,6 @@
 # Screen decision
 
-Read this file in Step 07 before token families are narrowed. It owns the applicability ledger and decision record for `assets/screen-possibility-space.json`.
+Read this file in Step 07 before token families are narrowed. It owns the applicability ledger and decision record for `assets/screen-possibility-space.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Enumerate
 

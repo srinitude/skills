@@ -1,0 +1,173 @@
+# One Figma and Code Connect task graph owns local and remote checks.
+
+min_version = "2026.9.0"
+
+[settings]
+jobs = 8
+
+[tools]
+python = "3.11"
+
+[env]
+PYTHONDONTWRITEBYTECODE = "1"
+PYTHONHASHSEED = "0"
+
+[task_config]
+dir = "{{config_root}}"
+
+[tasks.complete]
+description = "Check all Figma and Code Connect skill work before PASS"
+depends = ["ci"]
+run = "echo 'complete: Figma and Code Connect skill checks passed'"
+
+[tasks.ci]
+description = "Check Figma behavior, package shape, proof, and factory rules"
+alias = "c"
+output = "prefix"
+depends = ["test", "structure", "proof", "factory-policy", "improvement-policy"]
+
+[tasks.test]
+description = "Test Figma run and Code Connect parity behavior"
+depends = []
+run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+timeout = "180s"
+
+[tasks.structure]
+description = "Check Figma skill files, prose, code, and task links"
+depends = ["task-graph", "validate", "lint-writing", "lint-code", "lint-placeholders"]
+
+[tasks.task-graph]
+description = "Reject lost Figma task links and loops"
+depends = []
+run = "mise tasks validate --errors-only"
+
+[tasks.validate]
+description = "Check fixed Figma skill shape and owners"
+depends = []
+run = "python3 scripts/validate_skill.py ."
+
+[tasks.lint-writing]
+description = "Check Figma skill Markdown rules"
+depends = []
+run = "python3 scripts/lint_writing.py ."
+
+[tasks.lint-code]
+description = "Check Figma skill code size and depth"
+depends = []
+run = "python3 scripts/check_code_rules.py ."
+
+[tasks.lint-placeholders]
+description = "Reject blank or draft Figma skill text"
+depends = []
+run = "python3 scripts/check_placeholders.py ."
+
+[tasks.proof]
+description = "Check Figma evals and source hashes"
+depends = ["evals", "package-records"]
+
+[tasks.evals]
+description = "Check Figma and Code Connect behavior cases"
+depends = []
+run = "python3 scripts/check_evals.py ."
+
+[tasks.package-records]
+description = "Check all Figma skill file hashes"
+depends = []
+run = "python3 scripts/build_package_records.py --check"
+
+[tasks.factory-policy]
+description = "Check Figma factory rules"
+depends = ["decision-policy"]
+
+[tasks.domain-research-policy]
+description = "Check Figma and Code Connect source proof"
+depends = []
+run = "python3 scripts/check_factory_policy.py research"
+
+[tasks.use-case-policy]
+description = "Reject generic Figma and mapping parts"
+depends = ["domain-research-policy"]
+run = "python3 scripts/check_factory_policy.py use-case"
+
+[tasks.mise-primitives-policy]
+description = "Check each Mise part used for the Figma skill"
+depends = ["use-case-policy"]
+run = "python3 scripts/check_factory_policy.py mise"
+
+[tasks.mise-catalog-bootstrap]
+description = "Get the first Figma skill Mise part list"
+depends = []
+run = "python3 scripts/sync_mise_primitives.py ."
+
+[tasks.primitive-lifecycle-policy]
+description = "Check each Figma skill part life cycle"
+depends = ["mise-primitives-policy"]
+run = "python3 scripts/check_factory_policy.py lifecycle"
+
+[tasks.task-graph-policy]
+description = "Reject bad Figma skill task paths"
+depends = ["primitive-lifecycle-policy"]
+run = "python3 scripts/check_factory_policy.py graph"
+
+[tasks.decision-policy]
+description = "Check Figma choice owners and reasons"
+depends = ["task-graph-policy"]
+run = "python3 scripts/check_factory_policy.py decisions"
+
+[tasks.improvement-policy]
+description = "Check the safe Figma skill change rule"
+depends = []
+run = "python3 scripts/check_factory_policy.py improvement"
+
+[tasks.invocation-policy]
+description = "Check one Figma skill run receipt after --"
+depends = []
+run = "python3 scripts/check_factory_policy.py invocation"
+
+[tasks.agentic-request]
+description = "Send one typed Figma and Code Connect request"
+depends = []
+run = "python3 scripts/run_agentic_request.py"
+
+[tasks.new-run]
+description = "Create one Figma design system run ledger"
+depends = []
+run = "python3 scripts/new_run.py"
+
+[tasks.validate-run]
+description = "Check one Figma run, parity map, and stale path"
+depends = []
+run = "python3 scripts/validate_run.py"
+
+[tasks.skill-info]
+description = "Print the Figma skill name and trigger"
+depends = []
+run = "python3 scripts/skill_info.py"
+
+[tasks.factory-assets-write]
+description = "Build Figma factory policy records"
+depends = []
+depends_post = ["package-records-write"]
+run = "python3 scripts/build_factory_policy_assets.py ."
+
+[tasks.package-records-write]
+description = "Refresh all Figma skill file hashes"
+depends = []
+run = "python3 scripts/build_package_records.py --write"
+
+[tasks.generate]
+description = "Refresh Figma skill records in one order"
+depends = ["package-records-write"]
+run = "true"
+
+[tasks.mise-latest]
+description = "Update Mise after Figma skill work"
+depends = []
+run = "mise self-update --yes --no-plugins"
+
+[tasks.mise-primitives-update]
+description = "Refresh the Figma skill Mise part list"
+depends = ["mise-latest"]
+depends_post = ["factory-assets-write"]
+run = "python3 scripts/sync_mise_primitives.py ."
+timeout = "60s"

@@ -40,6 +40,7 @@ test('builds a stdio server that a spawned MCP client can initialize', async () 
       'skill://dedupe/SKILL.md',
       'skill://design-like-im-5/SKILL.md',
       'skill://dtcg-tokens/SKILL.md',
+      'skill://figma-code-connect-design-system/SKILL.md',
       'skill://goal-prompt/SKILL.md',
       'skill://logic-audit/SKILL.md',
       'skill://meaning-preserving-rewrite/SKILL.md',

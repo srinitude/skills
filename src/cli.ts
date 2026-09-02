@@ -12,6 +12,7 @@ import { buildPackage } from './package.js';
 import { validateRepository } from './repository-validation.js';
 import { validateSkill } from './skill-validation.js';
 import { runSweepCli } from './sweep-cli.js';
+import { refreshRepositoryBaseline } from './source-evidence-refresh.js';
 
 interface DiagnosticSink {
   write(text: string): unknown;
@@ -155,6 +156,12 @@ async function dispatch(
   if (command === 'benchmark') return benchmarkCommand(args, root, stderr);
   if (command === 'check-integrations') return integrationsCommand(args, root, stderr);
   if (command === 'package') return packageCommand(args, root, stderr);
+  if (command === 'refresh-source-evidence') {
+    if (args.length === 0) throw new Error('at least one skill name is required');
+    for (const skill of args) await refreshRepositoryBaseline(root, skill);
+    stderr.write(`source evidence: PASS (${args.length} skills)\n`);
+    return 0;
+  }
   if (command === 'sweep') return runSweepCli(args, stderr);
   throw new Error(`unknown command: ${command ?? '(missing)'}`);
 }

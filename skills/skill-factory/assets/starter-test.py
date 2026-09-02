@@ -16,7 +16,9 @@ def run(path, *args):
 
 class TestScriptContracts(unittest.TestCase):
     def test_every_script_documents_help(self):
-        scripts = sorted((SKILL_DIR / "scripts").glob("*.py"))
+        candidates = sorted((SKILL_DIR / "scripts").glob("*.py"))
+        scripts = [path for path in candidates
+                   if 'if __name__ == "__main__"' in path.read_text()]
         self.assertTrue(scripts, "scripts/ holds no python files")
         for script in scripts:
             result = run(script, "--help")

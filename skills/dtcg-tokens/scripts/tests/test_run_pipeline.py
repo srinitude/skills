@@ -146,14 +146,15 @@ class TestProgrammaticScaffoldingContract(unittest.TestCase):
 
     def test_entrypoint_keeps_mechanical_work_in_scripts_without_automating_judgment(self):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("Push every mechanical action into `scripts/`", skill)
-        self.assertIn("Scripts scaffold judgment; they never make the judgment", skill)
+        self.assertIn("Push every mechanical action into Mise-owned tasks", skill)
+        self.assertIn("Mise tasks scaffold judgment; they never make the judgment", skill)
+        self.assertNotIn("scripts/run_pipeline.py", skill)
         execution = skill.split("## Execution\n", 1)[1].split("\n## ", 1)[0]
         rows = [line for line in execution.splitlines() if line.startswith("| ")]
         step_rows = [line for line in rows if line.split("|")[1].strip().isdigit()]
         self.assertEqual(len(step_rows), 25)
         for row in step_rows:
-            self.assertIn("scripts/run_pipeline.py", row)
+            self.assertIn("mise run", row)
 
 
 if __name__ == "__main__":

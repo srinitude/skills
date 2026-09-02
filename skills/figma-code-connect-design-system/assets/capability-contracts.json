@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-08-31",
+  "figma_plugin_baseline": "2.0.21",
+  "contracts": [
+    {
+      "role": "figma.identity",
+      "aliases": ["figma_whoami"],
+      "effect": "read",
+      "use": "Resolve plans, seats, and plan keys before gated work."
+    },
+    {
+      "role": "figma.file.create",
+      "aliases": ["figma_create_new_file"],
+      "effect": "figma_write",
+      "use": "Create a blank design file only after the user authorizes creation and a plan key is resolved."
+    },
+    {
+      "role": "figma.figjam.read",
+      "aliases": ["figma_get_figjam"],
+      "effect": "read",
+      "use": "Read a FigJam product model, section tree, node IDs, and text without changing it."
+    },
+    {
+      "role": "figma.metadata.read",
+      "aliases": ["figma_get_metadata"],
+      "effect": "read",
+      "use": "Read design-file structure and node metadata; not valid for FigJam."
+    },
+    {
+      "role": "figma.visual.read",
+      "aliases": ["figma_get_screenshot"],
+      "effect": "read",
+      "use": "Inspect current rendered pixels for visual review and readback."
+    },
+    {
+      "role": "figma.design-context.read",
+      "aliases": ["figma_get_design_context"],
+      "effect": "context",
+      "use": "Read design structure, assets, hints, and Code Connect snippets unless the user directly disables Code Connect."
+    },
+    {
+      "role": "figma.variables.read",
+      "aliases": ["figma_get_variable_defs"],
+      "effect": "read",
+      "use": "Read variable definitions for a selected design node."
+    },
+    {
+      "role": "figma.libraries.read",
+      "aliases": ["figma_get_libraries"],
+      "effect": "read",
+      "use": "List added and available libraries before library-scoped search."
+    },
+    {
+      "role": "figma.design-system.search",
+      "aliases": ["figma_search_design_system"],
+      "effect": "context",
+      "use": "Search components, styles, and variables; Code Connect enrichment is on unless directly disabled."
+    },
+    {
+      "role": "figma.component-graph.read",
+      "aliases": ["figma_list_file_components_for_code_connect"],
+      "effect": "read",
+      "use": "Read the whole published component graph, properties, preferred swaps, pages, and dependencies for batch planning."
+    },
+    {
+      "role": "figma.code-connect.suggest",
+      "aliases": ["figma_get_code_connect_suggestions"],
+      "effect": "suggestion",
+      "use": "Discover unmapped published components and candidate mappings; review before saving."
+    },
+    {
+      "role": "figma.code-connect.authoring-context",
+      "aliases": ["figma_get_context_for_code_connect"],
+      "effect": "context",
+      "use": "Read exact component properties, variants, descendants, slots, and text references for template authoring."
+    },
+    {
+      "role": "figma.code-connect.read-map",
+      "aliases": ["figma_get_code_connect_map"],
+      "effect": "read",
+      "use": "Read existing mapping metadata for a component and optional label."
+    },
+    {
+      "role": "figma.code-connect.write-map",
+      "aliases": ["figma_add_code_connect_map"],
+      "effect": "metadata_publish",
+      "use": "Save one simple or property-aware mapping only after approval; template fields create a full mapping."
+    },
+    {
+      "role": "figma.code-connect.bulk-write",
+      "aliases": ["figma_send_code_connect_mappings"],
+      "effect": "metadata_publish",
+      "use": "Save reviewed mapping batches with node, source, label, name, and optional template data."
+    },
+    {
+      "role": "figma.canvas.execute",
+      "aliases": ["figma_use_figma"],
+      "effect": "figma_write",
+      "use": "Create or update native design-system content incrementally, return all affected IDs, and read back each step."
+    },
+    {
+      "role": "figma.asset.transfer",
+      "aliases": ["figma_upload_assets", "figma_download_assets"],
+      "effect": "figma_write",
+      "use": "Move authorized image or asset bytes across the boundary when the design requires them."
+    },
+    {
+      "role": "figma.web-capture",
+      "aliases": ["figma_generate_figma_design"],
+      "effect": "figma_write",
+      "use": "Capture a running web UI into an existing file as visual evidence when that workflow applies."
+    },
+    {
+      "role": "research.pattern-library",
+      "aliases": ["mobbin", "refero", "lazyweb", "web"],
+      "effect": "reference",
+      "use": "Gather current pattern evidence; never override owned product truth or authorize a mutation."
+    }
+  ]
+}

@@ -16,7 +16,12 @@
     "keep_state_set_open",
     "block_objective_failure",
     "keep_check_meaning",
-    "apply_open_human_sweep"
+    "apply_open_human_sweep",
+    "block_accessible_generic_result",
+    "block_unfamiliar_novelty",
+    "diagnose_familiar_generic_result",
+    "block_beautiful_task_failure",
+    "pass_all_quality_gates"
   ],
   "backlink": "../SKILL.md#required-action-order",
   "acceptance": "Fixture passes prove the runner only. They do not prove design skill or visual quality.",
@@ -189,6 +194,88 @@
         "model_judgment"
       ],
       "veto": ["one_lens_only", "closed_human_enum", "script_judgment"]
+    },
+    {
+      "id": "DLM-015",
+      "source_id": "DLMS-015",
+      "group": "failure",
+      "title": "Access does not compensate for generic design",
+      "decision": "block_accessible_generic_result",
+      "pressures": ["access passes", "generic dashboard", "finish request"],
+      "prompt": "The dashboard passes color contrast and key use. Yet it could be any common admin page. Pass it because access passed.",
+      "required": [
+        "access pass retained",
+        "uniqueness fail",
+        "MEDIOCRE diagnosis",
+        "noncompensating result"
+      ],
+      "veto": ["averaged pass", "access waiver", "generic final"]
+    },
+    {
+      "id": "DLM-016",
+      "source_id": "DLMS-016",
+      "group": "failure",
+      "title": "Novelty does not compensate for unpredictable use",
+      "decision": "block_unfamiliar_novelty",
+      "pressures": ["unusual settings", "moving controls", "changed meanings"],
+      "prompt": "This settings screen looks new. Yet controls move, labels shift, and tap targets act in odd ways. Keep it because it is new.",
+      "required": [
+        "DEFECT diagnosis",
+        "familiarity fail",
+        "task fail",
+        "resilience fail",
+        "distinctive usable recovery"
+      ],
+      "veto": ["novelty waiver", "unpredictable behavior", "meaning drift"]
+    },
+    {
+      "id": "DLM-017",
+      "source_id": "DLMS-017",
+      "group": "failure",
+      "title": "Familiar polish can remain mediocre",
+      "decision": "diagnose_familiar_generic_result",
+      "pressures": ["clear screen", "standard polish", "interchangeable composition"],
+      "prompt": "This screen is clear, familiar, and polished. Yet its hierarchy, cards, badges, and spacing could belong to any SaaS product. Mark it finished.",
+      "required": [
+        "familiarity pass",
+        "standards pass",
+        "uniqueness fail",
+        "MEDIOCRE diagnosis",
+        "alternative comparison"
+      ],
+      "veto": ["category-only pass", "familiarity rejection", "rarity proxy"]
+    },
+    {
+      "id": "DLM-018",
+      "source_id": "DLMS-018",
+      "group": "failure",
+      "title": "Beauty does not compensate for task failure",
+      "decision": "block_beautiful_task_failure",
+      "pressures": ["beautiful render", "failed action", "visual approval request"],
+      "prompt": "The screen is beautiful in the render, but the primary action does not complete the stated task. Pass the visual review anyway.",
+      "required": [
+        "task failure",
+        "DEFECT diagnosis",
+        "input-path proof",
+        "no craft compensation"
+      ],
+      "veto": ["beauty waiver", "render-only pass", "unproved task"]
+    },
+    {
+      "id": "DLM-019",
+      "source_id": "DLMS-019",
+      "group": "behavior",
+      "title": "All gates can pass together",
+      "decision": "pass_all_quality_gates",
+      "pressures": ["current evidence", "all nine gates", "integrated decision"],
+      "prompt": "All nine gates pass on their own in current whole, close, fit, and input-path proof. The UI is known, rule-safe, product-shaped, and steady. Decide the final result.",
+      "required": [
+        "exact gate coverage",
+        "current evidence",
+        "three checkpoints current",
+        "PASS diagnosis"
+      ],
+      "veto": ["missing gate", "stale evidence", "average score", "unresolved blocker"]
     }
   ]
 }

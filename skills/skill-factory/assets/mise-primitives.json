@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "skill": "skill-factory",
+  "catalog_version": "2026.9.0",
+  "groups": {
+    "config": {
+      "used": ["env", "min_version", "settings", "task_config", "tasks", "tools"],
+      "not_applicable": ["_", "alias", "bootstrap", "deps", "dotenv", "dotfiles", "env_file", "env_path", "hooks", "monorepo", "monorepo_root", "oci", "plugins", "redactions", "shell_alias", "task_templates", "tool_alias", "tool_config", "vars", "watch_files", "wrappers"],
+      "used_reason": "skill-factory uses the Mise task graph, a Python toolchain, a minimum runner contract, bounded parallel jobs, artifact caching, a fixed task root, and deterministic Python environment values to produce portable agent skill packages quickly and correctly.",
+      "nonuse_reason": "The remaining top-level Mise features do not improve this single-package agent skill factory result, or they introduce remote services, secrets, shell state, repository scale, or side effects that this invocation does not own.",
+      "creative_use": "The agent skill environment disables bytecode cache files while bounded Mise concurrency and content-addressed static-check caches shorten repeated proof without caching live judgment.",
+      "evidence": "mise.toml, generated mise template, speed-contract tests, and plan-standardize runtime-cache tests."
+    },
+    "task": {
+      "used": ["alias", "cache", "depends", "depends_post", "description", "output", "outputs", "run", "run_windows", "sources", "timeout"],
+      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "env", "extends", "file", "hide", "interactive", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "tools", "usage", "vars", "wait_for", "watch"],
+      "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, declared sources, empty-output check caches, portable Python tools, argument contracts, platform commands, and prefixed evidence for agent skill operations.",
+      "nonuse_reason": "The unused task fields would add interactive locks, hidden evidence, sandbox claims, file-task indirection, Rust behavior, or watchers that do not advance this agent skill package operation.",
+      "creative_use": "Agent skill static checks cache only successful no-output evidence while live research, model judgment, external targets, mutation, and lineage stay uncached; timeouts bound stalls and a post dependency rejects unreconciled primitives after runner maintenance.",
+      "evidence": "mise.toml, generated mise template, speed-contract tests, task graph tests, timeout failures, and cross-platform command tests."
+    },
+    "task_config": {
+      "used": ["dir"],
+      "not_applicable": ["cache", "cascade", "excludes", "global_env", "global_inputs", "global_pass_through_env", "includes", "input_groups", "rust_cache", "shell"],
+      "used_reason": "skill-factory fixes every agent skill task to the package root so invocation location cannot change file ownership.",
+      "nonuse_reason": "The agent skill factory has one task file, no descendant config scope, no safe artifact-cache outputs, no Rust cache, and no need to override the host shell or ambient environment inheritance.",
+      "creative_use": "A single agent skill config-root directory rule removes repeated task paths and prevents accidental reads outside the package.",
+      "evidence": "mise.toml task_config and invocation tests from a non-root working directory."
+    },
+    "tool": {
+      "used": ["version"],
+      "not_applicable": ["depends", "install_before", "install_env", "lazy", "lazy_bins", "minimum_release_age", "os", "path", "postinstall", "prefix", "ref", "version_order"],
+      "used_reason": "skill-factory declares Python and uv versions for deterministic agent skill checks and cached dependency resolution.",
+      "nonuse_reason": "The Python registry already supplies stable ordering and portable artifacts, so source refs, local paths, prefixes, install ordering, release-age delay, and operating-system filters add no skill-factory value.",
+      "creative_use": "The agent skill graph lets uv cache one pinned YAML parser while every validation run receives the same dependency.",
+      "evidence": "mise.toml tool declarations, malformed-frontmatter attack, and doctor version receipts."
+    }
+  }
+}

@@ -35,6 +35,34 @@
     ],
     "rule": "Standardize evidence fields and verdict boundaries while allowing source-specific lenses, competing interpretations, emergent findings, and any expressive direction that fits the task and protected human outcomes."
   },
+  "token_quality_gate": {
+    "scope": "token_and_proof_only",
+    "whole_product_quality_allowed": false,
+    "noncompensating": true,
+    "numeric_score_allowed": false,
+    "statuses": ["pass", "fail", "blocked", "pending_visual_review"],
+    "diagnoses": ["DEFECT", "MEDIOCRE", "SLOP", "PASS"],
+    "gate_ids": [
+      "source_fidelity",
+      "semantic_role",
+      "accessible_range",
+      "spacing_relationships",
+      "responsive_behavior",
+      "familiarity",
+      "standards",
+      "uniqueness",
+      "rendered_proof"
+    ],
+    "spacing_roles": [
+      "related_item",
+      "inset",
+      "group",
+      "section",
+      "shell",
+      "wide_aperture"
+    ],
+    "rule": "Every applicable token-and-proof gate needs current evidence. One failed gate prevents PASS, and this record never proves whole-product quality."
+  },
   "track_contracts": {
     "taste": {
       "basis": "strong_vision_reasoned_judgment",

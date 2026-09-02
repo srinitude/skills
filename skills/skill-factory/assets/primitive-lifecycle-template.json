@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "skill": "{{NAME}}",
+  "required_phases": [
+    "discover", "research", "experiment", "decide", "create", "inspect",
+    "update", "validate", "accept", "restore", "deprecate", "retire"
+  ],
+  "profiles": {
+    "SCAFFOLD-PLACEHOLDER-{{NAME}}-aspect": {},
+    "SCAFFOLD-PLACEHOLDER-{{NAME}}-primitive": {}
+  },
+  "aspects": {
+    "actors": {},
+    "objects": {},
+    "actions": {},
+    "states": {},
+    "invariants": {},
+    "variants": {},
+    "interfaces": {},
+    "authorities": {},
+    "failures": {},
+    "recoveries": {},
+    "evidence": {},
+    "time": {},
+    "resources": {},
+    "quality": {},
+    "terminology": {},
+    "exclusions": {}
+  },
+  "primitives": {
+    "skill_body": {},
+    "references": {},
+    "assets": {},
+    "scripts": {},
+    "tests": {},
+    "mise_tasks": {},
+    "examples": {},
+    "evals": {},
+    "policies": {},
+    "schemas": {},
+    "records": {}
+  }
+}

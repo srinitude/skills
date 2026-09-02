@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "skill": "{{NAME}}",
+  "records": [
+    {
+      "id": "SCAFFOLD-PLACEHOLDER-deterministic-decision",
+      "kind": "deterministic",
+      "outcome": "SCAFFOLD-PLACEHOLDER observable {{NAME}} result",
+      "motivation": "SCAFFOLD-PLACEHOLDER why a programmatic {{NAME}} constraint protects the result",
+      "why_this_path": "SCAFFOLD-PLACEHOLDER why this Mise path fits {{NAME}}",
+      "owner": "mise",
+      "inputs": ["SCAFFOLD-PLACEHOLDER exact {{NAME}} inputs"],
+      "expected_effect": "SCAFFOLD-PLACEHOLDER expected {{NAME}} state change",
+      "proof": "SCAFFOLD-PLACEHOLDER deterministic {{NAME}} readback",
+      "falsifier": "SCAFFOLD-PLACEHOLDER observation that disproves the {{NAME}} decision",
+      "failure_branch": "SCAFFOLD-PLACEHOLDER {{NAME}} stop, repair, restore, or handoff path"
+    },
+    {
+      "id": "SCAFFOLD-PLACEHOLDER-model-decision",
+      "kind": "model_owned",
+      "outcome": "SCAFFOLD-PLACEHOLDER observable {{NAME}} result",
+      "motivation": "SCAFFOLD-PLACEHOLDER why {{NAME}} needs semantic or creative judgment",
+      "why_this_path": "SCAFFOLD-PLACEHOLDER why the {{NAME}} decision cannot be reduced further",
+      "owner": "model",
+      "inputs": ["SCAFFOLD-PLACEHOLDER source-backed {{NAME}} evidence"],
+      "expected_effect": "SCAFFOLD-PLACEHOLDER expected {{NAME}} quality change",
+      "proof": "SCAFFOLD-PLACEHOLDER semantic or human-sense {{NAME}} readback",
+      "falsifier": "SCAFFOLD-PLACEHOLDER counterevidence that rejects the {{NAME}} decision",
+      "failure_branch": "SCAFFOLD-PLACEHOLDER {{NAME}} reject, restore, or clarification path"
+    }
+  ]
+}

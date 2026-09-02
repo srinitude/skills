@@ -14,8 +14,10 @@ import unittest
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 CHECK_JOBS = ["validate-dtcg", "artifact-contract", "validate", "audit-files", "validate-exploration", "lint-writing",
-              "lint-code", "lint-placeholders", "evals"]
-REQUIRED_TASKS = ["ci", "test"] + CHECK_JOBS
+              "lint-code", "lint-placeholders", "evals", "improvement-policy"]
+POLICY_JOBS = ["domain-research-policy", "use-case-policy", "mise-primitives-policy",
+               "primitive-lifecycle-policy", "task-graph-policy", "decision-policy"]
+REQUIRED_TASKS = ["ci", "acceptance", "test-ci", "test", "lineage", "refresh-lineage"] + CHECK_JOBS + POLICY_JOBS
 
 
 def load_tasks(path):
@@ -31,17 +33,18 @@ class TestTaskGraph(unittest.TestCase):
         for name in REQUIRED_TASKS:
             self.assertIn(name, self.tasks, f"missing task: {name}")
 
-    def test_ci_invokes_every_check_job(self):
-        steps = self.tasks["ci"]["run"]
-        self.assertIsInstance(steps, list)
-        self.assertEqual(steps[0], "mise run test")
-        joined = " ".join(steps)
-        for job in CHECK_JOBS:
-            self.assertIn(f"mise run {job}", joined)
+    def test_ci_uses_dependency_edges(self):
+        task = self.tasks["ci"]
+        self.assertEqual(task["depends"], ["acceptance", "lineage"])
+        self.assertNotIn("run", task)
+        self.assertEqual(set(self.tasks["acceptance"]["depends"]),
+                         set(["test", "decision-policy"] + CHECK_JOBS))
+        self.assertEqual(self.tasks["test"]["depends"], ["test-ci"])
 
     def test_every_task_has_a_description(self):
         for name, task in self.tasks.items():
             self.assertTrue(task.get("description"), f"{name} needs one")
+            self.assertIsInstance(task.get("depends"), list, f"{name} needs explicit dependencies")
 
     def test_each_check_job_runs_one_command(self):
         for job in CHECK_JOBS:
@@ -49,15 +52,15 @@ class TestTaskGraph(unittest.TestCase):
             run = self.tasks[job]["run"]
             self.assertIsInstance(run, str, f"{job} must run one command")
             self.assertIn("python3 scripts/", run)
-            self.assertIn("PYTHONDONTWRITEBYTECODE=1", run, job)
-        self.assertIn("PYTHONDONTWRITEBYTECODE=1", self.tasks["test"]["run"])
+        self.assertEqual(self.tasks["decision-policy"]["depends"], ["task-graph-policy"])
 
-    def test_direct_validation_fallback_names_every_check_script(self):
+    def test_validation_keeps_every_check_behind_mise(self):
         validation = (SKILL_DIR / "references" / "validation.md").read_text(encoding="utf-8")
         for job in CHECK_JOBS:
-            command = self.tasks[job]["run"]
-            script = re.search(r"python3 (scripts/[^ ]+)", command).group(1)
-            self.assertIn(script, validation, f"validation fallback is missing {job}")
+            self.assertIn(f"mise run {job}", validation, f"validation is missing {job}")
+        self.assertIn("Mise is unavailable", validation)
+        self.assertIn("`BLOCKED`", validation)
+        self.assertNotIn("python3 scripts/", validation)
 
 
 class TestWorkflow(unittest.TestCase):
@@ -96,7 +99,6 @@ class TestJudgmentContract(unittest.TestCase):
         self.assertIn("references/deterministic-execution.md", self.skill)
         self.assertIn("## Fixed stage machine", self.execution)
         self.assertIn("completion matrix", self.execution)
-
 
 class TestCommandTable(unittest.TestCase):
     def test_every_command_is_in_the_commands_table(self):
@@ -220,13 +222,11 @@ class TestCompletionContract(unittest.TestCase):
         self.assertGreaterEqual(len(gates), 8)
         joined = "\n".join(gates)
         joined_lower = joined.lower()
-        for marker in ["tokens.json", "evidence.json", "proof.html", "run.json", "exit 0", "at least three", "at least five", "zero unresolved vetoes", "globally_unique", "mise run ci", "audit_file_triggers.py"]:
+        for marker in ["tokens.json", "evidence.json", "proof.html", "run.json", "exit 0", "at least three", "five source-derived", "zero unresolved vetoes", "globally_unique", "mise run ci"]:
             self.assertIn(marker, joined_lower)
         for number, gate in enumerate(gates, start=1):
-            paths = re.findall(r"(?:references|assets|scripts|examples|evals)/[A-Za-z0-9._/-]+", gate)
-            self.assertTrue(paths, f"Completion gate {number} needs a supporting file route")
-            for path in paths:
-                self.assertTrue((SKILL_DIR / path).is_file(), f"Completion gate {number} route is missing: {path}")
+            self.assertIn("mise run ", gate, f"Completion gate {number} needs a Mise owner")
+        self.assertNotIn("scripts/", joined)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,386 @@
+{
+  "version": "1.1.0",
+  "skill": "skill-factory",
+  "outcome": "Create, update, standardize, import, validate, and evaluate an agent skill package without losing its use-case behavior.",
+  "motivations": [
+    {
+      "constraint": "Map every package primitive to the agent skill use case.",
+      "reason": "A valid skill package must help an executor produce the intended domain result.",
+      "failure_prevented": "Polished agent skill boilerplate that passes shape checks but adds no domain capability."
+    },
+    {
+      "constraint": "Keep repeatable package mechanics behind the Mise task graph.",
+      "reason": "Agent skill judgment works better when deterministic work has one tested path.",
+      "failure_prevented": "Conflicting skill package commands and unproved validation claims."
+    },
+    {
+      "constraint": "Bound agent skill context without removing domain meaning or model-owned capability.",
+      "reason": "An agent skill reaches a correct result faster when it loads only the current canonical owner while retaining every motive, constraint, proof duty, and judgment input the task needs.",
+      "failure_prevented": "A short skill package that saves tokens by making the executor guess, reread, or lose the tools and context needed for the domain result."
+    }
+  ],
+  "domain_terms": [
+    "agent skill",
+    "skill package",
+    "Mise task graph",
+    "trigger eval"
+  ],
+  "domain_failures": [
+    "Generic skill package with no use-case behavior",
+    "Agent skill migration that loses accepted behavior"
+  ],
+  "domain_evidence": [
+    "Skill package CI receipt",
+    "Trigger eval and behavior eval evidence"
+  ],
+  "domain_dimensions": {
+    "actors": ["Agent skill author, executor, reviewer, user, and package owner."],
+    "objects": ["Agent skill package, source skill, build log, contract, task graph, eval case, and receipt."],
+    "actions": ["Create, update, standardize, import, validate, evaluate, reject, restore, and report an agent skill."],
+    "states": ["Agent skill baseline, RED, candidate, accepted, rejected, blocked, restored, and released states."],
+    "invariants": ["An agent skill keeps its domain purpose, accepted behavior, authority, proof, and portability."],
+    "variants": ["Agent skill instructions vary by domain while shared package checks retain one contract."],
+    "interfaces": ["Agent skill frontmatter, SKILL.md, support files, Mise task graph, CI, and registry eval interfaces."],
+    "authorities": ["The user controls agent skill purpose changes, destructive migration, publication, and deployment."],
+    "failures": ["A skill package can fail through generic content, lost behavior, weak triggers, stale proof, or host lock-in."],
+    "recoveries": ["Restore the accepted skill package digest, repair the lowest owner, and rerun the Mise task graph."],
+    "evidence": ["Skill package CI, trigger evals, behavior evals, source lineage, semantic review, and restoration receipts."],
+    "time": ["Agent skill sources, web receipts, baselines, and acceptance output must be current for the run."],
+    "resources": ["The Mise task graph measures wall time, CPU, memory, storage, network, cache, context, process, cost, and attention."],
+    "quality": ["An agent skill must improve task success without losing correctness, speed, simplicity, portability, or domain judgment."],
+    "terminology": ["Agent skill is the package; skill body, reference, asset, script, test, Mise task, example, and eval are primitive kinds."],
+    "exclusions": ["The skill package does not invent private domain facts, execute unsupported side effects, publish, or replace task-specific judgment."]
+  },
+  "research_questions": {
+    "actors": "Which actors create, run, review, own, or receive an agent skill result?",
+    "objects": "Which skill package objects own instructions, mechanics, evidence, and state?",
+    "actions": "Which actions create or change an agent skill without losing behavior?",
+    "states": "Which agent skill states allow mutation, rejection, restoration, or acceptance?",
+    "invariants": "Which agent skill properties must survive creation, update, standardization, and import?",
+    "variants": "Which agent skill differences belong to the domain rather than shared package infrastructure?",
+    "interfaces": "Which skill package and runtime interfaces require stable contracts?",
+    "authorities": "Who may change agent skill purpose, source, side effects, and publication state?",
+    "failures": "How can a valid-looking agent skill fail its actual use case?",
+    "recoveries": "How is an agent skill restored after a rejected or broken change?",
+    "evidence": "What proves that the agent skill works rather than only matching a package shape?",
+    "time": "Which agent skill sources and receipts become stale?",
+    "resources": "Which resource costs can make an agent skill slower or less effective?",
+    "quality": "Which measures protect agent skill correctness, speed, usefulness, and clarity?",
+    "terminology": "Which terms distinguish agent skill concepts and adjacent package formats?",
+    "exclusions": "Which requests must skill-factory block, preserve, or hand off?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://agentskills.io/skill-creation/best-practices",
+      "source_class": "first_party",
+      "claim": "Agent skills should start from real expertise, project artifacts, failures, and execution traces instead of generic model knowledge.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "limitations": "The guidance defines authoring practice but does not specify this skill-factory task graph.",
+      "dimensions": ["actors", "objects", "actions", "failures", "recoveries", "quality", "exclusions"]
+    },
+    {
+      "source": "https://agentskills.io/specification",
+      "source_class": "first_party",
+      "claim": "An agent skill uses YAML frontmatter with typed name, description, compatibility, metadata, and allowed-tools fields, followed by Markdown and optional progressively disclosed resources.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T05:52:18-04:00",
+      "limitations": "The format specification does not prove domain behavior or require Mise.",
+      "dimensions": ["objects", "invariants", "variants", "interfaces", "resources", "terminology"]
+    },
+    {
+      "source": "https://yaml.org/spec/1.2.2/",
+      "source_class": "standard",
+      "claim": "YAML mappings require unique keys, so duplicate frontmatter fields cannot be accepted as an unambiguous skill contract.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T05:52:18-04:00",
+      "limitations": "The YAML data model does not define Agent Skills field names or domain behavior.",
+      "dimensions": ["objects", "invariants", "interfaces", "failures", "quality"]
+    },
+    {
+      "source": "https://www.w3.org/TR/skos-reference/",
+      "source_class": "standard",
+      "claim": "A domain concept scheme distinguishes preferred, alternate, hidden, broader, narrower, and related terms.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "limitations": "SKOS models knowledge organization, not agent skill execution.",
+      "dimensions": ["objects", "variants", "interfaces", "terminology"]
+    },
+    {
+      "source": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+      "source_class": "first_party",
+      "claim": "Requirements link stakeholder expectations, rationale, verification, validation, states, timing, and change authority.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "limitations": "The handbook addresses engineered systems, so skill-factory uses its trace and proof pattern rather than its project process.",
+      "dimensions": ["actors", "actions", "states", "authorities", "evidence", "time", "quality"]
+    },
+    {
+      "source": "https://www.w3.org/TR/prov-o/",
+      "source_class": "standard",
+      "claim": "Provenance relates entities, activities, agents, derivation, attribution, and time.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "limitations": "PROV-O supplies a provenance model, not a complete agent skill receipt schema.",
+      "dimensions": ["actors", "objects", "actions", "interfaces", "authorities", "evidence", "time"]
+    },
+    {
+      "source": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+      "source_class": "first_party",
+      "claim": "Use-case work should map context, measure outcomes and risks, manage findings, and keep governance cross-cutting.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "limitations": "The playbook is voluntary risk guidance and does not define agent skill package conformance.",
+      "dimensions": ["invariants", "authorities", "failures", "recoveries", "resources", "quality", "exclusions"]
+    },
+    {
+      "source": "https://mise.jdx.dev/cli/self-update.html",
+      "source_class": "first_party",
+      "claim": "Mise self-update resolves the latest GitHub release without a version argument, supports noninteractive confirmation, and can exclude plugin updates.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T04:52:01-04:00",
+      "limitations": "Package-managed Mise builds may disable self-update and require their owning package manager.",
+      "dimensions": ["actions", "states", "interfaces", "authorities", "failures", "recoveries", "evidence", "time", "resources", "quality"]
+    },
+    {
+      "source": "https://mise.jdx.dev/schema/mise.json",
+      "source_class": "first_party",
+      "claim": "The official Mise schema enumerates configuration, task, task-configuration, and tool fields for the installed release.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T05:02:20-04:00",
+      "limitations": "Schema presence does not show that a primitive is useful for a particular agent skill or that its domain outcome passes.",
+      "dimensions": ["objects", "actions", "states", "variants", "interfaces", "failures", "evidence", "time", "resources", "quality", "terminology", "exclusions"]
+    },
+    {
+      "source": "https://mise.jdx.dev/tasks/task-configuration.html",
+      "source_class": "first_party",
+      "claim": "Mise tasks can declare dependency edges, bounded parallel execution, source and output freshness, and content-based caching whose correctness depends on complete inputs.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T06:09:00-04:00",
+      "limitations": "The task runner can reuse deterministic computation and schedule independent work, but it cannot decide domain meaning or replace live model and human judgment.",
+      "dimensions": ["actions", "invariants", "interfaces", "failures", "recoveries", "time", "resources", "quality", "exclusions"]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can more domain detail make an agent skill worse?",
+      "source": "https://agentskills.io/skill-creation/best-practices",
+      "checked_at": "2026-09-02T04:19:57-04:00",
+      "result": "Yes. The guidance warns that broad or exhaustive instructions can waste context and send execution down irrelevant paths.",
+      "disposition": "Bound specificity to facts that alter agent skill behavior, proof, or recovery, and move conditional detail into references."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "doctor",
+        "outcome": "Agent skill work starts only in a ready package environment.",
+        "motivation": "A skill package cannot produce verified work without its declared runner and files.",
+        "why_default_path": "The doctor task gives agent skill readiness one parseable entry path.",
+        "proof": "The agent skill doctor receipt reports ready true."
+      },
+      {
+        "task": "new",
+        "outcome": "A new agent skill begins from the complete blocked scaffold.",
+        "motivation": "A skill package needs every owner before use-case behavior is authored.",
+        "why_default_path": "The new task gives agent skill scaffolding one deterministic entry path.",
+        "proof": "The agent skill scaffold receipt lists every created owner and its blocked seed."
+      },
+      {
+        "task": "validate-target",
+        "outcome": "An existing agent skill receives the complete static package check.",
+        "motivation": "A skill package update needs the same structure and policy boundary as a new package.",
+        "why_default_path": "The validate-target task gives external agent skill validation one entry path.",
+        "proof": "The agent skill target receipt reports every selected checker and zero failures."
+      },
+      {
+        "task": "eval-target",
+        "outcome": "An existing agent skill receives the factory eval contract check.",
+        "motivation": "A skill package needs realistic trigger and behavior evidence after static checks.",
+        "why_default_path": "The eval-target task gives external agent skill eval validation one entry path.",
+        "proof": "The agent skill target eval receipt reports zero schema failures."
+      },
+      {
+        "task": "plan-standardize",
+        "outcome": "An existing agent skill is frozen before update, import, or standardization.",
+        "motivation": "A skill package baseline prevents purpose or behavior loss during migration.",
+        "why_default_path": "The plan-standardize task gives agent skill baseline capture one read-only entry path.",
+        "proof": "The agent skill plan records digest, files, missing owners, mappings, and collisions."
+      },
+      {
+        "task": "audit-source-corpus",
+        "outcome": "A source skill corpus is classified before portable agent skill import.",
+        "motivation": "A skill package import must not guess whether a source is a client or package format.",
+        "why_default_path": "The audit-source-corpus task gives agent skill source classification one entry path.",
+        "proof": "The agent skill source audit classifies every marker or fails closed."
+      },
+      {
+        "task": "refresh-lineage",
+        "outcome": "An accepted agent skill records current source lineage after every prerequisite passes.",
+        "motivation": "A skill package must not publish stale digests or refresh lineage before acceptance.",
+        "why_default_path": "The refresh-lineage task gives accepted agent skill lineage one guarded write path.",
+        "proof": "The agent skill lineage write receipt matches a fresh readback."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Every agent skill invocation accounts for every declared Mise task.",
+        "motivation": "A skill package must not silently skip work that could change its outcome.",
+        "why_default_path": "The invocation-policy task gives agent skill task disposition one checked entry path.",
+        "proof": "The agent skill invocation receipt records run or justified inapplicable for every other task."
+      },
+      {
+        "task": "agentic-request",
+        "outcome": "An agent skill operation sends only use-case-relevant long prompts, skills, and agentic primitives to an authorized runner.",
+        "motivation": "A skill package needs one safe path for model-owned work without command-length limits, generic invocation scaffolding, shell interpolation, or host-specific syntax.",
+        "why_default_path": "The agentic-request task binds one skill package request to its exact use-case outcome, checks each item's domain trace and digest, and sends JSON through standard input to the configured runner.",
+        "proof": "The agent skill dispatcher test sends a prompt over 100000 bytes and traced dependencies through a real child process, then rejects generic, untraced, stale, or outcome-drifted inputs."
+      },
+      {
+        "task": "mise-latest",
+        "outcome": "Agent skill work finishes on the latest stable Mise release available to its installation.",
+        "motivation": "A current skill package runner reduces upstream drift without interrupting active work.",
+        "why_default_path": "The deferred mise-latest operation updates the agent skill runner only after outcome work concludes.",
+        "proof": "The agent skill maintenance receipt names the resulting Mise version or package-manager blocker."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "The agent skill receives the official Mise primitive catalog for its updated runner.",
+        "motivation": "A skill package cannot assess every relevant Mise feature against a stale schema.",
+        "why_default_path": "The agent skill primitive update follows self-update, rejects unreconciled dispositions, and refreshes owned lineage.",
+        "proof": "The agent skill catalog records the exact release schema digest, the policy reports zero omissions, and owned lineage matches."
+      }
+    ],
+    "tasks": {
+      "ci": {"outcome": "The skill package receives integrated acceptance.", "motivation": "Agent skill completion needs one local and remote proof path.", "value": "Agent skill CI combines every acceptance gate without duplicate commands.", "proof": "The skill package CI exits 0.", "applicability": "Run for every accepted agent skill change."},
+      "test-ci": {"outcome": "The skill package task and workflow contract stays pinned.", "motivation": "Agent skill CI can drift before behavior tests run.", "value": "The agent skill fails early on a broken task or workflow edge.", "proof": "The skill package CI contract tests exit 0.", "applicability": "Run whenever the agent skill task graph or workflow can affect acceptance."},
+      "test": {"outcome": "The skill package preserves user-visible command behavior.", "motivation": "Agent skill scripts need real contract evidence before acceptance.", "value": "The agent skill test suite catches behavior and recovery regressions.", "proof": "Every skill package behavior test exits 0.", "applicability": "Run for every agent skill source change covered by behavior contracts."},
+      "validate": {"outcome": "The agent skill package shape matches its portable contract.", "motivation": "A malformed skill package may never load or route correctly.", "value": "Agent skill validation finds structural faults before semantic review.", "proof": "The skill package validator reports zero problems.", "applicability": "Run for every agent skill acceptance."},
+      "lint-writing": {"outcome": "The agent skill instructions remain plain and mechanically readable.", "motivation": "A skill package can lose executor attention through avoidable writing faults.", "value": "Agent skill writing lint removes bounded language and layout failures.", "proof": "The skill package writing lint reports zero problems.", "applicability": "Run for every agent skill Markdown change."},
+      "lint-code": {"outcome": "The agent skill scripts and tests stay inside code limits.", "motivation": "A skill package becomes harder to verify when constructs or nesting grow unchecked.", "value": "Agent skill code lint detects size, nesting, and placeholder faults.", "proof": "The skill package code lint reports zero problems.", "applicability": "Run for every agent skill code or test change."},
+      "lint-placeholders": {"outcome": "The agent skill cannot accept unfinished scaffold content.", "motivation": "A skill package seed can look complete while carrying no domain behavior.", "value": "Agent skill placeholder lint blocks false completion.", "proof": "The skill package placeholder lint reports zero placeholders.", "applicability": "Run for every agent skill acceptance."},
+      "evals": {"outcome": "The agent skill eval artifacts describe realistic trigger and behavior cases.", "motivation": "A skill package needs evidence beyond structure and prose.", "value": "Agent skill eval checks expose missing cases and unverifiable assertions.", "proof": "The skill package eval checker reports zero problems.", "applicability": "Run whenever agent skill triggers, behavior, or evidence can change."},
+      "improvement-policy": {"outcome": "The agent skill optional experiment cannot trade away a protected dimension.", "motivation": "A skill package improvement claim needs a frozen nonregression rule.", "value": "Agent skill improvement policy blocks slower or less correct candidates.", "proof": "The skill package improvement contract reports zero problems.", "applicability": "Run before every optional agent skill improvement trial and at acceptance."},
+      "domain-research-policy": {"outcome": "The agent skill domain map has current source coverage and counterevidence.", "motivation": "A skill package built from generic knowledge can miss real domain constraints.", "value": "Agent skill research receipts make source gaps and staleness visible.", "proof": "The skill package domain research policy reports zero problems.", "applicability": "Run before defining or changing agent skill domain behavior."},
+      "use-case-policy": {"outcome": "Every agent skill primitive serves the target use case.", "motivation": "A skill package can pass generic checks without enabling the intended result.", "value": "Agent skill use-case policy blocks generic roles and unmotivated primitives.", "proof": "The skill package use-case policy reports zero problems.", "applicability": "Run after agent skill domain research and before behavior acceptance."},
+      "mise-primitives-policy": {"outcome": "Every official Mise primitive receives an agent skill use or justified non-use decision.", "motivation": "A skill package should use useful runner features without adding irrelevant machinery.", "value": "Agent skill primitive policy catches omissions, fake use claims, and generic dispositions.", "proof": "The agent skill Mise primitive policy reports zero problems against the current catalog.", "applicability": "Run after agent skill use-case policy and after each Mise primitive catalog update."},
+      "primitive-lifecycle-policy": {"outcome": "Every agent skill domain aspect and package primitive has complete lifecycle ownership.", "motivation": "A skill package needs task-owned discovery, change, proof, recovery, and retirement paths.", "value": "Agent skill lifecycle policy blocks missing phases, generic mappings, and nonexistent task owners.", "proof": "The agent skill lifecycle policy reports zero problems for all aspects and primitives.", "applicability": "Run after agent skill primitive policy and whenever an aspect, primitive, or task changes."},
+      "task-graph-policy": {"outcome": "The agent skill has one acyclic default dependency path per operation.", "motivation": "A skill package graph can hide cycles, alternate paths, or disconnected tasks.", "value": "Agent skill graph policy ties every task to domain progress and proof.", "proof": "The skill package task graph policy reports zero problems.", "applicability": "Run after the agent skill use-case map and before decision acceptance."},
+      "decision-policy": {"outcome": "Every material agent skill decision has motivation, proof, falsifier, and recovery.", "motivation": "A skill package can encode arbitrary choices behind passing automation.", "value": "Agent skill decision policy exposes why each material path exists.", "proof": "The skill package decision policy reports zero problems.", "applicability": "Run for every accepted agent skill decision change."},
+      "invocation-policy": {"outcome": "Every agent skill invocation touches or justifies every Mise task.", "motivation": "A skill package invocation must not silently omit applicable work.", "value": "Agent skill invocation policy turns task selection into auditable progress.", "proof": "The skill package invocation receipt reports zero problems.", "applicability": "Run at the end of every agent skill invocation."},
+      "agentic-request": {"outcome": "The agent skill sends one typed, use-case-bound long-prompt operation to an authorized runner.", "motivation": "A skill package needs relevant model-owned work without generic scaffolding, shell limits, or host-specific invocation syntax.", "value": "The agent skill request envelope binds its promised outcome and traces every prompt, skill, and primitive before standard-input dispatch.", "proof": "The agent skill dispatcher behavior tests pass with a prompt over 100000 bytes and reject generic, untraced, stale, outcome-drifted, or self-authorizing requests.", "applicability": "Run when an agent skill operation needs a configured model runner, another skill, a long prompt, or another agentic primitive that directly advances its promised outcome."},
+      "mise-latest": {"outcome": "The agent skill runner reaches the latest stable Mise release after outcome work concludes.", "motivation": "A skill package should not interrupt active work or retain an avoidably stale runner.", "value": "Deferred Mise maintenance keeps agent skill execution current without invalidating in-flight evidence.", "proof": "The skill package records the resulting Mise version or package-manager update blocker.", "applicability": "Run after every agent skill invocation completes its outcome work and acceptance tasks."},
+      "mise-primitives-update": {"outcome": "The agent skill primitive catalog and owned lineage match the self-updated Mise release.", "motivation": "A skill package must discover runner changes and invalidate stale source lineage before post-update acceptance.", "value": "Agent skill primitive refresh turns upstream Mise change into explicit reconciliation and current provenance.", "proof": "The agent skill catalog records release URL, version, hash, complete groups, and matching lineage when owned.", "applicability": "Run immediately after the deferred agent skill Mise self-update."},
+      "source-corpus": {"outcome": "The agent skill import corpus recognizes supported source shapes.", "motivation": "A skill package import must separate clients from package formats.", "value": "Agent skill source classification prevents host assumptions from leaking into outputs.", "proof": "The skill package source corpus checker reports zero problems.", "applicability": "Run for agent skill factory CI and every source import audit."},
+      "lineage": {"outcome": "The accepted agent skill source lineage is current.", "motivation": "A skill package cannot claim provenance from stale digests.", "value": "Agent skill lineage checking binds current files to current evidence.", "proof": "The skill package lineage check reports PASS.", "applicability": "Run for every accepted agent skill factory state."},
+      "refresh-lineage": {"outcome": "The accepted agent skill receives a fresh atomic lineage record.", "motivation": "A skill package lineage write must wait for every prior acceptance gate.", "value": "Agent skill lineage refresh makes provenance current without partial writes.", "proof": "The skill package lineage refresh and readback both report PASS.", "applicability": "Run only after an agent skill change passes every non-lineage gate."},
+      "audit-source-corpus": {"outcome": "A source corpus receives fail-closed agent skill shape classification.", "motivation": "A skill package import must not guess unknown host or package structures.", "value": "Agent skill corpus audit identifies portable mappings and blockers before writes.", "proof": "The skill package corpus audit reports every source shape classified.", "applicability": "Run when an agent skill import or corpus update is requested."},
+      "doctor": {"outcome": "The agent skill environment proves it can run the required package graph.", "motivation": "A skill package operation should fail before work if Mise or required files are absent.", "value": "Agent skill doctor avoids wasted work on an unusable execution path.", "proof": "The skill package doctor reports ready true and mode mise.", "applicability": "Run at the start of every agent skill factory operation."},
+      "new": {"outcome": "A new agent skill receives every standard owner and deliberate blocked seed.", "motivation": "A skill package should start complete in shape but incomplete in domain meaning.", "value": "Agent skill scaffolding saves repeatable setup while preventing boilerplate acceptance.", "proof": "The skill package scaffold receipt names all files and the placeholder block.", "applicability": "Run only when a new agent skill is requested."},
+      "validate-target": {"outcome": "An external agent skill receives all portable static checks.", "motivation": "A skill package update needs factory-level evidence before acceptance.", "value": "Agent skill target validation consolidates structural and policy failures.", "proof": "The skill package target validation prints every checker and exits 0.", "applicability": "Run when validating an existing or newly generated agent skill."},
+      "eval-target": {"outcome": "An external agent skill eval contract receives a factory check.", "motivation": "A skill package cannot rely on its own unchecked eval claims.", "value": "Agent skill target eval validation catches missing or malformed evidence.", "proof": "The skill package target eval check reports zero problems.", "applicability": "Run when evaluating an existing or newly generated agent skill."},
+      "plan-standardize": {"outcome": "An existing agent skill is frozen before any update or migration write.", "motivation": "A skill package change needs a baseline to detect lost purpose or behavior.", "value": "Agent skill planning records digests, mappings, missing owners, and collisions.", "proof": "The skill package standardization plan emits a complete read-only JSON receipt.", "applicability": "Run before updating, standardizing, or importing an agent skill."}
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Tell an agent how to create or change a skill package without replacing its purpose.",
+      "outcome": "The agent skill body leads an executor to a proved skill package result.",
+      "motivation": "The agent skill body keeps domain judgment visible while package mechanics stay bounded.",
+      "value": "The agent skill body turns a package request into a numbered workflow whose Mise, model, branch, loop, and stop owners produce checkable progress.",
+      "failure_prevented": "An agent skill body that describes packaging without producing the requested domain result.",
+      "proof": "Agent skill workflow tests prove every numbered step names Mise or model work and the full flow contains real branch, loop, return, receipt, and stop behavior."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Hold skill package contracts that are too conditional for the always-loaded body.",
+      "outcome": "Agent skill references supply the exact conditional rule needed for a correct result.",
+      "motivation": "Skill package references keep the main path short without hiding required rules.",
+      "value": "Agent skill references reduce context cost while resolving a real execution branch.",
+      "failure_prevented": "Skill package references that add reading cost without changing a decision or proof.",
+      "proof": "Every skill package reference has a load trigger and one owning decision."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Provide skill package templates and machine-readable policies for deterministic generation.",
+      "outcome": "Skill package assets give deterministic steps the exact inputs needed for the domain result.",
+      "motivation": "Skill package assets make generated owners repeatable without pretending seeds are finished work.",
+      "value": "Skill package assets turn source-backed choices into reusable, checkable inputs.",
+      "failure_prevented": "Generic skill package assets that pass through without affecting the use-case outcome.",
+      "proof": "A new agent skill contains the declared owners and remains blocked on seed content."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Implement repeatable agent skill scaffolding, validation, migration planning, and evaluation checks.",
+      "outcome": "Agent skill scripts produce deterministic progress and receipts for package operations.",
+      "motivation": "Agent skill scripts reduce repeated model work and produce parseable receipts.",
+      "value": "Agent skill scripts convert repeatable use-case mechanics into fast, reproducible actions.",
+      "failure_prevented": "Agent skill scripts that automate activity without advancing or proving the package outcome.",
+      "proof": "The Mise task graph runs script interfaces with tested exits and outputs."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Pin user-visible agent skill commands, artifacts, failure branches, and package boundaries.",
+      "outcome": "Agent skill tests prove the behavior and boundaries the user depends on.",
+      "motivation": "Agent skill tests prevent factory edits from weakening accepted package behavior.",
+      "value": "Agent skill tests expose a wrong package path before it reaches a user.",
+      "failure_prevented": "Skill package tests that assert internals while the user-visible outcome stays broken.",
+      "proof": "The skill package test task observes RED and then exits 0 after the owner is repaired."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Expose one Mise task graph for every deterministic agent skill job.",
+      "outcome": "The Mise task graph moves each skill package operation through one proved dependency path.",
+      "motivation": "The Mise task graph keeps local and remote skill package checks on the same dependency path.",
+      "value": "The Mise task graph schedules real skill package progress and blocks invalid acceptance.",
+      "failure_prevented": "A Mise task graph that runs generic checks but cannot advance the agent skill outcome.",
+      "proof": "Task graph tests and skill package CI exit 0."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Show complete agent skill runs for creation, update, import, validation, and failure handling.",
+      "outcome": "Agent skill examples let an executor reproduce a successful or blocked package operation.",
+      "motivation": "Agent skill examples remove guesses about commands, evidence, and visible output.",
+      "value": "Agent skill examples shorten the path from trigger to a correct package result.",
+      "failure_prevented": "Skill package examples that look plausible but omit commands, proof, or recovery.",
+      "proof": "Each agent skill command and likely failure has one current worked run."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Measure agent skill triggering, behavior, failure recovery, speed, and retained purpose.",
+      "outcome": "Agent skill evals decide whether the package reaches its use-case result under realistic prompts.",
+      "motivation": "A trigger eval and behavior eval catch packages that look valid yet fail the use case.",
+      "value": "Agent skill evals turn subjective acceptance into repeatable evidence and bounded judgment.",
+      "failure_prevented": "Skill package evals that grade package shape while task success regresses.",
+      "proof": "Fresh agent skill eval cases satisfy saved assertions without protected regressions."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Define acceptance, authority, lifecycle, portability, and nonregression rules for an agent skill package.",
+      "outcome": "Agent skill policies keep every package change inside its intended use-case boundary.",
+      "motivation": "A skill package needs explicit rules where a valid shape could still permit a wrong result.",
+      "value": "Agent skill policies turn protected domain behavior into reviewable acceptance conditions.",
+      "failure_prevented": "A skill package passes its mechanics while violating purpose, authority, or protected behavior.",
+      "proof": "Each agent skill policy has an owning Mise gate and a current decision receipt."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Define machine-readable shapes for agent skill inputs, outputs, state, and proof.",
+      "outcome": "Agent skill schemas make deterministic package boundaries parseable and fail closed.",
+      "motivation": "A skill package cannot reliably validate receipts or state when their structures are implicit.",
+      "value": "Agent skill schemas expose missing, stale, or malformed evidence before semantic acceptance.",
+      "failure_prevented": "A skill package accepts structurally ambiguous state that cannot support its use-case proof.",
+      "proof": "Schema-owning agent skill checks reject malformed fixtures and accept current valid records."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Retain agent skill research, decisions, invocations, lineage, experiments, and lifecycle evidence.",
+      "outcome": "Agent skill records connect each accepted package state to its cause and proof.",
+      "motivation": "A skill package needs durable evidence to distinguish a current result from an unsupported claim.",
+      "value": "Agent skill records support review, restoration, and current acceptance without repeating discovery.",
+      "failure_prevented": "A skill package cannot explain what changed, why it changed, or how to restore it.",
+      "proof": "Record-owning agent skill checks validate freshness, completeness, linkage, and current digests."
+    }
+  }
+}

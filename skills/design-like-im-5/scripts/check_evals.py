@@ -13,9 +13,7 @@ Examples:
   python3 scripts/check_evals.py .
   python3 scripts/check_evals.py path/to/skill --min-cases 4 --min-queries 8
 """
-import argparse
-import json
-import sys
+import argparse, json, sys
 from pathlib import Path
 
 
@@ -49,14 +47,20 @@ def check_speed_shape(doc, problems):
     if doc.get("objective") != "minimum_elapsed_time_to_fully_verified_result":
         problems.append("speed-policy.json: objective is wrong")
     required = {
+        "exploration_loss_allowed": False,
         "proof_loss_allowed": False,
         "required_work": "all",
         "scope_loss_allowed": False,
+        "visual_judgment_concurrency": 1,
         "workflow_action_concurrency": 1,
         "writers_per_artifact": 1,
     }
     if doc.get("invariants") != required:
         problems.append("speed-policy.json: invariants must preserve all work and proof")
+    if doc.get("progress", {}).get("requires") != ["owning artifact mutation", "current proof"]:
+        problems.append("speed-policy.json: progress needs an owner change and proof")
+    policy, expected = doc.get("experiment_policy", {}), {"default_scale": "material_direction", "micro_optimization_allowed": False, "pure_optimization_requires_explicit_user_request": True, "observed_defect_or_required_threshold_repair_is_not_pure_optimization": True, "direct_vision_distinguishability_required": True}
+    if any(policy.get(key) != value for key, value in expected.items()): problems.append("speed-policy.json: material experiment policy is incomplete")
 
 
 def check_budgets(doc, problems):

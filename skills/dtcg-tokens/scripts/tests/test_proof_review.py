@@ -4,6 +4,8 @@ import pathlib
 import sys
 import unittest
 
+from test_comparison_support import add_controlled_comparisons
+
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "assets"
@@ -75,6 +77,7 @@ def objective_reviews(review_catalogs):
 
 
 def final_review(review_catalogs):
+    gate = review_catalogs["judgments"]["token_quality_gate"]
     review = {
         "status": "pass",
         "vision_executor": {"capability": "strong-native-vision", "mode": "active"},
@@ -85,6 +88,13 @@ def final_review(review_catalogs):
         "judgment_reviews": {
             "catalog_version": review_catalogs["judgments"]["catalog_version"],
             "tracks": final_tracks(review_catalogs),
+        },
+        "token_quality_gate": {
+            "scope": "token_and_proof_only", "status": "pass",
+            "diagnosis": "PASS", "whole_product_quality_proved": False,
+            "gates": [{"id": gate_id, "status": "pass",
+                       "evidence": "Current token paths and rendered proof support this gate."}
+                      for gate_id in gate["gate_ids"]],
         },
         "final_readback": {
             "status": "pass",
@@ -99,6 +109,8 @@ def final_review(review_catalogs):
 
 def final_evidence():
     document = load(FIXTURES / "sample.evidence.json")
+    add_controlled_comparisons(
+        document, load(FIXTURES / "sample.tokens.json"))
     review_catalogs = catalogs()
     final_claims(document)
     document["google_fonts"]["selection_review"] = {"status": "pass", "comparison": "Three eligible candidates were rendered side by side with source-specific operational text."}

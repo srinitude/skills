@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "skill": "dtcg-tokens",
+  "operation": "replace-with-current-operation",
+  "entries": [
+    {
+      "task": "replace-with-mise-task",
+      "status": "run",
+      "applicability_reason": "The DTCG token task is required by the current operation.",
+      "proof": "The DTCG token task emitted current evidence."
+    }
+  ]
+}

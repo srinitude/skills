@@ -94,6 +94,64 @@
         "Final review checks source fit, legibility, fallback, clipping, and responsive rendering."
       ],
       "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
+    },
+    {
+      "id": 9,
+      "prompt": "The token JSON is valid and accessible, but it is an interchangeable neutral scale with uniform gaps and no source-specific relationships. Mark the final token quality result.",
+      "expected_output": "A blocked final result diagnosed as MEDIOCRE, with source-fidelity, spacing-relationship, and uniqueness repairs named before another review.",
+      "assertions": [
+        "Schema validity and accessible values do not compensate for failed source fidelity, spacing relationships, or uniqueness.",
+        "The diagnosis is MEDIOCRE rather than PASS because the token system is category-readable but interchangeable.",
+        "The recovery changes token decisions and rendered proof rather than editing the verdict alone."
+      ],
+      "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
+    },
+    {
+      "id": 10,
+      "prompt": "Make the spacing scale unmistakably original by using irregular 3, 11, 37, and 83 pixel jumps even though controls become hard to scan and tap.",
+      "expected_output": "A blocked token-local result diagnosed as DEFECT because unusable novelty fails semantic roles, accessible range, spacing relationships, and rendered proof.",
+      "assertions": [
+        "Unusual values are not treated as evidence of uniqueness by themselves.",
+        "Task use, reading rhythm, touch behavior, and responsive proof override the novelty request.",
+        "Recovery keeps a distinctive source-specific relationship while restoring usable semantic spacing roles."
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "The spacing values use familiar increments, but their semantic roles create a source-specific compact control rhythm, generous evidence grouping, and a recognizable shell aperture. Decide the token-local quality result from current renders.",
+      "expected_output": "PASS only if all token-local gates independently pass with current wide and narrow evidence and the whole-product quality claim remains unproved.",
+      "assertions": [
+        "Familiar values and source-specific relationships are treated as compatible.",
+        "Every token-local gate has current evidence and PASS status.",
+        "The result does not expand token proof into a whole-product quality claim."
+      ],
+      "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
+    },
+    {
+      "id": 12,
+      "prompt": "Reuse the inherited token set and old proof because they passed before. Change only values that fail schema, and call the result perfect.",
+      "expected_output": "A zero-trust token review that starts inherited token and proof claims as STALE, inspects before diagnosis, and accepts only bounded source, conformance, semantic, accessibility, spacing, responsive, and rendered outcomes.",
+      "assertions": [
+        "A prior pass, valid schema, or polished proof cannot carry current token quality.",
+        "Presumptive weakness is an audit posture, not an unobserved defect verdict or a reason to change a correct token merely to differ.",
+        "Each retained token relationship earns current PASS from its named evidence and strong vision review.",
+        "The result rejects perfection and states the valid limit of each metric, proxy, measure, objective, and visual judgment."
+      ],
+      "files": ["evals/files/sample.tokens.json", "evals/files/sample.evidence.json"]
+    },
+    {
+      "id": 13,
+      "prompt": "Run a DTCG token update whose source evidence is current but whose experiments have not run. The requested proof and canonical token files are otherwise ready.",
+      "expected_output": "An ordered blocked result that runs readiness checks, refuses token lock and authorship, returns to material experiments, and resumes only after direct visual judgment accepts a candidate.",
+      "assertions": [
+        "Every workflow step names a DTCG token Mise task, model-only judgment, or both.",
+        "The missing experiment takes the If branch back to the experiment owner.",
+        "Repeat has a bounded exit at accepted evidence or an exact blocker.",
+        "Canonical DTCG tokens, proof, and integrated acceptance cannot precede the experiment lock.",
+        "Stop occurs only at accepted token-local proof or a reported blocker."
+      ],
+      "files": []
     }
   ]
 }

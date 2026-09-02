@@ -1,16 +1,16 @@
 # Section support
 
-Parent and backlink: [SKILL.md](../SKILL.md), every heading.
+Parent and backlink: [SKILL.md](../SKILL.md), every heading, loaded through `mise run section-support`.
 
 Read this file before entering any body section. It explains how each section gains its full working context.
 
 ## One direct route
 
-Every heading owns one record in [section-support.json](../assets/section-support.json). The record order must match the body heading order.
+Every heading owns one record in [section-support.json](../assets/section-support.json) through `mise run section-support`. The record order must match the body heading order.
 
 A direct route appears before the next heading. A route below another heading cannot satisfy the current section.
 
-Run [check_section_support.py](../scripts/check_section_support.py) after any body heading, route, or support file changes.
+Run `mise run section-support` after any body heading, route, or support file changes.
 
 The schema fixes record shape. The map fills that shape with section-specific guidance. The checker tests only that structure.
 

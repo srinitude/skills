@@ -1,6 +1,6 @@
 # Taste, originality, uniqueness, and non-AI-slop
 
-Use `assets/judgment-review-catalog.json` as the canonical obligation list, `references/qualitative-judgment.md` for subjective and emergent lenses, and `references/visual-review.md` for the execution method. Keep the four verdicts separate.
+Use `assets/judgment-review-catalog.json` as the canonical obligation list, `references/qualitative-judgment.md` for subjective and emergent lenses, and `references/visual-review.md` for the execution method. Keep the four verdicts separate. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Taste
 
@@ -21,6 +21,8 @@ Run these falsification checks:
 - **Lineage reversal:** reconstruct a decision from rendered region to token to decision to observation to source.
 
 A novel flourish cannot substitute for an original system. Signature decisions must interact across axes.
+
+Treat category familiarity and source-specific difference as joint tests. Compare the token system with a relevant category default, then identify which familiar values remain and which relationships make the result product-specific. Do not reward rarity by itself. A distinctive relation must improve meaning, priority, recognition, or interaction while familiar control behavior and applicable standards remain intact.
 
 ## Corpus-bounded uniqueness
 

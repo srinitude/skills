@@ -528,6 +528,38 @@
       "direction": "equal",
       "threshold": 0,
       "veto": true
+    },
+    {
+      "id": "token_quality_gate_pass_rate",
+      "family": "design-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "spacing_role_evidence_rate",
+      "family": "visual-integrity",
+      "kind": "ratio",
+      "direction": "equal",
+      "threshold": 1.0,
+      "veto": true
+    },
+    {
+      "id": "unowned_spacing_value_count",
+      "family": "design-integrity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
+    },
+    {
+      "id": "familiarity_uniqueness_tradeoff_count",
+      "family": "source-specificity",
+      "kind": "count",
+      "direction": "equal",
+      "threshold": 0,
+      "veto": true
     }
   ]
 }

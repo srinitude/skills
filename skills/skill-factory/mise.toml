@@ -1,50 +1,208 @@
 # Task graph for skill-factory.
 # One default path per job. Local runs and remote CI both call: mise run ci
 
+min_version = "2026.9.0"
+
+[settings]
+experimental = true
+jobs = 4
+
+[tools]
+python = "3.11"
+uv = "latest"
+
+[env]
+PYTHONDONTWRITEBYTECODE = "1"
+PYTHONHASHSEED = "0"
+
+[task_config]
+dir = "{{config_root}}"
+
 [tasks.ci]
-description = "Full pipeline: CI contract tests, all tests, structure, writing, code, placeholders, evals"
-run = [
-  "mise run test-ci",
-  "mise run test",
-  "mise run validate",
-  "mise run lint-writing",
-  "mise run lint-code",
-  "mise run lint-placeholders",
-  "mise run evals",
+description = "Full pipeline: tests, structure, writing, code, placeholders, evals, improvement policy"
+alias = "c"
+output = "prefix"
+depends = [
+  "test",
+  "validate",
+  "lint-writing",
+  "lint-code",
+  "lint-placeholders",
+  "evals",
+  "improvement-policy",
+  "decision-policy",
+  "source-corpus",
+  "lineage",
 ]
 
 [tasks.test-ci]
 description = "Contract tests for the task graph and the CI workflow template"
+depends = []
 run = "python3 -m unittest discover -s scripts/tests -p 'test_ci_contract.py' -v"
+sources = ["mise.toml", "assets/mise-template.toml", "assets/ci/ci.yml", "scripts/tests/test_ci_contract.py"]
+outputs = []
+cache = { enabled = true }
 
 [tasks.test]
 description = "Every test in scripts/tests/"
-run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+depends = ["test-ci"]
+run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run_windows = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+timeout = "180s"
 
 [tasks.validate]
 description = "Static structure checks against the generation contract"
-run = "python3 scripts/validate_skill.py ."
+depends = []
+run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py ."
+sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
+outputs = []
+cache = { enabled = true }
 
 [tasks.lint-writing]
 description = "Mechanical writing checks on every markdown file"
+depends = []
 run = "python3 scripts/lint_writing.py ."
+sources = ["**/*.md", "scripts/lint_writing.py"]
+outputs = []
+cache = { enabled = true }
 
 [tasks.lint-code]
 description = "Size and nesting limits on every code file"
+depends = []
 run = "python3 scripts/check_code_rules.py ."
+sources = ["**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"]
+outputs = []
+cache = { enabled = true }
 
 [tasks.lint-placeholders]
 description = "Refuse any scaffold placeholder text left in markdown or evals"
+depends = []
 run = "python3 scripts/check_placeholders.py ."
+sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py"]
+outputs = []
+cache = { enabled = true }
 
 [tasks.evals]
 description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
+depends = []
 run = "python3 scripts/check_evals.py ."
+sources = ["evals/evals.json", "evals/trigger-queries.json", "scripts/check_evals.py"]
+outputs = []
+cache = { enabled = true }
+
+[tasks.improvement-policy]
+description = "Validate the optional nonregressing skill-improvement policy"
+depends = []
+run = "python3 scripts/check_improvement_contract.py ."
+sources = ["assets/improvement-contract.json", "scripts/check_improvement_contract.py"]
+outputs = []
+cache = { enabled = true }
+
+[tasks.use-case-policy]
+description = "Reject generic skill primitives without a domain-specific role and proof"
+depends = ["domain-research-policy"]
+run = "python3 scripts/check_use_case_contract.py ."
+
+[tasks.mise-primitives-policy]
+description = "Validate every official Mise primitive disposition for skill-factory"
+depends = ["use-case-policy"]
+run = "python3 scripts/check_mise_primitives.py ."
+
+[tasks.primitive-lifecycle-policy]
+description = "Validate every agent skill aspect and primitive lifecycle owner"
+depends = ["mise-primitives-policy"]
+run = "python3 scripts/check_primitive_lifecycle.py ."
+
+[tasks.task-graph-policy]
+description = "Reject generic, disconnected, circular, or alternate Mise dependency paths"
+depends = ["primitive-lifecycle-policy"]
+run = "python3 scripts/check_task_graph.py ."
+
+[tasks.domain-research-policy]
+description = "Validate source-backed domain research coverage and receipts"
+depends = []
+run = "python3 scripts/check_domain_research.py ."
+
+[tasks.decision-policy]
+description = "Validate motivated deterministic and model-owned skill decisions"
+depends = ["task-graph-policy"]
+run = "python3 scripts/check_decision_records.py ."
+
+[tasks.invocation-policy]
+description = "Validate one invocation receipt; pass its path after --"
+depends = []
+run = "python3 scripts/check_invocation_receipt.py ."
+
+[tasks.agentic-request]
+description = "Validate and dispatch one typed skill-factory agentic request to a configured runner"
+depends = []
+run = "python3 scripts/run_agentic_request.py"
+run_windows = "python scripts/run_agentic_request.py"
+
+[tasks.mise-latest]
+description = "Install the latest stable Mise after agent skill work concludes"
+depends = []
+run = "mise self-update --yes --no-plugins"
+
+[tasks.mise-primitives-update]
+description = "Refresh skill-factory's official Mise primitive catalog after self-update"
+depends = ["mise-latest"]
+depends_post = ["refresh-lineage"]
+run = "python3 scripts/sync_mise_primitives.py ."
+run_windows = "python scripts/sync_mise_primitives.py ."
+timeout = "60s"
+
+[tasks.source-corpus]
+description = "Validate the current portable source-shape corpus"
+depends = []
+run = "python3 scripts/check_source_corpus.py"
+
+[tasks.lineage]
+description = "Validate current source-lineage hashes and release version"
+depends = []
+run = "python3 scripts/check_lineage.py ."
+
+[tasks.refresh-lineage]
+description = "Atomically refresh source-lineage after accepted changes"
+depends = [
+  "test",
+  "validate",
+  "lint-writing",
+  "lint-code",
+  "lint-placeholders",
+  "evals",
+  "improvement-policy",
+  "decision-policy",
+  "source-corpus",
+]
+run = "python3 scripts/check_lineage.py . --write"
+
+[tasks.audit-source-corpus]
+description = "Classify one source repository against the portable corpus"
+depends = ["doctor", "source-corpus"]
+run = "python3 scripts/check_source_corpus.py"
 
 [tasks.doctor]
 description = "Environment readiness report"
+depends = []
 run = "python3 scripts/doctor.py"
 
 [tasks.new]
 description = "Scaffold a new skill; pass flags after --"
+depends = ["doctor"]
 run = "python3 scripts/scaffold_skill.py"
+
+[tasks.validate-target]
+description = "Run every static factory check against a skill path passed after --"
+depends = ["doctor"]
+run = "uv run --with PyYAML==6.0.3 scripts/check_target.py validate"
+
+[tasks.eval-target]
+description = "Run the eval contract check against a skill path passed after --"
+depends = ["doctor"]
+run = "python3 scripts/check_target.py eval"
+
+[tasks.plan-standardize]
+description = "Freeze a read-only inventory before updating or standardizing a skill"
+depends = ["doctor", "source-corpus"]
+run = "python3 scripts/plan_standardize.py"

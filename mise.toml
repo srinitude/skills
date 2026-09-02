@@ -30,6 +30,9 @@ run = "npm run build:mcp"
 [tasks.validate-skills]
 run = "set -eu; npm run skills -- validate --all --report .artifacts/skill-validation.json; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; uvx --from skills-ref==0.1.1 agentskills validate \"$skill_dir\"; done"
 
+[tasks.refresh-source-evidence]
+run = "npm run skills -- refresh-source-evidence"
+
 [tasks.eval-offline]
 run = "set -eu; for skill_dir in skills/*; do [ -d \"$skill_dir\" ] || continue; skill=${skill_dir#skills/}; npm run skills -- eval --skill \"$skill\" --transport fixture --report \".artifacts/eval/$skill\"; done"
 

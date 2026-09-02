@@ -54,6 +54,44 @@ def exploration_fields():
         "reason": "This pick tests record fields only."}}
 
 
+def decision_lock():
+    return {
+        "status": "accepted_locked",
+        "canonical_creation_after_experiment": True,
+        "decision_owner": "direct_current_vision",
+        "lower_owner_locks": ["fixture:lower-owner-lock"],
+    }
+
+
+def comparison_fields(action):
+    layers = {
+        "state_judgment": "states", "atom_judgment": "atoms",
+        "part_design": "molecules", "screen_design": "screens",
+        "motion_judgment": "transitions",
+    }
+    return {"controlled_comparisons": [{
+        "target_id": f"{action}-item", "layer": layers[action],
+        "exploration_option_ids": ["option-1"],
+        "experiment": {
+            "id": f"experiment:{action}",
+            "hypothesis": "The one change will clarify the product job.",
+            "null_hypothesis": "The one change will not clarify the product job.",
+            "measure": "Current eye, brain, and touch review.",
+            "falsifier": "The change harms use, access, or product fit.",
+            "frozen_before_view": True,
+            "status": "run",
+        },
+        "changed_factor": "owned-role", "one_factor_only": True,
+        "fixed_conditions": ["specimen", "content", "state", "viewport",
+                             "input_path", "all_non_tested_tokens"],
+        "a_evidence": f"render:{action}:a", "b_evidence": f"render:{action}:b",
+        "vision": {"status": "PASS", "freshness": "current",
+                   "evidence": [f"vision:{action}"]},
+        "decision": "A", "reason": "The retained form clarifies the product job.",
+        "decision_lock": decision_lock(),
+    }]}
+
+
 def base_record(packet):
     return {
         "action": packet["action"], "decision": "PASS",
@@ -65,6 +103,16 @@ def base_record(packet):
         "context_acknowledgements": packet["context_bundle"]["required_paths"],
         "missing_context": [],
     }
+
+
+def quality_gate(checkpoint):
+    ids = [
+        "truth", "access", "task", "perception", "familiarity",
+        "standards", "uniqueness", "craft", "resilience",
+    ]
+    return {"checkpoint": checkpoint, "status": "PASS", "diagnosis": "PASS",
+            "gates": [{"id": item, "status": "PASS",
+                       "evidence": ["fixture:runner-only"]} for item in ids]}
 
 
 def state_fields(checklist):
@@ -85,9 +133,12 @@ def passing_record(packet, checklist):
     record = base_record(packet)
     if packet.get("exploration_contract"):
         record.update(exploration_fields())
+        record.update(comparison_fields(packet["action"]))
     if packet["action"] == "state_judgment":
         record.update(state_fields(checklist))
+        record["quality_gate"] = quality_gate("direction")
     if packet["action"] == "visual_review":
+        record["quality_gate"] = quality_gate("integrated")
         record["model_reviews"] = review_groups(checklist, "lenses")
         record["negative_reviews"] = review_groups(
             checklist, "negative_checks")

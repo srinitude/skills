@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "skill": "figma-code-connect-design-system",
+  "groups": ["activation", "behavior", "failure", "recovery", "speed"],
+  "decision_labels": [
+    "create_mixed_source_system",
+    "update_existing_system",
+    "separate_template_kinds",
+    "repair_lowest_dependency",
+    "author_parserless_template",
+    "map_several_implementations",
+    "block_unguarded_mutation",
+    "bound_image_inference",
+    "migrate_legacy_mapping",
+    "invalidate_mapping_dependents",
+    "separate_consumers",
+    "parallel_read_serial_write",
+    "block_missing_nested_parity",
+    "justify_property_use_or_nonuse",
+    "invalidate_generic_code_flattening",
+    "pass_integrated_contract"
+  ],
+  "backlink": "../SKILL.md#execute-in-one-dependency-order",
+  "acceptance": "Fixture passes prove workflow behavior only; they do not prove product design, pixels, code behavior, or external state.",
+  "cases": [
+    {
+      "id": "FCCDS-001",
+      "source_id": "FCCDS-001",
+      "group": "activation",
+      "title": "Create from mixed sources",
+      "decision": "create_mixed_source_system",
+      "pressures": ["mixed authorities", "new system"],
+      "prompt": "Create one Figma design system and matching code from a PRD, reference images, and an existing component repository.",
+      "required": ["source_audit", "screen_inventory", "atomic_lineage", "mapping_gate"],
+      "veto": ["silent_source_merge", "screen_first_build"]
+    },
+    {
+      "id": "FCCDS-002",
+      "source_id": "FCCDS-002",
+      "group": "activation",
+      "title": "Update an existing system",
+      "decision": "update_existing_system",
+      "pressures": ["existing owners", "new requirements"],
+      "prompt": "Update an existing Figma library, React system, and Code Connect mappings without replacing unaffected owners.",
+      "required": ["inspect_first", "gap_map", "preserve_unaffected", "readback"],
+      "veto": ["blank_replacement", "unbounded_rewrite"]
+    },
+    {
+      "id": "FCCDS-003",
+      "source_id": "FCCDS-003",
+      "group": "behavior",
+      "title": "Keep template kinds separate",
+      "decision": "separate_template_kinds",
+      "pressures": ["shared term", "different artifacts"],
+      "prompt": "Keep UI composition templates, workflow templates, and Code Connect templates distinct while linking their actual owners.",
+      "required": ["design_template", "workflow_template", "code_connect_template"],
+      "veto": ["template_kind_collapse"]
+    },
+    {
+      "id": "FCCDS-004",
+      "source_id": "FCCDS-004",
+      "group": "behavior",
+      "title": "Repair the lowest owner",
+      "decision": "repair_lowest_dependency",
+      "pressures": ["visible screen defect", "lower dependency"],
+      "prompt": "Repair a screen defect caused by an incorrect token and prove every invalidated dependent again.",
+      "required": ["cause_trace", "stale_propagation", "ordered_rebuild"],
+      "veto": ["screen_only_patch", "old_proof_reuse"]
+    },
+    {
+      "id": "FCCDS-005",
+      "source_id": "FCCDS-005",
+      "group": "behavior",
+      "title": "Author a current template",
+      "decision": "author_parserless_template",
+      "pressures": ["current parserless API", "real component props"],
+      "prompt": "Author a current parserless Code Connect template for an existing Figma component and its real React API.",
+      "required": ["figma_ts", "figma_code", "real_props", "local_validation"],
+      "veto": ["new_parser_file", "invented_prop"]
+    },
+    {
+      "id": "FCCDS-006",
+      "source_id": "FCCDS-006",
+      "group": "behavior",
+      "title": "Preserve one-to-many mappings",
+      "decision": "map_several_implementations",
+      "pressures": ["shared design identity", "several code owners"],
+      "prompt": "Map several production implementations to one Figma component without collapsing their independent code identities.",
+      "required": ["independent_labels", "independent_sources", "shared_design_identity"],
+      "veto": ["sync_claim", "implementation_collapse"]
+    },
+    {
+      "id": "FCCDS-007",
+      "source_id": "FCCDS-007",
+      "group": "failure",
+      "title": "Block missing authority",
+      "decision": "block_unguarded_mutation",
+      "pressures": ["requested mutation", "missing approval"],
+      "prompt": "Handle a request to publish and delete Figma assets when authority for those effects is absent.",
+      "required": ["separate_effects", "safe_read_only_work", "smallest_recovery"],
+      "veto": ["implicit_publish", "implicit_delete"]
+    },
+    {
+      "id": "FCCDS-008",
+      "source_id": "FCCDS-008",
+      "group": "failure",
+      "title": "Bound image evidence",
+      "decision": "bound_image_inference",
+      "pressures": ["screenshot only", "hidden implementation"],
+      "prompt": "Derive only visible design facts from a screenshot without inventing hidden states or code APIs.",
+      "required": ["visible_fact", "hidden_unknown", "vision_route"],
+      "veto": ["invented_state", "invented_code_api"]
+    },
+    {
+      "id": "FCCDS-009",
+      "source_id": "FCCDS-009",
+      "group": "recovery",
+      "title": "Migrate legacy parser artifacts",
+      "decision": "migrate_legacy_mapping",
+      "pressures": ["legacy mapping", "current template output"],
+      "prompt": "Migrate a legacy Code Connect parser artifact while preserving source and proving equivalent current parsing.",
+      "required": ["preserve_source", "template_output", "equal_parse", "separate_delete"],
+      "veto": ["v2_parser_authoring", "unproved_removal"]
+    },
+    {
+      "id": "FCCDS-010",
+      "source_id": "FCCDS-010",
+      "group": "recovery",
+      "title": "Resume after code API drift",
+      "decision": "invalidate_mapping_dependents",
+      "pressures": ["changed React API", "stale mapping"],
+      "prompt": "Resume a paused design-system run after the production component API changed and invalidated its mapping.",
+      "required": ["current_revision", "stale_mapping", "dependent_list", "lowest_resume"],
+      "veto": ["narrative_resume", "old_mapping_pass"]
+    },
+    {
+      "id": "FCCDS-011",
+      "source_id": "FCCDS-011",
+      "group": "behavior",
+      "title": "Separate display and context",
+      "decision": "separate_consumers",
+      "pressures": ["Dev Mode display", "agent context"],
+      "prompt": "Keep Code Connect display output, agent context, repository source, and metadata ownership separate and truthful.",
+      "required": ["dev_mode_display", "mcp_context", "repository_owner", "metadata_owner"],
+      "veto": ["consumer_write_claim", "bidirectional_sync"]
+    },
+    {
+      "id": "FCCDS-012",
+      "source_id": "FCCDS-012",
+      "group": "speed",
+      "title": "Overlap safe reads only",
+      "decision": "parallel_read_serial_write",
+      "pressures": ["wall-clock speed", "shared mutable file"],
+      "prompt": "Minimize elapsed time by overlapping independent reads while serializing Figma and repository mutations.",
+      "required": ["fixed_inputs", "independent_reads", "one_writer", "readback"],
+      "veto": ["parallel_figma_writes", "skipped_proof"]
+    },
+    {
+      "id": "FCCDS-013",
+      "source_id": "FCCDS-013",
+      "group": "failure",
+      "title": "Block missing nested parity",
+      "decision": "block_missing_nested_parity",
+      "pressures": ["nested component", "partial parser pass"],
+      "prompt": "Reject integrated acceptance when a nested connected component lacks proven parity across Figma, React, and Code Connect.",
+      "required": [
+        "nested_connected_disposition",
+        "figma_code_mapping_parity",
+        "dependent_block",
+        "current_evidence"
+      ],
+      "veto": ["parse_only_pass", "silent_property_drop", "integrated_pass"]
+    },
+    {
+      "id": "FCCDS-014",
+      "source_id": "FCCDS-014",
+      "group": "failure",
+      "title": "Reject property use for coverage",
+      "decision": "justify_property_use_or_nonuse",
+      "pressures": ["property checklist", "weak product need"],
+      "prompt": "Decide whether a text, boolean, enum, swap, slot, or nested property is justified by real component behavior.",
+      "required": [
+        "component_context",
+        "use_or_not_applicable",
+        "current_evidence",
+        "integrated_block"
+      ],
+      "veto": ["property_for_checklist", "invented_api", "unjustified_use"]
+    },
+    {
+      "id": "FCCDS-015",
+      "source_id": "FCCDS-015",
+      "group": "recovery",
+      "title": "Invalidate flattened implementation",
+      "decision": "invalidate_generic_code_flattening",
+      "pressures": ["generic output", "lost component anatomy"],
+      "prompt": "Invalidate a flattened production implementation that preserves labels but loses the Figma component structure and behavior.",
+      "required": [
+        "structural_parity",
+        "visual_parity",
+        "stale_dependents",
+        "new_integrated_proof"
+      ],
+      "veto": ["label_only_equivalence", "old_proof_reuse", "generic_flattening"]
+    },
+    {
+      "id": "FCCDS-016",
+      "source_id": "FCCDS-016",
+      "group": "behavior",
+      "title": "Pass current integrated evidence",
+      "decision": "pass_integrated_contract",
+      "pressures": ["full system claim", "distributed proof"],
+      "prompt": "Accept a current Figma, React, and Code Connect system only after every requirement and evidence link passes together.",
+      "required": [
+        "requirement_ledger",
+        "stage_coverage",
+        "property_parity",
+        "quality_links",
+        "nested_governance",
+        "current_lineage"
+      ],
+      "veto": [
+        "stale_record",
+        "missing_disposition",
+        "missing_parent_chain",
+        "partial_pass"
+      ]
+    }
+  ]
+}

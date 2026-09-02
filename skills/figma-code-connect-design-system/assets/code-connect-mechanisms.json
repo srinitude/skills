@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-08-31",
+  "package_baseline": "@figma/code-connect 2.0.0",
+  "plugin_baseline": "2.0.21",
+  "mechanisms": [
+    {
+      "id": "fccx.integration-mechanism.access.entitlement-gate",
+      "name": "Plan, seat, library, and authentication gate",
+      "layer": "access",
+      "status": "current prerequisite",
+      "effects": ["read", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.access.cli-package-types",
+      "name": "CLI package and template types",
+      "layer": "access",
+      "status": "current recommended",
+      "effects": ["repository_write", "validation"]
+    },
+    {
+      "id": "fccx.integration-mechanism.access.project-repository-discovery",
+      "name": "Project and repository discovery",
+      "layer": "access",
+      "status": "current",
+      "effects": ["read", "repository_write"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.manual-path-name-map",
+      "name": "Manual path and component-name mapping",
+      "layer": "ui",
+      "status": "current",
+      "effects": ["reference", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.github-repository-browse",
+      "name": "GitHub repository connection and browsing",
+      "layer": "ui",
+      "status": "current optional",
+      "effects": ["read", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.multiple-implementations",
+      "name": "One design component to multiple implementations",
+      "layer": "ui",
+      "status": "current",
+      "effects": ["reference", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.custom-mcp-instructions",
+      "name": "Custom MCP instructions",
+      "layer": "ui",
+      "status": "current",
+      "effects": ["context", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.ai-code-preview",
+      "name": "AI code preview",
+      "layer": "ui",
+      "status": "beta or preview",
+      "effects": ["suggestion", "display"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.selected-frame-gap-map",
+      "name": "Selected-frame mapping gap view",
+      "layer": "ui",
+      "status": "current",
+      "effects": ["read", "display"]
+    },
+    {
+      "id": "fccx.integration-mechanism.ui.ide-mapping-code-suggestions",
+      "name": "IDE mapping and code suggestions",
+      "layer": "ui",
+      "status": "beta or preview",
+      "effects": ["suggestion", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.parserless-identity",
+      "name": "Parserless template identity",
+      "layer": "template",
+      "status": "current recommended",
+      "effects": ["repository_write", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.property-aware",
+      "name": "Property-aware template mapping",
+      "layer": "template",
+      "status": "current recommended",
+      "effects": ["repository_write", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.nested-slot-descendant",
+      "name": "Nested, slot, and descendant composition",
+      "layer": "template",
+      "status": "current recommended",
+      "effects": ["repository_write", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.explicit-import-source-reference",
+      "name": "Explicit imports and source references",
+      "layer": "template",
+      "status": "current recommended",
+      "effects": ["repository_write", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.vcs-source-link",
+      "name": "Version-control source links",
+      "layer": "template",
+      "status": "current",
+      "effects": ["reference", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.relative-helper-bundle",
+      "name": "Relative local helper bundling",
+      "layer": "template",
+      "status": "current",
+      "effects": ["repository_write", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.batch-template-data",
+      "name": "Batch template and data files",
+      "layer": "template",
+      "status": "current optional",
+      "effects": ["repository_write", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.multiple-label-mappings",
+      "name": "Multiple labels for one design node",
+      "layer": "template",
+      "status": "current",
+      "effects": ["metadata_publish", "display"]
+    },
+    {
+      "id": "fccx.integration-mechanism.template.document-url-substitution",
+      "name": "Document URL substitution",
+      "layer": "template",
+      "status": "current optional",
+      "effects": ["repository_write", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.legacy.framework-parser",
+      "name": "Framework-specific parser formats",
+      "layer": "legacy",
+      "status": "legacy v1 only",
+      "effects": ["repository_write", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.legacy.storybook-ingestion",
+      "name": "Storybook story ingestion",
+      "layer": "legacy",
+      "status": "legacy v1 only",
+      "effects": ["read", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.legacy.custom-parser-protocol",
+      "name": "Custom parser protocol",
+      "layer": "legacy",
+      "status": "preview and legacy v1 authoring",
+      "effects": ["read", "repository_write"]
+    },
+    {
+      "id": "fccx.integration-mechanism.legacy.parser-template-migration",
+      "name": "Parser-to-template migration",
+      "layer": "legacy",
+      "status": "current migration path",
+      "effects": ["repository_write", "validation"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.discovery-auto-link-wizard",
+      "name": "CLI discovery and auto-link wizard",
+      "layer": "cli",
+      "status": "current",
+      "effects": ["read", "repository_write"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.create-template",
+      "name": "CLI template creation",
+      "layer": "cli",
+      "status": "current recommended",
+      "effects": ["repository_write", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.parse-local-json",
+      "name": "Local parse to JSON",
+      "layer": "cli",
+      "status": "current",
+      "effects": ["validation", "no_change"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.validate-dry-run",
+      "name": "Validation and dry run",
+      "layer": "cli",
+      "status": "current recommended",
+      "effects": ["validation", "no_change"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.preview-property-states",
+      "name": "Local property-state preview",
+      "layer": "cli",
+      "status": "current",
+      "effects": ["validation", "display"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.publish-metadata",
+      "name": "Publish mapping metadata",
+      "layer": "cli",
+      "status": "current",
+      "effects": ["metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.unpublish-metadata",
+      "name": "Unpublish mapping metadata",
+      "layer": "cli",
+      "status": "current",
+      "effects": ["metadata_unpublish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.ci-publication",
+      "name": "CI publication",
+      "layer": "cli",
+      "status": "current optional",
+      "effects": ["validation", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.cli.embed-template-commands",
+      "name": "Embeddable template command APIs",
+      "layer": "cli",
+      "status": "current optional",
+      "effects": ["read", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.dev-mode.template-inspect",
+      "name": "Property-aware template in Inspect",
+      "layer": "dev-mode",
+      "status": "current",
+      "effects": ["display", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.dev-mode.simple-map-inspect",
+      "name": "Simple mapping in Inspect",
+      "layer": "dev-mode",
+      "status": "current",
+      "effects": ["display", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.mcp.snippet-context",
+      "name": "CodeConnectSnippet machine context",
+      "layer": "mcp",
+      "status": "current",
+      "effects": ["context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.mcp.platform-mapping-selection",
+      "name": "Platform mapping selection",
+      "layer": "mcp",
+      "status": "current",
+      "effects": ["context", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.add-simple-map",
+      "name": "Plugin save of simple mapping",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.add-template-map",
+      "name": "Plugin save of template mapping",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.read-map",
+      "name": "Plugin mapping readback",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["read"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.bulk-suggest-save-maps",
+      "name": "Bulk suggestion, review, and save",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["suggestion", "metadata_publish"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.read-template-authoring-context",
+      "name": "Template authoring context read",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["read", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.read-library-component-graph",
+      "name": "Published library component graph read",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["read", "context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.design-context-enrichment",
+      "name": "Design context enriched by mappings",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["context"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.design-system-search-enrichment",
+      "name": "Design-system search enriched by mappings",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["context", "reference"]
+    },
+    {
+      "id": "fccx.integration-mechanism.plugin.general-metadata-access",
+      "name": "General Figma metadata and variable access",
+      "layer": "plugin",
+      "status": "current",
+      "effects": ["read"]
+    },
+    {
+      "id": "fccx.integration-mechanism.agent.author-parserless-template",
+      "name": "Agent-authored parserless template",
+      "layer": "agent",
+      "status": "current recommended",
+      "effects": ["repository_write", "validation"]
+    },
+    {
+      "id": "fccx.integration-mechanism.agent.generate-adjacent-design-system-rules",
+      "name": "Adjacent agent design-system guidance",
+      "layer": "agent",
+      "status": "current optional",
+      "effects": ["repository_write", "context"]
+    }
+  ],
+  "sources": {
+    "introduction": "https://developers.figma.com/docs/code-connect/",
+    "comparison": "https://developers.figma.com/docs/code-connect/comparing-cc/",
+    "cli": "https://developers.figma.com/docs/code-connect/cli-reference/",
+    "template_api": "https://developers.figma.com/docs/code-connect/template-api/",
+    "migration": "https://developers.figma.com/docs/code-connect/templates-migration-guide/",
+    "mcp": "https://developers.figma.com/docs/figma-mcp-server/code-connect-integration/",
+    "repository": "https://github.com/figma/code-connect/tree/f55fc3a8d9392df0dd80a9e859ffdddbd5c50019"
+  }
+}

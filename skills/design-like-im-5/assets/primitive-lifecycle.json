@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "design-like-im-5",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "product-design-lifecycle": {
+      "discover": "run-scaffold",
+      "research": "domain-research-policy",
+      "experiment": "run-packet",
+      "decide": "run-select-rules",
+      "create": "run-record",
+      "inspect": "review-checklist",
+      "update": "generate",
+      "validate": "complete",
+      "accept": "run-check",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "directories"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see actors.",
+      "motivation": "The human eye needs one owner for actors.",
+      "proof": "The human eye sees the actors owner and gate."
+    },
+    "objects": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see objects.",
+      "motivation": "The human eye needs one owner for objects.",
+      "proof": "The human eye sees the objects owner and gate."
+    },
+    "actions": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see actions.",
+      "motivation": "The human eye needs one owner for actions.",
+      "proof": "The human eye sees the actions owner and gate."
+    },
+    "states": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see states.",
+      "motivation": "The human eye needs one owner for states.",
+      "proof": "The human eye sees the states owner and gate."
+    },
+    "invariants": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see invariants.",
+      "motivation": "The human eye needs one owner for invariants.",
+      "proof": "The human eye sees the invariants owner and gate."
+    },
+    "variants": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see variants.",
+      "motivation": "The human eye needs one owner for variants.",
+      "proof": "The human eye sees the variants owner and gate."
+    },
+    "interfaces": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see interfaces.",
+      "motivation": "The human eye needs one owner for interfaces.",
+      "proof": "The human eye sees the interfaces owner and gate."
+    },
+    "authorities": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see authorities.",
+      "motivation": "The human eye needs one owner for authorities.",
+      "proof": "The human eye sees the authorities owner and gate."
+    },
+    "failures": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see failures.",
+      "motivation": "The human eye needs one owner for failures.",
+      "proof": "The human eye sees the failures owner and gate."
+    },
+    "recoveries": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see recoveries.",
+      "motivation": "The human eye needs one owner for recoveries.",
+      "proof": "The human eye sees the recoveries owner and gate."
+    },
+    "evidence": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see evidence.",
+      "motivation": "The human eye needs one owner for evidence.",
+      "proof": "The human eye sees the evidence owner and gate."
+    },
+    "time": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see time.",
+      "motivation": "The human eye needs one owner for time.",
+      "proof": "The human eye sees the time owner and gate."
+    },
+    "resources": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see resources.",
+      "motivation": "The human eye needs one owner for resources.",
+      "proof": "The human eye sees the resources owner and gate."
+    },
+    "quality": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see quality.",
+      "motivation": "The human eye needs one owner for quality.",
+      "proof": "The human eye sees the quality owner and gate."
+    },
+    "terminology": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see terminology.",
+      "motivation": "The human eye needs one owner for terminology.",
+      "proof": "The human eye sees the terminology owner and gate."
+    },
+    "exclusions": {
+      "profile": "product-design-lifecycle",
+      "outcome": "The human eye can see exclusions.",
+      "motivation": "The human eye needs one owner for exclusions.",
+      "proof": "The human eye sees the exclusions owner and gate."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "product-design-lifecycle"
+    },
+    "references": {
+      "profile": "product-design-lifecycle"
+    },
+    "assets": {
+      "profile": "product-design-lifecycle"
+    },
+    "scripts": {
+      "profile": "product-design-lifecycle"
+    },
+    "tests": {
+      "profile": "product-design-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "product-design-lifecycle"
+    },
+    "examples": {
+      "profile": "product-design-lifecycle"
+    },
+    "evals": {
+      "profile": "product-design-lifecycle"
+    },
+    "policies": {
+      "profile": "product-design-lifecycle"
+    },
+    "schemas": {
+      "profile": "product-design-lifecycle"
+    },
+    "records": {
+      "profile": "product-design-lifecycle"
+    }
+  }
+}

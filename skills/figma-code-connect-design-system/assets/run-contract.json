@@ -1,0 +1,175 @@
+{
+  "schema_version": 3,
+  "source_types": ["figjam", "prd", "image", "codebase", "figma_file", "published_library"],
+  "modes": ["create", "update"],
+  "hierarchy": [
+    "dtcg-tokens",
+    "atoms",
+    "molecules",
+    "organisms",
+    "design-composition-templates",
+    "screens"
+  ],
+  "template_kinds": ["design-composition", "workflow", "code-connect"],
+  "stage_order": [
+    "freeze-intake",
+    "audit-sources",
+    "model-product",
+    "inventory-screens",
+    "inspect-design-system",
+    "harden-dtcg-tokens",
+    "harden-atoms",
+    "harden-molecules",
+    "harden-organisms",
+    "harden-design-templates",
+    "compose-screens",
+    "maintain-code-connect",
+    "integrated-validation"
+  ],
+  "stage_states": ["planned", "in_progress", "pass", "stale", "blocked", "not_applicable"],
+  "lineage_states": ["planned", "pass", "stale", "blocked"],
+  "capability_dispositions": ["pending", "use", "not_applicable", "blocked"],
+  "component_property_kinds": [
+    "TEXT",
+    "BOOLEAN",
+    "VARIANT",
+    "INSTANCE_SWAP",
+    "SLOT",
+    "NESTED_CONNECTED"
+  ],
+  "property_kind_dispositions": ["use", "not_applicable"],
+  "property_dispositions": ["mapped", "not_applicable"],
+  "quality_checkpoints": ["direction", "artifact", "integrated"],
+  "quality_gate_ids": [
+    "truth",
+    "access",
+    "task",
+    "perception",
+    "familiarity",
+    "standards",
+    "uniqueness",
+    "craft",
+    "resilience"
+  ],
+  "quality_visual_contexts": [
+    "whole_view_evidence",
+    "detail_evidence",
+    "responsive_evidence",
+    "input_path_evidence"
+  ],
+  "comparison_levels": [
+    "dtcg-tokens",
+    "atoms",
+    "molecules",
+    "organisms",
+    "design-composition-templates",
+    "screens",
+    "flows"
+  ],
+  "comparison_fixed_conditions": [
+    "specimen",
+    "content",
+    "state",
+    "viewport",
+    "input_path",
+    "all_non_tested_tokens"
+  ],
+  "comparison_required_links": ["experiment_id", "exploration_source_ids"],
+  "comparison_change_scale": "material_direction",
+  "comparison_threshold_reasons": [
+    "safety",
+    "accessibility",
+    "legibility",
+    "target_reach",
+    "compliance",
+    "platform_geometry"
+  ],
+  "focus_intent_levels": [
+    "dtcg-tokens",
+    "atoms",
+    "molecules",
+    "organisms",
+    "design-composition-templates",
+    "screens",
+    "flows"
+  ],
+  "focus_intent_fields": [
+    "user_task",
+    "focus_target",
+    "focus_location",
+    "focus_timing",
+    "focus_mechanism",
+    "focus_reason",
+    "attention_sequence",
+    "competing_signals",
+    "defocus_and_recovery",
+    "failure_evidence"
+  ],
+  "render_context_fields": [
+    "id",
+    "screen",
+    "product_state",
+    "form_factor",
+    "viewport",
+    "orientation",
+    "input_path"
+  ],
+  "render_proof_fields": [
+    "id",
+    "status",
+    "figma_evidence",
+    "code_evidence",
+    "mapping_evidence",
+    "vision_evidence"
+  ],
+  "orientation_values": ["portrait", "landscape", "not_applicable"],
+  "paired_orientation_form_factors": ["mobile", "tablet"],
+  "property_comparison_link_field": "comparison_id",
+  "figma_app_pass_gate": {
+    "computer_control_capability": "platform-neutral local application control",
+    "vision_owner": "same invoking strong vision-capable executor",
+    "missing_capability_disposition": "blocked",
+    "required_skills": [
+      "dtcg-tokens",
+      "design-like-im-5",
+      "figma-code-connect-design-system",
+      "computer-use"
+    ],
+    "required_sources": [
+      "current direct vision",
+      "current web research",
+      "Mobbin",
+      "Refero",
+      "Lazyweb",
+      "project-owned inspiration source",
+      "product API specification",
+      "event or webhook specification",
+      "runtime primitive documentation"
+    ],
+    "required_item_kinds": ["page", "primitive", "component", "node", "layer"],
+    "required_evidence_fields": [
+      "whole_canvas_before",
+      "whole_canvas_after",
+      "active_area_before",
+      "active_area_after",
+      "cleanliness_receipt"
+    ]
+  },
+  "nested_governance_required": true,
+  "mutation_effects": [
+    "repository_write",
+    "figma_write",
+    "metadata_publish",
+    "metadata_unpublish",
+    "delete"
+  ],
+  "read_effects": [
+    "read",
+    "reference",
+    "display",
+    "context",
+    "suggestion",
+    "validation",
+    "no_change"
+  ]
+}

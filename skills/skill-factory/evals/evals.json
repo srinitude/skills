@@ -1,79 +1,178 @@
 {
+  "skill_name": "skill-factory",
   "evals": [
     {
+      "id": 1,
+      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes.",
+      "expected_output": "A new release-notes skill directory with SKILL.md, mise.toml, a CI workflow, scripts, tests under scripts/tests, references, assets, and evals, plus a green mise run ci and a PASS from the validator, reported with the fresh command output.",
       "assertions": [
         "A directory named release-notes exists with SKILL.md at its root and frontmatter opening at byte 0.",
         "mise run ci inside release-notes exits 0 and the reply quotes the run.",
         "validate_skill.py on release-notes prints PASS.",
         "evals/evals.json in release-notes holds at least 4 cases with assertions.",
         "No file in release-notes names an agent product or a model."
-      ],
-      "expected_output": "A new release-notes skill directory with SKILL.md, mise.toml, a CI workflow, scripts, tests under scripts/tests, references, assets, and evals, plus a green mise run ci and a PASS from the validator, reported with the fresh command output.",
-      "id": 1,
-      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes."
+      ]
     },
     {
+      "id": 2,
+      "prompt": "Can you check whether the skill at ./skills/pdf-tools meets the agent skills contract? It was written by hand last month.",
+      "expected_output": "A validation report listing each contract check as PASS or FAIL, with file and reason for every failure and a proposed fix per failure.",
       "assertions": [
         "The reply shows output from validate_skill.py, lint_writing.py, and check_code_rules.py.",
         "Every FAIL line carries a file reference and a reason.",
         "Each reported failure comes with a concrete fix."
-      ],
-      "expected_output": "A validation report listing each contract check as PASS or FAIL, with file and reason for every failure and a proposed fix per failure.",
-      "id": 2,
-      "prompt": "Can you check whether the skill at ./skills/pdf-tools meets the agent skills contract? It was written by hand last month."
+      ]
     },
     {
+      "id": 3,
+      "prompt": "my csv-cleaner skill has no evals yet, write them for me. it cleans csv files and reports what it changed",
+      "expected_output": "An evals/evals.json with at least four realistic cases including one edge case, plus an evals/trigger-queries.json with positive and negative queries, both passing check_evals.py.",
       "assertions": [
         "evals.json holds at least 4 cases, each with prompt, expected_output, and assertions.",
         "At least one case covers an edge such as malformed input.",
         "trigger-queries.json holds both should_trigger labels and includes near-miss negatives.",
         "check_evals.py exits 0 on the result and the reply quotes the run."
-      ],
-      "expected_output": "An evals/evals.json with at least four realistic cases including one edge case, plus an evals/trigger-queries.json with positive and negative queries, both passing check_evals.py.",
-      "id": 3,
-      "prompt": "my csv-cleaner skill has no evals yet, write them for me. it cleans csv files and reports what it changed"
+      ]
     },
     {
+      "id": 4,
+      "prompt": "Before I ask for anything big: is this environment ready for building skills?",
+      "expected_output": "The doctor report as JSON, with a plain statement of readiness and what to install when a required check fails.",
       "assertions": [
         "The reply includes the JSON report from scripts/doctor.py.",
         "The reply states whether ready is true or false.",
         "Failed required checks come with an install or fix suggestion."
-      ],
-      "expected_output": "The doctor report as JSON, with a plain statement of readiness and what to install when a required check fails.",
-      "id": 4,
-      "prompt": "Before I ask for anything big: is this environment ready for building skills?"
+      ]
     },
     {
+      "id": 5,
+      "prompt": "Generate a skill named PDF_Helper for merging pdfs",
+      "expected_output": "No directory created under the invalid name. The reply explains the naming rule and proposes pdf-helper, then proceeds only after the user accepts the new name or the rename is a stated reversible assumption.",
       "assertions": [
         "No directory named PDF_Helper is created.",
         "The reply cites the lowercase naming rule from the scaffolder error.",
         "The reply proposes a valid replacement name such as pdf-helper."
-      ],
-      "expected_output": "No directory created under the invalid name. The reply explains the naming rule and proposes pdf-helper, then proceeds only after the user accepts the new name or the rename is a stated reversible assumption.",
-      "id": 5,
-      "prompt": "Generate a skill named PDF_Helper for merging pdfs"
+      ]
     },
     {
+      "id": 6,
+      "prompt": "you scaffolded the skill an hour ago, is it done? all the checks were green",
+      "expected_output": "A refusal to call a scaffold done, the placeholder check run fresh, and the remaining seeded files named.",
       "assertions": [
         "The reply runs check_placeholders.py and quotes its count and exit code.",
         "The reply names each file still holding seeded text.",
         "The reply states the remaining work rather than claiming completion."
-      ],
-      "expected_output": "A refusal to call a scaffold done, the placeholder check run fresh, and the remaining seeded files named.",
-      "id": 6,
-      "prompt": "you scaffolded the skill an hour ago, is it done? all the checks were green"
+      ]
     },
     {
-      "assertions": [
-        "SKILL.md routes exact exec_command calls to references/exec-command-configuration.md before scripts/doctor.py.",
-        "The reference contains all eight B- rule IDs and states instruction-only enforcement.",
-        "The target skill's full mise run ci exits 0.",
-        "No unrelated target file changes."
-      ],
-      "expected_output": "The existing factory procedure remains intact, the exact exec_command configuration loads before the first shell call, all eight rules are traceable, and sibling tools remain unchanged.",
       "id": 7,
-      "prompt": "Build a skill and run its checks through exec_command while preserving the factory workflow."
+      "prompt": "Update ./skills/release-notes so it can group breaking changes, but preserve its current trigger behavior and output formats.",
+      "expected_output": "A baseline inventory, behavior-first failing test, smallest owning change, and fresh Mise validation and eval evidence with the original accepted behavior retained.",
+      "assertions": [
+        "The report records a baseline digest before edits.",
+        "A new behavior case fails before implementation and passes afterward.",
+        "The prior trigger and output behavior remains covered by evals.",
+        "Factory target validation and evaluation run through Mise and pass."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Take the hand-written skill at ./old/csv-helper and transform it into our standard skill structure without changing what users rely on.",
+      "expected_output": "A standard package with preserved purpose and behavior, deterministic scripts owned by Mise, missing standard owners filled, and fresh source-to-destination proof.",
+      "assertions": [
+        "The source inventory and baseline digest are saved before migration.",
+        "Existing domain behavior and valid triggers are traced into the destination.",
+        "The destination has the required instructions, references, assets, scripts, tests, Mise graph, CI, examples, and evals.",
+        "No source file is overwritten without explicit in-place authority."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Convert a custom host-specific skill pack into an agentskills.io skill that works across coding agents. Replace its proprietary repository instruction and hidden skill paths with open owners.",
+      "expected_output": "A separate portable destination using SKILL.md for reusable behavior, AGENTS.md for repository guidance, and .agents/ for local skill ownership, with every host-only assumption removed or explicitly blocked.",
+      "assertions": [
+        "The source remains unchanged and its file digests are recorded.",
+        "The portable path plan maps repository guidance to AGENTS.md and hidden skill ownership to .agents/.",
+        "Collisions and host-only semantics are resolved before destination acceptance.",
+        "The destination passes the open skill naming, frontmatter, structure, and behavior checks."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Make ./skills/release-notes much simpler and easier to follow. Keep every behavior, use plain language, and do not add more files unless they have a distinct owner.",
+      "expected_output": "A same-meaning skill revision with a smaller declared complexity cost, one canonical owner per rule, plain direct wording, and fresh proof that accepted behavior did not regress.",
+      "assertions": [
+        "The baseline records the accepted behavior and the complexity cost before editing.",
+        "The candidate uses the smallest coherent structure and removes duplicate rules or needless choices.",
+        "The writing rules and writing lint apply to every changed Markdown file.",
+        "Human review confirms that the candidate is easier to reason about without hiding essential domain complexity.",
+        "Fresh Mise tests and evals prove that protected behavior did not regress."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Update my incident-response skill so Mise can interact with the full lifecycle of every domain aspect and package primitive without adding generic tasks.",
+      "expected_output": "A source-backed incident-response aspect and primitive inventory whose discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement phases map to real incident-response Mise tasks and proof.",
+      "assertions": [
+        "The lifecycle inventory covers all 16 domain aspects and all 11 package primitive kinds.",
+        "Every required lifecycle phase maps to a declared Mise task.",
+        "Every owning task states incident-response outcome progress, motivation, value, proof, applicability, and prevented failure.",
+        "The lifecycle policy rejects a missing phase, nonexistent task, or generic domain rationale.",
+        "Deterministic tasks prepare and prove model-owned work without replacing required judgment or tools."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Keep the skill on the latest stable Mise and update its understanding of every Mise primitive at the same time, without interrupting active work.",
+      "expected_output": "A deferred maintenance path that self-updates Mise, refreshes a catalog from that exact release schema, preserves domain dispositions, forces reconciliation of changed primitives, and passes post-update CI.",
+      "assertions": [
+        "Meaningful skill work and acceptance finish before the maintenance path begins.",
+        "The catalog update task depends on self-update and runs the primitive policy afterward.",
+        "The catalog records the exact release, official schema source, hash, and all supported primitive groups.",
+        "The updater never rewrites the skill-specific used and not-applicable decisions.",
+        "Post-update CI and the invocation receipt name the resulting Mise version and catalog digest."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Adversarially update an existing skill pack whose source contains a known client marker beside an unknown host directory, an external symlink, runtime caches, malformed duplicate YAML keys, a 201-line reference, substring-only domain language, and a Mise command array that invokes mise run internally. Preserve the existing destination.",
+      "expected_output": "A fail-closed update plan that reports every source and contract violation before writes, preserves the destination, repairs the factory owner for any reusable defect, and then proves the corrected target with current standalone and integrated evidence.",
+      "assertions": [
+        "The existing destination bytes remain unchanged when planning or scaffolding finds a blocker.",
+        "Unknown host roots and symlinks fail source planning even when a recognized marker is also present.",
+        "Runtime caches and dependency trees are excluded from source lineage while symlinks are rejected.",
+        "Strict YAML validation rejects malformed syntax, duplicate keys, non-string fields, and invalid metadata value types.",
+        "Every domain gate rejects a term found only as a substring inside an unrelated word.",
+        "The task graph rejects generic progress and parseable-evidence clauses even when package domain terms decorate them.",
+        "The writing gate rejects any Markdown file over 200 lines and the task graph rejects nested Mise in string or array command shapes.",
+        "A reusable failure is fixed in skill-factory before the domain package is repaired and both fresh proof paths pass."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Update my release-incident skill so it uses fewer tokens and finishes faster. Keep its incident semantics, evidence rules, live research, and model judgment intact. Use Mise caching and concurrency only where they are correct for this skill, and route its long incident prompt plus required skills through Mise.",
+      "expected_output": "A domain-specific context budget, measured Mise graph, and typed request path whose canonical-owner loads, bounded concurrency, complete cache keys, long prompt, skill dependencies, and agentic primitives reduce repeated work without removing incident meaning, live evidence, or model-owned capability.",
+      "assertions": [
+        "The always-loaded body keeps the smallest domain-complete decision path and names conditional support owners.",
+        "Each support load uses a current canonical owner and digest instead of repeating unchanged content.",
+        "The Mise job bound and cache keys come from the incident skill dependency and resource profile rather than a generic preset.",
+        "The long prompt travels by file or standard input, and every required SKILL.md carries a verified digest.",
+        "The request binds to the release-incident use-case contract and gives every prompt, skill, and primitive a release-incident role, outcome contribution, relevance reason, and expected proof.",
+        "Live research, mutation, external state, and model or human judgment remain uncached and available.",
+        "Cold and warm aggregate timings improve or hold while correctness, token efficiency, semantic judgment, flexibility, and the current skill contract do not regress."
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "Update my deployment-review skill so its body gives one ordered workflow. Every step must name its Mise task, model-only judgment, or both, and real control flow must cover branching, iteration, retry, return, and stopping.",
+      "expected_output": "A deployment-review SKILL.md with one numbered workflow that routes every step to Mise or model work, uses plain control flow only where it changes action, and returns failures to the lowest owner before integrated acceptance.",
+      "assertions": [
+        "The skill body contains a numbered Ordered workflow before detailed branches.",
+        "Every workflow step explicitly names Mise work, model work, or both.",
+        "Branch, If, For each, Repeat, and Stop statements map to real deployment-review choices, collections, retries, and terminal states.",
+        "A failed check or judgment returns to the lowest owning step and invalidates dependent evidence.",
+        "The generated skill workflow contract and full Mise CI pass after the domain content is filled."
+      ]
     }
-  ],
-  "skill_name": "skill-factory"
+  ]
 }

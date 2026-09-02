@@ -4,7 +4,7 @@
 
 ## User
 
-> Validate evals/files/sample.tokens.json as DTCG 2025.10. Do not edit it.
+> Validate evals/files/sample.tokens.json as DTCG 2025.10. Do not edit it. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Visible reply
 
@@ -12,9 +12,9 @@ The file passed the bundled DTCG 2025.10 structure, value, reference, type-agree
 
 ## Command
 
-| Command                                                           | Purpose                                 |
-| ----------------------------------------------------------------- | --------------------------------------- |
-| `python3 scripts/validate_dtcg.py evals/files/sample.tokens.json` | Validate the sample without editing it. |
+| Command                                                     | Purpose                                 |
+| ----------------------------------------------------------- | --------------------------------------- |
+| `mise run token-validate -- evals/files/sample.tokens.json` | Validate the sample without editing it. |
 
 ## Verified output
 

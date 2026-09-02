@@ -8,6 +8,7 @@
     "decision",
     "model_reviews",
     "negative_reviews",
+    "quality_gate",
     "evidence",
     "reason",
     "counterevidence",
@@ -44,6 +45,7 @@
     "negative_reviews": {
       "$ref": "#/$defs/negativeReviews"
     },
+    "quality_gate": { "$ref": "#/$defs/qualityGate" },
     "evidence": { "type": "array", "minItems": 1 },
     "reason": { "type": "string" },
     "counterevidence": { "type": "array" },
@@ -61,6 +63,43 @@
     }
   },
   "$defs": {
+    "qualityGate": {
+      "type": "object",
+      "required": ["checkpoint", "status", "diagnosis", "gates"],
+      "properties": {
+        "checkpoint": { "const": "integrated" },
+        "status": { "enum": ["PASS", "REVISE", "BLOCKED"] },
+        "diagnosis": { "enum": ["DEFECT", "MEDIOCRE", "SLOP", "PASS"] },
+        "gates": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {
+            "type": "object",
+            "required": ["id", "status", "evidence"],
+            "properties": {
+              "id": {
+                "enum": [
+                  "truth",
+                  "access",
+                  "task",
+                  "perception",
+                  "familiarity",
+                  "standards",
+                  "uniqueness",
+                  "craft",
+                  "resilience"
+                ]
+              },
+              "status": { "enum": ["PASS", "REVISE", "BLOCKED"] },
+              "evidence": { "type": "array", "minItems": 1 }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
     "negativeReviews": {
       "type": "object",
       "required": ["objective_failure", "bad_design", "bad_output", "bad_practice"],

@@ -1,0 +1,134 @@
+{
+  "version": "1.0.0",
+  "skill": "dtcg-tokens",
+  "records": [
+    {
+      "id": "skill-factory-update-owner",
+      "kind": "deterministic",
+      "outcome": "Every DTCG token package update runs under the current skill-factory update method.",
+      "motivation": "DTCG token changes need one baseline, validation, evaluation, invocation, and maintenance owner.",
+      "why_this_path": "The skill-factory plan and target gates preserve DTCG token purpose while enforcing the shared package contract.",
+      "owner": "mise",
+      "inputs": ["DTCG token package", "skill-factory baseline", "factory target checks"],
+      "expected_effect": "DTCG token updates cannot be accepted through an untracked direct-edit path.",
+      "proof": "DTCG token receipts record factory planning, RED evidence, target validation, eval validation, invocation accounting, and maintenance.",
+      "falsifier": "A DTCG token package change is accepted without a current skill-factory invocation receipt.",
+      "failure_branch": "Block the DTCG token update, restore its baseline if needed, and rerun the factory update path."
+    },
+    {
+      "id": "mise-deterministic-envelope",
+      "kind": "deterministic",
+      "outcome": "Every repeatable DTCG token mechanic runs through one Mise task graph path.",
+      "motivation": "DTCG token authorship needs deterministic state, hashes, checks, and failure exits around visual judgment.",
+      "why_this_path": "The Mise task graph exposes DTCG token operations while keeping private implementation paths out of instructions.",
+      "owner": "mise",
+      "inputs": ["DTCG token inputs", "Mise task graph", "token policy assets"],
+      "expected_effect": "DTCG token mechanics are reproducible, cached where safe, and independently inspectable.",
+      "proof": "DTCG token topology, policy, package, and CI tasks exit zero on current bytes.",
+      "falsifier": "A repeatable DTCG token action bypasses Mise or has an alternate dependency path.",
+      "failure_branch": "Block DTCG token acceptance and repair the lowest Mise owner."
+    },
+    {
+      "id": "vision-acceptance-owner",
+      "kind": "model_owned",
+      "outcome": "DTCG token visual quality is accepted only by the same strong vision-capable executor viewing current pixels.",
+      "motivation": "DTCG token structure, metrics, hashes, or another executor cannot establish visual quality.",
+      "why_this_path": "Direct DTCG token vision preserves human eye, brain, touch, source-specificity, originality, restraint, and canvas judgment.",
+      "owner": "model",
+      "inputs": [
+        "DTCG token source evidence",
+        "rendered token proof",
+        "current states and viewports"
+      ],
+      "expected_effect": "DTCG token proof cannot pass from unviewed output or programmatic proxy.",
+      "proof": "DTCG token evidence contains located current-pixel receipts and the executor's bounded verdict.",
+      "falsifier": "A DTCG token visual claim passes without direct sight of the exact accepted render.",
+      "failure_branch": "Block DTCG token visual acceptance and obtain current direct-vision readback."
+    },
+    {
+      "id": "experiment-before-canonical-token",
+      "kind": "model_owned",
+      "outcome": "DTCG token values and relationships are locked only after material controlled experiments.",
+      "motivation": "DTCG token defaults and tiny tuning can preserve mediocrity while consuming time.",
+      "why_this_path": "Material DTCG token experiments expose different system directions while fixed conditions keep the decision causal.",
+      "owner": "model",
+      "inputs": [
+        "DTCG token hypothesis",
+        "material candidates",
+        "fixed specimen and context",
+        "current rendered pixels"
+      ],
+      "expected_effect": "DTCG token decisions preserve creative exploration and commit once one direction earns acceptance.",
+      "proof": "DTCG token experiment evidence records preregistration, candidates, direct vision, decision, and lock.",
+      "falsifier": "A canonical DTCG token appears before its required experiment or after an indistinguishable comparison.",
+      "failure_branch": "Return the DTCG token to experimental state and run a material comparison."
+    },
+    {
+      "id": "human-authority-boundary",
+      "kind": "human_owned",
+      "outcome": "DTCG token purpose changes, destructive evidence deletion, publication, and deployment remain human authorized.",
+      "motivation": "DTCG token package maintenance cannot infer authority for consequential external changes.",
+      "why_this_path": "Human authority protects DTCG token scope, evidence history, and release destinations.",
+      "owner": "human",
+      "inputs": ["DTCG token requested outcome", "proposed side effect", "approval scope"],
+      "expected_effect": "DTCG token work proceeds autonomously inside scope and stops at real authority boundaries.",
+      "proof": "DTCG token decision records identify approval or a blocked side effect.",
+      "falsifier": "DTCG token work publishes, deploys, or deletes material evidence without matching authority.",
+      "failure_branch": "Block the DTCG token side effect and request exact human authority."
+    },
+    {
+      "id": "nonregressing-improvement",
+      "kind": "deterministic",
+      "outcome": "A DTCG token skill improvement is kept only when one named dimension improves and none regress.",
+      "motivation": "DTCG token speed, correctness, creativity, visual judgment, or simplicity cannot be traded away silently.",
+      "why_this_path": "A frozen DTCG token baseline, evaluator, resource measures, and rollback digest make one-dimension trials falsifiable.",
+      "owner": "mise",
+      "inputs": [
+        "accepted DTCG token package",
+        "frozen evaluator",
+        "candidate change",
+        "resource measures"
+      ],
+      "expected_effect": "The DTCG token package learns without becoming slower, weaker, less creative, or less correct.",
+      "proof": "The DTCG token improvement task records keep, discard, or crash and verifies the accepted digest.",
+      "falsifier": "A slower or less correct DTCG token candidate remains installed.",
+      "failure_branch": "Restore the accepted DTCG token digest and rerun its narrow and integrated proof."
+    },
+    {
+      "id": "ordered-token-workflow",
+      "kind": "model_owned",
+      "outcome": "The DTCG token skill executes one ordered path from source authority through experiments, token lock, authorship, proof, and acceptance.",
+      "motivation": "DTCG token rules can be individually correct while implicit order still permits premature locks, skipped vision, or stale dependent proof.",
+      "why_this_path": "The DTCG token body assigns each numbered step to a real Mise task, model-only judgment, or both, then uses bounded Branch, If, For each, Repeat, and Stop controls only where action changes.",
+      "owner": "model",
+      "inputs": [
+        "DTCG token source authority",
+        "material experiment records",
+        "Mise task graph",
+        "direct visual judgment"
+      ],
+      "expected_effect": "DTCG token work locks lower owners before dependents and returns failures to the smallest responsible step.",
+      "proof": "DTCG token workflow tests verify consecutive steps, real owners, meaningful controls, and the source-to-proof order in the skill body.",
+      "falsifier": "A DTCG token step lacks a Mise or model owner, a loop has no stop condition, or canonical tokens can precede their experiments.",
+      "failure_branch": "Repair the lowest DTCG token workflow owner, invalidate dependent proof, and rerun the workflow contract plus integrated package checks."
+    },
+    {
+      "id": "standalone-adversarial-policy-envelope",
+      "kind": "deterministic",
+      "outcome": "The DTCG token skill rejects malformed or generic policy evidence without depending on an external factory process.",
+      "motivation": "A DTCG token package that passes only under an external target checker cannot function safely on its own.",
+      "why_this_path": "DTCG token policy tasks now validate research provenance and currency, whole-phrase specificity, acyclic single-path Mise structure, typed invocation receipts, and concrete decision evidence locally.",
+      "owner": "mise",
+      "inputs": [
+        "DTCG token policy contracts",
+        "DTCG token Mise task graph",
+        "DTCG token research receipts",
+        "DTCG token invocation receipts"
+      ],
+      "expected_effect": "Every supported DTCG token invocation fails closed on stale, malformed, circular, generic, or ambiguous deterministic evidence.",
+      "proof": "DTCG token adversarial behavior tests reproduce fourteen former fail-open cases and now reject each one before integrated acceptance.",
+      "falsifier": "A malformed DTCG token policy package or generic receipt exits zero, crashes with a traceback, or requires an external factory checker to fail.",
+      "failure_branch": "Block DTCG token acceptance, repair the local policy owner, rerun the failing attack, and then rerun factory target validation."
+    }
+  ]
+}

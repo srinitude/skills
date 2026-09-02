@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "files": [
+    { "path": "SKILL.md", "role": "public router", "load": "on activation" },
+    {
+      "path": "references/operating-contract.md",
+      "role": "mode, stages, source, and permission contract",
+      "load": "every command except help"
+    },
+    {
+      "path": "references/design-system-lineage.md",
+      "role": "atomic hierarchy and invalidation",
+      "load": "before token, component, template, or screen work"
+    },
+    {
+      "path": "references/code-connect.md",
+      "role": "mapping artifacts, primitives, lifecycle, and limits",
+      "load": "before Code Connect planning or work"
+    },
+    {
+      "path": "references/capability-routing.md",
+      "role": "Figma and research capability selection",
+      "load": "before capability use"
+    },
+    {
+      "path": "references/validation-and-recovery.md",
+      "role": "proof, visual review, stale state, and resume",
+      "load": "before validation or recovery"
+    },
+    {
+      "path": "references/source-boundary.md",
+      "role": "versions and refresh method",
+      "load": "on source refresh or drift question"
+    },
+    {
+      "path": "assets/run-contract.json",
+      "role": "machine stage and ledger contract",
+      "load": "every non-help run"
+    },
+    {
+      "path": "assets/capability-contracts.json",
+      "role": "versioned capability adapters",
+      "load": "before routing tools"
+    },
+    {
+      "path": "assets/code-connect-mechanisms.json",
+      "role": "47-mechanism coverage registry",
+      "load": "before mapping inventory or change"
+    },
+    {
+      "path": "scripts/new_run.py",
+      "role": "run-ledger scaffold",
+      "load": "plan or run setup"
+    },
+    {
+      "path": "scripts/lib/comparison_validation.py",
+      "role": "controlled-comparison coverage and freshness gate",
+      "load": "every run validation"
+    },
+    {
+      "path": "scripts/lib/integrated_validation.py",
+      "role": "integrated requirement, quality, parity, and governance gate",
+      "load": "every completion validation"
+    },
+    {
+      "path": "scripts/validate_run.py",
+      "role": "ledger and lineage validation",
+      "load": "validate or completion"
+    },
+    {
+      "path": "scripts/tests/test_comparison_coverage.py",
+      "role": "comparison coverage behavior proof",
+      "load": "package tests"
+    },
+    {
+      "path": "evals/manifest.json",
+      "role": "eval package owner",
+      "load": "eval or package maintenance"
+    }
+  ]
+}

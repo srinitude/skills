@@ -15,7 +15,12 @@
     },
     {
       "title": "Design Systems",
-      "skills": ["design-like-im-5", "visual-design-system-extractor"]
+      "skills": [
+        "design-like-im-5",
+        "dtcg-tokens",
+        "figma-code-connect-design-system",
+        "visual-design-system-extractor"
+      ]
     },
     {
       "title": "Goal Packaging",

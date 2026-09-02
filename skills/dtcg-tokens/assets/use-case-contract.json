@@ -1,0 +1,652 @@
+{
+  "version": "1.0.0",
+  "skill": "dtcg-tokens",
+  "outcome": "Create source-specific DTCG token artifacts and accept them only after current conformance, evidence, experiment, and visual proof.",
+  "domain_terms": ["DTCG token", "token proof", "token experiment", "Mise task graph"],
+  "motivations": [
+    {
+      "constraint": "Every DTCG token value and relationship must trace to source evidence and a material token experiment.",
+      "reason": "A DTCG token file can be valid while remaining generic or visually weak.",
+      "failure_prevented": "DTCG token output that copies defaults or accepts unseen pixels."
+    },
+    {
+      "constraint": "Every repeatable DTCG token mechanic must use one Mise task graph path.",
+      "reason": "DTCG token judgment is more reliable when deterministic work produces current evidence.",
+      "failure_prevented": "DTCG token changes that bypass tests, lifecycle owners, factory update mode, or lineage."
+    }
+  ],
+  "domain_failures": [
+    "A DTCG token package passes structure checks but produces generic, inaccessible, or visually poor proof.",
+    "A token proof claims quality from metadata, hashes, or unviewed captures instead of current direct vision."
+  ],
+  "domain_evidence": [
+    "DTCG token source locations, experiment records, conformance exits, hashes, and current rendered-pixel receipts.",
+    "Token proof decisions with counterevidence, uncertainty, scope limits, and a same-executor vision record."
+  ],
+  "domain_dimensions": {
+    "actors": [
+      "DTCG token authors, vision executors, reviewers, users, and package owners have named authority."
+    ],
+    "objects": [
+      "DTCG token sources, values, aliases, evidence, proof artifacts, experiments, and run records have one owner."
+    ],
+    "actions": [
+      "DTCG token work inventories, experiments, authors, validates, renders, judges, repairs, accepts, and restores."
+    ],
+    "states": [
+      "DTCG token state distinguishes stale, pending, running, blocked, passing, accepted, rejected, restored, and retired."
+    ],
+    "invariants": [
+      "DTCG token source fidelity, semantics, accessibility, evidence, authority, and visual judgment survive change."
+    ],
+    "variants": [
+      "DTCG token values vary by source and context while the DTCG 2025.10 exchange contract stays stable."
+    ],
+    "interfaces": [
+      "DTCG token JSON, evidence JSON, proof HTML, run JSON, Mise tasks, and evals keep tested interfaces."
+    ],
+    "authorities": [
+      "DTCG token purpose and visual acceptance stay human or model owned; Mise owns repeatable mechanics only."
+    ],
+    "failures": [
+      "DTCG token work can fail through generic values, false claims, stale proof, inaccessible ranges, or unseen pixels."
+    ],
+    "recoveries": [
+      "DTCG token recovery repairs the lowest owner or restores the last accepted package and artifact digest."
+    ],
+    "evidence": [
+      "DTCG token evidence links source locations, experiments, checks, rendered pixels, decisions, hashes, and limits."
+    ],
+    "time": [
+      "DTCG token research, fonts, inputs, pixels, receipts, and lineage must be current for the active run."
+    ],
+    "resources": [
+      "DTCG token tasks bound wall time, CPU, memory, storage, network, cache, context, cost, and human attention."
+    ],
+    "quality": [
+      "DTCG token quality requires independent conformance, specificity, accessibility, originality, restraint, and vision gates."
+    ],
+    "terminology": [
+      "DTCG token names distinguish primitive values, semantic aliases, experiments, proof scaffolds, and product templates."
+    ],
+    "exclusions": [
+      "DTCG token work does not invent product facts, infer global uniqueness, proxy pixels, publish, or deploy."
+    ]
+  },
+  "research_questions": {
+    "actors": "Which actors conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "objects": "Which objects conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "actions": "Which actions conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "states": "Which states conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "invariants": "Which invariants conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "variants": "Which variants conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "interfaces": "Which interfaces conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "authorities": "Which authorities conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "failures": "Which failures conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "recoveries": "Which recoveries conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "evidence": "Which evidence conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "time": "Which time conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "resources": "Which resources conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "quality": "Which quality conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "terminology": "Which terminology conditions materially change DTCG token creation, proof, failure, or recovery?",
+    "exclusions": "Which exclusions conditions materially change DTCG token creation, proof, failure, or recovery?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.designtokens.org/TR/2025.10/format/",
+      "source_class": "standard",
+      "claim": "The published Design Tokens Format Module 2025.10 defines interoperable token structure, groups, types, aliases, and extensions.",
+      "disposition": "retained",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "limitations": "The DTCG token format does not establish source specificity or rendered visual quality.",
+      "dimensions": [
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "failures",
+        "recoveries",
+        "evidence",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/TR/WCAG22/",
+      "source_class": "standard",
+      "claim": "WCAG 2.2 supplies measurable accessibility constraints that can veto unsafe token ranges and rendered uses.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "limitations": "WCAG conformance does not establish DTCG token originality, taste, or product-specific visual quality.",
+      "dimensions": [
+        "actors",
+        "invariants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "evidence",
+        "quality",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://mise.jdx.dev/tasks/",
+      "source_class": "first_party",
+      "claim": "Mise tasks provide dependency-aware execution, task discovery, aliases, and shared local and CI entry paths.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "limitations": "Mise can prove DTCG token mechanics but cannot make qualitative visual judgments.",
+      "dimensions": [
+        "actors",
+        "actions",
+        "states",
+        "interfaces",
+        "authorities",
+        "recoveries",
+        "time",
+        "resources",
+        "quality"
+      ]
+    },
+    {
+      "source": "https://agentskills.io/specification",
+      "source_class": "first_party",
+      "claim": "An agent skill uses a concise SKILL body with optional references, assets, scripts, and progressive disclosure.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "limitations": "The format specification does not define DTCG token semantics, experiments, or visual acceptance.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "variants",
+        "interfaces",
+        "authorities",
+        "resources",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/TR/prov-o/",
+      "source_class": "standard",
+      "claim": "Provenance links entities, activities, agents, derivation, attribution, and time for evidence records.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "limitations": "PROV-O does not define the full DTCG token run or visual judgment contract.",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "interfaces",
+        "authorities",
+        "evidence",
+        "time",
+        "recoveries"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can DTCG token format conformance prove that a token system is visually good?",
+      "source": "https://www.designtokens.org/TR/2025.10/format/",
+      "checked_at": "2026-09-02T05:24:51-04:00",
+      "result": "No. The DTCG token standard defines an interchange format and token semantics, while rendered quality requires separate evidence and direct vision.",
+      "disposition": "Keep DTCG token conformance and visual acceptance as independent noncompensating gates."
+    }
+  ],
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token skill body owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token skill body advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the skill body to prevent generic or unproved behavior.",
+      "value": "The DTCG token skill body gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token skill body prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token skill body passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token references owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token references advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the references to prevent generic or unproved behavior.",
+      "value": "The DTCG token references gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token references prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token references passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token assets owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token assets advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the assets to prevent generic or unproved behavior.",
+      "value": "The DTCG token assets gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token assets prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token assets passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "scripts": {
+      "ownership": "shared_invariant",
+      "role": "The DTCG token scripts owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token scripts advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the scripts to prevent generic or unproved behavior.",
+      "value": "The DTCG token scripts gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token scripts prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token scripts passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "tests": {
+      "ownership": "shared_invariant",
+      "role": "The DTCG token tests owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token tests advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the tests to prevent generic or unproved behavior.",
+      "value": "The DTCG token tests gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token tests prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token tests passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "mise_tasks": {
+      "ownership": "shared_invariant",
+      "role": "The DTCG token mise tasks owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token mise tasks advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the mise tasks to prevent generic or unproved behavior.",
+      "value": "The DTCG token mise tasks gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token mise tasks prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token mise tasks passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token examples owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token examples advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the examples to prevent generic or unproved behavior.",
+      "value": "The DTCG token examples gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token examples prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token examples passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token evals owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token evals advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the evals to prevent generic or unproved behavior.",
+      "value": "The DTCG token evals gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token evals prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token evals passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token policies owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token policies advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the policies to prevent generic or unproved behavior.",
+      "value": "The DTCG token policies gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token policies prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token policies passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "schemas": {
+      "ownership": "shared_invariant",
+      "role": "The DTCG token schemas owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token schemas advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the schemas to prevent generic or unproved behavior.",
+      "value": "The DTCG token schemas gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token schemas prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token schemas passes its Mise task graph gate and current semantic or visual readback."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "The DTCG token records owns its use-case-specific part of token generation and proof.",
+      "outcome": "The DTCG token records advances a source-specific and visually proved result.",
+      "motivation": "A DTCG token package needs the records to prevent generic or unproved behavior.",
+      "value": "The DTCG token records gives the executor concrete progress toward accepted token proof.",
+      "failure_prevented": "The DTCG token records prevents a package-shaped artifact with no trustworthy token result.",
+      "proof": "The DTCG token records passes its Mise task graph gate and current semantic or visual readback."
+    }
+  },
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "invocation-policy",
+        "outcome": "A DTCG token invocation ends with every Mise task run or specifically justified as inapplicable.",
+        "motivation": "DTCG token completion needs a checked account of skipped and executed work.",
+        "why_default_path": "The DTCG token invocation-policy task is the sole public receipt validator.",
+        "proof": "The DTCG token invocation receipt reports zero missing, unknown, or generic task dispositions."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "The DTCG token package reconciles its Mise primitive catalog after an owned runner update.",
+        "motivation": "DTCG token orchestration must notice new or changed Mise fields before reuse.",
+        "why_default_path": "The DTCG token mise-primitives-update task is the sole catalog refresh path after self-update.",
+        "proof": "The DTCG token catalog records current release provenance, complete groups, retained dispositions, and refreshed lineage."
+      },
+      {
+        "task": "token-help",
+        "outcome": "The executor receives the DTCG token command and pipeline interface.",
+        "motivation": "DTCG token work needs current usage, arguments, exits, and examples before execution.",
+        "why_default_path": "The DTCG token token-help task is the sole public command discovery path.",
+        "proof": "The DTCG token help output prints the complete current interface and exits zero."
+      },
+      {
+        "task": "token-run",
+        "outcome": "A new DTCG token run receives frozen inputs and 25 durable pending steps.",
+        "motivation": "DTCG token derivation needs state and source hashes before decisions begin.",
+        "why_default_path": "The DTCG token token-run task is the sole public run initialization path.",
+        "proof": "The DTCG token init receipt lists the run directory, input hashes, and all initialized steps."
+      },
+      {
+        "task": "token-packet",
+        "outcome": "One DTCG token step receives bounded inputs, outputs, owners, and prerequisites.",
+        "motivation": "DTCG token execution needs exact local context instead of loading the whole package.",
+        "why_default_path": "The DTCG token token-packet task is the sole public step packet path.",
+        "proof": "The DTCG token packet receipt names exact dependencies, paths, hashes, and output obligations."
+      },
+      {
+        "task": "token-start",
+        "outcome": "One eligible DTCG token step enters running state after prerequisite checks.",
+        "motivation": "DTCG token steps must not start out of order or from an invalid state.",
+        "why_default_path": "The DTCG token token-start task is the sole public step-start transition.",
+        "proof": "The DTCG token start receipt records the step and validated predecessor state."
+      },
+      {
+        "task": "token-pass",
+        "outcome": "One running DTCG token step passes with current outputs and judgment evidence.",
+        "motivation": "DTCG token completion needs verified artifacts rather than a status-only claim.",
+        "why_default_path": "The DTCG token token-pass task is the sole public successful step transition.",
+        "proof": "The DTCG token pass receipt binds output hashes and required evidence to PASS."
+      },
+      {
+        "task": "token-block",
+        "outcome": "One DTCG token step records a typed blocker and recovery without losing progress.",
+        "motivation": "DTCG token failures need an inspectable resumable state.",
+        "why_default_path": "The DTCG token token-block task is the sole public blocked-step transition.",
+        "proof": "The DTCG token block receipt records code, reason, recovery, and preserved state."
+      },
+      {
+        "task": "token-status",
+        "outcome": "The executor receives current DTCG token step counts, blockers, and completion state.",
+        "motivation": "DTCG token progress must separate pending, running, blocked, stale, and passed work.",
+        "why_default_path": "The DTCG token token-status task is the sole public non-mutating run readback.",
+        "proof": "The DTCG token status receipt reports every state count and whole-run acceptance."
+      },
+      {
+        "task": "token-validate",
+        "outcome": "A supplied DTCG token file receives current format and reference validation.",
+        "motivation": "DTCG token candidates need direct schema, type, alias, extension, and cycle diagnostics.",
+        "why_default_path": "The DTCG token token-validate task is the sole public candidate validation path.",
+        "proof": "The DTCG token validation receipt reports errors, warnings, and resolved token count."
+      },
+      {
+        "task": "token-prove",
+        "outcome": "A validated DTCG token set and its evidence become a standalone proof artifact.",
+        "motivation": "DTCG token quality needs an inspectable rendered surface tied to exact source bytes.",
+        "why_default_path": "The DTCG token token-prove task is the sole public proof assembly path.",
+        "proof": "The DTCG token proof receipt names the artifact, input hashes, embedded assets, and obligations."
+      },
+      {
+        "task": "token-explore",
+        "outcome": "The DTCG token effort receives current source receipts and materially distinct strategy candidates.",
+        "motivation": "DTCG token values must not lock before broad evidence and real alternatives exist.",
+        "why_default_path": "The DTCG token token-explore task is the sole public exploration preparation path.",
+        "proof": "The DTCG token exploration receipt records sources, counterexamples, strategies, gaps, and experiments."
+      },
+      {
+        "task": "font-prepare",
+        "outcome": "A DTCG token typography candidate receives eligible self-contained Google Font assets.",
+        "motivation": "DTCG token font experiments need current rank provenance and exact WOFF2 bytes.",
+        "why_default_path": "The DTCG token font-prepare task is the sole public current font asset preparation path.",
+        "proof": "The DTCG token font receipt records catalog date, rank, URLs, hashes, and inline CSS."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "The DTCG token package reaches integrated acceptance with current source lineage.",
+        "motivation": "DTCG token release claims need one local and remote acceptance path.",
+        "value": "DTCG token CI joins behavioral, structural, semantic, visual-proof-contract, and lineage gates.",
+        "proof": "The DTCG token CI task exits zero after acceptance and lineage both pass.",
+        "applicability": "Run for every candidate DTCG token package release."
+      },
+      "acceptance": {
+        "outcome": "Every non-lineage DTCG token gate passes before source hashes may change.",
+        "motivation": "DTCG token lineage must never bless an unaccepted package.",
+        "value": "DTCG token acceptance isolates current behavior and policy proof from the final lineage readback.",
+        "proof": "The DTCG token acceptance task reports zero failed prerequisite gates.",
+        "applicability": "Run before DTCG token lineage refresh or integrated CI."
+      },
+      "test-ci": {
+        "outcome": "The DTCG token Mise graph and remote workflow retain one shared CI entry.",
+        "motivation": "DTCG token automation can drift before domain behavior tests run.",
+        "value": "DTCG token graph tests catch missing edges, duplicate command paths, and remote workflow divergence early.",
+        "proof": "The DTCG token CI-contract test suite exits zero.",
+        "applicability": "Run after changing DTCG token Mise tasks or the remote workflow."
+      },
+      "test": {
+        "outcome": "All DTCG token behavior and contract tests pass on current sources.",
+        "motivation": "DTCG token parsing, exploration, proof, and recovery behavior need executable evidence.",
+        "value": "DTCG token tests expose regressions across public commands and integration boundaries.",
+        "proof": "The complete DTCG token test suite exits zero with every named test passing.",
+        "applicability": "Run for every DTCG token source, contract, or behavior change."
+      },
+      "validate-dtcg": {
+        "outcome": "The sample DTCG token document conforms to the current format and resolves every reference.",
+        "motivation": "DTCG token examples must prove the validator against real token types and aliases.",
+        "value": "DTCG token validation catches schema, type, reference, extension, and cycle faults.",
+        "proof": "The DTCG token validator reports zero errors and the resolved token count.",
+        "applicability": "Run after changing DTCG token format rules, validator behavior, or sample tokens."
+      },
+      "artifact-contract": {
+        "outcome": "DTCG token proof shells contain every authored input, visible obligation, negative precedent, and reviewed-render binding.",
+        "motivation": "DTCG token visual proof can look finished while omitting evidence or depending on hidden runtime assets.",
+        "value": "The DTCG token artifact gate blocks incomplete, externally dependent, or unreviewed proof shells.",
+        "proof": "The DTCG token artifact-contract checker reports zero missing or invalid proof obligations.",
+        "applicability": "Run after changing DTCG token proof structure, evidence, assets, or assembly rules."
+      },
+      "validate": {
+        "outcome": "The DTCG token skill package matches its portable structure and execution contract.",
+        "motivation": "DTCG token instructions and support owners must load consistently across compatible agents.",
+        "value": "DTCG token package validation catches malformed frontmatter, missing owners, invalid routes, and stale command grammar.",
+        "proof": "The DTCG token package validator reports zero structural or contract problems.",
+        "applicability": "Run for every DTCG token package acceptance."
+      },
+      "audit-files": {
+        "outcome": "Every maintained DTCG token file has one explicit activation or consumer route.",
+        "motivation": "DTCG token files without a trigger or owner become stale and waste executor context.",
+        "value": "The DTCG token file audit links each package file to the instruction, task, test, or runtime path that consumes it.",
+        "proof": "The DTCG token file-trigger audit reports zero unrouted files.",
+        "applicability": "Run whenever a DTCG token package file is added, moved, renamed, or removed."
+      },
+      "validate-exploration": {
+        "outcome": "DTCG token exploration has current source coverage, distinct strategies, material experiments, and traceable transfer decisions.",
+        "motivation": "DTCG token authorship needs real alternatives before canonical values are locked.",
+        "value": "DTCG token exploration validation blocks narrow, stale, untraceable, or micro-only candidate sets.",
+        "proof": "The DTCG token exploration checker reports complete frontier, corpus, strategy, and experiment contracts.",
+        "applicability": "Run before locking DTCG token values and after exploration evidence changes."
+      },
+      "lint-writing": {
+        "outcome": "All DTCG token Markdown stays within the plain-language and progressive-disclosure contract.",
+        "motivation": "DTCG token instructions lose speed and meaning when prose is duplicated, hard wrapped, or routed to private files.",
+        "value": "DTCG token writing lint catches bounded language, layout, path, and line-limit faults.",
+        "proof": "The DTCG token writing lint reports zero problems across every Markdown owner.",
+        "applicability": "Run after any DTCG token Markdown change."
+      },
+      "lint-code": {
+        "outcome": "DTCG token scripts and tests stay within file, construct, and nesting limits.",
+        "motivation": "DTCG token mechanics become hard to verify when implementations grow past local ownership boundaries.",
+        "value": "DTCG token code lint identifies oversized files, long constructs, deep nesting, and unfinished branches.",
+        "proof": "The DTCG token code-rule checker reports zero violations.",
+        "applicability": "Run after changing DTCG token scripts or tests."
+      },
+      "lint-placeholders": {
+        "outcome": "No DTCG token package primitive retains scaffold or unfinished placeholder content.",
+        "motivation": "DTCG token scaffolds can appear complete without implementing domain behavior.",
+        "value": "DTCG token placeholder lint prevents template seeds and work markers from entering accepted sources.",
+        "proof": "The DTCG token placeholder checker reports zero scaffold markers.",
+        "applicability": "Run for every DTCG token package acceptance."
+      },
+      "evals": {
+        "outcome": "DTCG token evals cover realistic triggers, failures, recoveries, visual boundaries, and anti-slop decisions.",
+        "motivation": "DTCG token quality needs behavior evidence beyond package structure and schema validity.",
+        "value": "DTCG token eval validation catches malformed, missing, or non-verifiable cases.",
+        "proof": "The DTCG token eval checker reports zero contract problems for all cases and trigger queries.",
+        "applicability": "Run after changing DTCG token triggers, workflow, policy, or acceptance claims."
+      },
+      "improvement-policy": {
+        "outcome": "A DTCG token skill experiment is retained only when one declared dimension improves and no protected dimension regresses.",
+        "motivation": "DTCG token speed or novelty must not trade away correctness, visual judgment, creativity, or simplicity.",
+        "value": "The DTCG token improvement policy freezes the baseline, evaluator, measures, rollback digest, and keep rule.",
+        "proof": "The DTCG token improvement-contract checker reports a complete nonregression contract.",
+        "applicability": "Run before and after an optional DTCG token skill improvement trial."
+      },
+      "domain-research-policy": {
+        "outcome": "DTCG token domain research covers every declared dimension with current sources and counterevidence.",
+        "motivation": "DTCG token policy built from generic or stale knowledge can misstate the standard and visual evidence boundary.",
+        "value": "DTCG token research receipts make source authority, recency, disagreement, and gaps inspectable.",
+        "proof": "The DTCG token research-policy checker reports complete current receipts and disconfirming evidence.",
+        "applicability": "Run before changing DTCG token domain rules, terminology, or proof criteria."
+      },
+      "use-case-policy": {
+        "outcome": "Every DTCG token package primitive serves token derivation, authorship, validation, proof, or recovery.",
+        "motivation": "DTCG token packages can accumulate generic files and tasks that do not advance a token outcome.",
+        "value": "The DTCG token use-case gate binds each primitive to a concrete role, failure, value, and proof.",
+        "proof": "The DTCG token use-case checker reports zero generic or unowned primitives.",
+        "applicability": "Run after DTCG token domain research and whenever a package primitive changes."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Every official Mise primitive has a DTCG token-specific use or a justified non-use disposition.",
+        "motivation": "DTCG token orchestration should use helpful runner features without adding irrelevant machinery.",
+        "value": "The DTCG token Mise catalog exposes omissions, fake usage claims, and stale primitive decisions.",
+        "proof": "The DTCG token Mise-primitive checker reports complete dispositions against the current catalog.",
+        "applicability": "Run after DTCG token use-case validation or Mise catalog refresh."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Every DTCG token domain aspect and package primitive has discovery, change, proof, recovery, and retirement ownership.",
+        "motivation": "DTCG token assets and rules drift when lifecycle phases lack a real task owner.",
+        "value": "The DTCG token lifecycle gate connects every aspect and primitive phase to an existing Mise task.",
+        "proof": "The DTCG token lifecycle checker reports zero missing phases, owners, or domain traces.",
+        "applicability": "Run after DTCG token Mise-primitive validation and whenever ownership changes."
+      },
+      "task-graph-policy": {
+        "outcome": "The DTCG token task graph is acyclic, fully reachable, domain-specific, and single-path for each public operation.",
+        "motivation": "DTCG token execution can duplicate work or bypass proof through alternate and disconnected edges.",
+        "value": "The DTCG token graph gate verifies topology plus concrete outcome, motivation, value, proof, and applicability records.",
+        "proof": "The DTCG token task-graph checker reports zero cycles, alternate paths, unreachable tasks, or generic records.",
+        "applicability": "Run after DTCG token lifecycle validation and every task graph change."
+      },
+      "decision-policy": {
+        "outcome": "Every material DTCG token decision names its owner, motivation, evidence, falsifier, and recovery.",
+        "motivation": "DTCG token automation and visual judgment both need explicit authority and failure boundaries.",
+        "value": "The DTCG token decision gate separates Mise, model, and human ownership while making each choice testable.",
+        "proof": "The DTCG token decision checker reports zero incomplete or domain-generic records.",
+        "applicability": "Run before accepting a changed DTCG token package decision."
+      },
+      "invocation-policy": {
+        "outcome": "One DTCG token invocation receipt accounts for every declared Mise task as run or specifically inapplicable.",
+        "motivation": "DTCG token work must not silently skip an applicable experiment, proof, or validation path.",
+        "value": "The DTCG token invocation gate turns task selection and exclusions into auditable evidence.",
+        "proof": "The DTCG token invocation checker reports zero missing, unknown, or generic dispositions.",
+        "applicability": "Run at the end of every DTCG token skill invocation."
+      },
+      "mise-latest": {
+        "outcome": "The DTCG token runner reaches the latest stable Mise release after active outcome work is accepted.",
+        "motivation": "DTCG token work needs current runner behavior without invalidating in-flight evidence.",
+        "value": "Deferred DTCG token Mise maintenance separates software mutation from active token decisions.",
+        "proof": "The DTCG token maintenance receipt records the resulting Mise version or exact update blocker.",
+        "applicability": "Run only at the final DTCG token maintenance boundary when no external owner already governs Mise updates."
+      },
+      "mise-primitives-update": {
+        "outcome": "The DTCG token Mise primitive catalog and owned lineage match the self-updated runner release.",
+        "motivation": "DTCG token primitive decisions become stale when Mise adds or changes supported fields.",
+        "value": "The DTCG token catalog refresh records official schema provenance while preserving domain dispositions for review.",
+        "proof": "The DTCG token primitive catalog records release, URL, hash, complete groups, and current lineage.",
+        "applicability": "Run immediately after DTCG token Mise self-update when this package owns maintenance."
+      },
+      "lineage": {
+        "outcome": "Accepted DTCG token source-lineage hashes match every current maintained package file and release version.",
+        "motivation": "DTCG token proof cannot rely on stale source digests.",
+        "value": "The DTCG token lineage readback binds accepted instructions, policies, tests, assets, and scripts to current bytes.",
+        "proof": "The DTCG token lineage checker reports PASS with no missing, extra, or mismatched source.",
+        "applicability": "Run for every integrated DTCG token CI result."
+      },
+      "refresh-lineage": {
+        "outcome": "A fully accepted DTCG token package receives one fresh atomic source-lineage record.",
+        "motivation": "DTCG token source hashes must update only after all non-lineage gates pass.",
+        "value": "The DTCG token lineage writer prevents partial or premature provenance claims.",
+        "proof": "The DTCG token lineage write and immediate readback both report PASS.",
+        "applicability": "Run only after DTCG token acceptance passes on current bytes."
+      },
+      "token-help": {
+        "outcome": "The DTCG token executor receives the current command grammar and 25-step pipeline contract.",
+        "motivation": "DTCG token work needs one discoverable interface before state mutation.",
+        "value": "The DTCG token help output exposes valid commands, arguments, exits, and examples without bypass routes.",
+        "proof": "The DTCG token pipeline help exits zero and prints the complete public contract.",
+        "applicability": "Run when an executor needs DTCG token command or pipeline guidance."
+      },
+      "token-run": {
+        "outcome": "A DTCG token run begins with frozen input hashes and 25 initialized step records.",
+        "motivation": "DTCG token evidence and decisions need durable state before work starts.",
+        "value": "The DTCG token run initializer creates the closed input-to-output chain and current progress ledger.",
+        "proof": "The DTCG token init receipt names the run directory, source hashes, and every pending step.",
+        "applicability": "Run once when starting a new DTCG token derivation or proof run."
+      },
+      "token-packet": {
+        "outcome": "One DTCG token pipeline step receives its exact inputs, outputs, support owners, and prerequisite state.",
+        "motivation": "DTCG token executors need bounded context without losing the step contract.",
+        "value": "The DTCG token packet narrows work to one eligible step and its current dependencies.",
+        "proof": "The DTCG token packet receipt lists exact paths, hashes, predecessor state, and required outputs.",
+        "applicability": "Run before executing one DTCG token pipeline step."
+      },
+      "token-start": {
+        "outcome": "One eligible DTCG token step transitions from pending to running after prerequisites pass.",
+        "motivation": "DTCG token state must reject out-of-order or duplicate execution.",
+        "value": "The DTCG token start transition preserves one authoritative step status and start time.",
+        "proof": "The DTCG token start receipt records the selected step and validated predecessor state.",
+        "applicability": "Run immediately before performing an eligible DTCG token step."
+      },
+      "token-pass": {
+        "outcome": "One running DTCG token step reaches PASS only after named outputs and required judgment evidence exist.",
+        "motivation": "DTCG token completion must not be inferred from intent or a status flag alone.",
+        "value": "The DTCG token pass transition binds current output hashes and visual or semantic evidence to the step.",
+        "proof": "The DTCG token pass receipt records verified outputs, evidence, and resulting step state.",
+        "applicability": "Run after completing and checking one running DTCG token step."
+      },
+      "token-block": {
+        "outcome": "One DTCG token step records a typed blocker, evidence, recovery, and preserved progress.",
+        "motivation": "DTCG token failures need resumable state instead of invented success or lost work.",
+        "value": "The DTCG token block transition makes the exact failure and next valid action visible.",
+        "proof": "The DTCG token block receipt records code, reason, recovery, and blocked step state.",
+        "applicability": "Run when a DTCG token step cannot satisfy its contract."
+      },
+      "token-status": {
+        "outcome": "The DTCG token run reports current step counts, blockers, and whole-run completion truthfully.",
+        "motivation": "DTCG token progress must distinguish pending, running, blocked, stale, and passed work.",
+        "value": "The DTCG token status readback gives an inspectable summary without mutating evidence.",
+        "proof": "The DTCG token status receipt reports every state count and whether all 25 steps pass.",
+        "applicability": "Run whenever current DTCG token run progress or completion must be read."
+      },
+      "token-validate": {
+        "outcome": "A supplied DTCG token document receives a current conformance and reference-resolution report.",
+        "motivation": "DTCG token authors need a direct validation path for candidate files.",
+        "value": "The DTCG token validator turns schema, type, alias, extension, and cycle faults into bounded diagnostics.",
+        "proof": "The DTCG token validation receipt reports errors, warnings, and resolved token count for the supplied file.",
+        "applicability": "Run after authoring or changing a DTCG token document."
+      },
+      "token-prove": {
+        "outcome": "An authored DTCG token set and its evidence become one standalone inspectable proof artifact.",
+        "motivation": "DTCG token quality decisions need a visible surface tied to exact candidate bytes.",
+        "value": "The DTCG token assembler embeds declared assets and evidence without making design judgments.",
+        "proof": "The DTCG token proof receipt names the artifact, input hashes, embedded assets, and unresolved obligations.",
+        "applicability": "Run after DTCG token validation and before direct visual acceptance."
+      },
+      "token-explore": {
+        "outcome": "A DTCG token effort receives current source-backed exploration evidence and materially different strategy candidates.",
+        "motivation": "DTCG token authorship needs broad reference input and counterexamples before experiments lock values.",
+        "value": "The DTCG token exploration task records source receipts, transfer ideas, negative precedents, and experiment seeds.",
+        "proof": "The DTCG token exploration receipt identifies current sources, candidate strategies, gaps, and next experiments.",
+        "applicability": "Run before DTCG token controlled comparisons or when source evidence becomes stale."
+      },
+      "font-prepare": {
+        "outcome": "A DTCG token typography experiment receives current eligible Google Font assets outside the popularity exclusion.",
+        "motivation": "DTCG token font choices need current provenance and self-contained proof bytes.",
+        "value": "The DTCG token font task filters the catalog, downloads selected WOFF2 data, and prepares inline CSS metadata.",
+        "proof": "The DTCG token font receipt records catalog date, rank, source URLs, hashes, and embedded font output.",
+        "applicability": "Run when a DTCG token typography candidate requires a current Google Font."
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Evaluation rubric
 
-Owner and backlink: [`../SKILL.md`](../SKILL.md). Apply this rubric only to frozen records from `cases.json` under `contract.md`.
+Owner and backlink: load [`../SKILL.md`](../SKILL.md) through `mise run evals`. Apply this rubric only to frozen records from `cases.json` under `contract.md`.
 
 ## Criterion verdicts
 

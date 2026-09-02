@@ -1,6 +1,6 @@
 # Current research protocol
 
-Read this file in Step 08 before a current source changes a token, experiment, technology record, or claim. It owns dated research capture for `assets/creative-source-frontier.json`.
+Read this file in Step 08 before a current source changes a token, experiment, technology record, or claim. It owns dated research capture for `assets/creative-source-frontier.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Start with one date
 

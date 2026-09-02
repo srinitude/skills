@@ -40,6 +40,17 @@ EXPLORATION_CONTRACT = {
     "required_option_fields": ["id", "direction", "scene", "hypothesis",
                                "product_fit", "evidence", "tradeoffs",
                                "veto_check", "test", "novelty"],
+    "controlled_comparison": {
+        "classification": "controlled_visual_comparison",
+        "changed_factor_count": 1,
+        "required_links": ["exploration_option_ids", "experiment.id",
+                           "experiment.hypothesis", "experiment.null_hypothesis",
+                           "experiment.measure", "experiment.falsifier",
+                           "experiment.frozen_before_view"],
+        "held_constant": ["specimen", "content", "state", "viewport",
+                          "input_path", "all_non_tested_tokens"],
+        "vision_owner": "model", "not_live_user_ab_test": True,
+    },
 }
 
 

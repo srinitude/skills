@@ -31,7 +31,8 @@ class GoogleFontPolicyTests(unittest.TestCase):
     def test_skill_routes_selection_to_one_procedure_and_script(self):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("references/google-font-selection.md", skill)
-        self.assertIn("scripts/prepare_google_fonts.py", skill)
+        self.assertIn("mise run font-prepare", skill)
+        self.assertNotIn("scripts/prepare_google_fonts.py", skill)
         self.assertIn("outside the most popular 50%", skill)
 
     def test_rank_three_is_excluded_and_rank_four_is_eligible(self):

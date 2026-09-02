@@ -13,7 +13,7 @@ my line-budget skill has evals now, check them and run a couple of cases against
 ```
 Schema is clean and both cases I ran hold.
 
-$ python3 scripts/check_evals.py .
+$ mise run evals
 eval checks: 0 problems
 exit 0
 
@@ -27,19 +27,19 @@ The file counts to watch: 4 cases is the floor the checker enforces, and 16 trig
 ## Commands run
 
 ```
-$ python3 scripts/check_evals.py .
+$ mise run evals
 eval checks: 0 problems
 exit 0
 
-$ python3 scripts/check_budget.py --input evals/files/long-note.md --max 10
+$ mise run budget -- --input evals/files/long-note.md --max 10
 {"file": "evals/files/long-note.md", "lines": 14, "max": 10, "over": true, "over_by": 4, "longest_section": {"heading": "Long note", "lines": 14}}
 exit 1
 
-$ python3 scripts/check_budget.py --input notes/missing.md --max 200
+$ mise run budget -- --input notes/missing.md --max 200
 error: no such file: notes/missing.md
 exit 2
 
-$ python3 scripts/check_evals.py /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
+$ mise run eval-target -- /home/user/workspace/test/t-factory/work-examples/broken/broken-skill
 evals.json: needs at least 4 cases
 missing evals/trigger-queries.json
 eval checks: 2 problems
@@ -66,10 +66,10 @@ The four shipped cases, one line of purpose each: a common request, a fixture-ba
 The negative trigger queries are near misses, meaning requests that share the vocabulary and need a different skill:
 
 ```
-{"query": "count the words in docs/onboarding.md", "should_trigger": false},
+{"query": "count the words in onboarding.md", "should_trigger": false},
 {"query": "reformat README.md to 80 column wrapping", "should_trigger": false},
-{"query": "split docs/spec.md into three files", "should_trigger": false},
-{"query": "check the python line length limits in scripts/", "should_trigger": false}
+{"query": "split spec.md into three files", "should_trigger": false},
+{"query": "check the python implementation line length limits", "should_trigger": false}
 ```
 
 ## Files created

@@ -17,7 +17,7 @@
     },
     {
       "id": "SECTION-USE",
-      "heading": "Use the skill",
+      "heading": "Ordered workflow",
       "risk": "Preparation and execution become competing run methods.",
       "expected": "Keep commands, preparation, action order, and packets under one run route.",
       "reject": ["duplicate run method", "missing preparation", "unordered execution"]

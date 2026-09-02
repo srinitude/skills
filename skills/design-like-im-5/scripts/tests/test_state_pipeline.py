@@ -75,6 +75,16 @@ def exploration():
                                  "reason": "It best fits current proof."}}
 
 
+def quality_gate():
+    ids = [
+        "truth", "access", "task", "perception", "familiarity",
+        "standards", "uniqueness", "craft", "resilience",
+    ]
+    return {"checkpoint": "direction", "status": "PASS", "diagnosis": "PASS",
+            "gates": [{"id": item, "status": "PASS",
+                       "evidence": ["render:1"]} for item in ids]}
+
+
 def state_record(reviews, bad_reviews):
     return {
         "action": "state_judgment", "decision": "PASS",
@@ -94,6 +104,7 @@ def state_record(reviews, bad_reviews):
         "unknowns": [], "evidence": ["render:1"],
         "reason": "The state is supported.", "counterevidence": [],
         "uncertainty": "Return use is not observed.", "affected": [],
+        "quality_gate": quality_gate(),
         **exploration(),
     }
 

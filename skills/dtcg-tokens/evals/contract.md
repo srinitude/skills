@@ -14,6 +14,8 @@ A passing generation inventories and hashes every source, enumerates its format 
 
 Every generated typography system fetches and saves the live Google Fonts catalog, excludes its most popular 50%, visually compares at least three eligible source-fitting candidates, records the current rank and catalog hash, uses at least one selected family in font and typography tokens, embeds exact WOFF2 bytes in the proof, records its license, and confirms final rendering without fallback.
 
+Canonical token authoring starts only after every material experiment is registered, rendered, run, directly judged on current pixels, and accepted in a token-layer lock. Provisional values stay labeled experimental. Atoms and higher parts may consume only locked token owners, and a reopened lock makes the full dependent chain stale.
+
 The artifact is authored from scratch by the strong vision executor. Scripts may enforce stable proof obligations and embed data, but cannot choose layout, styling, copy, or verdict.
 
 Final review accounts for every objective visual defect marker, perceptual-motor invariant, and taste, originality, corpus-uniqueness, and non-AI-slop obligation. Wide and narrow readback of the final artifact is mandatory. Global uniqueness remains unproved.

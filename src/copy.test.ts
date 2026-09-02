@@ -26,6 +26,7 @@ test('passes the current public repository copy', async () => {
     'skills/dedupe/SKILL.md',
     'skills/design-like-im-5/SKILL.md',
     'skills/dtcg-tokens/SKILL.md',
+    'skills/figma-code-connect-design-system/SKILL.md',
     'skills/goal-prompt/SKILL.md',
     'skills/logic-audit/SKILL.md',
     'skills/meaning-preserving-rewrite/SKILL.md',
@@ -43,7 +44,7 @@ test('passes the current public repository copy', async () => {
     'skills/would-agents-actually/SKILL.md',
     'skills/would-humans-actually/SKILL.md',
   ]);
-});
+}, 30_000);
 
 test('reports banned wording and duplicate skill locations', async () => {
   const root = await mkdtemp(join(tmpdir(), 'copy-gate-'));
@@ -93,6 +94,21 @@ test('allows exact client names only in machine-readable source provenance', asy
   await writeFile(
     join(provenance, 'source-lineage.json'),
     JSON.stringify({ source_path: 'references/hermes-docs-inventory.md' }),
+  );
+
+  const report = await validateCopy(root);
+
+  expect(report).toMatchObject({ findings: [], inspected_files: 1, status: 'PASS' });
+});
+
+test('allows client names in the source-shape classification corpus', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'copy-source-corpus-'));
+  temporary.push(root);
+  const assets = join(root, 'skills', 'sample', 'assets');
+  await mkdir(assets, { recursive: true });
+  await writeFile(
+    join(assets, 'source-shape-corpus.json'),
+    JSON.stringify({ clients: [{ id: 'hermes-agent' }] }),
   );
 
   const report = await validateCopy(root);

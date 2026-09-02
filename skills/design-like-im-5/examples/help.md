@@ -9,7 +9,7 @@ Guess removed: Help starts no run and writes no file.
 ## Command
 
 ```sh
-python3 scripts/run_pipeline.py --help
+mise run run-help
 ```
 
 ## Real output

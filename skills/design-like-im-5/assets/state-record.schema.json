@@ -6,6 +6,7 @@
   "required": [
     "action",
     "decision",
+    "quality_gate",
     "open_world",
     "exhaustive",
     "state_items",
@@ -189,6 +190,17 @@
         "evidence": { "type": "array", "minItems": 1 },
         "decision": {
           "enum": ["PASS", "REVISE", "BLOCKED", "NOT_APPLICABLE"]
+        },
+        "quality_gate": {
+          "type": "object",
+          "required": ["checkpoint", "status", "diagnosis", "gates"],
+          "properties": {
+            "checkpoint": { "const": "direction" },
+            "status": { "enum": ["PASS", "REVISE", "BLOCKED"] },
+            "diagnosis": { "enum": ["DEFECT", "MEDIOCRE", "SLOP", "PASS"] },
+            "gates": { "type": "array", "minItems": 9, "maxItems": 9 }
+          },
+          "additionalProperties": true
         },
         "reason": { "type": "string", "minLength": 1 },
         "alternatives": { "type": "array", "minItems": 1 },

@@ -17,13 +17,42 @@ import re
 import sys
 from pathlib import Path
 
+import yaml
+from yaml.constructor import ConstructorError
+
 ALLOWED_KEYS = {"name", "description", "license", "compatibility",
                 "metadata", "allowed-tools"}
-NAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
+NAME_RE = re.compile(r"^(?!.*--)[a-z0-9]+(?:-[a-z0-9]+)*$")
 REQUIRED_DIRS = ["references", "assets", "examples", "scripts", "evals"]
+BODY_DIRS = ["references", "assets", "examples", "evals"]
 PATH_RE = re.compile(r"\b(?:references|assets|examples|scripts|tests|evals)/[\w./-]+")
 MAX_BODY_LINES = 200
 MAX_FILE_CHARS = 100_000
+
+
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Safe YAML loader that rejects ambiguous duplicate keys."""
+
+
+def unique_mapping(loader, node, deep=False):
+    mapping = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        try:
+            duplicate = key in mapping
+        except TypeError as error:
+            raise ConstructorError("mapping", node.start_mark,
+                                   "mapping key must be hashable",
+                                   key_node.start_mark) from error
+        if duplicate:
+            raise ConstructorError("mapping", node.start_mark,
+                                   f"duplicate key: {key}", key_node.start_mark)
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+UniqueKeyLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
 
 
 def split_frontmatter(text):
@@ -36,12 +65,13 @@ def split_frontmatter(text):
 
 
 def parse_header(header):
-    fields = {}
-    for line in header.splitlines():
-        if line[:1].isalpha():
-            key, _, value = line.partition(":")
-            fields[key.strip()] = value.strip().strip('"').strip("'")
-    return fields
+    try:
+        fields = yaml.load(header, Loader=UniqueKeyLoader)
+    except yaml.YAMLError as error:
+        return None, f"frontmatter is invalid YAML: {error}"
+    if not isinstance(fields, dict):
+        return None, "frontmatter YAML must be a mapping"
+    return fields, None
 
 
 def check_fields(fields, dirname, problems):
@@ -49,15 +79,36 @@ def check_fields(fields, dirname, problems):
     for key in unknown:
         problems.append(f"unknown top-level frontmatter field: {key}")
     name = fields.get("name", "")
-    if not NAME_RE.fullmatch(name) or len(name) > 64:
-        problems.append(f"name must match ^[a-z0-9][a-z0-9._-]*$: {name!r}")
+    if not isinstance(name, str) or not NAME_RE.fullmatch(name) or len(name) > 64:
+        problems.append("name must use lowercase letters, numbers, and single "
+                        f"hyphens without edge hyphens: {name!r}")
     if name != dirname:
         problems.append(f"name {name!r} must equal directory name {dirname!r}")
     description = fields.get("description", "")
-    if not description or len(description) > 1024:
+    if not isinstance(description, str) or not description or len(description) > 1024:
         problems.append("description must be 1 to 1024 characters")
-    if "Use when" not in description:
+    if isinstance(description, str) and "Use when" not in description:
         problems.append('description must state "Use when" the skill applies')
+    check_optional_fields(fields, problems)
+
+
+def check_optional_fields(fields, problems):
+    license_name = fields.get("license")
+    if "license" in fields and not isinstance(license_name, str):
+        problems.append("license must be a string")
+    compatibility = fields.get("compatibility")
+    if "compatibility" in fields and (not isinstance(compatibility, str)
+                                      or not 1 <= len(compatibility) <= 500):
+        problems.append("compatibility must be 1 to 500 characters")
+    metadata = fields.get("metadata")
+    valid_metadata = (isinstance(metadata, dict)
+                      and all(isinstance(key, str) and isinstance(value, str)
+                              for key, value in metadata.items()))
+    if "metadata" in fields and not valid_metadata:
+        problems.append("metadata must map string keys to string values")
+    allowed = fields.get("allowed-tools")
+    if "allowed-tools" in fields and not isinstance(allowed, str):
+        problems.append("allowed-tools must be a space-separated string")
 
 
 def check_body(body, text, problems):
@@ -77,7 +128,8 @@ def check_layout(skill, body, problems):
     for name in REQUIRED_DIRS + ["scripts/tests"]:
         if not (skill / name).is_dir():
             problems.append(f"missing required directory: {name}/")
-        elif body and f"{name}/" not in body:
+    for name in BODY_DIRS:
+        if (skill / name).is_dir() and body and f"{name}/" not in body:
             problems.append(f"body never references {name}/")
     if not (skill / "evals" / "evals.json").is_file():
         problems.append("missing evals/evals.json")
@@ -93,7 +145,11 @@ def validate(skill):
         problems.append(fatal)
         body = ""
     else:
-        check_fields(parse_header(header), skill.name, problems)
+        fields, header_error = parse_header(header)
+        if header_error:
+            problems.append(header_error)
+        else:
+            check_fields(fields, skill.name, problems)
         check_body(body, text, problems)
     check_layout(skill, body, problems)
     return problems
@@ -105,7 +161,11 @@ def main(argv=None):
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_dir", help="path to the skill directory")
     args = parser.parse_args(argv)
-    skill = Path(args.skill_dir).resolve()
+    candidate = Path(args.skill_dir)
+    if candidate.is_symlink():
+        print(f"error: skill directory is a symlink: {candidate}", file=sys.stderr)
+        return 2
+    skill = candidate.resolve()
     if not (skill / "SKILL.md").is_file():
         print(f"error: no SKILL.md inside {skill}", file=sys.stderr)
         return 2

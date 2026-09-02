@@ -15,9 +15,19 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 - Numbers, file names, and commands beat adjectives. "Exits 0" beats "works correctly".
 - Every list gets a lead-in sentence and parallel items. Prose wins when the items flow as one thought.
 
+## Reasoning simplicity
+
+- Use the smallest coherent structure that preserves every required rule and accepted behavior.
+- Keep one canonical owner per rule and link to it instead of restating it.
+- Use one stable term per concept. Define it once, then keep it exact.
+- Keep one material decision per branch. Remove choices that lead to the same action or result.
+- Keep the causal chain visible: outcome, reason, evidence, action, readback, and completion.
+- Remove decorative headings, duplicate checklists, needless load hops, and examples that teach nothing new.
+- Keep essential domain complexity visible. Fewer words or files do not prove simpler work.
+
 ## Human prose
 
-- The banned word and frame lists live in scripts/lint_writing.py as WORDS and PHRASES. Read them once before drafting, then run the lint; it prints file and line for every hit.
+- The `mise run lint-writing` task owns the banned word and frame checks. Run it before drafting when prior output is available, then rerun it on the finished Markdown; it prints file and line for every hit.
 - No em or en dashes anywhere. Use a comma, a period, or parentheses.
 - Vary sentence length on purpose. A four word sentence lands. Then let a longer one carry the detail that needs the room.
 - Cut hedges: somewhat, fairly, arguably, very, quite.
@@ -35,7 +45,7 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 
 ## How do I avoid the banned list on the first draft?
 
-Open scripts/lint_writing.py and read the two lists at the top, WORDS and PHRASES, before drafting. That is the one time reading a script beats running it: the lists are data, they change, and copying them into prose here would fail this file's own lint. Draft, then run the lint on the file alone, then fix. Typical rewrites keep the concrete word: "checked" or "tested" for a quality claim, "use" for a verb of applying something, "with no extra step" for a smoothness claim.
+Run `mise run lint-writing` and use its current diagnostics rather than copying its policy into prose. Draft, rerun the task, then fix each reported line. Typical rewrites keep the concrete word: "checked" or "tested" for a quality claim, "use" for a verb of applying something, "with no extra step" for a smoothness claim.
 
 ## How do I check a document?
 

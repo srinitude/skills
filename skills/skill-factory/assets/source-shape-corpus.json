@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "source": {
+    "url": "https://github.com/srinitude/skills",
+    "commit": "a80a9f88b6b72c6358f6101e53aed64ed715058a"
+  },
+  "canonical_owners": {
+    "skill": "SKILL.md",
+    "repository_rules": "AGENTS.md",
+    "local_skills": ".agents/"
+  },
+  "unknown_shape": "BLOCKED",
+  "portable_path_map": {
+    "CLAUDE.md": "AGENTS.md",
+    "CODEX.md": "AGENTS.md",
+    "COPILOT.md": "AGENTS.md",
+    "CURSOR.md": "AGENTS.md",
+    "GEMINI.md": "AGENTS.md",
+    ".cursorrules": "AGENTS.md",
+    ".github/copilot-instructions.md": "AGENTS.md"
+  },
+  "hidden_owner_roots": [
+    ".claude",
+    ".codex",
+    ".continue",
+    ".copilot",
+    ".cursor",
+    ".gemini",
+    ".openclaw",
+    ".opencode"
+  ],
+  "neutral_hidden_roots": [".agents", ".github"],
+  "unknown_root_terms": ["agent", "command", "prompt", "rule", "skill"],
+  "package_formats": [
+    {
+      "id": "agent-plugins-v1",
+      "markers": ["plugin.json", "mcp.json"]
+    }
+  ],
+  "candidate_patterns": [
+    ".agents/plugins/marketplace.json",
+    ".aider.conf.yml",
+    ".claude-plugin/*.json",
+    ".codex-plugin/*.json",
+    ".cursor-plugin/*.json",
+    ".mcp.json",
+    "__init__.py",
+    "adapters/*/README.md",
+    "gemini-extension.json",
+    "mcp.json",
+    "openclaw.plugin.json",
+    "opencode.json",
+    "plugin.json",
+    "plugin.yaml",
+    "skills.sh.json"
+  ],
+  "clients": [
+    {
+      "id": "aider",
+      "markers": [".aider.conf.yml", "adapters/aider/README.md"]
+    },
+    {
+      "id": "chatgpt",
+      "markers": [".codex-plugin/plugin.json", ".mcp.json"]
+    },
+    {
+      "id": "claude-code",
+      "markers": [".claude-plugin/plugin.json", ".claude-plugin/marketplace.json", ".mcp.json"]
+    },
+    {
+      "id": "codex",
+      "markers": [".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", ".mcp.json"]
+    },
+    {
+      "id": "continue",
+      "markers": ["adapters/continue/README.md"]
+    },
+    {
+      "id": "cursor",
+      "markers": [".cursor-plugin/plugin.json"]
+    },
+    {
+      "id": "gemini-cli",
+      "markers": ["gemini-extension.json", ".mcp.json"]
+    },
+    {
+      "id": "hermes-agent",
+      "markers": ["__init__.py", "plugin.yaml", "skills.sh.json", "adapters/hermes-agent/README.md"]
+    },
+    {
+      "id": "openclaw",
+      "markers": ["openclaw.plugin.json", "adapters/openclaw/README.md"]
+    },
+    {
+      "id": "opencode",
+      "markers": ["opencode.json"]
+    }
+  ]
+}

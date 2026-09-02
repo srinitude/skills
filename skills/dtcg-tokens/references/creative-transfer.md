@@ -1,6 +1,6 @@
 # Creative transfer
 
-Read this file in Step 08 after current and distant sources pass `assets/creative-source-frontier.json`. It owns the move from an outside mechanism to a testable token decision.
+Read this file in Step 08 after current and distant sources pass `assets/creative-source-frontier.json`. It owns the move from an outside mechanism to a testable token decision. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Transfer record
 

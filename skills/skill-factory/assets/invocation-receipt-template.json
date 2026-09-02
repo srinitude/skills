@@ -1,0 +1,12 @@
+{
+  "skill": "SCAFFOLD-PLACEHOLDER skill directory name",
+  "operation": "SCAFFOLD-PLACEHOLDER current user-visible operation",
+  "entries": [
+    {
+      "task": "SCAFFOLD-PLACEHOLDER exact Mise task name",
+      "status": "SCAFFOLD-PLACEHOLDER run or inapplicable",
+      "applicability_reason": "SCAFFOLD-PLACEHOLDER domain-specific reason for this invocation",
+      "proof": "SCAFFOLD-PLACEHOLDER current output or evidence"
+    }
+  ]
+}

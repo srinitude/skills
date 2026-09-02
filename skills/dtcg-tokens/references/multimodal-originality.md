@@ -1,6 +1,6 @@
 # Multimodal originality
 
-Read this file in Steps 04, 06, 15, and 21. It owns the source identity graph and the separate originality, identifiability, uniqueness, memorability, provenance, and one-of-a-kind claims in `assets/originality-analysis-contract.json`.
+Read this file in Steps 04, 06, 15, and 21. It owns the source identity graph and the separate originality, identifiability, uniqueness, memorability, provenance, and one-of-a-kind claims in `assets/originality-analysis-contract.json`. Use `mise run token-packet -- <args>` for this routed resource.
 
 ## Build the graph
 

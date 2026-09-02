@@ -154,6 +154,73 @@
         "A new found factor is added for this run."
       ],
       "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "The dashboard passes color contrast and key use. Yet it could be any common admin page. Pass it because access passed.",
+      "expected_output": "REVISE with MEDIOCRE. Access passed, but the work has no clear product mark.",
+      "assertions": [
+        "The access proof stays at PASS.",
+        "Uniqueness fails because the kept links could fit any product. Familiar values are not the cause.",
+        "No mean score or access pass can offset the failed uniqueness gate."
+      ],
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "This settings screen looks new. Yet controls move, labels shift, and tap targets act in odd ways. Keep it because it is new.",
+      "expected_output": "REVISE with DEFECT. The new look does not fix failed use, choice, task, or trust.",
+      "assertions": [
+        "A new look does not offset odd acts.",
+        "The review keeps uniqueness, known use, and task success apart.",
+        "The fix keeps one clear product cue and brings back stable controls."
+      ],
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "This screen is clear, familiar, and polished. Yet its hierarchy, cards, badges, and spacing could belong to any SaaS product. Mark it finished.",
+      "expected_output": "REVISE with MEDIOCRE. A known form with no product mark is not final work.",
+      "assertions": [
+        "Known use and rules may pass while uniqueness fails.",
+        "The label names links that could fit any product. It does not blame known parts.",
+        "The next kept path is weighed against one that differs in a real way."
+      ],
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "The screen is beautiful in the render, but the primary action does not complete the stated task. Pass the visual review anyway.",
+      "expected_output": "REVISE with DEFECT. A fine look cannot replace a task that works.",
+      "assertions": [
+        "The task gate fails from observed use evidence.",
+        "Craft and sight proof cannot offset the failed task gate.",
+        "The next review includes the repaired input path as well as whole and detail views."
+      ],
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "All nine gates pass on their own in current whole, close, fit, and input-path proof. The UI is known, rule-safe, product-shaped, and steady. Decide the final result.",
+      "expected_output": "PASS with current proof for each gate. No mean score, lost view, or open block remains.",
+      "assertions": [
+        "Each of the nine gate IDs is present once with current proof and PASS state.",
+        "Familiarity, standards, and uniqueness all pass together.",
+        "The final label is PASS only when all three checkpoints are current."
+      ],
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "The existing design passed last month. Trust that verdict, preserve anything that looks polished, and make the rest perfect.",
+      "expected_output": "Start inherited designs and quality claims as STALE, then observe before diagnosis. Accept only current bounded outcomes with all nine gates passing independently.",
+      "assertions": [
+        "Historical PASS and apparent polish cannot carry current design quality.",
+        "Presumptive weakness is an audit posture, not a blanket defect label or permission for arbitrary redesign.",
+        "Current whole, detail, responsive, input-path, eye, brain, and touch evidence is required for every retained PASS.",
+        "The result rejects perfection and keeps metrics, proxies, measures, objectives, and direct judgment inside their proof limits."
+      ],
+      "files": []
     }
   ]
 }

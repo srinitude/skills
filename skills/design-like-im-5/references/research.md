@@ -22,6 +22,10 @@ Record what the source says. Mark that as source fact. Record what you think it 
 
 Seek one case that does not fit the main idea. Narrow the rule when proof does not travel.
 
+Before choosing a direction, find the category rules and close alternatives. Name the product meaning that must stay clear. Make options that differ in a real way. Start with a readable option, a product-shaped option, a reverse, and a strange option. These are prompts, not fixed answers. Compare each one with the category default. Reject copied form and new form with no useful product effect.
+
+Treat standards, familiarity, and uniqueness as separate evidence questions. Standards protect access and interoperability. Familiarity protects recognition and learned behavior. Uniqueness protects product identity and useful distinction. None proves another, and no score may average them together.
+
 For each source, save its link, date, platform, task, seen pattern, clash, scope, and trust. Mark gaps. Do not turn a source note into broad proof.
 
 The model must complete the eye, brain, and touch checklist for each kept state. A script may prove that every answer exists. It cannot prove that an answer is right.

@@ -19,6 +19,11 @@ LEAF_CHECKS = {
     "section-support", "lint-writing", "lint-code", "lint-placeholders",
     "evals", "examples", "file-manifest", "lineage-build", "proof-ladder",
 }
+FACTORY_CHECKS = {
+    "domain-research-policy", "use-case-policy", "mise-primitives-policy",
+    "primitive-lifecycle-policy", "task-graph-policy", "decision-policy",
+    "improvement-policy", "factory-policy",
+}
 GROUPS = {"structure", "proof", "quality", "ci", "complete"}
 RUNTIME = {
     "skill-info", "run-start", "run-packet", "run-record", "run-check",
@@ -29,7 +34,7 @@ WRITERS = {
     "examples-write", "file-manifest-write", "source-manifest-write",
     "source-lineage-write", "generate",
 }
-REQUIRED_TASKS = LEAF_CHECKS | GROUPS | RUNTIME | WRITERS
+REQUIRED_TASKS = LEAF_CHECKS | FACTORY_CHECKS | GROUPS | RUNTIME | WRITERS
 
 
 def load_tasks(path):
@@ -66,8 +71,10 @@ class TestTaskGraph(unittest.TestCase):
 
     def test_complete_transitively_requires_every_check(self):
         reached = dependencies(self.tasks, "complete")
-        self.assertEqual(LEAF_CHECKS | {"structure", "proof", "quality", "ci"},
-                         reached)
+        expected = LEAF_CHECKS | FACTORY_CHECKS | {
+            "structure", "proof", "quality", "ci",
+        }
+        self.assertEqual(expected, reached)
 
     def test_every_runtime_task_requires_its_static_contracts(self):
         required = {"task-graph", "context-routing", "section-support"}

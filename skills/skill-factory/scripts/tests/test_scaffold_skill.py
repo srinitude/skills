@@ -56,8 +56,27 @@ class TestScaffoldOutput(unittest.TestCase):
     def test_layout_is_complete(self):
         for rel in ["SKILL.md", "mise.toml", ".github/workflows/ci.yml",
                     "references/generation-contract.md", "assets",
+                    "references/resource-and-experiment-design.md",
+                    "references/writing-rules.md",
+                    "assets/improvement-contract.json",
+                    "assets/use-case-contract.json",
+                    "assets/decision-records.json",
+                    "assets/invocation-receipt-template.json",
+                    "assets/mise-primitives-catalog.json",
+                    "assets/mise-primitives.json",
+                    "assets/primitive-lifecycle.json",
                     "scripts/skill_info.py", "scripts/tests/test_scripts.py",
                     "scripts/tests/test_ci_contract.py",
+                    "scripts/check_improvement_contract.py",
+                    "scripts/check_use_case_contract.py",
+                    "scripts/check_domain_research.py",
+                    "scripts/check_task_graph.py",
+                    "scripts/check_invocation_receipt.py",
+                    "scripts/domain_text.py",
+                    "scripts/check_mise_primitives.py",
+                    "scripts/check_primitive_lifecycle.py",
+                    "scripts/sync_mise_primitives.py",
+                    "scripts/check_decision_records.py",
                     "examples/example-first-run.md",
                     "scripts/check_placeholders.py",
                     "evals/evals.json", "evals/trigger-queries.json"]:
@@ -67,6 +86,54 @@ class TestScaffoldOutput(unittest.TestCase):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("examples/", body)
         self.assertIn("examples/example-first-run.md", body)
+
+    def test_body_routes_every_deterministic_command_through_mise(self):
+        body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("Mise owns every deterministic command", body)
+        self.assertIn("model-owned boundary", body)
+        self.assertNotIn("python3 scripts/", body)
+        self.assertIn("mise run info", body)
+        self.assertIn("mise run ci", body)
+
+    def test_body_keeps_the_factory_language_contract(self):
+        body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+        rules = (self.skill / "references" / "writing-rules.md").read_text(
+            encoding="utf-8")
+        self.assertIn("## Simplicity and language", body)
+        self.assertIn("references/writing-rules.md", body)
+        self.assertIn("## Plain language", rules)
+
+    def test_body_ends_with_optional_nonregressing_improvement_step(self):
+        body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+        heading = "## Optional final improvement experiment"
+        self.assertIn(heading, body)
+        self.assertGreater(body.index(heading), body.index("## When is the work done?"))
+        for phrase in [
+            "one named dimension",
+            "fresh baseline",
+            "frozen evaluator",
+            "restore the last accepted version",
+            "mise run improvement-policy",
+            "resource measures",
+        ]:
+            self.assertIn(phrase, body)
+
+    def test_generated_improvement_policy_passes(self):
+        result = run("check_improvement_contract.py", self.skill)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_generated_use_case_policy_rejects_generic_seed(self):
+        result = run("check_use_case_contract.py", self.skill)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("scaffold placeholder", result.stdout.lower())
+
+    def test_generated_mise_and_lifecycle_policies_reject_seeds(self):
+        primitive = run("check_mise_primitives.py", self.skill)
+        lifecycle = run("check_primitive_lifecycle.py", self.skill)
+        self.assertEqual(primitive.returncode, 1)
+        self.assertEqual(lifecycle.returncode, 1)
+        self.assertIn("scaffold", primitive.stdout.lower())
+        self.assertIn("lifecycle", lifecycle.stdout.lower())
 
     def test_untouched_scaffold_fails_the_placeholder_gate(self):
         result = run("check_placeholders.py", self.skill)

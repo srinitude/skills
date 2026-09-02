@@ -1,57 +1,212 @@
-# Task graph for this skill.
-# One default path per job. Local runs and remote CI both call: mise run ci
+# Task graph for dtcg-tokens.
+# Local and remote CI share one default path: mise run ci.
+
+min_version = "2026.9.0"
+
+[tools]
+python = "3.11"
+
+[env]
+PYTHONDONTWRITEBYTECODE = "1"
+PYTHONHASHSEED = "0"
+
+[task_config]
+dir = "{{config_root}}"
 
 [tasks.ci]
-description = "Full pipeline: tests, token checks, artifact boundaries, package checks"
-run = [
-  "mise run test",
-  "mise run validate-dtcg",
-  "mise run artifact-contract",
-  "mise run validate",
-  "mise run audit-files",
-  "mise run validate-exploration",
-  "mise run lint-writing",
-  "mise run lint-code",
-  "mise run lint-placeholders",
-  "mise run evals",
+description = "Validate the complete DTCG token package and its current lineage"
+alias = "c"
+output = "prefix"
+depends = ["acceptance", "lineage"]
+
+[tasks.acceptance]
+description = "Run every DTCG token acceptance gate before lineage mutation"
+depends = [
+  "test",
+  "validate-dtcg",
+  "artifact-contract",
+  "validate",
+  "audit-files",
+  "validate-exploration",
+  "lint-writing",
+  "lint-code",
+  "lint-placeholders",
+  "evals",
+  "improvement-policy",
+  "decision-policy",
 ]
 
-[tasks.validate-dtcg]
-description = "Validate the example token file against the DTCG gate"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_dtcg.py evals/files/sample.tokens.json"
-
-[tasks.artifact-contract]
-description = "Block bundled visual generators and require negative precedent evals"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_artifact_contract.py ."
+[tasks.test-ci]
+description = "Test the DTCG token Mise graph and remote CI entry point"
+depends = []
+run = "python3 -m unittest discover -s scripts/tests -p 'test_ci_contract.py' -v"
 
 [tasks.test]
-description = "Every test in scripts/tests/"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+description = "Run every DTCG token package test"
+depends = ["test-ci"]
+run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run_windows = "python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+timeout = "180s"
+
+[tasks.validate-dtcg]
+description = "Validate the sample DTCG token file against the current format gate"
+depends = []
+run = "python3 scripts/validate_dtcg.py evals/files/sample.tokens.json"
+
+[tasks.artifact-contract]
+description = "Reject invalid DTCG token proof shells and missing negative precedents"
+depends = []
+run = "python3 scripts/check_artifact_contract.py ."
 
 [tasks.validate]
-description = "Static structure checks against the generation contract"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_skill.py ."
+description = "Validate DTCG token package structure and contracts"
+depends = []
+run = "python3 scripts/validate_skill.py ."
 
 [tasks.audit-files]
-description = "Read every skill file and prove its activation or consumption route"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/audit_file_triggers.py ."
+description = "Prove every DTCG token package file has an activation or consumer route"
+depends = []
+run = "python3 scripts/audit_file_triggers.py ."
 
 [tasks.validate-exploration]
-description = "Validate source-frontier and exploration contract assets"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_exploration.py ."
+description = "Validate DTCG token exploration sources, strategies, and contracts"
+depends = []
+run = "python3 scripts/validate_exploration.py ."
 
 [tasks.lint-writing]
-description = "Mechanical writing checks on every markdown file"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/lint_writing.py ."
+description = "Check every DTCG token Markdown file for the package writing contract"
+depends = []
+run = "python3 scripts/lint_writing.py ."
 
 [tasks.lint-code]
-description = "Size and nesting limits on every code file"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_code_rules.py ."
+description = "Check DTCG token implementation size and nesting limits"
+depends = []
+run = "python3 scripts/check_code_rules.py ."
 
 [tasks.lint-placeholders]
-description = "Refuse any scaffold placeholder text left in markdown or evals"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_placeholders.py ."
+description = "Reject scaffold placeholders in DTCG token package content"
+depends = []
+run = "python3 scripts/check_placeholders.py ."
 
 [tasks.evals]
-description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
-run = "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_evals.py ."
+description = "Validate DTCG token trigger and behavior eval contracts"
+depends = []
+run = "python3 scripts/check_evals.py ."
+
+[tasks.improvement-policy]
+description = "Validate the nonregressing DTCG token improvement contract"
+depends = []
+run = "python3 scripts/check_improvement_contract.py ."
+
+[tasks.domain-research-policy]
+description = "Validate current DTCG token domain research questions and receipts"
+depends = []
+run = "python3 scripts/check_token_policy.py domain-research ."
+
+[tasks.use-case-policy]
+description = "Reject generic DTCG token primitives without domain purpose or proof"
+depends = ["domain-research-policy"]
+run = "python3 scripts/check_token_policy.py use-case ."
+
+[tasks.mise-primitives-policy]
+description = "Validate every official Mise primitive disposition for DTCG token work"
+depends = ["use-case-policy"]
+run = "python3 scripts/check_token_policy.py mise-primitives ."
+
+[tasks.primitive-lifecycle-policy]
+description = "Validate every DTCG token aspect and package primitive lifecycle owner"
+depends = ["mise-primitives-policy"]
+run = "python3 scripts/check_token_policy.py primitive-lifecycle ."
+
+[tasks.task-graph-policy]
+description = "Reject circular, disconnected, generic, or alternate DTCG token task paths"
+depends = ["primitive-lifecycle-policy"]
+run = "python3 scripts/check_token_policy.py task-graph ."
+
+[tasks.decision-policy]
+description = "Validate motivated deterministic, model, and human DTCG token decisions"
+depends = ["task-graph-policy"]
+run = "python3 scripts/check_token_policy.py decisions ."
+
+[tasks.invocation-policy]
+description = "Validate one DTCG token invocation receipt passed after --"
+depends = []
+run = "python3 scripts/check_token_invocation.py ."
+
+[tasks.mise-latest]
+description = "Install the latest stable Mise after DTCG token outcome work concludes"
+depends = []
+run = "mise self-update --yes --no-plugins"
+
+[tasks.mise-primitives-update]
+description = "Refresh the DTCG token Mise primitive catalog after self-update"
+depends = ["mise-latest"]
+depends_post = ["refresh-lineage"]
+run = "python3 scripts/sync_mise_primitives.py ."
+run_windows = "python scripts/sync_mise_primitives.py ."
+timeout = "60s"
+
+[tasks.lineage]
+description = "Validate current DTCG token source-lineage hashes and release version"
+depends = []
+run = "python3 scripts/check_lineage.py ."
+
+[tasks.refresh-lineage]
+description = "Refresh DTCG token source lineage only after every acceptance gate"
+depends = ["acceptance"]
+run = "python3 scripts/check_lineage.py . --write"
+
+[tasks.token-help]
+description = "Show the DTCG token command and pipeline contract"
+depends = []
+run = "python3 scripts/run_pipeline.py --help"
+
+[tasks.token-run]
+description = "Initialize a DTCG token run with frozen inputs and 25 step records"
+depends = []
+run = "python3 scripts/run_pipeline.py init"
+
+[tasks.token-packet]
+description = "Prepare one DTCG token step packet with exact owners and dependencies"
+depends = []
+run = "python3 scripts/run_pipeline.py packet"
+
+[tasks.token-start]
+description = "Start one eligible DTCG token step after prerequisite validation"
+depends = []
+run = "python3 scripts/run_pipeline.py start"
+
+[tasks.token-pass]
+description = "Pass one running DTCG token step after output and judgment proof"
+depends = []
+run = "python3 scripts/run_pipeline.py pass"
+
+[tasks.token-block]
+description = "Block one DTCG token step with an error, reason, and recovery"
+depends = []
+run = "python3 scripts/run_pipeline.py block"
+
+[tasks.token-status]
+description = "Report DTCG token step counts and whole-run completion state"
+depends = []
+run = "python3 scripts/run_pipeline.py status"
+
+[tasks.token-validate]
+description = "Validate one supplied DTCG token file passed after --"
+depends = []
+run = "python3 scripts/validate_dtcg.py"
+
+[tasks.token-prove]
+description = "Assemble one supplied DTCG token proof passed after --"
+depends = []
+run = "python3 scripts/assemble_artifact.py"
+
+[tasks.token-explore]
+description = "Prepare current source-backed DTCG token exploration evidence"
+depends = []
+run = "python3 scripts/prepare_creative_research.py"
+
+[tasks.font-prepare]
+description = "Prepare current rare-font assets for DTCG token proof"
+depends = []
+run = "python3 scripts/prepare_google_fonts.py"

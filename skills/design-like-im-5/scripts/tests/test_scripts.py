@@ -1,6 +1,5 @@
 """Contract tests for bundled scripts other than the run pipeline."""
-import json
-import hashlib
+import json, hashlib
 import importlib.util
 import pathlib
 import subprocess
@@ -145,12 +144,16 @@ class TestEvalSpeedContract(unittest.TestCase):
         self.assertEqual(data["objective"],
                          "minimum_elapsed_time_to_fully_verified_result")
         self.assertEqual(data["invariants"], {
+            "exploration_loss_allowed": False,
             "proof_loss_allowed": False,
             "required_work": "all",
             "scope_loss_allowed": False,
+            "visual_judgment_concurrency": 1,
             "workflow_action_concurrency": 1,
             "writers_per_artifact": 1,
         })
+        self.assertEqual(data["progress"]["requires"], ["owning artifact mutation", "current proof"])
+        self.assertEqual((data["experiment_policy"]["default_scale"], data["experiment_policy"]["micro_optimization_allowed"], data["experiment_policy"]["direct_vision_distinguishability_required"]), ("material_direction", False, True))
         self.assertEqual(
             {row["id"] for row in data["parallel_groups"]},
             {"context_reads", "current_sources", "package_checks",

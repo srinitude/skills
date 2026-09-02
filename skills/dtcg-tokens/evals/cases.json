@@ -13,7 +13,10 @@
     "repair_evidence",
     "delegate_all_judgment",
     "block_without_vision_delegate",
-    "select_current_uncommon_fonts"
+    "select_current_uncommon_fonts",
+    "diagnose_generic_token_system",
+    "reject_unusable_novelty",
+    "pass_familiar_distinctive_relationships"
   ],
   "cases": [
     {
@@ -235,6 +238,80 @@
         "unreviewed font choice",
         "runtime font request",
         "missing license or font hash"
+      ]
+    },
+    {
+      "id": "DTCG-012",
+      "source_id": "DTCG-012",
+      "group": "proof_boundary",
+      "title": "Generic valid tokens remain mediocre",
+      "decision": "diagnose_generic_token_system",
+      "pressures": ["valid JSON", "accessible colors", "interchangeable relationships"],
+      "prompt": "The token JSON is valid and accessible, but it is an interchangeable neutral scale with uniform gaps and no source-specific relationships. Mark the final token quality result.",
+      "required": [
+        "noncompensating token gate",
+        "MEDIOCRE diagnosis",
+        "failed source fidelity",
+        "failed spacing relationships",
+        "failed uniqueness",
+        "repair before review"
+      ],
+      "veto": ["schema-only pass", "averaged quality score", "verdict-only repair"]
+    },
+    {
+      "id": "DTCG-013",
+      "source_id": "DTCG-013",
+      "group": "proof_boundary",
+      "title": "Unusable novelty is a defect",
+      "decision": "reject_unusable_novelty",
+      "pressures": ["irregular values", "originality request", "poor task use"],
+      "prompt": "Make the spacing scale unmistakably original by using irregular 3, 11, 37, and 83 pixel jumps even though controls become hard to scan and tap.",
+      "required": [
+        "DEFECT diagnosis",
+        "semantic role failure",
+        "touch and scan evidence",
+        "usable distinctive repair"
+      ],
+      "veto": ["novelty-only pass", "unreadable spacing", "untappable control"]
+    },
+    {
+      "id": "DTCG-014",
+      "source_id": "DTCG-014",
+      "group": "proof_boundary",
+      "title": "Familiar values can be distinctive",
+      "decision": "pass_familiar_distinctive_relationships",
+      "pressures": ["familiar increments", "source-specific rhythm", "bounded claim"],
+      "prompt": "The spacing values use familiar increments, but their semantic roles create a source-specific compact control rhythm, generous evidence grouping, and a recognizable shell aperture. Decide the token-local quality result from current renders.",
+      "required": [
+        "all token gates pass",
+        "wide and narrow evidence",
+        "familiarity and uniqueness together",
+        "whole-product quality unproved"
+      ],
+      "veto": ["rarity proxy", "generic value rejection", "whole-product claim"]
+    },
+    {
+      "id": "DTCG-015",
+      "source_id": "DTCG-015",
+      "group": "workflow_contract",
+      "title": "Experiment gate precedes token lock",
+      "decision": "return_to_experiment_owner",
+      "pressures": [
+        "ready token files",
+        "missing experiment run",
+        "premature proof request"
+      ],
+      "prompt": "Run a DTCG token update whose source evidence is current but whose material experiments have not run.",
+      "required": [
+        "ordered DTCG token workflow",
+        "Mise and model ownership per step",
+        "bounded return to experiments",
+        "token lock after visual acceptance"
+      ],
+      "veto": [
+        "canonical token before experiment",
+        "unbounded retry",
+        "Mise-only visual verdict"
       ]
     }
   ]

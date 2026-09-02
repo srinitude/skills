@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "by-design",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "by-design-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger actors aligned.",
+      "motivation": "The design decision ledger result depends on actors ownership.",
+      "proof": "Fresh design decision ledger actors evidence."
+    },
+    "objects": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger objects aligned.",
+      "motivation": "The design decision ledger result depends on objects ownership.",
+      "proof": "Fresh design decision ledger objects evidence."
+    },
+    "actions": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger actions aligned.",
+      "motivation": "The design decision ledger result depends on actions ownership.",
+      "proof": "Fresh design decision ledger actions evidence."
+    },
+    "states": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger states aligned.",
+      "motivation": "The design decision ledger result depends on states ownership.",
+      "proof": "Fresh design decision ledger states evidence."
+    },
+    "invariants": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger invariants aligned.",
+      "motivation": "The design decision ledger result depends on invariants ownership.",
+      "proof": "Fresh design decision ledger invariants evidence."
+    },
+    "variants": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger variants aligned.",
+      "motivation": "The design decision ledger result depends on variants ownership.",
+      "proof": "Fresh design decision ledger variants evidence."
+    },
+    "interfaces": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger interfaces aligned.",
+      "motivation": "The design decision ledger result depends on interfaces ownership.",
+      "proof": "Fresh design decision ledger interfaces evidence."
+    },
+    "authorities": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger authorities aligned.",
+      "motivation": "The design decision ledger result depends on authorities ownership.",
+      "proof": "Fresh design decision ledger authorities evidence."
+    },
+    "failures": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger failures aligned.",
+      "motivation": "The design decision ledger result depends on failures ownership.",
+      "proof": "Fresh design decision ledger failures evidence."
+    },
+    "recoveries": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger recoveries aligned.",
+      "motivation": "The design decision ledger result depends on recoveries ownership.",
+      "proof": "Fresh design decision ledger recoveries evidence."
+    },
+    "evidence": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger evidence aligned.",
+      "motivation": "The design decision ledger result depends on evidence ownership.",
+      "proof": "Fresh design decision ledger evidence evidence."
+    },
+    "time": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger time aligned.",
+      "motivation": "The design decision ledger result depends on time ownership.",
+      "proof": "Fresh design decision ledger time evidence."
+    },
+    "resources": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger resources aligned.",
+      "motivation": "The design decision ledger result depends on resources ownership.",
+      "proof": "Fresh design decision ledger resources evidence."
+    },
+    "quality": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger quality aligned.",
+      "motivation": "The design decision ledger result depends on quality ownership.",
+      "proof": "Fresh design decision ledger quality evidence."
+    },
+    "terminology": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger terminology aligned.",
+      "motivation": "The design decision ledger result depends on terminology ownership.",
+      "proof": "Fresh design decision ledger terminology evidence."
+    },
+    "exclusions": {
+      "profile": "by-design-lifecycle",
+      "outcome": "Keep design decision ledger exclusions aligned.",
+      "motivation": "The design decision ledger result depends on exclusions ownership.",
+      "proof": "Fresh design decision ledger exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "by-design-lifecycle"
+    },
+    "references": {
+      "profile": "by-design-lifecycle"
+    },
+    "assets": {
+      "profile": "by-design-lifecycle"
+    },
+    "scripts": {
+      "profile": "by-design-lifecycle"
+    },
+    "tests": {
+      "profile": "by-design-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "by-design-lifecycle"
+    },
+    "examples": {
+      "profile": "by-design-lifecycle"
+    },
+    "evals": {
+      "profile": "by-design-lifecycle"
+    },
+    "policies": {
+      "profile": "by-design-lifecycle"
+    },
+    "schemas": {
+      "profile": "by-design-lifecycle"
+    },
+    "records": {
+      "profile": "by-design-lifecycle"
+    }
+  }
+}

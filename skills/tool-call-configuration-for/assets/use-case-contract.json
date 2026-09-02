@@ -1,0 +1,472 @@
+{
+  "version": "1.0.0",
+  "skill": "tool-call-configuration-for",
+  "outcome": "Produce one callable tool contract from a behavior request with explicit authority, schema, and side effect boundaries.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted callable tool contract behavior.",
+      "reason": "The callable tool contract outcome depends on stable domain semantics.",
+      "failure_prevented": "A callable tool contract update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable callable tool contract checks through Mise.",
+      "reason": "The callable tool contract judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A callable tool contract claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "callable tool contract",
+    "tool authority",
+    "input schema",
+    "side effect boundary"
+  ],
+  "domain_failures": [
+    "The callable tool contract result changes without proof.",
+    "The callable tool contract package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh callable tool contract task output and saved receipts.",
+    "Current callable tool contract behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The callable tool contract contract owns actors decisions."],
+    "objects": ["The callable tool contract contract owns objects decisions."],
+    "actions": ["The callable tool contract contract owns actions decisions."],
+    "states": ["The callable tool contract contract owns states decisions."],
+    "invariants": ["The callable tool contract contract owns invariants decisions."],
+    "variants": ["The callable tool contract contract owns variants decisions."],
+    "interfaces": ["The callable tool contract contract owns interfaces decisions."],
+    "authorities": ["The callable tool contract contract owns authorities decisions."],
+    "failures": ["The callable tool contract contract owns failures decisions."],
+    "recoveries": ["The callable tool contract contract owns recoveries decisions."],
+    "evidence": ["The callable tool contract contract owns evidence decisions."],
+    "time": ["The callable tool contract contract owns time decisions."],
+    "resources": ["The callable tool contract contract owns resources decisions."],
+    "quality": ["The callable tool contract contract owns quality decisions."],
+    "terminology": ["The callable tool contract contract owns terminology decisions."],
+    "exclusions": ["The callable tool contract contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the callable tool contract actors decision?",
+    "objects": "What can change the callable tool contract objects decision?",
+    "actions": "What can change the callable tool contract actions decision?",
+    "states": "What can change the callable tool contract states decision?",
+    "invariants": "What can change the callable tool contract invariants decision?",
+    "variants": "What can change the callable tool contract variants decision?",
+    "interfaces": "What can change the callable tool contract interfaces decision?",
+    "authorities": "What can change the callable tool contract authorities decision?",
+    "failures": "What can change the callable tool contract failures decision?",
+    "recoveries": "What can change the callable tool contract recoveries decision?",
+    "evidence": "What can change the callable tool contract evidence decision?",
+    "time": "What can change the callable tool contract time decision?",
+    "resources": "What can change the callable tool contract resources decision?",
+    "quality": "What can change the callable tool contract quality decision?",
+    "terminology": "What can change the callable tool contract terminology decision?",
+    "exclusions": "What can change the callable tool contract exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic",
+      "source_class": "standard",
+      "claim": "A callable tool contract needs negotiated capabilities and explicit protocol roles.",
+      "limitations": "Protocol structure does not grant tool authority.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:53-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://json-schema.org/draft/2020-12/json-schema-core",
+      "source_class": "standard",
+      "claim": "An input schema can define machine-checkable tool arguments.",
+      "limitations": "Schema validity cannot prove safe side effects.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:53-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.rfc-editor.org/rfc/rfc8259",
+      "source_class": "standard",
+      "claim": "A portable callable tool contract can use interoperable JSON values.",
+      "limitations": "JSON syntax does not define behavior or authority.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:53-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+      "source_class": "practitioner",
+      "claim": "Tool input validation should allow known-good shapes before side effects.",
+      "limitations": "Input validation does not replace authorization.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:53-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the callable tool contract result?",
+      "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic",
+      "checked_at": "2026-09-02T09:54:53-04:00",
+      "result": "No. The callable tool contract behavior still needs direct evaluation.",
+      "disposition": "Keep structure and callable tool contract behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named callable tool contract agentic-request result.",
+        "motivation": "The callable tool contract workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared callable tool contract agentic-request route.",
+        "proof": "Fresh callable tool contract agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named callable tool contract invocation-policy result.",
+        "motivation": "The callable tool contract workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared callable tool contract invocation-policy route.",
+        "proof": "Fresh callable tool contract invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named callable tool contract improvement-policy result.",
+        "motivation": "The callable tool contract workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared callable tool contract improvement-policy route.",
+        "proof": "Fresh callable tool contract improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named callable tool contract mise-primitives-update result.",
+        "motivation": "The callable tool contract workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared callable tool contract mise-primitives-update route.",
+        "proof": "Fresh callable tool contract mise-primitives-update output and exit status."
+      },
+      {
+        "task": "tests-test-scripts",
+        "outcome": "Produce the named callable tool contract tests-test-scripts result.",
+        "motivation": "The callable tool contract workflow needs one tests-test-scripts entry.",
+        "why_default_path": "This is the single declared callable tool contract tests-test-scripts route.",
+        "proof": "Fresh callable tool contract tests-test-scripts output and exit status."
+      },
+      {
+        "task": "tool-call-config",
+        "outcome": "Produce the named callable tool contract tool-call-config result.",
+        "motivation": "The callable tool contract workflow needs one tool-call-config entry.",
+        "why_default_path": "This is the single declared callable tool contract tool-call-config route.",
+        "proof": "Fresh callable tool contract tool-call-config output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the callable tool contract result through ci.",
+        "motivation": "The callable tool contract package needs the ci gate.",
+        "value": "Produce current callable tool contract evidence from ci.",
+        "proof": "The callable tool contract ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared callable tool contract responsibility."
+      },
+      "test": {
+        "outcome": "Advance the callable tool contract result through test.",
+        "motivation": "The callable tool contract package needs the test gate.",
+        "value": "Produce current callable tool contract evidence from test.",
+        "proof": "The callable tool contract test task exits zero with readable output.",
+        "applicability": "Use test for its declared callable tool contract responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the callable tool contract result through validate.",
+        "motivation": "The callable tool contract package needs the validate gate.",
+        "value": "Produce current callable tool contract evidence from validate.",
+        "proof": "The callable tool contract validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared callable tool contract responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the callable tool contract result through lint-writing.",
+        "motivation": "The callable tool contract package needs the lint-writing gate.",
+        "value": "Produce current callable tool contract evidence from lint-writing.",
+        "proof": "The callable tool contract lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared callable tool contract responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the callable tool contract result through lint-code.",
+        "motivation": "The callable tool contract package needs the lint-code gate.",
+        "value": "Produce current callable tool contract evidence from lint-code.",
+        "proof": "The callable tool contract lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared callable tool contract responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the callable tool contract result through lint-placeholders.",
+        "motivation": "The callable tool contract package needs the lint-placeholders gate.",
+        "value": "Produce current callable tool contract evidence from lint-placeholders.",
+        "proof": "The callable tool contract lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared callable tool contract responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the callable tool contract result through evals.",
+        "motivation": "The callable tool contract package needs the evals gate.",
+        "value": "Produce current callable tool contract evidence from evals.",
+        "proof": "The callable tool contract evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared callable tool contract responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the callable tool contract result through domain-research-policy.",
+        "motivation": "The callable tool contract package needs the domain-research-policy gate.",
+        "value": "Produce current callable tool contract evidence from domain-research-policy.",
+        "proof": "The callable tool contract domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared callable tool contract responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the callable tool contract result through use-case-policy.",
+        "motivation": "The callable tool contract package needs the use-case-policy gate.",
+        "value": "Produce current callable tool contract evidence from use-case-policy.",
+        "proof": "The callable tool contract use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared callable tool contract responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the callable tool contract result through mise-primitives-policy.",
+        "motivation": "The callable tool contract package needs the mise-primitives-policy gate.",
+        "value": "Produce current callable tool contract evidence from mise-primitives-policy.",
+        "proof": "The callable tool contract mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared callable tool contract responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the callable tool contract result through primitive-lifecycle-policy.",
+        "motivation": "The callable tool contract package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current callable tool contract evidence from primitive-lifecycle-policy.",
+        "proof": "The callable tool contract primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared callable tool contract responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the callable tool contract result through task-graph-policy.",
+        "motivation": "The callable tool contract package needs the task-graph-policy gate.",
+        "value": "Produce current callable tool contract evidence from task-graph-policy.",
+        "proof": "The callable tool contract task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared callable tool contract responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the callable tool contract result through decision-policy.",
+        "motivation": "The callable tool contract package needs the decision-policy gate.",
+        "value": "Produce current callable tool contract evidence from decision-policy.",
+        "proof": "The callable tool contract decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared callable tool contract responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the callable tool contract result through improvement-policy.",
+        "motivation": "The callable tool contract package needs the improvement-policy gate.",
+        "value": "Produce current callable tool contract evidence from improvement-policy.",
+        "proof": "The callable tool contract improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared callable tool contract responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the callable tool contract result through invocation-policy.",
+        "motivation": "The callable tool contract package needs the invocation-policy gate.",
+        "value": "Produce current callable tool contract evidence from invocation-policy.",
+        "proof": "The callable tool contract invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared callable tool contract responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the callable tool contract result through agentic-request.",
+        "motivation": "The callable tool contract package needs the agentic-request gate.",
+        "value": "Produce current callable tool contract evidence from agentic-request.",
+        "proof": "The callable tool contract agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared callable tool contract responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the callable tool contract result through mise-latest.",
+        "motivation": "The callable tool contract package needs the mise-latest gate.",
+        "value": "Produce current callable tool contract evidence from mise-latest.",
+        "proof": "The callable tool contract mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared callable tool contract responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the callable tool contract result through mise-primitives-update.",
+        "motivation": "The callable tool contract package needs the mise-primitives-update gate.",
+        "value": "Produce current callable tool contract evidence from mise-primitives-update.",
+        "proof": "The callable tool contract mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared callable tool contract responsibility."
+      },
+      "tests-test-scripts": {
+        "outcome": "Advance the callable tool contract result through tests-test-scripts.",
+        "motivation": "The callable tool contract package needs the tests-test-scripts gate.",
+        "value": "Produce current callable tool contract evidence from tests-test-scripts.",
+        "proof": "The callable tool contract tests-test-scripts task exits zero with readable output.",
+        "applicability": "Use tests-test-scripts for its declared callable tool contract responsibility."
+      },
+      "tool-call-config": {
+        "outcome": "Advance the callable tool contract result through tool-call-config.",
+        "motivation": "The callable tool contract package needs the tool-call-config gate.",
+        "value": "Produce current callable tool contract evidence from tool-call-config.",
+        "proof": "The callable tool contract tool-call-config task exits zero with readable output.",
+        "applicability": "Use tool-call-config for its declared callable tool contract responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract skill_body behavior.",
+      "outcome": "Keep callable tool contract skill_body aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one skill_body owner.",
+      "value": "Expose current callable tool contract skill_body progress.",
+      "failure_prevented": "Stale or generic callable tool contract skill_body behavior.",
+      "proof": "Fresh callable tool contract skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract references behavior.",
+      "outcome": "Keep callable tool contract references aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one references owner.",
+      "value": "Expose current callable tool contract references progress.",
+      "failure_prevented": "Stale or generic callable tool contract references behavior.",
+      "proof": "Fresh callable tool contract references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract assets behavior.",
+      "outcome": "Keep callable tool contract assets aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one assets owner.",
+      "value": "Expose current callable tool contract assets progress.",
+      "failure_prevented": "Stale or generic callable tool contract assets behavior.",
+      "proof": "Fresh callable tool contract assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract scripts behavior.",
+      "outcome": "Keep callable tool contract scripts aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one scripts owner.",
+      "value": "Expose current callable tool contract scripts progress.",
+      "failure_prevented": "Stale or generic callable tool contract scripts behavior.",
+      "proof": "Fresh callable tool contract scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract tests behavior.",
+      "outcome": "Keep callable tool contract tests aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one tests owner.",
+      "value": "Expose current callable tool contract tests progress.",
+      "failure_prevented": "Stale or generic callable tool contract tests behavior.",
+      "proof": "Fresh callable tool contract tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract mise_tasks behavior.",
+      "outcome": "Keep callable tool contract mise_tasks aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one mise_tasks owner.",
+      "value": "Expose current callable tool contract mise_tasks progress.",
+      "failure_prevented": "Stale or generic callable tool contract mise_tasks behavior.",
+      "proof": "Fresh callable tool contract mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract examples behavior.",
+      "outcome": "Keep callable tool contract examples aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one examples owner.",
+      "value": "Expose current callable tool contract examples progress.",
+      "failure_prevented": "Stale or generic callable tool contract examples behavior.",
+      "proof": "Fresh callable tool contract examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract evals behavior.",
+      "outcome": "Keep callable tool contract evals aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one evals owner.",
+      "value": "Expose current callable tool contract evals progress.",
+      "failure_prevented": "Stale or generic callable tool contract evals behavior.",
+      "proof": "Fresh callable tool contract evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract policies behavior.",
+      "outcome": "Keep callable tool contract policies aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one policies owner.",
+      "value": "Expose current callable tool contract policies progress.",
+      "failure_prevented": "Stale or generic callable tool contract policies behavior.",
+      "proof": "Fresh callable tool contract policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract schemas behavior.",
+      "outcome": "Keep callable tool contract schemas aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one schemas owner.",
+      "value": "Expose current callable tool contract schemas progress.",
+      "failure_prevented": "Stale or generic callable tool contract schemas behavior.",
+      "proof": "Fresh callable tool contract schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own callable tool contract records behavior.",
+      "outcome": "Keep callable tool contract records aligned with the accepted result.",
+      "motivation": "The callable tool contract package needs one records owner.",
+      "value": "Expose current callable tool contract records progress.",
+      "failure_prevented": "Stale or generic callable tool contract records behavior.",
+      "proof": "Fresh callable tool contract records validation and behavioral evidence."
+    }
+  }
+}

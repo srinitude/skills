@@ -1,5 +1,7 @@
 # Temporal non-contradiction
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this before treating different effective dates as a conflict.
 
 ## What the user said

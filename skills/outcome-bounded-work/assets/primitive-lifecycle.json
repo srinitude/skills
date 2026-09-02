@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "outcome-bounded-work",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "outcome-bounded-work-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary actors aligned.",
+      "motivation": "The outcome boundary result depends on actors ownership.",
+      "proof": "Fresh outcome boundary actors evidence."
+    },
+    "objects": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary objects aligned.",
+      "motivation": "The outcome boundary result depends on objects ownership.",
+      "proof": "Fresh outcome boundary objects evidence."
+    },
+    "actions": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary actions aligned.",
+      "motivation": "The outcome boundary result depends on actions ownership.",
+      "proof": "Fresh outcome boundary actions evidence."
+    },
+    "states": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary states aligned.",
+      "motivation": "The outcome boundary result depends on states ownership.",
+      "proof": "Fresh outcome boundary states evidence."
+    },
+    "invariants": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary invariants aligned.",
+      "motivation": "The outcome boundary result depends on invariants ownership.",
+      "proof": "Fresh outcome boundary invariants evidence."
+    },
+    "variants": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary variants aligned.",
+      "motivation": "The outcome boundary result depends on variants ownership.",
+      "proof": "Fresh outcome boundary variants evidence."
+    },
+    "interfaces": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary interfaces aligned.",
+      "motivation": "The outcome boundary result depends on interfaces ownership.",
+      "proof": "Fresh outcome boundary interfaces evidence."
+    },
+    "authorities": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary authorities aligned.",
+      "motivation": "The outcome boundary result depends on authorities ownership.",
+      "proof": "Fresh outcome boundary authorities evidence."
+    },
+    "failures": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary failures aligned.",
+      "motivation": "The outcome boundary result depends on failures ownership.",
+      "proof": "Fresh outcome boundary failures evidence."
+    },
+    "recoveries": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary recoveries aligned.",
+      "motivation": "The outcome boundary result depends on recoveries ownership.",
+      "proof": "Fresh outcome boundary recoveries evidence."
+    },
+    "evidence": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary evidence aligned.",
+      "motivation": "The outcome boundary result depends on evidence ownership.",
+      "proof": "Fresh outcome boundary evidence evidence."
+    },
+    "time": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary time aligned.",
+      "motivation": "The outcome boundary result depends on time ownership.",
+      "proof": "Fresh outcome boundary time evidence."
+    },
+    "resources": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary resources aligned.",
+      "motivation": "The outcome boundary result depends on resources ownership.",
+      "proof": "Fresh outcome boundary resources evidence."
+    },
+    "quality": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary quality aligned.",
+      "motivation": "The outcome boundary result depends on quality ownership.",
+      "proof": "Fresh outcome boundary quality evidence."
+    },
+    "terminology": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary terminology aligned.",
+      "motivation": "The outcome boundary result depends on terminology ownership.",
+      "proof": "Fresh outcome boundary terminology evidence."
+    },
+    "exclusions": {
+      "profile": "outcome-bounded-work-lifecycle",
+      "outcome": "Keep outcome boundary exclusions aligned.",
+      "motivation": "The outcome boundary result depends on exclusions ownership.",
+      "proof": "Fresh outcome boundary exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "references": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "assets": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "scripts": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "tests": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "examples": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "evals": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "policies": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "schemas": {
+      "profile": "outcome-bounded-work-lifecycle"
+    },
+    "records": {
+      "profile": "outcome-bounded-work-lifecycle"
+    }
+  }
+}

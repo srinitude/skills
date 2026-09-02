@@ -8,6 +8,8 @@ Report duplicates in this list. Ignore string case and surrounding whitespace, b
 
 ## Request
 
+Resource gate: run `mise run validate` before using package files named here.
+
 The command reads `examples/list-request.json`.
 
 ```json
@@ -25,7 +27,7 @@ The command reads `examples/list-request.json`.
 ## Command
 
 ```text
-$ python3 scripts/dedupe.py inspect --request examples/list-request.json
+$ mise run dedupe inspect --request examples/list-request.json
 {"adapter": "list", "canonical_count": 3, "canonical_indices": [0, 2, 3], "duplicate_count": 1, "groups": [{"canonical_index": 0, "key_sha256": "980410da9522db17c3ab8743541f192a5ab27772a6154dbc7795ee909e653a5c", "kind": "normalized", "member_indices": [0, 1]}], "identity_conflicts": [], "mode": "normalized", "mutated": false, "normalization": {"casefold": true, "whitespace": "collapse"}, "provenance": [], "similarity_candidates": [], "source_count": 4, "unresolved": [], "unresolved_count": 0, "url_policy": {}}
 exit 0
 ```

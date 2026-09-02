@@ -1,5 +1,7 @@
 # Dependency reconciliation
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Required composition.
 
 The native source names host-only owners for lifecycle, authoring, profile repair, code cleanup, and behavioral checks. The public skill keeps their invariants without requiring unavailable private owners.

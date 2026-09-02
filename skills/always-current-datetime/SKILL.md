@@ -41,13 +41,13 @@ Before interpreting or acting on the newest direct user message:
 Run on macOS or Linux with that working directory:
 
 ```bash
-python3 scripts/current_anchor.py
+mise run refresh
 ```
 
 Run on Windows with that working directory:
 
 ```powershell
-python scripts/current_anchor.py
+mise run refresh
 ```
 
 Use `python` or `py -3` only when it is the installed interpreter. Do not use a skill-directory shell variable or guess an installation path. If the load result does not supply a concrete skill directory, report `temporal-anchor-unavailable: skill directory missing` and stop date-dependent or time-dependent work. Never pass a fabricated timestamp. Reuse an anchor only when its process result occurs after the newest direct user message.
@@ -84,6 +84,8 @@ Apply it to:
 
 ## What is visible in the reply?
 
+Resource gate: run `mise run validate` before using package files named here.
+
 On the first assistant reply for a local date, and again when the local date changes, begin with:
 
 ```text
@@ -106,13 +108,15 @@ After resume or context compaction, reacquire the clock before using any retaine
 
 ## Which worked example should you read?
 
+Resource gate: run `mise run validate` before using package files named here.
+
 - Read `examples/help-command.md` for a complete `help` response.
 - Read `examples/fresh-direct-turn.md` for one real UTC diagnostic, `as_of` binding, and both visible prefixes.
 - Read `examples/invalid-timezone.md` for exit `2`, empty stdout, the failure marker, and recovery.
 
 ## Progressive disclosure
 
-Read `references/eval-contract.md` and `evals/cases.json` before testing or changing this skill. Read `references/generation-contract.md` when changing the package structure or checking native-to-port lineage. Load `scripts/tests/` before changing script behavior and run those tests before implementation changes. Load the rest of `evals/` only when measuring activation, behavior, enrollment, or timing. Do not load these files on ordinary turns.
+Read `references/eval-contract.md` and `evals/cases.json` before testing or changing this skill. Read `references/generation-contract.md` when changing the package structure or checking native-to-port lineage. Load the tests through `mise run test` before changing clock behavior, and rerun that task before implementation changes. Load the rest of `evals/` only when measuring activation, behavior, enrollment, or timing. Do not load these files on ordinary turns.
 
 ## Gotchas
 
@@ -134,3 +138,18 @@ The script cannot infer the user's intended timezone from prose. The host must s
 ## When is the turn ready?
 
 The turn is ready only when the skill was loaded, one fresh clock call produced every required field after the newest direct message, `as_of` is bound to the private `starting-point` map, temporal language is resolved before date-sensitive or time-sensitive actions, and the actual user-facing response contains the required current date-time prefix. Any stale, missing, duplicate, or failed anchor leaves temporal work blocked.
+
+## Factory execution contract
+
+The accepted outcome is: Bind one fresh clock anchor to each direct turn and resolve relative date language from it. Preserve current clock anchor behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current clock anchor sources and counterevidence.
+3. Run `mise run refresh` for the named clock anchor operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

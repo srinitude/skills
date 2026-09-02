@@ -117,6 +117,18 @@ def mise_fence_lines(lines):
     return paired
 
 
+def mise_section_lines(lines):
+    starts = [index for index, line in enumerate(lines)
+              if line.startswith("#") and line.lstrip("#").startswith(" ")]
+    boundaries = sorted(set([skip_frontmatter(lines), *starts, len(lines)]))
+    paired = set()
+    for index in range(len(boundaries) - 1):
+        start, end = boundaries[index], boundaries[index + 1]
+        if any("mise run " in line for line in lines[start:end]):
+            paired.update(range(start, end))
+    return paired
+
+
 def skip_frontmatter(lines):
     if lines and lines[0].strip() == "---":
         for index in range(1, len(lines)):
@@ -168,10 +180,12 @@ def check_file(path):
     if len(lines) > 200:
         problems.append(f"{path}:201: markdown has {len(lines)} lines; cap is 200")
     fence_paired = mise_fence_lines(lines)
+    section_paired = mise_section_lines(lines)
     for number, line in enumerate(lines, start=1):
         messages = check_words(line) + check_phrases(line)
         messages += check_symbols(line)
-        messages += check_resource_path(line, number - 1 in fence_paired)
+        paired = number - 1 in fence_paired or number - 1 in section_paired
+        messages += check_resource_path(line, paired)
         problems.extend(f"{path}:{number}: {m}" for m in messages)
     for block in collect_blocks(lines):
         check_block(block, path, problems)

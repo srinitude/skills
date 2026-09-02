@@ -17,7 +17,7 @@ fix the failing test in auth.py, it broke after the merge
 ## Commands run
 
 ```
-$ python3 scripts/gate.py --text "fix the failing test in auth.py, it broke after the merge"
+$ mise run gate --text "fix the failing test in auth.py, it broke after the merge"
 not-design: another craft named, matched exclusions:failing test
 exit 0
 ```
@@ -33,7 +33,7 @@ None.
 Matching the request against a fixed vocabulary gives the same verdict every time, and printing the matched terms lets the verdict be checked rather than trusted. A borderline case makes this concrete:
 
 ```
-$ python3 scripts/gate.py --text "design a database schema for users and orders"
+$ mise run gate --text "design a database schema for users and orders"
 not-design: another craft named, matched exclusions:database schema
 exit 0
 ```
@@ -41,7 +41,7 @@ exit 0
 The word design appears and the request still stops, because naming another craft outranks a bare verb. Only a strong design surface overrides a named craft, and the opposite case passes on a surface alone:
 
 ```
-$ python3 scripts/gate.py --text "here's a screenshot, what do you think"
+$ mise run gate --text "here's a screenshot, what do you think"
 design: matched weak:screenshot
 exit 0
 ```

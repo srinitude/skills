@@ -10,10 +10,38 @@
     },
     {
       "path": "SKILL.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/response-prefixes.txt",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -69,11 +97,27 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/decisions.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/eval-contract.md",
-      "source_paths": ["references/eval-contract.md"]
+      "source_paths": ["references/eval-contract.md", "target-scaffolding"]
     },
     {
       "path": "references/generation-contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -81,15 +125,63 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/check_evals.py",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/current_anchor.py",
-      "source_paths": ["scripts/current_anchor.py"]
+      "source_paths": ["scripts/current_anchor.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/lint_writing.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -115,12 +207,12 @@
       "sha256": "dac89519a06ca944c0a14e2b0a46fdc1687627cb80014d55d6efbb2e31143e4c"
     },
     {
-      "path": "references/eval-contract.md",
-      "sha256": "e20a0622b583f2c9c78e6d21cf335a5dbf886c9b3a352bac1376c65f3058b97e"
-    },
-    {
       "path": "references/eval-cases.json",
       "sha256": "1245c83719bd94418654567f23f4dade91b6226eab400c9e79f2b893e695b8aa"
+    },
+    {
+      "path": "references/eval-contract.md",
+      "sha256": "e20a0622b583f2c9c78e6d21cf335a5dbf886c9b3a352bac1376c65f3058b97e"
     },
     {
       "path": "scripts/current_anchor.py",

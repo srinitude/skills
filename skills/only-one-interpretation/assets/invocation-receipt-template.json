@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "only-one-interpretation",
+  "operation": "Name the current operational reading operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh operational reading evidence."
+}

@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "skill": "by-design",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted design decision ledger result.",
+      "motivation": "The design decision ledger decision needs its correct owner.",
+      "why_this_path": "The design decision ledger responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": [
+        "current design decision ledger contract"
+      ],
+      "expected_effect": "Make the design decision ledger decision testable.",
+      "proof": "Fresh design decision ledger evidence from the named owner.",
+      "falsifier": "Current design decision ledger evidence contradicts the decision.",
+      "failure_branch": "Block the design decision ledger result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted design decision ledger result.",
+      "motivation": "The design decision ledger decision needs its correct owner.",
+      "why_this_path": "The design decision ledger responsibility belongs to model.",
+      "owner": "model",
+      "inputs": [
+        "current design decision ledger contract"
+      ],
+      "expected_effect": "Make the design decision ledger decision testable.",
+      "proof": "Fresh design decision ledger evidence from the named owner.",
+      "falsifier": "Current design decision ledger evidence contradicts the decision.",
+      "failure_branch": "Block the design decision ledger result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted design decision ledger result.",
+      "motivation": "The design decision ledger decision needs its correct owner.",
+      "why_this_path": "The design decision ledger responsibility belongs to human.",
+      "owner": "human",
+      "inputs": [
+        "current design decision ledger contract"
+      ],
+      "expected_effect": "Make the design decision ledger decision testable.",
+      "proof": "Fresh design decision ledger evidence from the named owner.",
+      "falsifier": "Current design decision ledger evidence contradicts the decision.",
+      "failure_branch": "Block the design decision ledger result and restore the accepted state."
+    }
+  ]
+}

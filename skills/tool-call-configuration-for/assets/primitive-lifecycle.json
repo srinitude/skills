@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "tool-call-configuration-for",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "tool-call-configuration-for-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract actors aligned.",
+      "motivation": "The callable tool contract result depends on actors ownership.",
+      "proof": "Fresh callable tool contract actors evidence."
+    },
+    "objects": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract objects aligned.",
+      "motivation": "The callable tool contract result depends on objects ownership.",
+      "proof": "Fresh callable tool contract objects evidence."
+    },
+    "actions": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract actions aligned.",
+      "motivation": "The callable tool contract result depends on actions ownership.",
+      "proof": "Fresh callable tool contract actions evidence."
+    },
+    "states": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract states aligned.",
+      "motivation": "The callable tool contract result depends on states ownership.",
+      "proof": "Fresh callable tool contract states evidence."
+    },
+    "invariants": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract invariants aligned.",
+      "motivation": "The callable tool contract result depends on invariants ownership.",
+      "proof": "Fresh callable tool contract invariants evidence."
+    },
+    "variants": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract variants aligned.",
+      "motivation": "The callable tool contract result depends on variants ownership.",
+      "proof": "Fresh callable tool contract variants evidence."
+    },
+    "interfaces": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract interfaces aligned.",
+      "motivation": "The callable tool contract result depends on interfaces ownership.",
+      "proof": "Fresh callable tool contract interfaces evidence."
+    },
+    "authorities": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract authorities aligned.",
+      "motivation": "The callable tool contract result depends on authorities ownership.",
+      "proof": "Fresh callable tool contract authorities evidence."
+    },
+    "failures": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract failures aligned.",
+      "motivation": "The callable tool contract result depends on failures ownership.",
+      "proof": "Fresh callable tool contract failures evidence."
+    },
+    "recoveries": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract recoveries aligned.",
+      "motivation": "The callable tool contract result depends on recoveries ownership.",
+      "proof": "Fresh callable tool contract recoveries evidence."
+    },
+    "evidence": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract evidence aligned.",
+      "motivation": "The callable tool contract result depends on evidence ownership.",
+      "proof": "Fresh callable tool contract evidence evidence."
+    },
+    "time": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract time aligned.",
+      "motivation": "The callable tool contract result depends on time ownership.",
+      "proof": "Fresh callable tool contract time evidence."
+    },
+    "resources": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract resources aligned.",
+      "motivation": "The callable tool contract result depends on resources ownership.",
+      "proof": "Fresh callable tool contract resources evidence."
+    },
+    "quality": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract quality aligned.",
+      "motivation": "The callable tool contract result depends on quality ownership.",
+      "proof": "Fresh callable tool contract quality evidence."
+    },
+    "terminology": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract terminology aligned.",
+      "motivation": "The callable tool contract result depends on terminology ownership.",
+      "proof": "Fresh callable tool contract terminology evidence."
+    },
+    "exclusions": {
+      "profile": "tool-call-configuration-for-lifecycle",
+      "outcome": "Keep callable tool contract exclusions aligned.",
+      "motivation": "The callable tool contract result depends on exclusions ownership.",
+      "proof": "Fresh callable tool contract exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "references": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "assets": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "scripts": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "tests": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "examples": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "evals": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "policies": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "schemas": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    },
+    "records": {
+      "profile": "tool-call-configuration-for-lifecycle"
+    }
+  }
+}

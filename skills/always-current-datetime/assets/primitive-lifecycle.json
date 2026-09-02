@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "always-current-datetime",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "always-current-datetime-lifecycle": {
+      "discover": "refresh",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "refresh",
+      "inspect": "validate",
+      "update": "refresh",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor actors aligned.",
+      "motivation": "The clock anchor result depends on actors ownership.",
+      "proof": "Fresh clock anchor actors evidence."
+    },
+    "objects": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor objects aligned.",
+      "motivation": "The clock anchor result depends on objects ownership.",
+      "proof": "Fresh clock anchor objects evidence."
+    },
+    "actions": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor actions aligned.",
+      "motivation": "The clock anchor result depends on actions ownership.",
+      "proof": "Fresh clock anchor actions evidence."
+    },
+    "states": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor states aligned.",
+      "motivation": "The clock anchor result depends on states ownership.",
+      "proof": "Fresh clock anchor states evidence."
+    },
+    "invariants": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor invariants aligned.",
+      "motivation": "The clock anchor result depends on invariants ownership.",
+      "proof": "Fresh clock anchor invariants evidence."
+    },
+    "variants": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor variants aligned.",
+      "motivation": "The clock anchor result depends on variants ownership.",
+      "proof": "Fresh clock anchor variants evidence."
+    },
+    "interfaces": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor interfaces aligned.",
+      "motivation": "The clock anchor result depends on interfaces ownership.",
+      "proof": "Fresh clock anchor interfaces evidence."
+    },
+    "authorities": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor authorities aligned.",
+      "motivation": "The clock anchor result depends on authorities ownership.",
+      "proof": "Fresh clock anchor authorities evidence."
+    },
+    "failures": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor failures aligned.",
+      "motivation": "The clock anchor result depends on failures ownership.",
+      "proof": "Fresh clock anchor failures evidence."
+    },
+    "recoveries": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor recoveries aligned.",
+      "motivation": "The clock anchor result depends on recoveries ownership.",
+      "proof": "Fresh clock anchor recoveries evidence."
+    },
+    "evidence": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor evidence aligned.",
+      "motivation": "The clock anchor result depends on evidence ownership.",
+      "proof": "Fresh clock anchor evidence evidence."
+    },
+    "time": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor time aligned.",
+      "motivation": "The clock anchor result depends on time ownership.",
+      "proof": "Fresh clock anchor time evidence."
+    },
+    "resources": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor resources aligned.",
+      "motivation": "The clock anchor result depends on resources ownership.",
+      "proof": "Fresh clock anchor resources evidence."
+    },
+    "quality": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor quality aligned.",
+      "motivation": "The clock anchor result depends on quality ownership.",
+      "proof": "Fresh clock anchor quality evidence."
+    },
+    "terminology": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor terminology aligned.",
+      "motivation": "The clock anchor result depends on terminology ownership.",
+      "proof": "Fresh clock anchor terminology evidence."
+    },
+    "exclusions": {
+      "profile": "always-current-datetime-lifecycle",
+      "outcome": "Keep clock anchor exclusions aligned.",
+      "motivation": "The clock anchor result depends on exclusions ownership.",
+      "proof": "Fresh clock anchor exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "references": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "assets": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "scripts": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "tests": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "examples": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "evals": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "policies": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "schemas": {
+      "profile": "always-current-datetime-lifecycle"
+    },
+    "records": {
+      "profile": "always-current-datetime-lifecycle"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Simple request bypass
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this before adding contract work to a request with no material method choice. This is the failure the skill is most likely to cause.
 
 Guess it removes: whether every direct request needs an outcome contract and classification ledger.

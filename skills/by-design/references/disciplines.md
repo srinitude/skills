@@ -10,6 +10,8 @@ The library is not evenly deep. It was harvested from published practice, which 
 
 ## Naming your craft is the fastest route
 
+Resource gate: run `mise run validate` before using package files named here.
+
 `assets/disciplines.yaml` maps two hundred occupation names to the shelf their decisions live on, from art director to naval architect. Saying what you do lands the slice in one step, because naming the craft is the strongest signal there is about where the questions are.
 
 Measured across sixty five occupations, each given one line of real work in that trade's own words: every one passes the gate, sixty two land the right shelf first, and all sixty five land it in the top three.
@@ -32,7 +34,7 @@ Place the work by what kind of thing it is, not by the job title.
 | something other people build on                    | Design systems and developer surfaces     |
 | how the work gets made and agreed                  | Design process, stakeholders and journeys |
 
-Then add your craft to `assets/disciplines.yaml`, add the words your trade uses to `assets/trade-terms.yaml`, and run `python3 scripts/bench.py`. The measure only moves up.
+Then add your craft to `assets/disciplines.yaml`, add the words your trade uses to `assets/trade-terms.yaml`, and run `mise run bench`. The measure only moves up.
 
 ## The crafts this library serves thinly
 

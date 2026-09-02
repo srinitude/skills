@@ -4,6 +4,8 @@ Guess this example removes: whether a registry or server document can be treated
 
 ## User says
 
+Resource gate: run `mise run validate` before using package files named here.
+
 ```
 Generate from @evals/fixtures/native-registry.json with behavior Report results.
 ```
@@ -17,7 +19,7 @@ Stopped before generation. The supplied file is a registry collection, not one c
 ## Commands run
 
 ```text
-$ python3 scripts/tool_call_config.py generate @evals/fixtures/native-registry.json --behavior 'Report results.' --output ../../.artifacts/tool-call-configuration-for/failure-proof
+$ mise run tool-call-config generate @evals/fixtures/native-registry.json --behavior 'Report results.' --output ../../.artifacts/tool-call-configuration-for/failure-proof
 error: tool reference must describe exactly one callable tool
 exit 2
 ```

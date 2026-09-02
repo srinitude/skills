@@ -13,7 +13,8 @@ REQUIRED_TASKS = [
     "agentic-request",
     "mise-latest", "mise-primitives-update",
     "doctor", "new", "validate-target", "eval-target",
-    "plan-standardize", "source-corpus", "audit-source-corpus",
+    "plan-standardize", "standardize-target", "refresh-registry-lineage",
+    "source-corpus", "audit-source-corpus",
     "lineage", "refresh-lineage",
 ]
 CHECK_JOBS = ["validate", "lint-writing", "lint-code",

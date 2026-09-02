@@ -30,9 +30,9 @@ Plain non-help input containing one tool reference and one behavior configuratio
 5. Read `references/tool-profile.md` and write one descriptor. Mark each lifecycle fact `verified`, `not applicable`, or `unknown`; any safety-relevant unknown blocks generation.
 6. Read the behavior input completely. Read `references/behavior-profile.md`, normalize each rule without changing its wording or strength, and stop on an unresolved conflict.
 7. Build a rule-to-contract matrix. Keep every rule and classify its disposition as `supported`, `supported with conditions`, `instruction-only`, `requires additional integration`, `conflicts with authority`, or `blocked by unknown`.
-8. For `generate`, run `python3 scripts/tool_call_config.py generate @descriptor.json --behavior @behavior.json --output <directory>`. Inspect the generated description, exact identity, lifecycle differences, source trace, trigger cases, examples, and lineage before validation.
+8. For `generate`, run `mise run tool-call-config generate @descriptor.json --behavior @behavior.json --output <directory>`. Inspect the generated description, exact identity, lifecycle differences, source trace, trigger cases, examples, and lineage before validation.
 9. For `apply`, read the entire target and its governing instructions, routed references, tests, evals, lineage, and nearest trigger neighbors. Read `references/apply-contract.md`, then write an integration plan with current hashes, declared files, dispositions, merge points, rollback scope, and argv-array validation commands.
-10. Immediately re-read every planned target file. Run `python3 scripts/tool_call_config.py apply @descriptor.json --target <path-or-name> --skills-root <skills-root> --behavior @behavior.json --integration @plan.json --evidence <directory>` only when the hashes still match.
+10. Immediately re-read every planned target file. Run `mise run tool-call-config apply @descriptor.json --target <path-or-name> --skills-root <skills-root> --behavior @behavior.json --integration @plan.json --evidence <directory>` only when the hashes still match.
 11. Run the focused checks, each affected skill's `mise run ci`, the canonical factory checks, the current format validator when available, and the repository integration gate. A static pass proves package shape, not runtime activation.
 12. Run the exact `apply` command a second time. Require status `no-op`, zero changed files, unchanged hashes, and no duplicate policy block.
 13. Compare with-skill and without-skill traces in fresh contexts when the current host supports skill activation evidence. Otherwise label activation unproved and retain only the static and fixture claims.
@@ -61,7 +61,7 @@ Scripts own parsing, stable rule IDs, exact-name lookup, identity hashing, colli
 - Read `references/decisions.md` when a prior design choice affects the current run and append one dated line after a new durable decision.
 - Inspect `assets/` before changing generated package structure or eval shape.
 - Read `examples/` before the first use of each command and before diagnosing the documented identity failure.
-- Run `scripts/` through `--help` before first use; run `scripts/tests/` after any executable change.
+- Run `mise run test` through `--help` before first use; run `mise run test` after any executable change.
 - Read `evals/` before trigger trials, behavior grading, failure recovery, timing, or source-lineage verification.
 
 ## What are the enforcement limits?
@@ -79,3 +79,18 @@ An Agent Skill supplies behavioral instructions. It does not prove that a host i
 ## When is the work done?
 
 Done requires one exact verified tool identity, a lossless behavior profile, a complete generated or updated package, real source and rule traces, applicable lifecycle differences, passing focused and integrated checks on final bytes, current lineage hashes, a second-run no-op for `apply`, and an explicit list of enforcement or activation gaps. Stop if any material identity, source, behavior, authority, target, or safety fact remains unknown.
+
+## Factory execution contract
+
+The accepted outcome is: Produce one callable tool contract from a behavior request with explicit authority, schema, and side effect boundaries. Preserve current callable tool contract behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current callable tool contract sources and counterevidence.
+3. Run `mise run agentic-request` for the named callable tool contract operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "timebox",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted hard timebox result.",
+      "motivation": "The hard timebox decision needs its correct owner.",
+      "why_this_path": "The hard timebox responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current hard timebox contract"],
+      "expected_effect": "Make the hard timebox decision testable.",
+      "proof": "Fresh hard timebox evidence from the named owner.",
+      "falsifier": "Current hard timebox evidence contradicts the decision.",
+      "failure_branch": "Block the hard timebox result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted hard timebox result.",
+      "motivation": "The hard timebox decision needs its correct owner.",
+      "why_this_path": "The hard timebox responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current hard timebox contract"],
+      "expected_effect": "Make the hard timebox decision testable.",
+      "proof": "Fresh hard timebox evidence from the named owner.",
+      "falsifier": "Current hard timebox evidence contradicts the decision.",
+      "failure_branch": "Block the hard timebox result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted hard timebox result.",
+      "motivation": "The hard timebox decision needs its correct owner.",
+      "why_this_path": "The hard timebox responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current hard timebox contract"],
+      "expected_effect": "Make the hard timebox decision testable.",
+      "proof": "Fresh hard timebox evidence from the named owner.",
+      "falsifier": "Current hard timebox evidence contradicts the decision.",
+      "failure_branch": "Block the hard timebox result and restore the accepted state."
+    }
+  ]
+}

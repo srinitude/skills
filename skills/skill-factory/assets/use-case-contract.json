@@ -209,6 +209,20 @@
         "proof": "The agent skill plan records digest, files, missing owners, mappings, and collisions."
       },
       {
+        "task": "standardize-target",
+        "outcome": "An existing agent skill receives its profile-bound factory owners without losing accepted behavior.",
+        "motivation": "An agent skill registry update needs one guarded write path after its baseline and domain profile are fixed.",
+        "why_default_path": "The standardize-target task gives agent skill policy adoption one idempotent in-place route.",
+        "proof": "The agent skill standardization receipt lists every changed owner and a second apply reports no changes."
+      },
+      {
+        "task": "refresh-registry-lineage",
+        "outcome": "Changed agent skill files receive current source lineage before repository acceptance.",
+        "motivation": "An agent skill registry update invalidates prior public file hashes and inventories.",
+        "why_default_path": "The refresh-registry-lineage task gives agent skill lineage one factory-owned write route.",
+        "proof": "The skill package source evidence command reports PASS for every named agent skill."
+      },
+      {
         "task": "audit-source-corpus",
         "outcome": "A source skill corpus is classified before portable agent skill import.",
         "motivation": "A skill package import must not guess whether a source is a client or package format.",
@@ -279,7 +293,9 @@
       "new": {"outcome": "A new agent skill receives every standard owner and deliberate blocked seed.", "motivation": "A skill package should start complete in shape but incomplete in domain meaning.", "value": "Agent skill scaffolding saves repeatable setup while preventing boilerplate acceptance.", "proof": "The skill package scaffold receipt names all files and the placeholder block.", "applicability": "Run only when a new agent skill is requested."},
       "validate-target": {"outcome": "An external agent skill receives all portable static checks.", "motivation": "A skill package update needs factory-level evidence before acceptance.", "value": "Agent skill target validation consolidates structural and policy failures.", "proof": "The skill package target validation prints every checker and exits 0.", "applicability": "Run when validating an existing or newly generated agent skill."},
       "eval-target": {"outcome": "An external agent skill eval contract receives a factory check.", "motivation": "A skill package cannot rely on its own unchecked eval claims.", "value": "Agent skill target eval validation catches missing or malformed evidence.", "proof": "The skill package target eval check reports zero problems.", "applicability": "Run when evaluating an existing or newly generated agent skill."},
-      "plan-standardize": {"outcome": "An existing agent skill is frozen before any update or migration write.", "motivation": "A skill package change needs a baseline to detect lost purpose or behavior.", "value": "Agent skill planning records digests, mappings, missing owners, and collisions.", "proof": "The skill package standardization plan emits a complete read-only JSON receipt.", "applicability": "Run before updating, standardizing, or importing an agent skill."}
+      "plan-standardize": {"outcome": "An existing agent skill is frozen before any update or migration write.", "motivation": "A skill package change needs a baseline to detect lost purpose or behavior.", "value": "Agent skill planning records digests, mappings, missing owners, and collisions.", "proof": "The skill package standardization plan emits a complete read-only JSON receipt.", "applicability": "Run before updating, standardizing, or importing an agent skill."},
+      "standardize-target": {"outcome": "An existing agent skill receives domain-specific factory policy owners through one guarded write.", "motivation": "An agent skill registry update needs deterministic adoption without replacing its purpose or accepted behavior.", "value": "Agent skill standardization applies a reviewed domain profile, policy graph, and portable support owners idempotently.", "proof": "The skill package standardization receipt lists changed files and a repeat apply reports no changes.", "applicability": "Run after the agent skill baseline and domain profile are accepted for an in-place registry update."},
+      "refresh-registry-lineage": {"outcome": "Each named agent skill package receives current public file hashes and source lineage.", "motivation": "An agent skill package change invalidates its prior lineage inventory and digests.", "value": "Agent skill lineage refresh routes repository evidence repair through one factory-owned command.", "proof": "The skill package source evidence command reports PASS for every named skill.", "applicability": "Run after accepted agent skill package files change and before repository validation."}
     }
   },
   "primitive_roles": {

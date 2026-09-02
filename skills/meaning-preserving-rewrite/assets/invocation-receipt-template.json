@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "meaning-preserving-rewrite",
+  "operation": "Name the current meaning invariant operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh meaning invariant evidence."
+}

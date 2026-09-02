@@ -11,7 +11,7 @@ write code to dedupe my csv
 Step 1 isolates the whole message as the prompt and saves it to a scratch file, `prompt.txt`, holding exactly that one line. Step 2 reads it as a coding prompt for a coding target. Step 3 runs the deterministic checks:
 
 ```
-$ python3 scripts/check_prompt.py prompt.txt
+$ mise run check-prompt prompt.txt
 note    no success criteria detected; state how the target knows it is done
 
 No action findings. Notes feed step 3's findings list; semantic checks stay with you.
@@ -20,7 +20,7 @@ $ echo $?
 ```
 
 ```
-$ python3 scripts/context_checks.py coding
+$ mise run context-checks coding
 [coding]
 - Language and version pinned.
 - Environment and dependencies stated.
@@ -69,7 +69,7 @@ Use only the standard library. Include brief usage instructions.
 Step 6 runs both deterministic passes on the draft reply before sending:
 
 ```
-$ python3 scripts/check_delivery.py delivery.txt
+$ mise run check-delivery delivery.txt
 pass  lead-in line "Here is the enhanced prompt:" present
 pass  a fenced block follows the lead-in
 pass  the fence is not empty
@@ -82,7 +82,7 @@ $ echo $?
 ```
 
 ```
-$ python3 scripts/check_prose.py delivery.txt
+$ mise run check-prose delivery.txt
 measure sentence-length spread 4.0 (low spread = uniform rhythm; weigh lightly)
 measure em-dashes per 1000 words 0.0 (weak signal alone)
 measure numerals per 1000 words 6.5 (few = little checkable detail; genre-dependent)

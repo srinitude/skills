@@ -77,7 +77,8 @@ def check_layout(skill, body, problems):
     for name in REQUIRED_DIRS + ["scripts/tests"]:
         if not (skill / name).is_dir():
             problems.append(f"missing required directory: {name}/")
-        elif body and f"{name}/" not in body:
+    for name in ["references", "assets", "examples", "evals"]:
+        if body and f"{name}/" not in body:
             problems.append(f"body never references {name}/")
     if not (skill / "evals" / "evals.json").is_file():
         problems.append("missing evals/evals.json")

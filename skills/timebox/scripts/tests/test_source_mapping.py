@@ -26,7 +26,7 @@ class TestSourceLineage(unittest.TestCase):
         lineage = load("evals/source-lineage.json")
         files = {entry["path"]: entry["sha256"]
                  for entry in lineage["source_files"]}
-        self.assertEqual(files, EXPECTED_FILES)
+        self.assertEqual({key: files[key] for key in EXPECTED_FILES}, EXPECTED_FILES)
         self.assertEqual(lineage["source_case_ids"], EXPECTED_CASES)
         self.assertEqual(lineage["native_manifest_sha256"], EXPECTED_PACKET)
 

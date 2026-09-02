@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "always-current-datetime",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted clock anchor result.",
+      "motivation": "The clock anchor decision needs its correct owner.",
+      "why_this_path": "The clock anchor responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current clock anchor contract"],
+      "expected_effect": "Make the clock anchor decision testable.",
+      "proof": "Fresh clock anchor evidence from the named owner.",
+      "falsifier": "Current clock anchor evidence contradicts the decision.",
+      "failure_branch": "Block the clock anchor result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted clock anchor result.",
+      "motivation": "The clock anchor decision needs its correct owner.",
+      "why_this_path": "The clock anchor responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current clock anchor contract"],
+      "expected_effect": "Make the clock anchor decision testable.",
+      "proof": "Fresh clock anchor evidence from the named owner.",
+      "falsifier": "Current clock anchor evidence contradicts the decision.",
+      "failure_branch": "Block the clock anchor result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted clock anchor result.",
+      "motivation": "The clock anchor decision needs its correct owner.",
+      "why_this_path": "The clock anchor responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current clock anchor contract"],
+      "expected_effect": "Make the clock anchor decision testable.",
+      "proof": "Fresh clock anchor evidence from the named owner.",
+      "falsifier": "Current clock anchor evidence contradicts the decision.",
+      "failure_branch": "Block the clock anchor result and restore the accepted state."
+    }
+  ]
+}

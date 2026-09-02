@@ -26,7 +26,7 @@ EXIT=0
 The script help text is part of the same answer when the user asks about the handoff step.
 
 ```
-$ python3 "$SKILL_DIR/scripts/validate_brief.py" --help
+$ mise run validate-brief --help
 usage: validate_brief.py [-h] brief
 
 Validate a saved reification brief.
@@ -45,7 +45,7 @@ Exit codes:
 
 Example:
   SKILL_DIR=/path/to/skills/reify
-  python3 "$SKILL_DIR/scripts/validate_brief.py" ./BRIEF.json
+  mise run validate-brief ./BRIEF.json
 
 positional arguments:
   brief       JSON file path, or - for stdin

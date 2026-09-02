@@ -60,15 +60,15 @@ EXIT=0
 The relative path fails, because the script lives in the skill and the shell is in the user's directory. This is exit 2, and exit 2 is a wrong command, never a wrong brief:
 
 ```
-$ python3 scripts/validate_brief.py ./BRIEF.json
-python3: can't open file '/home/user/workspace/test/t-reify/examples-run/lighthouse/scripts/validate_brief.py': [Errno 2] No such file or directory
+$ mise run validate-brief ./BRIEF.json
+python3: can't open file '<skill-implementation>/validate_brief.py': [Errno 2] No such file or directory
 EXIT=2
 ```
 
 The same brief with the absolute script path gives exit 1, which is a real report about a real file. The template is still empty, so seven fields fail:
 
 ```
-$ python3 "$SKILL_DIR/scripts/validate_brief.py" ./BRIEF.json
+$ mise run validate-brief ./BRIEF.json
 {"errors": ["done_means must be a non-empty string", "first_milestone must be a non-empty string", "next_action must be a non-empty string", "outcome must be a non-empty string", "signal must be a non-empty string", "decisions[1].choice must be a non-empty string", "decisions[1].reason must be a non-empty string"], "status": "FAIL"}
 EXIT=1
 ```
@@ -76,7 +76,7 @@ EXIT=1
 After filling every field, and after the reopened fields from the revert were closed by `D-005`:
 
 ```
-$ python3 "$SKILL_DIR/scripts/validate_brief.py" ./BRIEF.json
+$ mise run validate-brief ./BRIEF.json
 {"errors": [], "status": "PASS"}
 EXIT=0
 
@@ -114,6 +114,8 @@ EXIT=0
 ```
 
 ## The executor replies
+
+Resource gate: run `mise run validate` before using package files named here.
 
 > Finalized and packaged. Nothing was sent, and here is why.
 >

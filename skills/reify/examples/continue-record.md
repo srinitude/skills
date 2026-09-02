@@ -96,6 +96,8 @@ The second record that made this case interesting, `reify-log-tool-shed.md`, in 
 
 ## Progress
 
+Resource gate: run `mise run validate` before using package files named here.
+
 - step 3: record created at ./reify-log-tool-shed.md. Next check: a measurement exists.
 ```
 

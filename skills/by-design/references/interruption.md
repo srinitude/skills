@@ -16,11 +16,13 @@ When all three pass, ask one question. Never a list. A list is a review, and a r
 
 ## The budget
 
-The budget counts decisions, not turns, and `scripts/speak.py` holds the count so the answer stays the same each time it is asked. Run it once per inherited row. It returns `ask` when the decision is live, the choice arrived inherited, and the ledger has seen it fewer than three times. It returns `hold` with the reason in every other case.
+The budget counts decisions, not turns, and `mise run speak` holds the count so the answer stays the same each time it is asked. Run it once per inherited row. It returns `ask` when the decision is live, the choice arrived inherited, and the ledger has seen it fewer than three times. It returns `hold` with the reason in every other case.
 
 Two counts drive the hold. Three prior appearances of the same decision mean the pattern belongs at project level rather than in this turn. Three prior rows marked deliberate mean the user is fluent in that class, so the skill stops raising it at all. Both counts come from the ledger file, which is why step 1 of the procedure reads that file before anything else.
 
 ## The rows that govern this
+
+Resource gate: run `mise run validate` before using package files named here.
 
 This skill is built from a library that already contains the questions it would fail. Four rows are its specification, and each is quoted from `assets/questions/`.
 

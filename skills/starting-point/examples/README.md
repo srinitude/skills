@@ -1,5 +1,7 @@
 # Worked examples
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read one file, the one that names the guess you are about to make. Do not read all four.
 
 | Read this                                                          | When you are about to guess                                                                                                                        |

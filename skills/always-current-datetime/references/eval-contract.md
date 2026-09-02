@@ -1,5 +1,7 @@
 # Evaluation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md) through its progressive-disclosure section.
 
 Load this file and [`../evals/cases.json`](../evals/cases.json) before testing or changing the skill.
@@ -38,6 +40,8 @@ Require all of these:
 11. The visible per-turn prefix contains the acquired date, time to seconds, and zone abbreviation.
 
 ## Behavioral acceptance
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Each case in `../evals/cases.json` declares required and forbidden behavior. Every case must pass. One missed clock call, stale anchor, duplicate call, prompt rewrite, wrong absolute date or time, missing stored date-time prefix, or fail-open fallback blocks behavioral parity.
 

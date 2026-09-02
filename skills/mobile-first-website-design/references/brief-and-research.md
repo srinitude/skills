@@ -1,5 +1,7 @@
 # Brief and research
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load at job start.
 
 ## Canonical brief

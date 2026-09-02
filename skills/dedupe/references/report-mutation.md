@@ -21,7 +21,7 @@ A request JSON object contains:
 Run:
 
 ```text
-python3 scripts/dedupe.py inspect --request /absolute/path/request.json
+mise run dedupe inspect --request /absolute/path/request.json
 ```
 
 Exit 0 returns JSON to stdout. Exit 1 reports an invalid request or unreadable source to stderr. Exit 2 is command-line misuse.
@@ -117,12 +117,12 @@ mise run ci
 If Mise is absent, run in task order:
 
 ```text
-python3 -m unittest discover -s scripts/tests -p 'test_*.py'
-python3 scripts/validate_skill.py .
-python3 scripts/lint_writing.py .
-python3 scripts/check_code_rules.py .
-python3 scripts/check_placeholders.py .
-python3 scripts/check_evals.py .
+mise run test
+mise run validate .
+mise run lint-writing .
+mise run lint-code .
+mise run lint-placeholders .
+mise run evals .
 ```
 
 State which route ran and every exit code. A direct-command pass does not prove `mise run ci` ran.

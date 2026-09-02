@@ -1,5 +1,7 @@
 # Proof checklist
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference before claiming a result when component evidence, approvals, or external effects can be mistaken for whole completion.
 
 ## Before execution

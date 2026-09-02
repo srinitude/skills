@@ -1,5 +1,7 @@
 # Image prompt and tool routing
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load for every image job.
 
 The package contains 1,000 public prompt strings across 25 domains, eight lanes, and five perspectives. Every public prompt is punctuation-normalized from byte-exact native evidence and stored uncompressed in a UTF-8 YAML record under `assets/prompts/`. The canonical prompt ID is its source path:
@@ -29,9 +31,11 @@ Choose the domain from the requested artifact, not the tool. Choose the perspect
 
 ## Recover exact text
 
-Run `scripts/prompt_corpus.py verify` before selection. Run `scripts/prompt_corpus.py get <source-path>` to recover exact bytes from the uncompressed YAML record. Verify the byte count and SHA-256 against that record. Never substitute a taxonomy label, paraphrase, or newly generated prompt.
+Run `mise run prompt-corpus verify` before selection. Run `mise run prompt-corpus get <source-path>` to recover exact bytes from the uncompressed YAML record. Verify the byte count and SHA-256 against that record. Never substitute a taxonomy label, paraphrase, or newly generated prompt.
 
 ## Tool order
+
+Resource gate: run `mise run validate` before using package files named here.
 
 1. An available direct image generation or editing capability for supported text-to-image or image-editing work. The configured provider and model are user-owned; do not invent or select them.
 2. Flora `search_docs`, then approved Flora `execute`, when its model, canvas, project, technique, or action workflow is required.

@@ -4,6 +4,8 @@ Guess this example removes: what every step looks like in one run, and how many 
 
 ## The artifact
 
+Resource gate: run `mise run validate` before using package files named here.
+
 `evals/files/brief-05-packaging.txt`, a sun cream for runners packaged to look as though it has melted. It ships with this skill, so every command below runs from a clean checkout and prints what is pasted here.
 
 ## User says
@@ -15,24 +17,24 @@ here is the sun cream packaging brief, we lock the artwork this week, what have 
 ## Commands run
 
 ```
-$ python3 scripts/gate.py --text "$(cat evals/files/brief-05-packaging.txt)"
+$ mise run gate --text "$(cat evals/files/brief-05-packaging.txt)"
 design: matched strong:brand, weak:copy, weak:label
 exit 0
 
-$ python3 scripts/ledger.py show --file decision-ledger-suncream.md
+$ mise run ledger show --file decision-ledger-suncream.md
 no ledger at decision-ledger-suncream.md
 exit 1
 
-$ python3 scripts/ledger.py init --file decision-ledger-suncream.md --slug suncream
+$ mise run ledger init --file decision-ledger-suncream.md --slug suncream
 created decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/locate.py --file evals/files/brief-05-packaging.txt --top 2
+$ mise run locate --file evals/files/brief-05-packaging.txt --top 2
  15.47   8 terms  Physical product, packaging and print  [retail, recycl, silhouette, label, regulatory, bottle]
   3.59   3 terms  Icons, illustration and photography  [thumbnail, marketplace, packag]
 exit 0
 
-$ python3 scripts/slice.py --category "Physical product, packaging and print" --match "claim" --limit 3
+$ mise run slice --category "Physical product, packaging and print" --match "claim" --limit 3
 # 3 questions
 
 **How does the low-carbon toggle change what gets downloaded, not merely what gets displayed?**
@@ -54,37 +56,37 @@ $ python3 scripts/slice.py --category "Physical product, packaging and print" --
 - source: Dentons: When one word can cost you 10 percent of your turnover https://www.dentons.com/en/insights/articles/2026/may/5/when-one-word-can-cost-you-10-percent-of-your-turnover-the-new-rules-on-environmental-marketing
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-suncream.md --decision "The bottle silhouette is distorted on purpose" --chosen "melted shape, kept at every size" --trades "a memorable shelf presence vs. a unit that reads as damaged" --risks "returns from buyers who think the bottle failed in transit" --origin deliberate --falsifier "return rate against the undistorted line"
+$ mise run ledger add --file decision-ledger-suncream.md --decision "The bottle silhouette is distorted on purpose" --chosen "melted shape, kept at every size" --trades "a memorable shelf presence vs. a unit that reads as damaged" --risks "returns from buyers who think the bottle failed in transit" --origin deliberate --falsifier "return rate against the undistorted line"
 appended to decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-suncream.md --decision "The joke has to survive at thumbnail size" --chosen "distortion tuned for the marketplace listing first" --trades "shelf drama vs. legibility at 100 pixels" --risks "a silhouette that reads as a rendering error in the grid" --origin deliberate
+$ mise run ledger add --file decision-ledger-suncream.md --decision "The joke has to survive at thumbnail size" --chosen "distortion tuned for the marketplace listing first" --trades "shelf drama vs. legibility at 100 pixels" --risks "a silhouette that reads as a rendering error in the grid" --origin deliberate
 appended to decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-suncream.md --decision "Which environmental words go on the pack" --chosen "" --trades "warm generic language vs. provable specificity" --risks "a word printed into a plate that a regulator can ask you to substantiate" --origin inherited --source "Q12408 https://www.dentons.com/en/insights/articles/2026/may/5/when-one-word-can-cost-you-10-percent-of-your-turnover-the-new-rules-on-environmental-marketing"
+$ mise run ledger add --file decision-ledger-suncream.md --decision "Which environmental words go on the pack" --chosen "" --trades "warm generic language vs. provable specificity" --risks "a word printed into a plate that a regulator can ask you to substantiate" --origin inherited --source "Q12408 https://www.dentons.com/en/insights/articles/2026/may/5/when-one-word-can-cost-you-10-percent-of-your-turnover-the-new-rules-on-environmental-marketing"
 appended to decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-suncream.md --decision "Mono material is stated as a target rather than a constraint" --chosen "" --trades "a recyclability claim vs. the finishes the distortion wants" --risks "a target quietly dropped late, with the claim left on the label" --origin inherited
+$ mise run ledger add --file decision-ledger-suncream.md --decision "Mono material is stated as a target rather than a constraint" --chosen "" --trades "a recyclability claim vs. the finishes the distortion wants" --risks "a target quietly dropped late, with the claim left on the label" --origin inherited
 appended to decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-suncream.md --decision "How the regulatory panel sits on a distorted surface" --chosen "" --trades "the melted idea vs. a legally required block of small type" --risks "SPF rating and warnings bent into the part of the bottle nobody photographs" --origin inherited
+$ mise run ledger add --file decision-ledger-suncream.md --decision "How the regulatory panel sits on a distorted surface" --chosen "" --trades "the melted idea vs. a legally required block of small type" --risks "SPF rating and warnings bent into the part of the bottle nobody photographs" --origin inherited
 appended to decision-ledger-suncream.md
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-suncream.md --rank
+$ mise run speak --file decision-ledger-suncream.md --rank
 1. Mono material is stated as a target rather than a constraint (3 columns unknown)
 2. How the regulatory panel sits on a distorted surface (3 columns unknown)
 3. Which environmental words go on the pack (2 columns unknown)
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-suncream.md --decision "How the regulatory panel sits on a distorted surface" --origin inherited --live yes
+$ mise run speak --file decision-ledger-suncream.md --decision "How the regulatory panel sits on a distorted surface" --origin inherited --live yes
 ask: inherited, live, and recorded once including this one
 exit 0
 
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

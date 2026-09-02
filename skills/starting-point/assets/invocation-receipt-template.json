@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "starting-point",
+  "operation": "Name the current observable outcome operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh observable outcome evidence."
+}

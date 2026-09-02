@@ -13,7 +13,7 @@ Seven keys come back. valid is the gate, errors names every problem with the pat
 ## Command run
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py examples/extract-output.yaml
+$ mise run validate-design-system-yaml examples/extract-output.yaml
 {
   "confidence_markers": 62,
   "errors": [],
@@ -31,7 +31,7 @@ exit=0
 A document that validates on shape and has never been rendered:
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py examples/work/no-viability.yaml
+$ mise run validate-design-system-yaml examples/work/no-viability.yaml
 {
   "confidence_markers": 62,
   "errors": [
@@ -57,6 +57,8 @@ examples/work/no-viability.yaml is the finished document with the meta.viability
 | 2    | Bad usage or an unreadable file.                            |
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 | File                            | Contents                                                                                       |
 | ------------------------------- | ---------------------------------------------------------------------------------------------- |

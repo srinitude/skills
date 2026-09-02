@@ -36,12 +36,18 @@ BOILERPLATE = [
 ]
 
 
+def documented_example(line):
+    lowered = line.lower()
+    return "named placeholder" in lowered or "placeholder like" in lowered
+
+
 def line_problems(line):
     found = []
     if SENTINEL in line:
         found.append(f"scaffold sentinel {SENTINEL} still present")
-    for token in TEMPLATE_RE.findall(line):
-        found.append(f"unfilled template token {token}")
+    if not documented_example(line):
+        for token in TEMPLATE_RE.findall(line):
+            found.append(f"unfilled template token {token}")
     lowered = line.lower()
     for phrase in BOILERPLATE:
         if phrase in lowered:

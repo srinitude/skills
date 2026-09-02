@@ -91,6 +91,12 @@ class TestLintWritingRules(unittest.TestCase):
             "checked evals/case.json\n```\n")
         self.assertEqual(result.returncode, 0, result.stdout)
 
+    def test_resource_can_share_a_heading_section_with_mise_task(self):
+        result = self.lint_text(
+            "## Evidence\n\nRun `mise run validate`.\n\n"
+            "```text\nassets/result.json\n```\n")
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     def test_script_path_stays_forbidden_when_task_is_named(self):
         result = self.lint_text(
             "Run scripts/check.py through `mise run validate`.\n")

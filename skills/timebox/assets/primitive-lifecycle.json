@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "timebox",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "timebox-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox actors aligned.",
+      "motivation": "The hard timebox result depends on actors ownership.",
+      "proof": "Fresh hard timebox actors evidence."
+    },
+    "objects": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox objects aligned.",
+      "motivation": "The hard timebox result depends on objects ownership.",
+      "proof": "Fresh hard timebox objects evidence."
+    },
+    "actions": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox actions aligned.",
+      "motivation": "The hard timebox result depends on actions ownership.",
+      "proof": "Fresh hard timebox actions evidence."
+    },
+    "states": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox states aligned.",
+      "motivation": "The hard timebox result depends on states ownership.",
+      "proof": "Fresh hard timebox states evidence."
+    },
+    "invariants": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox invariants aligned.",
+      "motivation": "The hard timebox result depends on invariants ownership.",
+      "proof": "Fresh hard timebox invariants evidence."
+    },
+    "variants": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox variants aligned.",
+      "motivation": "The hard timebox result depends on variants ownership.",
+      "proof": "Fresh hard timebox variants evidence."
+    },
+    "interfaces": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox interfaces aligned.",
+      "motivation": "The hard timebox result depends on interfaces ownership.",
+      "proof": "Fresh hard timebox interfaces evidence."
+    },
+    "authorities": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox authorities aligned.",
+      "motivation": "The hard timebox result depends on authorities ownership.",
+      "proof": "Fresh hard timebox authorities evidence."
+    },
+    "failures": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox failures aligned.",
+      "motivation": "The hard timebox result depends on failures ownership.",
+      "proof": "Fresh hard timebox failures evidence."
+    },
+    "recoveries": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox recoveries aligned.",
+      "motivation": "The hard timebox result depends on recoveries ownership.",
+      "proof": "Fresh hard timebox recoveries evidence."
+    },
+    "evidence": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox evidence aligned.",
+      "motivation": "The hard timebox result depends on evidence ownership.",
+      "proof": "Fresh hard timebox evidence evidence."
+    },
+    "time": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox time aligned.",
+      "motivation": "The hard timebox result depends on time ownership.",
+      "proof": "Fresh hard timebox time evidence."
+    },
+    "resources": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox resources aligned.",
+      "motivation": "The hard timebox result depends on resources ownership.",
+      "proof": "Fresh hard timebox resources evidence."
+    },
+    "quality": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox quality aligned.",
+      "motivation": "The hard timebox result depends on quality ownership.",
+      "proof": "Fresh hard timebox quality evidence."
+    },
+    "terminology": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox terminology aligned.",
+      "motivation": "The hard timebox result depends on terminology ownership.",
+      "proof": "Fresh hard timebox terminology evidence."
+    },
+    "exclusions": {
+      "profile": "timebox-lifecycle",
+      "outcome": "Keep hard timebox exclusions aligned.",
+      "motivation": "The hard timebox result depends on exclusions ownership.",
+      "proof": "Fresh hard timebox exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "timebox-lifecycle"
+    },
+    "references": {
+      "profile": "timebox-lifecycle"
+    },
+    "assets": {
+      "profile": "timebox-lifecycle"
+    },
+    "scripts": {
+      "profile": "timebox-lifecycle"
+    },
+    "tests": {
+      "profile": "timebox-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "timebox-lifecycle"
+    },
+    "examples": {
+      "profile": "timebox-lifecycle"
+    },
+    "evals": {
+      "profile": "timebox-lifecycle"
+    },
+    "policies": {
+      "profile": "timebox-lifecycle"
+    },
+    "schemas": {
+      "profile": "timebox-lifecycle"
+    },
+    "records": {
+      "profile": "timebox-lifecycle"
+    }
+  }
+}

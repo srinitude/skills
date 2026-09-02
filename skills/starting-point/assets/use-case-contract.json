@@ -1,0 +1,444 @@
+{
+  "version": "1.0.0",
+  "skill": "starting-point",
+  "outcome": "Separate the observable outcome and completion proof from the requested starting path before work begins.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted observable outcome behavior.",
+      "reason": "The observable outcome outcome depends on stable domain semantics.",
+      "failure_prevented": "A observable outcome update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable observable outcome checks through Mise.",
+      "reason": "The observable outcome judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A observable outcome claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "observable outcome",
+    "requested starting path",
+    "completion proof",
+    "material unknown"
+  ],
+  "domain_failures": [
+    "The observable outcome result changes without proof.",
+    "The observable outcome package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh observable outcome task output and saved receipts.",
+    "Current observable outcome behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The observable outcome contract owns actors decisions."],
+    "objects": ["The observable outcome contract owns objects decisions."],
+    "actions": ["The observable outcome contract owns actions decisions."],
+    "states": ["The observable outcome contract owns states decisions."],
+    "invariants": ["The observable outcome contract owns invariants decisions."],
+    "variants": ["The observable outcome contract owns variants decisions."],
+    "interfaces": ["The observable outcome contract owns interfaces decisions."],
+    "authorities": ["The observable outcome contract owns authorities decisions."],
+    "failures": ["The observable outcome contract owns failures decisions."],
+    "recoveries": ["The observable outcome contract owns recoveries decisions."],
+    "evidence": ["The observable outcome contract owns evidence decisions."],
+    "time": ["The observable outcome contract owns time decisions."],
+    "resources": ["The observable outcome contract owns resources decisions."],
+    "quality": ["The observable outcome contract owns quality decisions."],
+    "terminology": ["The observable outcome contract owns terminology decisions."],
+    "exclusions": ["The observable outcome contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the observable outcome actors decision?",
+    "objects": "What can change the observable outcome objects decision?",
+    "actions": "What can change the observable outcome actions decision?",
+    "states": "What can change the observable outcome states decision?",
+    "invariants": "What can change the observable outcome invariants decision?",
+    "variants": "What can change the observable outcome variants decision?",
+    "interfaces": "What can change the observable outcome interfaces decision?",
+    "authorities": "What can change the observable outcome authorities decision?",
+    "failures": "What can change the observable outcome failures decision?",
+    "recoveries": "What can change the observable outcome recoveries decision?",
+    "evidence": "What can change the observable outcome evidence decision?",
+    "time": "What can change the observable outcome time decision?",
+    "resources": "What can change the observable outcome resources decision?",
+    "quality": "What can change the observable outcome quality decision?",
+    "terminology": "What can change the observable outcome terminology decision?",
+    "exclusions": "What can change the observable outcome exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/",
+      "source_class": "first_party",
+      "claim": "An observable outcome needs explicit constraints and verification criteria.",
+      "limitations": "Requirements definition does not choose the requested starting path.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.gov.uk/guidance/government-design-principles",
+      "source_class": "first_party",
+      "claim": "A starting path should remain subordinate to the user need and whole outcome.",
+      "limitations": "Design principles do not define completion proof.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.scrum.org/resources/evidence-based-management-guide",
+      "source_class": "standard",
+      "claim": "Completion proof should reflect outcome evidence rather than activity alone.",
+      "limitations": "The guide does not resolve a material unknown.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx",
+      "source_class": "first_party",
+      "claim": "Adequate completion proof must be sufficient and appropriate for the claim.",
+      "limitations": "Audit guidance cannot decide the intended observable outcome.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the observable outcome result?",
+      "source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "result": "No. The observable outcome behavior still needs direct evaluation.",
+      "disposition": "Keep structure and observable outcome behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named observable outcome agentic-request result.",
+        "motivation": "The observable outcome workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared observable outcome agentic-request route.",
+        "proof": "Fresh observable outcome agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named observable outcome invocation-policy result.",
+        "motivation": "The observable outcome workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared observable outcome invocation-policy route.",
+        "proof": "Fresh observable outcome invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named observable outcome improvement-policy result.",
+        "motivation": "The observable outcome workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared observable outcome improvement-policy route.",
+        "proof": "Fresh observable outcome improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named observable outcome mise-primitives-update result.",
+        "motivation": "The observable outcome workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared observable outcome mise-primitives-update route.",
+        "proof": "Fresh observable outcome mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "test": {
+        "outcome": "Advance the observable outcome result through test.",
+        "motivation": "The observable outcome package needs the test gate.",
+        "value": "Produce current observable outcome evidence from test.",
+        "proof": "The observable outcome test task exits zero with readable output.",
+        "applicability": "Use test for its declared observable outcome responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the observable outcome result through validate.",
+        "motivation": "The observable outcome package needs the validate gate.",
+        "value": "Produce current observable outcome evidence from validate.",
+        "proof": "The observable outcome validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared observable outcome responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the observable outcome result through lint-writing.",
+        "motivation": "The observable outcome package needs the lint-writing gate.",
+        "value": "Produce current observable outcome evidence from lint-writing.",
+        "proof": "The observable outcome lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared observable outcome responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the observable outcome result through lint-code.",
+        "motivation": "The observable outcome package needs the lint-code gate.",
+        "value": "Produce current observable outcome evidence from lint-code.",
+        "proof": "The observable outcome lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared observable outcome responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the observable outcome result through lint-placeholders.",
+        "motivation": "The observable outcome package needs the lint-placeholders gate.",
+        "value": "Produce current observable outcome evidence from lint-placeholders.",
+        "proof": "The observable outcome lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared observable outcome responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the observable outcome result through evals.",
+        "motivation": "The observable outcome package needs the evals gate.",
+        "value": "Produce current observable outcome evidence from evals.",
+        "proof": "The observable outcome evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared observable outcome responsibility."
+      },
+      "ci": {
+        "outcome": "Advance the observable outcome result through ci.",
+        "motivation": "The observable outcome package needs the ci gate.",
+        "value": "Produce current observable outcome evidence from ci.",
+        "proof": "The observable outcome ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared observable outcome responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the observable outcome result through domain-research-policy.",
+        "motivation": "The observable outcome package needs the domain-research-policy gate.",
+        "value": "Produce current observable outcome evidence from domain-research-policy.",
+        "proof": "The observable outcome domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared observable outcome responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the observable outcome result through use-case-policy.",
+        "motivation": "The observable outcome package needs the use-case-policy gate.",
+        "value": "Produce current observable outcome evidence from use-case-policy.",
+        "proof": "The observable outcome use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared observable outcome responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the observable outcome result through mise-primitives-policy.",
+        "motivation": "The observable outcome package needs the mise-primitives-policy gate.",
+        "value": "Produce current observable outcome evidence from mise-primitives-policy.",
+        "proof": "The observable outcome mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared observable outcome responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the observable outcome result through primitive-lifecycle-policy.",
+        "motivation": "The observable outcome package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current observable outcome evidence from primitive-lifecycle-policy.",
+        "proof": "The observable outcome primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared observable outcome responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the observable outcome result through task-graph-policy.",
+        "motivation": "The observable outcome package needs the task-graph-policy gate.",
+        "value": "Produce current observable outcome evidence from task-graph-policy.",
+        "proof": "The observable outcome task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared observable outcome responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the observable outcome result through decision-policy.",
+        "motivation": "The observable outcome package needs the decision-policy gate.",
+        "value": "Produce current observable outcome evidence from decision-policy.",
+        "proof": "The observable outcome decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared observable outcome responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the observable outcome result through improvement-policy.",
+        "motivation": "The observable outcome package needs the improvement-policy gate.",
+        "value": "Produce current observable outcome evidence from improvement-policy.",
+        "proof": "The observable outcome improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared observable outcome responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the observable outcome result through invocation-policy.",
+        "motivation": "The observable outcome package needs the invocation-policy gate.",
+        "value": "Produce current observable outcome evidence from invocation-policy.",
+        "proof": "The observable outcome invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared observable outcome responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the observable outcome result through agentic-request.",
+        "motivation": "The observable outcome package needs the agentic-request gate.",
+        "value": "Produce current observable outcome evidence from agentic-request.",
+        "proof": "The observable outcome agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared observable outcome responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the observable outcome result through mise-latest.",
+        "motivation": "The observable outcome package needs the mise-latest gate.",
+        "value": "Produce current observable outcome evidence from mise-latest.",
+        "proof": "The observable outcome mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared observable outcome responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the observable outcome result through mise-primitives-update.",
+        "motivation": "The observable outcome package needs the mise-primitives-update gate.",
+        "value": "Produce current observable outcome evidence from mise-primitives-update.",
+        "proof": "The observable outcome mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared observable outcome responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome skill_body behavior.",
+      "outcome": "Keep observable outcome skill_body aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one skill_body owner.",
+      "value": "Expose current observable outcome skill_body progress.",
+      "failure_prevented": "Stale or generic observable outcome skill_body behavior.",
+      "proof": "Fresh observable outcome skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome references behavior.",
+      "outcome": "Keep observable outcome references aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one references owner.",
+      "value": "Expose current observable outcome references progress.",
+      "failure_prevented": "Stale or generic observable outcome references behavior.",
+      "proof": "Fresh observable outcome references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome assets behavior.",
+      "outcome": "Keep observable outcome assets aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one assets owner.",
+      "value": "Expose current observable outcome assets progress.",
+      "failure_prevented": "Stale or generic observable outcome assets behavior.",
+      "proof": "Fresh observable outcome assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome scripts behavior.",
+      "outcome": "Keep observable outcome scripts aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one scripts owner.",
+      "value": "Expose current observable outcome scripts progress.",
+      "failure_prevented": "Stale or generic observable outcome scripts behavior.",
+      "proof": "Fresh observable outcome scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome tests behavior.",
+      "outcome": "Keep observable outcome tests aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one tests owner.",
+      "value": "Expose current observable outcome tests progress.",
+      "failure_prevented": "Stale or generic observable outcome tests behavior.",
+      "proof": "Fresh observable outcome tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome mise_tasks behavior.",
+      "outcome": "Keep observable outcome mise_tasks aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one mise_tasks owner.",
+      "value": "Expose current observable outcome mise_tasks progress.",
+      "failure_prevented": "Stale or generic observable outcome mise_tasks behavior.",
+      "proof": "Fresh observable outcome mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome examples behavior.",
+      "outcome": "Keep observable outcome examples aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one examples owner.",
+      "value": "Expose current observable outcome examples progress.",
+      "failure_prevented": "Stale or generic observable outcome examples behavior.",
+      "proof": "Fresh observable outcome examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome evals behavior.",
+      "outcome": "Keep observable outcome evals aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one evals owner.",
+      "value": "Expose current observable outcome evals progress.",
+      "failure_prevented": "Stale or generic observable outcome evals behavior.",
+      "proof": "Fresh observable outcome evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome policies behavior.",
+      "outcome": "Keep observable outcome policies aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one policies owner.",
+      "value": "Expose current observable outcome policies progress.",
+      "failure_prevented": "Stale or generic observable outcome policies behavior.",
+      "proof": "Fresh observable outcome policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome schemas behavior.",
+      "outcome": "Keep observable outcome schemas aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one schemas owner.",
+      "value": "Expose current observable outcome schemas progress.",
+      "failure_prevented": "Stale or generic observable outcome schemas behavior.",
+      "proof": "Fresh observable outcome schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own observable outcome records behavior.",
+      "outcome": "Keep observable outcome records aligned with the accepted result.",
+      "motivation": "The observable outcome package needs one records owner.",
+      "value": "Expose current observable outcome records progress.",
+      "failure_prevented": "Stale or generic observable outcome records behavior.",
+      "proof": "Fresh observable outcome records validation and behavioral evidence."
+    }
+  }
+}

@@ -4,14 +4,14 @@ Guess this example removes: the case where the tool returns a confident answer t
 
 ## What goes wrong
 
-`scripts/slice.py` widens the pin when a three coordinate slice falls under its floor of 12. It has to. Of the 1400 category, stage, and artifact type cells in the corpus, 786 hold fewer than 12 questions and some hold none.
+`mise run slice` widens the pin when a three coordinate slice falls under its floor of 12. It has to. Of the 1400 category, stage, and artifact type cells in the corpus, 786 hold fewer than 12 questions and some hold none.
 
 The widened result looks the same as a precise one. Same format, same confidence, same shape. The only difference is one line on stderr, and an executor that reads stdout alone will report colour questions as concept stage artifact questions and never know.
 
 ## The run
 
 ```
-$ python3 scripts/slice.py --category "Color, theming and dark mode" --stage concept --applies-to artifact --lens ethics --limit 3
+$ mise run slice --category "Color, theming and dark mode" --stage concept --applies-to artifact --lens ethics --limit 3
 widened: dropped lens, applies-to
 # 3 questions
 Widened by dropping: lens, applies-to.

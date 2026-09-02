@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "meaning-preserving-rewrite",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted meaning invariant result.",
+      "motivation": "The meaning invariant decision needs its correct owner.",
+      "why_this_path": "The meaning invariant responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current meaning invariant contract"],
+      "expected_effect": "Make the meaning invariant decision testable.",
+      "proof": "Fresh meaning invariant evidence from the named owner.",
+      "falsifier": "Current meaning invariant evidence contradicts the decision.",
+      "failure_branch": "Block the meaning invariant result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted meaning invariant result.",
+      "motivation": "The meaning invariant decision needs its correct owner.",
+      "why_this_path": "The meaning invariant responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current meaning invariant contract"],
+      "expected_effect": "Make the meaning invariant decision testable.",
+      "proof": "Fresh meaning invariant evidence from the named owner.",
+      "falsifier": "Current meaning invariant evidence contradicts the decision.",
+      "failure_branch": "Block the meaning invariant result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted meaning invariant result.",
+      "motivation": "The meaning invariant decision needs its correct owner.",
+      "why_this_path": "The meaning invariant responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current meaning invariant contract"],
+      "expected_effect": "Make the meaning invariant decision testable.",
+      "proof": "Fresh meaning invariant evidence from the named owner.",
+      "falsifier": "Current meaning invariant evidence contradicts the decision.",
+      "failure_branch": "Block the meaning invariant result and restore the accepted state."
+    }
+  ]
+}

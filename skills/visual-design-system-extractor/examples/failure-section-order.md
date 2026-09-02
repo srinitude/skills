@@ -8,12 +8,14 @@ Guess removed: that the prose order of the extraction plan is the order the docu
 
 ## The reply
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Because top level order is part of the schema. The validator names the position and the two keys, so the fix is a move, not a rewrite. Write in whatever order the reference reveals itself, then reorder to references/extraction-schema.yaml order as the last step before validating.
 
 ## Command run
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py examples/work/order-fail.yaml
+$ mise run validate-design-system-yaml examples/work/order-fail.yaml
 {
   "confidence_markers": 62,
   "errors": [
@@ -31,7 +33,7 @@ exit=1
 Moving the typography block back above spacing clears it:
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py examples/extract-output.yaml
+$ mise run validate-design-system-yaml examples/extract-output.yaml
 {
   "confidence_markers": 62,
   "errors": [],
@@ -47,12 +49,14 @@ exit=0
 ## The canonical order
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py sections
+$ mise run schema-tools sections
 ```
 
 Run it and copy the order from the output rather than from memory. The list changes when the schema changes, and the error message always names the position that is wrong.
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 | File                          | Contents                                                                                               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------ |

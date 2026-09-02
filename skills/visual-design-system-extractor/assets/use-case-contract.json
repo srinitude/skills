@@ -1,0 +1,605 @@
+{
+  "version": "1.0.0",
+  "skill": "visual-design-system-extractor",
+  "outcome": "Extract a source-specific design token system from visual evidence and prove it against current rendered output.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted visual token extraction behavior.",
+      "reason": "The visual token extraction outcome depends on stable domain semantics.",
+      "failure_prevented": "A visual token extraction update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable visual token extraction checks through Mise.",
+      "reason": "The visual token extraction judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A visual token extraction claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "visual token extraction",
+    "design token",
+    "rendered proof",
+    "source-specific system"
+  ],
+  "domain_failures": [
+    "The visual token extraction result changes without proof.",
+    "The visual token extraction package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh visual token extraction task output and saved receipts.",
+    "Current visual token extraction behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The visual token extraction contract owns actors decisions."],
+    "objects": ["The visual token extraction contract owns objects decisions."],
+    "actions": ["The visual token extraction contract owns actions decisions."],
+    "states": ["The visual token extraction contract owns states decisions."],
+    "invariants": ["The visual token extraction contract owns invariants decisions."],
+    "variants": ["The visual token extraction contract owns variants decisions."],
+    "interfaces": ["The visual token extraction contract owns interfaces decisions."],
+    "authorities": ["The visual token extraction contract owns authorities decisions."],
+    "failures": ["The visual token extraction contract owns failures decisions."],
+    "recoveries": ["The visual token extraction contract owns recoveries decisions."],
+    "evidence": ["The visual token extraction contract owns evidence decisions."],
+    "time": ["The visual token extraction contract owns time decisions."],
+    "resources": ["The visual token extraction contract owns resources decisions."],
+    "quality": ["The visual token extraction contract owns quality decisions."],
+    "terminology": ["The visual token extraction contract owns terminology decisions."],
+    "exclusions": ["The visual token extraction contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the visual token extraction actors decision?",
+    "objects": "What can change the visual token extraction objects decision?",
+    "actions": "What can change the visual token extraction actions decision?",
+    "states": "What can change the visual token extraction states decision?",
+    "invariants": "What can change the visual token extraction invariants decision?",
+    "variants": "What can change the visual token extraction variants decision?",
+    "interfaces": "What can change the visual token extraction interfaces decision?",
+    "authorities": "What can change the visual token extraction authorities decision?",
+    "failures": "What can change the visual token extraction failures decision?",
+    "recoveries": "What can change the visual token extraction recoveries decision?",
+    "evidence": "What can change the visual token extraction evidence decision?",
+    "time": "What can change the visual token extraction time decision?",
+    "resources": "What can change the visual token extraction resources decision?",
+    "quality": "What can change the visual token extraction quality decision?",
+    "terminology": "What can change the visual token extraction terminology decision?",
+    "exclusions": "What can change the visual token extraction exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.w3.org/groups/cg/design-tokens",
+      "source_class": "standard",
+      "claim": "A design token system needs interoperable names and typed values.",
+      "limitations": "Token structure cannot prove visual token extraction quality.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T10:07:23-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/community/reports/design-tokens/CG-FINAL-color-20251028/",
+      "source_class": "standard",
+      "claim": "Color design tokens need explicit spaces, components, and alpha semantics.",
+      "limitations": "Color syntax does not identify a source-specific system.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T10:07:23-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "source_class": "standard",
+      "claim": "Rendered proof must check minimum text contrast where applicable.",
+      "limitations": "A contrast threshold does not prove aesthetic fidelity.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T10:07:23-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://developers.google.com/fonts/docs/developer_api",
+      "source_class": "first_party",
+      "claim": "Typeface metadata can support reproducible visual token extraction.",
+      "limitations": "Font metadata cannot prove the rendered result matches the source.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T10:07:23-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the visual token extraction result?",
+      "source": "https://www.w3.org/groups/cg/design-tokens",
+      "checked_at": "2026-09-02T10:07:23-04:00",
+      "result": "No. The visual token extraction behavior still needs direct evaluation.",
+      "disposition": "Keep structure and visual token extraction behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named visual token extraction agentic-request result.",
+        "motivation": "The visual token extraction workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared visual token extraction agentic-request route.",
+        "proof": "Fresh visual token extraction agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named visual token extraction invocation-policy result.",
+        "motivation": "The visual token extraction workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared visual token extraction invocation-policy route.",
+        "proof": "Fresh visual token extraction invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named visual token extraction improvement-policy result.",
+        "motivation": "The visual token extraction workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared visual token extraction improvement-policy route.",
+        "proof": "Fresh visual token extraction improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named visual token extraction mise-primitives-update result.",
+        "motivation": "The visual token extraction workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared visual token extraction mise-primitives-update route.",
+        "proof": "Fresh visual token extraction mise-primitives-update output and exit status."
+      },
+      {
+        "task": "font-catalog",
+        "outcome": "Produce the named visual token extraction font-catalog result.",
+        "motivation": "The visual token extraction workflow needs one font-catalog entry.",
+        "why_default_path": "This is the single declared visual token extraction font-catalog route.",
+        "proof": "Fresh visual token extraction font-catalog output and exit status."
+      },
+      {
+        "task": "font-discover",
+        "outcome": "Produce the named visual token extraction font-discover result.",
+        "motivation": "The visual token extraction workflow needs one font-discover entry.",
+        "why_default_path": "This is the single declared visual token extraction font-discover route.",
+        "proof": "Fresh visual token extraction font-discover output and exit status."
+      },
+      {
+        "task": "font-set",
+        "outcome": "Produce the named visual token extraction font-set result.",
+        "motivation": "The visual token extraction workflow needs one font-set entry.",
+        "why_default_path": "This is the single declared visual token extraction font-set route.",
+        "proof": "Fresh visual token extraction font-set output and exit status."
+      },
+      {
+        "task": "font-verify",
+        "outcome": "Produce the named visual token extraction font-verify result.",
+        "motivation": "The visual token extraction workflow needs one font-verify entry.",
+        "why_default_path": "This is the single declared visual token extraction font-verify route.",
+        "proof": "Fresh visual token extraction font-verify output and exit status."
+      },
+      {
+        "task": "font-record",
+        "outcome": "Produce the named visual token extraction font-record result.",
+        "motivation": "The visual token extraction workflow needs one font-record entry.",
+        "why_default_path": "This is the single declared visual token extraction font-record route.",
+        "proof": "Fresh visual token extraction font-record output and exit status."
+      },
+      {
+        "task": "font-fit",
+        "outcome": "Produce the named visual token extraction font-fit result.",
+        "motivation": "The visual token extraction workflow needs one font-fit entry.",
+        "why_default_path": "This is the single declared visual token extraction font-fit route.",
+        "proof": "Fresh visual token extraction font-fit output and exit status."
+      },
+      {
+        "task": "font-rules",
+        "outcome": "Produce the named visual token extraction font-rules result.",
+        "motivation": "The visual token extraction workflow needs one font-rules entry.",
+        "why_default_path": "This is the single declared visual token extraction font-rules route.",
+        "proof": "Fresh visual token extraction font-rules output and exit status."
+      },
+      {
+        "task": "render-preview",
+        "outcome": "Produce the named visual token extraction render-preview result.",
+        "motivation": "The visual token extraction workflow needs one render-preview entry.",
+        "why_default_path": "This is the single declared visual token extraction render-preview route.",
+        "proof": "Fresh visual token extraction render-preview output and exit status."
+      },
+      {
+        "task": "schema-tools",
+        "outcome": "Produce the named visual token extraction schema-tools result.",
+        "motivation": "The visual token extraction workflow needs one schema-tools entry.",
+        "why_default_path": "This is the single declared visual token extraction schema-tools route.",
+        "proof": "Fresh visual token extraction schema-tools output and exit status."
+      },
+      {
+        "task": "screenshot-preview",
+        "outcome": "Produce the named visual token extraction screenshot-preview result.",
+        "motivation": "The visual token extraction workflow needs one screenshot-preview entry.",
+        "why_default_path": "This is the single declared visual token extraction screenshot-preview route.",
+        "proof": "Fresh visual token extraction screenshot-preview output and exit status."
+      },
+      {
+        "task": "tests-test-font-rules",
+        "outcome": "Produce the named visual token extraction tests-test-font-rules result.",
+        "motivation": "The visual token extraction workflow needs one tests-test-font-rules entry.",
+        "why_default_path": "This is the single declared visual token extraction tests-test-font-rules route.",
+        "proof": "Fresh visual token extraction tests-test-font-rules output and exit status."
+      },
+      {
+        "task": "validate-design-system-yaml",
+        "outcome": "Produce the named visual token extraction validate-design-system-yaml result.",
+        "motivation": "The visual token extraction workflow needs one validate-design-system-yaml entry.",
+        "why_default_path": "This is the single declared visual token extraction validate-design-system-yaml route.",
+        "proof": "Fresh visual token extraction validate-design-system-yaml output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the visual token extraction result through ci.",
+        "motivation": "The visual token extraction package needs the ci gate.",
+        "value": "Produce current visual token extraction evidence from ci.",
+        "proof": "The visual token extraction ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared visual token extraction responsibility."
+      },
+      "test": {
+        "outcome": "Advance the visual token extraction result through test.",
+        "motivation": "The visual token extraction package needs the test gate.",
+        "value": "Produce current visual token extraction evidence from test.",
+        "proof": "The visual token extraction test task exits zero with readable output.",
+        "applicability": "Use test for its declared visual token extraction responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the visual token extraction result through validate.",
+        "motivation": "The visual token extraction package needs the validate gate.",
+        "value": "Produce current visual token extraction evidence from validate.",
+        "proof": "The visual token extraction validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared visual token extraction responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the visual token extraction result through lint-writing.",
+        "motivation": "The visual token extraction package needs the lint-writing gate.",
+        "value": "Produce current visual token extraction evidence from lint-writing.",
+        "proof": "The visual token extraction lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared visual token extraction responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the visual token extraction result through lint-code.",
+        "motivation": "The visual token extraction package needs the lint-code gate.",
+        "value": "Produce current visual token extraction evidence from lint-code.",
+        "proof": "The visual token extraction lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared visual token extraction responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the visual token extraction result through evals.",
+        "motivation": "The visual token extraction package needs the evals gate.",
+        "value": "Produce current visual token extraction evidence from evals.",
+        "proof": "The visual token extraction evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared visual token extraction responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the visual token extraction result through domain-research-policy.",
+        "motivation": "The visual token extraction package needs the domain-research-policy gate.",
+        "value": "Produce current visual token extraction evidence from domain-research-policy.",
+        "proof": "The visual token extraction domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared visual token extraction responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the visual token extraction result through use-case-policy.",
+        "motivation": "The visual token extraction package needs the use-case-policy gate.",
+        "value": "Produce current visual token extraction evidence from use-case-policy.",
+        "proof": "The visual token extraction use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared visual token extraction responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the visual token extraction result through mise-primitives-policy.",
+        "motivation": "The visual token extraction package needs the mise-primitives-policy gate.",
+        "value": "Produce current visual token extraction evidence from mise-primitives-policy.",
+        "proof": "The visual token extraction mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared visual token extraction responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the visual token extraction result through primitive-lifecycle-policy.",
+        "motivation": "The visual token extraction package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current visual token extraction evidence from primitive-lifecycle-policy.",
+        "proof": "The visual token extraction primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared visual token extraction responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the visual token extraction result through task-graph-policy.",
+        "motivation": "The visual token extraction package needs the task-graph-policy gate.",
+        "value": "Produce current visual token extraction evidence from task-graph-policy.",
+        "proof": "The visual token extraction task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared visual token extraction responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the visual token extraction result through decision-policy.",
+        "motivation": "The visual token extraction package needs the decision-policy gate.",
+        "value": "Produce current visual token extraction evidence from decision-policy.",
+        "proof": "The visual token extraction decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared visual token extraction responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the visual token extraction result through improvement-policy.",
+        "motivation": "The visual token extraction package needs the improvement-policy gate.",
+        "value": "Produce current visual token extraction evidence from improvement-policy.",
+        "proof": "The visual token extraction improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared visual token extraction responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the visual token extraction result through invocation-policy.",
+        "motivation": "The visual token extraction package needs the invocation-policy gate.",
+        "value": "Produce current visual token extraction evidence from invocation-policy.",
+        "proof": "The visual token extraction invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared visual token extraction responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the visual token extraction result through agentic-request.",
+        "motivation": "The visual token extraction package needs the agentic-request gate.",
+        "value": "Produce current visual token extraction evidence from agentic-request.",
+        "proof": "The visual token extraction agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared visual token extraction responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the visual token extraction result through mise-latest.",
+        "motivation": "The visual token extraction package needs the mise-latest gate.",
+        "value": "Produce current visual token extraction evidence from mise-latest.",
+        "proof": "The visual token extraction mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared visual token extraction responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the visual token extraction result through mise-primitives-update.",
+        "motivation": "The visual token extraction package needs the mise-primitives-update gate.",
+        "value": "Produce current visual token extraction evidence from mise-primitives-update.",
+        "proof": "The visual token extraction mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared visual token extraction responsibility."
+      },
+      "font-catalog": {
+        "outcome": "Advance the visual token extraction result through font-catalog.",
+        "motivation": "The visual token extraction package needs the font-catalog gate.",
+        "value": "Produce current visual token extraction evidence from font-catalog.",
+        "proof": "The visual token extraction font-catalog task exits zero with readable output.",
+        "applicability": "Use font-catalog for its declared visual token extraction responsibility."
+      },
+      "font-discover": {
+        "outcome": "Advance the visual token extraction result through font-discover.",
+        "motivation": "The visual token extraction package needs the font-discover gate.",
+        "value": "Produce current visual token extraction evidence from font-discover.",
+        "proof": "The visual token extraction font-discover task exits zero with readable output.",
+        "applicability": "Use font-discover for its declared visual token extraction responsibility."
+      },
+      "font-verify": {
+        "outcome": "Advance the visual token extraction result through font-verify.",
+        "motivation": "The visual token extraction package needs the font-verify gate.",
+        "value": "Produce current visual token extraction evidence from font-verify.",
+        "proof": "The visual token extraction font-verify task exits zero with readable output.",
+        "applicability": "Use font-verify for its declared visual token extraction responsibility."
+      },
+      "font-set": {
+        "outcome": "Advance the visual token extraction result through font-set.",
+        "motivation": "The visual token extraction package needs the font-set gate.",
+        "value": "Produce current visual token extraction evidence from font-set.",
+        "proof": "The visual token extraction font-set task exits zero with readable output.",
+        "applicability": "Use font-set for its declared visual token extraction responsibility."
+      },
+      "font-fit": {
+        "outcome": "Advance the visual token extraction result through font-fit.",
+        "motivation": "The visual token extraction package needs the font-fit gate.",
+        "value": "Produce current visual token extraction evidence from font-fit.",
+        "proof": "The visual token extraction font-fit task exits zero with readable output.",
+        "applicability": "Use font-fit for its declared visual token extraction responsibility."
+      },
+      "font-rules": {
+        "outcome": "Advance the visual token extraction result through font-rules.",
+        "motivation": "The visual token extraction package needs the font-rules gate.",
+        "value": "Produce current visual token extraction evidence from font-rules.",
+        "proof": "The visual token extraction font-rules task exits zero with readable output.",
+        "applicability": "Use font-rules for its declared visual token extraction responsibility."
+      },
+      "render-preview": {
+        "outcome": "Advance the visual token extraction result through render-preview.",
+        "motivation": "The visual token extraction package needs the render-preview gate.",
+        "value": "Produce current visual token extraction evidence from render-preview.",
+        "proof": "The visual token extraction render-preview task exits zero with readable output.",
+        "applicability": "Use render-preview for its declared visual token extraction responsibility."
+      },
+      "schema-tools": {
+        "outcome": "Advance the visual token extraction result through schema-tools.",
+        "motivation": "The visual token extraction package needs the schema-tools gate.",
+        "value": "Produce current visual token extraction evidence from schema-tools.",
+        "proof": "The visual token extraction schema-tools task exits zero with readable output.",
+        "applicability": "Use schema-tools for its declared visual token extraction responsibility."
+      },
+      "screenshot-preview": {
+        "outcome": "Advance the visual token extraction result through screenshot-preview.",
+        "motivation": "The visual token extraction package needs the screenshot-preview gate.",
+        "value": "Produce current visual token extraction evidence from screenshot-preview.",
+        "proof": "The visual token extraction screenshot-preview task exits zero with readable output.",
+        "applicability": "Use screenshot-preview for its declared visual token extraction responsibility."
+      },
+      "tests-test-font-rules": {
+        "outcome": "Advance the visual token extraction result through tests-test-font-rules.",
+        "motivation": "The visual token extraction package needs the tests-test-font-rules gate.",
+        "value": "Produce current visual token extraction evidence from tests-test-font-rules.",
+        "proof": "The visual token extraction tests-test-font-rules task exits zero with readable output.",
+        "applicability": "Use tests-test-font-rules for its declared visual token extraction responsibility."
+      },
+      "validate-design-system-yaml": {
+        "outcome": "Advance the visual token extraction result through validate-design-system-yaml.",
+        "motivation": "The visual token extraction package needs the validate-design-system-yaml gate.",
+        "value": "Produce current visual token extraction evidence from validate-design-system-yaml.",
+        "proof": "The visual token extraction validate-design-system-yaml task exits zero with readable output.",
+        "applicability": "Use validate-design-system-yaml for its declared visual token extraction responsibility."
+      },
+      "font-record": {
+        "outcome": "Advance the visual token extraction result through font-record.",
+        "motivation": "The visual token extraction package needs the font-record gate.",
+        "value": "Produce current visual token extraction evidence from font-record.",
+        "proof": "The visual token extraction font-record task exits zero with readable output.",
+        "applicability": "Use font-record for its declared visual token extraction responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction skill_body behavior.",
+      "outcome": "Keep visual token extraction skill_body aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one skill_body owner.",
+      "value": "Expose current visual token extraction skill_body progress.",
+      "failure_prevented": "Stale or generic visual token extraction skill_body behavior.",
+      "proof": "Fresh visual token extraction skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction references behavior.",
+      "outcome": "Keep visual token extraction references aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one references owner.",
+      "value": "Expose current visual token extraction references progress.",
+      "failure_prevented": "Stale or generic visual token extraction references behavior.",
+      "proof": "Fresh visual token extraction references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction assets behavior.",
+      "outcome": "Keep visual token extraction assets aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one assets owner.",
+      "value": "Expose current visual token extraction assets progress.",
+      "failure_prevented": "Stale or generic visual token extraction assets behavior.",
+      "proof": "Fresh visual token extraction assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction scripts behavior.",
+      "outcome": "Keep visual token extraction scripts aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one scripts owner.",
+      "value": "Expose current visual token extraction scripts progress.",
+      "failure_prevented": "Stale or generic visual token extraction scripts behavior.",
+      "proof": "Fresh visual token extraction scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction tests behavior.",
+      "outcome": "Keep visual token extraction tests aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one tests owner.",
+      "value": "Expose current visual token extraction tests progress.",
+      "failure_prevented": "Stale or generic visual token extraction tests behavior.",
+      "proof": "Fresh visual token extraction tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction mise_tasks behavior.",
+      "outcome": "Keep visual token extraction mise_tasks aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one mise_tasks owner.",
+      "value": "Expose current visual token extraction mise_tasks progress.",
+      "failure_prevented": "Stale or generic visual token extraction mise_tasks behavior.",
+      "proof": "Fresh visual token extraction mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction examples behavior.",
+      "outcome": "Keep visual token extraction examples aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one examples owner.",
+      "value": "Expose current visual token extraction examples progress.",
+      "failure_prevented": "Stale or generic visual token extraction examples behavior.",
+      "proof": "Fresh visual token extraction examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction evals behavior.",
+      "outcome": "Keep visual token extraction evals aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one evals owner.",
+      "value": "Expose current visual token extraction evals progress.",
+      "failure_prevented": "Stale or generic visual token extraction evals behavior.",
+      "proof": "Fresh visual token extraction evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction policies behavior.",
+      "outcome": "Keep visual token extraction policies aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one policies owner.",
+      "value": "Expose current visual token extraction policies progress.",
+      "failure_prevented": "Stale or generic visual token extraction policies behavior.",
+      "proof": "Fresh visual token extraction policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction schemas behavior.",
+      "outcome": "Keep visual token extraction schemas aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one schemas owner.",
+      "value": "Expose current visual token extraction schemas progress.",
+      "failure_prevented": "Stale or generic visual token extraction schemas behavior.",
+      "proof": "Fresh visual token extraction schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own visual token extraction records behavior.",
+      "outcome": "Keep visual token extraction records aligned with the accepted result.",
+      "motivation": "The visual token extraction package needs one records owner.",
+      "value": "Expose current visual token extraction records progress.",
+      "failure_prevented": "Stale or generic visual token extraction records behavior.",
+      "proof": "Fresh visual token extraction records validation and behavioral evidence."
+    }
+  }
+}

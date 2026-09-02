@@ -21,13 +21,11 @@ class TestTaskGraph(unittest.TestCase):
         for name in REQUIRED_TASKS:
             self.assertIn(name, self.tasks, f"missing task: {name}")
 
-    def test_ci_invokes_every_check_job(self):
-        steps = self.tasks["ci"]["run"]
-        self.assertIsInstance(steps, list)
-        self.assertEqual(steps[0], "mise run test")
-        joined = " ".join(steps)
+    def test_ci_depends_on_every_check_job(self):
+        dependencies = self.tasks["ci"]["depends"]
+        self.assertEqual(dependencies[0], "test")
         for job in CHECK_JOBS:
-            self.assertIn(f"mise run {job}", joined)
+            self.assertIn(job, dependencies)
 
     def test_every_task_has_a_description(self):
         for name, task in self.tasks.items():

@@ -66,6 +66,13 @@ class TestCheckPlaceholdersRules(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("{{NAME}}", result.stdout)
 
+    def test_named_redaction_placeholder_passes(self):
+        text = "Replace the secret with a named placeholder like {{API_KEY}}.\n"
+        with tempfile.TemporaryDirectory() as tmp:
+            write(tmp, "SKILL.md", text)
+            result = run("check_placeholders.py", tmp)
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     def test_boilerplate_sentence_fails(self):
         text = "Replace this paragraph with two sentences on the result.\n"
         with tempfile.TemporaryDirectory() as tmp:

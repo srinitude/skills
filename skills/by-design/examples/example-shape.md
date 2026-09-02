@@ -11,11 +11,11 @@ we're adding a bulk export to the reports page next sprint. nothing designed yet
 ## Commands run
 
 ```
-$ python3 scripts/ledger.py init --file decision-ledger-export.md --slug export
+$ mise run ledger init --file decision-ledger-export.md --slug export
 created decision-ledger-export.md
 exit 0
 
-$ python3 scripts/slice.py --category "Empty, loading, error and edge states" --stage concept --match "export" --limit 6
+$ mise run slice --category "Empty, loading, error and edge states" --stage concept --match "export" --limit 6
 widened: dropped stage
 # 6 questions
 Widened by dropping: stage.
@@ -59,35 +59,35 @@ exit 0
 The stage pin dropped, and the run says so rather than presenting the wider slice as a concept-stage answer. The match held, which is the pin worth holding: the word export came from the request, and every question that came back is about an export rather than about states in general.
 
 ```
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "Export scope: current filter, full set, or saved view" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "Export scope: current filter, full set, or saved view" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "Where a running export lives if the tab closes" --trades "ephemeral in-page status vs. a persistent home for work in flight" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "Where a running export lives if the tab closes" --trades "ephemeral in-page status vs. a persistent home for work in flight" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "What a partial export delivers when a job times out" --trades "shipping something vs. shipping a file the user will trust wrongly" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "What a partial export delivers when a job times out" --trades "shipping something vs. shipping a file the user will trust wrongly" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "Whether the export blocks the product while it runs" --trades "blocking to protect integrity vs. leaving the rest usable" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "Whether the export blocks the product while it runs" --trades "blocking to protect integrity vs. leaving the rest usable" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "Whether a heavy export warns before it spends someone's data" --trades "a frictionless start vs. spending someone else's allowance" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "Whether a heavy export warns before it spends someone's data" --trades "a frictionless start vs. spending someone else's allowance" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-export.md --decision "Who may export, and what happens when a subscription lapses" --trades "commercial pressure to lock vs. the user's right to their own records" --origin open
+$ mise run ledger add --file decision-ledger-export.md --decision "Who may export, and what happens when a subscription lapses" --trades "commercial pressure to lock vs. the user's right to their own records" --origin open
 appended to decision-ledger-export.md
 exit 0
 
-$ python3 scripts/ledger.py count --file decision-ledger-export.md --decision "Export scope"
+$ mise run ledger count --file decision-ledger-export.md --decision "Export scope"
 1
 exit 0
 
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

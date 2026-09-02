@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "logic-audit",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted contradiction ledger result.",
+      "motivation": "The contradiction ledger decision needs its correct owner.",
+      "why_this_path": "The contradiction ledger responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current contradiction ledger contract"],
+      "expected_effect": "Make the contradiction ledger decision testable.",
+      "proof": "Fresh contradiction ledger evidence from the named owner.",
+      "falsifier": "Current contradiction ledger evidence contradicts the decision.",
+      "failure_branch": "Block the contradiction ledger result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted contradiction ledger result.",
+      "motivation": "The contradiction ledger decision needs its correct owner.",
+      "why_this_path": "The contradiction ledger responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current contradiction ledger contract"],
+      "expected_effect": "Make the contradiction ledger decision testable.",
+      "proof": "Fresh contradiction ledger evidence from the named owner.",
+      "falsifier": "Current contradiction ledger evidence contradicts the decision.",
+      "failure_branch": "Block the contradiction ledger result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted contradiction ledger result.",
+      "motivation": "The contradiction ledger decision needs its correct owner.",
+      "why_this_path": "The contradiction ledger responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current contradiction ledger contract"],
+      "expected_effect": "Make the contradiction ledger decision testable.",
+      "proof": "Fresh contradiction ledger evidence from the named owner.",
+      "falsifier": "Current contradiction ledger evidence contradicts the decision.",
+      "failure_branch": "Block the contradiction ledger result and restore the accepted state."
+    }
+  ]
+}

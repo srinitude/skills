@@ -1,5 +1,7 @@
 # Voice check
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Writing standard.
 
 Scan prose only. Skip exact source quotes, owner-only backups, raw command output, inline code, and code fences that must remain exact.

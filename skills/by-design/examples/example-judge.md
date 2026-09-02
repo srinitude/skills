@@ -11,15 +11,15 @@ here's the orders table before we ship it, what am I missing
 ## Commands run
 
 ```
-$ python3 scripts/ledger.py show --file decision-ledger-orders.md
+$ mise run ledger show --file decision-ledger-orders.md
 no ledger at decision-ledger-orders.md
 exit 1
 
-$ python3 scripts/ledger.py init --file decision-ledger-orders.md --slug orders
+$ mise run ledger init --file decision-ledger-orders.md --slug orders
 created decision-ledger-orders.md
 exit 0
 
-$ python3 scripts/slice.py --category "Tables, charts and dashboards" --stage pre-ship --applies-to screen --limit 4
+$ mise run slice --category "Tables, charts and dashboards" --stage pre-ship --applies-to screen --limit 4
 # 4 questions
 
 **When someone sorts a paginated table, are you sorting the full result set or the fifty rows on screen?**
@@ -50,31 +50,31 @@ exit 0
 Nothing was printed on stderr, so the pin held and nothing was widened.
 
 ```
-$ python3 scripts/ledger.py add --file decision-ledger-orders.md --decision "Sort scope on the orders table" --chosen "client side, page local" --trades "client-side simplicity vs. truthful ordering" --risks "a page-local sort that convinces the user they are seeing the true top ten" --origin inherited --falsifier "one support ticket about a wrong top ten"
+$ mise run ledger add --file decision-ledger-orders.md --decision "Sort scope on the orders table" --chosen "client side, page local" --trades "client-side simplicity vs. truthful ordering" --risks "a page-local sort that convinces the user they are seeing the true top ten" --origin inherited --falsifier "one support ticket about a wrong top ten"
 appended to decision-ledger-orders.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-orders.md --decision "Row height on the orders table" --chosen "32px compact" --trades "scannability vs. context per row" --risks "a grid that looks deliberate at six rows and absurd at one" --origin inherited --falsifier "support tickets asking to see more per screen"
+$ mise run ledger add --file decision-ledger-orders.md --decision "Row height on the orders table" --chosen "32px compact" --trades "scannability vs. context per row" --risks "a grid that looks deliberate at six rows and absurd at one" --origin inherited --falsifier "support tickets asking to see more per screen"
 appended to decision-ledger-orders.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-orders.md --decision "What the dashboard shows at 8am before overnight jobs land" --chosen "a confident zero" --trades "always showing a number vs. admitting incompleteness" --risks "a zero read as a collapse when the pipeline simply has not landed" --origin deliberate
+$ mise run ledger add --file decision-ledger-orders.md --decision "What the dashboard shows at 8am before overnight jobs land" --chosen "a confident zero" --trades "always showing a number vs. admitting incompleteness" --risks "a zero read as a collapse when the pipeline simply has not landed" --origin deliberate
 appended to decision-ledger-orders.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-orders.md --decision "Whether a filtered view reads as the complete set" --chosen "filter state shown in the header only" --trades "visual minimalism vs. epistemic honesty" --risks "someone reporting a total that excluded half the records" --origin deliberate
+$ mise run ledger add --file decision-ledger-orders.md --decision "Whether a filtered view reads as the complete set" --chosen "filter state shown in the header only" --trades "visual minimalism vs. epistemic honesty" --risks "someone reporting a total that excluded half the records" --origin deliberate
 appended to decision-ledger-orders.md
 exit 0
 
-$ python3 scripts/ledger.py count --file decision-ledger-orders.md --decision "Row height"
+$ mise run ledger count --file decision-ledger-orders.md --decision "Row height"
 1
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-orders.md --decision "Row height on the orders table" --origin inherited --live yes
+$ mise run speak --file decision-ledger-orders.md --decision "Row height on the orders table" --origin inherited --live yes
 ask: inherited, live, and recorded once including this one
 exit 0
 
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

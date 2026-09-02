@@ -1,5 +1,7 @@
 # Style-free wireframes
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load before any visual identity work.
 
 ## Allowed content
@@ -41,4 +43,4 @@ External validators may veto but may not change the score. Choose the highest to
 
 ## Freeze gate
 
-Run `scripts/validate_packet.py`. Canonicalize the winning sequence, compute its SHA-256, and store it as `wireframe_sha256`. Visual identity must cite that hash. A changed section obligation, hierarchy, primary action, or proof sequence invalidates the hash and every later stage.
+Run `mise run validate-packet`. Canonicalize the winning sequence, compute its SHA-256, and store it as `wireframe_sha256`. Visual identity must cite that hash. A changed section obligation, hierarchy, primary action, or proof sequence invalidates the hash and every later stage.

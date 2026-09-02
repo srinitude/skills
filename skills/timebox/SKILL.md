@@ -84,6 +84,8 @@ At admission, state the start, deadline, full outcome, decisive validation, and 
 
 ## Progressive disclosure
 
+Resource gate: run `mise run validate` before using package files named here.
+
 `PD-101`: `evals/cases.json` owns objective pressure cases and acceptance. Load it before testing, reviewing, or changing this skill. This file owns runtime behavior and links to that evaluation owner.
 
 ## Verification
@@ -100,4 +102,19 @@ At admission, state the start, deadline, full outcome, decisive validation, and 
 - Read [the timebox record](references/timebox-record.md) before recording admission or closeout fields.
 - Use `assets/timebox-record.json` as the machine-readable field template.
 - Use `examples/` for admitted, rejected, and passed response shapes.
-- Run `mise run ci` from this skill directory to execute `scripts/` and `scripts/tests/` checks.
+- Run `mise run ci` from this skill directory to execute `mise run test` checks.
+
+## Factory execution contract
+
+The accepted outcome is: Admit only work that can reach its completion condition inside the hard timebox and record the completion timestamp. Preserve current hard timebox behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current hard timebox sources and counterevidence.
+3. Run `mise run agentic-request` for the named hard timebox operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

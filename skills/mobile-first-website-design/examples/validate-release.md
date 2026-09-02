@@ -4,7 +4,7 @@ Run from the skill directory.
 
 ## Command
 
-`python3 scripts/validate_packet.py assets/fixtures/pass-full.json`
+`mise run validate-packet assets/fixtures/pass-full.json`
 
 ## Standard output
 

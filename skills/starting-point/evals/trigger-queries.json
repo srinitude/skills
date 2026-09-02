@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Add pagination to the users endpoint in our API docs, then ping the team.",
+    "should_trigger": true
+  },
+  {
+    "query": "Our onboarding conversion is bad. Can you A/B test the signup button color this week?",
+    "should_trigger": true
+  },
+  {
+    "query": "Write a python script that renames all the files in a folder to snake case. Use regex only, no libraries.",
+    "should_trigger": true
+  },
+  {
+    "query": "Separate what these focused tests prove from whether the whole release is complete.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rename CustomerID to customer_id and return only the new header.",
+    "should_trigger": false
+  },
+  {
+    "query": "Translate Good morning into French and return only the translation.",
+    "should_trigger": false
+  },
+  {
+    "query": "What command shows the current Git branch?",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the typo in this sentence and change nothing else.",
+    "should_trigger": false
+  }
+]

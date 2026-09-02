@@ -1,5 +1,7 @@
 # Constraint classes
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference when the request names a method, tool, library, or format and you are about to treat it as optional, when the stated constraints cannot all hold at once, or when an action is external, irreversible, or destructive.
 
 ## Fixed constraint or candidate path

@@ -1,5 +1,7 @@
 # Complete documentation inventory
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure step 3.
 
 Use this branch only when the rewrite claims complete coverage of official documentation or documented primitives.

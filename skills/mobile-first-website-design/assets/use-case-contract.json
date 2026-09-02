@@ -1,0 +1,465 @@
+{
+  "version": "1.0.0",
+  "skill": "mobile-first-website-design",
+  "outcome": "Design and verify a mobile-first page whose conversion path remains usable across responsive breakpoints.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted mobile-first page behavior.",
+      "reason": "The mobile-first page outcome depends on stable domain semantics.",
+      "failure_prevented": "A mobile-first page update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable mobile-first page checks through Mise.",
+      "reason": "The mobile-first page judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A mobile-first page claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "mobile-first page",
+    "responsive breakpoint",
+    "touch target",
+    "conversion path"
+  ],
+  "domain_failures": [
+    "The mobile-first page result changes without proof.",
+    "The mobile-first page package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh mobile-first page task output and saved receipts.",
+    "Current mobile-first page behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The mobile-first page contract owns actors decisions."],
+    "objects": ["The mobile-first page contract owns objects decisions."],
+    "actions": ["The mobile-first page contract owns actions decisions."],
+    "states": ["The mobile-first page contract owns states decisions."],
+    "invariants": ["The mobile-first page contract owns invariants decisions."],
+    "variants": ["The mobile-first page contract owns variants decisions."],
+    "interfaces": ["The mobile-first page contract owns interfaces decisions."],
+    "authorities": ["The mobile-first page contract owns authorities decisions."],
+    "failures": ["The mobile-first page contract owns failures decisions."],
+    "recoveries": ["The mobile-first page contract owns recoveries decisions."],
+    "evidence": ["The mobile-first page contract owns evidence decisions."],
+    "time": ["The mobile-first page contract owns time decisions."],
+    "resources": ["The mobile-first page contract owns resources decisions."],
+    "quality": ["The mobile-first page contract owns quality decisions."],
+    "terminology": ["The mobile-first page contract owns terminology decisions."],
+    "exclusions": ["The mobile-first page contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the mobile-first page actors decision?",
+    "objects": "What can change the mobile-first page objects decision?",
+    "actions": "What can change the mobile-first page actions decision?",
+    "states": "What can change the mobile-first page states decision?",
+    "invariants": "What can change the mobile-first page invariants decision?",
+    "variants": "What can change the mobile-first page variants decision?",
+    "interfaces": "What can change the mobile-first page interfaces decision?",
+    "authorities": "What can change the mobile-first page authorities decision?",
+    "failures": "What can change the mobile-first page failures decision?",
+    "recoveries": "What can change the mobile-first page recoveries decision?",
+    "evidence": "What can change the mobile-first page evidence decision?",
+    "time": "What can change the mobile-first page time decision?",
+    "resources": "What can change the mobile-first page resources decision?",
+    "quality": "What can change the mobile-first page quality decision?",
+    "terminology": "What can change the mobile-first page terminology decision?",
+    "exclusions": "What can change the mobile-first page exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://design-system.service.gov.uk/styles/layout/",
+      "source_class": "first_party",
+      "claim": "A mobile-first page should use readable widths and responsive layout rules.",
+      "limitations": "Layout guidance does not establish a product's conversion path.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum",
+      "source_class": "standard",
+      "claim": "Touch target size is a required interaction threshold for a mobile-first page.",
+      "limitations": "The threshold cannot prove visual hierarchy or conversion success.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://web.dev/articles/responsive-web-design-basics",
+      "source_class": "first_party",
+      "claim": "Responsive breakpoints should follow content needs and viewport behavior.",
+      "limitations": "Technical responsiveness does not prove good page design.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "source_class": "first_party",
+      "claim": "Touch layouts should preserve hierarchy, safe areas, and adaptable content.",
+      "limitations": "Platform guidance does not own web conversion behavior.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the mobile-first page result?",
+      "source": "https://design-system.service.gov.uk/styles/layout/",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "result": "No. The mobile-first page behavior still needs direct evaluation.",
+      "disposition": "Keep structure and mobile-first page behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named mobile-first page agentic-request result.",
+        "motivation": "The mobile-first page workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared mobile-first page agentic-request route.",
+        "proof": "Fresh mobile-first page agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named mobile-first page invocation-policy result.",
+        "motivation": "The mobile-first page workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared mobile-first page invocation-policy route.",
+        "proof": "Fresh mobile-first page invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named mobile-first page improvement-policy result.",
+        "motivation": "The mobile-first page workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared mobile-first page improvement-policy route.",
+        "proof": "Fresh mobile-first page improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named mobile-first page mise-primitives-update result.",
+        "motivation": "The mobile-first page workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared mobile-first page mise-primitives-update route.",
+        "proof": "Fresh mobile-first page mise-primitives-update output and exit status."
+      },
+      {
+        "task": "breakpoint-rules",
+        "outcome": "Produce the named mobile-first page breakpoint-rules result.",
+        "motivation": "The mobile-first page workflow needs one breakpoint-rules entry.",
+        "why_default_path": "This is the single declared mobile-first page breakpoint-rules route.",
+        "proof": "Fresh mobile-first page breakpoint-rules output and exit status."
+      },
+      {
+        "task": "prompt-corpus",
+        "outcome": "Produce the named mobile-first page prompt-corpus result.",
+        "motivation": "The mobile-first page workflow needs one prompt-corpus entry.",
+        "why_default_path": "This is the single declared mobile-first page prompt-corpus route.",
+        "proof": "Fresh mobile-first page prompt-corpus output and exit status."
+      },
+      {
+        "task": "validate-packet",
+        "outcome": "Produce the named mobile-first page validate-packet result.",
+        "motivation": "The mobile-first page workflow needs one validate-packet entry.",
+        "why_default_path": "This is the single declared mobile-first page validate-packet route.",
+        "proof": "Fresh mobile-first page validate-packet output and exit status."
+      }
+    ],
+    "tasks": {
+      "test": {
+        "outcome": "Advance the mobile-first page result through test.",
+        "motivation": "The mobile-first page package needs the test gate.",
+        "value": "Produce current mobile-first page evidence from test.",
+        "proof": "The mobile-first page test task exits zero with readable output.",
+        "applicability": "Use test for its declared mobile-first page responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the mobile-first page result through validate.",
+        "motivation": "The mobile-first page package needs the validate gate.",
+        "value": "Produce current mobile-first page evidence from validate.",
+        "proof": "The mobile-first page validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared mobile-first page responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the mobile-first page result through evals.",
+        "motivation": "The mobile-first page package needs the evals gate.",
+        "value": "Produce current mobile-first page evidence from evals.",
+        "proof": "The mobile-first page evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared mobile-first page responsibility."
+      },
+      "ci": {
+        "outcome": "Advance the mobile-first page result through ci.",
+        "motivation": "The mobile-first page package needs the ci gate.",
+        "value": "Produce current mobile-first page evidence from ci.",
+        "proof": "The mobile-first page ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared mobile-first page responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the mobile-first page result through domain-research-policy.",
+        "motivation": "The mobile-first page package needs the domain-research-policy gate.",
+        "value": "Produce current mobile-first page evidence from domain-research-policy.",
+        "proof": "The mobile-first page domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared mobile-first page responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the mobile-first page result through use-case-policy.",
+        "motivation": "The mobile-first page package needs the use-case-policy gate.",
+        "value": "Produce current mobile-first page evidence from use-case-policy.",
+        "proof": "The mobile-first page use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared mobile-first page responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the mobile-first page result through mise-primitives-policy.",
+        "motivation": "The mobile-first page package needs the mise-primitives-policy gate.",
+        "value": "Produce current mobile-first page evidence from mise-primitives-policy.",
+        "proof": "The mobile-first page mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared mobile-first page responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the mobile-first page result through primitive-lifecycle-policy.",
+        "motivation": "The mobile-first page package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current mobile-first page evidence from primitive-lifecycle-policy.",
+        "proof": "The mobile-first page primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared mobile-first page responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the mobile-first page result through task-graph-policy.",
+        "motivation": "The mobile-first page package needs the task-graph-policy gate.",
+        "value": "Produce current mobile-first page evidence from task-graph-policy.",
+        "proof": "The mobile-first page task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared mobile-first page responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the mobile-first page result through decision-policy.",
+        "motivation": "The mobile-first page package needs the decision-policy gate.",
+        "value": "Produce current mobile-first page evidence from decision-policy.",
+        "proof": "The mobile-first page decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared mobile-first page responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the mobile-first page result through improvement-policy.",
+        "motivation": "The mobile-first page package needs the improvement-policy gate.",
+        "value": "Produce current mobile-first page evidence from improvement-policy.",
+        "proof": "The mobile-first page improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared mobile-first page responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the mobile-first page result through invocation-policy.",
+        "motivation": "The mobile-first page package needs the invocation-policy gate.",
+        "value": "Produce current mobile-first page evidence from invocation-policy.",
+        "proof": "The mobile-first page invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared mobile-first page responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the mobile-first page result through agentic-request.",
+        "motivation": "The mobile-first page package needs the agentic-request gate.",
+        "value": "Produce current mobile-first page evidence from agentic-request.",
+        "proof": "The mobile-first page agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared mobile-first page responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the mobile-first page result through mise-latest.",
+        "motivation": "The mobile-first page package needs the mise-latest gate.",
+        "value": "Produce current mobile-first page evidence from mise-latest.",
+        "proof": "The mobile-first page mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared mobile-first page responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the mobile-first page result through mise-primitives-update.",
+        "motivation": "The mobile-first page package needs the mise-primitives-update gate.",
+        "value": "Produce current mobile-first page evidence from mise-primitives-update.",
+        "proof": "The mobile-first page mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared mobile-first page responsibility."
+      },
+      "breakpoint-rules": {
+        "outcome": "Advance the mobile-first page result through breakpoint-rules.",
+        "motivation": "The mobile-first page package needs the breakpoint-rules gate.",
+        "value": "Produce current mobile-first page evidence from breakpoint-rules.",
+        "proof": "The mobile-first page breakpoint-rules task exits zero with readable output.",
+        "applicability": "Use breakpoint-rules for its declared mobile-first page responsibility."
+      },
+      "prompt-corpus": {
+        "outcome": "Advance the mobile-first page result through prompt-corpus.",
+        "motivation": "The mobile-first page package needs the prompt-corpus gate.",
+        "value": "Produce current mobile-first page evidence from prompt-corpus.",
+        "proof": "The mobile-first page prompt-corpus task exits zero with readable output.",
+        "applicability": "Use prompt-corpus for its declared mobile-first page responsibility."
+      },
+      "validate-packet": {
+        "outcome": "Advance the mobile-first page result through validate-packet.",
+        "motivation": "The mobile-first page package needs the validate-packet gate.",
+        "value": "Produce current mobile-first page evidence from validate-packet.",
+        "proof": "The mobile-first page validate-packet task exits zero with readable output.",
+        "applicability": "Use validate-packet for its declared mobile-first page responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page skill_body behavior.",
+      "outcome": "Keep mobile-first page skill_body aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one skill_body owner.",
+      "value": "Expose current mobile-first page skill_body progress.",
+      "failure_prevented": "Stale or generic mobile-first page skill_body behavior.",
+      "proof": "Fresh mobile-first page skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page references behavior.",
+      "outcome": "Keep mobile-first page references aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one references owner.",
+      "value": "Expose current mobile-first page references progress.",
+      "failure_prevented": "Stale or generic mobile-first page references behavior.",
+      "proof": "Fresh mobile-first page references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page assets behavior.",
+      "outcome": "Keep mobile-first page assets aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one assets owner.",
+      "value": "Expose current mobile-first page assets progress.",
+      "failure_prevented": "Stale or generic mobile-first page assets behavior.",
+      "proof": "Fresh mobile-first page assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page scripts behavior.",
+      "outcome": "Keep mobile-first page scripts aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one scripts owner.",
+      "value": "Expose current mobile-first page scripts progress.",
+      "failure_prevented": "Stale or generic mobile-first page scripts behavior.",
+      "proof": "Fresh mobile-first page scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page tests behavior.",
+      "outcome": "Keep mobile-first page tests aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one tests owner.",
+      "value": "Expose current mobile-first page tests progress.",
+      "failure_prevented": "Stale or generic mobile-first page tests behavior.",
+      "proof": "Fresh mobile-first page tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page mise_tasks behavior.",
+      "outcome": "Keep mobile-first page mise_tasks aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one mise_tasks owner.",
+      "value": "Expose current mobile-first page mise_tasks progress.",
+      "failure_prevented": "Stale or generic mobile-first page mise_tasks behavior.",
+      "proof": "Fresh mobile-first page mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page examples behavior.",
+      "outcome": "Keep mobile-first page examples aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one examples owner.",
+      "value": "Expose current mobile-first page examples progress.",
+      "failure_prevented": "Stale or generic mobile-first page examples behavior.",
+      "proof": "Fresh mobile-first page examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page evals behavior.",
+      "outcome": "Keep mobile-first page evals aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one evals owner.",
+      "value": "Expose current mobile-first page evals progress.",
+      "failure_prevented": "Stale or generic mobile-first page evals behavior.",
+      "proof": "Fresh mobile-first page evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page policies behavior.",
+      "outcome": "Keep mobile-first page policies aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one policies owner.",
+      "value": "Expose current mobile-first page policies progress.",
+      "failure_prevented": "Stale or generic mobile-first page policies behavior.",
+      "proof": "Fresh mobile-first page policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page schemas behavior.",
+      "outcome": "Keep mobile-first page schemas aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one schemas owner.",
+      "value": "Expose current mobile-first page schemas progress.",
+      "failure_prevented": "Stale or generic mobile-first page schemas behavior.",
+      "proof": "Fresh mobile-first page schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own mobile-first page records behavior.",
+      "outcome": "Keep mobile-first page records aligned with the accepted result.",
+      "motivation": "The mobile-first page package needs one records owner.",
+      "value": "Expose current mobile-first page records progress.",
+      "failure_prevented": "Stale or generic mobile-first page records behavior.",
+      "proof": "Fresh mobile-first page records validation and behavioral evidence."
+    }
+  }
+}

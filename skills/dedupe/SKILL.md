@@ -77,7 +77,7 @@ Similarity is generally non-transitive. Never turn `A≈B` and `B≈C` into `A=B
 Create a JSON request, then run from the skill root:
 
 ```text
-python3 scripts/dedupe.py inspect --request /absolute/path/request.json
+mise run dedupe inspect --request /absolute/path/request.json
 ```
 
 The inspector never mutates input. It emits canonical indices, duplicate groups, hashed comparison keys, similarity candidates, conflicts, unresolved items, provenance, disclosed policies, and reconciled counts. See `examples/inspect.md` for a real request and output.
@@ -100,9 +100,11 @@ Require all of the following:
 - the post-apply inspection reports no remaining approved duplicates
 - `mise run ci` exits 0 after package changes
 
-If Mise is unavailable, run every task command from `mise.toml` directly and state that Mise itself did not run. Tests under `scripts/tests/`, native cases under `evals/`, and templates under `assets/` remain package evidence, not permission to mutate user data.
+If Mise is unavailable, run every task command from `mise.toml` directly and state that Mise itself did not run. Tests under `mise run test`, native cases under `evals/`, and templates under `assets/` remain package evidence, not permission to mutate user data.
 
 ## Progressive disclosure map
+
+Resource gate: run `mise run validate` before using package files named here.
 
 - `PD-001`: `references/core-contract.md` owns the full report, canonical-selection, authority, and verification contract. Load it for every inspection or apply request. This section is its backlink.
 - `PD-002`: `references/text-list.md` owns text and list policy. Load it when either adapter is selected. This section is its backlink.
@@ -115,3 +117,18 @@ If Mise is unavailable, run every task command from `mise.toml` directly and sta
 ## Done
 
 The task is done only when the requested bounded outcome passes, every retained task and adapter decision is evidenced, all authorized changes verify, unresolved items are visible, and the final logic audit finds no unsupported identity, threshold, tie-breaker, or completion claim.
+
+## Factory execution contract
+
+The accepted outcome is: Resolve a bounded duplicate cluster into canonical records without losing distinct identity evidence. Preserve current duplicate cluster behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current duplicate cluster sources and counterevidence.
+3. Run `mise run agentic-request` for the named duplicate cluster operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

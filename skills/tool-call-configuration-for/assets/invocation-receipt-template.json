@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "tool-call-configuration-for",
+  "operation": "Name the current callable tool contract operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh callable tool contract evidence."
+}

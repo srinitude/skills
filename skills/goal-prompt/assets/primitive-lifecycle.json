@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "goal-prompt",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "goal-prompt-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet actors aligned.",
+      "motivation": "The standing goal packet result depends on actors ownership.",
+      "proof": "Fresh standing goal packet actors evidence."
+    },
+    "objects": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet objects aligned.",
+      "motivation": "The standing goal packet result depends on objects ownership.",
+      "proof": "Fresh standing goal packet objects evidence."
+    },
+    "actions": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet actions aligned.",
+      "motivation": "The standing goal packet result depends on actions ownership.",
+      "proof": "Fresh standing goal packet actions evidence."
+    },
+    "states": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet states aligned.",
+      "motivation": "The standing goal packet result depends on states ownership.",
+      "proof": "Fresh standing goal packet states evidence."
+    },
+    "invariants": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet invariants aligned.",
+      "motivation": "The standing goal packet result depends on invariants ownership.",
+      "proof": "Fresh standing goal packet invariants evidence."
+    },
+    "variants": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet variants aligned.",
+      "motivation": "The standing goal packet result depends on variants ownership.",
+      "proof": "Fresh standing goal packet variants evidence."
+    },
+    "interfaces": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet interfaces aligned.",
+      "motivation": "The standing goal packet result depends on interfaces ownership.",
+      "proof": "Fresh standing goal packet interfaces evidence."
+    },
+    "authorities": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet authorities aligned.",
+      "motivation": "The standing goal packet result depends on authorities ownership.",
+      "proof": "Fresh standing goal packet authorities evidence."
+    },
+    "failures": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet failures aligned.",
+      "motivation": "The standing goal packet result depends on failures ownership.",
+      "proof": "Fresh standing goal packet failures evidence."
+    },
+    "recoveries": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet recoveries aligned.",
+      "motivation": "The standing goal packet result depends on recoveries ownership.",
+      "proof": "Fresh standing goal packet recoveries evidence."
+    },
+    "evidence": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet evidence aligned.",
+      "motivation": "The standing goal packet result depends on evidence ownership.",
+      "proof": "Fresh standing goal packet evidence evidence."
+    },
+    "time": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet time aligned.",
+      "motivation": "The standing goal packet result depends on time ownership.",
+      "proof": "Fresh standing goal packet time evidence."
+    },
+    "resources": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet resources aligned.",
+      "motivation": "The standing goal packet result depends on resources ownership.",
+      "proof": "Fresh standing goal packet resources evidence."
+    },
+    "quality": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet quality aligned.",
+      "motivation": "The standing goal packet result depends on quality ownership.",
+      "proof": "Fresh standing goal packet quality evidence."
+    },
+    "terminology": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet terminology aligned.",
+      "motivation": "The standing goal packet result depends on terminology ownership.",
+      "proof": "Fresh standing goal packet terminology evidence."
+    },
+    "exclusions": {
+      "profile": "goal-prompt-lifecycle",
+      "outcome": "Keep standing goal packet exclusions aligned.",
+      "motivation": "The standing goal packet result depends on exclusions ownership.",
+      "proof": "Fresh standing goal packet exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "references": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "assets": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "scripts": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "tests": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "examples": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "evals": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "policies": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "schemas": {
+      "profile": "goal-prompt-lifecycle"
+    },
+    "records": {
+      "profile": "goal-prompt-lifecycle"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "would-agents-actually",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted agent action verdict result.",
+      "motivation": "The agent action verdict decision needs its correct owner.",
+      "why_this_path": "The agent action verdict responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current agent action verdict contract"],
+      "expected_effect": "Make the agent action verdict decision testable.",
+      "proof": "Fresh agent action verdict evidence from the named owner.",
+      "falsifier": "Current agent action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the agent action verdict result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted agent action verdict result.",
+      "motivation": "The agent action verdict decision needs its correct owner.",
+      "why_this_path": "The agent action verdict responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current agent action verdict contract"],
+      "expected_effect": "Make the agent action verdict decision testable.",
+      "proof": "Fresh agent action verdict evidence from the named owner.",
+      "falsifier": "Current agent action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the agent action verdict result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted agent action verdict result.",
+      "motivation": "The agent action verdict decision needs its correct owner.",
+      "why_this_path": "The agent action verdict responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current agent action verdict contract"],
+      "expected_effect": "Make the agent action verdict decision testable.",
+      "proof": "Fresh agent action verdict evidence from the named owner.",
+      "falsifier": "Current agent action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the agent action verdict result and restore the accepted state."
+    }
+  ]
+}

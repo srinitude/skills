@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "only-one-interpretation",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted operational reading result.",
+      "motivation": "The operational reading decision needs its correct owner.",
+      "why_this_path": "The operational reading responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current operational reading contract"],
+      "expected_effect": "Make the operational reading decision testable.",
+      "proof": "Fresh operational reading evidence from the named owner.",
+      "falsifier": "Current operational reading evidence contradicts the decision.",
+      "failure_branch": "Block the operational reading result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted operational reading result.",
+      "motivation": "The operational reading decision needs its correct owner.",
+      "why_this_path": "The operational reading responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current operational reading contract"],
+      "expected_effect": "Make the operational reading decision testable.",
+      "proof": "Fresh operational reading evidence from the named owner.",
+      "falsifier": "Current operational reading evidence contradicts the decision.",
+      "failure_branch": "Block the operational reading result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted operational reading result.",
+      "motivation": "The operational reading decision needs its correct owner.",
+      "why_this_path": "The operational reading responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current operational reading contract"],
+      "expected_effect": "Make the operational reading decision testable.",
+      "proof": "Fresh operational reading evidence from the named owner.",
+      "falsifier": "Current operational reading evidence contradicts the decision.",
+      "failure_branch": "Block the operational reading result and restore the accepted state."
+    }
+  ]
+}

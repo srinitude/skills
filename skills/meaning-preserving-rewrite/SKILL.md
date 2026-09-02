@@ -21,11 +21,15 @@ Do not use for ordinary code refactors, routine summaries with permission to omi
 
 ## Required composition
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Read [dependency reconciliation](references/dependency-reconciliation.md) before work that also changes a skill package or depends on a host writing policy. This skill owns clause-level meaning and voice. A package simplification peer owns package modes and decomposition when one is installed.
 
 If no equivalent owner exists, keep the package boundary unchanged. Do not invent a missing dependency or weaken a branch to avoid it.
 
 ## Writing standard
+
+Resource gate: run `mise run validate` before using package files named here.
 
 - Start with the result or rule.
 - Use common words, active voice, and natural contractions.
@@ -47,6 +51,8 @@ Read [voice checks](references/voice-check.md) before the final prose scan.
 
 ### 1. Capture the baseline
 
+Resource gate: run `mise run validate` before using package files named here.
+
 1. Read the live sources instead of reconstructing them from memory.
 2. Record each present source path, hash, bytes, lines, headings, and mode.
 3. Mark a future path absent instead of inventing its hash.
@@ -66,6 +72,8 @@ Add each new voice rule and the rule that the same voice applies to every planne
 
 ### 3. Check current sources
 
+Resource gate: run `mise run validate` before using package files named here.
+
 When a rewrite claims complete official documentation or primitive coverage, inventory the current official source set before writing. Do not trust a stale snapshot or invent a page. Follow [the documentation inventory contract](references/docs-inventory.md).
 
 ### 4. Rewrite
@@ -78,6 +86,8 @@ When a rewrite claims complete official documentation or primitive coverage, inv
 6. Diff live files against backups and tie each material block to ledger IDs.
 
 ### 5. Validate
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Check all of these:
 
@@ -122,4 +132,19 @@ Use `PARTIAL` when bounded component proof passes but the whole threshold is inc
 
 ## Package resources
 
-Use `assets/meaning-ledger-template.json` as a field template. Read `examples/policy-rewrite.md`, `examples/blocked-drift.md`, or `examples/package-reconciliation.md` for visible runs. Package maintainers use `references/`, `scripts/`, `scripts/tests/`, and `evals/`, then run `mise run ci`; ordinary rewrites do not load those paths.
+Use `assets/meaning-ledger-template.json` as a field template. Read `examples/policy-rewrite.md`, `examples/blocked-drift.md`, or `examples/package-reconciliation.md` for visible runs. Package maintainers use `references/`, `mise run test`, and `evals/`, then run `mise run ci`; ordinary rewrites do not load those paths.
+
+## Factory execution contract
+
+The accepted outcome is: Rewrite text in plain language while preserving every named meaning invariant and recording semantic loss checks. Preserve current meaning invariant behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current meaning invariant sources and counterevidence.
+3. Run `mise run agentic-request` for the named meaning invariant operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

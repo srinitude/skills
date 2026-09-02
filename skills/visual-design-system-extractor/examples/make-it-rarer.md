@@ -13,7 +13,7 @@ I raised the floor to percentile 96 and reran the current fit-first ranking. No 
 ## Command run
 
 ```text
-$ python3 scripts/rare_google_fonts.py discover \
+$ mise run font-discover -- \
     --skeleton Serif \
     --need-weight 400 \
     --need-weight 700 \

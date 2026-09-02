@@ -174,10 +174,12 @@ test('preserves native cases and labels while exposing a safe inspector', async 
 
 test('removes Hermes-only metadata and does not claim an executable apply command', async () => {
   const skill = await readFile(join(skillRoot, 'SKILL.md'), 'utf8');
+  const mise = await readFile(join(skillRoot, 'mise.toml'), 'utf8');
   expect(skill).not.toMatch(
     /created_with_hermes_commit|compatibility_reviewed_with_hermes_commit|skill_view|skill_manage/,
   );
-  expect(skill).toContain('python3 scripts/dedupe.py inspect --request');
+  expect(skill).toContain('mise run dedupe inspect --request');
+  expect(mise).toContain('run = "python3 scripts/dedupe.py"');
   expect(skill).toContain(
     'The bundled script does not expose an executable `apply` subcommand.',
   );

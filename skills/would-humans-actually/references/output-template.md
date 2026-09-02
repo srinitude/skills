@@ -1,5 +1,7 @@
 # Verdict output template
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Load this file only after `references/verdict-protocol.md` sets the verdict and confidence. Copy `assets/verdict-template.md` outside the skill and complete every section.
 
 ```markdown

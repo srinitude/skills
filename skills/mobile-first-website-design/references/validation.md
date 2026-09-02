@@ -1,5 +1,7 @@
 # Validation and replay
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load at every stage gate and before release.
 
 ## Evidence record

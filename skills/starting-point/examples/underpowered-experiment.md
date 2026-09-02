@@ -1,5 +1,7 @@
 # The route is valid and cannot produce a detectable result
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this when the requested route is causally sound but the effect size, sample size, traffic, budget, or time window makes its proof unreachable.
 
 Guess it removes: whether an experiment that is safe and legitimate still counts as a weak route, and whether arithmetic you performed yourself is allowed as the evidence that justifies saying so.
@@ -9,6 +11,8 @@ Guess it removes: whether an experiment that is safe and legitimate still counts
 > Our onboarding conversion is bad. Can you A/B test the signup button color this week?
 
 ## The check that fires
+
+Resource gate: run `mise run validate` before using package files named here.
 
 No bottleneck is in evidence, no route has stalled, and a color test is safe, so the older signal list would have let this pass. The signal that fires is the sixth one in [`../references/core-loop.md`](../references/core-loop.md): the route is causally plausible and its proof is unreachable in the stated window. Compute the requirement before agreeing.
 

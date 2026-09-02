@@ -15,12 +15,14 @@ Verdict: UNVALIDATED HYPOTHESIS. The system and action are unpinned, and source 
 ## Commands run
 
 ```text
-$ python3 scripts/validate_verdict.py --input ../../.artifacts/example-runs/agent-unvalidated.md
+$ mise run validate-verdict --input ../../.artifacts/example-runs/agent-unvalidated.md
 {"errors": [], "input": "../../.artifacts/example-runs/agent-unvalidated.md", "status": "PASS"}
 exit 0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 `../../.artifacts/example-runs/agent-unvalidated.md`
 

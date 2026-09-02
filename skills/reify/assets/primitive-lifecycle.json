@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "reify",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "reify-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact actors aligned.",
+      "motivation": "The concrete artifact result depends on actors ownership.",
+      "proof": "Fresh concrete artifact actors evidence."
+    },
+    "objects": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact objects aligned.",
+      "motivation": "The concrete artifact result depends on objects ownership.",
+      "proof": "Fresh concrete artifact objects evidence."
+    },
+    "actions": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact actions aligned.",
+      "motivation": "The concrete artifact result depends on actions ownership.",
+      "proof": "Fresh concrete artifact actions evidence."
+    },
+    "states": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact states aligned.",
+      "motivation": "The concrete artifact result depends on states ownership.",
+      "proof": "Fresh concrete artifact states evidence."
+    },
+    "invariants": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact invariants aligned.",
+      "motivation": "The concrete artifact result depends on invariants ownership.",
+      "proof": "Fresh concrete artifact invariants evidence."
+    },
+    "variants": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact variants aligned.",
+      "motivation": "The concrete artifact result depends on variants ownership.",
+      "proof": "Fresh concrete artifact variants evidence."
+    },
+    "interfaces": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact interfaces aligned.",
+      "motivation": "The concrete artifact result depends on interfaces ownership.",
+      "proof": "Fresh concrete artifact interfaces evidence."
+    },
+    "authorities": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact authorities aligned.",
+      "motivation": "The concrete artifact result depends on authorities ownership.",
+      "proof": "Fresh concrete artifact authorities evidence."
+    },
+    "failures": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact failures aligned.",
+      "motivation": "The concrete artifact result depends on failures ownership.",
+      "proof": "Fresh concrete artifact failures evidence."
+    },
+    "recoveries": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact recoveries aligned.",
+      "motivation": "The concrete artifact result depends on recoveries ownership.",
+      "proof": "Fresh concrete artifact recoveries evidence."
+    },
+    "evidence": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact evidence aligned.",
+      "motivation": "The concrete artifact result depends on evidence ownership.",
+      "proof": "Fresh concrete artifact evidence evidence."
+    },
+    "time": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact time aligned.",
+      "motivation": "The concrete artifact result depends on time ownership.",
+      "proof": "Fresh concrete artifact time evidence."
+    },
+    "resources": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact resources aligned.",
+      "motivation": "The concrete artifact result depends on resources ownership.",
+      "proof": "Fresh concrete artifact resources evidence."
+    },
+    "quality": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact quality aligned.",
+      "motivation": "The concrete artifact result depends on quality ownership.",
+      "proof": "Fresh concrete artifact quality evidence."
+    },
+    "terminology": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact terminology aligned.",
+      "motivation": "The concrete artifact result depends on terminology ownership.",
+      "proof": "Fresh concrete artifact terminology evidence."
+    },
+    "exclusions": {
+      "profile": "reify-lifecycle",
+      "outcome": "Keep concrete artifact exclusions aligned.",
+      "motivation": "The concrete artifact result depends on exclusions ownership.",
+      "proof": "Fresh concrete artifact exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "reify-lifecycle"
+    },
+    "references": {
+      "profile": "reify-lifecycle"
+    },
+    "assets": {
+      "profile": "reify-lifecycle"
+    },
+    "scripts": {
+      "profile": "reify-lifecycle"
+    },
+    "tests": {
+      "profile": "reify-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "reify-lifecycle"
+    },
+    "examples": {
+      "profile": "reify-lifecycle"
+    },
+    "evals": {
+      "profile": "reify-lifecycle"
+    },
+    "policies": {
+      "profile": "reify-lifecycle"
+    },
+    "schemas": {
+      "profile": "reify-lifecycle"
+    },
+    "records": {
+      "profile": "reify-lifecycle"
+    }
+  }
+}

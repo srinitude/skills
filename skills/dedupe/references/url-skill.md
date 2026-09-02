@@ -58,7 +58,7 @@ Hash relative paths and bytes for `SKILL.md` plus recognized support directories
 
 - `references/`
 - `templates/`
-- `scripts/`
+- `mise run test`
 - `assets/`
 - `examples/`
 - `evals/`

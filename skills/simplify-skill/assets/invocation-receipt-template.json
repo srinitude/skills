@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "simplify-skill",
+  "operation": "Name the current behavior-preserving simplification operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh behavior-preserving simplification evidence."
+}

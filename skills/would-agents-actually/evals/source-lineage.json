@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.1.0",
   "native_version": "0.1.0",
-  "native_manifest_sha256": "d5d3f6ecb83857a3cdb4426b477c8b7657155f3355099a0d5d22e9dbbfdf1194",
+  "native_manifest_sha256": "cb00bfd6e965bb60c8ba5dc6de57e00dc96c058fa4d75ba6db8dc0684fe17e16",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,6 +11,34 @@
     {
       "path": "SKILL.md",
       "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["assets/decision-records.json"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["assets/improvement-contract.json"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["assets/invocation-receipt-template.json"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["assets/mise-primitives-catalog.json"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["assets/mise-primitives.json"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["assets/primitive-lifecycle.json"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["assets/use-case-contract.json"]
     },
     {
       "path": "assets/verdict-template.md",
@@ -65,6 +93,10 @@
       "source_paths": ["mise.toml"]
     },
     {
+      "path": "references/decisions.md",
+      "source_paths": ["references/decisions.md"]
+    },
+    {
       "path": "references/evidence-base.md",
       "source_paths": ["references/evidence-base.md"]
     },
@@ -85,24 +117,80 @@
       "source_paths": ["references/recent-public-signal.md"]
     },
     {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["references/resource-and-experiment-design.md"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["references/use-case-specificity.md"]
+    },
+    {
       "path": "references/verdict-protocol.md",
       "source_paths": ["references/verdict-protocol.md"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": ["scripts/agentic_request_contract.py"]
     },
     {
       "path": "scripts/check_code_rules.py",
       "source_paths": ["scripts/check_code_rules.py"]
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["scripts/check_decision_records.py"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["scripts/check_domain_research.py"]
+    },
+    {
       "path": "scripts/check_evals.py",
       "source_paths": ["scripts/check_evals.py"]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["scripts/check_improvement_contract.py"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["scripts/check_invocation_receipt.py"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["scripts/check_mise_primitives.py"]
     },
     {
       "path": "scripts/check_placeholders.py",
       "source_paths": ["scripts/check_placeholders.py"]
     },
     {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["scripts/check_primitive_lifecycle.py"]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["scripts/check_task_graph.py"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["scripts/check_use_case_contract.py"]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": ["scripts/domain_text.py"]
+    },
+    {
       "path": "scripts/lint_writing.py",
       "source_paths": ["scripts/lint_writing.py"]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["scripts/run_agentic_request.py"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["scripts/sync_mise_primitives.py"]
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
@@ -128,7 +216,35 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "ff64e747b01fb7443ec83c00b1db3a271455e560972ee31837cd54af53d087f3"
+      "sha256": "0935f567c330c793592a2f262a7aafcb32231e01f97c052651a2d2b855a6adf2"
+    },
+    {
+      "path": "assets/decision-records.json",
+      "sha256": "cc1c154a6cdae7238b5ac2b31d2f5f69e98aeadf7a550df37279bb975a2428eb"
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "sha256": "21adf5271ea94a031aa6ca5fa776319ddfc25079af51dd4d810a6e4e46cede28"
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "sha256": "ce66d9555bfd9ba32b403c49080c89be6a5c3c8504e78af4415cb9bac90f3fc0"
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "sha256": "e14268a25737ad4d7e7e4bf33b0858c4948140eee08f8941d23039f12c665128"
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "sha256": "cee793e4b360305bdd54b619bdedd65379b99b213a6b48d8eb674381b5cfc0de"
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "sha256": "e3e6f5f2662ca86518811346ccd03ca13aa7afab031b53c1f155b201e73bdc34"
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "sha256": "7500ff02607a30452fc5910c476bb73310b2419faeb85a53f5e6e22961f2dc82"
     },
     {
       "path": "assets/verdict-template.md",
@@ -168,19 +284,23 @@
     },
     {
       "path": "examples/failure-unvalidated.md",
-      "sha256": "9a487dc746c144b222171676201cec35ba853f63030a4ee4ad88e9059c16338c"
+      "sha256": "ffb33cfd07f9469d4cbb8c5b879144e1fc133994187bd9ca2db847a53048fd8e"
     },
     {
       "path": "examples/help.md",
-      "sha256": "2c1f1988e1cdf06a5e07a60c3e511982d527c3eb955e8ac46e16909b98a0aae2"
+      "sha256": "83caa88e17e699436e5a05ec526c11fe688d2bf8b02d994301b61201ed0fcbb9"
     },
     {
       "path": "examples/verdict-insufficient-evidence.md",
-      "sha256": "f5ca4825444f5b7c34fb2a77bce490af7349297dda460fde81c2ac8dc0cd7124"
+      "sha256": "27766146f449ccd33acef6c62401ad2d710e09d1fe4e4369158c904c443b8cc1"
     },
     {
       "path": "mise.toml",
-      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558"
+      "sha256": "99fcd6a9363cdd9a5c980150e27dfa58cc7797af54f2e52e624cbac4cd30b0d8"
+    },
+    {
+      "path": "references/decisions.md",
+      "sha256": "7a663972bca0bc76fa608c4cdfeb1bc0ff3118c2bb98814b3e003545acde159c"
     },
     {
       "path": "references/evidence-base.md",
@@ -192,39 +312,95 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
+      "sha256": "23c34ff377ca2b3c25d525a80176317e97dc7fc3a1ab0fabb949749a0baa4d7c"
     },
     {
       "path": "references/output-template.md",
-      "sha256": "d05fcb676fadcb1817c016c929d51c2509c4a6e74412b09e1918a482e63e5f31"
+      "sha256": "83d3d55cdb6530ffe1c82b626baeeb7a86cbd0bec50794a874c8668f0ef4affd"
     },
     {
       "path": "references/recent-public-signal.md",
       "sha256": "a7d23321b62722a28d8fc017e773c5905b135ed7485689dc07e466003ea5a870"
     },
     {
+      "path": "references/resource-and-experiment-design.md",
+      "sha256": "c5b823591b9cfcc7998ec08f8f8d8238a2b4d369feb30d6e4b003bbddc892b86"
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "sha256": "9d53f333858f518799467e296f16bc2c60643ca91698692f032fd0e205ca98be"
+    },
+    {
       "path": "references/verdict-protocol.md",
       "sha256": "4ac222c97f38884088bc3c2197c364d25723c81351616f75a95b124dcfa5724b"
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "sha256": "fde69a88acaa362ef3ec44662dcebe8dcb7600f82bd4e372c0f0674d2ab22ad5"
     },
     {
       "path": "scripts/check_code_rules.py",
       "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "sha256": "b73661cd61bd85127dd65b676255144b97d6094e4b2b52ae53dd85f86d9a2715"
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "sha256": "fca082945b193764c98682fd5556b09aeb52b7f4304acf9099e3d830a2a5e3d5"
+    },
+    {
       "path": "scripts/check_evals.py",
       "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
     },
     {
+      "path": "scripts/check_improvement_contract.py",
+      "sha256": "7a90ef820776294be93c925b91b8f5ef351dfc830b97c195a99c9194cbcba288"
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "sha256": "7d547b7e167849e4c471c367b2e8c1e6858151659839ff9118ffd5555675432f"
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "sha256": "b9c39ff5b9ba3af51a7af72579cc3a8b93981d34f3cb07ca3bc55b2c2bced4de"
+    },
+    {
       "path": "scripts/check_placeholders.py",
-      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+      "sha256": "d944b0c712ee5a9d041755d4433b2818d693557d736ce67b4fc2ecfe7c07c8ed"
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "sha256": "daffec393c6b756c114b8f023e35db2e704d8387bfa751299f07567e74be76c0"
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "sha256": "8af024693eedd92a6bea714df7d7b1d7c64f1b62bf241307b856fb38051c252c"
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "sha256": "8867af8c0193656d9efb222abce27f8704e02cc62183b43193f4ced660f5d9bf"
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "sha256": "923bab6d186aa3b48938b02222045107386aa0f9ecc59b710b4347286f23b76e"
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399"
+      "sha256": "9f1895e4922dee00bf6c6598fa0076dd51020fe96521d56d20de39911cef1633"
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "sha256": "9c673f3a30915fb960cbf0c48d39ce3810d215e19239881ceaf4615192135f40"
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "sha256": "75415d9266df6b8fc7a37f3c9e83c0d03623f00355fa06889331da37cac3b216"
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
-      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652"
+      "sha256": "72ccdac881a1be46225e6ebd3e461e5476fb771e263e389e7c34696ab9f0bd8c"
     },
     {
       "path": "scripts/tests/test_validate_verdict.py",
@@ -232,7 +408,7 @@
     },
     {
       "path": "scripts/validate_skill.py",
-      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a"
+      "sha256": "0cf410badb4c8a2fec43788b6b66a5cf4c27a90d29f51fac6170cdbb206de6e9"
     },
     {
       "path": "scripts/validate_verdict.py",

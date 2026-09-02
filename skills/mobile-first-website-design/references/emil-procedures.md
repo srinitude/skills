@@ -1,5 +1,7 @@
 # Emil procedure map
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load when the named trigger occurs.
 
 Apply the locked Emil Kowalski skill procedures through concise local contracts. Load the external skill when installed. If unavailable, use the matching fallback below and record `UNAVAILABLE_SKILL`.

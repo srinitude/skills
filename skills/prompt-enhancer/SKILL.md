@@ -42,7 +42,7 @@ Refuse only the prompts below. Every other prompt, whatever its task, gets enhan
 
 ## Workflow
 
-Do the steps in order. Each step ends with something a later step uses, so a skipped step leaves a visible gap. The scripts named in the steps are the standard path for every deterministic check: running them at the named point is what makes a check's timing visible and repeatable, and each script prints what it checked, so the run itself is the evidence. Where your platform cannot run scripts, open and read them; every check and guide is plain text inside. Judgment calls stay yours either way.
+Do the steps in order. Each step ends with something a later step uses, so a skipped step leaves a visible gap. The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner. Judgment calls stay yours either way.
 
 ### 1. Isolate the prompt
 
@@ -71,9 +71,9 @@ This step ends with: a named context you will report in "What changed".
 
 ### 3. Validate
 
-Run [scripts/check_prompt.py](scripts/check_prompt.py) on the isolated prompt. It covers the deterministic half of the universal checks in one call: secrets, injection phrases, transmit steps, unnamed authority, vague qualifiers, and the two presence heuristics. Every ACTION line it prints must be resolved before you enhance.
+Run `mise run check-prompt` on the isolated prompt. It covers the deterministic half of the universal checks in one call: secrets, injection phrases, transmit steps, unnamed authority, vague qualifiers, and the two presence heuristics. Every ACTION line it prints must be resolved before you enhance.
 
-Then run [scripts/context_checks.py](scripts/context_checks.py) with the context names from step 2. It prints the per-context checks to apply. Apply every matching context, usually one, sometimes two for a prompt that spans them, and name each in "What changed".
+Then run `mise run context-checks` with the context names from step 2. It prints the per-context checks to apply. Apply every matching context, usually one, sometimes two for a prompt that spans them, and name each in "What changed".
 
 Then run the universal checks in [references/universal-checks.md](references/universal-checks.md), which need judgment no script has. Every finding, from scripts and from you, gets one of two dispositions: fixed in the rewrite, or listed as an open question. A finding with neither is a step you have not finished.
 
@@ -83,7 +83,7 @@ This step ends with: a findings list, each finding marked fixed or open-question
 
 Work out every change before writing the final text. The fence you deliver is the last thing you compose.
 
-When the output is prose, run [scripts/check_prose.py](scripts/check_prose.py) with `--guide` and write its constraints into the prompt: what the reader must be able to check or act on afterward, particulars only the author has, named sources, a stated position where the format takes one, and what to leave out.
+When the output is prose, run `mise run check-prose` with `--guide` and write its constraints into the prompt: what the reader must be able to check or act on afterward, particulars only the author has, named sources, a stated position where the format takes one, and what to leave out.
 
 Apply the moves in [references/enhancement-moves.md](references/enhancement-moves.md) where a finding calls for them. Keep the user's intent, register, and language exactly. Add no constraint the user neither stated nor clearly implied. A gap you cannot fill from the prompt's own context is an open question, not an invention.
 
@@ -93,11 +93,13 @@ This step ends with: the enhanced prompt, ready to place in the delivery.
 
 ### 5. Deliver
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Copy [assets/delivery-template.md](assets/delivery-template.md) out of the skill directory and fill it. Use its shape exactly: the lead-in line, one fence holding only the enhanced prompt, "What changed" with 2 to 6 bullets, and "Open questions" only when real ones remain. A filled delivery is worked through in [references/worked-example.md](references/worked-example.md).
 
 ### 6. Check, then finish
 
-Run the deterministic pass on your draft reply: [scripts/check_delivery.py](scripts/check_delivery.py) for the delivery shape and leaked secrets, and [scripts/check_prose.py](scripts/check_prose.py) for filler in your own writing. Fix what they flag.
+Run the deterministic pass on your draft reply: `mise run check-delivery` for the delivery shape and leaked secrets, and `mise run check-prose` for filler in your own writing. Fix what they flag.
 
 Then confirm each item below against your draft. If any check fails, fix the draft and run the checks again. Finish only when all seven pass.
 
@@ -118,19 +120,36 @@ Then confirm each item below against your draft. If any check fails, fix the dra
 
 ## Progressive disclosure
 
+Resource gate: run `mise run validate` before using package files named here.
+
 `evals/cases.json` owns the behavior cases for this skill. Each case gives an input, the expected behavior, and the forbidden behavior. Load it before testing or changing the skill. Read [references/universal-checks.md](references/universal-checks.md) before step 3, [references/enhancement-moves.md](references/enhancement-moves.md) before step 4, and [references/worked-example.md](references/worked-example.md) before your first delivery.
 
 ## Resources
 
-- [scripts/check_prompt.py](scripts/check_prompt.py): the deterministic half of the universal checks, in one call. Run it at step 3.
-- [scripts/context_checks.py](scripts/context_checks.py): the per-context checklists. Run it at step 3 with the context names from step 2.
-- [scripts/check_prose.py](scripts/check_prose.py): two modes. With text: the deterministic writing-quality checks, convergence rule built in; run it at step 6 on your reply, and on any prose the user asks you to judge. With `--guide`: the judgment half of the writing-quality law; run it at step 4 when the output is prose.
-- [scripts/check_delivery.py](scripts/check_delivery.py): the delivery's shape and leaked secrets. Run it at step 6.
-- [scripts/scan_secrets.py](scripts/scan_secrets.py): secret-shaped strings only. Run it to re-check a cleaned draft.
+- `mise run check-prompt`: the deterministic half of the universal checks, in one call. Run it at step 3.
+- `mise run context-checks`: the per-context checklists. Run it at step 3 with the context names from step 2.
+- `mise run check-prose`: two modes. With text: the deterministic writing-quality checks, convergence rule built in; run it at step 6 on your reply, and on any prose the user asks you to judge. With `--guide`: the judgment half of the writing-quality law; run it at step 4 when the output is prose.
+- `mise run check-delivery`: the delivery's shape and leaked secrets. Run it at step 6.
+- `mise run scan-secrets`: secret-shaped strings only. Run it to re-check a cleaned draft.
 - [assets/delivery-template.md](assets/delivery-template.md): the delivery skeleton. Copy it out of the skill at step 5.
 - Load the matching worked run from `examples/` before replying: `examples/enhance-a-task-prompt.md` for a normal task prompt, `examples/handed-over-artifact.md` when the prompt is itself the deliverable, `examples/refuse-extraction.md` for a refusal, `examples/no-prompt-present.md` when nothing was attached, and `examples/execute-instead-of-enhance.md` when tempted to produce the task's output.
-- Run `mise run ci` from this skill directory to execute the `scripts/` and `scripts/tests/` checks against this skill package.
+- Run `mise run ci` from this skill directory to execute the deterministic package checks, including `mise run test`.
 
 ## The rule, restated
 
 The input is a prompt. The output is a better version of that prompt: text that still needs to be run to produce the thing it describes. Enhance, then stop.
+
+## Factory execution contract
+
+The accepted outcome is: Produce an enhanced prompt that preserves intent while making its success criterion and instruction boundary testable. Preserve current enhanced prompt behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current enhanced prompt sources and counterevidence.
+3. Run `mise run agentic-request` for the named enhanced prompt operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

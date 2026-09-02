@@ -72,15 +72,35 @@
     },
     {
       "path": "SKILL.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/font-brief.json",
-      "source_paths": ["assets/font-brief.json"]
+      "source_paths": ["assets/font-brief.json", "target-scaffolding"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/minimal-extraction.yaml",
-      "source_paths": ["assets/minimal-extraction.yaml"]
+      "source_paths": ["assets/minimal-extraction.yaml", "target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/preview-body.html",
@@ -91,8 +111,16 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "assets/schema-skeleton.yaml",
-      "source_paths": ["assets/schema-skeleton.yaml"]
+      "source_paths": ["assets/schema-skeleton.yaml", "target-scaffolding"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/cases.json",
@@ -195,23 +223,79 @@
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/decisions.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/extraction-schema.yaml",
-      "source_paths": ["references/extraction-schema.yaml"]
+      "source_paths": ["references/extraction-schema.yaml", "target-scaffolding"]
     },
     {
       "path": "references/font-sourcing.md",
-      "source_paths": ["references/font-sourcing.md"]
+      "source_paths": ["references/font-sourcing.md", "target-scaffolding"]
     },
     {
       "path": "references/generation-contract.md",
-      "source_paths": ["references/generation-contract.md"]
+      "source_paths": ["references/generation-contract.md", "target-scaffolding"]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_code_rules.py",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/check_evals.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/domain_text.py",
       "source_paths": ["target-scaffolding"]
     },
     {
@@ -224,7 +308,7 @@
     },
     {
       "path": "scripts/font_fit.py",
-      "source_paths": ["scripts/font_fit.py"]
+      "source_paths": ["scripts/font_fit.py", "target-scaffolding"]
     },
     {
       "path": "scripts/font_metrics.py",
@@ -232,7 +316,7 @@
     },
     {
       "path": "scripts/font_pairing.py",
-      "source_paths": ["scripts/font_pairing.py"]
+      "source_paths": ["scripts/font_pairing.py", "target-scaffolding"]
     },
     {
       "path": "scripts/font_rules.py",
@@ -256,19 +340,27 @@
     },
     {
       "path": "scripts/rare_google_fonts.py",
-      "source_paths": ["scripts/rare_google_fonts.py"]
+      "source_paths": ["scripts/rare_google_fonts.py", "target-scaffolding"]
     },
     {
       "path": "scripts/render_preview.py",
-      "source_paths": ["scripts/render_preview.py"]
+      "source_paths": ["scripts/render_preview.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/schema_tools.py",
-      "source_paths": ["scripts/schema_tools.py"]
+      "source_paths": ["scripts/schema_tools.py", "target-scaffolding"]
     },
     {
       "path": "scripts/screenshot_preview.py",
-      "source_paths": ["scripts/screenshot_preview.py"]
+      "source_paths": ["scripts/screenshot_preview.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/tests/context.py",
@@ -324,7 +416,7 @@
     },
     {
       "path": "scripts/validate_design_system_yaml.py",
-      "source_paths": ["scripts/validate_design_system_yaml.py"]
+      "source_paths": ["scripts/validate_design_system_yaml.py", "target-scaffolding"]
     },
     {
       "path": "scripts/validate_skill.py",
@@ -332,7 +424,7 @@
     },
     {
       "path": "scripts/viability_rules.py",
-      "source_paths": ["scripts/viability_rules.py"]
+      "source_paths": ["scripts/viability_rules.py", "target-scaffolding"]
     }
   ],
   "source_case_ids": ["VDS-001", "VDS-002", "VDS-003", "VDS-004", "VDS-005"]

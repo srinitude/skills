@@ -1,5 +1,7 @@
 # Baseline and ledger contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure steps 1 and 2.
 
 ## Baseline

@@ -33,12 +33,14 @@ PY
 200 https://pubmed.ncbi.nlm.nih.gov/17907866/ A new look at habits and the habit-goal interface - PubMed
 exit 0
 
-$ python3 scripts/validate_verdict.py --input ../../.artifacts/example-runs/human-verdict.md
+$ mise run validate-verdict --input ../../.artifacts/example-runs/human-verdict.md
 {"errors": [], "input": "../../.artifacts/example-runs/human-verdict.md", "status": "PASS"}
 exit 0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 `../../.artifacts/example-runs/human-verdict.md`
 

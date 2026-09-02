@@ -25,6 +25,8 @@ Use conversation mode for live requests. Use artifact audit mode only when the u
 
 ## Contract fields
 
+Resource gate: run `mise run validate` before using package files named here.
+
 - **Outcome:** The observable end state.
 - **Proof:** Evidence that decides PASS or BLOCKED.
 - **Boundaries:** Scope, authority, resources, privacy, cost, and reversibility.
@@ -89,6 +91,8 @@ When the next action is text revision, load `meaning-preserving-rewrite`. Route 
 
 ## Which worked example should you read?
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Read `examples/conversation-candidate-path.md` when a live request names an outcome, boundary, and proposed implementation. Read `examples/artifact-audit.md` when a policy or specification may mix fixed approval rules with replaceable tools. Read `examples/simple-request-bypass.md` before adding contract work to a simple request; this is the failure the skill is most likely to cause.
 
 ## Pitfalls
@@ -103,7 +107,7 @@ Read `examples/conversation-candidate-path.md` when a live request names an outc
 
 ## Progressive disclosure
 
-Read `references/eval-cases.json` before testing, reviewing, or changing runtime behavior. Read `references/generation-contract.md` before changing package structure or native-to-public lineage. Read `evals/cases.json` and the rest of `evals/` only when measuring activation, behavior, failure handling, recovery, or speed. Load `scripts/tests/` before changing validation behavior, then run `mise run ci`; ordinary use does not load `scripts/`.
+Read `references/eval-cases.json` before testing, reviewing, or changing runtime behavior. Read `references/generation-contract.md` before changing package structure or native-to-public lineage. Read `evals/cases.json` and the rest of `evals/` only when measuring activation, behavior, failure handling, recovery, or speed. Load `mise run test` before changing validation behavior, then run `mise run ci`; ordinary use does not load `mise run test`.
 
 ## Verification
 
@@ -114,3 +118,18 @@ Read `references/eval-cases.json` before testing, reviewing, or changing runtime
 - Unknowns stay visible instead of being resolved by guesswork.
 - The contract can admit a better safe route without allowing a worse result.
 - External actions and source mutations remain behind their normal gates.
+
+## Factory execution contract
+
+The accepted outcome is: Preserve the requested outcome boundary and proof threshold while replacing only failed candidate paths. Preserve current outcome boundary behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current outcome boundary sources and counterevidence.
+3. Run `mise run agentic-request` for the named outcome boundary operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

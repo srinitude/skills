@@ -50,6 +50,24 @@ LATIN = [
 WORD_RES = [(w, re.compile(r"\b%s\b" % re.escape(w), re.I)) for w in WORDS]
 LIST_RE = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
+SCRIPT_PATH_RE = re.compile(r"(?<![\w-])scripts/")
+RESOURCE_ROOTS = (
+    "references", "assets", "examples", "evals", "fixtures", "schemas",
+    "templates", "data", "config", "configs", "docs", "tests", ".github",
+    ".agents", "prompts", "hooks", "workflows", "reports", "artifacts",
+    "snapshots", "baselines", "benchmarks", "corpus", "corpora", "policies",
+    "contracts", "manifests", "migrations", "resources", "samples", "images",
+    "icons", "fonts", "media", "static", "public",
+)
+ROOT_PATH_RE = re.compile(
+    r"(?<![\w./-])(?:" + "|".join(map(re.escape, RESOURCE_ROOTS)) + r")/")
+FILE_PATH_RE = re.compile(
+    r"(?<![\w./-])(?:\.\.?/)?[\w.-]+/(?:[\w.-]+/)*[\w.-]+\.[A-Za-z0-9]{1,12}\b")
+URL_RE = re.compile(r"https?://[^\s)>]+")
+STEP_LABELS = {
+    "**Input**", "**Action**", "**Save**",
+    "**Pass**", "**Blocked**", "**Feeds**",
+}
 
 
 def check_words(line):
@@ -70,7 +88,45 @@ def check_symbols(line):
     found.extend(msg for pattern, msg in LATIN if pattern.search(line))
     if line.startswith("####"):
         found.append("heading nested past three levels")
+    if SCRIPT_PATH_RE.search(line):
+        found.append("markdown must reference the owning Mise task, not scripts/")
     return found
+
+
+def check_resource_path(line, fence_paired):
+    if SCRIPT_PATH_RE.search(line):
+        return []
+    plain = URL_RE.sub("", line)
+    referenced = ROOT_PATH_RE.search(plain) or FILE_PATH_RE.search(plain)
+    if referenced and "mise run " not in line and not fence_paired:
+        return ["package file reference must share its block with the owning Mise task"]
+    return []
+
+
+def mise_fence_lines(lines):
+    paired, start = set(), None
+    for index, line in enumerate(lines):
+        if not FENCE_RE.match(line):
+            continue
+        if start is None:
+            start = index
+            continue
+        if any("mise run " in item for item in lines[start:index + 1]):
+            paired.update(range(start, index + 1))
+        start = None
+    return paired
+
+
+def mise_section_lines(lines):
+    starts = [index for index, line in enumerate(lines)
+              if line.startswith("#") and line.lstrip("#").startswith(" ")]
+    boundaries = sorted(set([skip_frontmatter(lines), *starts, len(lines)]))
+    paired = set()
+    for index in range(len(boundaries) - 1):
+        start, end = boundaries[index], boundaries[index + 1]
+        if any("mise run " in line for line in lines[start:end]):
+            paired.update(range(start, end))
+    return paired
 
 
 def skip_frontmatter(lines):
@@ -85,7 +141,8 @@ def breaks_block(line, fence):
     if FENCE_RE.match(line):
         return True, not fence
     stripped = line.strip()
-    if fence or not stripped or stripped.startswith(("#", "|", ">")):
+    if (fence or not stripped or stripped.startswith(("#", "|", ">"))
+            or stripped in STEP_LABELS):
         return True, fence
     return False, fence
 
@@ -120,9 +177,15 @@ def check_file(path):
     problems = []
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
+    if len(lines) > 200:
+        problems.append(f"{path}:201: markdown has {len(lines)} lines; cap is 200")
+    fence_paired = mise_fence_lines(lines)
+    section_paired = mise_section_lines(lines)
     for number, line in enumerate(lines, start=1):
         messages = check_words(line) + check_phrases(line)
         messages += check_symbols(line)
+        paired = number - 1 in fence_paired or number - 1 in section_paired
+        messages += check_resource_path(line, paired)
         problems.extend(f"{path}:{number}: {m}" for m in messages)
     for block in collect_blocks(lines):
         check_block(block, path, problems)

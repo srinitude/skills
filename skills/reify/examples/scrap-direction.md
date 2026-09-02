@@ -16,7 +16,7 @@ $ grep -n "^- status\|^- next_action" reify-log-abandoned-malls.md
 16:- status: scrapped
 EXIT=0
 
-$ python3 "$SKILL_DIR/scripts/validate_brief.py" ./BRIEF.json
+$ mise run validate-brief ./BRIEF.json
 {"errors": [], "status": "PASS"}
 EXIT=0
 

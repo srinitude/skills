@@ -24,6 +24,8 @@ Mention-only discussion is not a call. A request for another callable does not a
 
 ## How does one call run?
 
+Resource gate: run `mise run validate` before using package files named here.
+
 1. Confirm the runtime callable identity matches `assets/tool-identity.json`; stop on any mismatch.
 2. Read `references/tool-contract.md` before building arguments or deciding whether a retry is safe.
 3. Read `references/behavior-profile.md` before the first in-scope call and keep every rule active through cleanup.
@@ -46,7 +48,7 @@ Mention-only discussion is not a call. A request for another callable does not a
 - Read `references/behavior-profile.md` before every in-scope call and after any rule conflict.
 - Inspect `assets/tool-identity.json` when resolving identity or a near-name collision.
 - Read `examples/` before the first call or a failure response.
-- Run `scripts/` and `scripts/tests/` through `mise run ci` after a package edit.
+- Run `mise run test` through `mise run ci` after a package edit.
 - Read `evals/` when testing activation, behavior, failure handling, recovery, or speed.
 
 ## Gotchas

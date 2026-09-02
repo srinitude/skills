@@ -1,5 +1,7 @@
 # Dependency reconciliation
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Required composition.
 
 Use this file when a rewrite also changes package shape or must follow a host's writing rules.

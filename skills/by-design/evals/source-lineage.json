@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.1.0",
   "native_version": "0.1.0",
-  "native_manifest_sha256": "e5ff0173e293b190c01de0daeed224e0a28dc03bb560f7b6363489b66616e499",
+  "native_manifest_sha256": "b31b87475f0274d1cec4494550a995a396c1afdf36987e4ca6ebb923718dc7c3",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,6 +11,10 @@
     {
       "path": "SKILL.md",
       "source_paths": ["SKILL.md"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["assets/decision-records.json"]
     },
     {
       "path": "assets/disciplines.yaml",
@@ -25,8 +29,28 @@
       "source_paths": ["assets/gate-terms.yaml"]
     },
     {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["assets/improvement-contract.json"]
+    },
+    {
       "path": "assets/index.yaml",
       "source_paths": ["assets/index.yaml"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["assets/invocation-receipt-template.json"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["assets/mise-primitives-catalog.json"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["assets/mise-primitives.json"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["assets/primitive-lifecycle.json"]
     },
     {
       "path": "assets/questions/accessibility.yaml",
@@ -181,6 +205,10 @@
     {
       "path": "assets/trade-terms.yaml",
       "source_paths": ["assets/trade-terms.yaml"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["assets/use-case-contract.json"]
     },
     {
       "path": "evals/baseline.json",
@@ -431,6 +459,18 @@
       "source_paths": ["references/ledger-format.md"]
     },
     {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["references/resource-and-experiment-design.md"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["references/use-case-specificity.md"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": ["scripts/agentic_request_contract.py"]
+    },
+    {
       "path": "scripts/bench.py",
       "source_paths": ["scripts/bench.py"]
     },
@@ -439,20 +479,56 @@
       "source_paths": ["scripts/check_code_rules.py"]
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["scripts/check_decision_records.py"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["scripts/check_domain_research.py"]
+    },
+    {
       "path": "scripts/check_evals.py",
       "source_paths": ["scripts/check_evals.py"]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["scripts/check_improvement_contract.py"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["scripts/check_invocation_receipt.py"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["scripts/check_mise_primitives.py"]
     },
     {
       "path": "scripts/check_placeholders.py",
       "source_paths": ["scripts/check_placeholders.py"]
     },
     {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["scripts/check_primitive_lifecycle.py"]
+    },
+    {
       "path": "scripts/check_reply.py",
       "source_paths": ["scripts/check_reply.py"]
     },
     {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["scripts/check_task_graph.py"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["scripts/check_use_case_contract.py"]
+    },
+    {
       "path": "scripts/crafts.py",
       "source_paths": ["scripts/crafts.py"]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": ["scripts/domain_text.py"]
     },
     {
       "path": "scripts/gate.py",
@@ -471,6 +547,10 @@
       "source_paths": ["scripts/locate.py"]
     },
     {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["scripts/run_agentic_request.py"]
+    },
+    {
       "path": "scripts/skill_info.py",
       "source_paths": ["scripts/skill_info.py"]
     },
@@ -481,6 +561,10 @@
     {
       "path": "scripts/speak.py",
       "source_paths": ["scripts/speak.py"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["scripts/sync_mise_primitives.py"]
     },
     {
       "path": "scripts/tests/test_bench.py",
@@ -542,7 +626,11 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "7e4f528cfd508ba8900e039002627821501a16d55c706d42858daf058725ada9"
+      "sha256": "4a8481e67b9a60235522b27a58f598846b06f703739eaf9ab406f36dd901870f"
+    },
+    {
+      "path": "assets/decision-records.json",
+      "sha256": "87d3755bfa0c907b6023a69a527ad567e9a57ae706cf2ce56b719f532b3929a7"
     },
     {
       "path": "assets/disciplines.yaml",
@@ -557,8 +645,28 @@
       "sha256": "965aadbb1cd9a3422f8476630ad32c519982e2203cba73481a646b0ce642b606"
     },
     {
+      "path": "assets/improvement-contract.json",
+      "sha256": "87b1c0e1d6439f481a651088dfc22e3bf4c1c525a2b149777dfcf7903cb15cec"
+    },
+    {
       "path": "assets/index.yaml",
       "sha256": "40a1ee17fed002002d6abdcdd39d2f67e1c5776b978ede7bd906070c1fc60fe7"
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "sha256": "01ff549bfe8ac44dfb1706cb92b7c1c60614b7b69b776ca51c1c51d33d7609e8"
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "sha256": "e14268a25737ad4d7e7e4bf33b0858c4948140eee08f8941d23039f12c665128"
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "sha256": "8bdf4544e41889795beb2c0234ff8a3ece2b8aefefa061d711f640b014bf30f6"
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "sha256": "8da089ef4766d2217a0d2ff20e89ff6936a372cd108698b472ba25bbc4a1f2f6"
     },
     {
       "path": "assets/questions/accessibility.yaml",
@@ -711,6 +819,10 @@
     {
       "path": "assets/trade-terms.yaml",
       "sha256": "0abc77deec3538749a94bfa1aac70ffa27722b506634dc8a5edcdba2189177ee"
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "sha256": "d608ebf9765422f2b2c43bbffe825f02a82c3f66fdca497791931784d437d27e"
     },
     {
       "path": "evals/baseline.json",
@@ -878,19 +990,19 @@
     },
     {
       "path": "examples/example-ask.md",
-      "sha256": "5385caa526c1752687fba8cd41c0148688118af47d1de68d8fbd3f4e640cba61"
+      "sha256": "bb80a23702731aa0511a2a7a4e484aa0fa65ef4df08b25bfd722db349763cca6"
     },
     {
       "path": "examples/example-audit.md",
-      "sha256": "dba63bef9e1de21cf34ed94fdb1ec15d5a7e870b0a9fec0d8db0afe3efb9be62"
+      "sha256": "41e395be181b870b3fa0d40fdab5bf180b82f2e6ec253a5bf4959445aa665ee5"
     },
     {
       "path": "examples/example-choose.md",
-      "sha256": "4d358a6849e150e90ab0c499d6c0d164c9e6b6cbeb6c9638b927ca5acb214d8d"
+      "sha256": "e99f89c5f47b269017662a798a8c158eefa6318cf33025a7a014b097258060b5"
     },
     {
       "path": "examples/example-field-run.md",
-      "sha256": "6a09bea18fd4acec99f304d3940f57a44f92c98f97e6742c034bc6cfc6541d55"
+      "sha256": "c91301dfadb93b7a901a42f2147cd487d28af7798e428bd249660b14af1d3af2"
     },
     {
       "path": "examples/example-help.md",
@@ -898,67 +1010,79 @@
     },
     {
       "path": "examples/example-image-artifact.md",
-      "sha256": "b3940ea9cb725d5a1f1ab19ad54fdf32e462874c06bbb0c2d7c3da096d5be7aa"
+      "sha256": "4f4f2f7ddb84b51770c838aa6e0e57a03e374955191c74b655b456c128da16bf"
     },
     {
       "path": "examples/example-judge.md",
-      "sha256": "851a9cf121093d5d852f6116116323abe5d7d6e3143732047a2600765aba4024"
+      "sha256": "4c0a969e3bedd84456f8507f5b068122e2d3926f84784d3a4ce15c889c952041"
     },
     {
       "path": "examples/example-no-question.md",
-      "sha256": "89e3a7add543c5304855ddeef734d635741dfc28b42c71e1de4fbed071d01169"
+      "sha256": "d6ef6f76cd0eebf0367f7369d95f4dc0e255f93a11b7a0dfdfbfed346ca741c5"
     },
     {
       "path": "examples/example-not-design.md",
-      "sha256": "5e416aa513d373b151ebd0b4a6a44c84726e8ce5bfa736340493ecac25358f48"
+      "sha256": "a46d2c01369e6fa2c0b057383d4c28fb5d0fefb44e2a0fb38b95352f0721c994"
     },
     {
       "path": "examples/example-shape.md",
-      "sha256": "7a5327cf717fd808b513a69fe0f95a8c2d5986b908e5ef6ba18d6247a44b93fc"
+      "sha256": "071cd073d0ee1f1994f0d9f4bab7f7035f3ade00eac84d718fc1fc6a79c8097f"
     },
     {
       "path": "examples/example-watch.md",
-      "sha256": "d37f2903f2e3ef9c9e7d5d42a2d632188c8efd8bc53c4bfdaaa7c546d31ba8af"
+      "sha256": "8378e795f14a7cfe91f2da2a73dec6fe049414cb97b396896d9b8541344449f5"
     },
     {
       "path": "examples/example-weak-read.md",
-      "sha256": "b9d7b61a56d26c6ae24be2c003bb4814187a8c7060609eef9662235adbc76357"
+      "sha256": "72b8de4d93f840ee84731a8ac01fcbc41d1f9619f45e394965b4d086166c2228"
     },
     {
       "path": "examples/example-widened-slice.md",
-      "sha256": "266cad8677424c21b663930f8740bb8c8aa1fd2f5f1106cf0499ee57579ad48a"
+      "sha256": "a9cf9765ae3509efe280f14dd4a5eb837fde248a184ee1b4ca7266a93ae374fe"
     },
     {
       "path": "mise.toml",
-      "sha256": "c5d69698744e7311581759873233b0d30f0b5e64667a77aa2948f2a36056f361"
+      "sha256": "59435684fd56192a39bd3d2777b052c8a59a1826f2853796e559a7171123e25a"
     },
     {
       "path": "references/coordinates.md",
-      "sha256": "4b5c39833cbc81ca6663901a78573d54355373587c556388aa0f86e382e3d2c9"
+      "sha256": "4474e3c1891e678a2669755b68ee3fa3cf8ea179c8efe16c139fec26dd29a321"
     },
     {
       "path": "references/decisions-field.md",
-      "sha256": "ce6ed2e1fd25ec815aa459b109a36ec6f4329af142630f781944bbe2c81619e7"
+      "sha256": "a6dbbc99aeb19bf582e459af486ea7adf295fa5d4428df30c5f2581ccd1c1675"
     },
     {
       "path": "references/decisions.md",
-      "sha256": "b63bbe9b9a17ff521b7bde5614911c5ff9cdb0224c39dcbbed6f13d357d56db1"
+      "sha256": "79b8bc098cc36b3e0719777ab9aa38e51545e78df3e5f533bd033851d8735c44"
     },
     {
       "path": "references/disciplines.md",
-      "sha256": "33997fb529b0db9e227ed2573c11a307f0cb0a9237e48846cc4c57571bb5c9b8"
+      "sha256": "f1c51ccb07c564677d275e973679b5505cc0d6f1b802856cdd65e29f3c5bdad6"
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70"
+      "sha256": "23c34ff377ca2b3c25d525a80176317e97dc7fc3a1ab0fabb949749a0baa4d7c"
     },
     {
       "path": "references/interruption.md",
-      "sha256": "3eeddd72867fbb4794862f8773970ebfe20ec5a7f8e42846de0fa11a6eb11344"
+      "sha256": "9100fe53f7f5e30475285848bd67c19702f0cf3d683494ec566fe46ef3620363"
     },
     {
       "path": "references/ledger-format.md",
-      "sha256": "acb35278310255372b09a4ac6aed68ddd0e77e8264a999f5fb42d4bcd702bef8"
+      "sha256": "3aeb67b4e7b96bd68b45855b67bf8a43fb9627d3e8f5bbdd44d167a5d4c7a7e9"
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "sha256": "c5b823591b9cfcc7998ec08f8f8d8238a2b4d369feb30d6e4b003bbddc892b86"
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "sha256": "9d53f333858f518799467e296f16bc2c60643ca91698692f032fd0e205ca98be"
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "sha256": "fde69a88acaa362ef3ec44662dcebe8dcb7600f82bd4e372c0f0674d2ab22ad5"
     },
     {
       "path": "scripts/bench.py",
@@ -969,20 +1093,56 @@
       "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "sha256": "b73661cd61bd85127dd65b676255144b97d6094e4b2b52ae53dd85f86d9a2715"
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "sha256": "fca082945b193764c98682fd5556b09aeb52b7f4304acf9099e3d830a2a5e3d5"
+    },
+    {
       "path": "scripts/check_evals.py",
       "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec"
     },
     {
+      "path": "scripts/check_improvement_contract.py",
+      "sha256": "7a90ef820776294be93c925b91b8f5ef351dfc830b97c195a99c9194cbcba288"
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "sha256": "7d547b7e167849e4c471c367b2e8c1e6858151659839ff9118ffd5555675432f"
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "sha256": "b9c39ff5b9ba3af51a7af72579cc3a8b93981d34f3cb07ca3bc55b2c2bced4de"
+    },
+    {
       "path": "scripts/check_placeholders.py",
-      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a"
+      "sha256": "d944b0c712ee5a9d041755d4433b2818d693557d736ce67b4fc2ecfe7c07c8ed"
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "sha256": "daffec393c6b756c114b8f023e35db2e704d8387bfa751299f07567e74be76c0"
     },
     {
       "path": "scripts/check_reply.py",
       "sha256": "7be844f53136a508583ad94a8b16c7d6fab1b3b7acb54cb21feb7320785952e3"
     },
     {
+      "path": "scripts/check_task_graph.py",
+      "sha256": "8af024693eedd92a6bea714df7d7b1d7c64f1b62bf241307b856fb38051c252c"
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "sha256": "8867af8c0193656d9efb222abce27f8704e02cc62183b43193f4ced660f5d9bf"
+    },
+    {
       "path": "scripts/crafts.py",
       "sha256": "74305fe263e3ac5875fbbf9014ed966f5966bf9f44f0977842c7dadddbdff8fe"
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "sha256": "923bab6d186aa3b48938b02222045107386aa0f9ecc59b710b4347286f23b76e"
     },
     {
       "path": "scripts/gate.py",
@@ -994,11 +1154,15 @@
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399"
+      "sha256": "9f1895e4922dee00bf6c6598fa0076dd51020fe96521d56d20de39911cef1633"
     },
     {
       "path": "scripts/locate.py",
       "sha256": "12eed4c58b58f5a9f0b9bf49d8c3b9936cdc71f91e1fa355e3b6dcf8a9fb7b50"
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "sha256": "9c673f3a30915fb960cbf0c48d39ce3810d215e19239881ceaf4615192135f40"
     },
     {
       "path": "scripts/skill_info.py",
@@ -1013,12 +1177,16 @@
       "sha256": "842f4b2600f710e8e9580e541a71cdc51d8bbbf073ff3459cc1032636938eb27"
     },
     {
+      "path": "scripts/sync_mise_primitives.py",
+      "sha256": "75415d9266df6b8fc7a37f3c9e83c0d03623f00355fa06889331da37cac3b216"
+    },
+    {
       "path": "scripts/tests/test_bench.py",
       "sha256": "8242c2f4894dc467fa2f2a8287dbd554578e40565bc7c96581c35646a18928b4"
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
-      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652"
+      "sha256": "014839938d5b25673374bcd1fc959b4b2b52db99d8eb0271e495dca8dd46d204"
     },
     {
       "path": "scripts/tests/test_crafts.py",
@@ -1042,7 +1210,7 @@
     },
     {
       "path": "scripts/tests/test_scripts.py",
-      "sha256": "d81e7099bda6963fcb35503de564bbf74477036fa904368cbf41d78259010c73"
+      "sha256": "ecd50a6a996d73c0340a1dc5a889bdcf59ed2c0875676e28d088e7d9c3b8abfb"
     },
     {
       "path": "scripts/tests/test_slice.py",
@@ -1058,7 +1226,7 @@
     },
     {
       "path": "scripts/validate_skill.py",
-      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a"
+      "sha256": "0cf410badb4c8a2fec43788b6b66a5cf4c27a90d29f51fac6170cdbb206de6e9"
     },
     {
       "path": "scripts/yamlread.py",

@@ -9,13 +9,13 @@ What can dedupe handle?
 ## Command
 
 ```text
-$ python3 scripts/dedupe.py --help
+$ mise run dedupe --help
 usage: dedupe.py [-h] {inspect} ...
 
 Inspect bounded collections for duplicates without changing input.
 
 Usage:
-  python3 scripts/dedupe.py inspect --request request.json
+  mise run dedupe inspect --request request.json
 
 Exit codes:
   0  report written to stdout
@@ -23,7 +23,7 @@ Exit codes:
   2  command-line usage error
 
 Example:
-  python3 scripts/dedupe.py inspect --request examples/list-request.json
+  mise run dedupe inspect --request examples/list-request.json
 
 positional arguments:
   {inspect}

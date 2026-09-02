@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "reify",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted concrete artifact result.",
+      "motivation": "The concrete artifact decision needs its correct owner.",
+      "why_this_path": "The concrete artifact responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current concrete artifact contract"],
+      "expected_effect": "Make the concrete artifact decision testable.",
+      "proof": "Fresh concrete artifact evidence from the named owner.",
+      "falsifier": "Current concrete artifact evidence contradicts the decision.",
+      "failure_branch": "Block the concrete artifact result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted concrete artifact result.",
+      "motivation": "The concrete artifact decision needs its correct owner.",
+      "why_this_path": "The concrete artifact responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current concrete artifact contract"],
+      "expected_effect": "Make the concrete artifact decision testable.",
+      "proof": "Fresh concrete artifact evidence from the named owner.",
+      "falsifier": "Current concrete artifact evidence contradicts the decision.",
+      "failure_branch": "Block the concrete artifact result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted concrete artifact result.",
+      "motivation": "The concrete artifact decision needs its correct owner.",
+      "why_this_path": "The concrete artifact responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current concrete artifact contract"],
+      "expected_effect": "Make the concrete artifact decision testable.",
+      "proof": "Fresh concrete artifact evidence from the named owner.",
+      "falsifier": "Current concrete artifact evidence contradicts the decision.",
+      "failure_branch": "Block the concrete artifact result and restore the accepted state."
+    }
+  ]
+}

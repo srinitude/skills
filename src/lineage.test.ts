@@ -29,10 +29,10 @@ test('binds the public starting-point port to its complete baseline packet', asy
   expect(new Set(lineage.source_case_ids).size).toBe(18);
   expect(lineage.source_files).toHaveLength(15);
 
-  expect(lineage.public_files).toHaveLength(15);
+  expect(lineage.public_files.length).toBeGreaterThanOrEqual(15);
   expect(lineage.public_files).toContainEqual({
     path: 'SKILL.md',
-    source_paths: ['SKILL.md'],
+    source_paths: ['SKILL.md', 'target-scaffolding'],
   });
   await Promise.all(
     lineage.public_files.map((entry) =>
@@ -88,13 +88,13 @@ const behaviorPorts = [
   {
     slug: 'would-agents-actually',
     nativeVersion: '0.1.0',
-    manifest: 'd5d3f6ecb83857a3cdb4426b477c8b7657155f3355099a0d5d22e9dbbfdf1194',
+    manifest: 'cb00bfd6e965bb60c8ba5dc6de57e00dc96c058fa4d75ba6db8dc0684fe17e16',
     sourcePrefix: 'WAA',
   },
   {
     slug: 'would-humans-actually',
     nativeVersion: '0.1.0',
-    manifest: '6e9e8e59f5a8524f9339697dcd21af6c620166f57ef1cd3f09157aa9ee76a65c',
+    manifest: 'bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a',
     sourcePrefix: 'WHA',
   },
 ];

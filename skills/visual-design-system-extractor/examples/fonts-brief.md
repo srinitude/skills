@@ -8,16 +8,18 @@ Guess removed: that the rarest available family is the right family. Fit and leg
 
 ## The reply
 
+Resource gate: run `mise run validate` before using package files named here.
+
 I mapped the visible type evidence into `assets/font-brief.json`, pinned the closest readable display and text matches, ran the live catalog set command, and checked the pair. Wittgenstein takes display, Parastoo takes text, and all seven pairing dimensions pass.
 
 ## Command run
 
 ```text
-$ python3 scripts/rare_google_fonts.py set \
+$ mise run font-set -- \
     --brief assets/font-brief.json \
     --output examples/work/set.json
 exit=0
-$ python3 -c "import json;d=json.load(open('examples/work/set.json'));print([(c['family'],c['rarity_percentile']) for c in d['chosen']]);print(d['vetoes']);print(d['pairing']['passes'])"
+$ mise run font-record -- examples/work/set.json
 [('Wittgenstein', 70.2), ('Parastoo', 81.5)]
 []
 True
@@ -29,7 +31,7 @@ The role filters make the visual decision reproducible. Both selected families c
 ## Verification
 
 ```text
-$ python3 scripts/rare_google_fonts.py verify \
+$ mise run font-verify -- \
     --family Wittgenstein --family Parastoo
 {
   "checked": 2,
@@ -63,6 +65,8 @@ exit=0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 | File                   | Contents                                                                                             |
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |

@@ -1,5 +1,7 @@
 # Finding ledger template
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Copy this file outside the installed skill before recording an audit.
 
 ## Audit boundary

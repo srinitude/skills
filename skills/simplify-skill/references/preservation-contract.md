@@ -1,5 +1,7 @@
 # Preservation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure steps 2, 3, and 8.
 
 Freeze an ordered baseline packet of every governed file, origin fact, existing check, and representative task. Record path, bytes, hash, and absent files.

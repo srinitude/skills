@@ -17,7 +17,7 @@ The skill accepts help, generate, and apply. Generate needs one exact tool refer
 ## Commands run
 
 ```text
-$ python3 scripts/tool_call_config.py help
+$ mise run tool-call-config help
 usage: tool_call_config.py [-h] {generate,apply} ...
 
 Generate or apply one exact tool behavior configuration.
@@ -28,8 +28,8 @@ Exit codes:
   2  usage, identity, path, or input error
 
 Examples:
-  python3 scripts/tool_call_config.py generate @tool.json --behavior @rules.json --output ./out
-  python3 scripts/tool_call_config.py apply @tool.json --target my-skill --skills-root ../ --behavior @rules.json --integration @plan.json
+  mise run tool-call-config generate @tool.json --behavior @rules.json --output ./out
+  mise run tool-call-config apply @tool.json --target my-skill --skills-root ../ --behavior @rules.json --integration @plan.json
 
 positional arguments:
   {generate,apply}

@@ -1,5 +1,7 @@
 # The analysis was right and the reply was too long
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this before sending a reply that contains your own reasoning, tables, or step numbers. Verbosity is the failure this skill causes most often, because it runs a five-point map, a route comparison, and a proof checklist before answering.
 
 Guess it removes: how much of the private analysis the user should see, and whether a correct argument justifies its own length.

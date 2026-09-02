@@ -4,7 +4,7 @@ Run from the skill directory.
 
 ## Command
 
-`python3 scripts/validate_packet.py assets/fixtures/fail-performance.json`
+`mise run validate-packet assets/fixtures/fail-performance.json`
 
 ## Standard output
 

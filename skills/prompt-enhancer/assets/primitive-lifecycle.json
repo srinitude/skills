@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "prompt-enhancer",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "prompt-enhancer-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt actors aligned.",
+      "motivation": "The enhanced prompt result depends on actors ownership.",
+      "proof": "Fresh enhanced prompt actors evidence."
+    },
+    "objects": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt objects aligned.",
+      "motivation": "The enhanced prompt result depends on objects ownership.",
+      "proof": "Fresh enhanced prompt objects evidence."
+    },
+    "actions": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt actions aligned.",
+      "motivation": "The enhanced prompt result depends on actions ownership.",
+      "proof": "Fresh enhanced prompt actions evidence."
+    },
+    "states": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt states aligned.",
+      "motivation": "The enhanced prompt result depends on states ownership.",
+      "proof": "Fresh enhanced prompt states evidence."
+    },
+    "invariants": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt invariants aligned.",
+      "motivation": "The enhanced prompt result depends on invariants ownership.",
+      "proof": "Fresh enhanced prompt invariants evidence."
+    },
+    "variants": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt variants aligned.",
+      "motivation": "The enhanced prompt result depends on variants ownership.",
+      "proof": "Fresh enhanced prompt variants evidence."
+    },
+    "interfaces": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt interfaces aligned.",
+      "motivation": "The enhanced prompt result depends on interfaces ownership.",
+      "proof": "Fresh enhanced prompt interfaces evidence."
+    },
+    "authorities": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt authorities aligned.",
+      "motivation": "The enhanced prompt result depends on authorities ownership.",
+      "proof": "Fresh enhanced prompt authorities evidence."
+    },
+    "failures": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt failures aligned.",
+      "motivation": "The enhanced prompt result depends on failures ownership.",
+      "proof": "Fresh enhanced prompt failures evidence."
+    },
+    "recoveries": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt recoveries aligned.",
+      "motivation": "The enhanced prompt result depends on recoveries ownership.",
+      "proof": "Fresh enhanced prompt recoveries evidence."
+    },
+    "evidence": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt evidence aligned.",
+      "motivation": "The enhanced prompt result depends on evidence ownership.",
+      "proof": "Fresh enhanced prompt evidence evidence."
+    },
+    "time": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt time aligned.",
+      "motivation": "The enhanced prompt result depends on time ownership.",
+      "proof": "Fresh enhanced prompt time evidence."
+    },
+    "resources": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt resources aligned.",
+      "motivation": "The enhanced prompt result depends on resources ownership.",
+      "proof": "Fresh enhanced prompt resources evidence."
+    },
+    "quality": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt quality aligned.",
+      "motivation": "The enhanced prompt result depends on quality ownership.",
+      "proof": "Fresh enhanced prompt quality evidence."
+    },
+    "terminology": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt terminology aligned.",
+      "motivation": "The enhanced prompt result depends on terminology ownership.",
+      "proof": "Fresh enhanced prompt terminology evidence."
+    },
+    "exclusions": {
+      "profile": "prompt-enhancer-lifecycle",
+      "outcome": "Keep enhanced prompt exclusions aligned.",
+      "motivation": "The enhanced prompt result depends on exclusions ownership.",
+      "proof": "Fresh enhanced prompt exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "references": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "assets": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "scripts": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "tests": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "examples": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "evals": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "policies": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "schemas": {
+      "profile": "prompt-enhancer-lifecycle"
+    },
+    "records": {
+      "profile": "prompt-enhancer-lifecycle"
+    }
+  }
+}

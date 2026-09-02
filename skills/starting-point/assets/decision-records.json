@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "starting-point",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted observable outcome result.",
+      "motivation": "The observable outcome decision needs its correct owner.",
+      "why_this_path": "The observable outcome responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current observable outcome contract"],
+      "expected_effect": "Make the observable outcome decision testable.",
+      "proof": "Fresh observable outcome evidence from the named owner.",
+      "falsifier": "Current observable outcome evidence contradicts the decision.",
+      "failure_branch": "Block the observable outcome result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted observable outcome result.",
+      "motivation": "The observable outcome decision needs its correct owner.",
+      "why_this_path": "The observable outcome responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current observable outcome contract"],
+      "expected_effect": "Make the observable outcome decision testable.",
+      "proof": "Fresh observable outcome evidence from the named owner.",
+      "falsifier": "Current observable outcome evidence contradicts the decision.",
+      "failure_branch": "Block the observable outcome result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted observable outcome result.",
+      "motivation": "The observable outcome decision needs its correct owner.",
+      "why_this_path": "The observable outcome responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current observable outcome contract"],
+      "expected_effect": "Make the observable outcome decision testable.",
+      "proof": "Fresh observable outcome evidence from the named owner.",
+      "falsifier": "Current observable outcome evidence contradicts the decision.",
+      "failure_branch": "Block the observable outcome result and restore the accepted state."
+    }
+  ]
+}

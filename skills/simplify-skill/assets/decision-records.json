@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "simplify-skill",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted behavior-preserving simplification result.",
+      "motivation": "The behavior-preserving simplification decision needs its correct owner.",
+      "why_this_path": "The behavior-preserving simplification responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current behavior-preserving simplification contract"],
+      "expected_effect": "Make the behavior-preserving simplification decision testable.",
+      "proof": "Fresh behavior-preserving simplification evidence from the named owner.",
+      "falsifier": "Current behavior-preserving simplification evidence contradicts the decision.",
+      "failure_branch": "Block the behavior-preserving simplification result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted behavior-preserving simplification result.",
+      "motivation": "The behavior-preserving simplification decision needs its correct owner.",
+      "why_this_path": "The behavior-preserving simplification responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current behavior-preserving simplification contract"],
+      "expected_effect": "Make the behavior-preserving simplification decision testable.",
+      "proof": "Fresh behavior-preserving simplification evidence from the named owner.",
+      "falsifier": "Current behavior-preserving simplification evidence contradicts the decision.",
+      "failure_branch": "Block the behavior-preserving simplification result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted behavior-preserving simplification result.",
+      "motivation": "The behavior-preserving simplification decision needs its correct owner.",
+      "why_this_path": "The behavior-preserving simplification responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current behavior-preserving simplification contract"],
+      "expected_effect": "Make the behavior-preserving simplification decision testable.",
+      "proof": "Fresh behavior-preserving simplification evidence from the named owner.",
+      "falsifier": "Current behavior-preserving simplification evidence contradicts the decision.",
+      "failure_branch": "Block the behavior-preserving simplification result and restore the accepted state."
+    }
+  ]
+}

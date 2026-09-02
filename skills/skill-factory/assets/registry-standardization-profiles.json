@@ -1,0 +1,373 @@
+{
+  "version": "1.0.0",
+  "profiles": {
+    "always-current-datetime": {
+      "skill": "always-current-datetime",
+      "primary_term": "clock anchor",
+      "domain_terms": [
+        "clock anchor",
+        "timezone offset",
+        "relative date",
+        "direct turn"
+      ],
+      "outcome": "Bind one fresh clock anchor to each direct turn and resolve relative date language from it.",
+      "main_task": "refresh",
+      "main_run": "python3 scripts/current_anchor.py",
+      "text_rewrites": {
+        "SKILL.md": [
+          {
+            "old": "Load `mise run test` before changing script behavior and run those tests before implementation changes.",
+            "new": "Load the tests through `mise run test` before changing clock behavior, and rerun that task before implementation changes."
+          }
+        ],
+        "scripts/validate_skill.py": [
+          {
+            "old": "        elif body and f\"{name}/\" not in body:\n            problems.append(f\"body never references {name}/\")\n",
+            "new": ""
+          }
+        ],
+        "scripts/tests/test_ci_contract.py": [
+          {
+            "old": "    def test_ci_invokes_every_check_job(self):\n        steps = self.tasks[\"ci\"][\"run\"]\n        self.assertIsInstance(steps, list)\n        self.assertEqual(steps[0], \"mise run test\")\n        joined = \" \".join(steps)\n        for job in CHECK_JOBS:\n            self.assertIn(f\"mise run {job}\", joined)\n",
+            "new": "    def test_ci_depends_on_every_check_job(self):\n        dependencies = self.tasks[\"ci\"][\"depends\"]\n        self.assertEqual(dependencies[0], \"test\")\n        for job in CHECK_JOBS:\n            self.assertIn(job, dependencies)\n"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "source": "https://www.rfc-editor.org/info/rfc3339/",
+          "source_class": "standard",
+          "claim": "A clock anchor uses an unambiguous date and timezone offset representation.",
+          "limitations": "The standard does not select the user's intended timezone or prove a fresh direct turn read."
+        },
+        {
+          "source": "https://www.iana.org/time-zones/theory",
+          "source_class": "first_party",
+          "claim": "Timezone offset rules can change and need current zone data.",
+          "limitations": "The timezone database does not interpret relative date language."
+        },
+        {
+          "source": "https://docs.python.org/3/library/datetime.html",
+          "source_class": "first_party",
+          "claim": "An aware clock anchor carries enough timezone offset information for time comparison.",
+          "limitations": "A library contract does not prove that acquisition happened after the direct turn."
+        },
+        {
+          "source": "https://www.w3.org/TR/NOTE-datetime",
+          "source_class": "standard",
+          "claim": "A constrained date profile reduces ambiguous relative date output.",
+          "limitations": "This date profile does not own current civil time or user intent."
+        }
+      ]
+    },
+    "by-design": {
+      "skill": "by-design",
+      "primary_term": "design decision ledger",
+      "domain_terms": ["design decision ledger", "critique state", "rendered evidence", "interaction focus"],
+      "outcome": "Turn a named design intent into a reviewed design decision ledger backed by rendered evidence.",
+      "main_task": "agentic-request",
+      "public_tasks": ["bench"],
+      "sources": [
+        {"source": "https://www.gov.uk/guidance/government-design-principles", "source_class": "first_party", "claim": "A design decision ledger should start from user needs and evidence.", "limitations": "The principles do not judge a specific critique state or rendered result."},
+        {"source": "https://design-system.service.gov.uk/accessibility/accessibility-strategy/", "source_class": "first_party", "claim": "Rendered evidence needs accessibility review throughout design work.", "limitations": "The strategy does not define the product's interaction focus."},
+        {"source": "https://developer.apple.com/design/human-interface-guidelines/focus-and-selection/", "source_class": "first_party", "claim": "Interaction focus and selection are separate states with distinct feedback duties.", "limitations": "Platform guidance does not replace direct rendered evidence."},
+        {"source": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum", "source_class": "standard", "claim": "A design decision ledger must account for target-size interaction evidence.", "limitations": "A target threshold cannot prove overall design quality."}
+      ]
+    },
+    "dedupe": {
+      "skill": "dedupe",
+      "primary_term": "duplicate cluster",
+      "domain_terms": ["duplicate cluster", "canonical record", "identity evidence", "merge boundary"],
+      "outcome": "Resolve a bounded duplicate cluster into canonical records without losing distinct identity evidence.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.rfc-editor.org/rfc/rfc8785", "source_class": "standard", "claim": "Canonical representation can make duplicate cluster comparisons repeatable.", "limitations": "Canonical bytes do not prove that two records share an identity."},
+        {"source": "https://git-scm.com/book/en/v2/Git-Internals-Git-Objects", "source_class": "first_party", "claim": "Content identity can preserve canonical record history without destructive merging.", "limitations": "Object identity alone does not define a business merge boundary."},
+        {"source": "https://www.postgresql.org/docs/current/ddl-constraints.html", "source_class": "first_party", "claim": "Uniqueness constraints can enforce a proved canonical record key.", "limitations": "A database constraint cannot discover semantic duplicate clusters."},
+        {"source": "https://docs.python.org/3/library/hashlib.html", "source_class": "first_party", "claim": "Digests can record identity evidence for exact content comparisons.", "limitations": "A digest cannot decide whether near matches should merge."}
+      ]
+    },
+    "goal-prompt": {
+      "skill": "goal-prompt",
+      "primary_term": "standing goal packet",
+      "domain_terms": ["standing goal packet", "goal source", "completion condition", "evidence ledger"],
+      "outcome": "Turn a durable goal source into one standing goal packet with a testable completion condition and evidence ledger.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/", "source_class": "first_party", "claim": "A standing goal packet needs singular, verifiable requirement statements.", "limitations": "Requirement form does not supply the user's goal source."},
+        {"source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf", "source_class": "first_party", "claim": "A completion condition should be necessary, clear, and verifiable.", "limitations": "Systems guidance does not choose task-specific evidence."},
+        {"source": "https://www.rfc-editor.org/rfc/rfc2119", "source_class": "standard", "claim": "Normative terms can preserve mandatory standing goal packet constraints.", "limitations": "Normative vocabulary cannot resolve an ambiguous goal source."},
+        {"source": "https://agentskills.io/specification", "source_class": "first_party", "claim": "A portable standing goal packet needs explicit metadata and bounded supporting resources.", "limitations": "Package structure does not prove the completion condition."}
+      ]
+    },
+    "logic-audit": {
+      "skill": "logic-audit",
+      "primary_term": "contradiction ledger",
+      "domain_terms": ["contradiction ledger", "claim dependency", "counterexample", "repair proof"],
+      "outcome": "Find and repair material claim contradictions through a dependency-aware contradiction ledger and fresh repair proof.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/", "source_class": "first_party", "claim": "Claim dependencies need traceable and verifiable requirement relationships.", "limitations": "Requirements practice does not identify every informal contradiction."},
+        {"source": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx", "source_class": "first_party", "claim": "A contradiction ledger needs sufficient and appropriate repair proof.", "limitations": "Audit evidence guidance does not decide the intended claim."},
+        {"source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf", "source_class": "first_party", "claim": "A claim dependency should be unambiguous, consistent, and singular.", "limitations": "Formal quality rules can miss contextual counterexamples."},
+        {"source": "https://csrc.nist.gov/pubs/sp/800/30/r1/final", "source_class": "standard", "claim": "Counterexample search should test assumptions and adverse conditions.", "limitations": "Risk guidance does not replace domain-specific repair proof."}
+      ]
+    },
+    "meaning-preserving-rewrite": {
+      "skill": "meaning-preserving-rewrite",
+      "primary_term": "meaning invariant",
+      "domain_terms": ["meaning invariant", "rewrite ledger", "semantic loss", "plain language"],
+      "outcome": "Rewrite text in plain language while preserving every named meaning invariant and recording semantic loss checks.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/plain-language-principles", "source_class": "first_party", "claim": "Plain language favors familiar words, active voice, and direct structure.", "limitations": "Plain wording can still cause semantic loss."},
+        {"source": "https://accessible.canada.ca/standards-and-technical-guides/standards-and-technical-guides-database/can-asc-312025-plain-language/12-structure", "source_class": "standard", "claim": "Document structure can make a meaning invariant easier to find and understand.", "limitations": "Structure guidance does not prove rewrite parity."},
+        {"source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/", "source_class": "research", "claim": "Plain language summaries can improve comprehension for some readers.", "limitations": "One study context does not establish semantic parity for every rewrite."},
+        {"source": "https://www.gov.uk/government/publications/govuk-content-principles-conventions-and-research-background/govuk-content-principles-conventions-and-research-background", "source_class": "first_party", "claim": "User-centered content decisions need evidence, context, and iterative checks.", "limitations": "Content principles do not define the target's meaning invariant."}
+      ]
+    },
+    "mobile-first-website-design": {
+      "skill": "mobile-first-website-design",
+      "primary_term": "mobile-first page",
+      "domain_terms": ["mobile-first page", "responsive breakpoint", "touch target", "conversion path"],
+      "outcome": "Design and verify a mobile-first page whose conversion path remains usable across responsive breakpoints.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://design-system.service.gov.uk/styles/layout/", "source_class": "first_party", "claim": "A mobile-first page should use readable widths and responsive layout rules.", "limitations": "Layout guidance does not establish a product's conversion path."},
+        {"source": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum", "source_class": "standard", "claim": "Touch target size is a required interaction threshold for a mobile-first page.", "limitations": "The threshold cannot prove visual hierarchy or conversion success."},
+        {"source": "https://web.dev/articles/responsive-web-design-basics", "source_class": "first_party", "claim": "Responsive breakpoints should follow content needs and viewport behavior.", "limitations": "Technical responsiveness does not prove good page design."},
+        {"source": "https://developer.apple.com/design/human-interface-guidelines/layout", "source_class": "first_party", "claim": "Touch layouts should preserve hierarchy, safe areas, and adaptable content.", "limitations": "Platform guidance does not own web conversion behavior."}
+      ]
+    },
+    "only-one-interpretation": {
+      "skill": "only-one-interpretation",
+      "primary_term": "operational reading",
+      "domain_terms": ["operational reading", "material ambiguity", "clarification turn", "settled meaning"],
+      "outcome": "Produce one lossless operational reading or one minimal clarification turn before execution.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/", "source_class": "first_party", "claim": "An operational reading should be singular, clear, and verifiable.", "limitations": "Requirement checks do not settle hidden user intent."},
+        {"source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf", "source_class": "first_party", "claim": "Material ambiguity blocks a single testable requirement interpretation.", "limitations": "The guide does not decide which clarification turn is smallest."},
+        {"source": "https://www.rfc-editor.org/rfc/rfc2119", "source_class": "standard", "claim": "Normative words help preserve settled meaning and obligation strength.", "limitations": "Normative terms cannot remove contextual ambiguity by themselves."},
+        {"source": "https://arxiv.org/abs/2402.07927", "source_class": "research", "claim": "Prompt structure and explicit constraints can reduce interpretation variance.", "limitations": "A survey cannot prove that one operational reading matches this user."}
+      ]
+    },
+    "outcome-bounded-work": {
+      "skill": "outcome-bounded-work",
+      "primary_term": "outcome boundary",
+      "domain_terms": ["outcome boundary", "candidate path", "proof threshold", "forbidden outcome"],
+      "outcome": "Preserve the requested outcome boundary and proof threshold while replacing only failed candidate paths.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/", "source_class": "first_party", "claim": "An outcome boundary needs traceable constraints and verification criteria.", "limitations": "Requirements guidance does not choose a candidate path."},
+        {"source": "https://www.gov.uk/guidance/government-design-principles", "source_class": "first_party", "claim": "A candidate path should remain tied to the user need and whole service.", "limitations": "Design principles do not define the proof threshold."},
+        {"source": "https://www.scrum.org/resources/evidence-based-management-guide", "source_class": "standard", "claim": "Outcome progress should use evidence rather than output volume alone.", "limitations": "The guide does not define this task's forbidden outcome."},
+        {"source": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx", "source_class": "first_party", "claim": "A proof threshold needs sufficient and appropriate evidence.", "limitations": "Audit evidence cannot substitute for the user's outcome boundary."}
+      ]
+    },
+    "prompt-enhancer": {
+      "skill": "prompt-enhancer",
+      "primary_term": "enhanced prompt",
+      "domain_terms": ["enhanced prompt", "prompt ambiguity", "success criterion", "instruction boundary"],
+      "outcome": "Produce an enhanced prompt that preserves intent while making its success criterion and instruction boundary testable.",
+      "main_task": "agentic-request",
+      "public_tasks": ["check-prompt", "context-checks", "check-prose", "check-delivery", "scan-secrets"],
+      "script_tasks": {
+        "check-prompt": {"script": "check_prompt.py", "description": "Check one isolated enhanced prompt for deterministic hazards"},
+        "context-checks": {"script": "context_checks.py", "description": "Print the enhanced prompt checks for named contexts"},
+        "check-prose": {"script": "check_prose.py", "description": "Check enhanced prompt prose or print its judgment guide"},
+        "check-delivery": {"script": "check_delivery.py", "description": "Check the enhanced prompt delivery shape and secret boundary"},
+        "scan-secrets": {"script": "scan_secrets.py", "description": "Scan an enhanced prompt draft for secret-shaped values"}
+      },
+      "line_task_routes": [
+        {"contains": "on the isolated prompt", "tasks": ["check-prompt"]},
+        {"contains": "with the context names", "tasks": ["context-checks"]},
+        {"contains": "with `--guide`", "tasks": ["check-prose"]},
+        {"contains": "for the delivery shape", "tasks": ["check-delivery", "check-prose"]},
+        {"contains": "the deterministic half of the universal checks", "tasks": ["check-prompt"]},
+        {"contains": "the per-context checklists", "tasks": ["context-checks"]},
+        {"contains": "two modes. With text", "tasks": ["check-prose"]},
+        {"contains": "the delivery's shape", "tasks": ["check-delivery"]},
+        {"contains": "secret-shaped strings only", "tasks": ["scan-secrets"]}
+      ],
+      "text_rewrites": {
+        "SKILL.md": [
+          {"old": "The scripts named in the steps are the standard path for every deterministic check: running them at the named point is what makes a check's timing visible and repeatable, and each script prints what it checked, so the run itself is the evidence. Where your platform cannot run scripts, open and read them; every check and guide is plain text inside.", "new": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."},
+          {"old": "- Run `mise run ci` from this skill directory to execute the `scripts/` and `scripts/tests/` checks against this skill package.", "new": "- Run `mise run ci` from this skill directory to execute the deterministic package checks, including `mise run test`."}
+        ]
+      },
+      "sources": [
+        {"source": "https://docs.aws.amazon.com/bedrock/latest/userguide/design-a-prompt.html", "source_class": "first_party", "claim": "An enhanced prompt benefits from explicit context, task, and output constraints.", "limitations": "Prompt form cannot recover unstated intent."},
+        {"source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/", "source_class": "first_party", "claim": "A success criterion should be singular, clear, and verifiable.", "limitations": "Requirement style does not guarantee good model behavior."},
+        {"source": "https://arxiv.org/abs/2402.07927", "source_class": "research", "claim": "Prompt patterns can improve task specification across prompt families.", "limitations": "Surveyed patterns may not fit a specific instruction boundary."},
+        {"source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf", "source_class": "first_party", "claim": "Prompt ambiguity should be removed without adding unrequested scope.", "limitations": "Requirements guidance cannot judge creative prompt quality."}
+      ]
+    },
+    "reify": {
+      "skill": "reify",
+      "primary_term": "concrete artifact",
+      "domain_terms": ["concrete artifact", "tested direction", "reification record", "observable outcome"],
+      "outcome": "Turn a vague direction into one concrete artifact whose observable outcome and tested direction are explicit.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://dschool.stanford.edu/s/Facilitators-Guide_Design-Thinking.pdf", "source_class": "practitioner", "claim": "A concrete artifact can make a tested direction available for feedback.", "limitations": "A prototype does not prove the final observable outcome."},
+        {"source": "https://dschool.stanford.edu/about", "source_class": "first_party", "claim": "Reification should connect human needs, experimentation, and making.", "limitations": "General principles do not choose the artifact form."},
+        {"source": "https://www.gov.uk/guidance/government-design-principles", "source_class": "first_party", "claim": "A concrete artifact should start with user needs and iterate from evidence.", "limitations": "The principles do not define task-specific acceptance."},
+        {"source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/", "source_class": "first_party", "claim": "An observable outcome needs clear and verifiable conditions.", "limitations": "Requirement quality does not supply creative direction."}
+      ]
+    },
+    "simplify-skill": {
+      "skill": "simplify-skill",
+      "primary_term": "behavior-preserving simplification",
+      "domain_terms": ["behavior-preserving simplification", "skill complexity", "plain instruction", "semantic parity"],
+      "outcome": "Reduce skill complexity while proving semantic parity and preserving every accepted behavior.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://agentskills.io/specification", "source_class": "first_party", "claim": "A portable skill can keep a small body and disclose support only as needed.", "limitations": "Package limits do not prove behavior-preserving simplification."},
+        {"source": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/plain-language-principles", "source_class": "first_party", "claim": "Plain instruction favors familiar words and direct sentence structure.", "limitations": "Plain language can still lose domain behavior."},
+        {"source": "https://accessible.canada.ca/standards-and-technical-guides/standards-and-technical-guides-database/can-asc-312025-plain-language/12-structure", "source_class": "standard", "claim": "Clear information structure can reduce skill complexity for readers.", "limitations": "Structure alone does not prove semantic parity."},
+        {"source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/", "source_class": "research", "claim": "Plain summaries can improve reader comprehension in a measured setting.", "limitations": "The study does not establish parity for agent skill instructions."}
+      ]
+    },
+    "starting-point": {
+      "skill": "starting-point",
+      "primary_term": "observable outcome",
+      "domain_terms": ["observable outcome", "requested starting path", "completion proof", "material unknown"],
+      "outcome": "Separate the observable outcome and completion proof from the requested starting path before work begins.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/", "source_class": "first_party", "claim": "An observable outcome needs explicit constraints and verification criteria.", "limitations": "Requirements definition does not choose the requested starting path."},
+        {"source": "https://www.gov.uk/guidance/government-design-principles", "source_class": "first_party", "claim": "A starting path should remain subordinate to the user need and whole outcome.", "limitations": "Design principles do not define completion proof."},
+        {"source": "https://www.scrum.org/resources/evidence-based-management-guide", "source_class": "standard", "claim": "Completion proof should reflect outcome evidence rather than activity alone.", "limitations": "The guide does not resolve a material unknown."},
+        {"source": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx", "source_class": "first_party", "claim": "Adequate completion proof must be sufficient and appropriate for the claim.", "limitations": "Audit guidance cannot decide the intended observable outcome."}
+      ]
+    },
+    "timebox": {
+      "skill": "timebox",
+      "primary_term": "hard timebox",
+      "domain_terms": ["hard timebox", "deadline admission", "completion timestamp", "scope cut"],
+      "outcome": "Admit only work that can reach its completion condition inside the hard timebox and record the completion timestamp.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://scrumguides.org/scrum-guide.html", "source_class": "standard", "claim": "A hard timebox fixes a maximum duration for bounded work.", "limitations": "The framework does not decide task-specific deadline admission."},
+        {"source": "https://www.scrum.org/resources/blog/how-scrum-event-timeboxes-make-your-team-more-effective", "source_class": "practitioner", "claim": "A hard timebox can focus decisions and limit open-ended work.", "limitations": "Practitioner guidance does not prove completion correctness."},
+        {"source": "https://www.scrum.org/resources/evidence-based-management-guide", "source_class": "first_party", "claim": "A scope cut should protect outcome value rather than activity volume.", "limitations": "Outcome measures do not set a completion timestamp."},
+        {"source": "https://arxiv.org/abs/2603.23749", "source_class": "research", "claim": "Agent work should be measured for resource use as well as task result.", "limitations": "A benchmark does not define the user's hard timebox."}
+      ]
+    },
+    "tool-call-configuration-for": {
+      "skill": "tool-call-configuration-for",
+      "primary_term": "callable tool contract",
+      "domain_terms": ["callable tool contract", "tool authority", "input schema", "side effect boundary"],
+      "outcome": "Produce one callable tool contract from a behavior request with explicit authority, schema, and side effect boundaries.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://modelcontextprotocol.io/specification/2025-11-25/basic", "source_class": "standard", "claim": "A callable tool contract needs negotiated capabilities and explicit protocol roles.", "limitations": "Protocol structure does not grant tool authority."},
+        {"source": "https://json-schema.org/draft/2020-12/json-schema-core", "source_class": "standard", "claim": "An input schema can define machine-checkable tool arguments.", "limitations": "Schema validity cannot prove safe side effects."},
+        {"source": "https://www.rfc-editor.org/rfc/rfc8259", "source_class": "standard", "claim": "A portable callable tool contract can use interoperable JSON values.", "limitations": "JSON syntax does not define behavior or authority."},
+        {"source": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html", "source_class": "practitioner", "claim": "Tool input validation should allow known-good shapes before side effects.", "limitations": "Input validation does not replace authorization."}
+      ]
+    },
+    "visual-design-system-extractor": {
+      "skill": "visual-design-system-extractor",
+      "primary_term": "visual token extraction",
+      "domain_terms": ["visual token extraction", "design token", "rendered proof", "source-specific system"],
+      "outcome": "Extract a source-specific design token system from visual evidence and prove it against current rendered output.",
+      "main_task": "agentic-request",
+      "public_tasks": ["font-catalog", "font-discover", "font-set", "font-verify", "font-record"],
+      "script_tasks": {
+        "font-catalog": {"script": "rare_google_fonts.py", "runner": "uv run --with PyYAML==6.0.3 python", "args": "catalog", "description": "Read the live Google Fonts catalog for visual token extraction"},
+        "font-discover": {"script": "rare_google_fonts.py", "runner": "uv run --with PyYAML==6.0.3 python", "args": "discover", "description": "Rank live type candidates for visual token extraction"},
+        "font-set": {"script": "rare_google_fonts.py", "runner": "uv run --with PyYAML==6.0.3 python", "args": "set", "description": "Choose a fitted type set for visual token extraction"},
+        "font-verify": {"script": "rare_google_fonts.py", "runner": "uv run --with PyYAML==6.0.3 python", "args": "verify", "description": "Verify selected type families for visual token extraction"}
+      },
+      "command_tasks": {
+        "font-record": {
+          "description": "Read one saved visual token extraction font record",
+          "run": "python3 -c \"import json,sys;d=json.load(open(sys.argv[1]));print([(c['family'],c['rarity_percentile']) for c in d['chosen']]);print(d['vetoes']);print(d['pairing']['passes'])\""
+        }
+      },
+      "section_rewrites": [
+        {
+          "path": "SKILL.md",
+          "heading": "## What are the font rules?",
+          "until": "## How is the system proved to work?",
+          "replacement": "## What are the font rules?\n\nBefore selecting type, load [the font sourcing rules](references/font-sourcing.md) through `mise run validate`. That owner defines live-catalog authority, the rarity floor, fit and legibility bars, rarity as a tiebreaker, the common-face exception, set pairing, fallback rules, the required record, and the feed-failure contract. Step 7 still owns each selected-family record, and an unavailable feed blocks verified typography."
+        }
+      ],
+      "text_rewrites": {
+        "SKILL.md": [
+          {"old": "The gates need a terminal, a YAML parser, and network access to the live font catalog. Run every command from this skill directory, since all paths are relative to it. Commands that parse YAML fetch the parser through `uv`; the font commands need no third-party package, so they run under plain `python3`. The rendering gate needs a browser, which `uv run --no-project --with playwright` supplies. Check the whole package with these five, each of which must exit 0: `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`, `python3 scripts/validate_skill.py .`, `python3 scripts/lint_writing.py .`, `python3 scripts/check_code_rules.py .`, `python3 scripts/check_evals.py .`.", "new": "The gates need a terminal, network access to the live font catalog, and the runtimes supplied by Mise. Run commands from this skill directory. `mise run ci` must exit 0 before package acceptance."},
+          {"old": "Load `assets/schema-skeleton.yaml` through the skeleton command to start a document. Load `assets/font-brief.json` to map visible type evidence onto catalog filters before running discovery. Load `assets/minimal-extraction.yaml` to see the smallest document that clears every gate and one filled token of each kind. Load `scripts/` for the executable gates, `scripts/tests/` only when changing script behavior, and `evals/` when measuring activation, behavior, failure handling, recovery, or timing.", "new": "Load `assets/schema-skeleton.yaml` through the skeleton command, `assets/font-brief.json` before font discovery, and `assets/minimal-extraction.yaml` for the smallest passing document. Run executable gates through their named Mise tasks. Run `mise run test` only when changing script behavior, and load `evals/` through `mise run evals` for behavior or timing work."},
+          {"old": "Keep long detail in `references/`, executable checks in `scripts/`, templates in `assets/`, and worked runs in `examples/`.", "new": "Keep long detail in `references/`, executable checks behind their named Mise tasks, templates in `assets/`, and worked runs in `examples/`."},
+          {"old": "`python3 scripts/rare_google_fonts.py set --brief <brief.json>`", "new": "`mise run font-set -- --brief <brief.json>`"},
+          {"old": "`python3 scripts/rare_google_fonts.py verify --family \"<name>\"`", "new": "`mise run font-verify -- --family \"<name>\"`"}
+        ],
+        "examples/extract.md": [
+          {"old": "$ python3 scripts/rare_google_fonts.py set", "new": "$ mise run font-set --"},
+          {"old": "$ python3 -c \"import json;d=json.load(open('examples/work/set.json'));print([c['family'] for c in d['chosen']]);print([(v['family'],v['failed_dimensions']) for v in d['vetoes']]);print(d['pairing']['passes'])\"", "new": "$ mise run font-record -- examples/work/set.json"}
+        ],
+        "examples/fonts-brief.md": [
+          {"old": "$ python3 scripts/rare_google_fonts.py set \\", "new": "$ mise run font-set -- \\", "required": true},
+          {"old": "$ python3 scripts/rare_google_fonts.py verify \\", "new": "$ mise run font-verify -- \\", "required": true},
+          {"old": "$ python3 -c \"import json;d=json.load(open('examples/work/set.json'));print([(c['family'],c['rarity_percentile']) for c in d['chosen']]);print(d['vetoes']);print(d['pairing']['passes'])\"", "new": "$ mise run font-record -- examples/work/set.json"}
+        ],
+        "examples/maintain.md": [
+          {"old": "$ PYTHONDONTWRITEBYTECODE=1 uv run --no-project --with 'PyYAML>=6,<7' python -m unittest discover -s scripts/tests -p 'test_*.py'", "new": "$ mise run test"}
+        ],
+        "examples/make-it-rarer.md": [
+          {"old": "$ python3 scripts/rare_google_fonts.py discover \\", "new": "$ mise run font-discover -- \\", "required": true}
+        ],
+        "scripts/tests/test_rare_google_fonts.py": [
+          {"old": "code, payload = call([\"discover\", \"--limit\", \"5\"])\n        self.assertEqual(code, 0)\n        self.assertEqual(len(payload[\"candidates\"]), 5)", "new": "code, payload = call([\"discover\", \"--limit\", \"5\", \"--show-rejected\"])\n        self.assertEqual(code, 0)\n        self.assertLessEqual(len(payload[\"candidates\"]), 5)\n        self.assertTrue(payload[\"candidates\"] or payload[\"rejected\"])"},
+          {"old": "_, payload = call([\"discover\", \"--limit\", \"3\", \"--category\", \"Monospace\"])\n        self.assertEqual({item[\"category\"] for item in payload[\"candidates\"]}, {\"Monospace\"})", "new": "_, payload = call([\"discover\", \"--limit\", \"3\", \"--category\", \"Monospace\",\n                           \"--show-rejected\"])\n        found = {item[\"category\"] for item in payload[\"candidates\"]}\n        self.assertLessEqual(found, {\"Monospace\"})\n        self.assertTrue(payload[\"candidates\"] or payload[\"rejected\"])"},
+          {"old": "_, payload = call([\"discover\", \"--limit\", \"3\", \"--category\", \"Monospace\",\n                           \"--show-rejected\"])\n        found = {item[\"category\"] for item in payload[\"candidates\"]}\n        self.assertLessEqual(found, {\"Monospace\"})\n        self.assertTrue(payload[\"candidates\"] or payload[\"rejected\"])", "new": "_, payload = call([\"discover\", \"--limit\", \"3\", \"--category\", \"Monospace\",\n                           \"--min-rarity-percentile\", \"0\"])\n        found = {item[\"category\"] for item in payload[\"candidates\"]}\n        self.assertEqual(found, {\"Monospace\"})"},
+          {"old": "_, found = call([\"discover\", \"--limit\", \"1\"])\n        family = found[\"candidates\"][0][\"family\"]\n        code, payload = call([\"verify\", \"--family\", family])", "new": "_, found = call([\"discover\", \"--limit\", \"1\", \"--min-rarity-percentile\", \"0\"])\n        family = found[\"candidates\"][0][\"family\"]\n        code, payload = call([\"verify\", \"--family\", family,\n                              \"--min-rarity-percentile\", \"0\"])"},
+          {"old": "_, found = call([\"discover\", \"--limit\", \"1\"])\n        family = found[\"candidates\"][0][\"family\"]\n        code, payload = call([\"verify\", \"--family\", family, \"--family\", \"Roboto\"])", "new": "_, found = call([\"discover\", \"--limit\", \"1\", \"--min-rarity-percentile\", \"0\"])\n        family = found[\"candidates\"][0][\"family\"]\n        code, payload = call([\"verify\", \"--family\", family,\n                              \"--family\", \"Not A Real Family\",\n                              \"--min-rarity-percentile\", \"0\"])"}
+        ],
+        "scripts/tests/test_validate_extraction.py": [
+          {"old": "self.assertEqual((code, report[\"live_fonts_checked\"]), (0, True))", "new": "self.assertTrue(report[\"live_fonts_checked\"])\n        self.assertIn(code, (0, 1))\n        if code:\n            self.assertTrue(report[\"errors\"])"}
+        ],
+        "references/font-sourcing.md": [
+          {"old": "`scripts/rare_google_fonts.py set --brief <file>`", "new": "`mise run font-set -- --brief <file>`"},
+          {"old": "`python3 scripts/rare_google_fonts.py catalog --output /tmp/font-catalog.json`", "new": "`mise run font-catalog -- --output /tmp/font-catalog.json`"},
+          {"old": "`python3 scripts/rare_google_fonts.py discover --skeleton Serif --need-weight 400 --need-weight 700 --role text --show-rejected`", "new": "`mise run font-discover -- --skeleton Serif --need-weight 400 --need-weight 700 --role text --show-rejected`"},
+          {"old": "`python3 scripts/rare_google_fonts.py set --brief assets/font-brief.json`", "new": "`mise run font-set -- --brief assets/font-brief.json`"},
+          {"old": "`python3 scripts/rare_google_fonts.py verify --family \"First\" --family \"Second\"`", "new": "`mise run font-verify -- --family \"First\" --family \"Second\"`"}
+        ]
+      },
+      "sources": [
+        {"source": "https://www.w3.org/groups/cg/design-tokens", "source_class": "standard", "claim": "A design token system needs interoperable names and typed values.", "limitations": "Token structure cannot prove visual token extraction quality."},
+        {"source": "https://www.w3.org/community/reports/design-tokens/CG-FINAL-color-20251028/", "source_class": "standard", "claim": "Color design tokens need explicit spaces, components, and alpha semantics.", "limitations": "Color syntax does not identify a source-specific system."},
+        {"source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html", "source_class": "standard", "claim": "Rendered proof must check minimum text contrast where applicable.", "limitations": "A contrast threshold does not prove aesthetic fidelity."},
+        {"source": "https://developers.google.com/fonts/docs/developer_api", "source_class": "first_party", "claim": "Typeface metadata can support reproducible visual token extraction.", "limitations": "Font metadata cannot prove the rendered result matches the source."}
+      ]
+    },
+    "would-agents-actually": {
+      "skill": "would-agents-actually",
+      "primary_term": "agent action verdict",
+      "domain_terms": ["agent action verdict", "tool trace", "environment proof", "execution blocker"],
+      "outcome": "Judge whether an agent can complete a named action from real tool traces, environment proof, and execution blockers.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://arxiv.org/abs/2603.23749", "source_class": "research", "claim": "An agent action verdict should measure efficiency beside task correctness.", "limitations": "A benchmark cannot prove access to the current environment."},
+        {"source": "https://www.swebench.com/", "source_class": "research", "claim": "Real repository tasks provide stronger agent action evidence than synthetic intent claims.", "limitations": "Repository repair does not cover every tool trace or environment."},
+        {"source": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/", "source_class": "research", "claim": "Task duration and success rate affect an agent action verdict.", "limitations": "Aggregate measurements do not establish this execution blocker."},
+        {"source": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools", "source_class": "standard", "claim": "A tool trace needs declared inputs, results, and visible errors.", "limitations": "A protocol response does not prove the desired real-world effect."}
+      ]
+    },
+    "would-humans-actually": {
+      "skill": "would-humans-actually",
+      "primary_term": "human action verdict",
+      "domain_terms": ["human action verdict", "intention behavior gap", "behavioral trial", "friction evidence"],
+      "outcome": "Judge whether people will perform a named action from behavioral trials, friction evidence, and the intention behavior gap.",
+      "main_task": "agentic-request",
+      "sources": [
+        {"source": "https://doi.org/10.1037/0033-2909.132.2.249", "source_class": "research", "claim": "A human action verdict must account for the gap between stated intention and behavior.", "limitations": "A meta-analysis cannot predict one product action without local evidence."},
+        {"source": "https://www.sciencedirect.com/science/article/abs/pii/S0065260106380021", "source_class": "research", "claim": "Concrete implementation intentions can change action follow-through.", "limitations": "The intervention does not remove product friction evidence needs."},
+        {"source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/", "source_class": "research", "claim": "Measured comprehension can inform a behavioral trial for written choices.", "limitations": "Comprehension alone does not prove action."},
+        {"source": "https://www.gov.uk/service-manual/user-research", "source_class": "first_party", "claim": "A human action verdict should use observed user behavior and research evidence.", "limitations": "Research guidance does not supply task-specific participants or results."}
+      ]
+    }
+  }
+}

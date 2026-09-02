@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "would-humans-actually",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted human action verdict result.",
+      "motivation": "The human action verdict decision needs its correct owner.",
+      "why_this_path": "The human action verdict responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current human action verdict contract"],
+      "expected_effect": "Make the human action verdict decision testable.",
+      "proof": "Fresh human action verdict evidence from the named owner.",
+      "falsifier": "Current human action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the human action verdict result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted human action verdict result.",
+      "motivation": "The human action verdict decision needs its correct owner.",
+      "why_this_path": "The human action verdict responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current human action verdict contract"],
+      "expected_effect": "Make the human action verdict decision testable.",
+      "proof": "Fresh human action verdict evidence from the named owner.",
+      "falsifier": "Current human action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the human action verdict result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted human action verdict result.",
+      "motivation": "The human action verdict decision needs its correct owner.",
+      "why_this_path": "The human action verdict responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current human action verdict contract"],
+      "expected_effect": "Make the human action verdict decision testable.",
+      "proof": "Fresh human action verdict evidence from the named owner.",
+      "falsifier": "Current human action verdict evidence contradicts the decision.",
+      "failure_branch": "Block the human action verdict result and restore the accepted state."
+    }
+  ]
+}

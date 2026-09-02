@@ -1,5 +1,7 @@
 # Visual identity
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load only after a valid `wireframe_sha256` exists.
 
 Visual identity is separate from structure. It may not silently reorder sections, remove proof, weaken the primary action, or change semantic focus order.

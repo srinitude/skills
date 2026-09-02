@@ -2,211 +2,365 @@
   "schema": "source-evidence/v1",
   "skill": "would-humans-actually",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "6e9e8e59f5a8524f9339697dcd21af6c620166f57ef1cd3f09157aa9ee76a65c",
-  "evidence_packet_sha256": "6e9e8e59f5a8524f9339697dcd21af6c620166f57ef1cd3f09157aa9ee76a65c",
+  "native_manifest_sha256": "bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a",
+  "evidence_packet_sha256": "bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a",
   "files": [
     {
-      "source_path": ".github/workflows/ci.yml",
+      "bytes": 423,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/.github/workflows/ci.yml",
       "sha256": "f5b8ad785d4325a6930f5ec2a03093d7f28240c96bef775774ec2fdd536650e0",
-      "bytes": 423
+      "source_path": ".github/workflows/ci.yml"
     },
     {
-      "source_path": "SKILL.md",
+      "bytes": 7079,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/SKILL.md",
-      "sha256": "8fb2e6b8c20e1ae608f48cf39860b9b869e9b38ee0994fc4dda71f47e9937bc4",
-      "bytes": 5839
+      "sha256": "6b8a2402bfd4c30f7913e69fce4727d8126d638797afb6bd40e363863843a55a",
+      "source_path": "SKILL.md"
     },
     {
-      "source_path": "assets/verdict-template.md",
+      "bytes": 2273,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/decision-records.json",
+      "sha256": "8498d4fd7e15e85ee3bbffef76cb09757e5c10209c426bc18115123e33aad11f",
+      "source_path": "assets/decision-records.json"
+    },
+    {
+      "bytes": 2693,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/improvement-contract.json",
+      "sha256": "21adf5271ea94a031aa6ca5fa776319ddfc25079af51dd4d810a6e4e46cede28",
+      "source_path": "assets/improvement-contract.json"
+    },
+    {
+      "bytes": 276,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/invocation-receipt-template.json",
+      "sha256": "06978661e8450db42796c6c97fb8b03073b5a124a8968197b94aa10379a46da8",
+      "source_path": "assets/invocation-receipt-template.json"
+    },
+    {
+      "bytes": 2087,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/mise-primitives-catalog.json",
+      "sha256": "e14268a25737ad4d7e7e4bf33b0858c4948140eee08f8941d23039f12c665128",
+      "source_path": "assets/mise-primitives-catalog.json"
+    },
+    {
+      "bytes": 3603,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/mise-primitives.json",
+      "sha256": "452b0580531dfbaa513a5edf0aaa74d8125de8d0c8fb2e3c645ba2af4c72ef5d",
+      "source_path": "assets/mise-primitives.json"
+    },
+    {
+      "bytes": 6281,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/primitive-lifecycle.json",
+      "sha256": "dd050b0f20414bf803e37eefd8be84df9807b655ec3d3d0eda3c6ee7145aa50a",
+      "source_path": "assets/primitive-lifecycle.json"
+    },
+    {
+      "bytes": 25952,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/assets/use-case-contract.json",
+      "sha256": "34a23912224db4993bc76095a767b9578f015d371d36ba59f1438d288ccfb8df",
+      "source_path": "assets/use-case-contract.json"
+    },
+    {
+      "bytes": 1156,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/assets/verdict-template.md",
       "sha256": "62b4a770d09e1e567dde05f32680fdbcbf63c7ccf6ded28c1dc35b685a21dc15",
-      "bytes": 1156
+      "source_path": "assets/verdict-template.md"
     },
     {
-      "source_path": "evals/cases.json",
+      "bytes": 5574,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/cases.json",
       "sha256": "3dc45b4959892c5194565a0c123d0e53602cd012daa9d790f431bc8e3b431407",
-      "bytes": 5574
+      "source_path": "evals/cases.json"
     },
     {
-      "source_path": "evals/contract.md",
+      "bytes": 1481,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/contract.md",
       "sha256": "46e2e24a727c1a67b1c787fedcb3f8f4b05868f2424175d685257863def00ae2",
-      "bytes": 1481
+      "source_path": "evals/contract.md"
     },
     {
-      "source_path": "evals/evals.json",
+      "bytes": 1832,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/evals.json",
       "sha256": "72bd185d1dae155bb29d7dda77ba4b24696521175349aa4fa001d8698e291fd6",
-      "bytes": 1832
+      "source_path": "evals/evals.json"
     },
     {
-      "source_path": "evals/manifest.json",
+      "bytes": 436,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/manifest.json",
       "sha256": "9a1fececcc76231d5aa443c04f154d23d89ae988db1301a785c90dbb4b574256",
-      "bytes": 436
+      "source_path": "evals/manifest.json"
     },
     {
-      "source_path": "evals/rubric.md",
+      "bytes": 958,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/rubric.md",
       "sha256": "72964f7e4c45b2996f53abd4fc5713defcba7d985992b2b9ce47a1518d700809",
-      "bytes": 958
+      "source_path": "evals/rubric.md"
     },
     {
-      "source_path": "evals/speed-budgets.json",
+      "bytes": 337,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/speed-budgets.json",
       "sha256": "625335671963d81e9bb30b07773fa640e9b8b89ab1730bc801ce887baccb884d",
-      "bytes": 337
+      "source_path": "evals/speed-budgets.json"
     },
     {
-      "source_path": "evals/trigger-cases.json",
+      "bytes": 1819,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/trigger-cases.json",
       "sha256": "e6d3763bf0f604b704a84a5840bee81e1dd22013eb33af7e03ddc5d0a5d8ee34",
-      "bytes": 1819
+      "source_path": "evals/trigger-cases.json"
     },
     {
-      "source_path": "evals/trigger-queries.json",
+      "bytes": 1726,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/evals/trigger-queries.json",
       "sha256": "f49e2cb66b803dfe2b7214bbb016d9d2bcb23e016da9c566cddb02e4c0a40c29",
-      "bytes": 1726
+      "source_path": "evals/trigger-queries.json"
     },
     {
-      "source_path": "examples/failure-unvalidated.md",
+      "bytes": 2546,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/examples/failure-unvalidated.md",
-      "sha256": "d2c4dcdc4b56b000a61c32e99f6475166038b7f8e5111ed92ef36203a4d49b04",
-      "bytes": 2477
+      "sha256": "f8326b27b5f20d2dc72d5375a080b56faa158dd961a11b337698078bc5698b84",
+      "source_path": "examples/failure-unvalidated.md"
     },
     {
-      "source_path": "examples/help.md",
+      "bytes": 1083,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/examples/help.md",
-      "sha256": "a53511ae2b5be3f965cc55d03b68e427ba7aa8b46bf5aa3a449a0d3cd2cad74a",
-      "bytes": 1103
+      "sha256": "dac80785422e3b9a5e0a1d7bfeca09904a6e2d6d82b97cc9ef22bbf3a3d9604d",
+      "source_path": "examples/help.md"
     },
     {
-      "source_path": "examples/verdict-insufficient-evidence.md",
+      "bytes": 6456,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/examples/verdict-insufficient-evidence.md",
-      "sha256": "3a95d6648e8c8b5d9fc62c597570f9356ba645beb58698eb000d01d35afe5294",
-      "bytes": 6387
+      "sha256": "3c492ab661c179df20b3ea2734006f959bb759ff3d0e0246519ce1731d249b94",
+      "source_path": "examples/verdict-insufficient-evidence.md"
     },
     {
-      "source_path": "mise.toml",
+      "bytes": 3217,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/mise.toml",
-      "sha256": "48f5e797cd21d3d6248196fd9dea0473e62e4d6e0cab38b573e8494e41353558",
-      "bytes": 1155
+      "sha256": "12758e806db1008f6ca51b5881152c5f6174b13029e784da998577aa4a074c4c",
+      "source_path": "mise.toml"
     },
     {
-      "source_path": "references/evidence-base.md",
+      "bytes": 139,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/references/decisions.md",
+      "sha256": "a26fe330fb469e90cdde084beecb4186e900efee35cd4615460267a52e4ca967",
+      "source_path": "references/decisions.md"
+    },
+    {
+      "bytes": 4238,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/evidence-base.md",
       "sha256": "61fa820a169f98f13001373dbed991c4d43e88ee770c561a8f44cdfccb0d3ce9",
-      "bytes": 4238
+      "source_path": "references/evidence-base.md"
     },
     {
-      "source_path": "references/frameworks.md",
+      "bytes": 4254,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/frameworks.md",
       "sha256": "117717b18d801c11e7aaf3d2473d41a3a4e31ba7a05c6a0633f4be4e8e48e9af",
-      "bytes": 4254
+      "source_path": "references/frameworks.md"
     },
     {
-      "source_path": "references/generation-contract.md",
+      "bytes": 19186,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/generation-contract.md",
-      "sha256": "680cc7da7d41ed052eaf937ac0f7019c79480733c9229f5c44b94e3409c35b70",
-      "bytes": 5517
+      "sha256": "23c34ff377ca2b3c25d525a80176317e97dc7fc3a1ab0fabb949749a0baa4d7c",
+      "source_path": "references/generation-contract.md"
     },
     {
-      "source_path": "references/output-template.md",
+      "bytes": 2496,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/output-template.md",
-      "sha256": "0876fb90295e4639404d418e99a6000f71f4db5f66ee85621ce0d4553943a947",
-      "bytes": 2417
+      "sha256": "0c6cf92c001adb67c6330c9baeae07623c5e025354d8d6ce34502eb91688db33",
+      "source_path": "references/output-template.md"
     },
     {
-      "source_path": "references/recent-public-signal.md",
+      "bytes": 2957,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/recent-public-signal.md",
       "sha256": "ff59006be48080aab68cab82406fa2177dc7380b23798d7da1e0384e4d4d2f37",
-      "bytes": 2957
+      "source_path": "references/recent-public-signal.md"
     },
     {
-      "source_path": "references/verdict-protocol.md",
+      "bytes": 13298,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/references/resource-and-experiment-design.md",
+      "sha256": "c5b823591b9cfcc7998ec08f8f8d8238a2b4d369feb30d6e4b003bbddc892b86",
+      "source_path": "references/resource-and-experiment-design.md"
+    },
+    {
+      "bytes": 6545,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/references/use-case-specificity.md",
+      "sha256": "9d53f333858f518799467e296f16bc2c60643ca91698692f032fd0e205ca98be",
+      "source_path": "references/use-case-specificity.md"
+    },
+    {
+      "bytes": 5482,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/references/verdict-protocol.md",
       "sha256": "d1058c591ab16f55e382735f7e7fb79476be2219682c1c61a0706d489922442e",
-      "bytes": 5482
+      "source_path": "references/verdict-protocol.md"
     },
     {
-      "source_path": "scripts/check_code_rules.py",
+      "bytes": 7613,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/agentic_request_contract.py",
+      "sha256": "fde69a88acaa362ef3ec44662dcebe8dcb7600f82bd4e372c0f0674d2ab22ad5",
+      "source_path": "scripts/agentic_request_contract.py"
+    },
+    {
+      "bytes": 4197,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/check_code_rules.py",
       "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
-      "bytes": 4197
+      "source_path": "scripts/check_code_rules.py"
     },
     {
-      "source_path": "scripts/check_evals.py",
+      "bytes": 3766,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_decision_records.py",
+      "sha256": "b73661cd61bd85127dd65b676255144b97d6094e4b2b52ae53dd85f86d9a2715",
+      "source_path": "scripts/check_decision_records.py"
+    },
+    {
+      "bytes": 7232,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_domain_research.py",
+      "sha256": "fca082945b193764c98682fd5556b09aeb52b7f4304acf9099e3d830a2a5e3d5",
+      "source_path": "scripts/check_domain_research.py"
+    },
+    {
+      "bytes": 4444,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/check_evals.py",
       "sha256": "3b34df2c7136c8ba54fa7a87b3175b4aa35028902057b07a2a4b6ecf40f6a8ec",
-      "bytes": 4444
+      "source_path": "scripts/check_evals.py"
     },
     {
-      "source_path": "scripts/check_placeholders.py",
+      "bytes": 3607,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_improvement_contract.py",
+      "sha256": "7a90ef820776294be93c925b91b8f5ef351dfc830b97c195a99c9194cbcba288",
+      "source_path": "scripts/check_improvement_contract.py"
+    },
+    {
+      "bytes": 3785,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_invocation_receipt.py",
+      "sha256": "7d547b7e167849e4c471c367b2e8c1e6858151659839ff9118ffd5555675432f",
+      "source_path": "scripts/check_invocation_receipt.py"
+    },
+    {
+      "bytes": 4854,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_mise_primitives.py",
+      "sha256": "b9c39ff5b9ba3af51a7af72579cc3a8b93981d34f3cb07ca3bc55b2c2bced4de",
+      "source_path": "scripts/check_mise_primitives.py"
+    },
+    {
+      "bytes": 3675,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/check_placeholders.py",
-      "sha256": "2643b7315d370ebd566a338e37d87755fd79661dd6285939b0a6e64bb8e1538a",
-      "bytes": 3496
+      "sha256": "d944b0c712ee5a9d041755d4433b2818d693557d736ce67b4fc2ecfe7c07c8ed",
+      "source_path": "scripts/check_placeholders.py"
     },
     {
-      "source_path": "scripts/lint_writing.py",
+      "bytes": 5215,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_primitive_lifecycle.py",
+      "sha256": "daffec393c6b756c114b8f023e35db2e704d8387bfa751299f07567e74be76c0",
+      "source_path": "scripts/check_primitive_lifecycle.py"
+    },
+    {
+      "bytes": 7855,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_task_graph.py",
+      "sha256": "8af024693eedd92a6bea714df7d7b1d7c64f1b62bf241307b856fb38051c252c",
+      "source_path": "scripts/check_task_graph.py"
+    },
+    {
+      "bytes": 6171,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/check_use_case_contract.py",
+      "sha256": "8867af8c0193656d9efb222abce27f8704e02cc62183b43193f4ced660f5d9bf",
+      "source_path": "scripts/check_use_case_contract.py"
+    },
+    {
+      "bytes": 1041,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/domain_text.py",
+      "sha256": "923bab6d186aa3b48938b02222045107386aa0f9ecc59b710b4347286f23b76e",
+      "source_path": "scripts/domain_text.py"
+    },
+    {
+      "bytes": 8096,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/lint_writing.py",
-      "sha256": "d632fa35530848ef71bfd119ecaaf959811e9311c3e3d27a4f82a5f330dcc399",
-      "bytes": 5481
+      "sha256": "9f1895e4922dee00bf6c6598fa0076dd51020fe96521d56d20de39911cef1633",
+      "source_path": "scripts/lint_writing.py"
     },
     {
-      "source_path": "scripts/tests/test_ci_contract.py",
+      "bytes": 2498,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/run_agentic_request.py",
+      "sha256": "9c673f3a30915fb960cbf0c48d39ce3810d215e19239881ceaf4615192135f40",
+      "source_path": "scripts/run_agentic_request.py"
+    },
+    {
+      "bytes": 4153,
+      "location_kind": "repository",
+      "location_path": "skills/would-humans-actually/scripts/sync_mise_primitives.py",
+      "sha256": "75415d9266df6b8fc7a37f3c9e83c0d03623f00355fa06889331da37cac3b216",
+      "source_path": "scripts/sync_mise_primitives.py"
+    },
+    {
+      "bytes": 1326,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/tests/test_ci_contract.py",
-      "sha256": "12243405f99c2f2646c14e6f4230ac183297536892ec15fc2bdfe1ce53790652",
-      "bytes": 2394
+      "sha256": "5a1b092c279a4d1882650f6afeebb0d428293482bdfdb2eacd5e0034eaf11ce6",
+      "source_path": "scripts/tests/test_ci_contract.py"
     },
     {
-      "source_path": "scripts/tests/test_validate_verdict.py",
+      "bytes": 2010,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/tests/test_validate_verdict.py",
       "sha256": "c26ba9459124f3bb72f2cb8d3d8c197015766001c109d464cdcc76d762488531",
-      "bytes": 2010
+      "source_path": "scripts/tests/test_validate_verdict.py"
     },
     {
-      "source_path": "scripts/validate_skill.py",
+      "bytes": 4371,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/validate_skill.py",
-      "sha256": "93bba8ce12fae174109d2b29ef4bbd034d7ddb286cf9a840f07debb83c80d59a",
-      "bytes": 4310
+      "sha256": "0cf410badb4c8a2fec43788b6b66a5cf4c27a90d29f51fac6170cdbb206de6e9",
+      "source_path": "scripts/validate_skill.py"
     },
     {
-      "source_path": "scripts/validate_verdict.py",
+      "bytes": 2525,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/scripts/validate_verdict.py",
       "sha256": "137dfb208cf5a5daabf39b0620503946126ffc53d64c7ae421d608c3d1107852",
-      "bytes": 2525
+      "source_path": "scripts/validate_verdict.py"
     }
   ]
 }

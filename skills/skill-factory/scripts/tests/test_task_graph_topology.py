@@ -37,6 +37,8 @@ EXPECTED = {
     "validate-target": ["doctor"],
     "eval-target": ["doctor"],
     "plan-standardize": ["doctor", "source-corpus"],
+    "standardize-target": ["doctor", "source-corpus"],
+    "refresh-registry-lineage": ["doctor"],
 }
 
 

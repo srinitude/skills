@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "dedupe",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "dedupe-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster actors aligned.",
+      "motivation": "The duplicate cluster result depends on actors ownership.",
+      "proof": "Fresh duplicate cluster actors evidence."
+    },
+    "objects": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster objects aligned.",
+      "motivation": "The duplicate cluster result depends on objects ownership.",
+      "proof": "Fresh duplicate cluster objects evidence."
+    },
+    "actions": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster actions aligned.",
+      "motivation": "The duplicate cluster result depends on actions ownership.",
+      "proof": "Fresh duplicate cluster actions evidence."
+    },
+    "states": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster states aligned.",
+      "motivation": "The duplicate cluster result depends on states ownership.",
+      "proof": "Fresh duplicate cluster states evidence."
+    },
+    "invariants": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster invariants aligned.",
+      "motivation": "The duplicate cluster result depends on invariants ownership.",
+      "proof": "Fresh duplicate cluster invariants evidence."
+    },
+    "variants": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster variants aligned.",
+      "motivation": "The duplicate cluster result depends on variants ownership.",
+      "proof": "Fresh duplicate cluster variants evidence."
+    },
+    "interfaces": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster interfaces aligned.",
+      "motivation": "The duplicate cluster result depends on interfaces ownership.",
+      "proof": "Fresh duplicate cluster interfaces evidence."
+    },
+    "authorities": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster authorities aligned.",
+      "motivation": "The duplicate cluster result depends on authorities ownership.",
+      "proof": "Fresh duplicate cluster authorities evidence."
+    },
+    "failures": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster failures aligned.",
+      "motivation": "The duplicate cluster result depends on failures ownership.",
+      "proof": "Fresh duplicate cluster failures evidence."
+    },
+    "recoveries": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster recoveries aligned.",
+      "motivation": "The duplicate cluster result depends on recoveries ownership.",
+      "proof": "Fresh duplicate cluster recoveries evidence."
+    },
+    "evidence": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster evidence aligned.",
+      "motivation": "The duplicate cluster result depends on evidence ownership.",
+      "proof": "Fresh duplicate cluster evidence evidence."
+    },
+    "time": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster time aligned.",
+      "motivation": "The duplicate cluster result depends on time ownership.",
+      "proof": "Fresh duplicate cluster time evidence."
+    },
+    "resources": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster resources aligned.",
+      "motivation": "The duplicate cluster result depends on resources ownership.",
+      "proof": "Fresh duplicate cluster resources evidence."
+    },
+    "quality": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster quality aligned.",
+      "motivation": "The duplicate cluster result depends on quality ownership.",
+      "proof": "Fresh duplicate cluster quality evidence."
+    },
+    "terminology": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster terminology aligned.",
+      "motivation": "The duplicate cluster result depends on terminology ownership.",
+      "proof": "Fresh duplicate cluster terminology evidence."
+    },
+    "exclusions": {
+      "profile": "dedupe-lifecycle",
+      "outcome": "Keep duplicate cluster exclusions aligned.",
+      "motivation": "The duplicate cluster result depends on exclusions ownership.",
+      "proof": "Fresh duplicate cluster exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "dedupe-lifecycle"
+    },
+    "references": {
+      "profile": "dedupe-lifecycle"
+    },
+    "assets": {
+      "profile": "dedupe-lifecycle"
+    },
+    "scripts": {
+      "profile": "dedupe-lifecycle"
+    },
+    "tests": {
+      "profile": "dedupe-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "dedupe-lifecycle"
+    },
+    "examples": {
+      "profile": "dedupe-lifecycle"
+    },
+    "evals": {
+      "profile": "dedupe-lifecycle"
+    },
+    "policies": {
+      "profile": "dedupe-lifecycle"
+    },
+    "schemas": {
+      "profile": "dedupe-lifecycle"
+    },
+    "records": {
+      "profile": "dedupe-lifecycle"
+    }
+  }
+}

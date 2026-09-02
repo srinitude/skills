@@ -162,19 +162,47 @@
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
-      "source_paths": [".github/workflows/ci.yml"]
+      "source_paths": [".github/workflows/ci.yml", "target-scaffolding"]
     },
     {
       "path": "SKILL.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/eval-case-template.json",
-      "source_paths": ["assets/eval-case-template.json"]
+      "source_paths": ["assets/eval-case-template.json", "target-scaffolding"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/request-template.json",
-      "source_paths": ["assets/request-template.json"]
+      "source_paths": ["assets/request-template.json", "target-scaffolding"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/cases.json",
@@ -186,7 +214,7 @@
     },
     {
       "path": "evals/evals.json",
-      "source_paths": ["evals/evals.json"]
+      "source_paths": ["evals/evals.json", "target-scaffolding"]
     },
     {
       "path": "evals/manifest.json",
@@ -214,127 +242,183 @@
     },
     {
       "path": "evals/trigger-queries.json",
-      "source_paths": ["evals/trigger-queries.json"]
+      "source_paths": ["evals/trigger-queries.json", "target-scaffolding"]
     },
     {
       "path": "examples/apply.md",
-      "source_paths": ["examples/apply.md"]
+      "source_paths": ["examples/apply.md", "target-scaffolding"]
     },
     {
       "path": "examples/example-first-run.md",
-      "source_paths": ["examples/example-first-run.md"]
+      "source_paths": ["examples/example-first-run.md", "target-scaffolding"]
     },
     {
       "path": "examples/failure.md",
-      "source_paths": ["examples/failure.md"]
+      "source_paths": ["examples/failure.md", "target-scaffolding"]
     },
     {
       "path": "examples/help.md",
-      "source_paths": ["examples/help.md"]
+      "source_paths": ["examples/help.md", "target-scaffolding"]
     },
     {
       "path": "examples/inspect.md",
-      "source_paths": ["examples/inspect.md"]
+      "source_paths": ["examples/inspect.md", "target-scaffolding"]
     },
     {
       "path": "examples/invalid-request.json",
-      "source_paths": ["examples/invalid-request.json"]
+      "source_paths": ["examples/invalid-request.json", "target-scaffolding"]
     },
     {
       "path": "examples/list-request.json",
-      "source_paths": ["examples/list-request.json"]
+      "source_paths": ["examples/list-request.json", "target-scaffolding"]
     },
     {
       "path": "mise.toml",
-      "source_paths": ["mise.toml"]
+      "source_paths": ["mise.toml", "target-scaffolding"]
     },
     {
       "path": "references/core-contract.md",
-      "source_paths": ["references/core-contract.md"]
+      "source_paths": ["references/core-contract.md", "target-scaffolding"]
     },
     {
       "path": "references/decisions.md",
-      "source_paths": ["references/decisions.md"]
+      "source_paths": ["references/decisions.md", "target-scaffolding"]
     },
     {
       "path": "references/file-record.md",
-      "source_paths": ["references/file-record.md"]
+      "source_paths": ["references/file-record.md", "target-scaffolding"]
     },
     {
       "path": "references/generation-contract.md",
-      "source_paths": ["references/generation-contract.md"]
+      "source_paths": ["references/generation-contract.md", "target-scaffolding"]
     },
     {
       "path": "references/report-mutation.md",
-      "source_paths": ["references/report-mutation.md"]
+      "source_paths": ["references/report-mutation.md", "target-scaffolding"]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/text-list.md",
-      "source_paths": ["references/text-list.md"]
+      "source_paths": ["references/text-list.md", "target-scaffolding"]
     },
     {
       "path": "references/url-skill.md",
-      "source_paths": ["references/url-skill.md"]
+      "source_paths": ["references/url-skill.md", "target-scaffolding"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_code_rules.py",
-      "source_paths": ["scripts/check_code_rules.py"]
+      "source_paths": ["scripts/check_code_rules.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_evals.py",
-      "source_paths": ["scripts/check_evals.py"]
+      "source_paths": ["scripts/check_evals.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_placeholders.py",
-      "source_paths": ["scripts/check_placeholders.py"]
+      "source_paths": ["scripts/check_placeholders.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/dedupe.py",
-      "source_paths": ["scripts/dedupe.py"]
+      "source_paths": ["scripts/dedupe.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/lib/__init__.py",
-      "source_paths": ["scripts/lib/__init__.py"]
+      "source_paths": ["scripts/lib/__init__.py", "target-scaffolding"]
     },
     {
       "path": "scripts/lib/adapters.py",
-      "source_paths": ["scripts/lib/adapters.py"]
+      "source_paths": ["scripts/lib/adapters.py", "target-scaffolding"]
     },
     {
       "path": "scripts/lib/core.py",
-      "source_paths": ["scripts/lib/core.py"]
+      "source_paths": ["scripts/lib/core.py", "target-scaffolding"]
     },
     {
       "path": "scripts/lint_writing.py",
-      "source_paths": ["scripts/lint_writing.py"]
+      "source_paths": ["scripts/lint_writing.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/skill_info.py",
-      "source_paths": ["scripts/skill_info.py"]
+      "source_paths": ["scripts/skill_info.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
-      "source_paths": ["scripts/tests/test_ci_contract.py"]
+      "source_paths": ["scripts/tests/test_ci_contract.py", "target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_dedupe.py",
-      "source_paths": ["scripts/tests/test_dedupe.py"]
+      "source_paths": ["scripts/tests/test_dedupe.py", "target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_scripts.py",
-      "source_paths": ["scripts/tests/test_scripts.py"]
+      "source_paths": ["scripts/tests/test_scripts.py", "target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_skill_cache.py",
-      "source_paths": ["scripts/tests/test_skill_cache.py"]
+      "source_paths": ["scripts/tests/test_skill_cache.py", "target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_validate_skill.py",
-      "source_paths": ["scripts/tests/test_validate_skill.py"]
+      "source_paths": ["scripts/tests/test_validate_skill.py", "target-scaffolding"]
     },
     {
       "path": "scripts/validate_skill.py",
-      "source_paths": ["scripts/validate_skill.py"]
+      "source_paths": ["scripts/validate_skill.py", "target-scaffolding"]
     }
   ]
 }

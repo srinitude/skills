@@ -8,13 +8,15 @@ Guess removed: that a validating document is a working design system. This run r
 
 ## The reply
 
+Resource gate: run `mise run validate` before using package files named here.
+
 I generated a standalone page from the validated design-system file, captured the full page, and sent the current pixels to the `computer-user` visual owner. The image passed all eight criteria on the first verified render. The observed reasons are recorded in `meta.viability` of `examples/extract-output.yaml`.
 
 ## Render and capture
 
 ```text
 $ uv run --no-project --with 'PyYAML>=6,<7' python \
-    scripts/render_preview.py examples/extract-output.yaml \
+    `mise run render-preview` examples/extract-output.yaml \
     --output examples/work/pass2.html
 {
   "dark_mode": false,
@@ -24,7 +26,7 @@ $ uv run --no-project --with 'PyYAML>=6,<7' python \
 }
 exit=0
 $ uv run --no-project --with playwright python \
-    scripts/screenshot_preview.py examples/work/pass2.html \
+    `mise run screenshot-preview` examples/work/pass2.html \
     --output examples/work/pass2.png
 wrote examples/work/pass2.png
 exit=0
@@ -49,7 +51,7 @@ Verdict: pass at iteration 1 of a cap of 3.
 
 ```text
 $ uv run --no-project --with 'PyYAML>=6,<7' python \
-    scripts/validate_design_system_yaml.py examples/extract-output.yaml
+    `mise run validate-design-system-yaml` examples/extract-output.yaml
 {
   "confidence_markers": 62,
   "errors": [],
@@ -63,6 +65,8 @@ exit=0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 | File                         | Contents                                                             |
 | ---------------------------- | -------------------------------------------------------------------- |

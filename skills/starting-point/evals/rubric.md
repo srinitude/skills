@@ -1,5 +1,7 @@
 # Evaluation rubric
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Apply this rubric only to frozen records from `cases.json` under `contract.md`.
 
 ## Criterion verdicts

@@ -80,15 +80,43 @@
     },
     {
       "path": "SKILL.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "assets/delivery-template.md",
-      "source_paths": ["assets/delivery-template.md"]
+      "source_paths": ["assets/delivery-template.md", "target-scaffolding"]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "evals/cases.json",
-      "source_paths": ["evals/cases.json"]
+      "source_paths": ["evals/cases.json", "target-scaffolding"]
     },
     {
       "path": "evals/contract.md",
@@ -96,7 +124,7 @@
     },
     {
       "path": "evals/evals.json",
-      "source_paths": ["evals/cases.json"]
+      "source_paths": ["evals/cases.json", "target-scaffolding"]
     },
     {
       "path": "evals/manifest.json",
@@ -131,12 +159,18 @@
         "scripts/check_prompt.py",
         "scripts/context_checks.py",
         "scripts/check_delivery.py",
-        "scripts/check_prose.py"
+        "scripts/check_prose.py",
+        "target-scaffolding"
       ]
     },
     {
       "path": "examples/execute-instead-of-enhance.md",
-      "source_paths": ["SKILL.md", "evals/cases.json", "scripts/check_delivery.py"]
+      "source_paths": [
+        "SKILL.md",
+        "evals/cases.json",
+        "scripts/check_delivery.py",
+        "target-scaffolding"
+      ]
     },
     {
       "path": "examples/handed-over-artifact.md",
@@ -146,64 +180,133 @@
         "scripts/check_prompt.py",
         "scripts/context_checks.py",
         "scripts/check_delivery.py",
-        "scripts/check_prose.py"
+        "scripts/check_prose.py",
+        "target-scaffolding"
       ]
     },
     {
       "path": "examples/no-prompt-present.md",
-      "source_paths": ["SKILL.md", "evals/cases.json"]
+      "source_paths": ["SKILL.md", "evals/cases.json", "target-scaffolding"]
     },
     {
       "path": "examples/refuse-extraction.md",
-      "source_paths": ["SKILL.md", "evals/cases.json"]
+      "source_paths": ["SKILL.md", "evals/cases.json", "target-scaffolding"]
     },
     {
       "path": "mise.toml",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "references/decisions.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "references/enhancement-moves.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/universal-checks.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "references/worked-example.md",
-      "source_paths": ["SKILL.md"]
+      "source_paths": ["SKILL.md", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_code_rules.py",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/check_delivery.py",
-      "source_paths": ["scripts/check_delivery.py"]
+      "source_paths": ["scripts/check_delivery.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/check_evals.py",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/check_prompt.py",
-      "source_paths": ["scripts/check_prompt.py"]
+      "source_paths": ["scripts/check_prompt.py", "target-scaffolding"]
     },
     {
       "path": "scripts/check_prose.py",
-      "source_paths": ["scripts/check_prose.py"]
+      "source_paths": ["scripts/check_prose.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/context_checks.py",
-      "source_paths": ["scripts/context_checks.py"]
+      "source_paths": ["scripts/context_checks.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/lint_writing.py",
       "source_paths": ["target-scaffolding"]
     },
     {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": ["target-scaffolding"]
+    },
+    {
       "path": "scripts/scan_secrets.py",
-      "source_paths": ["scripts/scan_secrets.py"]
+      "source_paths": ["scripts/scan_secrets.py", "target-scaffolding"]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": ["target-scaffolding"]
     },
     {
       "path": "scripts/tests/test_ci_contract.py",

@@ -1,5 +1,7 @@
 # Composition and motion
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load after wireframe and identity hashes exist.
 
 ## Responsive composition

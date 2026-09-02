@@ -1,0 +1,472 @@
+{
+  "version": "1.0.0",
+  "skill": "would-humans-actually",
+  "outcome": "Judge whether people will perform a named action from behavioral trials, friction evidence, and the intention behavior gap.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted human action verdict behavior.",
+      "reason": "The human action verdict outcome depends on stable domain semantics.",
+      "failure_prevented": "A human action verdict update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable human action verdict checks through Mise.",
+      "reason": "The human action verdict judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A human action verdict claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "human action verdict",
+    "intention behavior gap",
+    "behavioral trial",
+    "friction evidence"
+  ],
+  "domain_failures": [
+    "The human action verdict result changes without proof.",
+    "The human action verdict package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh human action verdict task output and saved receipts.",
+    "Current human action verdict behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The human action verdict contract owns actors decisions."],
+    "objects": ["The human action verdict contract owns objects decisions."],
+    "actions": ["The human action verdict contract owns actions decisions."],
+    "states": ["The human action verdict contract owns states decisions."],
+    "invariants": ["The human action verdict contract owns invariants decisions."],
+    "variants": ["The human action verdict contract owns variants decisions."],
+    "interfaces": ["The human action verdict contract owns interfaces decisions."],
+    "authorities": ["The human action verdict contract owns authorities decisions."],
+    "failures": ["The human action verdict contract owns failures decisions."],
+    "recoveries": ["The human action verdict contract owns recoveries decisions."],
+    "evidence": ["The human action verdict contract owns evidence decisions."],
+    "time": ["The human action verdict contract owns time decisions."],
+    "resources": ["The human action verdict contract owns resources decisions."],
+    "quality": ["The human action verdict contract owns quality decisions."],
+    "terminology": ["The human action verdict contract owns terminology decisions."],
+    "exclusions": ["The human action verdict contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the human action verdict actors decision?",
+    "objects": "What can change the human action verdict objects decision?",
+    "actions": "What can change the human action verdict actions decision?",
+    "states": "What can change the human action verdict states decision?",
+    "invariants": "What can change the human action verdict invariants decision?",
+    "variants": "What can change the human action verdict variants decision?",
+    "interfaces": "What can change the human action verdict interfaces decision?",
+    "authorities": "What can change the human action verdict authorities decision?",
+    "failures": "What can change the human action verdict failures decision?",
+    "recoveries": "What can change the human action verdict recoveries decision?",
+    "evidence": "What can change the human action verdict evidence decision?",
+    "time": "What can change the human action verdict time decision?",
+    "resources": "What can change the human action verdict resources decision?",
+    "quality": "What can change the human action verdict quality decision?",
+    "terminology": "What can change the human action verdict terminology decision?",
+    "exclusions": "What can change the human action verdict exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://doi.org/10.1037/0033-2909.132.2.249",
+      "source_class": "research",
+      "claim": "A human action verdict must account for the gap between stated intention and behavior.",
+      "limitations": "A meta-analysis cannot predict one product action without local evidence.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.sciencedirect.com/science/article/abs/pii/S0065260106380021",
+      "source_class": "research",
+      "claim": "Concrete implementation intentions can change action follow-through.",
+      "limitations": "The intervention does not remove product friction evidence needs.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/",
+      "source_class": "research",
+      "claim": "Measured comprehension can inform a behavioral trial for written choices.",
+      "limitations": "Comprehension alone does not prove action.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.gov.uk/service-manual/user-research",
+      "source_class": "first_party",
+      "claim": "A human action verdict should use observed user behavior and research evidence.",
+      "limitations": "Research guidance does not supply task-specific participants or results.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the human action verdict result?",
+      "source": "https://doi.org/10.1037/0033-2909.132.2.249",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "result": "No. The human action verdict behavior still needs direct evaluation.",
+      "disposition": "Keep structure and human action verdict behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named human action verdict agentic-request result.",
+        "motivation": "The human action verdict workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared human action verdict agentic-request route.",
+        "proof": "Fresh human action verdict agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named human action verdict invocation-policy result.",
+        "motivation": "The human action verdict workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared human action verdict invocation-policy route.",
+        "proof": "Fresh human action verdict invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named human action verdict improvement-policy result.",
+        "motivation": "The human action verdict workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared human action verdict improvement-policy route.",
+        "proof": "Fresh human action verdict improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named human action verdict mise-primitives-update result.",
+        "motivation": "The human action verdict workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared human action verdict mise-primitives-update route.",
+        "proof": "Fresh human action verdict mise-primitives-update output and exit status."
+      },
+      {
+        "task": "tests-test-validate-verdict",
+        "outcome": "Produce the named human action verdict tests-test-validate-verdict result.",
+        "motivation": "The human action verdict workflow needs one tests-test-validate-verdict entry.",
+        "why_default_path": "This is the single declared human action verdict tests-test-validate-verdict route.",
+        "proof": "Fresh human action verdict tests-test-validate-verdict output and exit status."
+      },
+      {
+        "task": "validate-verdict",
+        "outcome": "Produce the named human action verdict validate-verdict result.",
+        "motivation": "The human action verdict workflow needs one validate-verdict entry.",
+        "why_default_path": "This is the single declared human action verdict validate-verdict route.",
+        "proof": "Fresh human action verdict validate-verdict output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the human action verdict result through ci.",
+        "motivation": "The human action verdict package needs the ci gate.",
+        "value": "Produce current human action verdict evidence from ci.",
+        "proof": "The human action verdict ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared human action verdict responsibility."
+      },
+      "test": {
+        "outcome": "Advance the human action verdict result through test.",
+        "motivation": "The human action verdict package needs the test gate.",
+        "value": "Produce current human action verdict evidence from test.",
+        "proof": "The human action verdict test task exits zero with readable output.",
+        "applicability": "Use test for its declared human action verdict responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the human action verdict result through validate.",
+        "motivation": "The human action verdict package needs the validate gate.",
+        "value": "Produce current human action verdict evidence from validate.",
+        "proof": "The human action verdict validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared human action verdict responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the human action verdict result through lint-writing.",
+        "motivation": "The human action verdict package needs the lint-writing gate.",
+        "value": "Produce current human action verdict evidence from lint-writing.",
+        "proof": "The human action verdict lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared human action verdict responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the human action verdict result through lint-code.",
+        "motivation": "The human action verdict package needs the lint-code gate.",
+        "value": "Produce current human action verdict evidence from lint-code.",
+        "proof": "The human action verdict lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared human action verdict responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the human action verdict result through lint-placeholders.",
+        "motivation": "The human action verdict package needs the lint-placeholders gate.",
+        "value": "Produce current human action verdict evidence from lint-placeholders.",
+        "proof": "The human action verdict lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared human action verdict responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the human action verdict result through evals.",
+        "motivation": "The human action verdict package needs the evals gate.",
+        "value": "Produce current human action verdict evidence from evals.",
+        "proof": "The human action verdict evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared human action verdict responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the human action verdict result through domain-research-policy.",
+        "motivation": "The human action verdict package needs the domain-research-policy gate.",
+        "value": "Produce current human action verdict evidence from domain-research-policy.",
+        "proof": "The human action verdict domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared human action verdict responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the human action verdict result through use-case-policy.",
+        "motivation": "The human action verdict package needs the use-case-policy gate.",
+        "value": "Produce current human action verdict evidence from use-case-policy.",
+        "proof": "The human action verdict use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared human action verdict responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the human action verdict result through mise-primitives-policy.",
+        "motivation": "The human action verdict package needs the mise-primitives-policy gate.",
+        "value": "Produce current human action verdict evidence from mise-primitives-policy.",
+        "proof": "The human action verdict mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared human action verdict responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the human action verdict result through primitive-lifecycle-policy.",
+        "motivation": "The human action verdict package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current human action verdict evidence from primitive-lifecycle-policy.",
+        "proof": "The human action verdict primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared human action verdict responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the human action verdict result through task-graph-policy.",
+        "motivation": "The human action verdict package needs the task-graph-policy gate.",
+        "value": "Produce current human action verdict evidence from task-graph-policy.",
+        "proof": "The human action verdict task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared human action verdict responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the human action verdict result through decision-policy.",
+        "motivation": "The human action verdict package needs the decision-policy gate.",
+        "value": "Produce current human action verdict evidence from decision-policy.",
+        "proof": "The human action verdict decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared human action verdict responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the human action verdict result through improvement-policy.",
+        "motivation": "The human action verdict package needs the improvement-policy gate.",
+        "value": "Produce current human action verdict evidence from improvement-policy.",
+        "proof": "The human action verdict improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared human action verdict responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the human action verdict result through invocation-policy.",
+        "motivation": "The human action verdict package needs the invocation-policy gate.",
+        "value": "Produce current human action verdict evidence from invocation-policy.",
+        "proof": "The human action verdict invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared human action verdict responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the human action verdict result through agentic-request.",
+        "motivation": "The human action verdict package needs the agentic-request gate.",
+        "value": "Produce current human action verdict evidence from agentic-request.",
+        "proof": "The human action verdict agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared human action verdict responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the human action verdict result through mise-latest.",
+        "motivation": "The human action verdict package needs the mise-latest gate.",
+        "value": "Produce current human action verdict evidence from mise-latest.",
+        "proof": "The human action verdict mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared human action verdict responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the human action verdict result through mise-primitives-update.",
+        "motivation": "The human action verdict package needs the mise-primitives-update gate.",
+        "value": "Produce current human action verdict evidence from mise-primitives-update.",
+        "proof": "The human action verdict mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared human action verdict responsibility."
+      },
+      "tests-test-validate-verdict": {
+        "outcome": "Advance the human action verdict result through tests-test-validate-verdict.",
+        "motivation": "The human action verdict package needs the tests-test-validate-verdict gate.",
+        "value": "Produce current human action verdict evidence from tests-test-validate-verdict.",
+        "proof": "The human action verdict tests-test-validate-verdict task exits zero with readable output.",
+        "applicability": "Use tests-test-validate-verdict for its declared human action verdict responsibility."
+      },
+      "validate-verdict": {
+        "outcome": "Advance the human action verdict result through validate-verdict.",
+        "motivation": "The human action verdict package needs the validate-verdict gate.",
+        "value": "Produce current human action verdict evidence from validate-verdict.",
+        "proof": "The human action verdict validate-verdict task exits zero with readable output.",
+        "applicability": "Use validate-verdict for its declared human action verdict responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict skill_body behavior.",
+      "outcome": "Keep human action verdict skill_body aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one skill_body owner.",
+      "value": "Expose current human action verdict skill_body progress.",
+      "failure_prevented": "Stale or generic human action verdict skill_body behavior.",
+      "proof": "Fresh human action verdict skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict references behavior.",
+      "outcome": "Keep human action verdict references aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one references owner.",
+      "value": "Expose current human action verdict references progress.",
+      "failure_prevented": "Stale or generic human action verdict references behavior.",
+      "proof": "Fresh human action verdict references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict assets behavior.",
+      "outcome": "Keep human action verdict assets aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one assets owner.",
+      "value": "Expose current human action verdict assets progress.",
+      "failure_prevented": "Stale or generic human action verdict assets behavior.",
+      "proof": "Fresh human action verdict assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict scripts behavior.",
+      "outcome": "Keep human action verdict scripts aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one scripts owner.",
+      "value": "Expose current human action verdict scripts progress.",
+      "failure_prevented": "Stale or generic human action verdict scripts behavior.",
+      "proof": "Fresh human action verdict scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict tests behavior.",
+      "outcome": "Keep human action verdict tests aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one tests owner.",
+      "value": "Expose current human action verdict tests progress.",
+      "failure_prevented": "Stale or generic human action verdict tests behavior.",
+      "proof": "Fresh human action verdict tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict mise_tasks behavior.",
+      "outcome": "Keep human action verdict mise_tasks aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one mise_tasks owner.",
+      "value": "Expose current human action verdict mise_tasks progress.",
+      "failure_prevented": "Stale or generic human action verdict mise_tasks behavior.",
+      "proof": "Fresh human action verdict mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict examples behavior.",
+      "outcome": "Keep human action verdict examples aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one examples owner.",
+      "value": "Expose current human action verdict examples progress.",
+      "failure_prevented": "Stale or generic human action verdict examples behavior.",
+      "proof": "Fresh human action verdict examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict evals behavior.",
+      "outcome": "Keep human action verdict evals aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one evals owner.",
+      "value": "Expose current human action verdict evals progress.",
+      "failure_prevented": "Stale or generic human action verdict evals behavior.",
+      "proof": "Fresh human action verdict evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict policies behavior.",
+      "outcome": "Keep human action verdict policies aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one policies owner.",
+      "value": "Expose current human action verdict policies progress.",
+      "failure_prevented": "Stale or generic human action verdict policies behavior.",
+      "proof": "Fresh human action verdict policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict schemas behavior.",
+      "outcome": "Keep human action verdict schemas aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one schemas owner.",
+      "value": "Expose current human action verdict schemas progress.",
+      "failure_prevented": "Stale or generic human action verdict schemas behavior.",
+      "proof": "Fresh human action verdict schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own human action verdict records behavior.",
+      "outcome": "Keep human action verdict records aligned with the accepted result.",
+      "motivation": "The human action verdict package needs one records owner.",
+      "value": "Expose current human action verdict records progress.",
+      "failure_prevented": "Stale or generic human action verdict records behavior.",
+      "proof": "Fresh human action verdict records validation and behavioral evidence."
+    }
+  }
+}

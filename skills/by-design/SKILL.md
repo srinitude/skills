@@ -45,19 +45,21 @@ Run watch when the user names no command. Pick the posture from what arrives, us
 
 Run every step in order. Each step names one action and the result it must produce. When a result differs from the one named, fix it and run that step again before moving on.
 
-0. Gate the request. Run `python3 scripts/gate.py --text "<the request>"`. A line starting with `not-design` ends the run here, and this skill contributes nothing to the reply. A line starting with `design` continues to step 1. Result: one verdict line, and on `not-design` no further step runs.
-1. Read the ledger. Run `python3 scripts/ledger.py show --file decision-ledger-<slug>.md`. Exit 1 means the ledger is new, so run `python3 scripts/ledger.py init --file decision-ledger-<slug>.md --slug <slug>`. Result: the file exists and you can list the decisions already in it.
+0. Gate the request. Run `mise run gate --text "<the request>"`. A line starting with `not-design` ends the run here, and this skill contributes nothing to the reply. A line starting with `design` continues to step 1. Result: one verdict line, and on `not-design` no further step runs.
+1. Read the ledger. Run `mise run ledger show --file decision-ledger-<slug>.md`. Exit 1 means the ledger is new, so run `mise run ledger init --file decision-ledger-<slug>.md --slug <slug>`. Result: the file exists and you can list the decisions already in it.
 2. Name the posture in one clause, using the second table above. Result: a posture name you can write into the reply.
-3. Read the artifact for its coordinates. When the artifact is a picture, first write two lines: what this is, and what state it is in, choosing from populated, empty, error, loading, offline, disabled, or mid-flow. A picture carries its state and a description of a picture usually loses it, and the state is often the decision. Then run `python3 scripts/locate.py --file <artifact>`, or pass the request with `--text`, passing those state words to `--hint` when they matter. Result: a ranked list, each place carrying its score, how many terms earned it, and which ones. A `weak read` line on stderr means the ranking should not be trusted, either because one term carried the top place or because the top two are too close to separate. When it appears, name the artifact type yourself and run it again with `--hint "<the words for what this is>"`, which is how a discipline the vocabulary does not cover still lands.
-4. Pull the questions. Run `python3 scripts/slice.py --category "<category>" --stage <stage> --match "<a noun from the artifact>" --limit 20`. Result: exit 0 and a list of questions. Read stderr: a `widened:` line means the pin loosened, so say that in the reply. A match that finds only one or two questions loosens the other pins first and keeps the match, because the word from the artifact is the pin worth holding. A `dropped match` line means the shelf does not talk about your craft in your craft's words, so say that in the reply and write the rest of the rows from the work rather than from the slice. Pass `--match` with a word the artifact itself uses, because the category alone returns what is common rather than what is here.
+3. Read the artifact for its coordinates. When the artifact is a picture, first write two lines: what this is, and what state it is in, choosing from populated, empty, error, loading, offline, disabled, or mid-flow. A picture carries its state and a description of a picture usually loses it, and the state is often the decision. Then run `mise run locate --file <artifact>`, or pass the request with `--text`, passing those state words to `--hint` when they matter. Result: a ranked list, each place carrying its score, how many terms earned it, and which ones. A `weak read` line on stderr means the ranking should not be trusted, either because one term carried the top place or because the top two are too close to separate. When it appears, name the artifact type yourself and run it again with `--hint "<the words for what this is>"`, which is how a discipline the vocabulary does not cover still lands.
+4. Pull the questions. Run `mise run slice --category "<category>" --stage <stage> --match "<a noun from the artifact>" --limit 20`. Result: exit 0 and a list of questions. Read stderr: a `widened:` line means the pin loosened, so say that in the reply. A match that finds only one or two questions loosens the other pins first and keeps the match, because the word from the artifact is the pin worth holding. A `dropped match` line means the shelf does not talk about your craft in your craft's words, so say that in the reply and write the rest of the rows from the work rather than from the slice. Pass `--match` with a word the artifact itself uses, because the category alone returns what is common rather than what is here.
 5. Group the questions into decisions. Several questions usually point at one choice. Turn every observation into the decision it implies before you drop it: an unlabelled grid is not a defect to mention, it is the decision nobody made about how the grid is read aloud. Result: a short list of decisions, each shorter than the list of questions, and nothing observed that has no row.
-6. Write one row per decision. Run `python3 scripts/ledger.py add --file decision-ledger-<slug>.md --decision "<text>" --chosen "<text>" --trades "<text>" --risks "<text>" --origin <deliberate, inherited, or open>` and, when a question from step 4 raised the row rather than the artifact, `--source "<question id and url>"`. Result: one appended line per decision, and a file that says which rows came from looking and which came from the library.
-7. Count what you wrote. Run `python3 scripts/ledger.py count --file decision-ledger-<slug>.md --decision "<text>"`, and `show` to count the rows and the inherited ones for the reply line. Result: numbers taken from a command rather than from memory, which step 10 then checks against the file.
-8. Ask the script whether to speak, and which row. Run `python3 scripts/speak.py --file decision-ledger-<slug>.md --rank` to order the inherited rows by how little is known about each, then run `python3 scripts/speak.py --file decision-ledger-<slug>.md --decision "<the first ranked row>" --origin inherited --live yes`. Result: an ordered list, then a line starting with ask or hold. Put one question in the reply when that line starts with ask.
+6. Write one row per decision. Run `mise run ledger add --file decision-ledger-<slug>.md --decision "<text>" --chosen "<text>" --trades "<text>" --risks "<text>" --origin <deliberate, inherited, or open>` and, when a question from step 4 raised the row rather than the artifact, `--source "<question id and url>"`. Result: one appended line per decision, and a file that says which rows came from looking and which came from the library.
+7. Count what you wrote. Run `mise run ledger count --file decision-ledger-<slug>.md --decision "<text>"`, and `show` to count the rows and the inherited ones for the reply line. Result: numbers taken from a command rather than from memory, which step 10 then checks against the file.
+8. Ask the script whether to speak, and which row. Run `mise run speak --file decision-ledger-<slug>.md --rank` to order the inherited rows by how little is known about each, then run `mise run speak --file decision-ledger-<slug>.md --decision "<the first ranked row>" --origin inherited --live yes`. Result: an ordered list, then a line starting with ask or hold. Put one question in the reply when that line starts with ask.
 9. Draft the reply from assets/reply-template.md. Result: four lines, each filled.
-10. Check the draft. Run `python3 scripts/check_reply.py --file <draft path>`, adding `--full-slice` for the ask posture and `--ledger-dir <folder>` when the ledger does not sit beside the draft. This reads the ledger named in the reply and checks its counts against the file, so a number nobody ran fails here. Result: the line `draft passed every rule`. Any other line names what to fix, so fix it and run this again.
+10. Check the draft. Run `mise run check-reply --file <draft path>`, adding `--full-slice` for the ask posture and `--ledger-dir <folder>` when the ledger does not sit beside the draft. This reads the ledger named in the reply and checks its counts against the file, so a number nobody ran fails here. Result: the line `draft passed every rule`. Any other line names what to fix, so fix it and run this again.
 
 ## When does this skill speak?
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Step 8 answers this, and the script holds the counts so the answer stays the same each time. Speak when a decision is live, the choice arrived inherited, and the ledger has seen it fewer than three times. Stay quiet in every other case and write the row anyway. Silence is the common and correct outcome.
 
@@ -69,8 +71,8 @@ References for the reasoning behind that rule sit in references/interruption.md.
 - references/interruption.md: read when the reasoning behind step 8 matters, or when a user asks why the skill stayed quiet.
 - references/ledger-format.md: read at step 6, for what belongs in each column.
 - assets/gate-terms.yaml: the vocabulary step 0 matches against, read by the gate.
-- assets/terms-index.yaml: the terms counted from the questions, per category, read by scripts/locate.py at step 3.
-- assets/trade-terms.yaml: the words a discipline uses for its own work, written by hand, read alongside the counted terms at step 3. Add to this file when a discipline lands on the wrong shelf, then run scripts/bench.py.
+- assets/terms-index.yaml: the terms counted from the questions, per category, read by `mise run locate` at step 3.
+- assets/trade-terms.yaml: the words a discipline uses for its own work, written by hand, read alongside the counted terms at step 3. Add to this file when a discipline lands on the wrong shelf, then run `mise run bench`.
 - assets/disciplines.yaml: the occupation names themselves, mapped to the shelf each craft's decisions live on, read at step 3 and weighted above the trade words.
 - references/disciplines.md: read when the work is not a screen, when a craft is not listed, or when step 3 cannot place the artifact.
 - references/generation-contract.md: read before changing this skill's layout, task graph, or checks, for the rules the structure has to satisfy.
@@ -79,12 +81,12 @@ References for the reasoning behind that rule sit in references/interruption.md.
 - assets/index.yaml: the category index, read by the scripts.
 - assets/questions/: one file per category, holding all 16,112 questions. The scripts read these, and a reply quotes only the selected rows.
 - assets/reply-template.md: read at step 9.
-- scripts/: run these. `--help` on any of them prints flags, exit codes, and an example.
-- scripts/crafts.py: run to see how far this skill reaches across design occupations, and `--thin` to list the crafts their own shelf serves thinly.
-- scripts/tests/: run `python3 -m unittest discover -s scripts/tests -p 'test_*.py'` after changing any script.
+- `mise run test`: run these. `--help` on any of them prints flags, exit codes, and an example.
+- `mise run crafts`: run to see how far this skill reaches across design occupations, and `--thin` to list the crafts their own shelf serves thinly.
+- `mise run test`: run `mise run test` after changing any script.
 - examples/: read the file matching the command being run, read examples/example-widened-slice.md before trusting any slice, read examples/example-weak-read.md when step 3 prints a weak read line, and read examples/example-image-artifact.md when the work arrives as a picture, and read examples/example-no-question.md when the ledger holds no inherited row.
 - evals/: read when measuring this skill rather than using it.
-- scripts/bench.py: run after any change to the vocabulary, the term index, or the scoring, and after any run on real design work.
+- `mise run bench`: run after any change to the vocabulary, the term index, or the scoring, and after any run on real design work.
 
 ## How does real work stay in this skill?
 
@@ -93,14 +95,16 @@ Every real design task run through this skill becomes a permanent fixture, so a 
 1. Save the brief in the words that discipline actually used, at `evals/files/brief-<nn>-<slug>.txt`. Result: a file that reads like the request rather than like a test.
 2. Record the shelf that turned out to be right, as one new key in `evals/files/briefs.json`. Result: one key added and no existing key changed.
 3. Add any request the gate should have turned away to `evals/files/non-design.json`. Result: one more request the gate has to stop.
-4. Run `python3 scripts/bench.py`. Exit 1 names every measure that fell, so fix the cause and run it again. Result: the line `exit 0`, meaning no measure sits below the recorded baseline.
-5. Run `python3 scripts/bench.py --update` only after step 4 passed and only when this run added a fixture. Result: a baseline no later run may fall below.
+4. Run `mise run bench`. Exit 1 names every measure that fell, so fix the cause and run it again. Result: the line `exit 0`, meaning no measure sits below the recorded baseline.
+5. Run `mise run bench --update` only after step 4 passed and only when this run added a fixture. Result: a baseline no later run may fall below.
 
 The baseline in `evals/baseline.json` holds the gate measures and, for each fixture, the rank position of the shelf that was right. Position is the sensitive part. A weakened vocabulary moves a shelf from second place to fifth long before it leaves the top three, and only the position notices that.
 
 Never lower a recorded number to make a run pass. A measure that fell is a report about the change, not about the fixture.
 
 ## Does this work for my craft?
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Yes, and the fastest route is to say what you do. `assets/disciplines.yaml` maps two hundred occupation names to the shelf their decisions live on, from art director to naval architect to floral designer, so naming the craft lands the slice in one step. Measured across sixty five occupations, each given one line of real work in its own trade language, every one passes the gate, sixty two land the right shelf first and all sixty five land it in the top three.
 
@@ -126,4 +130,19 @@ Facts belong elsewhere. A skill that captures design context owns tokens, screen
 
 ## When is this skill done?
 
-On a `not-design` verdict the work is done at step 0, with nothing written and nothing said. Otherwise the work is done when the ledger holds one row per decision, every row carries an origin, the reply follows the template with counts taken from commands run in this turn, and `python3 scripts/check_reply.py` printed `draft passed every rule`.
+On a `not-design` verdict the work is done at step 0, with nothing written and nothing said. Otherwise the work is done when the ledger holds one row per decision, every row carries an origin, the reply follows the template with counts taken from commands run in this turn, and `mise run check-reply` printed `draft passed every rule`.
+
+## Factory execution contract
+
+The accepted outcome is: Turn a named design intent into a reviewed design decision ledger backed by rendered evidence. Preserve current design decision ledger behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current design decision ledger sources and counterevidence.
+3. Run `mise run agentic-request` for the named design decision ledger operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

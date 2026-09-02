@@ -1,5 +1,7 @@
 # Source coverage and authority
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load for audits, source drift, or integration changes.
 
 ## Authority order
@@ -13,6 +15,8 @@ Backlink: [SKILL.md](../SKILL.md). Load for audits, source drift, or integration
 Do not let supplemental evidence override current official documentation.
 
 ## Locked coverage
+
+Resource gate: run `mise run validate` before using package files named here.
 
 `assets/source-lock.json` records:
 

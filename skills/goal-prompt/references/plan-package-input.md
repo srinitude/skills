@@ -1,5 +1,7 @@
 # Plan-package input
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Source snapshot.
 
 Recognize one package from a primary plan file, same-slug companion directory, and same-slug report directory. A primary file without companions remains valid. Reject traversal, symlinks, unreadable paths, workspace escapes, and more than one slug.

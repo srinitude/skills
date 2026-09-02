@@ -30,6 +30,8 @@ Return exactly six lines as one command. The first line points to the packaged g
 
 ## Source snapshot
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Write the package under the active workspace's goal-prompt directory. Save the resolved input to a source snapshot, compute SHA-256 with a tool, and verify saved bytes against the resolved input. Use a collision-safe timestamp and slug.
 
 For ordinary input, assign `REQ-###` IDs to every atomic rule. Record strength, source location, derived wording, proof target, and `same_meaning` or `failed`. Require 100% coverage and no failed result. Preserve ambiguity under `Open questions`.
@@ -86,4 +88,19 @@ Steering controls do not qualify, reset, or count. Background, judge, delegated,
 - `assets/` for requirement-map templates
 - `examples/` for ordinary, plan, and blocked results
 - `evals/` for target-only cases and lineage
-- `scripts/` and `scripts/tests/` for package checks
+- `mise run test` for package checks
+
+## Factory execution contract
+
+The accepted outcome is: Turn a durable goal source into one standing goal packet with a testable completion condition and evidence ledger. Preserve current standing goal packet behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current standing goal packet sources and counterevidence.
+3. Run `mise run agentic-request` for the named standing goal packet operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

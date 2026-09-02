@@ -31,6 +31,8 @@ Never accept line count alone as evidence of simplification.
 
 ## Required composition
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Read the [dependency reconciliation](references/dependency-reconciliation.md) before changing a package. Use the collection's starting-point, human-behavior, agent-behavior, and meaning-preservation owners when their triggers apply.
 
 A native host-only load is evidence, not a portable dependency. Internalize its invariant or route to an installed public peer. If neither is possible, return `BLOCKED_DEPENDENCY`.
@@ -86,4 +88,19 @@ Package PASS, eval enrollment, behavior-eval PASS, component status, and whole-s
 - `assets/` for ledger templates
 - `examples/` for accepted and blocked outcomes
 - `evals/` for native-case lineage and portable tests
-- `scripts/` and `scripts/tests/` for package checks
+- `mise run test` for package checks
+
+## Factory execution contract
+
+The accepted outcome is: Reduce skill complexity while proving semantic parity and preserving every accepted behavior. Preserve current behavior-preserving simplification behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current behavior-preserving simplification sources and counterevidence.
+3. Run `mise run agentic-request` for the named behavior-preserving simplification operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

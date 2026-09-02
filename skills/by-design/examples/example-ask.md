@@ -11,7 +11,7 @@ just give me the accessibility questions for a form, don't hold back
 ## Commands run
 
 ```
-$ python3 scripts/slice.py --category "Forms and input" --lens accessibility --limit 15
+$ mise run slice --category "Forms and input" --lens accessibility --limit 15
 # 15 questions
 
 **Is the primary button disabled until everything is valid, and how does a stuck user learn why?**
@@ -109,7 +109,7 @@ exit 0
 Nothing was printed on stderr, so every coordinate held and the slice is the one that was asked for.
 
 ```
-$ python3 scripts/slice.py --category "Forms and input" --lens accessibility --limit 500 --format json | python3 -c "import json,sys; print(json.load(sys.stdin)['count'])"
+$ mise run slice --category "Forms and input" --lens accessibility --limit 500 --format json | python3 -c "import json,sys; print(json.load(sys.stdin)['count'])"
 74
 exit 0
 ```
@@ -117,7 +117,7 @@ exit 0
 The second run answers a question the first cannot: how much material sits behind the slice, which decides whether fifteen is a sample or the whole shelf. It is a sample of 74.
 
 ```
-$ python3 scripts/check_reply.py --file draft.md --full-slice
+$ mise run check-reply --file draft.md --full-slice
 draft passed every rule
 exit 0
 ```

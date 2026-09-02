@@ -1,5 +1,7 @@
 # Decision log for dedupe
 
+Resource gate: run `mise run validate` before using package files named here.
+
 One dated line per decision, newest first. State the choice, reason, and evidence.
 
 - 2026-08-05: PD-005 moved report fields, approval shape, apply checks, and degraded package verification to `references/report-mutation.md`; load before reports or mutation plans; owner `dedupe`; backlink in `SKILL.md`.

@@ -1,5 +1,7 @@
 # Validation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure step 5.
 
 ## Required artifacts

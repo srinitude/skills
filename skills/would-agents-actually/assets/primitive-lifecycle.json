@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "would-agents-actually",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "would-agents-actually-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict actors aligned.",
+      "motivation": "The agent action verdict result depends on actors ownership.",
+      "proof": "Fresh agent action verdict actors evidence."
+    },
+    "objects": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict objects aligned.",
+      "motivation": "The agent action verdict result depends on objects ownership.",
+      "proof": "Fresh agent action verdict objects evidence."
+    },
+    "actions": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict actions aligned.",
+      "motivation": "The agent action verdict result depends on actions ownership.",
+      "proof": "Fresh agent action verdict actions evidence."
+    },
+    "states": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict states aligned.",
+      "motivation": "The agent action verdict result depends on states ownership.",
+      "proof": "Fresh agent action verdict states evidence."
+    },
+    "invariants": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict invariants aligned.",
+      "motivation": "The agent action verdict result depends on invariants ownership.",
+      "proof": "Fresh agent action verdict invariants evidence."
+    },
+    "variants": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict variants aligned.",
+      "motivation": "The agent action verdict result depends on variants ownership.",
+      "proof": "Fresh agent action verdict variants evidence."
+    },
+    "interfaces": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict interfaces aligned.",
+      "motivation": "The agent action verdict result depends on interfaces ownership.",
+      "proof": "Fresh agent action verdict interfaces evidence."
+    },
+    "authorities": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict authorities aligned.",
+      "motivation": "The agent action verdict result depends on authorities ownership.",
+      "proof": "Fresh agent action verdict authorities evidence."
+    },
+    "failures": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict failures aligned.",
+      "motivation": "The agent action verdict result depends on failures ownership.",
+      "proof": "Fresh agent action verdict failures evidence."
+    },
+    "recoveries": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict recoveries aligned.",
+      "motivation": "The agent action verdict result depends on recoveries ownership.",
+      "proof": "Fresh agent action verdict recoveries evidence."
+    },
+    "evidence": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict evidence aligned.",
+      "motivation": "The agent action verdict result depends on evidence ownership.",
+      "proof": "Fresh agent action verdict evidence evidence."
+    },
+    "time": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict time aligned.",
+      "motivation": "The agent action verdict result depends on time ownership.",
+      "proof": "Fresh agent action verdict time evidence."
+    },
+    "resources": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict resources aligned.",
+      "motivation": "The agent action verdict result depends on resources ownership.",
+      "proof": "Fresh agent action verdict resources evidence."
+    },
+    "quality": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict quality aligned.",
+      "motivation": "The agent action verdict result depends on quality ownership.",
+      "proof": "Fresh agent action verdict quality evidence."
+    },
+    "terminology": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict terminology aligned.",
+      "motivation": "The agent action verdict result depends on terminology ownership.",
+      "proof": "Fresh agent action verdict terminology evidence."
+    },
+    "exclusions": {
+      "profile": "would-agents-actually-lifecycle",
+      "outcome": "Keep agent action verdict exclusions aligned.",
+      "motivation": "The agent action verdict result depends on exclusions ownership.",
+      "proof": "Fresh agent action verdict exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "references": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "assets": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "scripts": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "tests": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "examples": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "evals": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "policies": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "schemas": {
+      "profile": "would-agents-actually-lifecycle"
+    },
+    "records": {
+      "profile": "would-agents-actually-lifecycle"
+    }
+  }
+}

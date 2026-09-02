@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "dedupe",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted duplicate cluster result.",
+      "motivation": "The duplicate cluster decision needs its correct owner.",
+      "why_this_path": "The duplicate cluster responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current duplicate cluster contract"],
+      "expected_effect": "Make the duplicate cluster decision testable.",
+      "proof": "Fresh duplicate cluster evidence from the named owner.",
+      "falsifier": "Current duplicate cluster evidence contradicts the decision.",
+      "failure_branch": "Block the duplicate cluster result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted duplicate cluster result.",
+      "motivation": "The duplicate cluster decision needs its correct owner.",
+      "why_this_path": "The duplicate cluster responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current duplicate cluster contract"],
+      "expected_effect": "Make the duplicate cluster decision testable.",
+      "proof": "Fresh duplicate cluster evidence from the named owner.",
+      "falsifier": "Current duplicate cluster evidence contradicts the decision.",
+      "failure_branch": "Block the duplicate cluster result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted duplicate cluster result.",
+      "motivation": "The duplicate cluster decision needs its correct owner.",
+      "why_this_path": "The duplicate cluster responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current duplicate cluster contract"],
+      "expected_effect": "Make the duplicate cluster decision testable.",
+      "proof": "Fresh duplicate cluster evidence from the named owner.",
+      "falsifier": "Current duplicate cluster evidence contradicts the decision.",
+      "failure_branch": "Block the duplicate cluster result and restore the accepted state."
+    }
+  ]
+}

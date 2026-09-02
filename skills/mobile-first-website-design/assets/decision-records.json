@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "mobile-first-website-design",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted mobile-first page result.",
+      "motivation": "The mobile-first page decision needs its correct owner.",
+      "why_this_path": "The mobile-first page responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current mobile-first page contract"],
+      "expected_effect": "Make the mobile-first page decision testable.",
+      "proof": "Fresh mobile-first page evidence from the named owner.",
+      "falsifier": "Current mobile-first page evidence contradicts the decision.",
+      "failure_branch": "Block the mobile-first page result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted mobile-first page result.",
+      "motivation": "The mobile-first page decision needs its correct owner.",
+      "why_this_path": "The mobile-first page responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current mobile-first page contract"],
+      "expected_effect": "Make the mobile-first page decision testable.",
+      "proof": "Fresh mobile-first page evidence from the named owner.",
+      "falsifier": "Current mobile-first page evidence contradicts the decision.",
+      "failure_branch": "Block the mobile-first page result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted mobile-first page result.",
+      "motivation": "The mobile-first page decision needs its correct owner.",
+      "why_this_path": "The mobile-first page responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current mobile-first page contract"],
+      "expected_effect": "Make the mobile-first page decision testable.",
+      "proof": "Fresh mobile-first page evidence from the named owner.",
+      "falsifier": "Current mobile-first page evidence contradicts the decision.",
+      "failure_branch": "Block the mobile-first page result and restore the accepted state."
+    }
+  ]
+}

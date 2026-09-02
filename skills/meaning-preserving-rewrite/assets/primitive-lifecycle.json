@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "meaning-preserving-rewrite",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "meaning-preserving-rewrite-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant actors aligned.",
+      "motivation": "The meaning invariant result depends on actors ownership.",
+      "proof": "Fresh meaning invariant actors evidence."
+    },
+    "objects": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant objects aligned.",
+      "motivation": "The meaning invariant result depends on objects ownership.",
+      "proof": "Fresh meaning invariant objects evidence."
+    },
+    "actions": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant actions aligned.",
+      "motivation": "The meaning invariant result depends on actions ownership.",
+      "proof": "Fresh meaning invariant actions evidence."
+    },
+    "states": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant states aligned.",
+      "motivation": "The meaning invariant result depends on states ownership.",
+      "proof": "Fresh meaning invariant states evidence."
+    },
+    "invariants": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant invariants aligned.",
+      "motivation": "The meaning invariant result depends on invariants ownership.",
+      "proof": "Fresh meaning invariant invariants evidence."
+    },
+    "variants": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant variants aligned.",
+      "motivation": "The meaning invariant result depends on variants ownership.",
+      "proof": "Fresh meaning invariant variants evidence."
+    },
+    "interfaces": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant interfaces aligned.",
+      "motivation": "The meaning invariant result depends on interfaces ownership.",
+      "proof": "Fresh meaning invariant interfaces evidence."
+    },
+    "authorities": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant authorities aligned.",
+      "motivation": "The meaning invariant result depends on authorities ownership.",
+      "proof": "Fresh meaning invariant authorities evidence."
+    },
+    "failures": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant failures aligned.",
+      "motivation": "The meaning invariant result depends on failures ownership.",
+      "proof": "Fresh meaning invariant failures evidence."
+    },
+    "recoveries": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant recoveries aligned.",
+      "motivation": "The meaning invariant result depends on recoveries ownership.",
+      "proof": "Fresh meaning invariant recoveries evidence."
+    },
+    "evidence": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant evidence aligned.",
+      "motivation": "The meaning invariant result depends on evidence ownership.",
+      "proof": "Fresh meaning invariant evidence evidence."
+    },
+    "time": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant time aligned.",
+      "motivation": "The meaning invariant result depends on time ownership.",
+      "proof": "Fresh meaning invariant time evidence."
+    },
+    "resources": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant resources aligned.",
+      "motivation": "The meaning invariant result depends on resources ownership.",
+      "proof": "Fresh meaning invariant resources evidence."
+    },
+    "quality": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant quality aligned.",
+      "motivation": "The meaning invariant result depends on quality ownership.",
+      "proof": "Fresh meaning invariant quality evidence."
+    },
+    "terminology": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant terminology aligned.",
+      "motivation": "The meaning invariant result depends on terminology ownership.",
+      "proof": "Fresh meaning invariant terminology evidence."
+    },
+    "exclusions": {
+      "profile": "meaning-preserving-rewrite-lifecycle",
+      "outcome": "Keep meaning invariant exclusions aligned.",
+      "motivation": "The meaning invariant result depends on exclusions ownership.",
+      "proof": "Fresh meaning invariant exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "references": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "assets": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "scripts": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "tests": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "examples": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "evals": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "policies": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "schemas": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    },
+    "records": {
+      "profile": "meaning-preserving-rewrite-lifecycle"
+    }
+  }
+}

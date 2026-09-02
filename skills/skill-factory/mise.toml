@@ -206,3 +206,13 @@ run = "python3 scripts/check_target.py eval"
 description = "Freeze a read-only inventory before updating or standardizing a skill"
 depends = ["doctor", "source-corpus"]
 run = "python3 scripts/plan_standardize.py"
+
+[tasks.standardize-target]
+description = "Apply one profile-bound registry skill standardization"
+depends = ["doctor", "source-corpus"]
+run = "python3 scripts/standardize_registry_skill.py"
+
+[tasks.refresh-registry-lineage]
+description = "Refresh source lineage for named registry skills"
+depends = ["doctor"]
+run = "python3 scripts/refresh_registry_lineage.py"

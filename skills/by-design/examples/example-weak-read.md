@@ -13,7 +13,7 @@ Consent banner rework for a European audience under the rules now enforced. Acce
 ## Step 0, gate
 
 ```
-$ python3 scripts/gate.py --text "$(cat brief.txt)"
+$ mise run gate --text "$(cat brief.txt)"
 design: matched strong:screen, weak:audience, weak:banner, weak:button, weak:label
 exit 0
 ```
@@ -21,7 +21,7 @@ exit 0
 ## Step 3, locate, first attempt
 
 ```
-$ python3 scripts/locate.py --file brief.txt --top 3
+$ mise run locate --file brief.txt --top 3
   2.47   2 terms  Privacy, consent and compliance  [consent, acceptance]
   2.41   2 terms  Persuasion, defaults and dark patterns  [consent banner, continue]
   2.00   1 terms  Layout, grid, hierarchy and density  [visual weight]
@@ -34,7 +34,7 @@ Compliance came first at 2.47 and dark patterns second at 2.41, six hundredths a
 ## Step 3 again, with the artifact type named
 
 ```
-$ python3 scripts/locate.py --file brief.txt --hint "consent banner dark patterns" --top 3
+$ mise run locate --file brief.txt --hint "consent banner dark patterns" --top 3
  22.41   3 terms  Persuasion, defaults and dark patterns  [hint, consent banner, continue]
  12.47   3 terms  Privacy, consent and compliance  [hint, consent, acceptance]
  10.00   1 terms  Color, theming and dark mode  [hint]
@@ -46,7 +46,7 @@ No warning this time, because the artifact type came from the person holding the
 ## Step 4, the slice, and what it caught
 
 ```
-$ python3 scripts/slice.py --category "Persuasion, defaults and dark patterns" --stage concept --match "consent" --limit 3
+$ mise run slice --category "Persuasion, defaults and dark patterns" --stage concept --match "consent" --limit 3
 # 3 questions
 
 **Have we designed the third option (advertising without tracking) or only the two that suit our current stack?**
@@ -74,39 +74,39 @@ The first question is the one the compliance shelf would never have asked. The b
 ## Steps 6 to 8, the ledger and the one question
 
 ```
-$ python3 scripts/ledger.py init --file decision-ledger-consent.md --slug consent
+$ mise run ledger init --file decision-ledger-consent.md --slug consent
 created decision-ledger-consent.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-consent.md --decision "Rejecting costs the same as accepting" --chosen "reject all on the first layer beside accept all" --trades "consent rate vs. a refusal that is actually reachable" --risks "a reject path nobody finds, which is the pattern the rules name" --origin deliberate
+$ mise run ledger add --file decision-ledger-consent.md --decision "Rejecting costs the same as accepting" --chosen "reject all on the first layer beside accept all" --trades "consent rate vs. a refusal that is actually reachable" --risks "a reject path nobody finds, which is the pattern the rules name" --origin deliberate
 appended to decision-ledger-consent.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-consent.md --decision "Which words the two buttons carry" --chosen "accept all and reject all, with continue and proceed dropped" --trades "a familiar softener vs. a label that says what the click does" --risks "a vague verb read as agreement by a visitor who meant to refuse" --origin deliberate
+$ mise run ledger add --file decision-ledger-consent.md --decision "Which words the two buttons carry" --chosen "accept all and reject all, with continue and proceed dropped" --trades "a familiar softener vs. a label that says what the click does" --risks "a vague verb read as agreement by a visitor who meant to refuse" --origin deliberate
 appended to decision-ledger-consent.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-consent.md --decision "Whether a third option exists beside accept and reject" --chosen "" --trades "a binary that suits the current stack vs. the option most people say they want" --risks "a forced choice presented as exhaustive when a third option was never built" --origin inherited --source "Q11603 https://noyb.eu/en/pay-or-okay-study-users-prefer-tracking-free-third-option"
+$ mise run ledger add --file decision-ledger-consent.md --decision "Whether a third option exists beside accept and reject" --chosen "" --trades "a binary that suits the current stack vs. the option most people say they want" --risks "a forced choice presented as exhaustive when a third option was never built" --origin inherited --source "Q11603 https://noyb.eu/en/pay-or-okay-study-users-prefer-tracking-free-third-option"
 appended to decision-ledger-consent.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-consent.md --decision "That the banner is the first screen anyone sees" --chosen "" --trades "compliance placed where it is unavoidable vs. a first impression spent on a dialog" --risks "an entire first encounter that is a legal interstitial" --origin inherited
+$ mise run ledger add --file decision-ledger-consent.md --decision "That the banner is the first screen anyone sees" --chosen "" --trades "compliance placed where it is unavoidable vs. a first impression spent on a dialog" --risks "an entire first encounter that is a legal interstitial" --origin inherited
 appended to decision-ledger-consent.md
 exit 0
 
-$ python3 scripts/ledger.py show --file decision-ledger-consent.md
+$ mise run ledger show --file decision-ledger-consent.md
 | Rejecting costs the same as accepting | reject all on the first layer beside accept all | consent rate vs. a refusal that is actually reachable | a reject path nobody finds, which is the pattern the rules name | deliberate | - | - |
 | Which words the two buttons carry | accept all and reject all, with continue and proceed dropped | a familiar softener vs. a label that says what the click does | a vague verb read as agreement by a visitor who meant to refuse | deliberate | - | - |
 | Whether a third option exists beside accept and reject | - | a binary that suits the current stack vs. the option most people say they want | a forced choice presented as exhaustive when a third option was never built | inherited | - | Q11603 https://noyb.eu/en/pay-or-okay-study-users-prefer-tracking-free-third-option |
 | That the banner is the first screen anyone sees | - | compliance placed where it is unavoidable vs. a first impression spent on a dialog | an entire first encounter that is a legal interstitial | inherited | - | - |
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-consent.md --rank
+$ mise run speak --file decision-ledger-consent.md --rank
 1. That the banner is the first screen anyone sees (3 columns unknown)
 2. Whether a third option exists beside accept and reject (2 columns unknown)
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-consent.md --decision "That the banner is the first screen anyone sees" --origin inherited --live yes
+$ mise run speak --file decision-ledger-consent.md --decision "That the banner is the first screen anyone sees" --origin inherited --live yes
 ask: inherited, live, and recorded once including this one
 exit 0
 ```
@@ -114,7 +114,7 @@ exit 0
 ## The reply
 
 ```
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

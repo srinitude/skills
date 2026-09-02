@@ -1,5 +1,7 @@
 # Evaluation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load before testing or changing the public skill.
 
 ## Acceptance

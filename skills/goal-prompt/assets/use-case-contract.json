@@ -1,0 +1,437 @@
+{
+  "version": "1.0.0",
+  "skill": "goal-prompt",
+  "outcome": "Turn a durable goal source into one standing goal packet with a testable completion condition and evidence ledger.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted standing goal packet behavior.",
+      "reason": "The standing goal packet outcome depends on stable domain semantics.",
+      "failure_prevented": "A standing goal packet update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable standing goal packet checks through Mise.",
+      "reason": "The standing goal packet judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A standing goal packet claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "standing goal packet",
+    "goal source",
+    "completion condition",
+    "evidence ledger"
+  ],
+  "domain_failures": [
+    "The standing goal packet result changes without proof.",
+    "The standing goal packet package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh standing goal packet task output and saved receipts.",
+    "Current standing goal packet behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The standing goal packet contract owns actors decisions."],
+    "objects": ["The standing goal packet contract owns objects decisions."],
+    "actions": ["The standing goal packet contract owns actions decisions."],
+    "states": ["The standing goal packet contract owns states decisions."],
+    "invariants": ["The standing goal packet contract owns invariants decisions."],
+    "variants": ["The standing goal packet contract owns variants decisions."],
+    "interfaces": ["The standing goal packet contract owns interfaces decisions."],
+    "authorities": ["The standing goal packet contract owns authorities decisions."],
+    "failures": ["The standing goal packet contract owns failures decisions."],
+    "recoveries": ["The standing goal packet contract owns recoveries decisions."],
+    "evidence": ["The standing goal packet contract owns evidence decisions."],
+    "time": ["The standing goal packet contract owns time decisions."],
+    "resources": ["The standing goal packet contract owns resources decisions."],
+    "quality": ["The standing goal packet contract owns quality decisions."],
+    "terminology": ["The standing goal packet contract owns terminology decisions."],
+    "exclusions": ["The standing goal packet contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the standing goal packet actors decision?",
+    "objects": "What can change the standing goal packet objects decision?",
+    "actions": "What can change the standing goal packet actions decision?",
+    "states": "What can change the standing goal packet states decision?",
+    "invariants": "What can change the standing goal packet invariants decision?",
+    "variants": "What can change the standing goal packet variants decision?",
+    "interfaces": "What can change the standing goal packet interfaces decision?",
+    "authorities": "What can change the standing goal packet authorities decision?",
+    "failures": "What can change the standing goal packet failures decision?",
+    "recoveries": "What can change the standing goal packet recoveries decision?",
+    "evidence": "What can change the standing goal packet evidence decision?",
+    "time": "What can change the standing goal packet time decision?",
+    "resources": "What can change the standing goal packet resources decision?",
+    "quality": "What can change the standing goal packet quality decision?",
+    "terminology": "What can change the standing goal packet terminology decision?",
+    "exclusions": "What can change the standing goal packet exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/",
+      "source_class": "first_party",
+      "claim": "A standing goal packet needs singular, verifiable requirement statements.",
+      "limitations": "Requirement form does not supply the user's goal source.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:49-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf",
+      "source_class": "first_party",
+      "claim": "A completion condition should be necessary, clear, and verifiable.",
+      "limitations": "Systems guidance does not choose task-specific evidence.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:49-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.rfc-editor.org/rfc/rfc2119",
+      "source_class": "standard",
+      "claim": "Normative terms can preserve mandatory standing goal packet constraints.",
+      "limitations": "Normative vocabulary cannot resolve an ambiguous goal source.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:49-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://agentskills.io/specification",
+      "source_class": "first_party",
+      "claim": "A portable standing goal packet needs explicit metadata and bounded supporting resources.",
+      "limitations": "Package structure does not prove the completion condition.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:49-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the standing goal packet result?",
+      "source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/",
+      "checked_at": "2026-09-02T09:54:49-04:00",
+      "result": "No. The standing goal packet behavior still needs direct evaluation.",
+      "disposition": "Keep structure and standing goal packet behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named standing goal packet agentic-request result.",
+        "motivation": "The standing goal packet workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared standing goal packet agentic-request route.",
+        "proof": "Fresh standing goal packet agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named standing goal packet invocation-policy result.",
+        "motivation": "The standing goal packet workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared standing goal packet invocation-policy route.",
+        "proof": "Fresh standing goal packet invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named standing goal packet improvement-policy result.",
+        "motivation": "The standing goal packet workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared standing goal packet improvement-policy route.",
+        "proof": "Fresh standing goal packet improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named standing goal packet mise-primitives-update result.",
+        "motivation": "The standing goal packet workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared standing goal packet mise-primitives-update route.",
+        "proof": "Fresh standing goal packet mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the standing goal packet result through ci.",
+        "motivation": "The standing goal packet package needs the ci gate.",
+        "value": "Produce current standing goal packet evidence from ci.",
+        "proof": "The standing goal packet ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared standing goal packet responsibility."
+      },
+      "test": {
+        "outcome": "Advance the standing goal packet result through test.",
+        "motivation": "The standing goal packet package needs the test gate.",
+        "value": "Produce current standing goal packet evidence from test.",
+        "proof": "The standing goal packet test task exits zero with readable output.",
+        "applicability": "Use test for its declared standing goal packet responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the standing goal packet result through validate.",
+        "motivation": "The standing goal packet package needs the validate gate.",
+        "value": "Produce current standing goal packet evidence from validate.",
+        "proof": "The standing goal packet validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared standing goal packet responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the standing goal packet result through lint-writing.",
+        "motivation": "The standing goal packet package needs the lint-writing gate.",
+        "value": "Produce current standing goal packet evidence from lint-writing.",
+        "proof": "The standing goal packet lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared standing goal packet responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the standing goal packet result through lint-code.",
+        "motivation": "The standing goal packet package needs the lint-code gate.",
+        "value": "Produce current standing goal packet evidence from lint-code.",
+        "proof": "The standing goal packet lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared standing goal packet responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the standing goal packet result through evals.",
+        "motivation": "The standing goal packet package needs the evals gate.",
+        "value": "Produce current standing goal packet evidence from evals.",
+        "proof": "The standing goal packet evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared standing goal packet responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the standing goal packet result through domain-research-policy.",
+        "motivation": "The standing goal packet package needs the domain-research-policy gate.",
+        "value": "Produce current standing goal packet evidence from domain-research-policy.",
+        "proof": "The standing goal packet domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared standing goal packet responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the standing goal packet result through use-case-policy.",
+        "motivation": "The standing goal packet package needs the use-case-policy gate.",
+        "value": "Produce current standing goal packet evidence from use-case-policy.",
+        "proof": "The standing goal packet use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared standing goal packet responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the standing goal packet result through mise-primitives-policy.",
+        "motivation": "The standing goal packet package needs the mise-primitives-policy gate.",
+        "value": "Produce current standing goal packet evidence from mise-primitives-policy.",
+        "proof": "The standing goal packet mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared standing goal packet responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the standing goal packet result through primitive-lifecycle-policy.",
+        "motivation": "The standing goal packet package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current standing goal packet evidence from primitive-lifecycle-policy.",
+        "proof": "The standing goal packet primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared standing goal packet responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the standing goal packet result through task-graph-policy.",
+        "motivation": "The standing goal packet package needs the task-graph-policy gate.",
+        "value": "Produce current standing goal packet evidence from task-graph-policy.",
+        "proof": "The standing goal packet task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared standing goal packet responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the standing goal packet result through decision-policy.",
+        "motivation": "The standing goal packet package needs the decision-policy gate.",
+        "value": "Produce current standing goal packet evidence from decision-policy.",
+        "proof": "The standing goal packet decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared standing goal packet responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the standing goal packet result through improvement-policy.",
+        "motivation": "The standing goal packet package needs the improvement-policy gate.",
+        "value": "Produce current standing goal packet evidence from improvement-policy.",
+        "proof": "The standing goal packet improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared standing goal packet responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the standing goal packet result through invocation-policy.",
+        "motivation": "The standing goal packet package needs the invocation-policy gate.",
+        "value": "Produce current standing goal packet evidence from invocation-policy.",
+        "proof": "The standing goal packet invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared standing goal packet responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the standing goal packet result through agentic-request.",
+        "motivation": "The standing goal packet package needs the agentic-request gate.",
+        "value": "Produce current standing goal packet evidence from agentic-request.",
+        "proof": "The standing goal packet agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared standing goal packet responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the standing goal packet result through mise-latest.",
+        "motivation": "The standing goal packet package needs the mise-latest gate.",
+        "value": "Produce current standing goal packet evidence from mise-latest.",
+        "proof": "The standing goal packet mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared standing goal packet responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the standing goal packet result through mise-primitives-update.",
+        "motivation": "The standing goal packet package needs the mise-primitives-update gate.",
+        "value": "Produce current standing goal packet evidence from mise-primitives-update.",
+        "proof": "The standing goal packet mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared standing goal packet responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet skill_body behavior.",
+      "outcome": "Keep standing goal packet skill_body aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one skill_body owner.",
+      "value": "Expose current standing goal packet skill_body progress.",
+      "failure_prevented": "Stale or generic standing goal packet skill_body behavior.",
+      "proof": "Fresh standing goal packet skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet references behavior.",
+      "outcome": "Keep standing goal packet references aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one references owner.",
+      "value": "Expose current standing goal packet references progress.",
+      "failure_prevented": "Stale or generic standing goal packet references behavior.",
+      "proof": "Fresh standing goal packet references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet assets behavior.",
+      "outcome": "Keep standing goal packet assets aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one assets owner.",
+      "value": "Expose current standing goal packet assets progress.",
+      "failure_prevented": "Stale or generic standing goal packet assets behavior.",
+      "proof": "Fresh standing goal packet assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet scripts behavior.",
+      "outcome": "Keep standing goal packet scripts aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one scripts owner.",
+      "value": "Expose current standing goal packet scripts progress.",
+      "failure_prevented": "Stale or generic standing goal packet scripts behavior.",
+      "proof": "Fresh standing goal packet scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet tests behavior.",
+      "outcome": "Keep standing goal packet tests aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one tests owner.",
+      "value": "Expose current standing goal packet tests progress.",
+      "failure_prevented": "Stale or generic standing goal packet tests behavior.",
+      "proof": "Fresh standing goal packet tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet mise_tasks behavior.",
+      "outcome": "Keep standing goal packet mise_tasks aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one mise_tasks owner.",
+      "value": "Expose current standing goal packet mise_tasks progress.",
+      "failure_prevented": "Stale or generic standing goal packet mise_tasks behavior.",
+      "proof": "Fresh standing goal packet mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet examples behavior.",
+      "outcome": "Keep standing goal packet examples aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one examples owner.",
+      "value": "Expose current standing goal packet examples progress.",
+      "failure_prevented": "Stale or generic standing goal packet examples behavior.",
+      "proof": "Fresh standing goal packet examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet evals behavior.",
+      "outcome": "Keep standing goal packet evals aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one evals owner.",
+      "value": "Expose current standing goal packet evals progress.",
+      "failure_prevented": "Stale or generic standing goal packet evals behavior.",
+      "proof": "Fresh standing goal packet evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet policies behavior.",
+      "outcome": "Keep standing goal packet policies aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one policies owner.",
+      "value": "Expose current standing goal packet policies progress.",
+      "failure_prevented": "Stale or generic standing goal packet policies behavior.",
+      "proof": "Fresh standing goal packet policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet schemas behavior.",
+      "outcome": "Keep standing goal packet schemas aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one schemas owner.",
+      "value": "Expose current standing goal packet schemas progress.",
+      "failure_prevented": "Stale or generic standing goal packet schemas behavior.",
+      "proof": "Fresh standing goal packet schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own standing goal packet records behavior.",
+      "outcome": "Keep standing goal packet records aligned with the accepted result.",
+      "motivation": "The standing goal packet package needs one records owner.",
+      "value": "Expose current standing goal packet records progress.",
+      "failure_prevented": "Stale or generic standing goal packet records behavior.",
+      "proof": "Fresh standing goal packet records validation and behavioral evidence."
+    }
+  }
+}

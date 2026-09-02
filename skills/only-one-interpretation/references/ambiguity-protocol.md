@@ -4,6 +4,8 @@ Use this protocol for every rewrite. The ledger and checks are private work; onl
 
 ## Interpretation ledger
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Record each field as explicit, implied by identified context, absent but immaterial, or unresolved and material. Quote the source span or named authority for every nonempty field.
 
 | Field                     | Question                                                                                                              |

@@ -1,33 +1,32 @@
+"""Pin the reify task graph and one-entry workflow."""
+import pathlib
 import tomllib
 import unittest
-from pathlib import Path
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+EXPECTED_CI_DEPENDS = ["test", "validate", "lint-writing", "lint-code", "evals", "decision-policy"]
 
 
-ROOT = Path(__file__).resolve().parents[2]
+class TestPackageContract(unittest.TestCase):
+    def test_ci_dependency_contract(self):
+        with (ROOT / "mise.toml").open("rb") as handle:
+            tasks = tomllib.load(handle)["tasks"]
+        self.assertEqual(tasks["ci"]["depends"], EXPECTED_CI_DEPENDS)
+        self.assertNotIn("run", tasks["ci"])
 
+    def test_tasks_have_explicit_contracts(self):
+        with (ROOT / "mise.toml").open("rb") as handle:
+            tasks = tomllib.load(handle)["tasks"]
+        for task in tasks.values():
+            self.assertTrue(task.get("description"))
+            self.assertIsInstance(task.get("depends"), list)
+            self.assertNotIn("mise run", str(task.get("run", "")))
 
-class CiContractTests(unittest.TestCase):
-    def test_ci_task_runs_every_gate(self):
-        tasks = tomllib.loads((ROOT / "mise.toml").read_text())["tasks"]
-        self.assertEqual(
-            tasks["test"]["run"],
-            "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v",
-        )
-        self.assertEqual(
-            tasks["ci"]["run"],
-            [
-                "mise run test",
-                "mise run validate",
-                "mise run lint-writing",
-                "mise run lint-code",
-                "mise run evals",
-            ],
-        )
-
-    def test_workflow_calls_only_the_ci_task(self):
-        workflow = (ROOT / ".github/workflows/ci.yml").read_text()
-        self.assertIn("- run: mise run ci", workflow)
-        self.assertNotIn("python3 scripts/", workflow)
+    def test_workflow_uses_one_mise_entry(self):
+        path = ROOT / ".github/workflows/ci.yml"
+        lines = path.read_text(encoding="utf-8").splitlines()
+        runs = [line.strip() for line in lines if line.strip().startswith("- run:")]
+        self.assertEqual(runs, ["- run: mise run ci"])
 
 
 if __name__ == "__main__":

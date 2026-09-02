@@ -1,0 +1,437 @@
+{
+  "version": "1.0.0",
+  "skill": "timebox",
+  "outcome": "Admit only work that can reach its completion condition inside the hard timebox and record the completion timestamp.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted hard timebox behavior.",
+      "reason": "The hard timebox outcome depends on stable domain semantics.",
+      "failure_prevented": "A hard timebox update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable hard timebox checks through Mise.",
+      "reason": "The hard timebox judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A hard timebox claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "hard timebox",
+    "deadline admission",
+    "completion timestamp",
+    "scope cut"
+  ],
+  "domain_failures": [
+    "The hard timebox result changes without proof.",
+    "The hard timebox package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh hard timebox task output and saved receipts.",
+    "Current hard timebox behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The hard timebox contract owns actors decisions."],
+    "objects": ["The hard timebox contract owns objects decisions."],
+    "actions": ["The hard timebox contract owns actions decisions."],
+    "states": ["The hard timebox contract owns states decisions."],
+    "invariants": ["The hard timebox contract owns invariants decisions."],
+    "variants": ["The hard timebox contract owns variants decisions."],
+    "interfaces": ["The hard timebox contract owns interfaces decisions."],
+    "authorities": ["The hard timebox contract owns authorities decisions."],
+    "failures": ["The hard timebox contract owns failures decisions."],
+    "recoveries": ["The hard timebox contract owns recoveries decisions."],
+    "evidence": ["The hard timebox contract owns evidence decisions."],
+    "time": ["The hard timebox contract owns time decisions."],
+    "resources": ["The hard timebox contract owns resources decisions."],
+    "quality": ["The hard timebox contract owns quality decisions."],
+    "terminology": ["The hard timebox contract owns terminology decisions."],
+    "exclusions": ["The hard timebox contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the hard timebox actors decision?",
+    "objects": "What can change the hard timebox objects decision?",
+    "actions": "What can change the hard timebox actions decision?",
+    "states": "What can change the hard timebox states decision?",
+    "invariants": "What can change the hard timebox invariants decision?",
+    "variants": "What can change the hard timebox variants decision?",
+    "interfaces": "What can change the hard timebox interfaces decision?",
+    "authorities": "What can change the hard timebox authorities decision?",
+    "failures": "What can change the hard timebox failures decision?",
+    "recoveries": "What can change the hard timebox recoveries decision?",
+    "evidence": "What can change the hard timebox evidence decision?",
+    "time": "What can change the hard timebox time decision?",
+    "resources": "What can change the hard timebox resources decision?",
+    "quality": "What can change the hard timebox quality decision?",
+    "terminology": "What can change the hard timebox terminology decision?",
+    "exclusions": "What can change the hard timebox exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://scrumguides.org/scrum-guide.html",
+      "source_class": "standard",
+      "claim": "A hard timebox fixes a maximum duration for bounded work.",
+      "limitations": "The framework does not decide task-specific deadline admission.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.scrum.org/resources/blog/how-scrum-event-timeboxes-make-your-team-more-effective",
+      "source_class": "practitioner",
+      "claim": "A hard timebox can focus decisions and limit open-ended work.",
+      "limitations": "Practitioner guidance does not prove completion correctness.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.scrum.org/resources/evidence-based-management-guide",
+      "source_class": "first_party",
+      "claim": "A scope cut should protect outcome value rather than activity volume.",
+      "limitations": "Outcome measures do not set a completion timestamp.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://arxiv.org/abs/2603.23749",
+      "source_class": "research",
+      "claim": "Agent work should be measured for resource use as well as task result.",
+      "limitations": "A benchmark does not define the user's hard timebox.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the hard timebox result?",
+      "source": "https://scrumguides.org/scrum-guide.html",
+      "checked_at": "2026-09-02T09:54:52-04:00",
+      "result": "No. The hard timebox behavior still needs direct evaluation.",
+      "disposition": "Keep structure and hard timebox behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named hard timebox agentic-request result.",
+        "motivation": "The hard timebox workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared hard timebox agentic-request route.",
+        "proof": "Fresh hard timebox agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named hard timebox invocation-policy result.",
+        "motivation": "The hard timebox workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared hard timebox invocation-policy route.",
+        "proof": "Fresh hard timebox invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named hard timebox improvement-policy result.",
+        "motivation": "The hard timebox workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared hard timebox improvement-policy route.",
+        "proof": "Fresh hard timebox improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named hard timebox mise-primitives-update result.",
+        "motivation": "The hard timebox workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared hard timebox mise-primitives-update route.",
+        "proof": "Fresh hard timebox mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "test": {
+        "outcome": "Advance the hard timebox result through test.",
+        "motivation": "The hard timebox package needs the test gate.",
+        "value": "Produce current hard timebox evidence from test.",
+        "proof": "The hard timebox test task exits zero with readable output.",
+        "applicability": "Use test for its declared hard timebox responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the hard timebox result through validate.",
+        "motivation": "The hard timebox package needs the validate gate.",
+        "value": "Produce current hard timebox evidence from validate.",
+        "proof": "The hard timebox validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared hard timebox responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the hard timebox result through lint-writing.",
+        "motivation": "The hard timebox package needs the lint-writing gate.",
+        "value": "Produce current hard timebox evidence from lint-writing.",
+        "proof": "The hard timebox lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared hard timebox responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the hard timebox result through lint-code.",
+        "motivation": "The hard timebox package needs the lint-code gate.",
+        "value": "Produce current hard timebox evidence from lint-code.",
+        "proof": "The hard timebox lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared hard timebox responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the hard timebox result through evals.",
+        "motivation": "The hard timebox package needs the evals gate.",
+        "value": "Produce current hard timebox evidence from evals.",
+        "proof": "The hard timebox evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared hard timebox responsibility."
+      },
+      "ci": {
+        "outcome": "Advance the hard timebox result through ci.",
+        "motivation": "The hard timebox package needs the ci gate.",
+        "value": "Produce current hard timebox evidence from ci.",
+        "proof": "The hard timebox ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared hard timebox responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the hard timebox result through domain-research-policy.",
+        "motivation": "The hard timebox package needs the domain-research-policy gate.",
+        "value": "Produce current hard timebox evidence from domain-research-policy.",
+        "proof": "The hard timebox domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared hard timebox responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the hard timebox result through use-case-policy.",
+        "motivation": "The hard timebox package needs the use-case-policy gate.",
+        "value": "Produce current hard timebox evidence from use-case-policy.",
+        "proof": "The hard timebox use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared hard timebox responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the hard timebox result through mise-primitives-policy.",
+        "motivation": "The hard timebox package needs the mise-primitives-policy gate.",
+        "value": "Produce current hard timebox evidence from mise-primitives-policy.",
+        "proof": "The hard timebox mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared hard timebox responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the hard timebox result through primitive-lifecycle-policy.",
+        "motivation": "The hard timebox package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current hard timebox evidence from primitive-lifecycle-policy.",
+        "proof": "The hard timebox primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared hard timebox responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the hard timebox result through task-graph-policy.",
+        "motivation": "The hard timebox package needs the task-graph-policy gate.",
+        "value": "Produce current hard timebox evidence from task-graph-policy.",
+        "proof": "The hard timebox task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared hard timebox responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the hard timebox result through decision-policy.",
+        "motivation": "The hard timebox package needs the decision-policy gate.",
+        "value": "Produce current hard timebox evidence from decision-policy.",
+        "proof": "The hard timebox decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared hard timebox responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the hard timebox result through improvement-policy.",
+        "motivation": "The hard timebox package needs the improvement-policy gate.",
+        "value": "Produce current hard timebox evidence from improvement-policy.",
+        "proof": "The hard timebox improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared hard timebox responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the hard timebox result through invocation-policy.",
+        "motivation": "The hard timebox package needs the invocation-policy gate.",
+        "value": "Produce current hard timebox evidence from invocation-policy.",
+        "proof": "The hard timebox invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared hard timebox responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the hard timebox result through agentic-request.",
+        "motivation": "The hard timebox package needs the agentic-request gate.",
+        "value": "Produce current hard timebox evidence from agentic-request.",
+        "proof": "The hard timebox agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared hard timebox responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the hard timebox result through mise-latest.",
+        "motivation": "The hard timebox package needs the mise-latest gate.",
+        "value": "Produce current hard timebox evidence from mise-latest.",
+        "proof": "The hard timebox mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared hard timebox responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the hard timebox result through mise-primitives-update.",
+        "motivation": "The hard timebox package needs the mise-primitives-update gate.",
+        "value": "Produce current hard timebox evidence from mise-primitives-update.",
+        "proof": "The hard timebox mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared hard timebox responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox skill_body behavior.",
+      "outcome": "Keep hard timebox skill_body aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one skill_body owner.",
+      "value": "Expose current hard timebox skill_body progress.",
+      "failure_prevented": "Stale or generic hard timebox skill_body behavior.",
+      "proof": "Fresh hard timebox skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox references behavior.",
+      "outcome": "Keep hard timebox references aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one references owner.",
+      "value": "Expose current hard timebox references progress.",
+      "failure_prevented": "Stale or generic hard timebox references behavior.",
+      "proof": "Fresh hard timebox references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox assets behavior.",
+      "outcome": "Keep hard timebox assets aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one assets owner.",
+      "value": "Expose current hard timebox assets progress.",
+      "failure_prevented": "Stale or generic hard timebox assets behavior.",
+      "proof": "Fresh hard timebox assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox scripts behavior.",
+      "outcome": "Keep hard timebox scripts aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one scripts owner.",
+      "value": "Expose current hard timebox scripts progress.",
+      "failure_prevented": "Stale or generic hard timebox scripts behavior.",
+      "proof": "Fresh hard timebox scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox tests behavior.",
+      "outcome": "Keep hard timebox tests aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one tests owner.",
+      "value": "Expose current hard timebox tests progress.",
+      "failure_prevented": "Stale or generic hard timebox tests behavior.",
+      "proof": "Fresh hard timebox tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox mise_tasks behavior.",
+      "outcome": "Keep hard timebox mise_tasks aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one mise_tasks owner.",
+      "value": "Expose current hard timebox mise_tasks progress.",
+      "failure_prevented": "Stale or generic hard timebox mise_tasks behavior.",
+      "proof": "Fresh hard timebox mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox examples behavior.",
+      "outcome": "Keep hard timebox examples aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one examples owner.",
+      "value": "Expose current hard timebox examples progress.",
+      "failure_prevented": "Stale or generic hard timebox examples behavior.",
+      "proof": "Fresh hard timebox examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox evals behavior.",
+      "outcome": "Keep hard timebox evals aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one evals owner.",
+      "value": "Expose current hard timebox evals progress.",
+      "failure_prevented": "Stale or generic hard timebox evals behavior.",
+      "proof": "Fresh hard timebox evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox policies behavior.",
+      "outcome": "Keep hard timebox policies aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one policies owner.",
+      "value": "Expose current hard timebox policies progress.",
+      "failure_prevented": "Stale or generic hard timebox policies behavior.",
+      "proof": "Fresh hard timebox policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox schemas behavior.",
+      "outcome": "Keep hard timebox schemas aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one schemas owner.",
+      "value": "Expose current hard timebox schemas progress.",
+      "failure_prevented": "Stale or generic hard timebox schemas behavior.",
+      "proof": "Fresh hard timebox schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own hard timebox records behavior.",
+      "outcome": "Keep hard timebox records aligned with the accepted result.",
+      "motivation": "The hard timebox package needs one records owner.",
+      "value": "Expose current hard timebox records progress.",
+      "failure_prevented": "Stale or generic hard timebox records behavior.",
+      "proof": "Fresh hard timebox records validation and behavioral evidence."
+    }
+  }
+}

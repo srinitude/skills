@@ -20,7 +20,7 @@ What state it is in: empty, because nothing on it can be chosen.
 The first attempt described the picture without that second line and landed on layout, because a grid, a legend and a tile are what the description said.
 
 ```
-$ python3 scripts/locate.py --file brief.txt --top 3
+$ mise run locate --file brief.txt --top 3
   2.98   3 terms  Empty, loading, error and edge states  [unavailable, flight, tile]
   2.76   3 terms  Layout, grid, hierarchy and density  [grid, tile, legend]
   1.86   2 terms  Spatial, ambient and built space  [virtual, tile]
@@ -31,7 +31,7 @@ exit 0
 The warning is doing its job. Naming the state fixes it.
 
 ```
-$ python3 scripts/locate.py --file brief.txt --hint "empty error states" --top 2
+$ mise run locate --file brief.txt --hint "empty error states" --top 2
  32.98   4 terms  Empty, loading, error and edge states  [hint, unavailable, flight, tile]
   2.76   3 terms  Layout, grid, hierarchy and density  [grid, tile, legend]
 exit 0
@@ -40,7 +40,7 @@ exit 0
 ## What the slice asked that the eye had not
 
 ```
-$ python3 scripts/slice.py --category "Empty, loading, error and edge states" --stage refinement --match "empty" --limit 1
+$ mise run slice --category "Empty, loading, error and edge states" --stage refinement --match "empty" --limit 1
 # 1 questions
 
 **Is the no-results message typographically loud enough that someone scanning past the header will actually register it?**

@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "logic-audit",
+  "operation": "Name the current contradiction ledger operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh contradiction ledger evidence."
+}

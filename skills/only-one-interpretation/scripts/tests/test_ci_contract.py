@@ -1,67 +1,32 @@
-"""Contract tests that pin this skill's task graph and CI workflow.
-
-Each test names the contract it pins:
-  1. every task the pipeline needs exists in mise.toml
-  2. the ci task invokes every check job
-  3. every task carries a description a reader can act on
-  4. the CI workflow runs the same single command as a local run
-"""
+"""Pin the only-one-interpretation task graph and one-entry workflow."""
 import pathlib
 import tomllib
 import unittest
 
-SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
-CHECK_JOBS = ["validate-results", "validate", "lint-writing", "lint-code",
-              "lint-placeholders", "evals"]
-REQUIRED_TASKS = ["ci", "test"] + CHECK_JOBS
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+EXPECTED_CI_DEPENDS = ["test", "validate-results", "validate", "lint-writing", "lint-code", "lint-placeholders", "evals", "decision-policy"]
 
 
-def load_tasks(path):
-    with open(path, "rb") as handle:
-        return tomllib.load(handle).get("tasks", {})
+class TestPackageContract(unittest.TestCase):
+    def test_ci_dependency_contract(self):
+        with (ROOT / "mise.toml").open("rb") as handle:
+            tasks = tomllib.load(handle)["tasks"]
+        self.assertEqual(tasks["ci"]["depends"], EXPECTED_CI_DEPENDS)
+        self.assertNotIn("run", tasks["ci"])
 
+    def test_tasks_have_explicit_contracts(self):
+        with (ROOT / "mise.toml").open("rb") as handle:
+            tasks = tomllib.load(handle)["tasks"]
+        for task in tasks.values():
+            self.assertTrue(task.get("description"))
+            self.assertIsInstance(task.get("depends"), list)
+            self.assertNotIn("mise run", str(task.get("run", "")))
 
-class TestTaskGraph(unittest.TestCase):
-    def setUp(self):
-        self.tasks = load_tasks(SKILL_DIR / "mise.toml")
-
-    def test_every_required_task_exists(self):
-        for name in REQUIRED_TASKS:
-            self.assertIn(name, self.tasks, f"missing task: {name}")
-
-    def test_ci_invokes_every_check_job(self):
-        steps = self.tasks["ci"]["run"]
-        self.assertIsInstance(steps, list)
-        self.assertEqual(steps[0], "mise run test")
-        joined = " ".join(steps)
-        for job in CHECK_JOBS:
-            self.assertIn(f"mise run {job}", joined)
-
-    def test_every_task_has_a_description(self):
-        for name, task in self.tasks.items():
-            self.assertTrue(task.get("description"), f"{name} needs one")
-
-    def test_each_check_job_runs_one_command(self):
-        for job in CHECK_JOBS:
-            run = self.tasks[job]["run"]
-            self.assertIsInstance(run, str, f"{job} must run one command")
-            self.assertIn("python3 scripts/", run)
-
-
-class TestWorkflow(unittest.TestCase):
-    def setUp(self):
-        path = SKILL_DIR / ".github" / "workflows" / "ci.yml"
-        self.assertTrue(path.is_file(), "missing .github/workflows/ci.yml")
-        self.text = path.read_text(encoding="utf-8")
-
-    def test_workflow_runs_only_the_single_entry_point(self):
-        run_lines = [line.strip() for line in self.text.splitlines()
-                     if line.strip().startswith("- run:")]
-        self.assertEqual(run_lines, ["- run: mise run ci"])
-
-    def test_workflow_triggers_on_push_and_pull_request(self):
-        self.assertIn("push:", self.text)
-        self.assertIn("pull_request:", self.text)
+    def test_workflow_uses_one_mise_entry(self):
+        path = ROOT / ".github/workflows/ci.yml"
+        lines = path.read_text(encoding="utf-8").splitlines()
+        runs = [line.strip() for line in lines if line.strip().startswith("- run:")]
+        self.assertEqual(runs, ["- run: mise run ci"])
 
 
 if __name__ == "__main__":

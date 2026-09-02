@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "visual-design-system-extractor",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "visual-design-system-extractor-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction actors aligned.",
+      "motivation": "The visual token extraction result depends on actors ownership.",
+      "proof": "Fresh visual token extraction actors evidence."
+    },
+    "objects": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction objects aligned.",
+      "motivation": "The visual token extraction result depends on objects ownership.",
+      "proof": "Fresh visual token extraction objects evidence."
+    },
+    "actions": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction actions aligned.",
+      "motivation": "The visual token extraction result depends on actions ownership.",
+      "proof": "Fresh visual token extraction actions evidence."
+    },
+    "states": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction states aligned.",
+      "motivation": "The visual token extraction result depends on states ownership.",
+      "proof": "Fresh visual token extraction states evidence."
+    },
+    "invariants": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction invariants aligned.",
+      "motivation": "The visual token extraction result depends on invariants ownership.",
+      "proof": "Fresh visual token extraction invariants evidence."
+    },
+    "variants": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction variants aligned.",
+      "motivation": "The visual token extraction result depends on variants ownership.",
+      "proof": "Fresh visual token extraction variants evidence."
+    },
+    "interfaces": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction interfaces aligned.",
+      "motivation": "The visual token extraction result depends on interfaces ownership.",
+      "proof": "Fresh visual token extraction interfaces evidence."
+    },
+    "authorities": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction authorities aligned.",
+      "motivation": "The visual token extraction result depends on authorities ownership.",
+      "proof": "Fresh visual token extraction authorities evidence."
+    },
+    "failures": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction failures aligned.",
+      "motivation": "The visual token extraction result depends on failures ownership.",
+      "proof": "Fresh visual token extraction failures evidence."
+    },
+    "recoveries": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction recoveries aligned.",
+      "motivation": "The visual token extraction result depends on recoveries ownership.",
+      "proof": "Fresh visual token extraction recoveries evidence."
+    },
+    "evidence": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction evidence aligned.",
+      "motivation": "The visual token extraction result depends on evidence ownership.",
+      "proof": "Fresh visual token extraction evidence evidence."
+    },
+    "time": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction time aligned.",
+      "motivation": "The visual token extraction result depends on time ownership.",
+      "proof": "Fresh visual token extraction time evidence."
+    },
+    "resources": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction resources aligned.",
+      "motivation": "The visual token extraction result depends on resources ownership.",
+      "proof": "Fresh visual token extraction resources evidence."
+    },
+    "quality": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction quality aligned.",
+      "motivation": "The visual token extraction result depends on quality ownership.",
+      "proof": "Fresh visual token extraction quality evidence."
+    },
+    "terminology": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction terminology aligned.",
+      "motivation": "The visual token extraction result depends on terminology ownership.",
+      "proof": "Fresh visual token extraction terminology evidence."
+    },
+    "exclusions": {
+      "profile": "visual-design-system-extractor-lifecycle",
+      "outcome": "Keep visual token extraction exclusions aligned.",
+      "motivation": "The visual token extraction result depends on exclusions ownership.",
+      "proof": "Fresh visual token extraction exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "references": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "assets": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "scripts": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "tests": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "examples": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "evals": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "policies": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "schemas": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    },
+    "records": {
+      "profile": "visual-design-system-extractor-lifecycle"
+    }
+  }
+}

@@ -27,7 +27,7 @@ Produce an evidence-backed verdict about whether a pinned agent system will perf
 7. Load [frameworks.md](references/frameworks.md) after evidence collection to diagnose opportunity, selection, attempt, receipt, state, constraints, verification, stopping, repeatability, and transport. Keep capability, propensity, reliability, compliance, resilience, abstention, and operational fit separate.
 8. Choose `LIKELY`, `UNLIKELY`, `UNCERTAIN`, or `INSUFFICIENT EVIDENCE` under [verdict-protocol.md](references/verdict-protocol.md). If live research is unavailable or forbidden, use `UNVALIDATED HYPOTHESIS`. Never invent a run, trace, tool call, state change, grader result, rate, cost, quote, source, or URL.
 9. Design the smallest production-like test with the least authority. Prespecify representative tasks, holdout, trials, denominator, comparator, graders, budgets, permissions, faults, stop rules, readback, rollback, cleanup, and the decision changed. Use approved or synthetic data and fake or reversible side effects.
-10. Render the result with [output-template.md](references/output-template.md), save it outside the installed skill, then run `python3 scripts/validate_verdict.py --input <verdict.md>`. Exit 0 proves the artifact has the required shape. Exit 1 means it is incomplete. Exit 2 means the command or input path is wrong.
+10. Render the result with [output-template.md](references/output-template.md), save it outside the installed skill, then run `mise run validate-verdict --input <verdict.md>`. Exit 0 proves the artifact has the required shape. Exit 1 means it is incomplete. Exit 2 means the command or input path is wrong.
 11. Append queries, sources, system pins, task identity, excluded runs, failures, readback, assumptions, and validation output to an external research log after each consequential step. Stop and report the missing item when a load-bearing source, permission, readback, or safety control cannot be verified.
 
 ## Load conditions
@@ -35,7 +35,7 @@ Produce an evidence-backed verdict about whether a pinned agent system will perf
 - Load [evidence-base.md](references/evidence-base.md) when benchmark, trial, grader, or transport evidence may inform the analysis, then recheck every primary source before use.
 - Load [verdict-template.md](assets/verdict-template.md) when creating a verdict. Copy it outside `assets/`; do not edit the installed template.
 - Load [help.md](examples/help.md) for the help command, [verdict-insufficient-evidence.md](examples/verdict-insufficient-evidence.md) for a researched verdict, and [failure-unvalidated.md](examples/failure-unvalidated.md) when the system pin or live research is missing.
-- Run [validate_verdict.py](scripts/validate_verdict.py) after writing the artifact. Read [test_validate_verdict.py](scripts/tests/test_validate_verdict.py) only when changing the validator contract.
+- Run `mise run validate-verdict` after writing the artifact. Read `mise run tests-test-validate-verdict` only when changing the validator contract.
 - Read [contract.md](evals/contract.md) before changing behavior, trigger boundaries, or evaluation cases.
 - Load [generation-contract.md](references/generation-contract.md) only when maintaining or repackaging this skill.
 
@@ -58,3 +58,18 @@ Produce an evidence-backed verdict about whether a pinned agent system will perf
 - The next test uses least privilege, budgets, stop rules, readback, rollback, and cleanup.
 - Every load-bearing source has a visible URL.
 - The validator prints `"status": "PASS"` and exits 0.
+
+## Factory execution contract
+
+The accepted outcome is: Judge whether an agent can complete a named action from real tool traces, environment proof, and execution blockers. Preserve current agent action verdict behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current agent action verdict sources and counterevidence.
+3. Run `mise run agentic-request` for the named agent action verdict operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

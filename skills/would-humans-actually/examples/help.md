@@ -15,7 +15,7 @@ Use `verdict <behavior question>` for a researched human-action verdict. The res
 ## Commands run
 
 ```text
-$ python3 scripts/validate_verdict.py --help
+$ mise run validate-verdict --help
 usage: validate_verdict.py [-h] --input INPUT
 
 Validate a completed human-action verdict.
@@ -29,7 +29,7 @@ Exit codes:
   2  usage or input error
 
 Example:
-  python3 scripts/validate_verdict.py --input verdict.md
+  mise run validate-verdict --input verdict.md
 
 options:
   -h, --help     show this help message and exit

@@ -1,5 +1,7 @@
 # Dependency reconciliation
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure.
 
 The native source names private host owners and commands. The public skill internalizes their coding, meaning-preservation, goal-contract, source-snapshot, and plan-package invariants. It does not require private tools at runtime.

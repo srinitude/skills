@@ -1,5 +1,7 @@
 # Conversation candidate path
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this when a live request names an outcome, a safety boundary, and a proposed implementation.
 
 Guess it removes: whether three screens and a REST endpoint are requirements or candidate paths.

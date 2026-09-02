@@ -1,5 +1,7 @@
 # Implementation and performance
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load before code changes.
 
 Follow the active repository context and coding policy. Inspect existing components, dependencies, and conventions before editing. Use platform primitives unless a library comparison proves a better fit.

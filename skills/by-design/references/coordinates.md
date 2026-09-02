@@ -10,11 +10,13 @@
 
 ## Where the questions live
 
+Resource gate: run `mise run validate` before using package files named here.
+
 All 16,112 questions sit in `assets/questions/`, one file per category, ordered by identifier. `assets/index.yaml` maps every category name to its file. A query reads one category file, so the cost stays flat no matter how large the library grows.
 
 ## Four coordinates
 
-A slice is located by four values, and `scripts/slice.py` takes one flag for each. Category is required, because it selects the file to read.
+A slice is located by four values, and `mise run slice` takes one flag for each. Category is required, because it selects the file to read.
 
 | Coordinate    | Flag           | Values                                                         |
 | ------------- | -------------- | -------------------------------------------------------------- |
@@ -69,5 +71,7 @@ So `slice.py` widens instead of failing, in fixed order, stopping the moment it 
 Every widening prints one line to stderr, such as `widened: dropped lens, applies-to`. Read it before trusting the result. A widened slice looks the same as a precise one and answers a broader question, which is the failure this report exists to prevent. Say so in the reply when it happens.
 
 ## Output normalization
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Both output formats replace em and en dashes in the question, trade-off, failure, subcategory, and source name with a comma or a colon. The stored corpus keeps its original punctuation. This makes any slice safe to paste into a plain markdown document without a punctuation cleanup pass, and it means a quoted run in examples/ matches what the script prints today.

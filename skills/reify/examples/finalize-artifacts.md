@@ -1,5 +1,7 @@
 # Example: the files a finalize run created
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Guess this example removes: what a passing `BRIEF.json`, a prepared handoff packet, and the record entries look like in full, straight out of the finalize run in `examples/finalize-handoff.md`.
 
 ## Files this run created

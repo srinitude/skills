@@ -1,0 +1,658 @@
+{
+  "version": "1.0.0",
+  "skill": "by-design",
+  "outcome": "Turn a named design intent into a reviewed design decision ledger backed by rendered evidence.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted design decision ledger behavior.",
+      "reason": "The design decision ledger outcome depends on stable domain semantics.",
+      "failure_prevented": "A design decision ledger update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable design decision ledger checks through Mise.",
+      "reason": "The design decision ledger judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A design decision ledger claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "design decision ledger",
+    "critique state",
+    "rendered evidence",
+    "interaction focus"
+  ],
+  "domain_failures": [
+    "The design decision ledger result changes without proof.",
+    "The design decision ledger package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh design decision ledger task output and saved receipts.",
+    "Current design decision ledger behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": [
+      "The design decision ledger contract owns actors decisions."
+    ],
+    "objects": [
+      "The design decision ledger contract owns objects decisions."
+    ],
+    "actions": [
+      "The design decision ledger contract owns actions decisions."
+    ],
+    "states": [
+      "The design decision ledger contract owns states decisions."
+    ],
+    "invariants": [
+      "The design decision ledger contract owns invariants decisions."
+    ],
+    "variants": [
+      "The design decision ledger contract owns variants decisions."
+    ],
+    "interfaces": [
+      "The design decision ledger contract owns interfaces decisions."
+    ],
+    "authorities": [
+      "The design decision ledger contract owns authorities decisions."
+    ],
+    "failures": [
+      "The design decision ledger contract owns failures decisions."
+    ],
+    "recoveries": [
+      "The design decision ledger contract owns recoveries decisions."
+    ],
+    "evidence": [
+      "The design decision ledger contract owns evidence decisions."
+    ],
+    "time": [
+      "The design decision ledger contract owns time decisions."
+    ],
+    "resources": [
+      "The design decision ledger contract owns resources decisions."
+    ],
+    "quality": [
+      "The design decision ledger contract owns quality decisions."
+    ],
+    "terminology": [
+      "The design decision ledger contract owns terminology decisions."
+    ],
+    "exclusions": [
+      "The design decision ledger contract owns exclusions decisions."
+    ]
+  },
+  "research_questions": {
+    "actors": "What can change the design decision ledger actors decision?",
+    "objects": "What can change the design decision ledger objects decision?",
+    "actions": "What can change the design decision ledger actions decision?",
+    "states": "What can change the design decision ledger states decision?",
+    "invariants": "What can change the design decision ledger invariants decision?",
+    "variants": "What can change the design decision ledger variants decision?",
+    "interfaces": "What can change the design decision ledger interfaces decision?",
+    "authorities": "What can change the design decision ledger authorities decision?",
+    "failures": "What can change the design decision ledger failures decision?",
+    "recoveries": "What can change the design decision ledger recoveries decision?",
+    "evidence": "What can change the design decision ledger evidence decision?",
+    "time": "What can change the design decision ledger time decision?",
+    "resources": "What can change the design decision ledger resources decision?",
+    "quality": "What can change the design decision ledger quality decision?",
+    "terminology": "What can change the design decision ledger terminology decision?",
+    "exclusions": "What can change the design decision ledger exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.gov.uk/guidance/government-design-principles",
+      "source_class": "first_party",
+      "claim": "A design decision ledger should start from user needs and evidence.",
+      "limitations": "The principles do not judge a specific critique state or rendered result.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://design-system.service.gov.uk/accessibility/accessibility-strategy/",
+      "source_class": "first_party",
+      "claim": "Rendered evidence needs accessibility review throughout design work.",
+      "limitations": "The strategy does not define the product's interaction focus.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://developer.apple.com/design/human-interface-guidelines/focus-and-selection/",
+      "source_class": "first_party",
+      "claim": "Interaction focus and selection are separate states with distinct feedback duties.",
+      "limitations": "Platform guidance does not replace direct rendered evidence.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum",
+      "source_class": "standard",
+      "claim": "A design decision ledger must account for target-size interaction evidence.",
+      "limitations": "A target threshold cannot prove overall design quality.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the design decision ledger result?",
+      "source": "https://www.gov.uk/guidance/government-design-principles",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "result": "No. The design decision ledger behavior still needs direct evaluation.",
+      "disposition": "Keep structure and design decision ledger behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named design decision ledger agentic-request result.",
+        "motivation": "The design decision ledger workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared design decision ledger agentic-request route.",
+        "proof": "Fresh design decision ledger agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named design decision ledger invocation-policy result.",
+        "motivation": "The design decision ledger workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared design decision ledger invocation-policy route.",
+        "proof": "Fresh design decision ledger invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named design decision ledger improvement-policy result.",
+        "motivation": "The design decision ledger workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared design decision ledger improvement-policy route.",
+        "proof": "Fresh design decision ledger improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named design decision ledger mise-primitives-update result.",
+        "motivation": "The design decision ledger workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared design decision ledger mise-primitives-update route.",
+        "proof": "Fresh design decision ledger mise-primitives-update output and exit status."
+      },
+      {
+        "task": "bench",
+        "outcome": "Produce the named design decision ledger bench result.",
+        "motivation": "The design decision ledger workflow needs one bench entry.",
+        "why_default_path": "This is the single declared design decision ledger bench route.",
+        "proof": "Fresh design decision ledger bench output and exit status."
+      },
+      {
+        "task": "check-reply",
+        "outcome": "Produce the named design decision ledger check-reply result.",
+        "motivation": "The design decision ledger workflow needs one check-reply entry.",
+        "why_default_path": "This is the single declared design decision ledger check-reply route.",
+        "proof": "Fresh design decision ledger check-reply output and exit status."
+      },
+      {
+        "task": "crafts",
+        "outcome": "Produce the named design decision ledger crafts result.",
+        "motivation": "The design decision ledger workflow needs one crafts entry.",
+        "why_default_path": "This is the single declared design decision ledger crafts route.",
+        "proof": "Fresh design decision ledger crafts output and exit status."
+      },
+      {
+        "task": "gate",
+        "outcome": "Produce the named design decision ledger gate result.",
+        "motivation": "The design decision ledger workflow needs one gate entry.",
+        "why_default_path": "This is the single declared design decision ledger gate route.",
+        "proof": "Fresh design decision ledger gate output and exit status."
+      },
+      {
+        "task": "ledger",
+        "outcome": "Produce the named design decision ledger ledger result.",
+        "motivation": "The design decision ledger workflow needs one ledger entry.",
+        "why_default_path": "This is the single declared design decision ledger ledger route.",
+        "proof": "Fresh design decision ledger ledger output and exit status."
+      },
+      {
+        "task": "locate",
+        "outcome": "Produce the named design decision ledger locate result.",
+        "motivation": "The design decision ledger workflow needs one locate entry.",
+        "why_default_path": "This is the single declared design decision ledger locate route.",
+        "proof": "Fresh design decision ledger locate output and exit status."
+      },
+      {
+        "task": "slice",
+        "outcome": "Produce the named design decision ledger slice result.",
+        "motivation": "The design decision ledger workflow needs one slice entry.",
+        "why_default_path": "This is the single declared design decision ledger slice route.",
+        "proof": "Fresh design decision ledger slice output and exit status."
+      },
+      {
+        "task": "speak",
+        "outcome": "Produce the named design decision ledger speak result.",
+        "motivation": "The design decision ledger workflow needs one speak entry.",
+        "why_default_path": "This is the single declared design decision ledger speak route.",
+        "proof": "Fresh design decision ledger speak output and exit status."
+      },
+      {
+        "task": "tests-test-bench",
+        "outcome": "Produce the named design decision ledger tests-test-bench result.",
+        "motivation": "The design decision ledger workflow needs one tests-test-bench entry.",
+        "why_default_path": "This is the single declared design decision ledger tests-test-bench route.",
+        "proof": "Fresh design decision ledger tests-test-bench output and exit status."
+      },
+      {
+        "task": "tests-test-disciplines",
+        "outcome": "Produce the named design decision ledger tests-test-disciplines result.",
+        "motivation": "The design decision ledger workflow needs one tests-test-disciplines entry.",
+        "why_default_path": "This is the single declared design decision ledger tests-test-disciplines route.",
+        "proof": "Fresh design decision ledger tests-test-disciplines output and exit status."
+      },
+      {
+        "task": "tests-test-scripts",
+        "outcome": "Produce the named design decision ledger tests-test-scripts result.",
+        "motivation": "The design decision ledger workflow needs one tests-test-scripts entry.",
+        "why_default_path": "This is the single declared design decision ledger tests-test-scripts route.",
+        "proof": "Fresh design decision ledger tests-test-scripts output and exit status."
+      },
+      {
+        "task": "tests-test-yamlread",
+        "outcome": "Produce the named design decision ledger tests-test-yamlread result.",
+        "motivation": "The design decision ledger workflow needs one tests-test-yamlread entry.",
+        "why_default_path": "This is the single declared design decision ledger tests-test-yamlread route.",
+        "proof": "Fresh design decision ledger tests-test-yamlread output and exit status."
+      },
+      {
+        "task": "yamlread",
+        "outcome": "Produce the named design decision ledger yamlread result.",
+        "motivation": "The design decision ledger workflow needs one yamlread entry.",
+        "why_default_path": "This is the single declared design decision ledger yamlread route.",
+        "proof": "Fresh design decision ledger yamlread output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the design decision ledger result through ci.",
+        "motivation": "The design decision ledger package needs the ci gate.",
+        "value": "Produce current design decision ledger evidence from ci.",
+        "proof": "The design decision ledger ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared design decision ledger responsibility."
+      },
+      "test": {
+        "outcome": "Advance the design decision ledger result through test.",
+        "motivation": "The design decision ledger package needs the test gate.",
+        "value": "Produce current design decision ledger evidence from test.",
+        "proof": "The design decision ledger test task exits zero with readable output.",
+        "applicability": "Use test for its declared design decision ledger responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the design decision ledger result through validate.",
+        "motivation": "The design decision ledger package needs the validate gate.",
+        "value": "Produce current design decision ledger evidence from validate.",
+        "proof": "The design decision ledger validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared design decision ledger responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the design decision ledger result through lint-writing.",
+        "motivation": "The design decision ledger package needs the lint-writing gate.",
+        "value": "Produce current design decision ledger evidence from lint-writing.",
+        "proof": "The design decision ledger lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared design decision ledger responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the design decision ledger result through lint-code.",
+        "motivation": "The design decision ledger package needs the lint-code gate.",
+        "value": "Produce current design decision ledger evidence from lint-code.",
+        "proof": "The design decision ledger lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared design decision ledger responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the design decision ledger result through lint-placeholders.",
+        "motivation": "The design decision ledger package needs the lint-placeholders gate.",
+        "value": "Produce current design decision ledger evidence from lint-placeholders.",
+        "proof": "The design decision ledger lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared design decision ledger responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the design decision ledger result through evals.",
+        "motivation": "The design decision ledger package needs the evals gate.",
+        "value": "Produce current design decision ledger evidence from evals.",
+        "proof": "The design decision ledger evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared design decision ledger responsibility."
+      },
+      "bench": {
+        "outcome": "Advance the design decision ledger result through bench.",
+        "motivation": "The design decision ledger package needs the bench gate.",
+        "value": "Produce current design decision ledger evidence from bench.",
+        "proof": "The design decision ledger bench task exits zero with readable output.",
+        "applicability": "Use bench for its declared design decision ledger responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the design decision ledger result through domain-research-policy.",
+        "motivation": "The design decision ledger package needs the domain-research-policy gate.",
+        "value": "Produce current design decision ledger evidence from domain-research-policy.",
+        "proof": "The design decision ledger domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared design decision ledger responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the design decision ledger result through use-case-policy.",
+        "motivation": "The design decision ledger package needs the use-case-policy gate.",
+        "value": "Produce current design decision ledger evidence from use-case-policy.",
+        "proof": "The design decision ledger use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared design decision ledger responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the design decision ledger result through mise-primitives-policy.",
+        "motivation": "The design decision ledger package needs the mise-primitives-policy gate.",
+        "value": "Produce current design decision ledger evidence from mise-primitives-policy.",
+        "proof": "The design decision ledger mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared design decision ledger responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the design decision ledger result through primitive-lifecycle-policy.",
+        "motivation": "The design decision ledger package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current design decision ledger evidence from primitive-lifecycle-policy.",
+        "proof": "The design decision ledger primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared design decision ledger responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the design decision ledger result through task-graph-policy.",
+        "motivation": "The design decision ledger package needs the task-graph-policy gate.",
+        "value": "Produce current design decision ledger evidence from task-graph-policy.",
+        "proof": "The design decision ledger task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared design decision ledger responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the design decision ledger result through decision-policy.",
+        "motivation": "The design decision ledger package needs the decision-policy gate.",
+        "value": "Produce current design decision ledger evidence from decision-policy.",
+        "proof": "The design decision ledger decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared design decision ledger responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the design decision ledger result through improvement-policy.",
+        "motivation": "The design decision ledger package needs the improvement-policy gate.",
+        "value": "Produce current design decision ledger evidence from improvement-policy.",
+        "proof": "The design decision ledger improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared design decision ledger responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the design decision ledger result through invocation-policy.",
+        "motivation": "The design decision ledger package needs the invocation-policy gate.",
+        "value": "Produce current design decision ledger evidence from invocation-policy.",
+        "proof": "The design decision ledger invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared design decision ledger responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the design decision ledger result through agentic-request.",
+        "motivation": "The design decision ledger package needs the agentic-request gate.",
+        "value": "Produce current design decision ledger evidence from agentic-request.",
+        "proof": "The design decision ledger agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared design decision ledger responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the design decision ledger result through mise-latest.",
+        "motivation": "The design decision ledger package needs the mise-latest gate.",
+        "value": "Produce current design decision ledger evidence from mise-latest.",
+        "proof": "The design decision ledger mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared design decision ledger responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the design decision ledger result through mise-primitives-update.",
+        "motivation": "The design decision ledger package needs the mise-primitives-update gate.",
+        "value": "Produce current design decision ledger evidence from mise-primitives-update.",
+        "proof": "The design decision ledger mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared design decision ledger responsibility."
+      },
+      "check-reply": {
+        "outcome": "Advance the design decision ledger result through check-reply.",
+        "motivation": "The design decision ledger package needs the check-reply gate.",
+        "value": "Produce current design decision ledger evidence from check-reply.",
+        "proof": "The design decision ledger check-reply task exits zero with readable output.",
+        "applicability": "Use check-reply for its declared design decision ledger responsibility."
+      },
+      "crafts": {
+        "outcome": "Advance the design decision ledger result through crafts.",
+        "motivation": "The design decision ledger package needs the crafts gate.",
+        "value": "Produce current design decision ledger evidence from crafts.",
+        "proof": "The design decision ledger crafts task exits zero with readable output.",
+        "applicability": "Use crafts for its declared design decision ledger responsibility."
+      },
+      "gate": {
+        "outcome": "Advance the design decision ledger result through gate.",
+        "motivation": "The design decision ledger package needs the gate gate.",
+        "value": "Produce current design decision ledger evidence from gate.",
+        "proof": "The design decision ledger gate task exits zero with readable output.",
+        "applicability": "Use gate for its declared design decision ledger responsibility."
+      },
+      "ledger": {
+        "outcome": "Advance the design decision ledger result through ledger.",
+        "motivation": "The design decision ledger package needs the ledger gate.",
+        "value": "Produce current design decision ledger evidence from ledger.",
+        "proof": "The design decision ledger ledger task exits zero with readable output.",
+        "applicability": "Use ledger for its declared design decision ledger responsibility."
+      },
+      "locate": {
+        "outcome": "Advance the design decision ledger result through locate.",
+        "motivation": "The design decision ledger package needs the locate gate.",
+        "value": "Produce current design decision ledger evidence from locate.",
+        "proof": "The design decision ledger locate task exits zero with readable output.",
+        "applicability": "Use locate for its declared design decision ledger responsibility."
+      },
+      "slice": {
+        "outcome": "Advance the design decision ledger result through slice.",
+        "motivation": "The design decision ledger package needs the slice gate.",
+        "value": "Produce current design decision ledger evidence from slice.",
+        "proof": "The design decision ledger slice task exits zero with readable output.",
+        "applicability": "Use slice for its declared design decision ledger responsibility."
+      },
+      "speak": {
+        "outcome": "Advance the design decision ledger result through speak.",
+        "motivation": "The design decision ledger package needs the speak gate.",
+        "value": "Produce current design decision ledger evidence from speak.",
+        "proof": "The design decision ledger speak task exits zero with readable output.",
+        "applicability": "Use speak for its declared design decision ledger responsibility."
+      },
+      "tests-test-bench": {
+        "outcome": "Advance the design decision ledger result through tests-test-bench.",
+        "motivation": "The design decision ledger package needs the tests-test-bench gate.",
+        "value": "Produce current design decision ledger evidence from tests-test-bench.",
+        "proof": "The design decision ledger tests-test-bench task exits zero with readable output.",
+        "applicability": "Use tests-test-bench for its declared design decision ledger responsibility."
+      },
+      "tests-test-disciplines": {
+        "outcome": "Advance the design decision ledger result through tests-test-disciplines.",
+        "motivation": "The design decision ledger package needs the tests-test-disciplines gate.",
+        "value": "Produce current design decision ledger evidence from tests-test-disciplines.",
+        "proof": "The design decision ledger tests-test-disciplines task exits zero with readable output.",
+        "applicability": "Use tests-test-disciplines for its declared design decision ledger responsibility."
+      },
+      "tests-test-scripts": {
+        "outcome": "Advance the design decision ledger result through tests-test-scripts.",
+        "motivation": "The design decision ledger package needs the tests-test-scripts gate.",
+        "value": "Produce current design decision ledger evidence from tests-test-scripts.",
+        "proof": "The design decision ledger tests-test-scripts task exits zero with readable output.",
+        "applicability": "Use tests-test-scripts for its declared design decision ledger responsibility."
+      },
+      "tests-test-yamlread": {
+        "outcome": "Advance the design decision ledger result through tests-test-yamlread.",
+        "motivation": "The design decision ledger package needs the tests-test-yamlread gate.",
+        "value": "Produce current design decision ledger evidence from tests-test-yamlread.",
+        "proof": "The design decision ledger tests-test-yamlread task exits zero with readable output.",
+        "applicability": "Use tests-test-yamlread for its declared design decision ledger responsibility."
+      },
+      "yamlread": {
+        "outcome": "Advance the design decision ledger result through yamlread.",
+        "motivation": "The design decision ledger package needs the yamlread gate.",
+        "value": "Produce current design decision ledger evidence from yamlread.",
+        "proof": "The design decision ledger yamlread task exits zero with readable output.",
+        "applicability": "Use yamlread for its declared design decision ledger responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger skill_body behavior.",
+      "outcome": "Keep design decision ledger skill_body aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one skill_body owner.",
+      "value": "Expose current design decision ledger skill_body progress.",
+      "failure_prevented": "Stale or generic design decision ledger skill_body behavior.",
+      "proof": "Fresh design decision ledger skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger references behavior.",
+      "outcome": "Keep design decision ledger references aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one references owner.",
+      "value": "Expose current design decision ledger references progress.",
+      "failure_prevented": "Stale or generic design decision ledger references behavior.",
+      "proof": "Fresh design decision ledger references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger assets behavior.",
+      "outcome": "Keep design decision ledger assets aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one assets owner.",
+      "value": "Expose current design decision ledger assets progress.",
+      "failure_prevented": "Stale or generic design decision ledger assets behavior.",
+      "proof": "Fresh design decision ledger assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger scripts behavior.",
+      "outcome": "Keep design decision ledger scripts aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one scripts owner.",
+      "value": "Expose current design decision ledger scripts progress.",
+      "failure_prevented": "Stale or generic design decision ledger scripts behavior.",
+      "proof": "Fresh design decision ledger scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger tests behavior.",
+      "outcome": "Keep design decision ledger tests aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one tests owner.",
+      "value": "Expose current design decision ledger tests progress.",
+      "failure_prevented": "Stale or generic design decision ledger tests behavior.",
+      "proof": "Fresh design decision ledger tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger mise_tasks behavior.",
+      "outcome": "Keep design decision ledger mise_tasks aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one mise_tasks owner.",
+      "value": "Expose current design decision ledger mise_tasks progress.",
+      "failure_prevented": "Stale or generic design decision ledger mise_tasks behavior.",
+      "proof": "Fresh design decision ledger mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger examples behavior.",
+      "outcome": "Keep design decision ledger examples aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one examples owner.",
+      "value": "Expose current design decision ledger examples progress.",
+      "failure_prevented": "Stale or generic design decision ledger examples behavior.",
+      "proof": "Fresh design decision ledger examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger evals behavior.",
+      "outcome": "Keep design decision ledger evals aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one evals owner.",
+      "value": "Expose current design decision ledger evals progress.",
+      "failure_prevented": "Stale or generic design decision ledger evals behavior.",
+      "proof": "Fresh design decision ledger evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger policies behavior.",
+      "outcome": "Keep design decision ledger policies aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one policies owner.",
+      "value": "Expose current design decision ledger policies progress.",
+      "failure_prevented": "Stale or generic design decision ledger policies behavior.",
+      "proof": "Fresh design decision ledger policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger schemas behavior.",
+      "outcome": "Keep design decision ledger schemas aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one schemas owner.",
+      "value": "Expose current design decision ledger schemas progress.",
+      "failure_prevented": "Stale or generic design decision ledger schemas behavior.",
+      "proof": "Fresh design decision ledger schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own design decision ledger records behavior.",
+      "outcome": "Keep design decision ledger records aligned with the accepted result.",
+      "motivation": "The design decision ledger package needs one records owner.",
+      "value": "Expose current design decision ledger records progress.",
+      "failure_prevented": "Stale or generic design decision ledger records behavior.",
+      "proof": "Fresh design decision ledger records validation and behavioral evidence."
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Direct contradiction
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this for a same-scope contradiction with an authorized minimal repair.
 
 ## What the user said

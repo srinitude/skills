@@ -42,16 +42,18 @@ Use this full plan. After each consequential step, run the stated check and fix 
 8. Record each accepted choice with a decision ID, reason, dependents, and reversibility. For `revert`, follow the five revert moves in the record reference, which reopen the affected fields, mark dependents `needs-review`, and move affected files to `./superseded/` rather than deleting them. For `scrap`, set `status: scrapped` and perform no further effect. Check: the record explains the current state without hidden decisions.
 9. Converge after one to three useful exchanges unless the user asks to keep exploring. State the outcome, why it fits, first milestone, observable completion proof, next action, and any open decision. Check: only one candidate is active.
 10. Execute the next safe action when the user requested execution and the environment permits it. For external writes, publication, deployment, messages, payments, authentication, or destructive changes, resolve the exact target, scope, and authorization first. A first name is not an address and a send instruction is not authorization for an unresolved recipient. Search the reachable address sources once each, stop after that, keep the work in a local handoff file, and ask one sentence for the missing target. Turn a vague deadline into one proposed date, say the date and the reason, and let the user correct it. Check: direct evidence proves any action claimed as complete.
-11. When the outcome must pass to another executor, copy the template out of the skill and validate the copy. Never edit files inside the installed skill. Set `SKILL_DIR` to the absolute path of this skill directory, then run `cp "$SKILL_DIR/assets/reification-brief.json" ./BRIEF.json`, fill `./BRIEF.json` with the ten record fields, and run `python3 "$SKILL_DIR/scripts/validate_brief.py" ./BRIEF.json`. Exit 0 is required. On exit 1 the brief is wrong: fix every reported field and rerun. On exit 2 the command is wrong, not the brief: the interpreter or the parser could not use the path, so recheck `SKILL_DIR`, use the absolute script path, and rerun. Check: outcome, completion proof, first milestone, next action, decisions, and status are present and the report reads `"status": "PASS"`.
+11. When the outcome must pass to another executor, copy the template out of the skill and validate the copy. Never edit files inside the installed skill. Set `SKILL_DIR` to the absolute path of this skill directory, then run `cp "$SKILL_DIR/assets/reification-brief.json" ./BRIEF.json`, fill `./BRIEF.json` with the ten record fields, and run `mise run validate-brief ./BRIEF.json`. Exit 0 is required. On exit 1 the brief is wrong: fix every reported field and rerun. On exit 2 the command is wrong, not the brief: the interpreter or the parser could not use the path, so recheck `SKILL_DIR`, use the absolute script path, and rerun. Check: outcome, completion proof, first milestone, next action, decisions, and status are present and the report reads `"status": "PASS"`.
 12. Finalize with either a verified artifact or a usable handoff. Report `status: finalized` and the milestone state as two separate sentences when the milestone depends on another person. Check: the result names what exists, what was verified, and what remains.
 
 ## What goes in the record?
 
 Read [the reification record](references/reification-record.md) when work spans turns, uses multiple sources, or contains decisions that may be reversed. It owns the record path, the ten required fields, the decision ID format, revert semantics, and the probe lifecycle. Read [the generation contract](references/generation-contract.md) before changing this skill's structure or support files.
 
-Load `assets/reification-brief.json` only when a structured handoff is needed, and copy it out before filling it. Load `scripts/validate_brief.py` to check that handoff. Load `scripts/tests/` only when changing script behavior, and run the tests before implementation changes. Load `evals/` when measuring activation, behavior, failure handling, recovery, or timing.
+Load `assets/reification-brief.json` only when a structured handoff is needed, and copy it out before filling it. Load `mise run validate-brief` to check that handoff. Load `mise run test` only when changing script behavior, and run the tests before implementation changes. Load `evals/` when measuring activation, behavior, failure handling, recovery, or timing.
 
 ## Which worked example should you read?
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Each file in `examples/` is one complete run with real command output. Read the one that matches the move you are about to make.
 
@@ -83,4 +85,19 @@ Reify cannot supply facts that are absent from reachable sources, authorize sens
 
 ## When is reification complete?
 
-Reification is complete only when one named outcome has an agreed first milestone, observable completion proof, a next action, and either a verified artifact or a brief that passes `scripts/validate_brief.py` with exit 0. A finalized reification may still carry an open first milestone when the milestone depends on another person; report both states. A scrapped direction is complete when the record reads `status: scrapped` and no further effect occurred.
+Reification is complete only when one named outcome has an agreed first milestone, observable completion proof, a next action, and either a verified artifact or a brief that passes `mise run validate-brief` with exit 0. A finalized reification may still carry an open first milestone when the milestone depends on another person; report both states. A scrapped direction is complete when the record reads `status: scrapped` and no further effect occurred.
+
+## Factory execution contract
+
+The accepted outcome is: Turn a vague direction into one concrete artifact whose observable outcome and tested direction are explicit. Preserve current concrete artifact behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current concrete artifact sources and counterevidence.
+3. Run `mise run agentic-request` for the named concrete artifact operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

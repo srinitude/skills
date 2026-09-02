@@ -8,6 +8,8 @@ Guess removed: that the skill can answer any request about the design system wit
 
 ## The reply
 
+Resource gate: run `mise run validate` before using package files named here.
+
 I read one or more reference images and write a design system document that validates against the schema in references/extraction-schema.yaml, then prove it renders. Six commands:
 
 | Command  | Words that trigger it                                      | What it returns                                                                          |
@@ -24,7 +26,7 @@ Every command answers with the same three parts: what I did, the files I touched
 ## Command run
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py field meta.rarity_floor
+$ mise run schema-tools field meta.rarity_floor
 meta.rarity_floor: Record the rarity percentile floor the run enforced, `70.0` unless the user set another
   value. The validator reads this number and raises its own floor to match, so a recorded floor is a binding
   claim rather than a note. It never lowers the floor the contract or the `--min-rarity-percentile` flag

@@ -1,5 +1,7 @@
 # Judgement gates
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load for candidate selection and release.
 
 Use the same frozen bytes for every validator. Record validator name, revision, status, inputs SHA-256, findings, vetoes, and verdict SHA-256.

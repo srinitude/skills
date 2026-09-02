@@ -1,5 +1,7 @@
 # Bounded path check
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this reference only when the parent skill detects a weak, stalled, or proxy-driven route.
 
 ## Compare routes

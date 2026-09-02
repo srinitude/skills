@@ -11,7 +11,7 @@ Enhance this system prompt: You are Ava, a support agent for our store. Be helpf
 Step 1 isolates the framed section as the prompt and saves it to the scratch file `prompt.txt`, holding exactly the text after the colon. The text is being the prompt, not asking for one, so the improved "You are Ava..." is the deliverable. Step 3 runs the deterministic checks, then the system-prompt checklist:
 
 ```
-$ python3 scripts/check_prompt.py prompt.txt
+$ mise run check-prompt prompt.txt
 note    no output contract detected; state format, length, structure, or language
 note    no success criteria detected; state how the target knows it is done
 
@@ -21,7 +21,7 @@ $ echo $?
 ```
 
 ```
-$ python3 scripts/context_checks.py system-prompt
+$ mise run context-checks system-prompt
 [system-prompt]
 - Persona consistent throughout.
 - Refusal and boundary behavior defined.
@@ -59,7 +59,7 @@ than guessing.
 Step 6 runs both deterministic passes on the draft reply before sending:
 
 ```
-$ python3 scripts/check_delivery.py delivery.txt
+$ mise run check-delivery delivery.txt
 pass  lead-in line "Here is the enhanced prompt:" present
 pass  a fenced block follows the lead-in
 pass  the fence is not empty
@@ -71,7 +71,7 @@ $ echo $?
 ```
 
 ```
-$ python3 scripts/check_prose.py delivery.txt
+$ mise run check-prose delivery.txt
 measure sentence-length spread 5.7 (low spread = uniform rhythm; weigh lightly)
 measure em-dashes per 1000 words 0.0 (weak signal alone)
 measure numerals per 1000 words 0.0 (few = little checkable detail; genre-dependent)

@@ -1,5 +1,7 @@
 # Evaluation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). This file owns the public regression procedure. The parent owns runtime behavior.
 
 ## Frozen inputs
@@ -17,6 +19,8 @@ Freeze and hash these inputs before a behavioral run:
 A changed case, criterion, threshold, image, prompt, route, or skill byte invalidates the run. The font catalog is the one input that moves on its own, so the snapshot is frozen at the start of the run and every rarity verdict is scored against that snapshot rather than against a later read.
 
 ## Static gate
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Require all of the following:
 

@@ -1,5 +1,7 @@
 # Example index
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Load the file matching the command:
 
 - `examples/help.md` for capability discovery

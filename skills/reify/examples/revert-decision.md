@@ -10,6 +10,8 @@ Working directory for this run: `/home/user/workspace/test/t-reify/examples-run/
 
 ## Commands run, with real output
 
+Resource gate: run `mise run validate` before using package files named here.
+
 State before the revert:
 
 ```
@@ -66,11 +68,15 @@ EXIT=0
 $ tail -n 3 reify-log-lighthouse-summers.md
 ## Progress
 
+Resource gate: run `mise run validate` before using package files named here.
+
 - revert D-003: entry state set to reverted, text left in place. D-004 marked needs-review. Field outcome reopened as undecided. File series-outline.md moved from ./series-outline.md to ./superseded/series-outline.md, not deleted. Next new decision takes D-005, because D-003 and D-004 stay used forever. Next check: the user picks a shape again.
 EXIT=0
 ```
 
 ## The executor replies
+
+Resource gate: run `mise run validate` before using package files named here.
 
 > Reverted `D-003`, the five part series. Here is exactly what moved.
 >
@@ -87,6 +93,8 @@ EXIT=0
 Word count of the reply above: 210, inside the 350 word budget.
 
 ## Files this run created or moved
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Created: `superseded/`, holding `series-outline.md`.
 
@@ -105,6 +113,8 @@ The record entries after the revert, in full:
 - reversible: true
 
 ### D-004 needs-review: part 1 is sized at 700 words
+
+Resource gate: run `mise run validate` before using package files named here.
 
 - choice: part 1 targets 700 words so it fits the series rhythm.
 - reason: follows from the five-part shape in D-003.

@@ -1,0 +1,46 @@
+{
+  "skill_name": "starting-point",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Cut monthly churn from 7% to 4% within six weeks. Rewrite all 120 cancellation messages by Friday and add an exit survey. Billing shows 58% of churned accounts are involuntary payment failures, onboarding completion is poor, and cancellation copy was refreshed last month. State what to execute, verify, and seek approval for.",
+      "expected_output": "redirect_with_scope_control",
+      "assertions": [
+        "Treat churn reduction as the parent outcome and payment recovery or onboarding as stronger candidate paths.",
+        "Preserve useful cancellation-flow work or seek approval before materially reducing the requested deliverable.",
+        "Define evidence that distinguishes component delivery from churn impact."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Increase paid signups by 20% this month. Produce 80 new ad variants by tomorrow. Ads are meeting the click-through target, while checkout payment errors doubled and 42% of qualified visitors now fail at payment. State the route you would take and what happens to the requested ad work.",
+      "expected_output": "redirect_with_scope_control",
+      "assertions": [
+        "Identify checkout reliability as the likely upstream bottleneck.",
+        "Explain whether a bounded part of the ad work still contributes and seek approval for a material reprioritization.",
+        "Use completed paid signup rate, not ad output or click-through alone, as parent proof."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Get CI green today by increasing a flaky integration-test timeout from 30 to 120 seconds. The logs show two workers writing the same temporary file and failures occur only under parallel execution. State what you would do now.",
+      "expected_output": "redirect_with_scope_control",
+      "assertions": [
+        "Treat the shared-file race as root-cause evidence and investigate it before a timeout-only fix.",
+        "Use a reproducible failing loop and focused proof rather than CI color alone.",
+        "Use a reproducible root-cause debugging workflow after the starting decision."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our onboarding conversion is bad. Can you A/B test the signup button color this week? State what you would do, and keep the reply at or below 250 words.",
+      "expected_output": "compute_before_agreeing",
+      "assertions": [
+        "Compute and show the users per arm needed for a realistic effect size before agreeing to the test.",
+        "Name that the signup button is upstream of the stated onboarding outcome.",
+        "Ask for the smallest number that settles the decision, such as weekly signup-page traffic, and keep the requested test available with an offer to specify a fixed stopping rule.",
+        "Keep the reply compressed and free of numbered reasoning steps or an exposed private map."
+      ]
+    }
+  ]
+}

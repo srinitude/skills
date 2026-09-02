@@ -13,25 +13,25 @@
       "bytes": 9551
     },
     {
-      "source_path": "assets/font-brief.json",
+      "bytes": 2657,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/assets/font-brief.json",
       "sha256": "a0a3ab03e5b6331b1a96c8be557f40e5786beed8f2eecb3aa62dea01ade916b8",
-      "bytes": 2657
+      "source_path": "assets/font-brief.json"
     },
     {
-      "source_path": "assets/minimal-extraction.yaml",
+      "bytes": 18237,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/assets/minimal-extraction.yaml",
       "sha256": "6544ef5b3bf504a5a9d6eccc446c44cc99f0085490dd98ec64dc3ad29e8edf1e",
-      "bytes": 18237
+      "source_path": "assets/minimal-extraction.yaml"
     },
     {
-      "source_path": "assets/schema-skeleton.yaml",
+      "bytes": 8273,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/assets/schema-skeleton.yaml",
       "sha256": "469a9c0ad92b8226d4c4e273339353518dfb3d9317d246cac01a70462b096f60",
-      "bytes": 8273
+      "source_path": "assets/schema-skeleton.yaml"
     },
     {
       "source_path": "references/extraction-schema.yaml",
@@ -55,32 +55,32 @@
       "bytes": 5517
     },
     {
-      "source_path": "scripts/font_fit.py",
+      "bytes": 6736,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/font_fit.py",
       "sha256": "9e560834500803e312e0664e535efb28cbf81dae457fad4116237e3677a49278",
-      "bytes": 6736
+      "source_path": "scripts/font_fit.py"
     },
     {
-      "source_path": "scripts/font_pairing.py",
+      "bytes": 6116,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/font_pairing.py",
       "sha256": "f15326dc926e6c64c2a035929d8e59be7e3d02872b818e5360767ec6a4a91ca3",
-      "bytes": 6116
+      "source_path": "scripts/font_pairing.py"
     },
     {
-      "source_path": "scripts/rare_google_fonts.py",
+      "bytes": 8944,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/rare_google_fonts.py",
       "sha256": "5447d13f73f45ade89f3a5059b17cc6a3e34593950c4819885abfb31834ec547",
-      "bytes": 8944
+      "source_path": "scripts/rare_google_fonts.py"
     },
     {
-      "source_path": "scripts/render_preview.py",
+      "bytes": 7986,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/render_preview.py",
       "sha256": "d1759722810a63654ca6d79d1f07bedfabe406943e12713ece2c74e91717581c",
-      "bytes": 7986
+      "source_path": "scripts/render_preview.py"
     },
     {
       "source_path": "scripts/schema_tools.py",
@@ -90,11 +90,11 @@
       "bytes": 4280
     },
     {
-      "source_path": "scripts/screenshot_preview.py",
+      "bytes": 2645,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/screenshot_preview.py",
       "sha256": "bb2833a43c6287d3eac5f1cdd681f8141ea3b8a5233972e048802e44beae7212",
-      "bytes": 2645
+      "source_path": "scripts/screenshot_preview.py"
     },
     {
       "source_path": "scripts/validate_design_system_yaml.py",
@@ -104,11 +104,11 @@
       "bytes": 6095
     },
     {
-      "source_path": "scripts/viability_rules.py",
+      "bytes": 3869,
       "location_kind": "repository",
       "location_path": "skills/visual-design-system-extractor/scripts/viability_rules.py",
       "sha256": "653e167dad04a933ca3f0173680be4a9355fd904c6ee4ccb12a23f160f10622c",
-      "bytes": 3869
+      "source_path": "scripts/viability_rules.py"
     }
   ]
 }

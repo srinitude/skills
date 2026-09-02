@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "logic-audit",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "logic-audit-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger actors aligned.",
+      "motivation": "The contradiction ledger result depends on actors ownership.",
+      "proof": "Fresh contradiction ledger actors evidence."
+    },
+    "objects": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger objects aligned.",
+      "motivation": "The contradiction ledger result depends on objects ownership.",
+      "proof": "Fresh contradiction ledger objects evidence."
+    },
+    "actions": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger actions aligned.",
+      "motivation": "The contradiction ledger result depends on actions ownership.",
+      "proof": "Fresh contradiction ledger actions evidence."
+    },
+    "states": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger states aligned.",
+      "motivation": "The contradiction ledger result depends on states ownership.",
+      "proof": "Fresh contradiction ledger states evidence."
+    },
+    "invariants": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger invariants aligned.",
+      "motivation": "The contradiction ledger result depends on invariants ownership.",
+      "proof": "Fresh contradiction ledger invariants evidence."
+    },
+    "variants": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger variants aligned.",
+      "motivation": "The contradiction ledger result depends on variants ownership.",
+      "proof": "Fresh contradiction ledger variants evidence."
+    },
+    "interfaces": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger interfaces aligned.",
+      "motivation": "The contradiction ledger result depends on interfaces ownership.",
+      "proof": "Fresh contradiction ledger interfaces evidence."
+    },
+    "authorities": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger authorities aligned.",
+      "motivation": "The contradiction ledger result depends on authorities ownership.",
+      "proof": "Fresh contradiction ledger authorities evidence."
+    },
+    "failures": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger failures aligned.",
+      "motivation": "The contradiction ledger result depends on failures ownership.",
+      "proof": "Fresh contradiction ledger failures evidence."
+    },
+    "recoveries": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger recoveries aligned.",
+      "motivation": "The contradiction ledger result depends on recoveries ownership.",
+      "proof": "Fresh contradiction ledger recoveries evidence."
+    },
+    "evidence": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger evidence aligned.",
+      "motivation": "The contradiction ledger result depends on evidence ownership.",
+      "proof": "Fresh contradiction ledger evidence evidence."
+    },
+    "time": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger time aligned.",
+      "motivation": "The contradiction ledger result depends on time ownership.",
+      "proof": "Fresh contradiction ledger time evidence."
+    },
+    "resources": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger resources aligned.",
+      "motivation": "The contradiction ledger result depends on resources ownership.",
+      "proof": "Fresh contradiction ledger resources evidence."
+    },
+    "quality": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger quality aligned.",
+      "motivation": "The contradiction ledger result depends on quality ownership.",
+      "proof": "Fresh contradiction ledger quality evidence."
+    },
+    "terminology": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger terminology aligned.",
+      "motivation": "The contradiction ledger result depends on terminology ownership.",
+      "proof": "Fresh contradiction ledger terminology evidence."
+    },
+    "exclusions": {
+      "profile": "logic-audit-lifecycle",
+      "outcome": "Keep contradiction ledger exclusions aligned.",
+      "motivation": "The contradiction ledger result depends on exclusions ownership.",
+      "proof": "Fresh contradiction ledger exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "references": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "assets": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "scripts": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "tests": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "examples": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "evals": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "policies": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "schemas": {
+      "profile": "logic-audit-lifecycle"
+    },
+    "records": {
+      "profile": "logic-audit-lifecycle"
+    }
+  }
+}

@@ -8,6 +8,8 @@ Use the database adapter to dedupe [1, 1].
 
 ## Request
 
+Resource gate: run `mise run validate` before using package files named here.
+
 The command reads `examples/invalid-request.json`.
 
 ```json
@@ -21,7 +23,7 @@ The command reads `examples/invalid-request.json`.
 ## Command
 
 ```text
-$ python3 scripts/dedupe.py inspect --request examples/invalid-request.json
+$ mise run dedupe inspect --request examples/invalid-request.json
 error: unsupported adapter: database
 exit 1
 ```

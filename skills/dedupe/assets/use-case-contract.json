@@ -1,0 +1,472 @@
+{
+  "version": "1.0.0",
+  "skill": "dedupe",
+  "outcome": "Resolve a bounded duplicate cluster into canonical records without losing distinct identity evidence.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted duplicate cluster behavior.",
+      "reason": "The duplicate cluster outcome depends on stable domain semantics.",
+      "failure_prevented": "A duplicate cluster update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable duplicate cluster checks through Mise.",
+      "reason": "The duplicate cluster judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A duplicate cluster claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "duplicate cluster",
+    "canonical record",
+    "identity evidence",
+    "merge boundary"
+  ],
+  "domain_failures": [
+    "The duplicate cluster result changes without proof.",
+    "The duplicate cluster package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh duplicate cluster task output and saved receipts.",
+    "Current duplicate cluster behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The duplicate cluster contract owns actors decisions."],
+    "objects": ["The duplicate cluster contract owns objects decisions."],
+    "actions": ["The duplicate cluster contract owns actions decisions."],
+    "states": ["The duplicate cluster contract owns states decisions."],
+    "invariants": ["The duplicate cluster contract owns invariants decisions."],
+    "variants": ["The duplicate cluster contract owns variants decisions."],
+    "interfaces": ["The duplicate cluster contract owns interfaces decisions."],
+    "authorities": ["The duplicate cluster contract owns authorities decisions."],
+    "failures": ["The duplicate cluster contract owns failures decisions."],
+    "recoveries": ["The duplicate cluster contract owns recoveries decisions."],
+    "evidence": ["The duplicate cluster contract owns evidence decisions."],
+    "time": ["The duplicate cluster contract owns time decisions."],
+    "resources": ["The duplicate cluster contract owns resources decisions."],
+    "quality": ["The duplicate cluster contract owns quality decisions."],
+    "terminology": ["The duplicate cluster contract owns terminology decisions."],
+    "exclusions": ["The duplicate cluster contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the duplicate cluster actors decision?",
+    "objects": "What can change the duplicate cluster objects decision?",
+    "actions": "What can change the duplicate cluster actions decision?",
+    "states": "What can change the duplicate cluster states decision?",
+    "invariants": "What can change the duplicate cluster invariants decision?",
+    "variants": "What can change the duplicate cluster variants decision?",
+    "interfaces": "What can change the duplicate cluster interfaces decision?",
+    "authorities": "What can change the duplicate cluster authorities decision?",
+    "failures": "What can change the duplicate cluster failures decision?",
+    "recoveries": "What can change the duplicate cluster recoveries decision?",
+    "evidence": "What can change the duplicate cluster evidence decision?",
+    "time": "What can change the duplicate cluster time decision?",
+    "resources": "What can change the duplicate cluster resources decision?",
+    "quality": "What can change the duplicate cluster quality decision?",
+    "terminology": "What can change the duplicate cluster terminology decision?",
+    "exclusions": "What can change the duplicate cluster exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.rfc-editor.org/rfc/rfc8785",
+      "source_class": "standard",
+      "claim": "Canonical representation can make duplicate cluster comparisons repeatable.",
+      "limitations": "Canonical bytes do not prove that two records share an identity.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://git-scm.com/book/en/v2/Git-Internals-Git-Objects",
+      "source_class": "first_party",
+      "claim": "Content identity can preserve canonical record history without destructive merging.",
+      "limitations": "Object identity alone does not define a business merge boundary.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+      "source_class": "first_party",
+      "claim": "Uniqueness constraints can enforce a proved canonical record key.",
+      "limitations": "A database constraint cannot discover semantic duplicate clusters.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://docs.python.org/3/library/hashlib.html",
+      "source_class": "first_party",
+      "claim": "Digests can record identity evidence for exact content comparisons.",
+      "limitations": "A digest cannot decide whether near matches should merge.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the duplicate cluster result?",
+      "source": "https://www.rfc-editor.org/rfc/rfc8785",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "result": "No. The duplicate cluster behavior still needs direct evaluation.",
+      "disposition": "Keep structure and duplicate cluster behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named duplicate cluster agentic-request result.",
+        "motivation": "The duplicate cluster workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared duplicate cluster agentic-request route.",
+        "proof": "Fresh duplicate cluster agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named duplicate cluster invocation-policy result.",
+        "motivation": "The duplicate cluster workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared duplicate cluster invocation-policy route.",
+        "proof": "Fresh duplicate cluster invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named duplicate cluster improvement-policy result.",
+        "motivation": "The duplicate cluster workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared duplicate cluster improvement-policy route.",
+        "proof": "Fresh duplicate cluster improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named duplicate cluster mise-primitives-update result.",
+        "motivation": "The duplicate cluster workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared duplicate cluster mise-primitives-update route.",
+        "proof": "Fresh duplicate cluster mise-primitives-update output and exit status."
+      },
+      {
+        "task": "dedupe",
+        "outcome": "Produce the named duplicate cluster dedupe result.",
+        "motivation": "The duplicate cluster workflow needs one dedupe entry.",
+        "why_default_path": "This is the single declared duplicate cluster dedupe route.",
+        "proof": "Fresh duplicate cluster dedupe output and exit status."
+      },
+      {
+        "task": "tests-test-scripts",
+        "outcome": "Produce the named duplicate cluster tests-test-scripts result.",
+        "motivation": "The duplicate cluster workflow needs one tests-test-scripts entry.",
+        "why_default_path": "This is the single declared duplicate cluster tests-test-scripts route.",
+        "proof": "Fresh duplicate cluster tests-test-scripts output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the duplicate cluster result through ci.",
+        "motivation": "The duplicate cluster package needs the ci gate.",
+        "value": "Produce current duplicate cluster evidence from ci.",
+        "proof": "The duplicate cluster ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared duplicate cluster responsibility."
+      },
+      "test": {
+        "outcome": "Advance the duplicate cluster result through test.",
+        "motivation": "The duplicate cluster package needs the test gate.",
+        "value": "Produce current duplicate cluster evidence from test.",
+        "proof": "The duplicate cluster test task exits zero with readable output.",
+        "applicability": "Use test for its declared duplicate cluster responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the duplicate cluster result through validate.",
+        "motivation": "The duplicate cluster package needs the validate gate.",
+        "value": "Produce current duplicate cluster evidence from validate.",
+        "proof": "The duplicate cluster validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared duplicate cluster responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the duplicate cluster result through lint-writing.",
+        "motivation": "The duplicate cluster package needs the lint-writing gate.",
+        "value": "Produce current duplicate cluster evidence from lint-writing.",
+        "proof": "The duplicate cluster lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared duplicate cluster responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the duplicate cluster result through lint-code.",
+        "motivation": "The duplicate cluster package needs the lint-code gate.",
+        "value": "Produce current duplicate cluster evidence from lint-code.",
+        "proof": "The duplicate cluster lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared duplicate cluster responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the duplicate cluster result through lint-placeholders.",
+        "motivation": "The duplicate cluster package needs the lint-placeholders gate.",
+        "value": "Produce current duplicate cluster evidence from lint-placeholders.",
+        "proof": "The duplicate cluster lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared duplicate cluster responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the duplicate cluster result through evals.",
+        "motivation": "The duplicate cluster package needs the evals gate.",
+        "value": "Produce current duplicate cluster evidence from evals.",
+        "proof": "The duplicate cluster evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared duplicate cluster responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the duplicate cluster result through domain-research-policy.",
+        "motivation": "The duplicate cluster package needs the domain-research-policy gate.",
+        "value": "Produce current duplicate cluster evidence from domain-research-policy.",
+        "proof": "The duplicate cluster domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared duplicate cluster responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the duplicate cluster result through use-case-policy.",
+        "motivation": "The duplicate cluster package needs the use-case-policy gate.",
+        "value": "Produce current duplicate cluster evidence from use-case-policy.",
+        "proof": "The duplicate cluster use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared duplicate cluster responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the duplicate cluster result through mise-primitives-policy.",
+        "motivation": "The duplicate cluster package needs the mise-primitives-policy gate.",
+        "value": "Produce current duplicate cluster evidence from mise-primitives-policy.",
+        "proof": "The duplicate cluster mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared duplicate cluster responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the duplicate cluster result through primitive-lifecycle-policy.",
+        "motivation": "The duplicate cluster package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current duplicate cluster evidence from primitive-lifecycle-policy.",
+        "proof": "The duplicate cluster primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared duplicate cluster responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the duplicate cluster result through task-graph-policy.",
+        "motivation": "The duplicate cluster package needs the task-graph-policy gate.",
+        "value": "Produce current duplicate cluster evidence from task-graph-policy.",
+        "proof": "The duplicate cluster task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared duplicate cluster responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the duplicate cluster result through decision-policy.",
+        "motivation": "The duplicate cluster package needs the decision-policy gate.",
+        "value": "Produce current duplicate cluster evidence from decision-policy.",
+        "proof": "The duplicate cluster decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared duplicate cluster responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the duplicate cluster result through improvement-policy.",
+        "motivation": "The duplicate cluster package needs the improvement-policy gate.",
+        "value": "Produce current duplicate cluster evidence from improvement-policy.",
+        "proof": "The duplicate cluster improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared duplicate cluster responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the duplicate cluster result through invocation-policy.",
+        "motivation": "The duplicate cluster package needs the invocation-policy gate.",
+        "value": "Produce current duplicate cluster evidence from invocation-policy.",
+        "proof": "The duplicate cluster invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared duplicate cluster responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the duplicate cluster result through agentic-request.",
+        "motivation": "The duplicate cluster package needs the agentic-request gate.",
+        "value": "Produce current duplicate cluster evidence from agentic-request.",
+        "proof": "The duplicate cluster agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared duplicate cluster responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the duplicate cluster result through mise-latest.",
+        "motivation": "The duplicate cluster package needs the mise-latest gate.",
+        "value": "Produce current duplicate cluster evidence from mise-latest.",
+        "proof": "The duplicate cluster mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared duplicate cluster responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the duplicate cluster result through mise-primitives-update.",
+        "motivation": "The duplicate cluster package needs the mise-primitives-update gate.",
+        "value": "Produce current duplicate cluster evidence from mise-primitives-update.",
+        "proof": "The duplicate cluster mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared duplicate cluster responsibility."
+      },
+      "dedupe": {
+        "outcome": "Advance the duplicate cluster result through dedupe.",
+        "motivation": "The duplicate cluster package needs the dedupe gate.",
+        "value": "Produce current duplicate cluster evidence from dedupe.",
+        "proof": "The duplicate cluster dedupe task exits zero with readable output.",
+        "applicability": "Use dedupe for its declared duplicate cluster responsibility."
+      },
+      "tests-test-scripts": {
+        "outcome": "Advance the duplicate cluster result through tests-test-scripts.",
+        "motivation": "The duplicate cluster package needs the tests-test-scripts gate.",
+        "value": "Produce current duplicate cluster evidence from tests-test-scripts.",
+        "proof": "The duplicate cluster tests-test-scripts task exits zero with readable output.",
+        "applicability": "Use tests-test-scripts for its declared duplicate cluster responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster skill_body behavior.",
+      "outcome": "Keep duplicate cluster skill_body aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one skill_body owner.",
+      "value": "Expose current duplicate cluster skill_body progress.",
+      "failure_prevented": "Stale or generic duplicate cluster skill_body behavior.",
+      "proof": "Fresh duplicate cluster skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster references behavior.",
+      "outcome": "Keep duplicate cluster references aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one references owner.",
+      "value": "Expose current duplicate cluster references progress.",
+      "failure_prevented": "Stale or generic duplicate cluster references behavior.",
+      "proof": "Fresh duplicate cluster references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster assets behavior.",
+      "outcome": "Keep duplicate cluster assets aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one assets owner.",
+      "value": "Expose current duplicate cluster assets progress.",
+      "failure_prevented": "Stale or generic duplicate cluster assets behavior.",
+      "proof": "Fresh duplicate cluster assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster scripts behavior.",
+      "outcome": "Keep duplicate cluster scripts aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one scripts owner.",
+      "value": "Expose current duplicate cluster scripts progress.",
+      "failure_prevented": "Stale or generic duplicate cluster scripts behavior.",
+      "proof": "Fresh duplicate cluster scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster tests behavior.",
+      "outcome": "Keep duplicate cluster tests aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one tests owner.",
+      "value": "Expose current duplicate cluster tests progress.",
+      "failure_prevented": "Stale or generic duplicate cluster tests behavior.",
+      "proof": "Fresh duplicate cluster tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster mise_tasks behavior.",
+      "outcome": "Keep duplicate cluster mise_tasks aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one mise_tasks owner.",
+      "value": "Expose current duplicate cluster mise_tasks progress.",
+      "failure_prevented": "Stale or generic duplicate cluster mise_tasks behavior.",
+      "proof": "Fresh duplicate cluster mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster examples behavior.",
+      "outcome": "Keep duplicate cluster examples aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one examples owner.",
+      "value": "Expose current duplicate cluster examples progress.",
+      "failure_prevented": "Stale or generic duplicate cluster examples behavior.",
+      "proof": "Fresh duplicate cluster examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster evals behavior.",
+      "outcome": "Keep duplicate cluster evals aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one evals owner.",
+      "value": "Expose current duplicate cluster evals progress.",
+      "failure_prevented": "Stale or generic duplicate cluster evals behavior.",
+      "proof": "Fresh duplicate cluster evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster policies behavior.",
+      "outcome": "Keep duplicate cluster policies aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one policies owner.",
+      "value": "Expose current duplicate cluster policies progress.",
+      "failure_prevented": "Stale or generic duplicate cluster policies behavior.",
+      "proof": "Fresh duplicate cluster policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster schemas behavior.",
+      "outcome": "Keep duplicate cluster schemas aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one schemas owner.",
+      "value": "Expose current duplicate cluster schemas progress.",
+      "failure_prevented": "Stale or generic duplicate cluster schemas behavior.",
+      "proof": "Fresh duplicate cluster schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own duplicate cluster records behavior.",
+      "outcome": "Keep duplicate cluster records aligned with the accepted result.",
+      "motivation": "The duplicate cluster package needs one records owner.",
+      "value": "Expose current duplicate cluster records progress.",
+      "failure_prevented": "Stale or generic duplicate cluster records behavior.",
+      "proof": "Fresh duplicate cluster records validation and behavioral evidence."
+    }
+  }
+}

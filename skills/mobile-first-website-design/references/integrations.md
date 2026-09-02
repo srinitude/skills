@@ -1,5 +1,7 @@
 # External integrations
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Backlink: [SKILL.md](../SKILL.md). Load for research, generation, and judgement.
 
 Check each route independently. Allowed statuses are `PASS`, `UNAVAILABLE_AUTH`, `UNAVAILABLE_TRANSPORT`, `UNAVAILABLE_SCHEMA`, `UNAVAILABLE_SKILL`, `UNAVAILABLE_DISABLED`, and `NO_MATCH`.

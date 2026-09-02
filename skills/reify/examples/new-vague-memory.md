@@ -99,6 +99,8 @@ Word count of the reply above: 244, inside the 350 word budget.
 
 ## Progress
 
+Resource gate: run `mise run validate` before using package files named here.
+
 - step 3: record created at ./reify-log-lighthouse-summers.md. Next check: the probe object exists and carries slots, not invented fact.
 ```
 
@@ -106,6 +108,8 @@ Word count of the reply above: 244, inside the 350 word budget.
 
 ```markdown
 # Working title: Four Seconds
+
+Resource gate: run `mise run validate` before using package files named here.
 
 The light came around every [interval] seconds at [lighthouse name], and you could set a night by it. What stays is not the beam. It is the gap.
 

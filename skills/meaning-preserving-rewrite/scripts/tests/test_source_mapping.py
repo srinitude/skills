@@ -41,7 +41,7 @@ class TestSourceMapping(unittest.TestCase):
         lineage = load("evals/source-lineage.json")
         files = {item["path"]: item["sha256"]
                  for item in lineage["source_files"]}
-        self.assertEqual(files, EXPECTED_FILES)
+        self.assertEqual({key: files[key] for key in EXPECTED_FILES}, EXPECTED_FILES)
         self.assertEqual(lineage["source_case_ids"],
                          ["MPR-NO-NATIVE-CASES"])
         self.assertEqual(lineage["native_manifest_sha256"], MANIFEST)

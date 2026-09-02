@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "would-humans-actually",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "would-humans-actually-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict actors aligned.",
+      "motivation": "The human action verdict result depends on actors ownership.",
+      "proof": "Fresh human action verdict actors evidence."
+    },
+    "objects": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict objects aligned.",
+      "motivation": "The human action verdict result depends on objects ownership.",
+      "proof": "Fresh human action verdict objects evidence."
+    },
+    "actions": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict actions aligned.",
+      "motivation": "The human action verdict result depends on actions ownership.",
+      "proof": "Fresh human action verdict actions evidence."
+    },
+    "states": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict states aligned.",
+      "motivation": "The human action verdict result depends on states ownership.",
+      "proof": "Fresh human action verdict states evidence."
+    },
+    "invariants": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict invariants aligned.",
+      "motivation": "The human action verdict result depends on invariants ownership.",
+      "proof": "Fresh human action verdict invariants evidence."
+    },
+    "variants": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict variants aligned.",
+      "motivation": "The human action verdict result depends on variants ownership.",
+      "proof": "Fresh human action verdict variants evidence."
+    },
+    "interfaces": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict interfaces aligned.",
+      "motivation": "The human action verdict result depends on interfaces ownership.",
+      "proof": "Fresh human action verdict interfaces evidence."
+    },
+    "authorities": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict authorities aligned.",
+      "motivation": "The human action verdict result depends on authorities ownership.",
+      "proof": "Fresh human action verdict authorities evidence."
+    },
+    "failures": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict failures aligned.",
+      "motivation": "The human action verdict result depends on failures ownership.",
+      "proof": "Fresh human action verdict failures evidence."
+    },
+    "recoveries": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict recoveries aligned.",
+      "motivation": "The human action verdict result depends on recoveries ownership.",
+      "proof": "Fresh human action verdict recoveries evidence."
+    },
+    "evidence": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict evidence aligned.",
+      "motivation": "The human action verdict result depends on evidence ownership.",
+      "proof": "Fresh human action verdict evidence evidence."
+    },
+    "time": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict time aligned.",
+      "motivation": "The human action verdict result depends on time ownership.",
+      "proof": "Fresh human action verdict time evidence."
+    },
+    "resources": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict resources aligned.",
+      "motivation": "The human action verdict result depends on resources ownership.",
+      "proof": "Fresh human action verdict resources evidence."
+    },
+    "quality": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict quality aligned.",
+      "motivation": "The human action verdict result depends on quality ownership.",
+      "proof": "Fresh human action verdict quality evidence."
+    },
+    "terminology": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict terminology aligned.",
+      "motivation": "The human action verdict result depends on terminology ownership.",
+      "proof": "Fresh human action verdict terminology evidence."
+    },
+    "exclusions": {
+      "profile": "would-humans-actually-lifecycle",
+      "outcome": "Keep human action verdict exclusions aligned.",
+      "motivation": "The human action verdict result depends on exclusions ownership.",
+      "proof": "Fresh human action verdict exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "references": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "assets": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "scripts": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "tests": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "examples": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "evals": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "policies": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "schemas": {
+      "profile": "would-humans-actually-lifecycle"
+    },
+    "records": {
+      "profile": "would-humans-actually-lifecycle"
+    }
+  }
+}

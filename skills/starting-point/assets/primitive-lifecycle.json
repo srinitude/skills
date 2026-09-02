@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "starting-point",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "starting-point-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome actors aligned.",
+      "motivation": "The observable outcome result depends on actors ownership.",
+      "proof": "Fresh observable outcome actors evidence."
+    },
+    "objects": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome objects aligned.",
+      "motivation": "The observable outcome result depends on objects ownership.",
+      "proof": "Fresh observable outcome objects evidence."
+    },
+    "actions": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome actions aligned.",
+      "motivation": "The observable outcome result depends on actions ownership.",
+      "proof": "Fresh observable outcome actions evidence."
+    },
+    "states": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome states aligned.",
+      "motivation": "The observable outcome result depends on states ownership.",
+      "proof": "Fresh observable outcome states evidence."
+    },
+    "invariants": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome invariants aligned.",
+      "motivation": "The observable outcome result depends on invariants ownership.",
+      "proof": "Fresh observable outcome invariants evidence."
+    },
+    "variants": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome variants aligned.",
+      "motivation": "The observable outcome result depends on variants ownership.",
+      "proof": "Fresh observable outcome variants evidence."
+    },
+    "interfaces": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome interfaces aligned.",
+      "motivation": "The observable outcome result depends on interfaces ownership.",
+      "proof": "Fresh observable outcome interfaces evidence."
+    },
+    "authorities": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome authorities aligned.",
+      "motivation": "The observable outcome result depends on authorities ownership.",
+      "proof": "Fresh observable outcome authorities evidence."
+    },
+    "failures": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome failures aligned.",
+      "motivation": "The observable outcome result depends on failures ownership.",
+      "proof": "Fresh observable outcome failures evidence."
+    },
+    "recoveries": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome recoveries aligned.",
+      "motivation": "The observable outcome result depends on recoveries ownership.",
+      "proof": "Fresh observable outcome recoveries evidence."
+    },
+    "evidence": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome evidence aligned.",
+      "motivation": "The observable outcome result depends on evidence ownership.",
+      "proof": "Fresh observable outcome evidence evidence."
+    },
+    "time": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome time aligned.",
+      "motivation": "The observable outcome result depends on time ownership.",
+      "proof": "Fresh observable outcome time evidence."
+    },
+    "resources": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome resources aligned.",
+      "motivation": "The observable outcome result depends on resources ownership.",
+      "proof": "Fresh observable outcome resources evidence."
+    },
+    "quality": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome quality aligned.",
+      "motivation": "The observable outcome result depends on quality ownership.",
+      "proof": "Fresh observable outcome quality evidence."
+    },
+    "terminology": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome terminology aligned.",
+      "motivation": "The observable outcome result depends on terminology ownership.",
+      "proof": "Fresh observable outcome terminology evidence."
+    },
+    "exclusions": {
+      "profile": "starting-point-lifecycle",
+      "outcome": "Keep observable outcome exclusions aligned.",
+      "motivation": "The observable outcome result depends on exclusions ownership.",
+      "proof": "Fresh observable outcome exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "starting-point-lifecycle"
+    },
+    "references": {
+      "profile": "starting-point-lifecycle"
+    },
+    "assets": {
+      "profile": "starting-point-lifecycle"
+    },
+    "scripts": {
+      "profile": "starting-point-lifecycle"
+    },
+    "tests": {
+      "profile": "starting-point-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "starting-point-lifecycle"
+    },
+    "examples": {
+      "profile": "starting-point-lifecycle"
+    },
+    "evals": {
+      "profile": "starting-point-lifecycle"
+    },
+    "policies": {
+      "profile": "starting-point-lifecycle"
+    },
+    "schemas": {
+      "profile": "starting-point-lifecycle"
+    },
+    "records": {
+      "profile": "starting-point-lifecycle"
+    }
+  }
+}

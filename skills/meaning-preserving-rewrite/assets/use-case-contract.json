@@ -1,0 +1,437 @@
+{
+  "version": "1.0.0",
+  "skill": "meaning-preserving-rewrite",
+  "outcome": "Rewrite text in plain language while preserving every named meaning invariant and recording semantic loss checks.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted meaning invariant behavior.",
+      "reason": "The meaning invariant outcome depends on stable domain semantics.",
+      "failure_prevented": "A meaning invariant update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable meaning invariant checks through Mise.",
+      "reason": "The meaning invariant judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A meaning invariant claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "meaning invariant",
+    "rewrite ledger",
+    "semantic loss",
+    "plain language"
+  ],
+  "domain_failures": [
+    "The meaning invariant result changes without proof.",
+    "The meaning invariant package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh meaning invariant task output and saved receipts.",
+    "Current meaning invariant behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The meaning invariant contract owns actors decisions."],
+    "objects": ["The meaning invariant contract owns objects decisions."],
+    "actions": ["The meaning invariant contract owns actions decisions."],
+    "states": ["The meaning invariant contract owns states decisions."],
+    "invariants": ["The meaning invariant contract owns invariants decisions."],
+    "variants": ["The meaning invariant contract owns variants decisions."],
+    "interfaces": ["The meaning invariant contract owns interfaces decisions."],
+    "authorities": ["The meaning invariant contract owns authorities decisions."],
+    "failures": ["The meaning invariant contract owns failures decisions."],
+    "recoveries": ["The meaning invariant contract owns recoveries decisions."],
+    "evidence": ["The meaning invariant contract owns evidence decisions."],
+    "time": ["The meaning invariant contract owns time decisions."],
+    "resources": ["The meaning invariant contract owns resources decisions."],
+    "quality": ["The meaning invariant contract owns quality decisions."],
+    "terminology": ["The meaning invariant contract owns terminology decisions."],
+    "exclusions": ["The meaning invariant contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the meaning invariant actors decision?",
+    "objects": "What can change the meaning invariant objects decision?",
+    "actions": "What can change the meaning invariant actions decision?",
+    "states": "What can change the meaning invariant states decision?",
+    "invariants": "What can change the meaning invariant invariants decision?",
+    "variants": "What can change the meaning invariant variants decision?",
+    "interfaces": "What can change the meaning invariant interfaces decision?",
+    "authorities": "What can change the meaning invariant authorities decision?",
+    "failures": "What can change the meaning invariant failures decision?",
+    "recoveries": "What can change the meaning invariant recoveries decision?",
+    "evidence": "What can change the meaning invariant evidence decision?",
+    "time": "What can change the meaning invariant time decision?",
+    "resources": "What can change the meaning invariant resources decision?",
+    "quality": "What can change the meaning invariant quality decision?",
+    "terminology": "What can change the meaning invariant terminology decision?",
+    "exclusions": "What can change the meaning invariant exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/plain-language-principles",
+      "source_class": "first_party",
+      "claim": "Plain language favors familiar words, active voice, and direct structure.",
+      "limitations": "Plain wording can still cause semantic loss.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://accessible.canada.ca/standards-and-technical-guides/standards-and-technical-guides-database/can-asc-312025-plain-language/12-structure",
+      "source_class": "standard",
+      "claim": "Document structure can make a meaning invariant easier to find and understand.",
+      "limitations": "Structure guidance does not prove rewrite parity.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/",
+      "source_class": "research",
+      "claim": "Plain language summaries can improve comprehension for some readers.",
+      "limitations": "One study context does not establish semantic parity for every rewrite.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.gov.uk/government/publications/govuk-content-principles-conventions-and-research-background/govuk-content-principles-conventions-and-research-background",
+      "source_class": "first_party",
+      "claim": "User-centered content decisions need evidence, context, and iterative checks.",
+      "limitations": "Content principles do not define the target's meaning invariant.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the meaning invariant result?",
+      "source": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/plain-language-principles",
+      "checked_at": "2026-09-02T09:54:50-04:00",
+      "result": "No. The meaning invariant behavior still needs direct evaluation.",
+      "disposition": "Keep structure and meaning invariant behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named meaning invariant agentic-request result.",
+        "motivation": "The meaning invariant workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared meaning invariant agentic-request route.",
+        "proof": "Fresh meaning invariant agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named meaning invariant invocation-policy result.",
+        "motivation": "The meaning invariant workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared meaning invariant invocation-policy route.",
+        "proof": "Fresh meaning invariant invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named meaning invariant improvement-policy result.",
+        "motivation": "The meaning invariant workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared meaning invariant improvement-policy route.",
+        "proof": "Fresh meaning invariant improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named meaning invariant mise-primitives-update result.",
+        "motivation": "The meaning invariant workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared meaning invariant mise-primitives-update route.",
+        "proof": "Fresh meaning invariant mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the meaning invariant result through ci.",
+        "motivation": "The meaning invariant package needs the ci gate.",
+        "value": "Produce current meaning invariant evidence from ci.",
+        "proof": "The meaning invariant ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared meaning invariant responsibility."
+      },
+      "test": {
+        "outcome": "Advance the meaning invariant result through test.",
+        "motivation": "The meaning invariant package needs the test gate.",
+        "value": "Produce current meaning invariant evidence from test.",
+        "proof": "The meaning invariant test task exits zero with readable output.",
+        "applicability": "Use test for its declared meaning invariant responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the meaning invariant result through validate.",
+        "motivation": "The meaning invariant package needs the validate gate.",
+        "value": "Produce current meaning invariant evidence from validate.",
+        "proof": "The meaning invariant validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared meaning invariant responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the meaning invariant result through lint-writing.",
+        "motivation": "The meaning invariant package needs the lint-writing gate.",
+        "value": "Produce current meaning invariant evidence from lint-writing.",
+        "proof": "The meaning invariant lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared meaning invariant responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the meaning invariant result through lint-code.",
+        "motivation": "The meaning invariant package needs the lint-code gate.",
+        "value": "Produce current meaning invariant evidence from lint-code.",
+        "proof": "The meaning invariant lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared meaning invariant responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the meaning invariant result through evals.",
+        "motivation": "The meaning invariant package needs the evals gate.",
+        "value": "Produce current meaning invariant evidence from evals.",
+        "proof": "The meaning invariant evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared meaning invariant responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the meaning invariant result through domain-research-policy.",
+        "motivation": "The meaning invariant package needs the domain-research-policy gate.",
+        "value": "Produce current meaning invariant evidence from domain-research-policy.",
+        "proof": "The meaning invariant domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared meaning invariant responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the meaning invariant result through use-case-policy.",
+        "motivation": "The meaning invariant package needs the use-case-policy gate.",
+        "value": "Produce current meaning invariant evidence from use-case-policy.",
+        "proof": "The meaning invariant use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared meaning invariant responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the meaning invariant result through mise-primitives-policy.",
+        "motivation": "The meaning invariant package needs the mise-primitives-policy gate.",
+        "value": "Produce current meaning invariant evidence from mise-primitives-policy.",
+        "proof": "The meaning invariant mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared meaning invariant responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the meaning invariant result through primitive-lifecycle-policy.",
+        "motivation": "The meaning invariant package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current meaning invariant evidence from primitive-lifecycle-policy.",
+        "proof": "The meaning invariant primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared meaning invariant responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the meaning invariant result through task-graph-policy.",
+        "motivation": "The meaning invariant package needs the task-graph-policy gate.",
+        "value": "Produce current meaning invariant evidence from task-graph-policy.",
+        "proof": "The meaning invariant task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared meaning invariant responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the meaning invariant result through decision-policy.",
+        "motivation": "The meaning invariant package needs the decision-policy gate.",
+        "value": "Produce current meaning invariant evidence from decision-policy.",
+        "proof": "The meaning invariant decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared meaning invariant responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the meaning invariant result through improvement-policy.",
+        "motivation": "The meaning invariant package needs the improvement-policy gate.",
+        "value": "Produce current meaning invariant evidence from improvement-policy.",
+        "proof": "The meaning invariant improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared meaning invariant responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the meaning invariant result through invocation-policy.",
+        "motivation": "The meaning invariant package needs the invocation-policy gate.",
+        "value": "Produce current meaning invariant evidence from invocation-policy.",
+        "proof": "The meaning invariant invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared meaning invariant responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the meaning invariant result through agentic-request.",
+        "motivation": "The meaning invariant package needs the agentic-request gate.",
+        "value": "Produce current meaning invariant evidence from agentic-request.",
+        "proof": "The meaning invariant agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared meaning invariant responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the meaning invariant result through mise-latest.",
+        "motivation": "The meaning invariant package needs the mise-latest gate.",
+        "value": "Produce current meaning invariant evidence from mise-latest.",
+        "proof": "The meaning invariant mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared meaning invariant responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the meaning invariant result through mise-primitives-update.",
+        "motivation": "The meaning invariant package needs the mise-primitives-update gate.",
+        "value": "Produce current meaning invariant evidence from mise-primitives-update.",
+        "proof": "The meaning invariant mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared meaning invariant responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant skill_body behavior.",
+      "outcome": "Keep meaning invariant skill_body aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one skill_body owner.",
+      "value": "Expose current meaning invariant skill_body progress.",
+      "failure_prevented": "Stale or generic meaning invariant skill_body behavior.",
+      "proof": "Fresh meaning invariant skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant references behavior.",
+      "outcome": "Keep meaning invariant references aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one references owner.",
+      "value": "Expose current meaning invariant references progress.",
+      "failure_prevented": "Stale or generic meaning invariant references behavior.",
+      "proof": "Fresh meaning invariant references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant assets behavior.",
+      "outcome": "Keep meaning invariant assets aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one assets owner.",
+      "value": "Expose current meaning invariant assets progress.",
+      "failure_prevented": "Stale or generic meaning invariant assets behavior.",
+      "proof": "Fresh meaning invariant assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant scripts behavior.",
+      "outcome": "Keep meaning invariant scripts aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one scripts owner.",
+      "value": "Expose current meaning invariant scripts progress.",
+      "failure_prevented": "Stale or generic meaning invariant scripts behavior.",
+      "proof": "Fresh meaning invariant scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant tests behavior.",
+      "outcome": "Keep meaning invariant tests aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one tests owner.",
+      "value": "Expose current meaning invariant tests progress.",
+      "failure_prevented": "Stale or generic meaning invariant tests behavior.",
+      "proof": "Fresh meaning invariant tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant mise_tasks behavior.",
+      "outcome": "Keep meaning invariant mise_tasks aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one mise_tasks owner.",
+      "value": "Expose current meaning invariant mise_tasks progress.",
+      "failure_prevented": "Stale or generic meaning invariant mise_tasks behavior.",
+      "proof": "Fresh meaning invariant mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant examples behavior.",
+      "outcome": "Keep meaning invariant examples aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one examples owner.",
+      "value": "Expose current meaning invariant examples progress.",
+      "failure_prevented": "Stale or generic meaning invariant examples behavior.",
+      "proof": "Fresh meaning invariant examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant evals behavior.",
+      "outcome": "Keep meaning invariant evals aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one evals owner.",
+      "value": "Expose current meaning invariant evals progress.",
+      "failure_prevented": "Stale or generic meaning invariant evals behavior.",
+      "proof": "Fresh meaning invariant evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant policies behavior.",
+      "outcome": "Keep meaning invariant policies aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one policies owner.",
+      "value": "Expose current meaning invariant policies progress.",
+      "failure_prevented": "Stale or generic meaning invariant policies behavior.",
+      "proof": "Fresh meaning invariant policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant schemas behavior.",
+      "outcome": "Keep meaning invariant schemas aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one schemas owner.",
+      "value": "Expose current meaning invariant schemas progress.",
+      "failure_prevented": "Stale or generic meaning invariant schemas behavior.",
+      "proof": "Fresh meaning invariant schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own meaning invariant records behavior.",
+      "outcome": "Keep meaning invariant records aligned with the accepted result.",
+      "motivation": "The meaning invariant package needs one records owner.",
+      "value": "Expose current meaning invariant records progress.",
+      "failure_prevented": "Stale or generic meaning invariant records behavior.",
+      "proof": "Fresh meaning invariant records validation and behavioral evidence."
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "version": "1.1.0",
+  "mode": "optional_final_step",
+  "cli_owner": "mise",
+  "baseline": {
+    "source": "fresh_last_accepted_version",
+    "freeze_before_trial": true
+  },
+  "evaluator": {
+    "freeze_before_trial": true,
+    "same_inputs": true,
+    "same_environment": true,
+    "same_time_budget": true,
+    "repeat_when_noisy": true
+  },
+  "trial": {
+    "change": "one_named_dimension",
+    "editable_surface": "smallest_owning_surface",
+    "ledger_statuses": [
+      "keep",
+      "discard",
+      "crash"
+    ]
+  },
+  "resource_policy": "measure_or_justify_not_applicable",
+  "resource_catalog": {
+    "time": [
+      "wall_clock_seconds",
+      "critical_path_seconds",
+      "queue_seconds",
+      "startup_seconds"
+    ],
+    "cpu": [
+      "user_cpu_seconds",
+      "system_cpu_seconds",
+      "utilization_percent"
+    ],
+    "memory": [
+      "peak_resident_bytes",
+      "allocation_count",
+      "page_faults",
+      "swap_bytes"
+    ],
+    "storage": [
+      "read_bytes",
+      "write_bytes",
+      "operation_count",
+      "temporary_bytes",
+      "artifact_bytes"
+    ],
+    "network": [
+      "request_count",
+      "received_bytes",
+      "sent_bytes",
+      "latency_seconds",
+      "rate_limit_events"
+    ],
+    "cache": [
+      "cold_seconds",
+      "warm_seconds",
+      "hit_count",
+      "miss_count",
+      "invalidations"
+    ],
+    "context": [
+      "input_tokens",
+      "output_tokens",
+      "resource_load_count",
+      "prompt_cache_hits"
+    ],
+    "process": [
+      "process_starts",
+      "tool_calls",
+      "retries",
+      "timeouts"
+    ],
+    "concurrency": [
+      "eligible_parallel_jobs",
+      "actual_parallel_jobs",
+      "contention_seconds"
+    ],
+    "accelerator": [
+      "device_seconds",
+      "peak_device_memory_bytes",
+      "utilization_percent",
+      "energy_joules"
+    ],
+    "cost": [
+      "compute_cost",
+      "api_cost",
+      "storage_cost"
+    ],
+    "human_attention": [
+      "review_seconds",
+      "interruptions",
+      "approval_round_trips"
+    ]
+  },
+  "protected_dimensions": [
+    "correctness",
+    "wall_clock_time",
+    "deterministic_coverage",
+    "task_success",
+    "safety",
+    "portability",
+    "token_efficiency",
+    "creative_range",
+    "experimental_range",
+    "exploratory_range",
+    "semantic_judgment",
+    "maintainability",
+    "simplicity",
+    "plain_language",
+    "current_skill_contract"
+  ],
+  "acceptance": "pareto_non_regression",
+  "failure": "restore_last_accepted_version",
+  "required_evidence": [
+    "baseline_content_digest",
+    "candidate_content_digest",
+    "named_dimension",
+    "frozen_evaluator_digest",
+    "environment_receipt",
+    "baseline_results",
+    "candidate_results",
+    "protected_dimension_results",
+    "elapsed_seconds",
+    "applicable_resource_results",
+    "not_applicable_resource_reasons",
+    "status",
+    "restoration_receipt_when_rejected"
+  ]
+}

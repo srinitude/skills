@@ -20,11 +20,11 @@ none
 ## Commands run
 
 ```
-$ python3 scripts/ledger.py init --file decision-ledger-onboarding.md --slug onboarding
+$ mise run ledger init --file decision-ledger-onboarding.md --slug onboarding
 created decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/slice.py --category "Onboarding, activation and first run" --limit 2 --format json
+$ mise run slice --category "Onboarding, activation and first run" --limit 2 --format json
 {
  "count": 2,
  "widened": [],
@@ -75,27 +75,27 @@ $ python3 scripts/slice.py --category "Onboarding, activation and first run" --l
 }
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-onboarding.md --decision "Card fields follow the network rules" --chosen "the fields the networks require" --trades "a shorter form vs. a payment that clears" --risks "a form that cannot take a payment" --origin deliberate
+$ mise run ledger add --file decision-ledger-onboarding.md --decision "Card fields follow the network rules" --chosen "the fields the networks require" --trades "a shorter form vs. a payment that clears" --risks "a form that cannot take a payment" --origin deliberate
 appended to decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-onboarding.md --decision "Legal review before launch" --chosen "required, signed by counsel" --trades "a faster launch vs. a claim nobody can defend" --risks "shipping a page counsel has not read" --origin deliberate
+$ mise run ledger add --file decision-ledger-onboarding.md --decision "Legal review before launch" --chosen "required, signed by counsel" --trades "a faster launch vs. a claim nobody can defend" --risks "shipping a page counsel has not read" --origin deliberate
 appended to decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-onboarding.md --decision "Onboarding fits in three screens" --chosen "three, stated as a hard rule" --trades "a short flow vs. the fields the product actually needs" --risks "a number carried from the last product, enforced as a law here" --origin inherited --falsifier "completion rate of a four screen variant"
+$ mise run ledger add --file decision-ledger-onboarding.md --decision "Onboarding fits in three screens" --chosen "three, stated as a hard rule" --trades "a short flow vs. the fields the product actually needs" --risks "a number carried from the last product, enforced as a law here" --origin inherited --falsifier "completion rate of a four screen variant"
 appended to decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-onboarding.md --decision "Account required before the workspace is visible" --chosen "required, stated as a hard rule" --trades "qualified signups vs. time to first value" --risks "a wall in front of the thing that would have sold the product" --origin inherited --falsifier "activation rate of a cohort shown the workspace first"
+$ mise run ledger add --file decision-ledger-onboarding.md --decision "Account required before the workspace is visible" --chosen "required, stated as a hard rule" --trades "qualified signups vs. time to first value" --risks "a wall in front of the thing that would have sold the product" --origin inherited --falsifier "activation rate of a cohort shown the workspace first"
 appended to decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-onboarding.md --decision "Brand purple on every primary action" --chosen "purple, stated as a hard rule" --trades "a consistent brand vs. a primary action that reads as primary" --risks "a call to action that loses to the surface it sits on" --origin inherited --falsifier "contrast measured against the panel it sits on"
+$ mise run ledger add --file decision-ledger-onboarding.md --decision "Brand purple on every primary action" --chosen "purple, stated as a hard rule" --trades "a consistent brand vs. a primary action that reads as primary" --risks "a call to action that loses to the surface it sits on" --origin inherited --falsifier "contrast measured against the panel it sits on"
 appended to decision-ledger-onboarding.md
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-onboarding.md --decision "Account required before the workspace is visible" --origin inherited --live no
+$ mise run speak --file decision-ledger-onboarding.md --decision "Account required before the workspace is visible" --origin inherited --live no
 hold: the decision is not being made right now
 exit 0
 ```
@@ -103,7 +103,7 @@ exit 0
 The brief is being read rather than written, so nothing is live and the reply asks nothing.
 
 ```
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

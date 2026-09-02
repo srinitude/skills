@@ -1028,7 +1028,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "skipped step leaves a visible gap. The scripts named in the steps are the"
+          "contains": "skipped step leaves a visible gap. The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."
         }
       ]
     },
@@ -1045,7 +1045,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "standard path for every deterministic check: running them at the named point"
+          "contains": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."
         }
       ]
     },
@@ -1062,7 +1062,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "is what makes a check's timing visible and repeatable, and each script prints"
+          "contains": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."
         }
       ]
     },
@@ -1079,7 +1079,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "what it checked, so the run itself is the evidence. Where your platform"
+          "contains": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."
         }
       ]
     },
@@ -1096,7 +1096,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "cannot run scripts, open and read them; every check and guide is plain text"
+          "contains": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner."
         }
       ]
     },
@@ -1113,7 +1113,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "inside. Judgment calls stay yours either way."
+          "contains": "The Mise tasks named in the steps are the standard path for every deterministic check. Running each task at the named point makes timing and output visible and repeatable. If Mise is unavailable, report the deterministic check as blocked rather than bypassing its owner. Judgment calls stay yours either way."
         }
       ]
     },
@@ -1640,7 +1640,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "Run [scripts/check_prompt.py](scripts/check_prompt.py) on the isolated"
+          "contains": "Run `mise run check-prompt` on the isolated"
         }
       ]
     },
@@ -1725,7 +1725,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "Then run [scripts/context_checks.py](scripts/context_checks.py) with the"
+          "contains": "Then run `mise run context-checks` with the"
         }
       ]
     },
@@ -2099,7 +2099,7 @@
       "public_assertions": [
         {
           "target": "references/universal-checks.md",
-          "contains": "with `scripts/scan_secrets.py`."
+          "contains": "with `mise run scan-secrets`."
         }
       ]
     },
@@ -2337,7 +2337,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "[scripts/check_prose.py](scripts/check_prose.py) with `--guide` and write"
+          "contains": "`mise run check-prose` with `--guide` and write"
         }
       ]
     },
@@ -2966,7 +2966,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "[scripts/check_delivery.py](scripts/check_delivery.py) for the delivery"
+          "contains": "`mise run check-delivery` for the delivery"
         }
       ]
     },
@@ -2983,7 +2983,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "shape and leaked secrets, and [scripts/check_prose.py](scripts/check_prose.py)"
+          "contains": "shape and leaked secrets, and `mise run check-prose`"
         }
       ]
     },
@@ -4003,7 +4003,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "scripts/check_prompt.py](scripts/check_prompt.py): the deterministic"
+          "contains": "`mise run check-prompt`: the deterministic"
         }
       ]
     },
@@ -4037,7 +4037,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "scripts/context_checks.py](scripts/context_checks.py): the per-context"
+          "contains": "`mise run context-checks`: the per-context"
         }
       ]
     },
@@ -4071,7 +4071,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "scripts/check_prose.py](scripts/check_prose.py): two modes. With text"
+          "contains": "`mise run check-prose`: two modes. With text"
         }
       ]
     },
@@ -4156,7 +4156,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "scripts/check_delivery.py](scripts/check_delivery.py): the delivery's"
+          "contains": "`mise run check-delivery`: the delivery's"
         }
       ]
     },
@@ -4190,7 +4190,7 @@
       "public_assertions": [
         {
           "target": "SKILL.md",
-          "contains": "scripts/scan_secrets.py](scripts/scan_secrets.py): secret-shaped strings"
+          "contains": "`mise run scan-secrets`: secret-shaped strings"
         }
       ]
     },

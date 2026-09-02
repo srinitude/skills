@@ -1,5 +1,7 @@
 # Artifact audit
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this when a policy or specification may mix a fixed approval rule with a replaceable tool.
 
 Guess it removes: whether a two-person production approval rule is merely procedural because the rollout tool is optional.

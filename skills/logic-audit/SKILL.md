@@ -57,6 +57,8 @@ Prefer primary sources. Use independent corroboration when error cost, dispute, 
 
 ## Audit procedure
 
+Resource gate: run `mise run validate` before using package files named here.
+
 1. Build a dependency map from each conclusion or required outcome back to its premises, actions, owners, and evidence.
 2. Run every applicable consistency class in `references/check-catalog.md` against each statement, pair, dependency chain, and authority layer.
 3. Run every applicable gap class in that catalog against every required outcome, branch, interface, state transition, and proof claim.
@@ -123,12 +125,29 @@ Lead with the result and `as_of` date. Then provide the bounded source set, find
 
 ## Package resources
 
-Use `assets/finding-ledger-template.md` when the user requests a durable ledger. Copy it outside the installed skill before filling it. Read `examples/direct-contradiction.md`, `examples/temporal-non-contradiction.md`, or `examples/blocked-source-access.md` for complete visible runs. Package maintainers use `references/generation-contract.md`, `scripts/`, `scripts/tests/`, and `evals/`, then run `mise run ci`; ordinary audits do not load those paths.
+Use `assets/finding-ledger-template.md` when the user requests a durable ledger. Copy it outside the installed skill before filling it. Read `examples/direct-contradiction.md`, `examples/temporal-non-contradiction.md`, or `examples/blocked-source-access.md` for complete visible runs. Package maintainers use `references/generation-contract.md`, `mise run test`, and `evals/`, then run `mise run ci`; ordinary audits do not load those paths.
 
 ## Progressive disclosure
+
+Resource gate: run `mise run validate` before using package files named here.
 
 `PD-101`: `references/check-catalog.md` owns the detailed inconsistency and gap taxonomy. Load it before a full audit or when a candidate doesn't fit the core classes. This file owns the trigger, procedure, and backlink.
 
 `PD-102`: `references/eval-cases.json` owns objective pressure cases and acceptance. Load it before testing, reviewing, or changing this skill. This file owns runtime behavior and links back to that evaluation owner.
 
 `PD-201`: `references/generation-contract.md` owns portable package structure, source lineage, examples, and evaluation proof. Package maintainers load it before changing those surfaces. This file owns the public procedure and backlink.
+
+## Factory execution contract
+
+The accepted outcome is: Find and repair material claim contradictions through a dependency-aware contradiction ledger and fresh repair proof. Preserve current contradiction ledger behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current contradiction ledger sources and counterevidence.
+3. Run `mise run agentic-request` for the named contradiction ledger operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

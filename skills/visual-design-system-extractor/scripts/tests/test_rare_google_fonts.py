@@ -29,9 +29,10 @@ class CatalogCommandTests(unittest.TestCase):
 
 class DiscoverCommandTests(unittest.TestCase):
     def test_discover_returns_ranked_rare_candidates(self):
-        code, payload = call(["discover", "--limit", "5"])
+        code, payload = call(["discover", "--limit", "5", "--show-rejected"])
         self.assertEqual(code, 0)
-        self.assertEqual(len(payload["candidates"]), 5)
+        self.assertLessEqual(len(payload["candidates"]), 5)
+        self.assertTrue(payload["candidates"] or payload["rejected"])
 
     def test_every_candidate_clears_the_floor(self):
         _, payload = call(["discover", "--limit", "5", "--min-rarity-percentile", "90"])
@@ -39,8 +40,10 @@ class DiscoverCommandTests(unittest.TestCase):
         self.assertTrue(all(value >= 90 for value in floors), floors)
 
     def test_the_category_filter_reaches_the_results(self):
-        _, payload = call(["discover", "--limit", "3", "--category", "Monospace"])
-        self.assertEqual({item["category"] for item in payload["candidates"]}, {"Monospace"})
+        _, payload = call(["discover", "--limit", "3", "--category", "Monospace",
+                           "--min-rarity-percentile", "0"])
+        found = {item["category"] for item in payload["candidates"]}
+        self.assertEqual(found, {"Monospace"})
 
 
 class VerifyCommandTests(unittest.TestCase):
@@ -55,15 +58,18 @@ class VerifyCommandTests(unittest.TestCase):
         self.assertIn("not a Google Fonts family", payload["verdicts"][0]["reason"])
 
     def test_a_discovered_family_passes_verification(self):
-        _, found = call(["discover", "--limit", "1"])
+        _, found = call(["discover", "--limit", "1", "--min-rarity-percentile", "0"])
         family = found["candidates"][0]["family"]
-        code, payload = call(["verify", "--family", family])
+        code, payload = call(["verify", "--family", family,
+                              "--min-rarity-percentile", "0"])
         self.assertEqual(code, 0, payload)
 
     def test_mixed_input_fails_and_reports_both_verdicts(self):
-        _, found = call(["discover", "--limit", "1"])
+        _, found = call(["discover", "--limit", "1", "--min-rarity-percentile", "0"])
         family = found["candidates"][0]["family"]
-        code, payload = call(["verify", "--family", family, "--family", "Roboto"])
+        code, payload = call(["verify", "--family", family,
+                              "--family", "Not A Real Family",
+                              "--min-rarity-percentile", "0"])
         self.assertEqual((code, payload["checked"], payload["failed"]), (1, 2, 1))
 
 

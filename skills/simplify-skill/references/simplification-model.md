@@ -1,5 +1,7 @@
 # Simplification model
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Parent and backlink: [`../SKILL.md`](../SKILL.md), Procedure step 4.
 
 Simplification is a constrained change from a baseline to a candidate. The candidate must reduce a declared cost for a named actor and task while preserving every invariant outside an approved loss bound.

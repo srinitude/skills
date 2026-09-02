@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "visual-design-system-extractor",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted visual token extraction result.",
+      "motivation": "The visual token extraction decision needs its correct owner.",
+      "why_this_path": "The visual token extraction responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current visual token extraction contract"],
+      "expected_effect": "Make the visual token extraction decision testable.",
+      "proof": "Fresh visual token extraction evidence from the named owner.",
+      "falsifier": "Current visual token extraction evidence contradicts the decision.",
+      "failure_branch": "Block the visual token extraction result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted visual token extraction result.",
+      "motivation": "The visual token extraction decision needs its correct owner.",
+      "why_this_path": "The visual token extraction responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current visual token extraction contract"],
+      "expected_effect": "Make the visual token extraction decision testable.",
+      "proof": "Fresh visual token extraction evidence from the named owner.",
+      "falsifier": "Current visual token extraction evidence contradicts the decision.",
+      "failure_branch": "Block the visual token extraction result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted visual token extraction result.",
+      "motivation": "The visual token extraction decision needs its correct owner.",
+      "why_this_path": "The visual token extraction responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current visual token extraction contract"],
+      "expected_effect": "Make the visual token extraction decision testable.",
+      "proof": "Fresh visual token extraction evidence from the named owner.",
+      "falsifier": "Current visual token extraction evidence contradicts the decision.",
+      "failure_branch": "Block the visual token extraction result and restore the accepted state."
+    }
+  ]
+}

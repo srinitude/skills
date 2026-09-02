@@ -25,11 +25,15 @@ For complex work, define smaller outcomes whose evidence jointly proves the pare
 
 ## Classify the prescribed method
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Read [constraint classes](references/constraint-classes.md) whenever the request names a method, tool, library, or format and you are about to treat it as optional, or whenever the stated constraints cannot all hold at once. It carries the classification table, the contradiction rule, the authorization ladder, and the destructive-action default.
 
 Two rules override the candidate-path default. An explicit, emphatic, or repeated instruction is fixed even when no reason is given; ask before dropping it. A constraint that is impossible as written is neither fixed nor candidate: satisfy its evident intent, say in one sentence which clause you honored and why, and never resolve the contradiction silently.
 
 ## Choose whether to intervene
+
+Resource gate: run `mise run validate` before using package files named here.
 
 - Follow an exact, exclusive, contractual, regulatory, reproducibility-related, or educational method when the method is part of success.
 - Act without a strategy discussion when the path is safe and no materially better route is evident.
@@ -59,9 +63,13 @@ Match the register of the request. Keep requested work when it still contributes
 
 ## Prove what you claim
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Use the [proof checklist](references/proof-checklist.md) before claiming a result whose subtasks, approvals, or external effects can be confused with whole-outcome completion. It carries the proof threshold for scripts, documentation changes, experiments, releases, and messages, and the rule for separating computed evidence from recalled priors.
 
 ## Worked examples
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Read one file from [examples](examples/README.md) when it matches the guess you are about to make. Each file opens by naming that guess.
 
@@ -73,3 +81,18 @@ Read one file from [examples](examples/README.md) when it matches the guess you 
 ## Hand off after choosing the route
 
 This skill chooses the starting boundary. It does not perform the work. Once the route is selected, execute it with the ordinary method for that task: design, planning, debugging, testing, research, writing, or execution. Load a task-specific skill only if one is installed for that task. If none is installed, do the work directly under the boundary, the reply budget, and the proof threshold set here, and do not stall waiting for a workflow that does not exist.
+
+## Factory execution contract
+
+The accepted outcome is: Separate the observable outcome and completion proof from the requested starting path before work begins. Preserve current observable outcome behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current observable outcome sources and counterevidence.
+3. Run `mise run agentic-request` for the named observable outcome operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

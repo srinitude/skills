@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "goal-prompt",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted standing goal packet result.",
+      "motivation": "The standing goal packet decision needs its correct owner.",
+      "why_this_path": "The standing goal packet responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current standing goal packet contract"],
+      "expected_effect": "Make the standing goal packet decision testable.",
+      "proof": "Fresh standing goal packet evidence from the named owner.",
+      "falsifier": "Current standing goal packet evidence contradicts the decision.",
+      "failure_branch": "Block the standing goal packet result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted standing goal packet result.",
+      "motivation": "The standing goal packet decision needs its correct owner.",
+      "why_this_path": "The standing goal packet responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current standing goal packet contract"],
+      "expected_effect": "Make the standing goal packet decision testable.",
+      "proof": "Fresh standing goal packet evidence from the named owner.",
+      "falsifier": "Current standing goal packet evidence contradicts the decision.",
+      "failure_branch": "Block the standing goal packet result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted standing goal packet result.",
+      "motivation": "The standing goal packet decision needs its correct owner.",
+      "why_this_path": "The standing goal packet responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current standing goal packet contract"],
+      "expected_effect": "Make the standing goal packet decision testable.",
+      "proof": "Fresh standing goal packet evidence from the named owner.",
+      "falsifier": "Current standing goal packet evidence contradicts the decision.",
+      "failure_branch": "Block the standing goal packet result and restore the accepted state."
+    }
+  ]
+}

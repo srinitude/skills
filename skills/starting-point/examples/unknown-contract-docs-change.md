@@ -1,5 +1,7 @@
 # The fact belongs to a system you cannot read
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this before filling an unknown interface, price, or contract with a common default, and before treating "then tell the team" as permission to send.
 
 Guess it removes: whether inventing a plausible API shape counts as a small reversible assumption, and whether an instruction to notify people authorizes the notification when the premise is unverified.
@@ -78,6 +80,8 @@ A second failing shape looks careful and is still wrong: a complete, confident d
 A third failing shape asks the three questions and produces nothing. The structure was free to write and costs the user nothing to throw away.
 
 ## Why the good reply is the right one
+
+Resource gate: run `mise run validate` before using package files named here.
 
 The unknown here is a contract another system owns, so the rule in "Do not invent the fact you were sent to retrieve" applies: reversible describes your file, not the reader's belief. The structure is safe to produce because it carries no claims. The field values are not.
 

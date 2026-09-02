@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "mobile-first-website-design",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "mobile-first-website-design-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page actors aligned.",
+      "motivation": "The mobile-first page result depends on actors ownership.",
+      "proof": "Fresh mobile-first page actors evidence."
+    },
+    "objects": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page objects aligned.",
+      "motivation": "The mobile-first page result depends on objects ownership.",
+      "proof": "Fresh mobile-first page objects evidence."
+    },
+    "actions": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page actions aligned.",
+      "motivation": "The mobile-first page result depends on actions ownership.",
+      "proof": "Fresh mobile-first page actions evidence."
+    },
+    "states": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page states aligned.",
+      "motivation": "The mobile-first page result depends on states ownership.",
+      "proof": "Fresh mobile-first page states evidence."
+    },
+    "invariants": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page invariants aligned.",
+      "motivation": "The mobile-first page result depends on invariants ownership.",
+      "proof": "Fresh mobile-first page invariants evidence."
+    },
+    "variants": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page variants aligned.",
+      "motivation": "The mobile-first page result depends on variants ownership.",
+      "proof": "Fresh mobile-first page variants evidence."
+    },
+    "interfaces": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page interfaces aligned.",
+      "motivation": "The mobile-first page result depends on interfaces ownership.",
+      "proof": "Fresh mobile-first page interfaces evidence."
+    },
+    "authorities": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page authorities aligned.",
+      "motivation": "The mobile-first page result depends on authorities ownership.",
+      "proof": "Fresh mobile-first page authorities evidence."
+    },
+    "failures": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page failures aligned.",
+      "motivation": "The mobile-first page result depends on failures ownership.",
+      "proof": "Fresh mobile-first page failures evidence."
+    },
+    "recoveries": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page recoveries aligned.",
+      "motivation": "The mobile-first page result depends on recoveries ownership.",
+      "proof": "Fresh mobile-first page recoveries evidence."
+    },
+    "evidence": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page evidence aligned.",
+      "motivation": "The mobile-first page result depends on evidence ownership.",
+      "proof": "Fresh mobile-first page evidence evidence."
+    },
+    "time": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page time aligned.",
+      "motivation": "The mobile-first page result depends on time ownership.",
+      "proof": "Fresh mobile-first page time evidence."
+    },
+    "resources": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page resources aligned.",
+      "motivation": "The mobile-first page result depends on resources ownership.",
+      "proof": "Fresh mobile-first page resources evidence."
+    },
+    "quality": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page quality aligned.",
+      "motivation": "The mobile-first page result depends on quality ownership.",
+      "proof": "Fresh mobile-first page quality evidence."
+    },
+    "terminology": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page terminology aligned.",
+      "motivation": "The mobile-first page result depends on terminology ownership.",
+      "proof": "Fresh mobile-first page terminology evidence."
+    },
+    "exclusions": {
+      "profile": "mobile-first-website-design-lifecycle",
+      "outcome": "Keep mobile-first page exclusions aligned.",
+      "motivation": "The mobile-first page result depends on exclusions ownership.",
+      "proof": "Fresh mobile-first page exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "references": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "assets": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "scripts": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "tests": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "examples": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "evals": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "policies": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "schemas": {
+      "profile": "mobile-first-website-design-lifecycle"
+    },
+    "records": {
+      "profile": "mobile-first-website-design-lifecycle"
+    }
+  }
+}

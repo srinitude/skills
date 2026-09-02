@@ -20,31 +20,31 @@ Is 12 columns derived from the settings content, or from the dashboard it came f
 ## Commands run
 
 ```
-$ python3 scripts/ledger.py show --file decision-ledger-settings.md
+$ mise run ledger show --file decision-ledger-settings.md
 no ledger at decision-ledger-settings.md
 exit 1
 
-$ python3 scripts/ledger.py init --file decision-ledger-settings.md --slug settings
+$ mise run ledger init --file decision-ledger-settings.md --slug settings
 created decision-ledger-settings.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-settings.md --decision "Grid column count on settings" --chosen "12 columns, carried from the dashboard" --origin inherited
+$ mise run ledger add --file decision-ledger-settings.md --decision "Grid column count on settings" --chosen "12 columns, carried from the dashboard" --origin inherited
 appended to decision-ledger-settings.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-settings.md --decision "Row height on settings rows" --chosen "32px, carried from the orders table" --origin inherited
+$ mise run ledger add --file decision-ledger-settings.md --decision "Row height on settings rows" --chosen "32px, carried from the orders table" --origin inherited
 appended to decision-ledger-settings.md
 exit 0
 
-$ python3 scripts/ledger.py count --file decision-ledger-settings.md --decision "Grid column count"
+$ mise run ledger count --file decision-ledger-settings.md --decision "Grid column count"
 1
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-settings.md --decision "Grid column count on settings" --origin inherited --live yes
+$ mise run speak --file decision-ledger-settings.md --decision "Grid column count on settings" --origin inherited --live yes
 ask: inherited, live, and recorded once including this one
 exit 0
 
-$ python3 scripts/speak.py --file decision-ledger-settings.md --decision "Row height on settings rows" --origin inherited --live yes
+$ mise run speak --file decision-ledger-settings.md --decision "Row height on settings rows" --origin inherited --live yes
 ask: inherited, live, and recorded once including this one
 exit 0
 ```
@@ -52,7 +52,7 @@ exit 0
 Both returned ask, and the reply carries one question, because the budget counts one interruption per turn no matter how many rows earned one.
 
 ```
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```
@@ -73,5 +73,7 @@ One row per decision. A row marked inherited is a choice nobody made on purpose.
 ```
 
 ## Why one question and not two
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Both rows are inherited, so both passed the second test in references/interruption.md. The budget is one interruption per decision, and two decisions arrived in one turn. The grid carries the larger consequence, so it got the question and the row height got a row.

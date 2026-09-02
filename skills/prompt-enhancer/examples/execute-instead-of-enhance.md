@@ -29,7 +29,7 @@ dedupe(sys.argv[1], sys.argv[2])
 Step 6 catches it. The shape check fails because the reply is output, not a delivery:
 
 ```
-$ python3 scripts/check_delivery.py wrong.txt
+$ mise run check-delivery wrong.txt
 FAIL  lead-in line "Here is the enhanced prompt:" present
 FAIL  a fenced block follows the lead-in
 FAIL  "**What changed**" section with bullets present

@@ -1,5 +1,7 @@
 # Decision log for tool-call-configuration-for
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Read this log only when a prior choice affects the current run. One dated line records each durable decision, its reason, and its proof.
 
 - 2026-08-30: Keep semantic judgment with the executor and mechanical checks in scripts; unit traces prove parsing, identity, fixtures, mutation, rollback, and lineage while the skill procedure owns source reconciliation and policy meaning.

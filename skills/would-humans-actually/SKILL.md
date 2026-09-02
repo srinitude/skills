@@ -26,7 +26,7 @@ Produce an evidence-backed verdict about a defined action by a defined populatio
 6. After evidence collection, load [frameworks.md](references/frameworks.md) to test motivation, capability, opportunity, prompts, norms, habit, friction, reward timing, identity, privacy, switching, and reversal mechanisms. Frameworks organize questions. They do not supply rates.
 7. Choose `LIKELY`, `UNLIKELY`, `UNCERTAIN`, or `INSUFFICIENT EVIDENCE` under [verdict-protocol.md](references/verdict-protocol.md). If live research is unavailable or forbidden, use `UNVALIDATED HYPOTHESIS`. Never invent a study, sample, rate, base rate, quote, URL, or observed result.
 8. Design the smallest ethical test that exposes the real cost. Prespecify the population, denominator, window, comparator, thresholds, sample-size rationale, stop rules, consent, disclosure, privacy, payment, legal review, rollback, opt-out, and decision changed. Use `user-specified; rationale not provided` when that is true.
-9. Render the result with [output-template.md](references/output-template.md), save it outside the installed skill, then run `python3 scripts/validate_verdict.py --input <verdict.md>`. Exit 0 proves the artifact has the required shape. Exit 1 means the verdict is incomplete. Exit 2 means the command or input path is wrong.
+9. Render the result with [output-template.md](references/output-template.md), save it outside the installed skill, then run `mise run validate-verdict --input <verdict.md>`. Exit 0 proves the artifact has the required shape. Exit 1 means the verdict is incomplete. Exit 2 means the command or input path is wrong.
 10. Append the exact query, sources opened, exclusions, assumptions, and validation output to an external research log after each consequential step. Stop and report the missing item when a load-bearing source, denominator, permission, or safety control cannot be verified.
 
 ## Load conditions
@@ -34,7 +34,7 @@ Produce an evidence-backed verdict about a defined action by a defined populatio
 - Load [evidence-base.md](references/evidence-base.md) when a source pattern or behavioral magnitude may inform the analysis, then recheck the primary source before use.
 - Load [verdict-template.md](assets/verdict-template.md) when creating a verdict file. Copy it out of `assets/`; do not edit the installed template.
 - Load [help.md](examples/help.md) for the help command, [verdict-insufficient-evidence.md](examples/verdict-insufficient-evidence.md) for a researched verdict, and [failure-unvalidated.md](examples/failure-unvalidated.md) when live research or a precise behavior is missing.
-- Run [validate_verdict.py](scripts/validate_verdict.py) after writing the artifact. Read [test_validate_verdict.py](scripts/tests/test_validate_verdict.py) only when changing the validator contract.
+- Run `mise run validate-verdict` after writing the artifact. Read `mise run tests-test-validate-verdict` only when changing the validator contract.
 - Read [contract.md](evals/contract.md) before changing behavior, trigger boundaries, or evaluation cases.
 - Load [generation-contract.md](references/generation-contract.md) only when maintaining or repackaging this skill.
 
@@ -55,3 +55,18 @@ Produce an evidence-backed verdict about a defined action by a defined populatio
 - The next test has a denominator, decision rule, and required participant protections.
 - Every load-bearing source appears as a visible URL.
 - The validator prints `"status": "PASS"` and exits 0.
+
+## Factory execution contract
+
+The accepted outcome is: Judge whether people will perform a named action from behavioral trials, friction evidence, and the intention behavior gap. Preserve current human action verdict behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current human action verdict sources and counterevidence.
+3. Run `mise run agentic-request` for the named human action verdict operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

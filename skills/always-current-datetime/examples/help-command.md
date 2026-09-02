@@ -15,7 +15,7 @@ help
 Run with the skill directory as the process working directory.
 
 ```bash
-python3 scripts/current_anchor.py --timezone UTC
+mise run refresh --timezone UTC
 ```
 
 ## Real output

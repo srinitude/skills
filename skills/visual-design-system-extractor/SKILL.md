@@ -11,7 +11,7 @@ metadata:
 
 Turn visual references into one parser-valid YAML design system whose every claim traces back to something visible, and whose every selected typeface is a Google Fonts family the live catalog ranks as rarely used at the moment of the run.
 
-The gates need a terminal, a YAML parser, and network access to the live font catalog. Run every command from this skill directory, since all paths are relative to it. Commands that parse YAML fetch the parser through `uv`; the font commands need no third-party package, so they run under plain `python3`. The rendering gate needs a browser, which `uv run --no-project --with playwright` supplies. Check the whole package with these five, each of which must exit 0: `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`, `python3 scripts/validate_skill.py .`, `python3 scripts/lint_writing.py .`, `python3 scripts/check_code_rules.py .`, `python3 scripts/check_evals.py .`.
+The gates need a terminal, network access to the live font catalog, and the runtimes supplied by Mise. Run commands from this skill directory. `mise run ci` must exit 0 before package acceptance.
 
 ## Which commands does this skill accept?
 
@@ -47,20 +47,20 @@ Determinism means the same evidence yields the same sections, key order, confide
 Use this full plan. Work in one directory of your choosing and keep every file there: `extraction.yaml` for the document, `extraction-log.md` for the log, one line per step. Keep the same record in the reply when file writing is unavailable. After each step, run the stated check and fix a failure before moving on.
 
 1. Confirm at least one reference is available and readable. Check: the reference is named in the log.
-2. Load the skeleton: `uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py skeleton --output extraction.yaml`. When a field meaning is unclear, query [the schema contract](references/extraction-schema.yaml) with `uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py field <dotted.path>` or `uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py group <name>` instead of reading the whole file. Check: the file exists and opens with `meta:`.
+2. Load the skeleton: `mise run schema-tools skeleton --output extraction.yaml`. When a field meaning is unclear, query [the schema contract](references/extraction-schema.yaml) with `mise run schema-tools field <dotted.path>` or `mise run schema-tools group <name>` instead of reading the whole file. Check: the file exists and opens with `meta:`.
 3. Copy the skeleton key order exactly. Do not rename, reorder, or drop top-level sections, and do not add one unless the user asked for a narrower artifact. Inside a section you may collapse an unsupported layer to the not-applicable object or keep its keys beside the applicability keys; both forms pass. Check: the section list matches the skeleton.
 4. Fill `meta`, `source_analysis`, and `confidence_scores` first, keeping observed facts, inferred logic, and speculative extrapolation in separate buckets. Record the floor you enforced in `meta.rarity_floor`, the run date in `meta.extracted_at`, and one `source_types` entry per reference. Check: nothing speculative sits in the observed bucket.
 5. Fill the visual foundations: color, spacing, layout, grid, sizing, borders, radii, shadows, gradients, materials, textures, and lighting. Every token carries `value`, `usage`, `visual_grounding`, `confidence`, and `inference_basis`, plus `hex`, `rgb`, and `hsl` for colours and `duration`, `easing`, and `trigger` for motion. Check: `assets/minimal-extraction.yaml` shows one filled token of each kind, and yours match those shapes.
-6. Read [the font sourcing rules](references/font-sourcing.md), fill `assets/font-brief.json` from the visible type evidence, then fill every role as one set: `python3 scripts/rare_google_fonts.py set --brief <brief.json>`. Fit and legibility decide, rarity breaks the tie, and the pairing check can veto a winner. Check: the command exits 0, `unfilled` is empty, and `pairing.passes` is true.
-7. Fill `typography`, recording `catalog_snapshot`, the exact `rarity` block, and the `fit` block with `fit_score`, `legibility_score`, and `evidence` for every selected family. Check: every rarity block shares one `retrieved_at` date, and `python3 scripts/rare_google_fonts.py verify --family "<name>"` exits 0 for each family.
+6. Read [the font sourcing rules](references/font-sourcing.md), fill `assets/font-brief.json` from the visible type evidence, then fill every role as one set: `mise run font-set -- --brief <brief.json>`. Fit and legibility decide, rarity breaks the tie, and the pairing check can veto a winner. Check: the command exits 0, `unfilled` is empty, and `pairing.passes` is true.
+7. Fill `typography`, recording `catalog_snapshot`, the exact `rarity` block, and the `fit` block with `fit_score`, `legibility_score`, and `evidence` for every selected family. Check: every rarity block shares one `retrieved_at` date, and `mise run font-verify -- --family "<name>"` exits 0 for each family.
 8. Fill the experiential layers: motion, animation, camera, composition, environment, setting, wardrobe, props, iconography, and the image and rendering styles. Check: unsupported layers use the not-applicable object rather than a guess.
-9. Fill the product layers in schema order: `accessibility`, `interaction_design`, `ui_patterns`, `sound_design`, `narrative_tone`, `emotional_palette`, `worldbuilding`, `styling_rules`, `dos_and_donts`, `token_dependencies`, `dynamic_tokens`, `responsive_rules`, `state_variants`, `platform_adaptations`, `ai_generation_prompts`, and `implementation_notes`. Check: `uv run --no-project --with 'PyYAML>=6,<7' python scripts/schema_tools.py sections` lists your keys in the same order.
-10. Render the whole system to a page: `uv run --no-project --with 'PyYAML>=6,<7' python scripts/render_preview.py extraction.yaml --output preview.html`. Check: exit 0 and `problems` empty, which means every required token group reached the page.
-11. Screenshot it: `uv run --no-project --with playwright python scripts/screenshot_preview.py preview.html --output preview.png`. Check: the PNG exists.
+9. Fill the product layers in schema order: `accessibility`, `interaction_design`, `ui_patterns`, `sound_design`, `narrative_tone`, `emotional_palette`, `worldbuilding`, `styling_rules`, `dos_and_donts`, `token_dependencies`, `dynamic_tokens`, `responsive_rules`, `state_variants`, `platform_adaptations`, `ai_generation_prompts`, and `implementation_notes`. Check: `mise run schema-tools sections` lists your keys in the same order.
+10. Render the whole system to a page: `mise run render-preview extraction.yaml --output preview.html`. Check: exit 0 and `problems` empty, which means every required token group reached the page.
+11. Screenshot it: `mise run screenshot-preview preview.html --output preview.png`. Check: the PNG exists.
 12. Look at the PNG and judge the eight criteria below, one verdict and one observed reason each. Check: no verdict repeats a token value instead of describing what the image shows.
 13. On any failing criterion, revise the offending tokens, then repeat steps 10 through 12. Check: at most three iterations. On a third failure, stop and report the failing criteria instead of claiming success.
 14. Record the passing judgment in `meta.viability`: `rendered_file`, `screenshot_file`, `iterations`, `verdict`, and the `criteria` list. Check: every criterion name from the list below appears once.
-15. Run the gate: `uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py extraction.yaml`. Exit 0 is required. On exit 1, fix every listed problem and rerun. Check: the fresh run prints `"valid": true`.
+15. Run the gate: `mise run validate-design-system-yaml extraction.yaml`. Exit 0 is required. On exit 1, fix every listed problem and rerun. Check: the fresh run prints `"valid": true`.
 16. Return the validated YAML only, without the validation report.
 
 ## What does the validator report?
@@ -77,29 +77,19 @@ The report is one JSON object on stdout. A document passes only when exit is 0 a
 
 ## What are the font rules?
 
-One rule governs every typeface the system selects: it is published on Google Fonts, and the live catalog ranks it as rarely used right now. Both halves are measured during the run, never recalled. Rank and rank ceiling come from the live feed, and rarity percentile runs from 0.0 for the most requested family to 100.0 for the rarest rank in the feed. The floor is 70.0 unless the document or the flag sets a higher one.
-
-`typography.font_families.primary`, `typography.font_families.supporting`, and every entry in `typography.font_families.rare_unique_candidates` carry `google_fonts_family: true` and a complete `rarity` record. `typography.font_families.observed_or_implied` is different: it records what the reference shows, so a licensed or custom face belongs there and needs no rarity record.
-
-Rarity is a tiebreaker, never the reason for a choice. Ranking runs fit first: the candidate must match the skeleton, width, weight range, italic need, and script coverage the reference shows, scoring at least 0.65, and it must clear the legibility floor for its role, 0.7 for text and mono, 0.55 for display and accent, with 0.5 as a hard floor no rarity number can buy past. Candidates are then banded in steps of 0.05, and rarity only orders candidates inside the same band. Record the numbers in `fit`, since a rejected rarer candidate is part of the answer.
-
-Overexposed defaults lose by default. When a common face genuinely is the true fit, name the visible evidence in `common_face_reason` and the checker accepts it; without that reason the family is rejected by name.
-
-Pairing is a constraint on the whole set, checked after the per slot bars across seven dimensions: `skeleton_relationship`, `vertical_proportion`, `stroke_modulation`, `width_compatibility`, `weight_capacity`, `optical_color`, and `role_distinction`. Two faces that clash fail, and so do two faces too close to tell apart. A veto forces the next candidate into the slot, and the validator fails a finished document whose set does not pass, naming the failing dimension.
-
-When the live feed cannot be read, stop and report. Name the failed command, mark `typography.font_families` with the not-applicable object, and do not present the result as verified. A rarity number recalled from memory or copied from an older snapshot is a defect, not a fallback.
+Before selecting type, load [the font sourcing rules](references/font-sourcing.md) through `mise run validate`. That owner defines live-catalog authority, the rarity floor, fit and legibility bars, rarity as a tiebreaker, the common-face exception, set pairing, fallback rules, the required record, and the feed-failure contract. Step 7 still owns each selected-family record, and an unavailable feed blocks verified typography.
 
 ## How is the system proved to work?
 
-Schema validation proves shape, not that the system works. The rendering gate proves the rest. `scripts/render_preview.py` writes a standalone page from the document itself, so it is reproducible rather than hand written, and applies every token across a header, nav, hero, body copy at reading length, every heading level, buttons in each state, form fields, a table, a card grid, a code block, a footer, and a token inventory, in both light and dark when the document declares both. `scripts/screenshot_preview.py` captures the full page.
+Schema validation proves shape, not that the system works. The rendering gate proves the rest. `mise run render-preview` writes a standalone page from the document itself, so it is reproducible rather than hand written, and applies every token across a header, nav, hero, body copy at reading length, every heading level, buttons in each state, form fields, a table, a card grid, a code block, a footer, and a token inventory, in both light and dark when the document declares both. `mise run screenshot-preview` captures the full page.
 
 Judge eight criteria by looking at the screenshot, and write what the image shows rather than a number with no source: `legibility`, `contrast`, `hierarchy`, `font_pairing`, `spacing_rhythm`, `color_harmony`, `state_distinction`, and `reference_fidelity`. Any failure sends you back to the tokens, not to the wording of the verdict. The loop is capped at three iterations, and a run that still fails reports the failing criteria rather than shipping.
 
 ## What loads when?
 
-[The schema contract](references/extraction-schema.yaml) is machine readable YAML holding the section order, field rules, font rules, syntax rules, and self-check list. Query it through `scripts/schema_tools.py` rather than reading it whole. Load [the font sourcing rules](references/font-sourcing.md) before touching any font field. Load [the generation contract](references/generation-contract.md) only when editing this package.
+[The schema contract](references/extraction-schema.yaml) is machine readable YAML holding the section order, field rules, font rules, syntax rules, and self-check list. Query it through `mise run schema-tools` rather than reading it whole. Load [the font sourcing rules](references/font-sourcing.md) before touching any font field. Load [the generation contract](references/generation-contract.md) only when editing this package.
 
-Load `assets/schema-skeleton.yaml` through the skeleton command to start a document. Load `assets/font-brief.json` to map visible type evidence onto catalog filters before running discovery. Load `assets/minimal-extraction.yaml` to see the smallest document that clears every gate and one filled token of each kind. Load `scripts/` for the executable gates, `scripts/tests/` only when changing script behavior, and `evals/` when measuring activation, behavior, failure handling, recovery, or timing.
+Load `assets/schema-skeleton.yaml` through the skeleton command, `assets/font-brief.json` before font discovery, and `assets/minimal-extraction.yaml` for the smallest passing document. Run executable gates through their named Mise tasks. Run `mise run test` only when changing script behavior, and load `evals/` through `mise run evals` for behavior or timing work.
 
 Load one file from `examples/` when you are about to run the matching command, since each one is a real transcript with real exit codes.
 
@@ -114,7 +104,9 @@ Load one file from `examples/` when you are about to run the matching command, s
 
 ## How is this package maintained?
 
-For `maintain`, the YAML-only response contract does not apply. Establish the failing state first: a gate that rejects valid input, a missing behavior, or the exact gap the user named. Add the focused test, watch it fail, add the smallest change that passes it, then run the five checks listed at the top of this file. Exit 0 on each is required before reporting. Keep long detail in `references/`, executable checks in `scripts/`, templates in `assets/`, and worked runs in `examples/`. A rule change that outdates an example updates that example in the same edit.
+Resource gate: run `mise run validate` before using package files named here.
+
+For `maintain`, the YAML-only response contract does not apply. Establish the failing state first: a gate that rejects valid input, a missing behavior, or the exact gap the user named. Add the focused test, watch it fail, add the smallest change that passes it, then run the five checks listed at the top of this file. Exit 0 on each is required before reporting. Keep long detail in `references/`, executable checks behind their named Mise tasks, templates in `assets/`, and worked runs in `examples/`. A rule change that outdates an example updates that example in the same edit.
 
 ## Gotchas
 
@@ -137,3 +129,18 @@ For `maintain`, the YAML-only response contract does not apply. Establish the fa
 ## When is an extraction complete?
 
 An extraction is complete only when the validator exits 0 on a fresh run with `live_fonts_checked` true or its failure reported in plain words, every selected family carries a rarity record at or above the enforced floor and a `fit` block that clears its role floor, the font set passes the pairing check, every unsupported layer uses the not-applicable object, the rendered page has been screenshotted and passed all eight criteria with `meta.viability.verdict: pass`, and the reply contains the validated YAML alone. Until the picture passes, the run is not done and must not be reported as done.
+
+## Factory execution contract
+
+The accepted outcome is: Extract a source-specific design token system from visual evidence and prove it against current rendered output. Preserve current visual token extraction behavior while changing its smallest owner.
+
+1. Freeze the current package with `mise run ci` and record its digest.
+2. Run `mise run domain-research-policy`, then judge the current visual token extraction sources and counterevidence.
+3. Run `mise run agentic-request` for the named visual token extraction operation. Keep semantic choices with the model.
+4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.
+5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.
+6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.
+
+Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
+
+Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.

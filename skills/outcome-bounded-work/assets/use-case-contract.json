@@ -1,0 +1,437 @@
+{
+  "version": "1.0.0",
+  "skill": "outcome-bounded-work",
+  "outcome": "Preserve the requested outcome boundary and proof threshold while replacing only failed candidate paths.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted outcome boundary behavior.",
+      "reason": "The outcome boundary outcome depends on stable domain semantics.",
+      "failure_prevented": "A outcome boundary update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable outcome boundary checks through Mise.",
+      "reason": "The outcome boundary judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A outcome boundary claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "outcome boundary",
+    "candidate path",
+    "proof threshold",
+    "forbidden outcome"
+  ],
+  "domain_failures": [
+    "The outcome boundary result changes without proof.",
+    "The outcome boundary package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh outcome boundary task output and saved receipts.",
+    "Current outcome boundary behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The outcome boundary contract owns actors decisions."],
+    "objects": ["The outcome boundary contract owns objects decisions."],
+    "actions": ["The outcome boundary contract owns actions decisions."],
+    "states": ["The outcome boundary contract owns states decisions."],
+    "invariants": ["The outcome boundary contract owns invariants decisions."],
+    "variants": ["The outcome boundary contract owns variants decisions."],
+    "interfaces": ["The outcome boundary contract owns interfaces decisions."],
+    "authorities": ["The outcome boundary contract owns authorities decisions."],
+    "failures": ["The outcome boundary contract owns failures decisions."],
+    "recoveries": ["The outcome boundary contract owns recoveries decisions."],
+    "evidence": ["The outcome boundary contract owns evidence decisions."],
+    "time": ["The outcome boundary contract owns time decisions."],
+    "resources": ["The outcome boundary contract owns resources decisions."],
+    "quality": ["The outcome boundary contract owns quality decisions."],
+    "terminology": ["The outcome boundary contract owns terminology decisions."],
+    "exclusions": ["The outcome boundary contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the outcome boundary actors decision?",
+    "objects": "What can change the outcome boundary objects decision?",
+    "actions": "What can change the outcome boundary actions decision?",
+    "states": "What can change the outcome boundary states decision?",
+    "invariants": "What can change the outcome boundary invariants decision?",
+    "variants": "What can change the outcome boundary variants decision?",
+    "interfaces": "What can change the outcome boundary interfaces decision?",
+    "authorities": "What can change the outcome boundary authorities decision?",
+    "failures": "What can change the outcome boundary failures decision?",
+    "recoveries": "What can change the outcome boundary recoveries decision?",
+    "evidence": "What can change the outcome boundary evidence decision?",
+    "time": "What can change the outcome boundary time decision?",
+    "resources": "What can change the outcome boundary resources decision?",
+    "quality": "What can change the outcome boundary quality decision?",
+    "terminology": "What can change the outcome boundary terminology decision?",
+    "exclusions": "What can change the outcome boundary exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/",
+      "source_class": "first_party",
+      "claim": "An outcome boundary needs traceable constraints and verification criteria.",
+      "limitations": "Requirements guidance does not choose a candidate path.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.gov.uk/guidance/government-design-principles",
+      "source_class": "first_party",
+      "claim": "A candidate path should remain tied to the user need and whole service.",
+      "limitations": "Design principles do not define the proof threshold.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.scrum.org/resources/evidence-based-management-guide",
+      "source_class": "standard",
+      "claim": "Outcome progress should use evidence rather than output volume alone.",
+      "limitations": "The guide does not define this task's forbidden outcome.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx",
+      "source_class": "first_party",
+      "claim": "A proof threshold needs sufficient and appropriate evidence.",
+      "limitations": "Audit evidence cannot substitute for the user's outcome boundary.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the outcome boundary result?",
+      "source": "https://www.nasa.gov/reference/4-2-technical-requirements-definition/",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "result": "No. The outcome boundary behavior still needs direct evaluation.",
+      "disposition": "Keep structure and outcome boundary behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named outcome boundary agentic-request result.",
+        "motivation": "The outcome boundary workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared outcome boundary agentic-request route.",
+        "proof": "Fresh outcome boundary agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named outcome boundary invocation-policy result.",
+        "motivation": "The outcome boundary workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared outcome boundary invocation-policy route.",
+        "proof": "Fresh outcome boundary invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named outcome boundary improvement-policy result.",
+        "motivation": "The outcome boundary workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared outcome boundary improvement-policy route.",
+        "proof": "Fresh outcome boundary improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named outcome boundary mise-primitives-update result.",
+        "motivation": "The outcome boundary workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared outcome boundary mise-primitives-update route.",
+        "proof": "Fresh outcome boundary mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the outcome boundary result through ci.",
+        "motivation": "The outcome boundary package needs the ci gate.",
+        "value": "Produce current outcome boundary evidence from ci.",
+        "proof": "The outcome boundary ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared outcome boundary responsibility."
+      },
+      "test": {
+        "outcome": "Advance the outcome boundary result through test.",
+        "motivation": "The outcome boundary package needs the test gate.",
+        "value": "Produce current outcome boundary evidence from test.",
+        "proof": "The outcome boundary test task exits zero with readable output.",
+        "applicability": "Use test for its declared outcome boundary responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the outcome boundary result through validate.",
+        "motivation": "The outcome boundary package needs the validate gate.",
+        "value": "Produce current outcome boundary evidence from validate.",
+        "proof": "The outcome boundary validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared outcome boundary responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the outcome boundary result through lint-writing.",
+        "motivation": "The outcome boundary package needs the lint-writing gate.",
+        "value": "Produce current outcome boundary evidence from lint-writing.",
+        "proof": "The outcome boundary lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared outcome boundary responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the outcome boundary result through lint-code.",
+        "motivation": "The outcome boundary package needs the lint-code gate.",
+        "value": "Produce current outcome boundary evidence from lint-code.",
+        "proof": "The outcome boundary lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared outcome boundary responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the outcome boundary result through evals.",
+        "motivation": "The outcome boundary package needs the evals gate.",
+        "value": "Produce current outcome boundary evidence from evals.",
+        "proof": "The outcome boundary evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared outcome boundary responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the outcome boundary result through domain-research-policy.",
+        "motivation": "The outcome boundary package needs the domain-research-policy gate.",
+        "value": "Produce current outcome boundary evidence from domain-research-policy.",
+        "proof": "The outcome boundary domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared outcome boundary responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the outcome boundary result through use-case-policy.",
+        "motivation": "The outcome boundary package needs the use-case-policy gate.",
+        "value": "Produce current outcome boundary evidence from use-case-policy.",
+        "proof": "The outcome boundary use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared outcome boundary responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the outcome boundary result through mise-primitives-policy.",
+        "motivation": "The outcome boundary package needs the mise-primitives-policy gate.",
+        "value": "Produce current outcome boundary evidence from mise-primitives-policy.",
+        "proof": "The outcome boundary mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared outcome boundary responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the outcome boundary result through primitive-lifecycle-policy.",
+        "motivation": "The outcome boundary package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current outcome boundary evidence from primitive-lifecycle-policy.",
+        "proof": "The outcome boundary primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared outcome boundary responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the outcome boundary result through task-graph-policy.",
+        "motivation": "The outcome boundary package needs the task-graph-policy gate.",
+        "value": "Produce current outcome boundary evidence from task-graph-policy.",
+        "proof": "The outcome boundary task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared outcome boundary responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the outcome boundary result through decision-policy.",
+        "motivation": "The outcome boundary package needs the decision-policy gate.",
+        "value": "Produce current outcome boundary evidence from decision-policy.",
+        "proof": "The outcome boundary decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared outcome boundary responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the outcome boundary result through improvement-policy.",
+        "motivation": "The outcome boundary package needs the improvement-policy gate.",
+        "value": "Produce current outcome boundary evidence from improvement-policy.",
+        "proof": "The outcome boundary improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared outcome boundary responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the outcome boundary result through invocation-policy.",
+        "motivation": "The outcome boundary package needs the invocation-policy gate.",
+        "value": "Produce current outcome boundary evidence from invocation-policy.",
+        "proof": "The outcome boundary invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared outcome boundary responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the outcome boundary result through agentic-request.",
+        "motivation": "The outcome boundary package needs the agentic-request gate.",
+        "value": "Produce current outcome boundary evidence from agentic-request.",
+        "proof": "The outcome boundary agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared outcome boundary responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the outcome boundary result through mise-latest.",
+        "motivation": "The outcome boundary package needs the mise-latest gate.",
+        "value": "Produce current outcome boundary evidence from mise-latest.",
+        "proof": "The outcome boundary mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared outcome boundary responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the outcome boundary result through mise-primitives-update.",
+        "motivation": "The outcome boundary package needs the mise-primitives-update gate.",
+        "value": "Produce current outcome boundary evidence from mise-primitives-update.",
+        "proof": "The outcome boundary mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared outcome boundary responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary skill_body behavior.",
+      "outcome": "Keep outcome boundary skill_body aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one skill_body owner.",
+      "value": "Expose current outcome boundary skill_body progress.",
+      "failure_prevented": "Stale or generic outcome boundary skill_body behavior.",
+      "proof": "Fresh outcome boundary skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary references behavior.",
+      "outcome": "Keep outcome boundary references aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one references owner.",
+      "value": "Expose current outcome boundary references progress.",
+      "failure_prevented": "Stale or generic outcome boundary references behavior.",
+      "proof": "Fresh outcome boundary references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary assets behavior.",
+      "outcome": "Keep outcome boundary assets aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one assets owner.",
+      "value": "Expose current outcome boundary assets progress.",
+      "failure_prevented": "Stale or generic outcome boundary assets behavior.",
+      "proof": "Fresh outcome boundary assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary scripts behavior.",
+      "outcome": "Keep outcome boundary scripts aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one scripts owner.",
+      "value": "Expose current outcome boundary scripts progress.",
+      "failure_prevented": "Stale or generic outcome boundary scripts behavior.",
+      "proof": "Fresh outcome boundary scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary tests behavior.",
+      "outcome": "Keep outcome boundary tests aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one tests owner.",
+      "value": "Expose current outcome boundary tests progress.",
+      "failure_prevented": "Stale or generic outcome boundary tests behavior.",
+      "proof": "Fresh outcome boundary tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary mise_tasks behavior.",
+      "outcome": "Keep outcome boundary mise_tasks aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one mise_tasks owner.",
+      "value": "Expose current outcome boundary mise_tasks progress.",
+      "failure_prevented": "Stale or generic outcome boundary mise_tasks behavior.",
+      "proof": "Fresh outcome boundary mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary examples behavior.",
+      "outcome": "Keep outcome boundary examples aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one examples owner.",
+      "value": "Expose current outcome boundary examples progress.",
+      "failure_prevented": "Stale or generic outcome boundary examples behavior.",
+      "proof": "Fresh outcome boundary examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary evals behavior.",
+      "outcome": "Keep outcome boundary evals aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one evals owner.",
+      "value": "Expose current outcome boundary evals progress.",
+      "failure_prevented": "Stale or generic outcome boundary evals behavior.",
+      "proof": "Fresh outcome boundary evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary policies behavior.",
+      "outcome": "Keep outcome boundary policies aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one policies owner.",
+      "value": "Expose current outcome boundary policies progress.",
+      "failure_prevented": "Stale or generic outcome boundary policies behavior.",
+      "proof": "Fresh outcome boundary policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary schemas behavior.",
+      "outcome": "Keep outcome boundary schemas aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one schemas owner.",
+      "value": "Expose current outcome boundary schemas progress.",
+      "failure_prevented": "Stale or generic outcome boundary schemas behavior.",
+      "proof": "Fresh outcome boundary schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own outcome boundary records behavior.",
+      "outcome": "Keep outcome boundary records aligned with the accepted result.",
+      "motivation": "The outcome boundary package needs one records owner.",
+      "value": "Expose current outcome boundary records progress.",
+      "failure_prevented": "Stale or generic outcome boundary records behavior.",
+      "proof": "Fresh outcome boundary records validation and behavioral evidence."
+    }
+  }
+}

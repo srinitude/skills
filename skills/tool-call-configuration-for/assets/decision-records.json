@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "tool-call-configuration-for",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted callable tool contract result.",
+      "motivation": "The callable tool contract decision needs its correct owner.",
+      "why_this_path": "The callable tool contract responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current callable tool contract contract"],
+      "expected_effect": "Make the callable tool contract decision testable.",
+      "proof": "Fresh callable tool contract evidence from the named owner.",
+      "falsifier": "Current callable tool contract evidence contradicts the decision.",
+      "failure_branch": "Block the callable tool contract result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted callable tool contract result.",
+      "motivation": "The callable tool contract decision needs its correct owner.",
+      "why_this_path": "The callable tool contract responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current callable tool contract contract"],
+      "expected_effect": "Make the callable tool contract decision testable.",
+      "proof": "Fresh callable tool contract evidence from the named owner.",
+      "falsifier": "Current callable tool contract evidence contradicts the decision.",
+      "failure_branch": "Block the callable tool contract result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted callable tool contract result.",
+      "motivation": "The callable tool contract decision needs its correct owner.",
+      "why_this_path": "The callable tool contract responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current callable tool contract contract"],
+      "expected_effect": "Make the callable tool contract decision testable.",
+      "proof": "Fresh callable tool contract evidence from the named owner.",
+      "falsifier": "Current callable tool contract evidence contradicts the decision.",
+      "failure_branch": "Block the callable tool contract result and restore the accepted state."
+    }
+  ]
+}

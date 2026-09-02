@@ -3,39 +3,154 @@
 
 [tasks.ci]
 description = "Full pipeline: all tests, structure, writing, code, evals"
-run = [
-  "mise run test",
-  "mise run validate",
-  "mise run lint-writing",
-  "mise run lint-code",
-  "mise run lint-placeholders",
-  "mise run evals",
-]
+depends = ["test", "validate", "lint-writing", "lint-code", "lint-placeholders", "evals", "decision-policy"]
 
 [tasks.test]
 description = "Every test in scripts/tests/"
 run = "python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+depends = []
 
 [tasks.validate]
 description = "Static structure checks against the generation contract"
 run = "python3 scripts/validate_skill.py ."
+depends = []
 
 [tasks.lint-writing]
 description = "Mechanical writing checks on every markdown file"
 run = "python3 scripts/lint_writing.py ."
+depends = []
 
 [tasks.lint-code]
 description = "Size and nesting limits on every code file"
 run = "python3 scripts/check_code_rules.py ."
+depends = []
 
 [tasks.lint-placeholders]
 description = "Refuse any scaffold placeholder text left in markdown or evals"
 run = "python3 scripts/check_placeholders.py ."
+depends = []
 
 [tasks.evals]
 description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
 run = "python3 scripts/check_evals.py ."
+depends = []
 
 [tasks.bench]
 description = "Measure against every recorded fixture and refuse a result that got worse"
 run = "python3 scripts/bench.py"
+depends = []
+
+[tasks.domain-research-policy]
+description = "Validate current domain research receipts"
+run = "python3 scripts/check_domain_research.py ."
+depends = []
+
+[tasks.use-case-policy]
+description = "Validate domain-specific owners"
+run = "python3 scripts/check_use_case_contract.py ."
+depends = ["domain-research-policy"]
+
+[tasks.mise-primitives-policy]
+description = "Validate Mise primitive use"
+run = "python3 scripts/check_mise_primitives.py ."
+depends = ["use-case-policy"]
+
+[tasks.primitive-lifecycle-policy]
+description = "Validate lifecycle ownership"
+run = "python3 scripts/check_primitive_lifecycle.py ."
+depends = ["mise-primitives-policy"]
+
+[tasks.task-graph-policy]
+description = "Validate the Mise task graph"
+run = "python3 scripts/check_task_graph.py ."
+depends = ["primitive-lifecycle-policy"]
+
+[tasks.decision-policy]
+description = "Validate motivated decisions"
+run = "python3 scripts/check_decision_records.py ."
+depends = ["task-graph-policy"]
+
+[tasks.improvement-policy]
+description = "Validate nonregressing improvement trials"
+run = "python3 scripts/check_improvement_contract.py ."
+depends = []
+
+[tasks.invocation-policy]
+description = "Validate one task-accounting receipt"
+run = "python3 scripts/check_invocation_receipt.py ."
+depends = []
+
+[tasks.agentic-request]
+description = "Dispatch one typed model-owned request"
+run = "python3 scripts/run_agentic_request.py"
+depends = []
+
+[tasks.mise-latest]
+description = "Update Mise after accepted work"
+run = "mise self-update --yes --no-plugins"
+depends = []
+
+[tasks.mise-primitives-update]
+description = "Refresh the Mise primitive catalog"
+run = "python3 scripts/sync_mise_primitives.py ."
+depends = ["mise-latest"]
+
+[tasks.check-reply]
+description = "Run the design decision ledger check-reply operation"
+run = "python3 scripts/check_reply.py"
+depends = []
+
+[tasks.crafts]
+description = "Run the design decision ledger crafts operation"
+run = "python3 scripts/crafts.py"
+depends = []
+
+[tasks.gate]
+description = "Run the design decision ledger gate operation"
+run = "python3 scripts/gate.py"
+depends = []
+
+[tasks.ledger]
+description = "Run the design decision ledger ledger operation"
+run = "python3 scripts/ledger.py"
+depends = []
+
+[tasks.locate]
+description = "Run the design decision ledger locate operation"
+run = "python3 scripts/locate.py"
+depends = []
+
+[tasks.slice]
+description = "Run the design decision ledger slice operation"
+run = "python3 scripts/slice.py"
+depends = []
+
+[tasks.speak]
+description = "Run the design decision ledger speak operation"
+run = "python3 scripts/speak.py"
+depends = []
+
+[tasks.tests-test-bench]
+description = "Run the design decision ledger tests-test-bench operation"
+run = "python3 scripts/tests/test_bench.py"
+depends = []
+
+[tasks.tests-test-disciplines]
+description = "Run the design decision ledger tests-test-disciplines operation"
+run = "python3 scripts/tests/test_disciplines.py"
+depends = []
+
+[tasks.tests-test-scripts]
+description = "Run the design decision ledger tests-test-scripts operation"
+run = "python3 scripts/tests/test_scripts.py"
+depends = []
+
+[tasks.tests-test-yamlread]
+description = "Run the design decision ledger tests-test-yamlread operation"
+run = "python3 scripts/tests/test_yamlread.py"
+depends = []
+
+[tasks.yamlread]
+description = "Run the design decision ledger yamlread operation"
+run = "python3 scripts/yamlread.py"
+depends = []

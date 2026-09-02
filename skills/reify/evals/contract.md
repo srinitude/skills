@@ -1,5 +1,7 @@
 # Evaluation contract
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). This file owns the public regression procedure. The parent owns runtime behavior.
 
 ## Frozen inputs

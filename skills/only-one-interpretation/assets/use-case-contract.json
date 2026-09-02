@@ -1,0 +1,465 @@
+{
+  "version": "1.0.0",
+  "skill": "only-one-interpretation",
+  "outcome": "Produce one lossless operational reading or one minimal clarification turn before execution.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted operational reading behavior.",
+      "reason": "The operational reading outcome depends on stable domain semantics.",
+      "failure_prevented": "A operational reading update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable operational reading checks through Mise.",
+      "reason": "The operational reading judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A operational reading claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "operational reading",
+    "material ambiguity",
+    "clarification turn",
+    "settled meaning"
+  ],
+  "domain_failures": [
+    "The operational reading result changes without proof.",
+    "The operational reading package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh operational reading task output and saved receipts.",
+    "Current operational reading behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The operational reading contract owns actors decisions."],
+    "objects": ["The operational reading contract owns objects decisions."],
+    "actions": ["The operational reading contract owns actions decisions."],
+    "states": ["The operational reading contract owns states decisions."],
+    "invariants": ["The operational reading contract owns invariants decisions."],
+    "variants": ["The operational reading contract owns variants decisions."],
+    "interfaces": ["The operational reading contract owns interfaces decisions."],
+    "authorities": ["The operational reading contract owns authorities decisions."],
+    "failures": ["The operational reading contract owns failures decisions."],
+    "recoveries": ["The operational reading contract owns recoveries decisions."],
+    "evidence": ["The operational reading contract owns evidence decisions."],
+    "time": ["The operational reading contract owns time decisions."],
+    "resources": ["The operational reading contract owns resources decisions."],
+    "quality": ["The operational reading contract owns quality decisions."],
+    "terminology": ["The operational reading contract owns terminology decisions."],
+    "exclusions": ["The operational reading contract owns exclusions decisions."]
+  },
+  "research_questions": {
+    "actors": "What can change the operational reading actors decision?",
+    "objects": "What can change the operational reading objects decision?",
+    "actions": "What can change the operational reading actions decision?",
+    "states": "What can change the operational reading states decision?",
+    "invariants": "What can change the operational reading invariants decision?",
+    "variants": "What can change the operational reading variants decision?",
+    "interfaces": "What can change the operational reading interfaces decision?",
+    "authorities": "What can change the operational reading authorities decision?",
+    "failures": "What can change the operational reading failures decision?",
+    "recoveries": "What can change the operational reading recoveries decision?",
+    "evidence": "What can change the operational reading evidence decision?",
+    "time": "What can change the operational reading time decision?",
+    "resources": "What can change the operational reading resources decision?",
+    "quality": "What can change the operational reading quality decision?",
+    "terminology": "What can change the operational reading terminology decision?",
+    "exclusions": "What can change the operational reading exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/",
+      "source_class": "first_party",
+      "claim": "An operational reading should be singular, clear, and verifiable.",
+      "limitations": "Requirement checks do not settle hidden user intent.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.incose.org/docs/default-source/working-groups/requirements-wg/shared_gtwr/gtwrv4overview120923a.pdf",
+      "source_class": "first_party",
+      "claim": "Material ambiguity blocks a single testable requirement interpretation.",
+      "limitations": "The guide does not decide which clarification turn is smallest.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.rfc-editor.org/rfc/rfc2119",
+      "source_class": "standard",
+      "claim": "Normative words help preserve settled meaning and obligation strength.",
+      "limitations": "Normative terms cannot remove contextual ambiguity by themselves.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://arxiv.org/abs/2402.07927",
+      "source_class": "research",
+      "claim": "Prompt structure and explicit constraints can reduce interpretation variance.",
+      "limitations": "A survey cannot prove that one operational reading matches this user.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the operational reading result?",
+      "source": "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "result": "No. The operational reading behavior still needs direct evaluation.",
+      "disposition": "Keep structure and operational reading behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named operational reading agentic-request result.",
+        "motivation": "The operational reading workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared operational reading agentic-request route.",
+        "proof": "Fresh operational reading agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named operational reading invocation-policy result.",
+        "motivation": "The operational reading workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared operational reading invocation-policy route.",
+        "proof": "Fresh operational reading invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named operational reading improvement-policy result.",
+        "motivation": "The operational reading workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared operational reading improvement-policy route.",
+        "proof": "Fresh operational reading improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named operational reading mise-primitives-update result.",
+        "motivation": "The operational reading workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared operational reading mise-primitives-update route.",
+        "proof": "Fresh operational reading mise-primitives-update output and exit status."
+      },
+      {
+        "task": "tests-test-scripts",
+        "outcome": "Produce the named operational reading tests-test-scripts result.",
+        "motivation": "The operational reading workflow needs one tests-test-scripts entry.",
+        "why_default_path": "This is the single declared operational reading tests-test-scripts route.",
+        "proof": "Fresh operational reading tests-test-scripts output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the operational reading result through ci.",
+        "motivation": "The operational reading package needs the ci gate.",
+        "value": "Produce current operational reading evidence from ci.",
+        "proof": "The operational reading ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared operational reading responsibility."
+      },
+      "test": {
+        "outcome": "Advance the operational reading result through test.",
+        "motivation": "The operational reading package needs the test gate.",
+        "value": "Produce current operational reading evidence from test.",
+        "proof": "The operational reading test task exits zero with readable output.",
+        "applicability": "Use test for its declared operational reading responsibility."
+      },
+      "validate-results": {
+        "outcome": "Advance the operational reading result through validate-results.",
+        "motivation": "The operational reading package needs the validate-results gate.",
+        "value": "Produce current operational reading evidence from validate-results.",
+        "proof": "The operational reading validate-results task exits zero with readable output.",
+        "applicability": "Use validate-results for its declared operational reading responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the operational reading result through validate.",
+        "motivation": "The operational reading package needs the validate gate.",
+        "value": "Produce current operational reading evidence from validate.",
+        "proof": "The operational reading validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared operational reading responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the operational reading result through lint-writing.",
+        "motivation": "The operational reading package needs the lint-writing gate.",
+        "value": "Produce current operational reading evidence from lint-writing.",
+        "proof": "The operational reading lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared operational reading responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the operational reading result through lint-code.",
+        "motivation": "The operational reading package needs the lint-code gate.",
+        "value": "Produce current operational reading evidence from lint-code.",
+        "proof": "The operational reading lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared operational reading responsibility."
+      },
+      "lint-placeholders": {
+        "outcome": "Advance the operational reading result through lint-placeholders.",
+        "motivation": "The operational reading package needs the lint-placeholders gate.",
+        "value": "Produce current operational reading evidence from lint-placeholders.",
+        "proof": "The operational reading lint-placeholders task exits zero with readable output.",
+        "applicability": "Use lint-placeholders for its declared operational reading responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the operational reading result through evals.",
+        "motivation": "The operational reading package needs the evals gate.",
+        "value": "Produce current operational reading evidence from evals.",
+        "proof": "The operational reading evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared operational reading responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the operational reading result through domain-research-policy.",
+        "motivation": "The operational reading package needs the domain-research-policy gate.",
+        "value": "Produce current operational reading evidence from domain-research-policy.",
+        "proof": "The operational reading domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared operational reading responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the operational reading result through use-case-policy.",
+        "motivation": "The operational reading package needs the use-case-policy gate.",
+        "value": "Produce current operational reading evidence from use-case-policy.",
+        "proof": "The operational reading use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared operational reading responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the operational reading result through mise-primitives-policy.",
+        "motivation": "The operational reading package needs the mise-primitives-policy gate.",
+        "value": "Produce current operational reading evidence from mise-primitives-policy.",
+        "proof": "The operational reading mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared operational reading responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the operational reading result through primitive-lifecycle-policy.",
+        "motivation": "The operational reading package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current operational reading evidence from primitive-lifecycle-policy.",
+        "proof": "The operational reading primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared operational reading responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the operational reading result through task-graph-policy.",
+        "motivation": "The operational reading package needs the task-graph-policy gate.",
+        "value": "Produce current operational reading evidence from task-graph-policy.",
+        "proof": "The operational reading task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared operational reading responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the operational reading result through decision-policy.",
+        "motivation": "The operational reading package needs the decision-policy gate.",
+        "value": "Produce current operational reading evidence from decision-policy.",
+        "proof": "The operational reading decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared operational reading responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the operational reading result through improvement-policy.",
+        "motivation": "The operational reading package needs the improvement-policy gate.",
+        "value": "Produce current operational reading evidence from improvement-policy.",
+        "proof": "The operational reading improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared operational reading responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the operational reading result through invocation-policy.",
+        "motivation": "The operational reading package needs the invocation-policy gate.",
+        "value": "Produce current operational reading evidence from invocation-policy.",
+        "proof": "The operational reading invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared operational reading responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the operational reading result through agentic-request.",
+        "motivation": "The operational reading package needs the agentic-request gate.",
+        "value": "Produce current operational reading evidence from agentic-request.",
+        "proof": "The operational reading agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared operational reading responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the operational reading result through mise-latest.",
+        "motivation": "The operational reading package needs the mise-latest gate.",
+        "value": "Produce current operational reading evidence from mise-latest.",
+        "proof": "The operational reading mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared operational reading responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the operational reading result through mise-primitives-update.",
+        "motivation": "The operational reading package needs the mise-primitives-update gate.",
+        "value": "Produce current operational reading evidence from mise-primitives-update.",
+        "proof": "The operational reading mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared operational reading responsibility."
+      },
+      "tests-test-scripts": {
+        "outcome": "Advance the operational reading result through tests-test-scripts.",
+        "motivation": "The operational reading package needs the tests-test-scripts gate.",
+        "value": "Produce current operational reading evidence from tests-test-scripts.",
+        "proof": "The operational reading tests-test-scripts task exits zero with readable output.",
+        "applicability": "Use tests-test-scripts for its declared operational reading responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading skill_body behavior.",
+      "outcome": "Keep operational reading skill_body aligned with the accepted result.",
+      "motivation": "The operational reading package needs one skill_body owner.",
+      "value": "Expose current operational reading skill_body progress.",
+      "failure_prevented": "Stale or generic operational reading skill_body behavior.",
+      "proof": "Fresh operational reading skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading references behavior.",
+      "outcome": "Keep operational reading references aligned with the accepted result.",
+      "motivation": "The operational reading package needs one references owner.",
+      "value": "Expose current operational reading references progress.",
+      "failure_prevented": "Stale or generic operational reading references behavior.",
+      "proof": "Fresh operational reading references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading assets behavior.",
+      "outcome": "Keep operational reading assets aligned with the accepted result.",
+      "motivation": "The operational reading package needs one assets owner.",
+      "value": "Expose current operational reading assets progress.",
+      "failure_prevented": "Stale or generic operational reading assets behavior.",
+      "proof": "Fresh operational reading assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading scripts behavior.",
+      "outcome": "Keep operational reading scripts aligned with the accepted result.",
+      "motivation": "The operational reading package needs one scripts owner.",
+      "value": "Expose current operational reading scripts progress.",
+      "failure_prevented": "Stale or generic operational reading scripts behavior.",
+      "proof": "Fresh operational reading scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading tests behavior.",
+      "outcome": "Keep operational reading tests aligned with the accepted result.",
+      "motivation": "The operational reading package needs one tests owner.",
+      "value": "Expose current operational reading tests progress.",
+      "failure_prevented": "Stale or generic operational reading tests behavior.",
+      "proof": "Fresh operational reading tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading mise_tasks behavior.",
+      "outcome": "Keep operational reading mise_tasks aligned with the accepted result.",
+      "motivation": "The operational reading package needs one mise_tasks owner.",
+      "value": "Expose current operational reading mise_tasks progress.",
+      "failure_prevented": "Stale or generic operational reading mise_tasks behavior.",
+      "proof": "Fresh operational reading mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading examples behavior.",
+      "outcome": "Keep operational reading examples aligned with the accepted result.",
+      "motivation": "The operational reading package needs one examples owner.",
+      "value": "Expose current operational reading examples progress.",
+      "failure_prevented": "Stale or generic operational reading examples behavior.",
+      "proof": "Fresh operational reading examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading evals behavior.",
+      "outcome": "Keep operational reading evals aligned with the accepted result.",
+      "motivation": "The operational reading package needs one evals owner.",
+      "value": "Expose current operational reading evals progress.",
+      "failure_prevented": "Stale or generic operational reading evals behavior.",
+      "proof": "Fresh operational reading evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading policies behavior.",
+      "outcome": "Keep operational reading policies aligned with the accepted result.",
+      "motivation": "The operational reading package needs one policies owner.",
+      "value": "Expose current operational reading policies progress.",
+      "failure_prevented": "Stale or generic operational reading policies behavior.",
+      "proof": "Fresh operational reading policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading schemas behavior.",
+      "outcome": "Keep operational reading schemas aligned with the accepted result.",
+      "motivation": "The operational reading package needs one schemas owner.",
+      "value": "Expose current operational reading schemas progress.",
+      "failure_prevented": "Stale or generic operational reading schemas behavior.",
+      "proof": "Fresh operational reading schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own operational reading records behavior.",
+      "outcome": "Keep operational reading records aligned with the accepted result.",
+      "motivation": "The operational reading package needs one records owner.",
+      "value": "Expose current operational reading records progress.",
+      "failure_prevented": "Stale or generic operational reading records behavior.",
+      "proof": "Fresh operational reading records validation and behavioral evidence."
+    }
+  }
+}

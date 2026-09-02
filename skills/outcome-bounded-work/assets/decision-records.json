@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "outcome-bounded-work",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted outcome boundary result.",
+      "motivation": "The outcome boundary decision needs its correct owner.",
+      "why_this_path": "The outcome boundary responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current outcome boundary contract"],
+      "expected_effect": "Make the outcome boundary decision testable.",
+      "proof": "Fresh outcome boundary evidence from the named owner.",
+      "falsifier": "Current outcome boundary evidence contradicts the decision.",
+      "failure_branch": "Block the outcome boundary result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted outcome boundary result.",
+      "motivation": "The outcome boundary decision needs its correct owner.",
+      "why_this_path": "The outcome boundary responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current outcome boundary contract"],
+      "expected_effect": "Make the outcome boundary decision testable.",
+      "proof": "Fresh outcome boundary evidence from the named owner.",
+      "falsifier": "Current outcome boundary evidence contradicts the decision.",
+      "failure_branch": "Block the outcome boundary result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted outcome boundary result.",
+      "motivation": "The outcome boundary decision needs its correct owner.",
+      "why_this_path": "The outcome boundary responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current outcome boundary contract"],
+      "expected_effect": "Make the outcome boundary decision testable.",
+      "proof": "Fresh outcome boundary evidence from the named owner.",
+      "falsifier": "Current outcome boundary evidence contradicts the decision.",
+      "failure_branch": "Block the outcome boundary result and restore the accepted state."
+    }
+  ]
+}

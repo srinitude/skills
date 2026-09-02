@@ -947,1285 +947,1541 @@
     {
       "path": "SKILL.md",
       "source_paths": [
-        "SKILL.md"
+        "SKILL.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-breakpoint-order.json",
       "source_paths": [
-        "assets/fixtures/fail-breakpoint-order.json"
+        "assets/fixtures/fail-breakpoint-order.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-capability-floor.json",
       "source_paths": [
-        "assets/fixtures/fail-capability-floor.json"
+        "assets/fixtures/fail-capability-floor.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-flora-routing.json",
       "source_paths": [
-        "assets/fixtures/fail-flora-routing.json"
+        "assets/fixtures/fail-flora-routing.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-performance.json",
       "source_paths": [
-        "assets/fixtures/fail-performance.json"
+        "assets/fixtures/fail-performance.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-prompt-hash.json",
       "source_paths": [
-        "assets/fixtures/fail-prompt-hash.json"
+        "assets/fixtures/fail-prompt-hash.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/fail-style-in-wireframe.json",
       "source_paths": [
-        "assets/fixtures/fail-style-in-wireframe.json"
+        "assets/fixtures/fail-style-in-wireframe.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/pass-degraded.json",
       "source_paths": [
-        "assets/fixtures/pass-degraded.json"
+        "assets/fixtures/pass-degraded.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/fixtures/pass-full.json",
       "source_paths": [
-        "assets/fixtures/pass-full.json"
+        "assets/fixtures/pass-full.json",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompt-manifest.json",
       "source_paths": [
-        "assets/prompt-manifest.json"
+        "assets/prompt-manifest.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0001-0005.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0001-0005.yaml"
+        "assets/prompts/prompts-0001-0005.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0006-0010.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0006-0010.yaml"
+        "assets/prompts/prompts-0006-0010.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0011-0015.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0011-0015.yaml"
+        "assets/prompts/prompts-0011-0015.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0016-0020.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0016-0020.yaml"
+        "assets/prompts/prompts-0016-0020.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0021-0025.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0021-0025.yaml"
+        "assets/prompts/prompts-0021-0025.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0026-0030.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0026-0030.yaml"
+        "assets/prompts/prompts-0026-0030.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0031-0035.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0031-0035.yaml"
+        "assets/prompts/prompts-0031-0035.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0036-0040.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0036-0040.yaml"
+        "assets/prompts/prompts-0036-0040.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0041-0045.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0041-0045.yaml"
+        "assets/prompts/prompts-0041-0045.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0046-0050.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0046-0050.yaml"
+        "assets/prompts/prompts-0046-0050.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0051-0055.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0051-0055.yaml"
+        "assets/prompts/prompts-0051-0055.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0056-0060.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0056-0060.yaml"
+        "assets/prompts/prompts-0056-0060.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0061-0065.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0061-0065.yaml"
+        "assets/prompts/prompts-0061-0065.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0066-0070.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0066-0070.yaml"
+        "assets/prompts/prompts-0066-0070.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0071-0075.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0071-0075.yaml"
+        "assets/prompts/prompts-0071-0075.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0076-0080.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0076-0080.yaml"
+        "assets/prompts/prompts-0076-0080.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0081-0085.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0081-0085.yaml"
+        "assets/prompts/prompts-0081-0085.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0086-0090.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0086-0090.yaml"
+        "assets/prompts/prompts-0086-0090.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0091-0095.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0091-0095.yaml"
+        "assets/prompts/prompts-0091-0095.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0096-0100.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0096-0100.yaml"
+        "assets/prompts/prompts-0096-0100.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0101-0105.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0101-0105.yaml"
+        "assets/prompts/prompts-0101-0105.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0106-0110.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0106-0110.yaml"
+        "assets/prompts/prompts-0106-0110.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0111-0115.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0111-0115.yaml"
+        "assets/prompts/prompts-0111-0115.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0116-0120.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0116-0120.yaml"
+        "assets/prompts/prompts-0116-0120.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0121-0125.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0121-0125.yaml"
+        "assets/prompts/prompts-0121-0125.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0126-0130.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0126-0130.yaml"
+        "assets/prompts/prompts-0126-0130.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0131-0135.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0131-0135.yaml"
+        "assets/prompts/prompts-0131-0135.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0136-0140.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0136-0140.yaml"
+        "assets/prompts/prompts-0136-0140.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0141-0145.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0141-0145.yaml"
+        "assets/prompts/prompts-0141-0145.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0146-0150.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0146-0150.yaml"
+        "assets/prompts/prompts-0146-0150.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0151-0155.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0151-0155.yaml"
+        "assets/prompts/prompts-0151-0155.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0156-0160.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0156-0160.yaml"
+        "assets/prompts/prompts-0156-0160.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0161-0165.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0161-0165.yaml"
+        "assets/prompts/prompts-0161-0165.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0166-0170.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0166-0170.yaml"
+        "assets/prompts/prompts-0166-0170.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0171-0175.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0171-0175.yaml"
+        "assets/prompts/prompts-0171-0175.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0176-0180.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0176-0180.yaml"
+        "assets/prompts/prompts-0176-0180.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0181-0185.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0181-0185.yaml"
+        "assets/prompts/prompts-0181-0185.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0186-0190.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0186-0190.yaml"
+        "assets/prompts/prompts-0186-0190.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0191-0195.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0191-0195.yaml"
+        "assets/prompts/prompts-0191-0195.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0196-0200.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0196-0200.yaml"
+        "assets/prompts/prompts-0196-0200.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0201-0205.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0201-0205.yaml"
+        "assets/prompts/prompts-0201-0205.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0206-0210.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0206-0210.yaml"
+        "assets/prompts/prompts-0206-0210.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0211-0215.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0211-0215.yaml"
+        "assets/prompts/prompts-0211-0215.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0216-0220.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0216-0220.yaml"
+        "assets/prompts/prompts-0216-0220.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0221-0225.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0221-0225.yaml"
+        "assets/prompts/prompts-0221-0225.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0226-0230.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0226-0230.yaml"
+        "assets/prompts/prompts-0226-0230.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0231-0235.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0231-0235.yaml"
+        "assets/prompts/prompts-0231-0235.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0236-0240.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0236-0240.yaml"
+        "assets/prompts/prompts-0236-0240.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0241-0245.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0241-0245.yaml"
+        "assets/prompts/prompts-0241-0245.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0246-0250.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0246-0250.yaml"
+        "assets/prompts/prompts-0246-0250.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0251-0255.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0251-0255.yaml"
+        "assets/prompts/prompts-0251-0255.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0256-0260.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0256-0260.yaml"
+        "assets/prompts/prompts-0256-0260.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0261-0265.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0261-0265.yaml"
+        "assets/prompts/prompts-0261-0265.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0266-0270.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0266-0270.yaml"
+        "assets/prompts/prompts-0266-0270.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0271-0274.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0271-0274.yaml"
+        "assets/prompts/prompts-0271-0274.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0275-0279.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0275-0279.yaml"
+        "assets/prompts/prompts-0275-0279.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0280-0284.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0280-0284.yaml"
+        "assets/prompts/prompts-0280-0284.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0285-0289.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0285-0289.yaml"
+        "assets/prompts/prompts-0285-0289.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0290-0294.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0290-0294.yaml"
+        "assets/prompts/prompts-0290-0294.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0295-0299.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0295-0299.yaml"
+        "assets/prompts/prompts-0295-0299.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0300-0304.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0300-0304.yaml"
+        "assets/prompts/prompts-0300-0304.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0305-0309.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0305-0309.yaml"
+        "assets/prompts/prompts-0305-0309.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0310-0314.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0310-0314.yaml"
+        "assets/prompts/prompts-0310-0314.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0315-0319.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0315-0319.yaml"
+        "assets/prompts/prompts-0315-0319.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0320-0324.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0320-0324.yaml"
+        "assets/prompts/prompts-0320-0324.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0325-0329.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0325-0329.yaml"
+        "assets/prompts/prompts-0325-0329.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0330-0334.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0330-0334.yaml"
+        "assets/prompts/prompts-0330-0334.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0335-0339.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0335-0339.yaml"
+        "assets/prompts/prompts-0335-0339.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0340-0344.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0340-0344.yaml"
+        "assets/prompts/prompts-0340-0344.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0345-0349.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0345-0349.yaml"
+        "assets/prompts/prompts-0345-0349.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0350-0354.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0350-0354.yaml"
+        "assets/prompts/prompts-0350-0354.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0355-0359.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0355-0359.yaml"
+        "assets/prompts/prompts-0355-0359.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0360-0364.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0360-0364.yaml"
+        "assets/prompts/prompts-0360-0364.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0365-0369.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0365-0369.yaml"
+        "assets/prompts/prompts-0365-0369.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0370-0374.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0370-0374.yaml"
+        "assets/prompts/prompts-0370-0374.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0375-0379.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0375-0379.yaml"
+        "assets/prompts/prompts-0375-0379.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0380-0384.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0380-0384.yaml"
+        "assets/prompts/prompts-0380-0384.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0385-0389.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0385-0389.yaml"
+        "assets/prompts/prompts-0385-0389.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0390-0394.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0390-0394.yaml"
+        "assets/prompts/prompts-0390-0394.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0395-0399.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0395-0399.yaml"
+        "assets/prompts/prompts-0395-0399.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0400-0404.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0400-0404.yaml"
+        "assets/prompts/prompts-0400-0404.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0405-0409.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0405-0409.yaml"
+        "assets/prompts/prompts-0405-0409.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0410-0414.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0410-0414.yaml"
+        "assets/prompts/prompts-0410-0414.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0415-0419.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0415-0419.yaml"
+        "assets/prompts/prompts-0415-0419.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0420-0424.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0420-0424.yaml"
+        "assets/prompts/prompts-0420-0424.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0425-0429.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0425-0429.yaml"
+        "assets/prompts/prompts-0425-0429.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0430-0434.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0430-0434.yaml"
+        "assets/prompts/prompts-0430-0434.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0435-0439.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0435-0439.yaml"
+        "assets/prompts/prompts-0435-0439.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0440-0444.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0440-0444.yaml"
+        "assets/prompts/prompts-0440-0444.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0445-0449.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0445-0449.yaml"
+        "assets/prompts/prompts-0445-0449.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0450-0454.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0450-0454.yaml"
+        "assets/prompts/prompts-0450-0454.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0455-0459.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0455-0459.yaml"
+        "assets/prompts/prompts-0455-0459.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0460-0464.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0460-0464.yaml"
+        "assets/prompts/prompts-0460-0464.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0465-0469.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0465-0469.yaml"
+        "assets/prompts/prompts-0465-0469.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0470-0474.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0470-0474.yaml"
+        "assets/prompts/prompts-0470-0474.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0475-0479.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0475-0479.yaml"
+        "assets/prompts/prompts-0475-0479.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0480-0484.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0480-0484.yaml"
+        "assets/prompts/prompts-0480-0484.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0485-0489.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0485-0489.yaml"
+        "assets/prompts/prompts-0485-0489.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0490-0494.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0490-0494.yaml"
+        "assets/prompts/prompts-0490-0494.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0495-0499.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0495-0499.yaml"
+        "assets/prompts/prompts-0495-0499.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0500-0504.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0500-0504.yaml"
+        "assets/prompts/prompts-0500-0504.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0505-0509.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0505-0509.yaml"
+        "assets/prompts/prompts-0505-0509.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0510-0514.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0510-0514.yaml"
+        "assets/prompts/prompts-0510-0514.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0515-0519.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0515-0519.yaml"
+        "assets/prompts/prompts-0515-0519.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0520-0524.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0520-0524.yaml"
+        "assets/prompts/prompts-0520-0524.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0525-0529.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0525-0529.yaml"
+        "assets/prompts/prompts-0525-0529.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0530-0534.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0530-0534.yaml"
+        "assets/prompts/prompts-0530-0534.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0535-0539.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0535-0539.yaml"
+        "assets/prompts/prompts-0535-0539.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0540-0544.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0540-0544.yaml"
+        "assets/prompts/prompts-0540-0544.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0545-0549.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0545-0549.yaml"
+        "assets/prompts/prompts-0545-0549.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0550-0554.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0550-0554.yaml"
+        "assets/prompts/prompts-0550-0554.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0555-0559.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0555-0559.yaml"
+        "assets/prompts/prompts-0555-0559.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0560-0564.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0560-0564.yaml"
+        "assets/prompts/prompts-0560-0564.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0565-0569.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0565-0569.yaml"
+        "assets/prompts/prompts-0565-0569.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0570-0574.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0570-0574.yaml"
+        "assets/prompts/prompts-0570-0574.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0575-0579.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0575-0579.yaml"
+        "assets/prompts/prompts-0575-0579.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0580-0584.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0580-0584.yaml"
+        "assets/prompts/prompts-0580-0584.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0585-0589.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0585-0589.yaml"
+        "assets/prompts/prompts-0585-0589.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0590-0594.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0590-0594.yaml"
+        "assets/prompts/prompts-0590-0594.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0595-0599.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0595-0599.yaml"
+        "assets/prompts/prompts-0595-0599.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0600-0604.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0600-0604.yaml"
+        "assets/prompts/prompts-0600-0604.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0605-0609.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0605-0609.yaml"
+        "assets/prompts/prompts-0605-0609.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0610-0614.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0610-0614.yaml"
+        "assets/prompts/prompts-0610-0614.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0615-0619.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0615-0619.yaml"
+        "assets/prompts/prompts-0615-0619.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0620-0624.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0620-0624.yaml"
+        "assets/prompts/prompts-0620-0624.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0625-0629.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0625-0629.yaml"
+        "assets/prompts/prompts-0625-0629.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0630-0634.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0630-0634.yaml"
+        "assets/prompts/prompts-0630-0634.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0635-0639.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0635-0639.yaml"
+        "assets/prompts/prompts-0635-0639.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0640-0644.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0640-0644.yaml"
+        "assets/prompts/prompts-0640-0644.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0645-0649.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0645-0649.yaml"
+        "assets/prompts/prompts-0645-0649.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0650-0654.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0650-0654.yaml"
+        "assets/prompts/prompts-0650-0654.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0655-0659.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0655-0659.yaml"
+        "assets/prompts/prompts-0655-0659.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0660-0664.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0660-0664.yaml"
+        "assets/prompts/prompts-0660-0664.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0665-0669.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0665-0669.yaml"
+        "assets/prompts/prompts-0665-0669.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0670-0674.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0670-0674.yaml"
+        "assets/prompts/prompts-0670-0674.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0675-0679.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0675-0679.yaml"
+        "assets/prompts/prompts-0675-0679.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0680-0684.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0680-0684.yaml"
+        "assets/prompts/prompts-0680-0684.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0685-0689.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0685-0689.yaml"
+        "assets/prompts/prompts-0685-0689.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0690-0694.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0690-0694.yaml"
+        "assets/prompts/prompts-0690-0694.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0695-0699.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0695-0699.yaml"
+        "assets/prompts/prompts-0695-0699.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0700-0704.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0700-0704.yaml"
+        "assets/prompts/prompts-0700-0704.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0705-0709.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0705-0709.yaml"
+        "assets/prompts/prompts-0705-0709.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0710-0714.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0710-0714.yaml"
+        "assets/prompts/prompts-0710-0714.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0715-0719.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0715-0719.yaml"
+        "assets/prompts/prompts-0715-0719.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0720-0724.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0720-0724.yaml"
+        "assets/prompts/prompts-0720-0724.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0725-0729.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0725-0729.yaml"
+        "assets/prompts/prompts-0725-0729.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0730-0734.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0730-0734.yaml"
+        "assets/prompts/prompts-0730-0734.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0735-0739.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0735-0739.yaml"
+        "assets/prompts/prompts-0735-0739.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0740-0744.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0740-0744.yaml"
+        "assets/prompts/prompts-0740-0744.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0745-0749.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0745-0749.yaml"
+        "assets/prompts/prompts-0745-0749.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0750-0754.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0750-0754.yaml"
+        "assets/prompts/prompts-0750-0754.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0755-0759.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0755-0759.yaml"
+        "assets/prompts/prompts-0755-0759.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0760-0764.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0760-0764.yaml"
+        "assets/prompts/prompts-0760-0764.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0765-0769.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0765-0769.yaml"
+        "assets/prompts/prompts-0765-0769.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0770-0774.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0770-0774.yaml"
+        "assets/prompts/prompts-0770-0774.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0775-0779.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0775-0779.yaml"
+        "assets/prompts/prompts-0775-0779.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0780-0784.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0780-0784.yaml"
+        "assets/prompts/prompts-0780-0784.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0785-0789.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0785-0789.yaml"
+        "assets/prompts/prompts-0785-0789.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0790-0793.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0790-0793.yaml"
+        "assets/prompts/prompts-0790-0793.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0794-0798.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0794-0798.yaml"
+        "assets/prompts/prompts-0794-0798.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0799-0803.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0799-0803.yaml"
+        "assets/prompts/prompts-0799-0803.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0804-0808.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0804-0808.yaml"
+        "assets/prompts/prompts-0804-0808.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0809-0813.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0809-0813.yaml"
+        "assets/prompts/prompts-0809-0813.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0814-0818.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0814-0818.yaml"
+        "assets/prompts/prompts-0814-0818.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0819-0823.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0819-0823.yaml"
+        "assets/prompts/prompts-0819-0823.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0824-0828.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0824-0828.yaml"
+        "assets/prompts/prompts-0824-0828.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0829-0833.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0829-0833.yaml"
+        "assets/prompts/prompts-0829-0833.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0834-0838.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0834-0838.yaml"
+        "assets/prompts/prompts-0834-0838.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0839-0843.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0839-0843.yaml"
+        "assets/prompts/prompts-0839-0843.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0844-0848.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0844-0848.yaml"
+        "assets/prompts/prompts-0844-0848.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0849-0853.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0849-0853.yaml"
+        "assets/prompts/prompts-0849-0853.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0854-0858.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0854-0858.yaml"
+        "assets/prompts/prompts-0854-0858.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0859-0863.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0859-0863.yaml"
+        "assets/prompts/prompts-0859-0863.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0864-0868.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0864-0868.yaml"
+        "assets/prompts/prompts-0864-0868.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0869-0873.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0869-0873.yaml"
+        "assets/prompts/prompts-0869-0873.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0874-0878.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0874-0878.yaml"
+        "assets/prompts/prompts-0874-0878.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0879-0883.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0879-0883.yaml"
+        "assets/prompts/prompts-0879-0883.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0884-0888.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0884-0888.yaml"
+        "assets/prompts/prompts-0884-0888.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0889-0893.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0889-0893.yaml"
+        "assets/prompts/prompts-0889-0893.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0894-0898.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0894-0898.yaml"
+        "assets/prompts/prompts-0894-0898.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0899-0903.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0899-0903.yaml"
+        "assets/prompts/prompts-0899-0903.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0904-0908.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0904-0908.yaml"
+        "assets/prompts/prompts-0904-0908.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0909-0913.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0909-0913.yaml"
+        "assets/prompts/prompts-0909-0913.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0914-0918.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0914-0918.yaml"
+        "assets/prompts/prompts-0914-0918.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0919-0923.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0919-0923.yaml"
+        "assets/prompts/prompts-0919-0923.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0924-0928.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0924-0928.yaml"
+        "assets/prompts/prompts-0924-0928.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0929-0933.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0929-0933.yaml"
+        "assets/prompts/prompts-0929-0933.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0934-0938.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0934-0938.yaml"
+        "assets/prompts/prompts-0934-0938.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0939-0943.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0939-0943.yaml"
+        "assets/prompts/prompts-0939-0943.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0944-0948.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0944-0948.yaml"
+        "assets/prompts/prompts-0944-0948.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0949-0953.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0949-0953.yaml"
+        "assets/prompts/prompts-0949-0953.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0954-0958.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0954-0958.yaml"
+        "assets/prompts/prompts-0954-0958.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0959-0963.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0959-0963.yaml"
+        "assets/prompts/prompts-0959-0963.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0964-0968.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0964-0968.yaml"
+        "assets/prompts/prompts-0964-0968.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0969-0973.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0969-0973.yaml"
+        "assets/prompts/prompts-0969-0973.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0974-0978.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0974-0978.yaml"
+        "assets/prompts/prompts-0974-0978.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0979-0983.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0979-0983.yaml"
+        "assets/prompts/prompts-0979-0983.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0984-0988.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0984-0988.yaml"
+        "assets/prompts/prompts-0984-0988.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0989-0993.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0989-0993.yaml"
+        "assets/prompts/prompts-0989-0993.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0994-0998.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0994-0998.yaml"
+        "assets/prompts/prompts-0994-0998.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/prompts/prompts-0999-1000.yaml",
       "source_paths": [
-        "assets/prompts/prompts-0999-1000.yaml"
+        "assets/prompts/prompts-0999-1000.yaml",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/schemas.json",
       "source_paths": [
-        "assets/schemas.json"
+        "assets/schemas.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/source-lock.json",
       "source_paths": [
-        "assets/source-lock.json"
+        "assets/source-lock.json",
+        "target-scaffolding"
       ]
     },
     {
       "path": "assets/tool-registry.json",
       "source_paths": [
-        "assets/tool-registry.json"
+        "assets/tool-registry.json",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
@@ -2309,77 +2565,155 @@
     {
       "path": "references/brief-and-research.md",
       "source_paths": [
-        "references/brief-and-research.md"
+        "references/brief-and-research.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/composition-and-motion.md",
       "source_paths": [
-        "references/composition-and-motion.md"
+        "references/composition-and-motion.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/decisions.md",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/emil-procedures.md",
       "source_paths": [
-        "references/emil-procedures.md"
+        "references/emil-procedures.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/generation-contract.md",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/image-routing.md",
       "source_paths": [
-        "references/image-routing.md"
+        "references/image-routing.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/implementation-performance.md",
       "source_paths": [
-        "references/implementation-performance.md"
+        "references/implementation-performance.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/integrations.md",
       "source_paths": [
-        "references/integrations.md"
+        "references/integrations.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/judgement.md",
       "source_paths": [
-        "references/judgement.md"
+        "references/judgement.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/resource-and-experiment-design.md",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/source-coverage.md",
       "source_paths": [
-        "references/source-coverage.md"
+        "references/source-coverage.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/use-case-specificity.md",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/validation.md",
       "source_paths": [
-        "references/validation.md"
+        "references/validation.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/visual-identity.md",
       "source_paths": [
-        "references/visual-identity.md"
+        "references/visual-identity.md",
+        "target-scaffolding"
       ]
     },
     {
       "path": "references/wireframe.md",
       "source_paths": [
-        "references/wireframe.md"
+        "references/wireframe.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "scripts/breakpoint_rules.py",
       "source_paths": [
-        "scripts/breakpoint_rules.py"
+        "scripts/breakpoint_rules.py",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
       "path": "scripts/check_evals.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
       "source_paths": [
         "target-scaffolding"
       ]
@@ -2391,9 +2725,58 @@
       ]
     },
     {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
       "path": "scripts/prompt_corpus.py",
       "source_paths": [
-        "scripts/prompt_corpus.py"
+        "scripts/prompt_corpus.py",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": [
+        "target-scaffolding"
       ]
     },
     {
@@ -2411,7 +2794,14 @@
     {
       "path": "scripts/validate_packet.py",
       "source_paths": [
-        "scripts/validate_packet.py"
+        "scripts/validate_packet.py",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": [
+        "target-scaffolding"
       ]
     }
   ]

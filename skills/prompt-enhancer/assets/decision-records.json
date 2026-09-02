@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "prompt-enhancer",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted enhanced prompt result.",
+      "motivation": "The enhanced prompt decision needs its correct owner.",
+      "why_this_path": "The enhanced prompt responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current enhanced prompt contract"],
+      "expected_effect": "Make the enhanced prompt decision testable.",
+      "proof": "Fresh enhanced prompt evidence from the named owner.",
+      "falsifier": "Current enhanced prompt evidence contradicts the decision.",
+      "failure_branch": "Block the enhanced prompt result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted enhanced prompt result.",
+      "motivation": "The enhanced prompt decision needs its correct owner.",
+      "why_this_path": "The enhanced prompt responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current enhanced prompt contract"],
+      "expected_effect": "Make the enhanced prompt decision testable.",
+      "proof": "Fresh enhanced prompt evidence from the named owner.",
+      "falsifier": "Current enhanced prompt evidence contradicts the decision.",
+      "failure_branch": "Block the enhanced prompt result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted enhanced prompt result.",
+      "motivation": "The enhanced prompt decision needs its correct owner.",
+      "why_this_path": "The enhanced prompt responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current enhanced prompt contract"],
+      "expected_effect": "Make the enhanced prompt decision testable.",
+      "proof": "Fresh enhanced prompt evidence from the named owner.",
+      "falsifier": "Current enhanced prompt evidence contradicts the decision.",
+      "failure_branch": "Block the enhanced prompt result and restore the accepted state."
+    }
+  ]
+}

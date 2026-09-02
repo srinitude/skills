@@ -15,14 +15,14 @@ I read the crop, wrote the document in schema order, ranked fonts by fit before 
 Fonts first, so the type section is not a guess.
 
 ```
-$ python3 scripts/rare_google_fonts.py set --brief assets/font-brief.json --output examples/work/set.json
+$ mise run font-set -- --brief assets/font-brief.json --output examples/work/set.json
 exit=0
 ```
 
 With `--output` the command writes the record to the file and keeps stdout empty. The chosen set, the veto, and the pairing verdict from that file:
 
 ```
-$ python3 -c "import json;d=json.load(open('examples/work/set.json'));print([c['family'] for c in d['chosen']]);print([(v['family'],v['failed_dimensions']) for v in d['vetoes']]);print(d['pairing']['passes'])"
+$ mise run font-record -- examples/work/set.json
 ['Wittgenstein', 'Parastoo']
 []
 True
@@ -32,7 +32,7 @@ exit=0
 Validate the document.
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/validate_design_system_yaml.py examples/extract-output.yaml
+$ mise run validate-design-system-yaml examples/extract-output.yaml
 {
   "confidence_markers": 62,
   "errors": [],
@@ -48,7 +48,7 @@ exit=0
 Render, capture, and judge the pixels. The full gate is in examples/viability-loop.md.
 
 ```
-$ uv run --no-project --with 'PyYAML>=6,<7' python scripts/render_preview.py examples/extract-output.yaml --output examples/work/pass2.html
+$ mise run render-preview examples/extract-output.yaml --output examples/work/pass2.html
 {
   "dark_mode": false,
   "output": "examples/work/pass2.html",
@@ -56,12 +56,14 @@ $ uv run --no-project --with 'PyYAML>=6,<7' python scripts/render_preview.py exa
   "token_count": 15
 }
 exit=0
-$ uv run --no-project --with playwright python scripts/screenshot_preview.py examples/work/pass2.html --output examples/work/pass2.png
+$ mise run screenshot-preview examples/work/pass2.html --output examples/work/pass2.png
 wrote examples/work/pass2.png
 exit=0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 | File                         | Contents                                                                                                                          |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |

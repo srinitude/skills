@@ -4,29 +4,83 @@ python = "3.12"
 [tasks.test]
 description = "Run the timebox unit tests"
 run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -v"
+depends = []
 
 [tasks.validate]
 description = "Validate the skill package structure"
 run = "python3 scripts/validate_skill.py ."
+depends = []
 
 [tasks.lint-writing]
 description = "Check Markdown writing rules"
 run = "python3 scripts/lint_writing.py ."
+depends = []
 
 [tasks.lint-code]
 description = "Check Python and shell size, nesting, and marker rules"
 run = "python3 scripts/check_code_rules.py ."
+depends = []
 
 [tasks.evals]
 description = "Validate the behavior and trigger eval files"
 run = "python3 scripts/check_evals.py . --min-cases 6 --min-queries 6"
+depends = []
 
 [tasks.ci]
 description = "Run the complete timebox quality gate"
-run = [
-  "mise run test",
-  "mise run validate",
-  "mise run lint-writing",
-  "mise run lint-code",
-  "mise run evals",
-]
+depends = ["test", "validate", "lint-writing", "lint-code", "evals", "decision-policy"]
+
+[tasks.domain-research-policy]
+description = "Validate current domain research receipts"
+run = "python3 scripts/check_domain_research.py ."
+depends = []
+
+[tasks.use-case-policy]
+description = "Validate domain-specific owners"
+run = "python3 scripts/check_use_case_contract.py ."
+depends = ["domain-research-policy"]
+
+[tasks.mise-primitives-policy]
+description = "Validate Mise primitive use"
+run = "python3 scripts/check_mise_primitives.py ."
+depends = ["use-case-policy"]
+
+[tasks.primitive-lifecycle-policy]
+description = "Validate lifecycle ownership"
+run = "python3 scripts/check_primitive_lifecycle.py ."
+depends = ["mise-primitives-policy"]
+
+[tasks.task-graph-policy]
+description = "Validate the Mise task graph"
+run = "python3 scripts/check_task_graph.py ."
+depends = ["primitive-lifecycle-policy"]
+
+[tasks.decision-policy]
+description = "Validate motivated decisions"
+run = "python3 scripts/check_decision_records.py ."
+depends = ["task-graph-policy"]
+
+[tasks.improvement-policy]
+description = "Validate nonregressing improvement trials"
+run = "python3 scripts/check_improvement_contract.py ."
+depends = []
+
+[tasks.invocation-policy]
+description = "Validate one task-accounting receipt"
+run = "python3 scripts/check_invocation_receipt.py ."
+depends = []
+
+[tasks.agentic-request]
+description = "Dispatch one typed model-owned request"
+run = "python3 scripts/run_agentic_request.py"
+depends = []
+
+[tasks.mise-latest]
+description = "Update Mise after accepted work"
+run = "mise self-update --yes --no-plugins"
+depends = []
+
+[tasks.mise-primitives-update]
+description = "Refresh the Mise primitive catalog"
+run = "python3 scripts/sync_mise_primitives.py ."
+depends = ["mise-latest"]

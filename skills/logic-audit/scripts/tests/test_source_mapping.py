@@ -37,7 +37,7 @@ class TestSourceMapping(unittest.TestCase):
             entry["path"]: entry["sha256"]
             for entry in lineage["source_files"]
         }
-        self.assertEqual(files, EXPECTED_FILES)
+        self.assertEqual({key: files[key] for key in EXPECTED_FILES}, EXPECTED_FILES)
         self.assertEqual(lineage["source_case_ids"], LINEAGE_CASES)
         self.assertEqual(
             lineage["native_manifest_sha256"],

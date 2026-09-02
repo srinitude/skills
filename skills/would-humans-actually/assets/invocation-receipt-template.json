@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "would-humans-actually",
+  "operation": "Name the current human action verdict operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh human action verdict evidence."
+}

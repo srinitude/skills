@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "only-one-interpretation",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "only-one-interpretation-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading actors aligned.",
+      "motivation": "The operational reading result depends on actors ownership.",
+      "proof": "Fresh operational reading actors evidence."
+    },
+    "objects": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading objects aligned.",
+      "motivation": "The operational reading result depends on objects ownership.",
+      "proof": "Fresh operational reading objects evidence."
+    },
+    "actions": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading actions aligned.",
+      "motivation": "The operational reading result depends on actions ownership.",
+      "proof": "Fresh operational reading actions evidence."
+    },
+    "states": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading states aligned.",
+      "motivation": "The operational reading result depends on states ownership.",
+      "proof": "Fresh operational reading states evidence."
+    },
+    "invariants": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading invariants aligned.",
+      "motivation": "The operational reading result depends on invariants ownership.",
+      "proof": "Fresh operational reading invariants evidence."
+    },
+    "variants": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading variants aligned.",
+      "motivation": "The operational reading result depends on variants ownership.",
+      "proof": "Fresh operational reading variants evidence."
+    },
+    "interfaces": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading interfaces aligned.",
+      "motivation": "The operational reading result depends on interfaces ownership.",
+      "proof": "Fresh operational reading interfaces evidence."
+    },
+    "authorities": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading authorities aligned.",
+      "motivation": "The operational reading result depends on authorities ownership.",
+      "proof": "Fresh operational reading authorities evidence."
+    },
+    "failures": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading failures aligned.",
+      "motivation": "The operational reading result depends on failures ownership.",
+      "proof": "Fresh operational reading failures evidence."
+    },
+    "recoveries": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading recoveries aligned.",
+      "motivation": "The operational reading result depends on recoveries ownership.",
+      "proof": "Fresh operational reading recoveries evidence."
+    },
+    "evidence": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading evidence aligned.",
+      "motivation": "The operational reading result depends on evidence ownership.",
+      "proof": "Fresh operational reading evidence evidence."
+    },
+    "time": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading time aligned.",
+      "motivation": "The operational reading result depends on time ownership.",
+      "proof": "Fresh operational reading time evidence."
+    },
+    "resources": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading resources aligned.",
+      "motivation": "The operational reading result depends on resources ownership.",
+      "proof": "Fresh operational reading resources evidence."
+    },
+    "quality": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading quality aligned.",
+      "motivation": "The operational reading result depends on quality ownership.",
+      "proof": "Fresh operational reading quality evidence."
+    },
+    "terminology": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading terminology aligned.",
+      "motivation": "The operational reading result depends on terminology ownership.",
+      "proof": "Fresh operational reading terminology evidence."
+    },
+    "exclusions": {
+      "profile": "only-one-interpretation-lifecycle",
+      "outcome": "Keep operational reading exclusions aligned.",
+      "motivation": "The operational reading result depends on exclusions ownership.",
+      "proof": "Fresh operational reading exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "references": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "assets": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "scripts": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "tests": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "examples": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "evals": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "policies": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "schemas": {
+      "profile": "only-one-interpretation-lifecycle"
+    },
+    "records": {
+      "profile": "only-one-interpretation-lifecycle"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "simplify-skill",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "simplify-skill-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification actors aligned.",
+      "motivation": "The behavior-preserving simplification result depends on actors ownership.",
+      "proof": "Fresh behavior-preserving simplification actors evidence."
+    },
+    "objects": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification objects aligned.",
+      "motivation": "The behavior-preserving simplification result depends on objects ownership.",
+      "proof": "Fresh behavior-preserving simplification objects evidence."
+    },
+    "actions": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification actions aligned.",
+      "motivation": "The behavior-preserving simplification result depends on actions ownership.",
+      "proof": "Fresh behavior-preserving simplification actions evidence."
+    },
+    "states": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification states aligned.",
+      "motivation": "The behavior-preserving simplification result depends on states ownership.",
+      "proof": "Fresh behavior-preserving simplification states evidence."
+    },
+    "invariants": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification invariants aligned.",
+      "motivation": "The behavior-preserving simplification result depends on invariants ownership.",
+      "proof": "Fresh behavior-preserving simplification invariants evidence."
+    },
+    "variants": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification variants aligned.",
+      "motivation": "The behavior-preserving simplification result depends on variants ownership.",
+      "proof": "Fresh behavior-preserving simplification variants evidence."
+    },
+    "interfaces": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification interfaces aligned.",
+      "motivation": "The behavior-preserving simplification result depends on interfaces ownership.",
+      "proof": "Fresh behavior-preserving simplification interfaces evidence."
+    },
+    "authorities": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification authorities aligned.",
+      "motivation": "The behavior-preserving simplification result depends on authorities ownership.",
+      "proof": "Fresh behavior-preserving simplification authorities evidence."
+    },
+    "failures": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification failures aligned.",
+      "motivation": "The behavior-preserving simplification result depends on failures ownership.",
+      "proof": "Fresh behavior-preserving simplification failures evidence."
+    },
+    "recoveries": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification recoveries aligned.",
+      "motivation": "The behavior-preserving simplification result depends on recoveries ownership.",
+      "proof": "Fresh behavior-preserving simplification recoveries evidence."
+    },
+    "evidence": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification evidence aligned.",
+      "motivation": "The behavior-preserving simplification result depends on evidence ownership.",
+      "proof": "Fresh behavior-preserving simplification evidence evidence."
+    },
+    "time": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification time aligned.",
+      "motivation": "The behavior-preserving simplification result depends on time ownership.",
+      "proof": "Fresh behavior-preserving simplification time evidence."
+    },
+    "resources": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification resources aligned.",
+      "motivation": "The behavior-preserving simplification result depends on resources ownership.",
+      "proof": "Fresh behavior-preserving simplification resources evidence."
+    },
+    "quality": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification quality aligned.",
+      "motivation": "The behavior-preserving simplification result depends on quality ownership.",
+      "proof": "Fresh behavior-preserving simplification quality evidence."
+    },
+    "terminology": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification terminology aligned.",
+      "motivation": "The behavior-preserving simplification result depends on terminology ownership.",
+      "proof": "Fresh behavior-preserving simplification terminology evidence."
+    },
+    "exclusions": {
+      "profile": "simplify-skill-lifecycle",
+      "outcome": "Keep behavior-preserving simplification exclusions aligned.",
+      "motivation": "The behavior-preserving simplification result depends on exclusions ownership.",
+      "proof": "Fresh behavior-preserving simplification exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "references": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "assets": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "scripts": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "tests": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "examples": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "evals": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "policies": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "schemas": {
+      "profile": "simplify-skill-lifecycle"
+    },
+    "records": {
+      "profile": "simplify-skill-lifecycle"
+    }
+  }
+}

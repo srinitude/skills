@@ -4,6 +4,8 @@ Load this reference when a reification spans turns, uses more than one source, o
 
 ## Where the record lives
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Write the record to `./reify-log-<slug>.md` in the directory the user is working in, where `<slug>` is two or three lowercase words from the signal joined by hyphens, for example `./reify-log-lighthouse-summers.md`. Print the absolute path once when the file is created so the user can find it later. One record holds one active reification. When the directory already holds a record for a different signal, create a second file with its own slug instead of appending to the first. `continue <record>` takes that exact relative path as its argument, for example `continue reify-log-lighthouse-summers.md`. When no path is given and exactly one record file exists in the directory, resume that one. When several exist, list them and ask which one, then stop.
 
 ## Required fields

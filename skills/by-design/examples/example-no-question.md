@@ -7,23 +7,23 @@ This is a run on an accessibility statement programme brought under the European
 ## Steps 6 and 7, the rows
 
 ```
-$ python3 scripts/ledger.py init --file decision-ledger-eaa.md --slug eaa
+$ mise run ledger init --file decision-ledger-eaa.md --slug eaa
 created decision-ledger-eaa.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-eaa.md --decision "What the accessibility statement claims" --chosen "only what a person meets on the screen today" --trades "a statement that reads well vs. one that survives a visit" --risks "a published claim contradicted by the first page a user opens" --origin deliberate
+$ mise run ledger add --file decision-ledger-eaa.md --decision "What the accessibility statement claims" --chosen "only what a person meets on the screen today" --trades "a statement that reads well vs. one that survives a visit" --risks "a published claim contradicted by the first page a user opens" --origin deliberate
 appended to decision-ledger-eaa.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-eaa.md --decision "Who signs the evidence" --chosen "the team that ships the surface, not the audit vendor" --trades "an external name on the page vs. accountability where changes happen" --risks "a signature nobody can act on when the surface changes" --origin deliberate
+$ mise run ledger add --file decision-ledger-eaa.md --decision "Who signs the evidence" --chosen "the team that ships the surface, not the audit vendor" --trades "an external name on the page vs. accountability where changes happen" --risks "a signature nobody can act on when the surface changes" --origin deliberate
 appended to decision-ledger-eaa.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-eaa.md --decision "How often the evidence is retaken" --chosen "every release that touches a declared surface" --trades "a cheap annual sweep vs. evidence that tracks the product" --risks "a statement that was true on the day it was written and never since" --origin deliberate
+$ mise run ledger add --file decision-ledger-eaa.md --decision "How often the evidence is retaken" --chosen "every release that touches a declared surface" --trades "a cheap annual sweep vs. evidence that tracks the product" --risks "a statement that was true on the day it was written and never since" --origin deliberate
 appended to decision-ledger-eaa.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-eaa.md --decision "Where the statement gets its wording from" --chosen "" --trades "a template that is quick vs. wording that describes this product" --risks "a page of boilerplate that tells a user nothing about what they will meet" --origin deliberate
+$ mise run ledger add --file decision-ledger-eaa.md --decision "Where the statement gets its wording from" --chosen "" --trades "a template that is quick vs. wording that describes this product" --risks "a page of boilerplate that tells a user nothing about what they will meet" --origin deliberate
 appended to decision-ledger-eaa.md
 exit 0
 ```
@@ -31,7 +31,7 @@ exit 0
 ## Step 8, the interruption check
 
 ```
-$ python3 scripts/speak.py --file decision-ledger-eaa.md --rank
+$ mise run speak --file decision-ledger-eaa.md --rank
 no inherited rows, so nothing earns a question
 exit 0
 ```
@@ -47,7 +47,7 @@ The statement has to match what a person meets on the screen today: which succes
 ```
 
 ```
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 the ledger holds no inherited row, so this reply has not earned its question
 exit 1
 ```
@@ -62,7 +62,7 @@ none
 ```
 
 ```
-$ python3 scripts/check_reply.py --file reply.md
+$ mise run check-reply --file reply.md
 draft passed every rule
 exit 0
 ```

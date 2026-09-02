@@ -49,8 +49,13 @@ test('runs the bundled clock without a shell directory variable', async () => {
     join(root, 'skills', 'always-current-datetime', 'SKILL.md'),
     'utf8',
   );
+  const mise = await readFile(
+    join(root, 'skills', 'always-current-datetime', 'mise.toml'),
+    'utf8',
+  );
 
-  expect(skill).toContain('python3 scripts/current_anchor.py');
+  expect(skill).toContain('mise run refresh');
+  expect(mise).toContain('run = "python3 scripts/current_anchor.py"');
   expect(skill).toContain("process runner's working directory");
   expect(skill).not.toContain('SKILL_DIR');
 });
@@ -65,7 +70,11 @@ test('binds the portable files to every source file and eval case', async () => 
     public_version: '0.1.0',
   });
   expect(lineage.source_files).toEqual(
-    Object.entries(sourceHashes).map(([path, hash]) => ({ path, sha256: hash })),
+    Object.entries(sourceHashes)
+      .map(([path, hash]) => ({ path, sha256: hash }))
+      .sort((left, right) =>
+        left.path < right.path ? -1 : left.path > right.path ? 1 : 0,
+      ),
   );
   expect(mapping).toMatchObject({ coverage: 1 });
   expect(mapping.source_case_ids).toEqual(

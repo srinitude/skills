@@ -1,0 +1,457 @@
+{
+  "version": "1.0.0",
+  "skill": "simplify-skill",
+  "outcome": "Reduce skill complexity while proving semantic parity and preserving every accepted behavior.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted behavior-preserving simplification behavior.",
+      "reason": "The behavior-preserving simplification outcome depends on stable domain semantics.",
+      "failure_prevented": "A behavior-preserving simplification update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable behavior-preserving simplification checks through Mise.",
+      "reason": "The behavior-preserving simplification judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A behavior-preserving simplification claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "behavior-preserving simplification",
+    "skill complexity",
+    "plain instruction",
+    "semantic parity"
+  ],
+  "domain_failures": [
+    "The behavior-preserving simplification result changes without proof.",
+    "The behavior-preserving simplification package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh behavior-preserving simplification task output and saved receipts.",
+    "Current behavior-preserving simplification behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": ["The behavior-preserving simplification contract owns actors decisions."],
+    "objects": ["The behavior-preserving simplification contract owns objects decisions."],
+    "actions": ["The behavior-preserving simplification contract owns actions decisions."],
+    "states": ["The behavior-preserving simplification contract owns states decisions."],
+    "invariants": [
+      "The behavior-preserving simplification contract owns invariants decisions."
+    ],
+    "variants": [
+      "The behavior-preserving simplification contract owns variants decisions."
+    ],
+    "interfaces": [
+      "The behavior-preserving simplification contract owns interfaces decisions."
+    ],
+    "authorities": [
+      "The behavior-preserving simplification contract owns authorities decisions."
+    ],
+    "failures": [
+      "The behavior-preserving simplification contract owns failures decisions."
+    ],
+    "recoveries": [
+      "The behavior-preserving simplification contract owns recoveries decisions."
+    ],
+    "evidence": [
+      "The behavior-preserving simplification contract owns evidence decisions."
+    ],
+    "time": ["The behavior-preserving simplification contract owns time decisions."],
+    "resources": [
+      "The behavior-preserving simplification contract owns resources decisions."
+    ],
+    "quality": ["The behavior-preserving simplification contract owns quality decisions."],
+    "terminology": [
+      "The behavior-preserving simplification contract owns terminology decisions."
+    ],
+    "exclusions": [
+      "The behavior-preserving simplification contract owns exclusions decisions."
+    ]
+  },
+  "research_questions": {
+    "actors": "What can change the behavior-preserving simplification actors decision?",
+    "objects": "What can change the behavior-preserving simplification objects decision?",
+    "actions": "What can change the behavior-preserving simplification actions decision?",
+    "states": "What can change the behavior-preserving simplification states decision?",
+    "invariants": "What can change the behavior-preserving simplification invariants decision?",
+    "variants": "What can change the behavior-preserving simplification variants decision?",
+    "interfaces": "What can change the behavior-preserving simplification interfaces decision?",
+    "authorities": "What can change the behavior-preserving simplification authorities decision?",
+    "failures": "What can change the behavior-preserving simplification failures decision?",
+    "recoveries": "What can change the behavior-preserving simplification recoveries decision?",
+    "evidence": "What can change the behavior-preserving simplification evidence decision?",
+    "time": "What can change the behavior-preserving simplification time decision?",
+    "resources": "What can change the behavior-preserving simplification resources decision?",
+    "quality": "What can change the behavior-preserving simplification quality decision?",
+    "terminology": "What can change the behavior-preserving simplification terminology decision?",
+    "exclusions": "What can change the behavior-preserving simplification exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://agentskills.io/specification",
+      "source_class": "first_party",
+      "claim": "A portable skill can keep a small body and disclose support only as needed.",
+      "limitations": "Package limits do not prove behavior-preserving simplification.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/plain-language-principles",
+      "source_class": "first_party",
+      "claim": "Plain instruction favors familiar words and direct sentence structure.",
+      "limitations": "Plain language can still lose domain behavior.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://accessible.canada.ca/standards-and-technical-guides/standards-and-technical-guides-database/can-asc-312025-plain-language/12-structure",
+      "source_class": "standard",
+      "claim": "Clear information structure can reduce skill complexity for readers.",
+      "limitations": "Structure alone does not prove semantic parity.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8717946/",
+      "source_class": "research",
+      "claim": "Plain summaries can improve reader comprehension in a measured setting.",
+      "limitations": "The study does not establish parity for agent skill instructions.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can structure alone prove the behavior-preserving simplification result?",
+      "source": "https://agentskills.io/specification",
+      "checked_at": "2026-09-02T09:54:51-04:00",
+      "result": "No. The behavior-preserving simplification behavior still needs direct evaluation.",
+      "disposition": "Keep structure and behavior-preserving simplification behavior as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named behavior-preserving simplification agentic-request result.",
+        "motivation": "The behavior-preserving simplification workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared behavior-preserving simplification agentic-request route.",
+        "proof": "Fresh behavior-preserving simplification agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named behavior-preserving simplification invocation-policy result.",
+        "motivation": "The behavior-preserving simplification workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared behavior-preserving simplification invocation-policy route.",
+        "proof": "Fresh behavior-preserving simplification invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named behavior-preserving simplification improvement-policy result.",
+        "motivation": "The behavior-preserving simplification workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared behavior-preserving simplification improvement-policy route.",
+        "proof": "Fresh behavior-preserving simplification improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named behavior-preserving simplification mise-primitives-update result.",
+        "motivation": "The behavior-preserving simplification workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared behavior-preserving simplification mise-primitives-update route.",
+        "proof": "Fresh behavior-preserving simplification mise-primitives-update output and exit status."
+      }
+    ],
+    "tasks": {
+      "ci": {
+        "outcome": "Advance the behavior-preserving simplification result through ci.",
+        "motivation": "The behavior-preserving simplification package needs the ci gate.",
+        "value": "Produce current behavior-preserving simplification evidence from ci.",
+        "proof": "The behavior-preserving simplification ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared behavior-preserving simplification responsibility."
+      },
+      "test": {
+        "outcome": "Advance the behavior-preserving simplification result through test.",
+        "motivation": "The behavior-preserving simplification package needs the test gate.",
+        "value": "Produce current behavior-preserving simplification evidence from test.",
+        "proof": "The behavior-preserving simplification test task exits zero with readable output.",
+        "applicability": "Use test for its declared behavior-preserving simplification responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the behavior-preserving simplification result through validate.",
+        "motivation": "The behavior-preserving simplification package needs the validate gate.",
+        "value": "Produce current behavior-preserving simplification evidence from validate.",
+        "proof": "The behavior-preserving simplification validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared behavior-preserving simplification responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the behavior-preserving simplification result through lint-writing.",
+        "motivation": "The behavior-preserving simplification package needs the lint-writing gate.",
+        "value": "Produce current behavior-preserving simplification evidence from lint-writing.",
+        "proof": "The behavior-preserving simplification lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared behavior-preserving simplification responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the behavior-preserving simplification result through lint-code.",
+        "motivation": "The behavior-preserving simplification package needs the lint-code gate.",
+        "value": "Produce current behavior-preserving simplification evidence from lint-code.",
+        "proof": "The behavior-preserving simplification lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared behavior-preserving simplification responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the behavior-preserving simplification result through evals.",
+        "motivation": "The behavior-preserving simplification package needs the evals gate.",
+        "value": "Produce current behavior-preserving simplification evidence from evals.",
+        "proof": "The behavior-preserving simplification evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared behavior-preserving simplification responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through domain-research-policy.",
+        "motivation": "The behavior-preserving simplification package needs the domain-research-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from domain-research-policy.",
+        "proof": "The behavior-preserving simplification domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through use-case-policy.",
+        "motivation": "The behavior-preserving simplification package needs the use-case-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from use-case-policy.",
+        "proof": "The behavior-preserving simplification use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through mise-primitives-policy.",
+        "motivation": "The behavior-preserving simplification package needs the mise-primitives-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from mise-primitives-policy.",
+        "proof": "The behavior-preserving simplification mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through primitive-lifecycle-policy.",
+        "motivation": "The behavior-preserving simplification package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from primitive-lifecycle-policy.",
+        "proof": "The behavior-preserving simplification primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through task-graph-policy.",
+        "motivation": "The behavior-preserving simplification package needs the task-graph-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from task-graph-policy.",
+        "proof": "The behavior-preserving simplification task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through decision-policy.",
+        "motivation": "The behavior-preserving simplification package needs the decision-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from decision-policy.",
+        "proof": "The behavior-preserving simplification decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through improvement-policy.",
+        "motivation": "The behavior-preserving simplification package needs the improvement-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from improvement-policy.",
+        "proof": "The behavior-preserving simplification improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the behavior-preserving simplification result through invocation-policy.",
+        "motivation": "The behavior-preserving simplification package needs the invocation-policy gate.",
+        "value": "Produce current behavior-preserving simplification evidence from invocation-policy.",
+        "proof": "The behavior-preserving simplification invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared behavior-preserving simplification responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the behavior-preserving simplification result through agentic-request.",
+        "motivation": "The behavior-preserving simplification package needs the agentic-request gate.",
+        "value": "Produce current behavior-preserving simplification evidence from agentic-request.",
+        "proof": "The behavior-preserving simplification agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared behavior-preserving simplification responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the behavior-preserving simplification result through mise-latest.",
+        "motivation": "The behavior-preserving simplification package needs the mise-latest gate.",
+        "value": "Produce current behavior-preserving simplification evidence from mise-latest.",
+        "proof": "The behavior-preserving simplification mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared behavior-preserving simplification responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the behavior-preserving simplification result through mise-primitives-update.",
+        "motivation": "The behavior-preserving simplification package needs the mise-primitives-update gate.",
+        "value": "Produce current behavior-preserving simplification evidence from mise-primitives-update.",
+        "proof": "The behavior-preserving simplification mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared behavior-preserving simplification responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification skill_body behavior.",
+      "outcome": "Keep behavior-preserving simplification skill_body aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one skill_body owner.",
+      "value": "Expose current behavior-preserving simplification skill_body progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification skill_body behavior.",
+      "proof": "Fresh behavior-preserving simplification skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification references behavior.",
+      "outcome": "Keep behavior-preserving simplification references aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one references owner.",
+      "value": "Expose current behavior-preserving simplification references progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification references behavior.",
+      "proof": "Fresh behavior-preserving simplification references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification assets behavior.",
+      "outcome": "Keep behavior-preserving simplification assets aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one assets owner.",
+      "value": "Expose current behavior-preserving simplification assets progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification assets behavior.",
+      "proof": "Fresh behavior-preserving simplification assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification scripts behavior.",
+      "outcome": "Keep behavior-preserving simplification scripts aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one scripts owner.",
+      "value": "Expose current behavior-preserving simplification scripts progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification scripts behavior.",
+      "proof": "Fresh behavior-preserving simplification scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification tests behavior.",
+      "outcome": "Keep behavior-preserving simplification tests aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one tests owner.",
+      "value": "Expose current behavior-preserving simplification tests progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification tests behavior.",
+      "proof": "Fresh behavior-preserving simplification tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification mise_tasks behavior.",
+      "outcome": "Keep behavior-preserving simplification mise_tasks aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one mise_tasks owner.",
+      "value": "Expose current behavior-preserving simplification mise_tasks progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification mise_tasks behavior.",
+      "proof": "Fresh behavior-preserving simplification mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification examples behavior.",
+      "outcome": "Keep behavior-preserving simplification examples aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one examples owner.",
+      "value": "Expose current behavior-preserving simplification examples progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification examples behavior.",
+      "proof": "Fresh behavior-preserving simplification examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification evals behavior.",
+      "outcome": "Keep behavior-preserving simplification evals aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one evals owner.",
+      "value": "Expose current behavior-preserving simplification evals progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification evals behavior.",
+      "proof": "Fresh behavior-preserving simplification evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification policies behavior.",
+      "outcome": "Keep behavior-preserving simplification policies aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one policies owner.",
+      "value": "Expose current behavior-preserving simplification policies progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification policies behavior.",
+      "proof": "Fresh behavior-preserving simplification policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification schemas behavior.",
+      "outcome": "Keep behavior-preserving simplification schemas aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one schemas owner.",
+      "value": "Expose current behavior-preserving simplification schemas progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification schemas behavior.",
+      "proof": "Fresh behavior-preserving simplification schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own behavior-preserving simplification records behavior.",
+      "outcome": "Keep behavior-preserving simplification records aligned with the accepted result.",
+      "motivation": "The behavior-preserving simplification package needs one records owner.",
+      "value": "Expose current behavior-preserving simplification records progress.",
+      "failure_prevented": "Stale or generic behavior-preserving simplification records behavior.",
+      "proof": "Fresh behavior-preserving simplification records validation and behavioral evidence."
+    }
+  }
+}

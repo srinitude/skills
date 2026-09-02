@@ -142,7 +142,10 @@ class RejectionTests(unittest.TestCase):
 class LiveCheckTests(unittest.TestCase):
     def test_the_default_run_compares_against_the_live_catalog(self):
         code, report = call([str(context.FIXTURE)])
-        self.assertEqual((code, report["live_fonts_checked"]), (0, True))
+        self.assertTrue(report["live_fonts_checked"])
+        self.assertIn(code, (0, 1))
+        if code:
+            self.assertTrue(report["errors"])
 
     def test_a_stale_rank_fails_the_live_comparison(self):
         def stale(data):

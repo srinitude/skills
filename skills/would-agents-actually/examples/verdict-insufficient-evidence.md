@@ -33,12 +33,14 @@ PY
 200 https://arxiv.org/abs/2406.12045 [2406.12045] $τ$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains
 exit 0
 
-$ python3 scripts/validate_verdict.py --input ../../.artifacts/example-runs/agent-verdict.md
+$ mise run validate-verdict --input ../../.artifacts/example-runs/agent-verdict.md
 {"errors": [], "input": "../../.artifacts/example-runs/agent-verdict.md", "status": "PASS"}
 exit 0
 ```
 
 ## Files created
+
+Resource gate: run `mise run validate` before using package files named here.
 
 `../../.artifacts/example-runs/agent-verdict.md`
 

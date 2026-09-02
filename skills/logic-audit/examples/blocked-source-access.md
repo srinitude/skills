@@ -1,5 +1,7 @@
 # Blocked source access
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this when a required source cannot be inspected.
 
 ## What the user said

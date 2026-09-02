@@ -2,7 +2,7 @@
 
 ## The file
 
-One ledger per project, named `decision-ledger-<slug>.md`, kept in the working directory and appended to across sessions. `scripts/ledger.py init` writes the header. Every later row comes from `add`.
+One ledger per project, named `decision-ledger-<slug>.md`, kept in the working directory and appended to across sessions. `mise run ledger init` writes the header. Every later row comes from `add`.
 
 ## The columns
 

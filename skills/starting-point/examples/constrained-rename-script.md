@@ -1,5 +1,7 @@
 # A method constraint that may be fixed, and contradicts itself
 
+Resource gate: run `mise run validate` before using package files named here.
+
 Owner and backlink: [`../SKILL.md`](../SKILL.md). Read this before deciding that a stated method is optional, before silently resolving a constraint that cannot hold, and before deciding whether a preview default is scope expansion.
 
 Guess it removes: whether "use regex only, no libraries" is a fixed constraint or a candidate path, which clause to honor when both cannot hold, and whether shipping a dry run by default overrides what the user asked for.
@@ -9,6 +11,8 @@ Guess it removes: whether "use regex only, no libraries" is a fixed constraint o
 > Write a python script that renames all the files in a folder to snake case. Use regex only, no libraries.
 
 ## Classification
+
+Resource gate: run `mise run validate` before using package files named here.
 
 Fixed. It is explicit, emphatic, and stated twice. Row one of the table in [`../references/constraint-classes.md`](../references/constraint-classes.md). Treating it as a candidate path and shipping a helper library would ignore the clearest instruction in the request.
 
@@ -144,6 +148,8 @@ exit=2
 ```
 
 ## Replies that fail
+
+Resource gate: run `mise run validate` before using package files named here.
 
 > Here is a script that renames all your files to snake_case.
 

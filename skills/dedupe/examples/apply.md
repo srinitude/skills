@@ -2,6 +2,8 @@
 
 ## Prior evidence
 
+Resource gate: run `mise run validate` before using package files named here.
+
 `examples/inspect.md` reported one normalized group, `[0, 1]`, and proposed index 0 as canonical. The source list and policy have not changed.
 
 ## User says

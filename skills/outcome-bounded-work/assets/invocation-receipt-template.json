@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "outcome-bounded-work",
+  "operation": "Name the current outcome boundary operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh outcome boundary evidence."
+}

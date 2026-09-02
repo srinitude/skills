@@ -20,7 +20,7 @@ none
 ## Commands run
 
 ```
-$ python3 scripts/slice.py --category "Persuasion, defaults and dark patterns" --lens ethics --limit 3
+$ mise run slice --category "Persuasion, defaults and dark patterns" --lens ethics --limit 3
 # 3 questions
 
 **Is any step in this flow sludge: friction we would remove instantly if it sat on the signup path instead?**
@@ -42,15 +42,15 @@ $ python3 scripts/slice.py --category "Persuasion, defaults and dark patterns" -
 - source: Apple HIG: Managing notifications (sending marketing notifications) https://developer.apple.com/design/human-interface-guidelines/managing-notifications
 exit 0
 
-$ python3 scripts/ledger.py init --file decision-ledger-cancel.md --slug cancel
+$ mise run ledger init --file decision-ledger-cancel.md --slug cancel
 created decision-ledger-cancel.md
 exit 0
 
-$ python3 scripts/ledger.py add --file decision-ledger-cancel.md --slug cancel --decision "Save offer before cancel, or one click out" --trades "friction that protects vs. friction that profits" --risks "a refund path harder than the purchase path" --origin open --falsifier "the same friction judged unacceptable on signup"
+$ mise run ledger add --file decision-ledger-cancel.md --slug cancel --decision "Save offer before cancel, or one click out" --trades "friction that protects vs. friction that profits" --risks "a refund path harder than the purchase path" --origin open --falsifier "the same friction judged unacceptable on signup"
 appended to decision-ledger-cancel.md
 exit 0
 
-$ python3 scripts/check_reply.py --file draft.md
+$ mise run check-reply --file draft.md
 draft passed every rule
 exit 0
 ```

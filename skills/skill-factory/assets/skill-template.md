@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: skill-factory
   version: "0.1.0"
+  scope: "{{SCOPE}}"
 ---
 
 # {{NAME}}

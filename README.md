@@ -136,6 +136,8 @@ Run the complete local gate with:
 mise run ci
 ```
 
+Factory outputs use `metadata.scope` to distinguish availability across projects (`user`) from availability in one project (`project`). Updates retain valid scope, and untouched legacy skills remain readable. The [scope and variant workflow](skills/skill-factory/references/scope-variants.md) covers independent variants and explicit refreshes; the [shared-directory integration](adapters/shared-skills/README.md) verifies placement separately.
+
 ## Contribute and report problems
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing a skill or integration. The [skills.sh publishing notes](docs/skills-sh.md) record discovery, telemetry, API, and listing-correction rules. Security reports follow [SECURITY.md](SECURITY.md). Other help is covered by [SUPPORT.md](SUPPORT.md).

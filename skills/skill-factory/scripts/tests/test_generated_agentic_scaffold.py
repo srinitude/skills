@@ -13,7 +13,7 @@ class TestGeneratedAgenticScaffold(unittest.TestCase):
             result = run(
                 "scaffold_skill.py", "--name", "agentic-trial",
                 "--description", "Use when an agentic trial is requested.",
-                "--dest", tmp)
+                "--dest", tmp, "--scope", "user")
             root = pathlib.Path(tmp) / "agentic-trial"
             config = (root / "mise.toml").read_text(encoding="utf-8")
             body = (root / "SKILL.md").read_text(encoding="utf-8")

@@ -13,9 +13,11 @@ The file opens with three dashes at byte 0 and the fence closes on its own line.
 - name: 1 to 64 characters matching `^[a-z0-9]+(?:-[a-z0-9]+)*$`, equal to the directory name.
 - description: quoted, 1 to 1024 characters, says what the skill does and when it applies, contains "Use when", and carries the keywords a user would type.
 - license: MIT unless the user directs otherwise.
-- metadata: author and a quoted version string.
+- metadata: author, a quoted version string, and exactly one scope string, `user` or `project`, for every new or updated output. The scope contract owns intended-availability semantics and preserves other metadata within this extension point.
 
 Parse frontmatter as YAML. Reject malformed syntax, duplicate keys, invalid field types, compatibility outside 1 to 500 characters, and non-string allowed-tools. Use the pinned cached environment behind `mise run validate`.
+
+Load references/skill-scope-contract.md through `mise run validate` before creating or changing a skill. It owns scope resolution, legacy inspection versus output acceptance, adaptation, and placement boundaries. Copy it with this generation contract so generated packages retain those requirements.
 
 ## Body and causal order
 
@@ -112,6 +114,8 @@ Load evals/evals.json, evals/trigger-queries.json, and the registry contract at 
 An optional improvement trial begins only after required work passes. Freeze a fresh baseline, frozen evaluator, fixtures, seed when applicable, environment, time budget, repetitions, and resource measures before viewing the candidate result. Change one named dimension at the smallest owner. Record keep, discard, or crash outside the editable surface. Accept only Pareto improvement: the named dimension improves materially and no protected dimension regresses. On a worse, invalid, or unknown result, restore the last accepted version and verify its digest.
 
 ## Updating, standardizing, and importing
+
+Every operation that creates or changes a skill must satisfy references/skill-scope-contract.md through `mise run validate`; the factory uses its detailed variant workflow for adaptation.
 
 Before changing an existing skill, freeze a read-only file inventory, content digests, current purpose, valid triggers, accepted behavior, task graph, examples, and eval baseline. Also freeze the source outcome, proof, boundaries, forbidden outcomes, and mandatory methods. A collision, symlink, or unclassified host owner blocks the plan before any write. Preserve those owners unless the user explicitly changes them. Standardization repairs package shape and execution contracts; it does not replace domain meaning.
 

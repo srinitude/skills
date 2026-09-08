@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill variant adaptation review",
+  "type": "object",
+  "properties": {
+    "source_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "disposition": {
+            "enum": [
+              "reviewed",
+              "retained",
+              "adapted",
+              "excluded"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "disposition",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "adaptations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "compatibility": {
+      "type": "string",
+      "minLength": 1
+    },
+    "privacy_review": {
+      "type": "string",
+      "minLength": 1
+    },
+    "independence_review": {
+      "type": "string",
+      "minLength": 1
+    },
+    "forbidden_strings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "resolutions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project": {
+            "type": "string",
+            "minLength": 1
+          },
+          "difference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "script": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_exit": {
+            "type": "integer"
+          },
+          "expected_stdout": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "project",
+          "difference",
+          "script",
+          "expected_exit",
+          "expected_stdout"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "project_review": {
+      "type": "object",
+      "properties": {
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "coverage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "reviewed",
+                  "retained",
+                  "adapted",
+                  "excluded"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "disposition",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "facts": {
+          "type": "object",
+          "properties": {
+            "instructions": {
+              "type": "string",
+              "minLength": 1
+            },
+            "structure": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tools": {
+              "type": "string",
+              "minLength": 1
+            },
+            "commands": {
+              "type": "string",
+              "minLength": 1
+            },
+            "configuration": {
+              "type": "string",
+              "minLength": 1
+            },
+            "constraints": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "instructions",
+            "structure",
+            "tools",
+            "commands",
+            "configuration",
+            "constraints"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "digest",
+        "coverage",
+        "facts"
+      ],
+      "additionalProperties": false
+    },
+    "metadata_changes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "source_digest",
+    "candidate_digest",
+    "coverage",
+    "adaptations",
+    "requirements",
+    "compatibility",
+    "privacy_review",
+    "independence_review",
+    "forbidden_strings",
+    "resolutions",
+    "scenarios"
+  ],
+  "additionalProperties": false
+}

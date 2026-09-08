@@ -118,3 +118,8 @@ depends = [
   "eval-offline",
   "benchmark-offline",
 ]
+
+[tasks.check-skill-destination]
+description = "Verify user or project placement using the shared-skills integration"
+depends = []
+run = "python3 adapters/shared-skills/check_destination.py"

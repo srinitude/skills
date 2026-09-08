@@ -7,8 +7,9 @@ const metadataSchema = z
   .object({
     author: z.literal('Kiren Srinivasan'),
     version: z.string().regex(/^\d+\.\d+\.\d+$/),
+    scope: z.enum(['user', 'project']).optional(),
   })
-  .strict();
+  .catchall(z.string());
 
 const skillHeaderSchema = z
   .object({
@@ -23,7 +24,12 @@ export interface SkillDocument {
   body: string;
   description: string;
   license: 'MIT';
-  metadata: { author: 'Kiren Srinivasan'; version: string };
+  metadata: {
+    author: 'Kiren Srinivasan';
+    version: string;
+    scope?: 'user' | 'project';
+    [key: string]: string | undefined;
+  };
   name: string;
   source: string;
 }

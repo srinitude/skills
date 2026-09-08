@@ -35,3 +35,7 @@ Mark the record BLOCKED when any of these conditions holds:
 ## Judge output
 
 Return one record per candidate response with the case ID, run index, required verdicts, veto verdicts, one short observation per criterion, overall status, and material-conflict flag. Do not include an aggregate score in place of criterion records.
+
+## Scope and variant vetoes
+
+Use `mise run evals` for these cases. Veto acceptance when scope is absent or invalid, scope changes without an explicit request, an unresolved choice is guessed from location, or metadata alone causes installation or permission changes. Veto a variant that mutates its source without an explicit in-place request, hides a source installation dependency, loses attribution or a mandatory requirement, lacks actual project adaptation evidence, overwrites a collision, or loses an intentional customization on refresh. Grade package checks separately from semantic and executed behavior evidence.

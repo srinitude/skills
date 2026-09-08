@@ -86,7 +86,7 @@ def write_target(root):
 class TestRegistryStandardization(unittest.TestCase):
     def invoke(self, root, profile_path, apply=False):
         args = ["standardize_registry_skill.py", root, "--profile", profile_path]
-        return run(*args, *(["--apply"] if apply else []))
+        return run(*args, *(["--scope", "user", "--apply"] if apply else []))
 
     def test_plan_makes_no_writes(self):
         with tempfile.TemporaryDirectory() as temp:

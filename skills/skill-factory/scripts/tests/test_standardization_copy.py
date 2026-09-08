@@ -18,7 +18,7 @@ class TestCanonicalCopy(unittest.TestCase):
             profile_path = Path(temp) / "profile.json"
             profile_path.write_text(json.dumps(profile()), encoding="utf-8")
             result = run("standardize_registry_skill.py", root, "--profile",
-                         profile_path, "--apply")
+                         profile_path, "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn("mise_section_lines", checker.read_text())
 

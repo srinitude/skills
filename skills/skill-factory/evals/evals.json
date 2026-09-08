@@ -173,6 +173,135 @@
         "A failed check or judgment returns to the lowest owning step and invalidates dependent evidence.",
         "The generated skill workflow contract and full Mise CI pass after the domain content is filled."
       ]
+    },
+    {
+      "id": 16,
+      "prompt": "Create a user-level file-inventory skill for use across my projects.",
+      "expected_output": "scaffold_and_verify",
+      "assertions": [
+        "Resolve explicit user scope before writing.",
+        "Store metadata.scope as user and validate the generated skill with its own acceptance checker.",
+        "Do not infer scope from the source registry path."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "Create a project-level file-inventory skill for repo:atlas; inspect its instructions and configuration first.",
+      "expected_output": "scaffold_and_verify",
+      "assertions": [
+        "Inspect authoritative project context and use metadata.scope project.",
+        "Preserve the capability and run its declared project scenario.",
+        "Do not assume project facts from the current directory."
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "Update the examples of this skill whose valid metadata.scope is project. I have not requested a scope change.",
+      "expected_output": "fix_and_rerun",
+      "assertions": [
+        "Preserve project scope and other metadata.",
+        "Accept only after changed-output validation.",
+        "Do not change scope to user because its instructions are generic."
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "Inspect this untouched legacy skill with no scope metadata.",
+      "expected_output": "report_check_results",
+      "assertions": [
+        "Use legacy inspection without writing or silently assigning scope.",
+        "Explain that a later update requires a resolved scope.",
+        "Do not force all registry skills to acquire scope."
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "Create a skill for this workflow. I have not said whether it is for all my projects or only this repository.",
+      "expected_output": "ask_one_question",
+      "assertions": [
+        "Ask one concise scope question before the affected write.",
+        "Do not choose project only because the current directory is a repository."
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "The authoritative brief says this is only for repo:atlas, but the current availability requirement says all my projects. Create it without a settled scope choice.",
+      "expected_output": "ask_one_question",
+      "assertions": [
+        "Surface the conflict and ask one concise question before writing.",
+        "Do not silently pick a scope or write both values."
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "Accept a skill with metadata.scope: [user, project], or with duplicate scope keys.",
+      "expected_output": "refuse_invalid_input",
+      "assertions": [
+        "Reject invalid types and duplicate keys during inspection and acceptance.",
+        "Leave existing files unchanged.",
+        "Do not coerce the value or keep the last duplicate key."
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "Create an Atlas project-level variant of my user-level file inventory skill. Keep the source intact.",
+      "expected_output": "scaffold_and_verify",
+      "assertions": [
+        "Read the complete source and project instructions, structure, tools, commands, configuration, and constraints.",
+        "Create a separate identity, adapt applicable behavior, bind project identity, and record source digest and both scopes.",
+        "Verify source preservation and project behavior before promotion.",
+        "Do not relabel without adaptation evidence or overwrite the source."
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "Create a user-level variant of the Atlas project inventory skill that works in Python src and JavaScript packages/lib projects.",
+      "expected_output": "scaffold_and_verify",
+      "assertions": [
+        "Generalize project-bound resources into validated configuration while preserving mandatory boundaries.",
+        "Remove private data and hidden source installation dependencies, preserving license and attribution.",
+        "Run two materially different successful project scenarios and independently validate the package.",
+        "Do not claim that reversing scope restores the original skill bytes automatically."
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "Repeat this accepted variant creation with the same plan and candidate. A different skill now occupies the destination.",
+      "expected_output": "refuse_invalid_input",
+      "assertions": [
+        "Reject a collision or changed target without writes.",
+        "Use an exact no-op only for unchanged accepted content; create no duplicate variant.",
+        "Do not overwrite, choose an automatic suffix, or rely on unverified host precedence."
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "Refresh this variant from its recorded source. Both source and variant changed the same inventory rule; the variant intentionally excludes comments.",
+      "expected_output": "fix_and_rerun",
+      "assertions": [
+        "Compare against recorded source and target baselines.",
+        "Block the affected write until the conflict is explicitly resolved, preserve intentional customizations, and validate the merged behavior.",
+        "Do not silently overwrite variant customizations or update variants when only the source was requested."
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "Explicitly adapt this project skill in place into a user-level skill.",
+      "expected_output": "fix_and_rerun",
+      "assertions": [
+        "Apply the same generalization, privacy, attribution, independent behavior and package checks as a separate variant.",
+        "Report the explicitly changed source honestly and retain the recorded prior source digest.",
+        "Do not claim source preservation after the authorized in-place change."
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "Install this project-level variant into the user-level discovery directory.",
+      "expected_output": "refuse_invalid_input",
+      "assertions": [
+        "Verify the installation destination through its integration and reject the scope mismatch before writing.",
+        "Do not treat metadata as installation permission or relocate the skill automatically."
+      ]
     }
   ]
 }

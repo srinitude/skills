@@ -39,7 +39,10 @@
     "actions": ["Create, update, standardize, import, validate, evaluate, reject, restore, and report an agent skill."],
     "states": ["Agent skill baseline, RED, candidate, accepted, rejected, blocked, restored, and released states."],
     "invariants": ["An agent skill keeps its domain purpose, accepted behavior, authority, proof, and portability."],
-    "variants": ["Agent skill instructions vary by domain while shared package checks retain one contract."],
+    "variants": [
+      "Agent skill instructions vary by domain while shared package checks retain one contract.",
+      "An agent skill has user or project availability; a derived skill preserves applicable behavior and maintains its own source baseline."
+    ],
     "interfaces": ["Agent skill frontmatter, SKILL.md, support files, Mise task graph, CI, and registry eval interfaces."],
     "authorities": ["The user controls agent skill purpose changes, destructive migration, publication, and deployment."],
     "failures": ["A skill package can fail through generic content, lost behavior, weak triggers, stale proof, or host lock-in."],
@@ -263,6 +266,20 @@
         "motivation": "A skill package cannot assess every relevant Mise feature against a stale schema.",
         "why_default_path": "The agent skill primitive update follows self-update, rejects unreconciled dispositions, and refreshes owned lineage.",
         "proof": "The agent skill catalog records the exact release schema digest, the policy reports zero omissions, and owned lineage matches."
+      },
+      {
+        "task": "resolve-scope",
+        "outcome": "Resolve intended availability before any agent skill write.",
+        "motivation": "The skill package must preserve valid scope and ask when intended availability is unresolved.",
+        "why_default_path": "This is the single agent skill owner for resolve-scope.",
+        "proof": "Agent skill acceptance: Scope preservation, explicit choice, ambiguity and malformed metadata tests."
+      },
+      {
+        "task": "variant",
+        "outcome": "Accept an independently adapted agent skill with immutable source lineage.",
+        "motivation": "A scope change must preserve the skill package capability while fitting its target context.",
+        "why_default_path": "This is the single agent skill owner for variant.",
+        "proof": "Agent skill acceptance: Both variant directions, project fit, isolated behavior, digest preservation, collision and refresh conflict tests."
       }
     ],
     "tasks": {
@@ -295,7 +312,21 @@
       "eval-target": {"outcome": "An external agent skill eval contract receives a factory check.", "motivation": "A skill package cannot rely on its own unchecked eval claims.", "value": "Agent skill target eval validation catches missing or malformed evidence.", "proof": "The skill package target eval check reports zero problems.", "applicability": "Run when evaluating an existing or newly generated agent skill."},
       "plan-standardize": {"outcome": "An existing agent skill is frozen before any update or migration write.", "motivation": "A skill package change needs a baseline to detect lost purpose or behavior.", "value": "Agent skill planning records digests, mappings, missing owners, and collisions.", "proof": "The skill package standardization plan emits a complete read-only JSON receipt.", "applicability": "Run before updating, standardizing, or importing an agent skill."},
       "standardize-target": {"outcome": "An existing agent skill receives domain-specific factory policy owners through one guarded write.", "motivation": "An agent skill registry update needs deterministic adoption without replacing its purpose or accepted behavior.", "value": "Agent skill standardization applies a reviewed domain profile, policy graph, and portable support owners idempotently.", "proof": "The skill package standardization receipt lists changed files and a repeat apply reports no changes.", "applicability": "Run after the agent skill baseline and domain profile are accepted for an in-place registry update."},
-      "refresh-registry-lineage": {"outcome": "Each named agent skill package receives current public file hashes and source lineage.", "motivation": "An agent skill package change invalidates its prior lineage inventory and digests.", "value": "Agent skill lineage refresh routes repository evidence repair through one factory-owned command.", "proof": "The skill package source evidence command reports PASS for every named skill.", "applicability": "Run after accepted agent skill package files change and before repository validation."}
+      "refresh-registry-lineage": {"outcome": "Each named agent skill package receives current public file hashes and source lineage.", "motivation": "An agent skill package change invalidates its prior lineage inventory and digests.", "value": "Agent skill lineage refresh routes repository evidence repair through one factory-owned command.", "proof": "The skill package source evidence command reports PASS for every named skill.", "applicability": "Run after accepted agent skill package files change and before repository validation."},
+      "resolve-scope": {
+        "outcome": "Resolve intended availability before any agent skill write.",
+        "motivation": "The skill package must preserve valid scope and ask when intended availability is unresolved.",
+        "value": "Resolve intended availability before any agent skill write.",
+        "proof": "Agent skill acceptance: Scope preservation, explicit choice, ambiguity and malformed metadata tests.",
+        "applicability": "Use this agent skill operation when its scope or adaptation contract applies."
+      },
+      "variant": {
+        "outcome": "Accept an independently adapted agent skill with immutable source lineage.",
+        "motivation": "A scope change must preserve the skill package capability while fitting its target context.",
+        "value": "Accept an independently adapted agent skill with immutable source lineage.",
+        "proof": "Agent skill acceptance: Both variant directions, project fit, isolated behavior, digest preservation, collision and refresh conflict tests.",
+        "applicability": "Use this agent skill operation when its scope or adaptation contract applies."
+      }
     }
   },
   "primitive_roles": {

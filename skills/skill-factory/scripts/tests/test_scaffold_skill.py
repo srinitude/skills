@@ -11,6 +11,7 @@ DESCRIPTION = "Use when a demo skill is needed for scaffold tests."
 
 
 def scaffold(dest, name="demo-skill", description=DESCRIPTION, *extra):
+    extra = extra if "--scope" in extra else (*extra, "--scope", "user")
     return run("scaffold_skill.py", "--name", name,
                "--description", description, "--dest", dest, *extra)
 

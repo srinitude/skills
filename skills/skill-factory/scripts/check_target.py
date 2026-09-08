@@ -37,8 +37,10 @@ CHECKS = {
 }
 
 
-def run_check(script, target):
+def run_check(script, target, inspect_legacy=False):
     command = [sys.executable, str(SCRIPT_DIR / script), str(target)]
+    if script == "validate_skill.py" and not inspect_legacy:
+        command.append("--accept")
     result = subprocess.run(command, capture_output=True, text=True)
     print(f"[{Path(script).stem}]")
     if result.stdout:
@@ -48,8 +50,8 @@ def run_check(script, target):
     return result.returncode
 
 
-def run_mode(mode, target):
-    codes = [run_check(script, target) for script in CHECKS[mode]]
+def run_mode(mode, target, inspect_legacy=False):
+    codes = [run_check(script, target, inspect_legacy) for script in CHECKS[mode]]
     return 1 if any(codes) else 0
 
 
@@ -58,6 +60,8 @@ def main(argv=None):
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("mode", choices=sorted(CHECKS))
     parser.add_argument("skill_root")
+    parser.add_argument("--inspect-legacy", action="store_true",
+                        help="inspect unchanged legacy skills without accepting updated output")
     args = parser.parse_args(argv)
     candidate = Path(args.skill_root)
     if candidate.is_symlink():
@@ -67,7 +71,7 @@ def main(argv=None):
     if not (target / "SKILL.md").is_file():
         print(f"FAIL not a skill directory: {target}")
         return 1
-    return run_mode(args.mode, target)
+    return run_mode(args.mode, target, args.inspect_legacy)
 
 
 if __name__ == "__main__":

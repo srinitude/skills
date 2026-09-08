@@ -9,7 +9,8 @@
     "contract_enforcement",
     "anti_overtrigger",
     "failure_handling",
-    "recovery"
+    "recovery",
+    "scope_and_variants"
   ],
   "decision_labels": [
     "scaffold_and_verify",
@@ -29,7 +30,7 @@
       "source_id": "SF-001",
       "group": "build",
       "title": "Full build from a workflow request",
-      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes.",
+      "prompt": "I keep writing release notes by hand from git log output. Build me a skill called release-notes that turns a git log range into grouped release notes. Make it available to me across projects.",
       "decision": "scaffold_and_verify",
       "pressures": [
         "open-ended request",
@@ -319,6 +320,239 @@
         "Add decorative pseudo-code that cannot change deployment-review behavior.",
         "Hide model-only judgment behind a Mise pass.",
         "Allow a repeat path without a blocker or accepted-state stop condition."
+      ]
+    },
+    {
+      "id": "SF-016",
+      "source_id": "SF-016",
+      "group": "scope_and_variants",
+      "title": "Scope User",
+      "prompt": "Create a user-level file-inventory skill for use across my projects.",
+      "decision": "scaffold_and_verify",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Resolve explicit user scope before writing.",
+        "Store metadata.scope as user and validate the generated skill with its own acceptance checker."
+      ],
+      "veto": [
+        "Infer scope from the source registry path."
+      ]
+    },
+    {
+      "id": "SF-017",
+      "source_id": "SF-017",
+      "group": "scope_and_variants",
+      "title": "Scope Project",
+      "prompt": "Create a project-level file-inventory skill for repo:atlas; inspect its instructions and configuration first.",
+      "decision": "scaffold_and_verify",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Inspect authoritative project context and use metadata.scope project.",
+        "Preserve the capability and run its declared project scenario."
+      ],
+      "veto": [
+        "Assume project facts from the current directory."
+      ]
+    },
+    {
+      "id": "SF-018",
+      "source_id": "SF-018",
+      "group": "scope_and_variants",
+      "title": "Scope Update",
+      "prompt": "Update the examples of this skill whose valid metadata.scope is project. I have not requested a scope change.",
+      "decision": "fix_and_rerun",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Preserve project scope and other metadata.",
+        "Accept only after changed-output validation."
+      ],
+      "veto": [
+        "Change scope to user because its instructions are generic."
+      ]
+    },
+    {
+      "id": "SF-019",
+      "source_id": "SF-019",
+      "group": "scope_and_variants",
+      "title": "Scope Legacy",
+      "prompt": "Inspect this untouched legacy skill with no scope metadata.",
+      "decision": "report_check_results",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Use legacy inspection without writing or silently assigning scope.",
+        "Explain that a later update requires a resolved scope."
+      ],
+      "veto": [
+        "Force all registry skills to acquire scope."
+      ]
+    },
+    {
+      "id": "SF-020",
+      "source_id": "SF-020",
+      "group": "scope_and_variants",
+      "title": "Scope Ambiguous",
+      "prompt": "Create a skill for this workflow. I have not said whether it is for all my projects or only this repository.",
+      "decision": "ask_one_question",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Ask one concise scope question before the affected write."
+      ],
+      "veto": [
+        "Choose project only because the current directory is a repository."
+      ]
+    },
+    {
+      "id": "SF-021",
+      "source_id": "SF-021",
+      "group": "scope_and_variants",
+      "title": "Scope Conflict",
+      "prompt": "The authoritative brief says this is only for repo:atlas, but the current availability requirement says all my projects. Create it without a settled scope choice.",
+      "decision": "ask_one_question",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Surface the conflict and ask one concise question before writing."
+      ],
+      "veto": [
+        "Silently pick a scope or write both values."
+      ]
+    },
+    {
+      "id": "SF-022",
+      "source_id": "SF-022",
+      "group": "scope_and_variants",
+      "title": "Scope Malformed",
+      "prompt": "Accept a skill with metadata.scope: [user, project], or with duplicate scope keys.",
+      "decision": "refuse_invalid_input",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Reject invalid types and duplicate keys during inspection and acceptance.",
+        "Leave existing files unchanged."
+      ],
+      "veto": [
+        "Coerce the value or keep the last duplicate key."
+      ]
+    },
+    {
+      "id": "SF-023",
+      "source_id": "SF-023",
+      "group": "scope_and_variants",
+      "title": "Variant Project",
+      "prompt": "Create an Atlas project-level variant of my user-level file inventory skill. Keep the source intact.",
+      "decision": "scaffold_and_verify",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Read the complete source and project instructions, structure, tools, commands, configuration, and constraints.",
+        "Create a separate identity, adapt applicable behavior, bind project identity, and record source digest and both scopes.",
+        "Verify source preservation and project behavior before promotion."
+      ],
+      "veto": [
+        "Relabel without adaptation evidence or overwrite the source."
+      ]
+    },
+    {
+      "id": "SF-024",
+      "source_id": "SF-024",
+      "group": "scope_and_variants",
+      "title": "Variant User",
+      "prompt": "Create a user-level variant of the Atlas project inventory skill that works in Python src and JavaScript packages/lib projects.",
+      "decision": "scaffold_and_verify",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Generalize project-bound resources into validated configuration while preserving mandatory boundaries.",
+        "Remove private data and hidden source installation dependencies, preserving license and attribution.",
+        "Run two materially different successful project scenarios and independently validate the package."
+      ],
+      "veto": [
+        "Claim that reversing scope restores the original skill bytes automatically."
+      ]
+    },
+    {
+      "id": "SF-025",
+      "source_id": "SF-025",
+      "group": "scope_and_variants",
+      "title": "Variant Rerun",
+      "prompt": "Repeat this accepted variant creation with the same plan and candidate. A different skill now occupies the destination.",
+      "decision": "refuse_invalid_input",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Reject a collision or changed target without writes.",
+        "Use an exact no-op only for unchanged accepted content; create no duplicate variant."
+      ],
+      "veto": [
+        "Overwrite, choose an automatic suffix, or rely on unverified host precedence."
+      ]
+    },
+    {
+      "id": "SF-026",
+      "source_id": "SF-026",
+      "group": "scope_and_variants",
+      "title": "Variant Refresh",
+      "prompt": "Refresh this variant from its recorded source. Both source and variant changed the same inventory rule; the variant intentionally excludes comments.",
+      "decision": "fix_and_rerun",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Compare against recorded source and target baselines.",
+        "Block the affected write until the conflict is explicitly resolved, preserve intentional customizations, and validate the merged behavior."
+      ],
+      "veto": [
+        "Silently overwrite variant customizations or update variants when only the source was requested."
+      ]
+    },
+    {
+      "id": "SF-027",
+      "source_id": "SF-027",
+      "group": "scope_and_variants",
+      "title": "Scope In Place",
+      "prompt": "Explicitly adapt this project skill in place into a user-level skill.",
+      "decision": "fix_and_rerun",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Apply the same generalization, privacy, attribution, independent behavior and package checks as a separate variant.",
+        "Report the explicitly changed source honestly and retain the recorded prior source digest."
+      ],
+      "veto": [
+        "Claim source preservation after the authorized in-place change."
+      ]
+    },
+    {
+      "id": "SF-028",
+      "source_id": "SF-028",
+      "group": "scope_and_variants",
+      "title": "Scope Placement",
+      "prompt": "Install this project-level variant into the user-level discovery directory.",
+      "decision": "refuse_invalid_input",
+      "pressures": [
+        "scope or adaptation assumption"
+      ],
+      "required": [
+        "Verify the installation destination through its integration and reject the scope mismatch before writing."
+      ],
+      "veto": [
+        "Treat metadata as installation permission or relocate the skill automatically."
       ]
     }
   ]

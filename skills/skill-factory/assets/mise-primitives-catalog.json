@@ -1,10 +1,10 @@
 {
-  "version": "2026.9.0",
+  "version": "2026.9.3",
   "source": "https://mise.jdx.dev/schema/mise.json",
-  "release_source": "https://raw.githubusercontent.com/jdx/mise/v2026.9.0/schema/mise.json",
+  "release_source": "https://raw.githubusercontent.com/jdx/mise/v2026.9.3/schema/mise.json",
   "task_source": "https://mise.jdx.dev/tasks/task-configuration.html",
-  "checked_at": "2026-09-02T05:17:19-04:00",
-  "schema_sha256": "6fbcf4514e2ccce5af527b108b11651b42a84bee37125bdbb8cebfea57928b43",
+  "checked_at": "2026-09-08T12:15:31-04:00",
+  "schema_sha256": "f3ecbea5162ab4f998754dc1557ec0183777aa4ba9b84d614d09222c82f7a5c5",
   "groups": {
     "config": [
       "_",
@@ -16,6 +16,7 @@
       "env",
       "env_file",
       "env_path",
+      "history",
       "hooks",
       "min_version",
       "monorepo",

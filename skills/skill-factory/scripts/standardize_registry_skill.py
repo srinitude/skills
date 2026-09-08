@@ -19,6 +19,9 @@ from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
 from standardization_seed import create_missing
+from skill_package import inventory, promote, staged
+from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
+from scope_placement import check_placement
 
 FACTORY = Path(__file__).resolve().parents[1]
 COPIES = [
@@ -27,6 +30,7 @@ COPIES = [
     ("references/resource-and-experiment-design.md", "references/resource-and-experiment-design.md"),
     ("references/use-case-specificity.md", "references/use-case-specificity.md"),
     ("references/generation-contract.md", "references/generation-contract.md"),
+    ("references/skill-scope-contract.md", "references/skill-scope-contract.md"),
 ]
 SCRIPTS = [
     "agentic_request_contract.py", "run_agentic_request.py", "domain_text.py",
@@ -41,6 +45,7 @@ SCRIPTS += ["validate_skill.py", "lint_writing.py", "check_code_rules.py",
 CANONICAL_SCRIPTS = set(SCRIPTS[:12]) | {
     "check_placeholders.py",
     "lint_writing.py",
+    "validate_skill.py",
 }
 
 
@@ -143,28 +148,65 @@ def apply(root, profile, rebase=False):
     format_target(root)
 
 
-def main(argv=None):
+def apply_scoped(root, profile, scope, rebase=False):
+    before = inventory(root)
+    with staged(root.parent, root.name) as candidate:
+        shutil.copytree(root, candidate, symlinks=True)
+        if rebase:
+            restore_tracked_text(root, candidate)
+        apply(candidate, profile)
+        file = candidate / "SKILL.md"
+        file.write_text(scoped_text(file.read_text(), scope), encoding="utf-8")
+        read_fields(candidate)
+        promote(candidate, root, before)
+
+
+def parse_args(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("skill_root")
     parser.add_argument("--profile", required=True)
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--rebase-tracked-text", action="store_true")
-    args = parser.parse_args(argv)
+    parser.add_argument("--scope", choices=SCOPES)
+    parser.add_argument("--placement-receipt")
+    return parser.parse_args(argv)
+
+
+def scope_choice(root, args):
+    existing = read_fields(root).get("metadata", {}).get("scope")
+    choice = resolve(existing, args.scope) if args.apply or existing or args.scope else None
+    if existing and args.scope and existing != args.scope:
+        raise ValueError("scope change needs adaptation checks; use variant plan --in-place")
+    inventory(root)
+    if choice:
+        check_placement(args.placement_receipt, choice["scope"], root.resolve())
+    return choice
+
+
+def main(argv=None):
+    args = parse_args(argv)
     root = Path(args.skill_root)
     if root.is_symlink() or not (root / "SKILL.md").is_file():
         print("error: target must be a real skill directory", file=sys.stderr)
         return 2
     try:
         profile = validate_profile(load_profile(args.profile, root.name), root.resolve())
+        choice = scope_choice(root, args)
     except ValueError as error:
         print(f"error: {error}", file=sys.stderr)
         return 2
     before = {str(path): digest(path) for path in planned_paths(root, profile)}
     if args.apply:
-        apply(root, profile, args.rebase_tracked_text)
+        try:
+            apply_scoped(root, profile, choice["scope"], args.rebase_tracked_text)
+        except (OSError, ValueError) as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 1
     after = {str(path): digest(path) for path in planned_paths(root, profile)}
     changed = [path for path in before if before[path] != after[path]]
     print(json.dumps({"target": str(root.resolve()), "mode": "apply" if args.apply else "plan",
+                      "scope": choice["scope"] if choice else None,
+                      "scope_label": label(choice["scope"]) if choice else None,
                       "writes": len(changed), "changed": changed}, indent=2))
     return 0
 

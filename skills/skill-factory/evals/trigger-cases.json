@@ -101,6 +101,30 @@
       "pair_id": "plain-ci",
       "prompt": "Set up the CI workflow template inside the skill you scaffolded for me.",
       "should_trigger": true
+    },
+    {
+      "id": "TR-017",
+      "kind": "positive",
+      "prompt": "Make a project-level variant of my user-level file-inventory skill for Atlas.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-018",
+      "kind": "positive",
+      "prompt": "Generalize the Atlas project skill into a separate user-level variant for my other projects.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-019",
+      "kind": "positive",
+      "prompt": "Refresh my skill variant from its source while preserving its customizations.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-020",
+      "kind": "hard_negative",
+      "prompt": "Explain block scope and function scope in JavaScript.",
+      "should_trigger": false
     }
   ]
 }

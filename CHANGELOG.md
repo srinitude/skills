@@ -4,6 +4,11 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+## Skill factory 0.5.1
+
+- Bundle the license used by variant fixtures and keep host adapter tests in the repository integration suite, so an installed factory can run its checks without registry parent directories.
+- Add a copied-package regression that executes both variant acceptance cases with the source registry unavailable.
+
 ## GitHub release 0.1.5
 
 - Made the canonical catalog the single inventory owner for Aider, Hermes Agent, the Python plugin, integration validation, client smoke checks, and MCP resource assertions.

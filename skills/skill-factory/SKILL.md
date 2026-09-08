@@ -4,7 +4,7 @@ description: "Use when a workflow or capability must become a new agent skill, w
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: "0.5.0"
+  version: "0.5.1"
   scope: "user"
 ---
 

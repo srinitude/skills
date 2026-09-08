@@ -70,7 +70,7 @@ def package(root, scope, project_id="repo:atlas"):
     (root / "scripts/inventory.py").write_text(PROGRAM.replace("FIXED_CONFIGURATION", fixed))
     (root / "references/behavior.md").write_text("# File inventory\n\nCount configured source files and lines without writes. Reject paths outside the project.\n")
     (root / "examples/run.md").write_text("# File inventory example\n\nRun `mise run inventory -- --project <project>`. One two-line source returns two lines and one file.\n")
-    (root / "LICENSE").write_bytes((SKILL_DIR.parents[1] / "LICENSE").read_bytes())
+    (root / "LICENSE").write_bytes((SKILL_DIR / "LICENSE").read_bytes())
     (root / "NOTICE").write_text("File inventory example. Kiren Srinivasan.\n")
     seed_evals(root)
     data = {"skill": root.name, "primary_term": "file inventory", "outcome": "Count configured source files and lines without writes.",

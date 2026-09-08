@@ -13,11 +13,10 @@ Exit codes:
 Example:
   python3 scripts/scaffold_skill.py --name release-notes \\
     --description "Use when release notes are needed from a git log." \\
-    --dest /path/to/skills
+    --dest /path/to/skills --scope user
 
-The destination is the skills directory holding this factory when it is
-writable, so the new skill sits beside the other registry skills. Pass
-another directory when that one is read only.
+Scope classifies intended availability. The explicit destination is an
+authoring directory, not evidence of scope or an installation instruction.
 """
 import argparse
 import datetime
@@ -26,6 +25,8 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from scope_placement import check_placement
+from skill_package import promote, staged
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
@@ -107,21 +108,27 @@ def build(target, tokens):
     for name in CHECKERS:
         shutil.copy(SKILL_DIR / "scripts" / name, target / "scripts" / name)
     for name in ["generation-contract.md", "resource-and-experiment-design.md",
-                 "use-case-specificity.md", "writing-rules.md"]:
+                 "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md"]:
         shutil.copy(SKILL_DIR / "references" / name,
                     target / "references" / name)
-    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 4
+    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5
 
 
-def main(argv=None):
+def parse_args(argv):
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--name", required=True)
     parser.add_argument("--description", required=True)
+    parser.add_argument("--scope", choices=("user", "project"), required=True)
+    parser.add_argument("--placement-receipt", help="verified integration receipt when installing")
     parser.add_argument("--dest", required=True,
                         help="parent directory for the new skill")
-    args = parser.parse_args(argv)
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(argv)
     error = argument_error(args)
     if error:
         print(f"error: {error}")
@@ -130,10 +137,20 @@ def main(argv=None):
     if target.exists():
         print(f"error: {target} exists; choose a new destination")
         return 1
-    tokens = {"NAME": args.name, "DESCRIPTION": args.description,
+    try:
+        placement = check_placement(args.placement_receipt, args.scope, target)
+    except (OSError, ValueError, KeyError) as error:
+        print(f"error: {error}")
+        return 1
+    tokens = {"NAME": args.name, "DESCRIPTION": json.dumps(args.description)[1:-1],
+              "SCOPE": args.scope,
               "DATE": datetime.date.today().isoformat()}
-    count = build(target, tokens)
+    with staged(target.parent, target.name) as candidate:
+        count = build(candidate, tokens)
+        promote(candidate, target)
     print(json.dumps({"created": str(target), "files": count,
+                      "scope": args.scope, "scope_label": args.scope + "-level",
+                      "placement": placement["kind"],
                       "next": "run mise run ci inside the new skill",
                       "blocked_until": "every SCAFFOLD placeholder is "
                                        "replaced; check_placeholders.py "

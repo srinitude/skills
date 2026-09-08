@@ -24,7 +24,7 @@ class TestScaffoldSafety(unittest.TestCase):
             marker.write_text("preserve", encoding="utf-8")
             result = run("scaffold_skill.py", "--name", "demo-skill",
                          "--description", "Use when a demo is needed.",
-                         "--dest", temp, "--force")
+                         "--dest", temp, "--scope", "user", "--force")
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(marker.read_text(encoding="utf-8"), "preserve")
 
@@ -32,7 +32,7 @@ class TestScaffoldSafety(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             result = run("scaffold_skill.py", "--name", "demo-skill",
                          "--description", "Use when needed.\nmetadata: broken",
-                         "--dest", temp)
+                         "--dest", temp, "--scope", "user")
             self.assertEqual(result.returncode, 2, result.stdout)
             self.assertFalse((Path(temp) / "demo-skill").exists())
 

@@ -48,7 +48,7 @@ timeout = "180s"
 [tasks.validate]
 description = "Static structure checks against the generation contract"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py ."
+run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
 outputs = []
 cache = { enabled = true }

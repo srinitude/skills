@@ -284,6 +284,21 @@
       "proof": "Agent skill behavior tests reject domain-decorated generic primitive, decision, task, reason, and proof records while concrete package records pass.",
       "falsifier": "Any agent skill policy gate accepts a known generic scaffold clause merely because it contains a configured domain term.",
       "failure_branch": "Block the agent skill package, replace the generic clause with its actual domain state and evidence, then rerun the owning policy and integrated CI."
+    },
+    {
+      "id": "scope-and-independent-variants",
+      "kind": "model_owned",
+      "outcome": "Accept an agent skill with explicit intended availability and adapted behavior.",
+      "motivation": "A skill package location or label alone cannot establish project fit or cross-project reuse.",
+      "why_this_path": "One scope field and separate digest-bound variant acceptance preserve the agent skill source and make adaptation reviewable.",
+      "owner": "model",
+      "inputs": [
+        "User intent, complete agent skill source, target project authority, candidate and baseline digests."
+      ],
+      "expected_effect": "Resolve agent skill ambiguity before writing and preserve intentional variant customizations.",
+      "proof": "Agent skill acceptance: Fresh scope gates, both executable variant directions, source digests, privacy review and conflicting refresh evidence.",
+      "falsifier": "An accepted skill package lacks valid scope, loses a mandatory requirement, modifies its source, or needs a hidden source installation.",
+      "failure_branch": "Hold the affected agent skill write, retrieve missing context or resolve the conflict, and rerun invalidated checks."
     }
   ]
 }

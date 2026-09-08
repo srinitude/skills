@@ -13,7 +13,7 @@ run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -
 [tasks.validate]
 description = "Validate the {term} package"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py ."
+run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 
 [tasks.lint-writing]
 description = "Check {term} Markdown"

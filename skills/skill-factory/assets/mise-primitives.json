@@ -1,13 +1,13 @@
 {
   "version": "1.0.0",
   "skill": "skill-factory",
-  "catalog_version": "2026.9.0",
+  "catalog_version": "2026.9.3",
   "groups": {
     "config": {
       "used": ["env", "min_version", "settings", "task_config", "tasks", "tools"],
-      "not_applicable": ["_", "alias", "bootstrap", "deps", "dotenv", "dotfiles", "env_file", "env_path", "hooks", "monorepo", "monorepo_root", "oci", "plugins", "redactions", "shell_alias", "task_templates", "tool_alias", "tool_config", "vars", "watch_files", "wrappers"],
+      "not_applicable": ["_", "alias", "bootstrap", "deps", "dotenv", "dotfiles", "env_file", "env_path", "history", "hooks", "monorepo", "monorepo_root", "oci", "plugins", "redactions", "shell_alias", "task_templates", "tool_alias", "tool_config", "vars", "watch_files", "wrappers"],
       "used_reason": "skill-factory uses the Mise task graph, a Python toolchain, a minimum runner contract, bounded parallel jobs, artifact caching, a fixed task root, and deterministic Python environment values to produce portable agent skill packages quickly and correctly.",
-      "nonuse_reason": "The remaining top-level Mise features do not improve this single-package agent skill factory result, or they introduce remote services, secrets, shell state, repository scale, or side effects that this invocation does not own.",
+      "nonuse_reason": "The remaining top-level Mise features do not improve this single-package agent skill factory result, or they introduce remote services, secrets, shell state, repository scale, or side effects that this invocation does not own. Dotfile history is outside agent skill package maintenance; Git lineage and invocation receipts already own change evidence.",
       "creative_use": "The agent skill environment disables bytecode cache files while bounded Mise concurrency and content-addressed static-check caches shorten repeated proof without caching live judgment.",
       "evidence": "mise.toml, generated mise template, speed-contract tests, and plan-standardize runtime-cache tests."
     },

@@ -23,7 +23,7 @@ const expectedSkills = [
   ['prompt-enhancer', '0.1.0'],
   ['reify', '0.1.0'],
   ['simplify-skill', '0.1.0'],
-  ['skill-factory', '0.4.5'],
+  ['skill-factory', '0.5.0'],
   ['starting-point', '0.1.0'],
   ['timebox', '0.1.1'],
   ['tool-call-configuration-for', '0.1.0'],

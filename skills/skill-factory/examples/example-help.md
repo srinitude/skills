@@ -1,77 +1,57 @@
 # Example: the help command
 
-Guess this example removes: what the reply to "what can this skill do" contains, and how much of it comes from running something rather than from memory.
+This example explains the public commands and the scope needed before writing.
 
 ## User says
 
-```
-what can the skill factory do?
+```text
+What can the skill factory do?
 ```
 
 ## Executor replies
 
+```text
+help: show the supported operations.
+new <prompt>: create a skill for a stated outcome and scope.
+update <path> <prompt>: preserve the skill's purpose, accepted behavior, and valid scope unless a change is requested.
+standardize <path>: apply the factory format without replacing the capability.
+standardize-target <path> <profile>: plan or apply a profile-bound registry standardization.
+refresh-registry-lineage <skill...>: refresh lineage for accepted registry changes.
+import <source> <destination>: convert a source into a separate portable package.
+variant <source> <user-or-project>: create an independent user-level or project-level variant, or explicitly refresh it from its source.
+validate <path>: check changed output; untouched legacy inspection permits missing scope.
+eval <path>: check eval contracts and run the applicable behavioral cases.
+doctor: report environment readiness.
+
+Choose user for availability across your projects or project for a specific project. The choice is stored once in metadata.scope. A scope label does not install the skill.
 ```
-Eight commands, one line each:
 
-help            this table
-new <prompt>    build a skill that fulfills the prompt, test first, and prove it with fresh check output
-update <path> <prompt> change an existing skill while preserving its purpose and accepted behavior
-standardize <path> transform an existing skill into the factory format without replacing its purpose
-import <source> <destination> convert a host-specific source into a separate portable skill and repository-guidance package
-validate <path> run the structure, writing, code, and placeholder checks on a skill and report every FAIL line
-eval <path>     check the eval files, then run the cases and grade each assertion against quoted evidence
-doctor          report environment readiness and stop when the required task runner is missing
+## Fresh help readback
 
-Every bundled script prints its own flags and exit codes with --help. Here is one, run just now:
+The following excerpts were observed from public tasks. Readiness details and unrelated help paragraphs are omitted; no files were created.
 
+```text
 $ mise run new -- --help
 usage: scaffold_skill.py [-h] --name NAME --description DESCRIPTION
-                         --dest DEST
-...
-Exit codes:
-  0  skill created
-  1  target already exists
-  2  usage or input error
+                         --scope {user,project}
+                         [--placement-receipt PLACEMENT_RECEIPT] --dest DEST
 exit 0
 
-Say the word and I will start a build. I need one line on the outcome you want and where the skill should land.
-```
-
-## Commands run
-
-```
-$ mise run new -- --help
-usage: scaffold_skill.py [-h] --name NAME --description DESCRIPTION
-                         --dest DEST
-
-Scaffold a new skill directory with every factory check owner.
-
-Creates SKILL.md, mise.toml, a CI workflow, support directories,
-starter script and tests, seed evals, and copies of the checker
-scripts so the new skill verifies itself. Prints a JSON summary.
-
-Exit codes:
-  0  skill created
-  1  target already exists
-  2  usage or input error
-
-Example:
-  mise run new -- --name release-notes \
-    --description "Use when release notes are needed from a git log." \
-    --dest /path/to/skills
-
-options:
-  -h, --help            show this help message and exit
-  --name NAME
-  --description DESCRIPTION
-  --dest DEST           parent directory for the new skill
+$ mise run variant -- plan --help
+--source SOURCE
+--source-id SOURCE_ID
+--scope {user,project}
+--name NAME
+--dest DEST
+--project PROJECT
+--project-id PROJECT_ID
+--refresh
+--in-place
 exit 0
 ```
 
-## Files created
-
-None. The help command reads and reports.
+The plan operation resolves the source, target scope, identity, destination, and project context. The review operation prepares a digest-bound draft. Accept validates the completed review, adapted behavior, and package before promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
 
 ## What the run proves
 
-The command table in SKILL.md matches the scripts on disk, and the exit codes quoted in the reply come from a real --help run rather than from memory.
+The scaffold requires an explicit scope. Both variant directions use the same public operation. Help output proves interface availability; the behavioral tests establish adaptation and preservation for their exercised cases.

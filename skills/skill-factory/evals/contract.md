@@ -66,3 +66,11 @@ Record the frozen hashes, identities, provider route, token usage, reported cost
 - remote release completion.
 
 Behavioral judging is evidence for this run, not proof of all future behavior.
+
+## Scope and adaptation evidence
+
+Through `mise run evals`, include both scopes, retained update scope, explicit scope change, legacy inspection, ambiguity, conflicting evidence, invalid types, duplicate keys, and destination mismatch. Newly accepted output must retain its designation through generated self-validation.
+
+Through `mise run test -- -k Variant`, exercise both variant directions, whole-source digest preservation, complete lineage, exact reruns, collisions, missing project context, private-data and hidden-dependency rejection, independent package checks, and actual adapted behavior. Project variants fit the declared project. User variants execute in at least two materially different compatible projects. A label-only generalization must fail the second project. An explicit source refresh must preserve intentional customizations and hold conflicting writes until resolution.
+
+Fixture transport checks report and assertion plumbing only. Executable file-inventory tests establish behavior for their concrete projects. Model review separately judges scope intent, adaptation meaning, project fit, privacy completeness, and retained requirements. Neither form of evidence is actual human usability testing or proof for all future skills.

@@ -12,7 +12,7 @@ REQUIRED_TASKS = [
     "primitive-lifecycle-policy", "invocation-policy",
     "agentic-request",
     "mise-latest", "mise-primitives-update",
-    "doctor", "new", "validate-target", "eval-target",
+    "doctor", "new", "resolve-scope", "variant", "validate-target", "eval-target",
     "plan-standardize", "standardize-target", "refresh-registry-lineage",
     "source-corpus", "audit-source-corpus",
     "lineage", "refresh-lineage",

@@ -73,6 +73,8 @@ def dependency_line(names):
 
 
 def normalize_existing(name, block):
+    block = re.sub(r"scripts/validate_skill\.py \.(?! --accept)",
+                   "scripts/validate_skill.py . --accept", block)
     dependencies = declared_dependencies(block)
     if name == "ci":
         dependencies += [item for item in nested_dependencies(block)

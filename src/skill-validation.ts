@@ -7,10 +7,12 @@ import { isSkillName } from './catalog.js';
 import { casesSchema, type EvalCases } from './eval/schema.js';
 import { readSkillDocument, type SkillDocument } from './skill-document.js';
 import { validateSourceEvidence } from './source-evidence.js';
+import { derivationSchema } from './variant-lineage.js';
 
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
 const lineageSchema = z
   .object({
+    derivation: derivationSchema.optional(),
     active_case_ids: z.array(z.string().min(1)).min(1).optional(),
     native_manifest_sha256: sha256,
     native_version: z.string().min(1),
@@ -53,6 +55,8 @@ function validateRelations(
   cases: EvalCases,
 ): string[] {
   const errors: string[] = [];
+  if (lineage.derivation && skill.metadata.scope !== lineage.derivation.target_scope)
+    errors.push('variant scope differs from lineage');
   if (!skill.description.startsWith('Use when ')) {
     errors.push('skill description must start with Use when');
   }

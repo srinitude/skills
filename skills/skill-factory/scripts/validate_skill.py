@@ -106,6 +106,9 @@ def check_optional_fields(fields, problems):
                               for key, value in metadata.items()))
     if "metadata" in fields and not valid_metadata:
         problems.append("metadata must map string keys to string values")
+    if isinstance(metadata, dict) and "scope" in metadata:
+        if not isinstance(metadata["scope"], str) or metadata["scope"] not in ("user", "project"):
+            problems.append('metadata.scope must be the string "user" or "project"')
     allowed = fields.get("allowed-tools")
     if "allowed-tools" in fields and not isinstance(allowed, str):
         problems.append("allowed-tools must be a space-separated string")
@@ -137,7 +140,7 @@ def check_layout(skill, body, problems):
         problems.append("missing mise.toml task graph")
 
 
-def validate(skill):
+def validate(skill, acceptance=False):
     problems = []
     text = (skill / "SKILL.md").read_text(encoding="utf-8")
     header, body, fatal = split_frontmatter(text)
@@ -150,6 +153,9 @@ def validate(skill):
             problems.append(header_error)
         else:
             check_fields(fields, skill.name, problems)
+            if acceptance and (not isinstance(fields.get("metadata"), dict)
+                               or "scope" not in fields["metadata"]):
+                problems.append("metadata.scope is required for newly created or updated output")
         check_body(body, text, problems)
     check_layout(skill, body, problems)
     return problems
@@ -160,6 +166,8 @@ def main(argv=None):
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_dir", help="path to the skill directory")
+    parser.add_argument("--accept", action="store_true",
+                        help="require scope for newly created or updated output; default inspects legacy")
     args = parser.parse_args(argv)
     candidate = Path(args.skill_dir)
     if candidate.is_symlink():
@@ -169,7 +177,7 @@ def main(argv=None):
     if not (skill / "SKILL.md").is_file():
         print(f"error: no SKILL.md inside {skill}", file=sys.stderr)
         return 2
-    problems = validate(skill)
+    problems = validate(skill, args.accept)
     for problem in problems:
         print(f"FAIL {problem}")
     print(f"{'FAIL' if problems else 'PASS'} {skill.name}: "

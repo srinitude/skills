@@ -23,12 +23,14 @@ def tracked_paths(root):
     return repo, allowed
 
 
-def restore_tracked_text(root):
+def restore_tracked_text(root, target=None):
     repo, paths = tracked_paths(root)
     restored = []
     for destination, git_path in paths:
         content = subprocess.run(["git", "-C", str(repo), "show", f"HEAD:{git_path}"],
                                  check=True, capture_output=True).stdout
-        destination.write_bytes(content)
+        output = target / destination.relative_to(root.resolve()) if target else destination
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(content)
         restored.append(str(destination))
     return restored

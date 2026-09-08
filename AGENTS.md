@@ -31,6 +31,7 @@ and new skills start at `metadata.version: "0.1.0"`.
 - New skills start at `metadata.version: "0.1.0"`.
 - Each skill owns its version. It must not depend on a package, integration, GitHub release, or another skill version.
 - Metadata values are strings.
+- The factory requires `metadata.scope` to be `user` or `project` on every created or updated output. This describes intended availability independently of source-registry location. Untouched legacy skills may omit it during inspection. The factory generation contract owns scope resolution and acceptance; its linked variant workflow owns adaptation and independent maintenance.
 - Keep `SKILL.md` below 200 lines. Move optional detail out before 150 lines.
 - Tell the reader exactly when to load each reference.
 

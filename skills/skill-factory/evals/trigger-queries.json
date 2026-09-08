@@ -86,5 +86,21 @@
   {
     "query": "find placeholder text in my slide deck",
     "should_trigger": false
+  },
+  {
+    "query": "Create a project-level variant of my user-level skill.",
+    "should_trigger": true
+  },
+  {
+    "query": "Generalize my project skill into a user-level skill.",
+    "should_trigger": true
+  },
+  {
+    "query": "Refresh my skill variant while keeping its customizations.",
+    "should_trigger": true
+  },
+  {
+    "query": "What does variable scope mean in JavaScript?",
+    "should_trigger": false
   }
 ]

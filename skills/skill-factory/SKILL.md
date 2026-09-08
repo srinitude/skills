@@ -1,10 +1,11 @@
 ---
 name: skill-factory
-description: "Use when a workflow or capability must become a new agent skill, when an existing skill must be updated or standardized without losing its purpose, or when a skill needs validation, evaluation, scaffolding, scripts, tests, or a Mise task graph."
+description: "Use when a workflow or capability must become a new agent skill, when an existing skill must be updated or standardized without losing its purpose, when a user-level or project-level variant is needed, or when a skill needs validation, evaluation, scaffolding, scripts, tests, or a Mise task graph."
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: "0.4.5"
+  version: "0.5.0"
+  scope: "user"
 ---
 
 # skill-factory
@@ -40,6 +41,7 @@ Interpret the user's request as one of these commands.
 | standardize-target <path> <profile> | Plan or apply a profile-bound in-place registry standardization after the baseline is frozen. |
 | refresh-registry-lineage <skill...> | Refresh source lineage after accepted registry skill changes. |
 | import <source> <destination> | Convert a host-specific source into a separate portable skill and repository-guidance package. |
+| variant <source> <user-or-project> | Create an independently adapted skill, or refresh one when explicitly requested. |
 | validate <path> | Run the structure, writing, code, and placeholder checks on a skill. |
 | eval <path> | Check a skill's eval files, then run its cases. |
 | doctor | Run `mise run doctor` and report readiness. |
@@ -48,10 +50,10 @@ Suppose the request matches no command, or a required fact cannot be retrieved. 
 
 ## Ordered workflow
 
-1. **Frame the outcome and domain.** Model: classify the command, freeze the user-visible result, boundaries, forbidden results, and accepted behavior without inventing a fact. Branch: choose new, update, standardize, import, validate, eval, doctor, or help from the request.
+1. **Frame the outcome and domain.** Model: classify the command, freeze the user-visible result, boundaries, forbidden results, and accepted behavior without inventing a fact. Branch: choose new, update, standardize, import, variant, validate, eval, doctor, or help from the request. Before writing, use `mise run resolve-scope` to honor explicit choice, preserve valid scope on updates, or ask one concise question when intended availability is unresolved.
 2. **Prove runner readiness.** Mise: run `mise run doctor`. Model: choose the matching public operation. If: readiness is false, stop the blocked work and report the exact failed prerequisite.
 3. **Ground the use case.** Mise: run `mise run domain-research-policy` and `mise run use-case-policy`. Model: gather current sources, test counterevidence, and decide the target skill's terms, roles, failures, evidence, and exclusions. For each: accept, reject, bound, or mark every required source and domain dimension inapplicable with a reason.
-4. **Freeze and route the change.** Mise: run `mise run plan-standardize -- <source>` and `mise run audit-source-corpus -- <source>` when the operation has a source. For an in-place registry update, run `mise run standardize-target -- <source> --profile <profile>` without `--apply`, review the profile and change set, then rerun with `--apply`. Model: preserve the baseline, locate the smallest owner, and reject collisions, unknown ownership, or host-only assumptions.
+4. **Freeze and route the change.** Mise: run `mise run plan-standardize -- <source>` when the operation has a source. Run `mise run audit-source-corpus -- <source>` for a client-specific corpus import; a portable skill package uses the package checks. For an in-place registry update, run `mise run standardize-target -- <source> --profile <profile>` without `--apply`, review the profile and change set, then rerun with `--apply`. Model: preserve the baseline, locate the smallest owner, and reject collisions, unknown ownership, or host-only assumptions.
 5. **Build under BOOTSTRAP, RED, GREEN, REFACTOR.** Mise: run `mise run task-graph-policy`, then `mise run test` to capture RED and again after each change. Model: write the domain reasoning, creative behavior, and exception handling that deterministic code cannot decide. Repeat: observe one behavior contract fail in RED, implement the smallest change, rerun to GREEN, and refactor under the same contract until the required behavior passes or a real blocker stops the loop.
 6. **Produce integrated proof.** Mise: run `mise run decision-policy`, the target skill's `mise run ci`, then `mise run refresh-registry-lineage -- <skill>`, `mise run validate-target -- <path>`, and `mise run eval-target -- <path>`. Model: review semantics, source-to-claim links, direct perception when required, counterexamples, and whether the result actually fulfills the frozen outcome. If: a check or judgment fails, return to the lowest owning step and invalidate its dependents.
 7. **Account for the invocation.** Mise: run `mise run invocation-policy -- <receipt>`. Model: state every remaining limit. For each: record every task's run evidence or a domain-specific inapplicability reason in the receipt.
@@ -76,7 +78,7 @@ Choose data structures, algorithms, formats, cache keys, batching, and concurren
 
 ## Mise task graph
 
-The public surface is `mise run doctor`, `mise run new`, `mise run plan-standardize`, `mise run standardize-target`, `mise run refresh-registry-lineage`, `mise run audit-source-corpus`, `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run validate-target`, `mise run eval-target`, `mise run agentic-request`, `mise run invocation-policy`, `mise run mise-primitives-update`, and `mise run ci`. Never bypass it. Missing Mise is `BLOCKED`. Declare every dependency and one path from each operation. Cycles, diamonds, unknown or disconnected edges, redundant edges, and nested Mise calls fail. Record each task's outcome, motivation, progress, proof, and applicability in assets/use-case-contract.json.
+The public surface is `mise run doctor`, `mise run resolve-scope`, `mise run new`, `mise run variant`, `mise run plan-standardize`, `mise run standardize-target`, `mise run refresh-registry-lineage`, `mise run audit-source-corpus`, `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run validate-target`, `mise run eval-target`, `mise run agentic-request`, `mise run invocation-policy`, `mise run mise-primitives-update`, and `mise run ci`. Never bypass it. Missing Mise is `BLOCKED`. Declare every dependency and one path from each operation. Cycles, diamonds, unknown or disconnected edges, redundant edges, and nested Mise calls fail. Record each task's outcome, motivation, progress, proof, and applicability in assets/use-case-contract.json.
 
 Map actors, objects, actions, states, invariants, variants, interfaces, authorities, failures, recoveries, evidence, time, resources, quality, terms, and exclusions. Map every skill body, reference, asset, script, test, Mise task, example, eval, policy, schema, and record. Cover discovery through retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`; every phase needs a real domain task, progress, motivation, proof, and prevented failure.
 
@@ -88,10 +90,15 @@ Keep the Mise version fixed during outcome work. Run `mise run mise-primitives-u
 
 ## Operation branches
 
-- **New:** Run `mise run doctor`, reuse an owner through `mise run source-corpus`, then `mise run new -- --name <name> --description "<description>" --dest <destination>`. Author tasks, graph tests, behavior tests, scripts, SKILL.md, references, assets, examples, and evals in RED, GREEN, REFACTOR order. A fresh scaffold stays blocked until all placeholder seeds are replaced.
+- **New:** Run `mise run doctor`, reuse an owner through `mise run source-corpus`, then `mise run new -- --name <name> --description "<description>" --scope <user-or-project> --dest <destination>`. Author tasks, graph tests, behavior tests, scripts, SKILL.md, references, assets, examples, and evals in RED, GREEN, REFACTOR order. A fresh scaffold stays blocked until all placeholder seeds are replaced.
 - **Update or standardize:** Run `mise run plan-standardize -- <source>` and save its `baseline_digest`. For registry-wide policy adoption, run `mise run standardize-target -- <source> --profile <profile>` first as a no-write plan, then add `--apply` only after the domain profile and baseline are accepted. These operations preserve domain purpose, triggers, accepted behavior, evidence, outcome, proof, boundaries, forbidden outcomes, and mandatory methods. Change the smallest owner, then compare against the baseline.
 - **Import:** Also run `mise run audit-source-corpus -- <source>`. Keep coding-agent clients distinct from package formats. Reject collisions, symlinks, unknown owners, and platform-specific assumptions. Translate capability instructions to SKILL.md, repository rules to AGENTS.md, and host ownership to `.agents/`. The source stays unchanged unless the user requests in-place migration.
-- **Validate or eval:** Run `mise run validate-target -- <path>` or `mise run eval-target -- <path>`. Report every failure and grade behavioral cases against fresh saved evidence.
+- **Variant:** Load references/scope-variants.md through `mise run variant`. Plan, read the complete source and target project context, prepare a separate candidate, validate adapted behavior, and accept through that task. The report and lineage identify both scopes, adaptations, and source preservation. An explicit refresh compares recorded baselines and resolves customization conflicts. Explicit in-place adaptation uses the same gates. Load examples/example-variant-project.md or examples/example-variant-user.md through `mise run variant` for the matching direction.
+- **Validate or eval:** Run `mise run validate-target -- <path>` or `mise run eval-target -- <path>`. Acceptance requires scope. Add `--inspect-legacy` only when inspecting an untouched legacy skill. Report every failure and grade behavioral cases against fresh saved evidence.
+
+## Scope before writing
+
+Every created or updated output stores exactly one `metadata.scope` string: `user` for intended availability across the user's projects, or `project` for a specific project or repository. Derive labels from this metadata extension; preserve other metadata. Generic instructions and source-registry location cannot decide scope. Honor explicit choice, otherwise preserve valid scope on updates, standardization, and import. Infer missing scope only from unambiguous intended use and authoritative context. Missing or conflicting evidence requires one concise question before the affected write. Untouched legacy inspection permits absent scope; invalid values, types, and duplicate keys always fail. Generated checkers enforce the same acceptance rule. Load references/scope-variants.md through `mise run resolve-scope` for resolution, variant adaptation, and integration-owned destination verification. Metadata alone never installs, relocates, duplicates, or changes runtime permissions.
 
 ## Progressive disclosure
 

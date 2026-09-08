@@ -34,6 +34,8 @@ EXPECTED = {
     "audit-source-corpus": ["doctor", "source-corpus"],
     "doctor": [],
     "new": ["doctor"],
+    "resolve-scope": ["doctor"],
+    "variant": ["doctor"],
     "validate-target": ["doctor"],
     "eval-target": ["doctor"],
     "plan-standardize": ["doctor", "source-corpus"],

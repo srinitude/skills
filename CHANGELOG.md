@@ -99,3 +99,9 @@ Initial public package.
 - Added a bundled read-only MCP server.
 - Added plugin or adapter routes for ten clients.
 - Added deterministic package and copy checks.
+
+## Skill factory 0.5.0
+
+- Require explicit user or project availability on factory-created and updated skills while retaining read-only inspection of unclassified legacy skills.
+- Add separate, staged scope variants with project adaptation, generalization checks, source lineage, destination verification, safe reruns, and conflict-aware source refresh.
+- Preserve other metadata and expose the convention through the existing metadata extension point.

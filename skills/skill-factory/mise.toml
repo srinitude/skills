@@ -53,7 +53,7 @@ timeout = "180s"
 [tasks.validate]
 description = "Static structure checks against the generation contract"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py ."
+run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
 outputs = []
 cache = { enabled = true }
@@ -160,7 +160,7 @@ run = "python3 scripts/check_source_corpus.py"
 [tasks.lineage]
 description = "Validate current source-lineage hashes and release version"
 depends = []
-run = "python3 scripts/check_lineage.py ."
+run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py ."
 
 [tasks.refresh-lineage]
 description = "Atomically refresh source-lineage after accepted changes"
@@ -175,7 +175,7 @@ depends = [
   "decision-policy",
   "source-corpus",
 ]
-run = "python3 scripts/check_lineage.py . --write"
+run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py . --write"
 
 [tasks.audit-source-corpus]
 description = "Classify one source repository against the portable corpus"
@@ -190,7 +190,7 @@ run = "python3 scripts/doctor.py"
 [tasks.new]
 description = "Scaffold a new skill; pass flags after --"
 depends = ["doctor"]
-run = "python3 scripts/scaffold_skill.py"
+run = "uv run --with PyYAML==6.0.3 scripts/scaffold_skill.py"
 
 [tasks.validate-target]
 description = "Run every static factory check against a skill path passed after --"
@@ -210,7 +210,17 @@ run = "python3 scripts/plan_standardize.py"
 [tasks.standardize-target]
 description = "Apply one profile-bound registry skill standardization"
 depends = ["doctor", "source-corpus"]
-run = "python3 scripts/standardize_registry_skill.py"
+run = "uv run --with PyYAML==6.0.3 scripts/standardize_registry_skill.py"
+
+[tasks.resolve-scope]
+description = "Resolve intended skill availability before writing"
+depends = ["doctor"]
+run = "uv run --with PyYAML==6.0.3 scripts/resolve_scope.py"
+
+[tasks.variant]
+description = "Plan or accept an independently adapted skill variant"
+depends = ["doctor"]
+run = "uv run --with PyYAML==6.0.3 scripts/skill_variant.py"
 
 [tasks.refresh-registry-lineage]
 description = "Refresh source lineage for named registry skills"

@@ -4,7 +4,8 @@ description: 'Use when instructions mix outcomes with recipes.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Outcome-Bounded Work

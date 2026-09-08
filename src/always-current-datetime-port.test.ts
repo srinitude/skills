@@ -67,7 +67,7 @@ test('binds the portable files to every source file and eval case', async () => 
     native_manifest_sha256:
       'b647248569c7664ae8dcba5161a748ccfc7eafa33c5d9bb6d5378fed63c9bc86',
     native_version: '2.0.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
   });
   expect(lineage.source_files).toEqual(
     Object.entries(sourceHashes)

@@ -4,7 +4,8 @@ description: 'Use when deduplicating bounded collections.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Dedupe

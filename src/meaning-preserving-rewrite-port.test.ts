@@ -99,7 +99,7 @@ test('binds public files and target-only cases to native lineage', async () => {
   expect(lineage).toMatchObject({
     native_manifest_sha256: manifestHash,
     native_version: '2.2.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
     source_case_ids: ['MPR-NO-NATIVE-CASES'],
     source_files: Object.entries(sourceHashes).map(([path, hash]) => ({
       path,

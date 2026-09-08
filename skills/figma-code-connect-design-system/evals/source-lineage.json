@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.3.0",
+  "public_version": "0.3.1",
   "native_version": "2026-09-02",
   "native_manifest_sha256": "986acfbfa2c14b19bd565c3e1d79d9c3394c73245c33468a9a66427befc222a6",
   "public_files": [
@@ -288,7 +288,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "0d658bb12f9c69b5ceee7fe1070d6da7ca2095ede303eb9ae988aa9918aadbe1"
+      "sha256": "6bbbfe32dbfe9f9c1c50ddd48f336e36b96ad8c62d19642f99232bcfef250fa4"
     },
     {
       "path": "assets/capability-contracts.json",

@@ -193,7 +193,7 @@ test('binds native lineage, public version, and all eight cases', async () => {
   }>(join(skill, 'evals', 'cases.json'));
   expect(lineage.native_manifest_sha256).toBe(nativeManifestSha);
   expect(lineage.native_version).toBe('1.1.1');
-  expect(lineage.public_version).toBe('0.1.0');
+  expect(lineage.public_version).toBe('0.1.1');
   expect(lineage.source_files).toHaveLength(228);
   expect(lineage.source_case_ids).toEqual(sourceCases);
   const activeCases = sourceCases.map(
@@ -206,7 +206,7 @@ test('binds native lineage, public version, and all eight cases', async () => {
 
 test('publishes the material mobile-first release contract', async () => {
   const document = await readSkillDocument(join(skill, 'SKILL.md'));
-  expect(document.metadata.version).toBe('0.1.0');
+  expect(document.metadata.version).toBe('0.1.1');
   for (const marker of [
     'five-part conversion narrative',
     'exactly three style-free wireframe sequences',

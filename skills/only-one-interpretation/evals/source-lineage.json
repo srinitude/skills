@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "native_version": "0.1.0",
-  "native_manifest_sha256": "e6bfb0adf077ea9aa8cd7f4dd4f4494f0826458da0d5ff618ea0e4ec462de3ec",
+  "native_manifest_sha256": "36e21379d8e89a8a5e88275e6d5573b35f4ce0f9eff365b8b525802c5a49c630",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -232,7 +232,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "2253512727b882a9fcaa5f379446d04a5edd8d2b8ad98323528b654872ede4db"
+      "sha256": "01016b80436becab78438a79352afb1f1906e473550c178c171c7422b8fafd13"
     },
     {
       "path": "assets/decision-records.json",

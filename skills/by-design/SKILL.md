@@ -4,7 +4,8 @@ description: 'Use when any request arrives, and especially when it touches a scr
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # By design

@@ -4,7 +4,8 @@ description: 'Use when packaging source input for a standing goal.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Goal prompt

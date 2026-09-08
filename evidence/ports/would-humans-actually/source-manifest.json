@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "would-humans-actually",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a",
-  "evidence_packet_sha256": "bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a",
+  "native_manifest_sha256": "4c60cbca5e6d0f3855c69616d5c5ac36c6b05f6cb7800302565babb56332d2be",
+  "evidence_packet_sha256": "4c60cbca5e6d0f3855c69616d5c5ac36c6b05f6cb7800302565babb56332d2be",
   "files": [
     {
       "bytes": 423,
@@ -13,10 +13,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 7079,
+      "bytes": 7095,
       "location_kind": "repository",
       "location_path": "skills/would-humans-actually/SKILL.md",
-      "sha256": "6b8a2402bfd4c30f7913e69fce4727d8126d638797afb6bd40e363863843a55a",
+      "sha256": "77309ebe54ba7777ae9afe15c58abe7722ccf3bd8c517d078a5feb85f3f49c3a",
       "source_path": "SKILL.md"
     },
     {

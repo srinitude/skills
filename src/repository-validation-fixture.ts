@@ -30,7 +30,7 @@ async function createIndependentSkill(root: string, fixture: string): Promise<vo
     join(independent, 'SKILL.md'),
     skill
       .replace('name: starting-point', 'name: independent-skill')
-      .replace("version: '0.1.0'", "version: '7.4.2'"),
+      .replace("version: '0.1.1'", "version: '7.4.2'"),
   );
   const cases = JSON.parse(
     await readFile(join(independent, 'evals', 'cases.json'), 'utf8'),

@@ -23,7 +23,7 @@ test('binds the public starting-point port to its complete baseline packet', asy
     native_manifest_sha256:
       '56de13051e3eb01974c9d819af3546efb136bf83de85e25a026901912950c156',
     native_version: '0.1.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
   });
   expect(lineage.source_case_ids).toHaveLength(18);
   expect(new Set(lineage.source_case_ids).size).toBe(18);
@@ -70,7 +70,7 @@ test('binds reify to the frozen native v1.0.0 packet', async () => {
     native_manifest_sha256:
       'd9a6be674ac2999354f07b3510733a53351b468a7f0042c3ea8c1a65ea1b7c6a',
     native_version: '1.0.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
   });
   expect(lineage.source_case_ids).toEqual([
     'RFY-001',
@@ -88,13 +88,13 @@ const behaviorPorts = [
   {
     slug: 'would-agents-actually',
     nativeVersion: '0.1.0',
-    manifest: 'cb00bfd6e965bb60c8ba5dc6de57e00dc96c058fa4d75ba6db8dc0684fe17e16',
+    manifest: 'a6108f57f7716d8169526eb36dc13257ada2e3b97ab3d2f8d6fc246fe413b21a',
     sourcePrefix: 'WAA',
   },
   {
     slug: 'would-humans-actually',
     nativeVersion: '0.1.0',
-    manifest: 'bd926d166cf355ee311edae1280280e23286daaaf928a4a36dbac3083f27577a',
+    manifest: '4c60cbca5e6d0f3855c69616d5c5ac36c6b05f6cb7800302565babb56332d2be',
     sourcePrefix: 'WHA',
   },
 ];
@@ -116,7 +116,7 @@ test.each(behaviorPorts)('binds $slug to its frozen native packet', async (port)
   expect(lineage).toMatchObject({
     native_manifest_sha256: port.manifest,
     native_version: port.nativeVersion,
-    public_version: '0.1.0',
+    public_version: '0.1.1',
   });
   expect(lineage.source_case_ids).toEqual(
     Array.from(

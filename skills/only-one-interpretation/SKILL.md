@@ -4,7 +4,8 @@ description: 'Use when disambiguating prompts, not improving or running.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # only-one-interpretation

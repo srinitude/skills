@@ -118,7 +118,7 @@ test('binds every public file to the frozen native packet', async () => {
     native_manifest_sha256:
       '75d2a9fad3962caf9f1f1e05f8783522c3481e8a9c2c2d36a75899762e61a2f2',
     native_version: '1.0.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
     source_case_ids: lineageCases,
     source_files: Object.entries(sourceHashes).map(([path, hash]) => ({
       path,

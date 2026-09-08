@@ -4,7 +4,8 @@ description: 'Use when creating, reviewing, or revising a digital product, full 
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.2.0'
+  version: '0.2.1'
+  scope: 'user'
 ---
 
 # Design like I am five

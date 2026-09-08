@@ -16,7 +16,7 @@ test('validates the public always-current-datetime release and native lineage', 
     name: 'always-current-datetime',
     skillPath: join('skills', 'always-current-datetime', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 
@@ -30,7 +30,7 @@ test('validates the public logic-audit release and native lineage', async () => 
     name: 'logic-audit',
     skillPath: join('skills', 'logic-audit', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.1',
+    version: '0.1.2',
   });
 });
 
@@ -44,7 +44,7 @@ test('validates the public outcome-bounded-work release and native lineage', asy
     name: 'outcome-bounded-work',
     skillPath: join('skills', 'outcome-bounded-work', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 
@@ -58,7 +58,7 @@ test('validates the public starting-point release and native lineage', async () 
     name: 'starting-point',
     skillPath: join('skills', 'starting-point', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 
@@ -72,7 +72,7 @@ test('validates the public reify release and native lineage', async () => {
     name: 'reify',
     skillPath: join('skills', 'reify', 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 });
 
@@ -88,7 +88,7 @@ test.each([
     name,
     skillPath: join('skills', name, 'SKILL.md'),
     status: 'PASS',
-    version: '0.1.0',
+    version: '0.1.1',
   });
   expect(report.manifestSha256).toMatch(/^[a-f0-9]{64}$/);
 });

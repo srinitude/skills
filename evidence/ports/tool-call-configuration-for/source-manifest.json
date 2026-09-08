@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "tool-call-configuration-for",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "ee2aa768d7c061698d8fe7bc29923e1ae2ab34fb697ccfbce67330af86c49bbe",
-  "evidence_packet_sha256": "ee2aa768d7c061698d8fe7bc29923e1ae2ab34fb697ccfbce67330af86c49bbe",
+  "native_manifest_sha256": "af2d508dae3aff85c15d91097bf526889806bf027715ad54afeac0b591d096cb",
+  "evidence_packet_sha256": "af2d508dae3aff85c15d91097bf526889806bf027715ad54afeac0b591d096cb",
   "files": [
     {
       "bytes": 423,
@@ -13,10 +13,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 10782,
+      "bytes": 10798,
       "location_kind": "repository",
       "location_path": "skills/tool-call-configuration-for/SKILL.md",
-      "sha256": "c85f15ee909a115dbbee76bfb0b7732b4d8908e309104acd824eb31e123d919e",
+      "sha256": "97a6e40085db3cfc3fc1e2f4d4a17861e584f59261db249c0251d2b50726a89e",
       "source_path": "SKILL.md"
     },
     {
@@ -527,7 +527,7 @@
       "bytes": 1612,
       "location_kind": "repository",
       "location_path": "skills/tool-call-configuration-for/scripts/tests/test_source_lineage.py",
-      "sha256": "6992dac572e2f08204f1655bfd07d0fe27ab7e9a5ba97f50fe1985a0ab9fac7e",
+      "sha256": "afb2f759a2fc562dd4dc602d356dcae34c590c652fe9e16cc1dc59244663e5a0",
       "source_path": "scripts/tests/test_source_lineage.py"
     },
     {

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "native_manifest_sha256": "f955a6135f547637dc49fb5caa226d6c430344640b51ecb01de90e20e61896c8",
   "native_version": "1.0.0",
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_files": [
     {
       "path": ".github/workflows/ci.yml",

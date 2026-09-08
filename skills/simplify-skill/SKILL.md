@@ -4,7 +4,8 @@ description: 'Use when simplifying a skill without losing behavior.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Simplify a skill

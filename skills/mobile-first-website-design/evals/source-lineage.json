@@ -12,7 +12,7 @@
     "MFWD-008"
   ],
   "native_version": "1.1.1",
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_files": [
     {
       "path": "SKILL.md",

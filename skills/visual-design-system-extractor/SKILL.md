@@ -4,7 +4,8 @@ description: 'Use when reference images, screenshots, moodboards, style frames, 
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.2.1'
+  version: '0.2.2'
+  scope: 'user'
 ---
 
 # Visual Design System Extractor

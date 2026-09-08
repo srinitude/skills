@@ -30,7 +30,7 @@ class TestSourceLineage(unittest.TestCase):
         cases = json.loads((SKILL / "evals" / "cases.json").read_text())
         self.assertEqual(data["source_case_ids"],
                          sorted(case["id"] for case in cases["cases"]))
-        self.assertEqual(data["public_version"], "0.1.0")
+        self.assertEqual(data["public_version"], "0.1.1")
         payload = "".join(f"{row['path']}\0{row['sha256']}\n"
                           for row in data["source_files"])
         self.assertEqual(data["native_manifest_sha256"],

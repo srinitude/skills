@@ -3,7 +3,7 @@
   "source": "https://mise.jdx.dev/schema/mise.json",
   "release_source": "https://raw.githubusercontent.com/jdx/mise/v2026.9.3/schema/mise.json",
   "task_source": "https://mise.jdx.dev/tasks/task-configuration.html",
-  "checked_at": "2026-09-08T12:15:31-04:00",
+  "checked_at": "2026-09-08T12:38:39-04:00",
   "schema_sha256": "f3ecbea5162ab4f998754dc1557ec0183777aa4ba9b84d614d09222c82f7a5c5",
   "groups": {
     "config": [

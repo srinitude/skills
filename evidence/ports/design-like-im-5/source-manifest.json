@@ -1,5 +1,5 @@
 {
-  "evidence_packet_sha256": "256454118c3dbadbc12c19f5f643b7c7d6534c497c61a1da728e5dae1a5938cb",
+  "evidence_packet_sha256": "9723cc3243bd35687436542c34475a47e8855f80312647c2f674165ffc7bb717",
   "files": [
     {
       "bytes": 423,
@@ -9,10 +9,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 19919,
+      "bytes": 19935,
       "location_kind": "repository",
       "location_path": "skills/design-like-im-5/SKILL.md",
-      "sha256": "69477d915460e9f0777236ccd69ee79610d3ca7744b1c97ebfdb423487b4be4d",
+      "sha256": "38750dd4dbde712e29942fc414772e9a5a22254bc9156089bedb0a20eb3f108d",
       "source_path": "SKILL.md"
     },
     {
@@ -975,7 +975,7 @@
       "source_path": "scripts/validate_skill.py"
     }
   ],
-  "native_manifest_sha256": "256454118c3dbadbc12c19f5f643b7c7d6534c497c61a1da728e5dae1a5938cb",
+  "native_manifest_sha256": "9723cc3243bd35687436542c34475a47e8855f80312647c2f674165ffc7bb717",
   "schema": "source-evidence/v1",
   "skill": "design-like-im-5",
   "source_kind": "hybrid_archived_and_repository_baseline"

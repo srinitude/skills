@@ -3,7 +3,7 @@
   "skill": "figma-code-connect-design-system",
   "source_kind": "repository_baseline",
   "native_manifest_sha256": "986acfbfa2c14b19bd565c3e1d79d9c3394c73245c33468a9a66427befc222a6",
-  "evidence_packet_sha256": "86cbdd3e9ce08690b60f33426ac4fcc728d53c53877fddd1be0794cc5a71171d",
+  "evidence_packet_sha256": "db1c4ec35264ce1f5c53f9f914318d2fa27d74da8c17903618754d13b2c0d1fa",
   "files": [
     {
       "bytes": 423,
@@ -13,10 +13,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 19576,
+      "bytes": 19592,
       "location_kind": "repository",
       "location_path": "skills/figma-code-connect-design-system/SKILL.md",
-      "sha256": "0d658bb12f9c69b5ceee7fe1070d6da7ca2095ede303eb9ae988aa9918aadbe1",
+      "sha256": "6bbbfe32dbfe9f9c1c50ddd48f336e36b96ad8c62d19642f99232bcfef250fa4",
       "source_path": "SKILL.md"
     },
     {

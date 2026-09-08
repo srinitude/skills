@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "native_version": "2.0.0",
   "native_manifest_sha256": "b647248569c7664ae8dcba5161a748ccfc7eafa33c5d9bb6d5378fed63c9bc86",
   "public_files": [

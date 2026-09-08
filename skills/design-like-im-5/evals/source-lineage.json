@@ -1,5 +1,5 @@
 {
-  "native_manifest_sha256": "256454118c3dbadbc12c19f5f643b7c7d6534c497c61a1da728e5dae1a5938cb",
+  "native_manifest_sha256": "9723cc3243bd35687436542c34475a47e8855f80312647c2f674165ffc7bb717",
   "native_version": "2026-08-30",
   "public_files": [
     {
@@ -539,7 +539,7 @@
       "source_paths": ["scripts/validate_skill.py"]
     }
   ],
-  "public_version": "0.2.0",
+  "public_version": "0.2.1",
   "schema_version": 1,
   "source_case_ids": [
     "DLMS-001",
@@ -569,7 +569,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "69477d915460e9f0777236ccd69ee79610d3ca7744b1c97ebfdb423487b4be4d"
+      "sha256": "38750dd4dbde712e29942fc414772e9a5a22254bc9156089bedb0a20eb3f108d"
     },
     {
       "path": "assets/context-bundle.schema.json",

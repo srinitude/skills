@@ -4,7 +4,8 @@ description: 'Use when one exact callable tool and a user-authored behavior conf
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # tool-call-configuration-for

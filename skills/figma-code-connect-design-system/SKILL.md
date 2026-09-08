@@ -4,7 +4,8 @@ description: 'Use when a FigJam board, product requirements document, reference 
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.3.0'
+  version: '0.3.1'
+  scope: 'user'
 ---
 
 # Figma Code Connect design system

@@ -71,7 +71,7 @@ test('maps every native file, nonblank line, and case without a drop', async () 
   expect(lineage).toMatchObject({
     native_manifest_sha256: manifestHash,
     native_version: '1.0.0',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
     schema_version: 1,
     source_case_ids: sourceIds,
     source_files: manifest.files.map(({ sha256: digest, source_path: path }) => ({

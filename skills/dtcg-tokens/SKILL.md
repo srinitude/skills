@@ -4,7 +4,8 @@ description: 'Use when any multimodal source must become source-specific DTCG to
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.4.1'
+  version: '0.4.2'
+  scope: "user"
 ---
 
 # dtcg-tokens

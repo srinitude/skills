@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Designate all 22 canonical skills as user-level through `metadata.scope: "user"`. Add the designation to the 21 legacy packages with patch version bumps and refreshed lineage; preserve their instructions, other metadata, installation locations, and permissions.
+
 ## Skill factory 0.5.1
 
 - Bundle the license used by variant fixtures and keep host adapter tests in the repository integration suite, so an installed factory can run its checks without registry parent directories.

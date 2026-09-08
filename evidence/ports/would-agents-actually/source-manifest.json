@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "would-agents-actually",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "cb00bfd6e965bb60c8ba5dc6de57e00dc96c058fa4d75ba6db8dc0684fe17e16",
-  "evidence_packet_sha256": "cb00bfd6e965bb60c8ba5dc6de57e00dc96c058fa4d75ba6db8dc0684fe17e16",
+  "native_manifest_sha256": "a6108f57f7716d8169526eb36dc13257ada2e3b97ab3d2f8d6fc246fe413b21a",
+  "evidence_packet_sha256": "a6108f57f7716d8169526eb36dc13257ada2e3b97ab3d2f8d6fc246fe413b21a",
   "files": [
     {
       "bytes": 423,
@@ -13,10 +13,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 7839,
+      "bytes": 7855,
       "location_kind": "repository",
       "location_path": "skills/would-agents-actually/SKILL.md",
-      "sha256": "0935f567c330c793592a2f262a7aafcb32231e01f97c052651a2d2b855a6adf2",
+      "sha256": "155eb23ddbd09c6e51fe2679d378de254993e520c1f3fda4601f615f4ef7ff5a",
       "source_path": "SKILL.md"
     },
     {

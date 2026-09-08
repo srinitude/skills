@@ -214,7 +214,7 @@
       "source_paths": ["target-scaffolding"]
     }
   ],
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_case_ids": [
     "CASE-001",
     "CASE-002",

@@ -4,7 +4,8 @@ description: 'Use when replying. Refresh current date and time.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Always current date and time

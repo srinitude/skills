@@ -4,7 +4,8 @@ description: 'Use when finding contradictions or reasoning gaps.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.1'
+  version: '0.1.2'
+  scope: 'user'
 ---
 
 # Logic audit

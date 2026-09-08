@@ -4,7 +4,8 @@ description: 'Use when a claim depends on an agent taking a real action.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Would Agents Actually?

@@ -114,7 +114,7 @@ test('binds every public file and native case to the packet', async () => {
   expect(lineage).toMatchObject({
     native_manifest_sha256: manifestHash,
     native_version: '1.0.2',
-    public_version: '0.1.1',
+    public_version: '0.1.2',
     source_case_ids: lineageCases,
     source_files: Object.entries(sourceHashes).map(([path, hash]) => ({
       path,

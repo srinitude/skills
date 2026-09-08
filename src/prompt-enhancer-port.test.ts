@@ -130,7 +130,7 @@ test('binds all source cases and public files to lineage', async () => {
   expect(lineage).toMatchObject({
     native_manifest_sha256: packet,
     native_version: '3.2',
-    public_version: '0.1.0',
+    public_version: '0.1.1',
     source_case_ids: sourceCases,
   });
   expect(

@@ -4,7 +4,8 @@ description: 'Use when a request prescribes a method, tool, metric, or artifact 
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.0'
+  version: '0.1.1'
+  scope: 'user'
 ---
 
 # Starting point

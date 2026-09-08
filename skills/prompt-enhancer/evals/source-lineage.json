@@ -20,7 +20,7 @@
     "PE-016"
   ],
   "native_version": "3.2",
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_files": [
     {
       "path": "SKILL.md",

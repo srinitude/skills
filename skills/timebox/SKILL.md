@@ -4,7 +4,8 @@ description: 'Use when work must finish within a stated time limit.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.1'
+  version: '0.1.2'
+  scope: 'user'
 ---
 
 # Timebox

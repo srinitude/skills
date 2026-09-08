@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "by-design",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "b31b87475f0274d1cec4494550a995a396c1afdf36987e4ca6ebb923718dc7c3",
-  "evidence_packet_sha256": "b31b87475f0274d1cec4494550a995a396c1afdf36987e4ca6ebb923718dc7c3",
+  "native_manifest_sha256": "ee288fe88e8be1180a9d2975fa9de0af1e5b17e79146d38dc0969481b75aa5af",
+  "evidence_packet_sha256": "ee288fe88e8be1180a9d2975fa9de0af1e5b17e79146d38dc0969481b75aa5af",
   "files": [
     {
       "bytes": 181,
@@ -13,10 +13,10 @@
       "source_path": ".github/workflows/ci.yml"
     },
     {
-      "bytes": 17742,
+      "bytes": 17758,
       "location_kind": "repository",
       "location_path": "skills/by-design/SKILL.md",
-      "sha256": "4a8481e67b9a60235522b27a58f598846b06f703739eaf9ab406f36dd901870f",
+      "sha256": "7dcc5ddbc00ac6b21caffe6c0156defa7c7c5b11f57562ef000ebfc9342649e9",
       "source_path": "SKILL.md"
     },
     {

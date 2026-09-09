@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Validate a domain-specific Mise graph with one dependency path.
+"""Validate declared simple-name depends/depends_post topology.
 
-Usage:
-  python3 scripts/check_task_graph.py [skill-root]
+Refuse unmodeled wait_for and dependency forms. Structural topology and
+domain wording do not prove runtime order, readiness, or outcome acceptance.
 
 Exit codes:
   0  graph is specialized, connected, acyclic, and single-path
@@ -33,9 +33,7 @@ def run_commands(task):
     value = task.get("run", "")
     if isinstance(value, str):
         return [value]
-    if isinstance(value, list) and all(isinstance(item, str) for item in value):
-        return value
-    return []
+    return value if isinstance(value, list) and all(isinstance(item, str) for item in value) else []
 
 
 def load(root):
@@ -44,20 +42,28 @@ def load(root):
             tasks = tomllib.load(handle).get("tasks", {})
         path = root / "assets/use-case-contract.json"
         use_case = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(use_case, dict):
+            raise ValueError("use-case contract must be an object")
     except (OSError, ValueError, json.JSONDecodeError) as error:
         raise ValueError(str(error)) from error
     return tasks, use_case
 
 
 def structure_problems(tasks):
+    if not isinstance(tasks, dict):
+        return ["tasks must be a table"]
     found, declared = [], set(tasks)
     for name, task in tasks.items():
-        if not isinstance(task.get("depends"), list):
-            found.append(f"tasks.{name}.depends must be an explicit array")
+        if not isinstance(task, dict):
+            found.append(f"tasks.{name} must be a table")
             continue
-        if "depends_post" in task and not isinstance(task["depends_post"], list):
-            found.append(f"tasks.{name}.depends_post must be an array")
+        edges = [task.get("depends"), task.get("depends_post", [])]
+        if not all(isinstance(edge, list) and
+                   all(isinstance(item, str) for item in edge) for edge in edges):
+            found.append(f"tasks.{name} dependencies must be explicit arrays of task names")
             continue
+        if "wait_for" in task:
+            found.append(f"tasks.{name}.wait_for is not modeled; graph acceptance is blocked")
         unknown = set(dependencies(task)) - declared
         if unknown:
             found.append(f"tasks.{name} has unknown dependencies: " +
@@ -193,6 +199,8 @@ def route_problems(tasks, entries):
 
 def problems(tasks, use_case):
     found = structure_problems(tasks)
+    if found:
+        return found
     cycle = find_cycle(tasks)
     if cycle:
         found.append("cycle: " + " -> ".join(cycle))

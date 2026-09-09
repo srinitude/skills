@@ -1,5 +1,6 @@
 """Behavior tests for one acyclic default Mise dependency path."""
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -96,11 +97,49 @@ class TestTaskGraphPolicy(unittest.TestCase):
             root = Path(temp) / "release-notes"
             root.mkdir()
             write_skill(root, graph, data)
-            return run("check_task_graph.py", root)
+            for name in ["check_task_graph.py", "domain_text.py"]:
+                shutil.copyfile(Path(__file__).resolve().parents[1] / name,
+                                root / name)
+            return run(root / "check_task_graph.py", root, cwd=root)
 
     def test_acyclic_single_path_graph_passes(self):
         result = self.check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_wait_for_is_not_silently_ignored(self):
+        graph = task_text().replace(
+            'depends = ["test", "decision-policy"]',
+            'depends = ["test", "decision-policy"]\nwait_for = ["test"]')
+        result = self.check(graph)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("wait_for is not modeled", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
+
+    def test_unmodeled_dependency_forms_fail_without_tracebacks(self):
+        for declaration in ['depends = "test"', 'depends = [1]',
+                            'depends = [["test", "--flag"]]',
+                            'depends = []\ndepends_post = [{task = "test"}]']:
+            with self.subTest(declaration=declaration):
+                graph = task_text().replace(
+                    'depends = ["test", "decision-policy"]', declaration)
+                result = self.check(graph)
+                self.assertEqual(result.returncode, 1)
+                self.assertIn("dependencies", result.stdout)
+                self.assertNotIn("Traceback", result.stderr)
+
+    def test_non_table_task_records_fail_without_tracebacks(self):
+        for graph in ['tasks = []', '[tasks]\nother = "true"\n' + task_text()]:
+            with self.subTest(graph=graph):
+                result = self.check(graph)
+                self.assertEqual(result.returncode, 1)
+                self.assertIn("table", result.stdout)
+                self.assertNotIn("Traceback", result.stderr)
+
+    def test_non_object_domain_contract_fails_without_traceback(self):
+        result = self.check(data=["not an object"])
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("use-case contract must be an object", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
 
     def test_cycle_fails(self):
         graph = task_text().replace("depends = []\nrun = \"python3 scripts/tests.py\"",

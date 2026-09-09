@@ -25,6 +25,8 @@ export const requestSchema = z.object({
   change: z.object({
     path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding,
     body_sha256: digest, reviewer: z.string().min(1), review: z.record(z.string(), z.string().min(1)),
+    mode: z.object({ expected: z.number().int().min(0).max(0o777).nullable(),
+      new: z.number().int().min(0).max(0o777) }).strict().optional(),
   }).strict().optional(),
   selector: z.string().min(1).optional(),
   direction: z.enum(['in', 'out', 'both']).optional(),

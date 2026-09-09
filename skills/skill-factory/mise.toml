@@ -145,7 +145,7 @@ run = "python3 scripts/plan_standardize.py"
 
 [tasks.standardize-target]
 env = { UV_PYTHON = "{{tools.python.path}}" }
-description = "Apply one profile-bound registry skill standardization"
+description = "Plan exact files or apply a reviewed registry skill standardization"
 depends = ["doctor", "source-corpus"]
 run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/standardize_registry_skill.py"
 
@@ -199,7 +199,7 @@ env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
 run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-timeout = "600s"
+timeout = "900s"
 depends = ["test-ci", "lint-code"]
 
 [tasks.task-graph-policy]

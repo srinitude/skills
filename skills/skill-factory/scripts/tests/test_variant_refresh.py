@@ -56,6 +56,11 @@ class TestVariantRefresh(unittest.TestCase):
         custom = target / "scripts/inventory.py"
         custom.write_text(custom.read_text().replace(expression, 'sum(not line.startswith("#") for line in p.read_text().splitlines())'))
         (target / "CUSTOM.md").write_text("Keep comment exclusion.\n")
+        self.preserved = {}
+        for name in ['.git/local-state', 'node_modules/local-state']:
+            file = target / name; file.parent.mkdir(parents=True)
+            file.write_bytes(b'preserve refresh state\x00'); file.chmod(0o600)
+            self.preserved[name] = (file.read_bytes(), file.stat().st_mode, file.stat().st_ino)
         before_source, before_target = snapshot(source), snapshot(target)
         result = plan(source, target.parent, "user", target.name, "--refresh")
         data = json.loads(result.stdout)
@@ -83,3 +88,7 @@ class TestVariantRefresh(unittest.TestCase):
         self.assertEqual((target / "CUSTOM.md").read_text(), "Keep comment exclusion.\n")
         lineage = json.loads((target / "evals/source-lineage.json").read_text())
         self.assertEqual(lineage["derivation"]["source"]["digest"], data["source"]["digest"])
+        for name, expected in self.preserved.items():
+            file = target / name
+            self.assertTrue(file.is_file(), name)
+            self.assertEqual((file.read_bytes(), file.stat().st_mode, file.stat().st_ino), expected)

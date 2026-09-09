@@ -25,6 +25,10 @@ def load_profile(path, skill=None):
             raise ValueError("profile must be a JSON object")
     except (OSError, UnicodeError, ValueError) as error:
         raise ValueError(f"profile cannot be read: {error}") from error
+    return selected_profile(data, skill)
+
+
+def selected_profile(data, skill=None):
     if "profiles" in data:
         profiles = data["profiles"]
         if not isinstance(profiles, dict) or not skill or skill not in profiles:

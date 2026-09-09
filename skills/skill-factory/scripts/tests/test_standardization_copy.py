@@ -4,6 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from standardization_test_support import reviewed_standardize
+
 from cli import run, SKILL_DIR
 from test_mapping_promotion import snapshot
 from test_standardize_registry_skill import profile, write_target
@@ -18,7 +20,7 @@ class TestCanonicalCopy(unittest.TestCase):
             checker.write_text("print('stale')\n", encoding="utf-8")
             profile_path = Path(temp) / "profile.json"
             profile_path.write_text(json.dumps(profile()), encoding="utf-8")
-            result = run("standardize_registry_skill.py", root, "--profile",
+            result = reviewed_standardize(root, "--profile",
                          profile_path, "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn("mise_section_lines", checker.read_text())
@@ -29,7 +31,7 @@ class TestCanonicalCopy(unittest.TestCase):
             write_target(root)
             config = Path(temp) / "profile.json"
             config.write_text(json.dumps(profile()))
-            result = run("standardize_registry_skill.py", root, "--profile",
+            result = reviewed_standardize(root, "--profile",
                          config, "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             for name in ["package.json", "package-lock.json", "tsconfig.json",
@@ -50,7 +52,7 @@ class TestCanonicalCopy(unittest.TestCase):
                 before = snapshot(root)
                 config = Path(temp) / "profile.json"
                 config.write_text(json.dumps(profile()))
-                result = run("standardize_registry_skill.py", root, "--profile",
+                result = reviewed_standardize(root, "--profile",
                              config, "--scope", "user", "--apply")
                 self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
                 self.assertIn("runtime", result.stderr)

@@ -4,6 +4,8 @@ import json
 import sys
 import subprocess
 from pathlib import Path
+
+from standardization_test_support import reviewed_standardize
 import tempfile
 import unittest
 
@@ -34,7 +36,7 @@ class TestMappingPromotion(unittest.TestCase):
             config = Path(temp) / "profile.json"
             config.write_text(json.dumps(profile()))
             before = snapshot(root)
-            result = run("standardize_registry_skill.py", root, "--profile", config,
+            result = reviewed_standardize(root, "--profile", config,
                          "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
             self.assertIn("source mapping", result.stderr)
@@ -47,7 +49,7 @@ class TestMappingPromotion(unittest.TestCase):
         entry["public_text_sha256"] = hashlib.sha256(current.encode()).hexdigest()
         bound = json.dumps({"entries": [entry]}, separators=(",", ":")) + "\n"
         path.write_text(bound)
-        result = run("standardize_registry_skill.py", root, "--profile", config,
+        result = reviewed_standardize(root, "--profile", config,
                      "--scope", "user", "--apply")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(path.read_text(), bound)
@@ -72,7 +74,7 @@ class TestMappingPromotion(unittest.TestCase):
             config.write_text(json.dumps(profile()))
             before = subprocess.run([sys.executable, str(path)], capture_output=True)
             self.assertEqual(before.returncode, 1, before.stderr)
-            result = run("standardize_registry_skill.py", root, "--profile", config,
+            result = reviewed_standardize(root, "--profile", config,
                          "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertEqual(path.read_bytes(), raw)

@@ -80,25 +80,15 @@ def build_triggers(root, profile):
     return queries
 
 
-def write_json_if_missing(path, data):
-    if path.exists():
-        return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+def json_bytes(value):
+    return (json.dumps(value, indent=2) + '\n').encode('utf-8')
 
-
-def create_missing(root, profile, factory):
-    if not (root / "mise.toml").exists():
-        (root / "mise.toml").write_text(base_mise(profile), encoding="utf-8")
-    write_json_if_missing(root / "evals/evals.json", build_evals(root, profile))
-    write_json_if_missing(root / "evals/trigger-queries.json", build_triggers(root, profile))
-    workflow = root / ".github/workflows/ci.yml"
-    if not workflow.exists():
-        workflow.parent.mkdir(parents=True, exist_ok=True)
-        workflow.write_bytes((factory / "assets/ci/ci.yml").read_bytes())
-    decisions = root / "references/decisions.md"
-    if not decisions.exists():
-        decisions.parent.mkdir(parents=True, exist_ok=True)
-        decisions.write_text(f"# {profile['primary_term']} decisions\n\n"
-            "Record accepted choices through `mise run decision-policy`. "
-            "Return a failed claim to its smallest owner.\n", encoding="utf-8")
+def seeds(root, files, profile, factory):
+    files.setdefault('mise.toml', base_mise(profile).encode())
+    files.setdefault('evals/evals.json', json_bytes(build_evals(root, profile)))
+    files.setdefault('evals/trigger-queries.json', json_bytes(build_triggers(root, profile)))
+    files.setdefault('.github/workflows/ci.yml', (factory / 'assets/ci/ci.yml').read_bytes())
+    files.setdefault('references/decisions.md', (
+        f"# {profile['primary_term']} decisions\n\n"
+        'Record accepted choices through `mise run decision-policy`. '
+        'Return a failed claim to its smallest owner.\n').encode())

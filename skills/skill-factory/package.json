@@ -12,6 +12,7 @@
     "@mastra/core": "1.65.0"
   },
   "devDependencies": {
-    "@types/node": "24.13.3"
+    "@types/node": "24.13.3",
+    "prettier": "3.8.2"
   }
 }

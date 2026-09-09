@@ -71,10 +71,28 @@ def copy_owned(source, target):
         shutil.copy2(source / relative, destination)
 
 
+class PackageRecoveryError(ValueError):
+    """Automatic restoration failed; retain both directories for authorized recovery."""
+
+
+@contextmanager
+def retained_workdir(parent, prefix):
+    folder = Path(tempfile.mkdtemp(prefix=prefix, dir=parent))
+    try:
+        yield folder
+    except PackageRecoveryError:
+        raise
+    except BaseException:
+        shutil.rmtree(folder)
+        raise
+    else:
+        shutil.rmtree(folder)
+
+
 @contextmanager
 def staged(parent, name):
-    with tempfile.TemporaryDirectory(prefix=".skill-stage-", dir=parent) as temp:
-        yield Path(temp) / name
+    with retained_workdir(parent, ".skill-stage-") as folder:
+        yield folder / name
 
 
 @contextmanager
@@ -89,28 +107,82 @@ def package_lock(target):
         lock.unlink()
 
 
-def promote(stage, target, expected=None):
+def promote(stage, target, expected=None, *, preserve_unowned=False, check=None, verify=None):
     """Guard concurrent writers and restore the prior directory on failure."""
     with package_lock(target):
         current = inventory(target) if target.exists() else None
         if current != expected:
             raise ValueError("destination collision or destination changed since planning")
-        replace_directory(stage, target)
+        if check:
+            check()
+        replace_directory(stage, target, preserve_unowned=preserve_unowned, verify=verify)
 
 
-def replace_directory(stage, target):
+def replace_directory(stage, target, *, preserve_unowned=False, verify=None):
     expected = inventory(stage)
-    with tempfile.TemporaryDirectory(prefix=".skill-backup-", dir=target.parent) as temp:
+    with retained_workdir(target.parent, ".skill-backup-") as temp:
         backup = Path(temp) / target.name
         if target.exists():
             target.rename(backup)
+        moved = []
         try:
+            if preserve_unowned:
+                preserve_layout(backup, stage)
+                move_unowned(backup, stage, moved)
             stage.rename(target)
             if inventory(target) != expected:
                 raise ValueError("promoted package differs from the validated candidate")
+            if verify:
+                verify()
         except BaseException:
-            if target.exists():
-                target.rename(stage)
-            if backup.exists():
-                backup.rename(target)
+            try:
+                restore_package(stage, target, backup, moved)
+            except BaseException as error:
+                raise PackageRecoveryError(f"restoration failed; retain {stage} and {backup} for recovery") from error
             raise
+
+
+def restore_package(stage, target, backup, moved):
+    if target.exists():
+        target.rename(stage)
+    for original, destination in reversed(moved):
+        if original.exists() or original.is_symlink():
+            raise ValueError("unowned restoration collision")
+        destination.rename(original)
+    if backup.exists():
+        backup.rename(target)
+
+
+def unowned_entries(root):
+    for folder, dirs, names in os.walk(root, followlinks=False, onerror=walk_error):
+        for name in sorted(dirs):
+            path = Path(folder) / name
+            if name in SKIP:
+                dirs.remove(name)
+                yield path
+        for name in sorted(names):
+            path = Path(folder) / name
+            if name in SKIP or name == ".DS_Store" or path.suffix in {".pyc", ".pyo"}:
+                yield path
+
+
+def move_unowned(source, destination, moved):
+    if not source.exists():
+        return
+    for original in unowned_entries(source):
+        target = destination / original.relative_to(source)
+        if target.exists() or target.is_symlink():
+            raise ValueError("unowned destination collision; existing state must be preserved")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        original.rename(target)
+        moved.append((original, target))
+
+
+def preserve_layout(source, destination):
+    source = source.resolve()
+    if not source.exists():
+        return
+    for original in [source, *(p for p in owned_entries(source) if p.is_dir())]:
+        target = destination / original.relative_to(source)
+        target.mkdir(parents=True, exist_ok=True)
+        shutil.copystat(original, target)

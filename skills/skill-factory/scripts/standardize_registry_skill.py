@@ -3,25 +3,13 @@
 import argparse
 import hashlib
 import json
-import shutil
 import sys
-import tomllib
 from pathlib import Path
 
-from standardization_assets import resolved_initial_profile, validate_policy_assets, write_assets
-from standardization_baseline import restore_tracked_text
-from standardization_contracts import repair_contracts
-from standardization_discovery import enrich_profile
-from standardization_format import format_files
-from standardization_markdown import rewrite_markdown, script_task_map
-from standardization_mapping import repair_mapping_json, snapshot_public_lines
-from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
-from standardization_rewrites import apply_rewrites, apply_section_rewrites
-from standardization_seed import create_missing
-from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES, copy_runtime
-from skill_package import inventory, promote, staged
-from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
+from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES
+from skill_package import inventory, owned_paths
+from skill_scope import SCOPES, label, read_fields, resolve
 from scope_placement import check_placement
 
 FACTORY = Path(__file__).resolve().parents[1]
@@ -61,8 +49,7 @@ def digest(path):
 
 
 def planned_paths(root, profile):
-    paths = {path for path in root.rglob("*")
-             if path.is_file() and "__pycache__" not in path.parts}
+    paths = {root / path.relative_to(root.resolve()) for path in owned_paths(root)}
     paths.update(root / name for name in ROOT_FILES + LEDGER_EXAMPLES)
     paths.add(root / "evals/source-mapping.json")
     paths.add(root / "scripts/tests/test_package_contract.py")
@@ -78,74 +65,20 @@ def planned_paths(root, profile):
     return sorted(paths)
 
 
-def copy_support(root):
-    copy_runtime(FACTORY, root)
-    for source, target in COPIES:
-        destination = root / target
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(FACTORY / source, destination)
-    (root / "scripts").mkdir(exist_ok=True)
-    for name in SCRIPTS:
-        target = root / "scripts" / name
-        if not target.exists() or name in CANONICAL_SCRIPTS:
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(FACTORY / "scripts" / name, target)
-
-
-def apply(root, profile, rebase=False):
-    original_files = inventory(root)
-    profile = resolved_initial_profile(root, profile)
-    if rebase:
-        restore_tracked_text(root)
-    create_missing(root, profile, FACTORY)
-    profile = enrich_profile(root, profile)
-    snapshots = snapshot_public_lines(root)
-    apply_rewrites(root, profile, strict=False)
-    apply_section_rewrites(root, profile)
-    original = (root / "mise.toml").read_text(encoding="utf-8")
-    normalized = normalize_mise(original, profile)
-    (root / "mise.toml").write_text(normalized, encoding="utf-8")
-    copy_support(root)
-    with (root / "mise.toml").open("rb") as handle:
-        tasks = tomllib.load(handle)["tasks"]
-    owners = script_task_map(tasks)
-    for path in root.rglob("*.md"):
-        body = path.read_text(encoding="utf-8")
-        path.write_text(rewrite_markdown(body, owners, profile,
-                        add_contract=path == root / "SKILL.md"), encoding="utf-8")
-    apply_rewrites(root, profile)
-    repair_contracts(root, tasks, profile, owners, snapshots)
-    write_assets(root, profile, tasks)
-    changed = [root / name for name, entry in inventory(root).items()
-               if original_files.get(name) != entry]
-    format_files(root, changed)
-    validate_policy_assets(root)
-
-
-def apply_scoped(root, profile, scope, rebase=False):
-    before = inventory(root)
-    profile = resolved_initial_profile(root, profile)
-    with staged(root.parent, root.name) as candidate:
-        shutil.copytree(root, candidate, symlinks=True)
-        if rebase:
-            restore_tracked_text(root, candidate)
-        apply(candidate, profile)
-        file = candidate / "SKILL.md"
-        file.write_text(scoped_text(file.read_text(), scope), encoding="utf-8")
-        read_fields(candidate)
-        repair_mapping_json(candidate)
-        promote(candidate, root, before)
-
-
 def parse_args(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("skill_root")
     parser.add_argument("--profile", required=True)
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--plan-file", help="saved complete no-write plan output")
+    parser.add_argument("--review", help="current ledger, initial body and every planned-file review")
     parser.add_argument("--rebase-tracked-text", action="store_true")
     parser.add_argument("--scope", choices=SCOPES)
     parser.add_argument("--placement-receipt")
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if not args.apply and (args.plan_file or args.review):
+        parser.error('--plan-file and --review require --apply')
+    return args
 
 
 def scope_choice(root, args):
@@ -159,31 +92,40 @@ def scope_choice(root, args):
     return choice
 
 
+def operation(args, root, profile, choice):
+    scope = choice['scope'] if choice else None
+    sources = (COPIES, SCRIPTS, CANONICAL_SCRIPTS)
+    if not args.apply:
+        from standardization_plan import build_plan
+        plan = build_plan(root, profile, scope, args.rebase_tracked_text, FACTORY, sources, args.profile)
+        return {'target': str(root.resolve()), 'mode': 'plan', 'writes': 0,
+                'changed': [], 'scope': scope, 'plan': plan}
+    from standardization_review import apply_reviewed
+    result = apply_reviewed(root.resolve(), profile, scope, args.rebase_tracked_text,
+                            FACTORY, sources, args.plan_file, args.review, args.profile)
+    return {'target': str(root.resolve()), 'mode': 'apply', 'scope': scope, 'scope_label': label(scope),
+            'writes': len(result['changed']), 'changed': [str(root / name) for name in result['changed']],
+            'file_writes': result['writes'], 'execution_acceptance': 'pending'}
+
+
 def main(argv=None):
     args = parse_args(argv)
     root = Path(args.skill_root)
-    if root.is_symlink() or not (root / "SKILL.md").is_file():
-        print("error: target must be a real skill directory", file=sys.stderr)
+    if root.is_symlink() or not (root / 'SKILL.md').is_file():
+        print('error: target must be a real skill directory', file=sys.stderr)
         return 2
     try:
         profile = validate_profile(load_profile(args.profile, root.name), root.resolve())
         choice = scope_choice(root, args)
     except ValueError as error:
-        print(f"error: {error}", file=sys.stderr)
+        print(f'error: {error}', file=sys.stderr)
         return 2
-    before = {str(path): digest(path) for path in planned_paths(root, profile)}
-    if args.apply:
-        try:
-            apply_scoped(root, profile, choice["scope"], args.rebase_tracked_text)
-        except (OSError, ValueError) as error:
-            print(f"error: {error}", file=sys.stderr)
-            return 1
-    after = {str(path): digest(path) for path in planned_paths(root, profile)}
-    changed = [path for path in before if before[path] != after[path]]
-    print(json.dumps({"target": str(root.resolve()), "mode": "apply" if args.apply else "plan",
-                      "scope": choice["scope"] if choice else None,
-                      "scope_label": label(choice["scope"]) if choice else None,
-                      "writes": len(changed), "changed": changed}, indent=2))
+    try:
+        report = operation(args, root, profile, choice)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print(f'error: {error}', file=sys.stderr)
+        return 1
+    print(json.dumps(report))
     return 0
 
 

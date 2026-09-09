@@ -28,30 +28,12 @@ Choose user for availability across your projects or project for a specific proj
 
 ## Fresh help readback
 
-The following excerpts were observed from public tasks. Readiness details and unrelated help paragraphs are omitted; no files were created.
+Load [the full help record](help-run.json) through `mise run new`, `mise run standardize-target` or `mise run variant` before using their flags. It contains actual complete stdout, stderr and exit codes for creation help, standardization help and variant-plan help, with the observed runtime identity. These commands create no target files. Creation exposes `--plan` and `--review`; standardization exposes `--apply`, `--plan-file` and `--review`; variant planning retains its independent scope, project, placement, refresh and in-place branches.
 
-```text
-$ mise run new -- --help
-usage: scaffold_skill.py [-h] --name NAME --description DESCRIPTION
-                         --scope {user,project}
-                         [--placement-receipt PLACEMENT_RECEIPT] --dest DEST
-exit 0
-
-$ mise run variant -- plan --help
---source SOURCE
---source-id SOURCE_ID
---scope {user,project}
---name NAME
---dest DEST
---project PROJECT
---project-id PROJECT_ID
---refresh
---in-place
-exit 0
-```
-
-The plan operation resolves the source, target scope, identity, destination, and project context. The review operation prepares a digest-bound draft. Accept validates the completed review, adapted behavior, and package before promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
+The plan operation resolves the source, target scope, identity, destination and project context. The review operation prepares a digest-bound draft. Accept validates the completed review, adapted behavior and package before promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
 
 ## What the run proves
 
-The scaffold requires an explicit scope. Both variant directions use the same public operation. Help output proves interface availability; the behavioral tests establish adaptation and preservation for their exercised cases.
+The run record stores complete stdout and stderr in `stdout_base64` and `stderr_base64`. Decode base64 as UTF-8 to read the exact observed streams, including discovery diagnostics. Commands, exit codes, inputs and historical runtime identities are unchanged.
+
+Help output proves interface availability. Source/ledger review, behavioral checks, failure and recovery observations, and current delivery evidence remain separate requirements.

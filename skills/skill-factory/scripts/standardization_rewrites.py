@@ -36,20 +36,30 @@ def apply_rewrites(root, profile, strict=True):
     for relative, rules in profile.get("text_rewrites", {}).items():
         path = safe_target(root, relative)
         text = path.read_text(encoding="utf-8")
-        for index, rule in enumerate(rules):
-            text = apply_rule(text, rule, rules[index + 1:], relative, strict)
-        path.write_text(text, encoding="utf-8")
+        path.write_text(rewritten_text(text, rules, relative, strict), encoding="utf-8")
+
+
+def rewritten_text(text, rules, relative, strict=True):
+    for index, rule in enumerate(rules):
+        text = apply_rule(text, rule, rules[index + 1:], relative, strict)
+    return text
 
 
 def apply_section_rewrites(root, profile):
     for rule in profile.get("section_rewrites", []):
         path = safe_target(root, rule["path"])
         text = path.read_text(encoding="utf-8")
-        replacement = rule["replacement"].rstrip() + "\n\n"
-        if replacement in text:
-            continue
-        start = text.find(rule["heading"] + "\n")
-        end = text.find(rule["until"] + "\n", start + 1)
-        if start < 0 or end < 0:
-            raise ValueError(f"section rewrite boundary is missing: {rule['path']}")
-        path.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
+        updated = rewritten_section(text, rule)
+        if updated != text:
+            path.write_text(updated, encoding="utf-8")
+
+
+def rewritten_section(text, rule):
+    replacement = rule["replacement"].rstrip() + "\n\n"
+    if replacement in text:
+        return text
+    start = text.find(rule["heading"] + "\n")
+    end = text.find(rule["until"] + "\n", start + 1)
+    if start < 0 or end < 0:
+        raise ValueError(f"section rewrite boundary is missing: {rule['path']}")
+    return text[:start] + replacement + text[end:]

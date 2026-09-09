@@ -65,6 +65,8 @@ def file_request(item, review, prepared, body, installed):
     request = {**review['context'], 'action': 'write-file', 'change': {
         'path': item['path'], 'expected_sha256': None, 'new_file': prepared,
         'body_sha256': body['sha256'], **review['files'][item['path']]}}
+    if 'mode' in item:
+        request['change']['mode'] = {'expected': None, 'new': item['mode']}
     if item['path'] == 'SKILL.md':
         request['body_revision'] = {'previous': None, 'review': review['body_review']}
     elif not installed:
@@ -72,8 +74,10 @@ def file_request(item, review, prepared, body, installed):
     return request
 
 
-def build_reviewed(factory, target, plan, review_path, review, review_raw):
+def build_reviewed(factory, target, plan, review_path, review, review_raw, check=None):
     current_inputs(factory, plan, review_path, review_raw)
+    if check:
+        check()
     expected = {item['path']: item['sha256'] for item in plan['files']}
     target.mkdir()
     writes = []
@@ -84,12 +88,16 @@ def build_reviewed(factory, target, plan, review_path, review, review_raw):
         body = {'path': str(body_path), 'sha256': body_item['sha256']}
         for item in plan['files']:
             current_inputs(factory, plan, review_path, review_raw)
+            if check:
+                check()
             prepared = folder / 'prepared.bin'; prepared.write_bytes(base64.b64decode(item['content_base64']))
             (target / item['path']).parent.mkdir(parents=True, exist_ok=True)
             request = file_request(item, review, {'path': str(prepared), 'sha256': item['sha256']},
                                    body, (target / 'SKILL.md').exists())
             result = write_file(request, target)
             current_inputs(factory, plan, review_path, review_raw)
+            if check:
+                check()
             writes.append({key: result[key] for key in ['path', 'new_sha256', 'reviewer', 'review', 'execution_acceptance']})
     require(inventory(target) == expected, 'scaffold differs from reviewed file bytes')
     return writes

@@ -93,5 +93,5 @@ def publish(plan, candidate, review, target, expected):
         record["derivation"] = derivation(plan, review, stage)
         write_atomic(stage / "evals/source-lineage.json", record)
         check_privacy(plan, stage, review)
-        promote(stage, target, expected)
+        promote(stage, target, expected, preserve_unowned=True)
     return operation_report(plan, review, [package_result, *results])

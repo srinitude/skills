@@ -4,15 +4,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from cli import run
+from standardization_test_support import reviewed_standardize
 
 from standardization_fixtures import profile, write_target
 
 
 class TestRegistryStandardization(unittest.TestCase):
     def invoke(self, root, profile_path, apply=False):
-        args = ["standardize_registry_skill.py", root, "--profile", profile_path]
-        return run(*args, *(["--scope", "user", "--apply"] if apply else []))
+        args = [root, "--profile", profile_path]
+        return reviewed_standardize(*args, *(["--scope", "user", "--apply"] if apply else []))
 
     def test_plan_makes_no_writes(self):
         with tempfile.TemporaryDirectory() as temp:

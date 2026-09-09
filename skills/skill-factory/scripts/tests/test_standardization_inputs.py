@@ -4,6 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from standardization_test_support import reviewed_standardize, native_formatter
+
 from cli import run
 from test_mapping_promotion import snapshot
 from test_standardize_registry_skill import profile, write_target
@@ -21,7 +23,7 @@ class TestStandardizationInputs(unittest.TestCase):
 
     def invoke(self):
         self.config.write_text(json.dumps(self.data))
-        return run("standardize_registry_skill.py", self.root, "--profile", self.config,
+        return reviewed_standardize(self.root, "--profile", self.config,
                    "--scope", "user", "--apply")
 
     def test_unresolved_declarations_block_without_touching_target(self):
@@ -68,7 +70,7 @@ class TestStandardizationInputs(unittest.TestCase):
         before = snapshot(self.root)
         for data in [None, [], {"profiles": None}, {"profiles": {"clock-anchor": []}}]:
             self.config.write_text(json.dumps(data))
-            result = run("standardize_registry_skill.py", self.root, "--profile", self.config,
+            result = reviewed_standardize(self.root, "--profile", self.config,
                          "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
             self.assertNotIn("Traceback", result.stderr)
@@ -77,7 +79,7 @@ class TestStandardizationInputs(unittest.TestCase):
     def test_duplicate_profile_keys_fail_before_any_write(self):
         self.config.write_text('{"audience":{"primary":"human"},' + json.dumps(self.data)[1:])
         before = snapshot(self.root)
-        result = run("standardize_registry_skill.py", self.root, "--profile", self.config,
+        result = reviewed_standardize(self.root, "--profile", self.config,
                      "--scope", "user", "--apply")
         self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
         self.assertIn("duplicate JSON key", result.stderr)
@@ -162,45 +164,38 @@ class TestStandardizationInputs(unittest.TestCase):
 
     def test_repository_formatter_receives_only_changed_files(self):
         self.assertEqual(self.invoke().returncode, 0)
-        (self.base / ".git").mkdir()
-        (self.base / ".prettierrc.json").write_text("{}")
-        formatter = self.base / "node_modules/prettier/bin/prettier.cjs"
-        formatter.parent.mkdir(parents=True)
-        log = self.base / "format-log.json"
-        formatter.write_text("require('node:fs').writeFileSync(" + json.dumps(str(log))
-                             + ", JSON.stringify(process.argv.slice(2)));\n")
-        result = self.invoke()
+        native_formatter(self.base)
+        result = run('standardize_registry_skill.py', self.root, '--profile', self.config, '--scope', 'user')
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertFalse(log.exists(), "a no-op must not invoke the formatter")
-        self.data["text_rewrites"]["scripts/domain_check.py"].append(
-            {"old": "FACTORY_ASSERTION", "new": "REVIEWED_ASSERTION"})
-        result = self.invoke()
+        self.assertIsNone(json.loads(result.stdout)['plan']['formatter'])
+        self.data['text_rewrites']['scripts/domain_check.py'].append(
+            {'old': 'FACTORY_ASSERTION', 'new': 'REVIEWED_ASSERTION'})
+        self.config.write_text(json.dumps(self.data))
+        result = run('standardize_registry_skill.py', self.root, '--profile', self.config, '--scope', 'user')
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        arguments = json.loads(log.read_text())
-        self.assertEqual(arguments[0], "--write")
-        self.assertTrue(all(Path(value).suffix for value in arguments[1:]))
-        names = {Path(value).name for value in arguments[1:]}
-        self.assertIn("domain_check.py", names)
-        self.assertFalse(names & {"primitive-lifecycle.json", "decision-records.json",
-                                 "invocation-receipt-template.json", "mise-primitives.json"})
+        records = json.loads(result.stdout)['plan']['formatter']['files']
+        self.assertEqual([Path(item['path']).name for item in records], ['domain_check.py'])
+        self.assertFalse(records[0]['formatted'], 'native Prettier has no Python parser')
+        self.assertEqual(self.invoke().returncode, 0)
+        self.assertEqual((self.root / 'scripts/domain_check.py').read_text(), 'REVIEWED_ASSERTION\n')
 
-    def test_formatter_cannot_invalidate_policy_before_promotion(self):
-        (self.base / ".git").mkdir()
-        (self.base / ".prettierrc.json").write_text("{}")
-        formatter = self.base / "node_modules/prettier/bin/prettier.cjs"
-        formatter.parent.mkdir(parents=True)
-        formatter.write_text("const fs = require('node:fs');\n"
-            "for (const file of process.argv.slice(3)) {\n"
-            "  if (!file.endsWith('/decision-records.json')) continue;\n"
-            "  const data = JSON.parse(fs.readFileSync(file));\n"
-            "  data.records[0].owner = 'human';\n"
-            "  fs.writeFileSync(file, JSON.stringify(data));\n}\n")
+    def test_native_formatter_plugin_cannot_invalidate_policy_before_promotion(self):
+        native_formatter(self.base)
+        plugin = self.base / 'policy-plugin.cjs'
+        plugin.write_text("const {parsers} = require('prettier/plugins/babel');\n"
+            "module.exports = {parsers: {json: {...parsers.json, preprocess(text, options) {\n"
+            "  if (!options.filepath.endsWith('/decision-records.json')) return text;\n"
+            "  const data = JSON.parse(text); data.records[0].owner = 'human';\n"
+            "  return JSON.stringify(data);\n"
+            "}}}};\n")
+        config = self.base / '.prettierrc.json'
+        config.write_text(json.dumps({'plugins': [str(plugin)]}))
         before = snapshot(self.root)
         result = self.invoke()
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
-        self.assertIn("owner", result.stderr)
+        self.assertIn('owner', result.stderr)
         self.assertEqual(snapshot(self.root), before)
-        formatter.write_text("void 0;\n")
+        config.write_text('{}')
         result = self.invoke()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 

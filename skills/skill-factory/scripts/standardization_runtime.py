@@ -1,41 +1,16 @@
 """Add the native checker runtime without overwriting unreviewed target owners."""
-import hashlib
+from skill_package import sha
 import re
-import shutil
 import tomllib
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
 LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/example-ledger-write.md")
 LEDGER_FILES = ("review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
-                "run_review_ledger.ts", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py")
+                "run_review_ledger.ts", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
                   "skill_package.py": "466753d6f604a9433e9b51ace0a58d3f5f34191dc98b0083689aab25dfae7184"}
-
-
-def copy_runtime(factory, root):
-    for name in LEDGER_FILES:
-        target = root / "scripts" / name
-        if target.exists() and target.read_bytes() != (factory / "scripts" / name).read_bytes():
-            raise ValueError("ledger runtime owner needs explicit reconciliation: " + name)
-    for name in ROOT_FILES + LEDGER_EXAMPLES:
-        target = root / name
-        if target.exists() and target.read_bytes() != (factory / name).read_bytes():
-            raise ValueError(f"runtime owner needs explicit reconciliation: {name}")
-    for name, baseline in LEGACY_SCRIPTS.items():
-        checker = root / "scripts" / name
-        if not checker.exists():
-            continue
-        current = hashlib.sha256(checker.read_bytes()).hexdigest()
-        wanted = hashlib.sha256((factory / "scripts" / name).read_bytes()).hexdigest()
-        if current not in {baseline, wanted}:
-            raise ValueError("runtime checker has unreviewed target customizations: " + name)
-    for name in ROOT_FILES + LEDGER_EXAMPLES:
-        target = root / name
-        if not target.exists():
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(factory / name, target)
 
 
 def runtime_preamble(preamble):
@@ -93,3 +68,12 @@ def isolate_python_helpers(block):
                 raise ValueError("Python helper command syntax needs explicit reconciliation")
             block = block.replace(command, ISOLATED_UV + command[len(UV_RUN):])
     return block
+
+def check_runtime(files, factory):
+    for name in [*ROOT_FILES, *LEDGER_EXAMPLES, *('scripts/' + name for name in LEDGER_FILES)]:
+        if name in files and files[name] != (factory / name).read_bytes():
+            raise ValueError('runtime owner needs explicit reconciliation: ' + name)
+    for name, baseline in LEGACY_SCRIPTS.items():
+        path = 'scripts/' + name
+        if path in files and sha(files[path]) not in {baseline, sha((factory / path).read_bytes())}:
+            raise ValueError('runtime checker has unreviewed target customizations: ' + name)

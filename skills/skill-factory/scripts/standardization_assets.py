@@ -1,7 +1,7 @@
 """Build factory policy assets for one registry skill."""
 import datetime
-import json
-from pathlib import Path
+import tomllib
+from standardization_seed import json_bytes
 
 from agentic_request_contract import read_json
 from agentic_context import audience_record, declaration_order
@@ -9,7 +9,7 @@ from standardization_rewrites import safe_target
 from standardization_profile import DIMENSIONS, PHASES, PRIMITIVES
 from check_decision_records import problems as decision_problems
 from check_primitive_lifecycle import validate as lifecycle_problems
-from check_mise_primitives import actual_fields, validate as primitive_problems
+from check_mise_primitives import configured_fields, validate as primitive_problems
 
 
 def existing_asset(root, name):
@@ -55,10 +55,6 @@ def resolved_initial_profile(root, profile):
     audience_record(resolved, accept=True)
     declaration_order(resolved.get("initial_context"))
     return resolved
-
-
-def phrase(profile, subject):
-    return f"{profile['primary_term']} {subject}"
 
 
 def motivations(profile):
@@ -188,13 +184,7 @@ def invocation(profile):
             "proof_rule": f"Tie each entry to fresh {profile['primary_term']} evidence."}
 
 
-def write_json(path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
-
-
-def primitive_map(root, profile, catalog):
-    actual = actual_fields(root, catalog)
+def primitive_decisions(actual, profile, catalog):
     term, groups = profile["primary_term"], {}
     for name, available in catalog["groups"].items():
         groups[name] = {"used": sorted(actual[name]),
@@ -207,23 +197,27 @@ def primitive_map(root, profile, catalog):
             "catalog_version": catalog["version"], "groups": groups}
 
 
-def write_assets(root, profile, tasks):
-    contract = root / "assets/use-case-contract.json"
-    profile = resolved_initial_profile(root, profile)
-    previous = existing_use_case(root)
-    current = dict(previous) if previous is not None else use_case(profile, tasks)
-    current.update({field: profile[field] for field in ["audience", "initial_context"]})
+def asset_files(files, profile, tasks, stamp):
+    path = 'assets/use-case-contract.json'
+    previous = read_json(files[path].decode('utf-8')) if path in files else None
+    if previous is not None and not isinstance(previous, dict):
+        raise ValueError('existing use-case-contract.json must be an object')
+    current = dict(previous) if previous is not None else use_case(profile, tasks, stamp)
+    current.update({field: profile[field] for field in ['audience', 'initial_context']})
     if current != previous:
-        write_json(contract, current)
-    catalog = json.loads((root / "assets/mise-primitives-catalog.json").read_text())
+        files[path] = json_bytes(current)
+    catalog = read_json(files['assets/mise-primitives-catalog.json'].decode('utf-8'))
+    config = tomllib.loads(files['mise.toml'].decode('utf-8'))
     for name, seed in [
-        ("primitive-lifecycle.json", lambda: lifecycle(profile)),
-        ("decision-records.json", lambda: decisions(profile)),
-        ("invocation-receipt-template.json", lambda: invocation(profile)),
-        ("mise-primitives.json", lambda: primitive_map(root, profile, catalog)),
+        ('primitive-lifecycle.json', lambda: lifecycle(profile)),
+        ('decision-records.json', lambda: decisions(profile)),
+        ('invocation-receipt-template.json', lambda: invocation(profile)),
+        ('mise-primitives.json', lambda: primitive_decisions(configured_fields(config, catalog), profile, catalog)),
     ]:
-        existing = existing_asset(root, name)
-        if existing is None:
-            write_json(root / "assets" / name, seed())
-        elif existing.get("skill") != profile["skill"]:
-            raise ValueError(f"existing {name} names a different skill")
+        path = 'assets/' + name
+        if path not in files:
+            files[path] = json_bytes(seed())
+        else:
+            value = read_json(files[path].decode('utf-8'))
+            if not isinstance(value, dict) or value.get('skill') != profile['skill']:
+                raise ValueError('existing policy asset needs reconciliation: ' + name)

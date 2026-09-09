@@ -110,6 +110,18 @@ def restore(request, root, target, old, installed):
     require(current(target) == old, 'failed to read back restored file state')
 
 
+def requested_mode(change, old):
+    if 'mode' not in change:
+        return 0o644 if old is None else old[1]
+    mode = change['mode']
+    require(isinstance(mode, dict) and set(mode) == {'expected', 'new'}, 'invalid file mode fields')
+    require(type(mode['new']) is int and 0 <= mode['new'] <= 0o777
+            and (mode['expected'] is None or type(mode['expected']) is int
+                 and 0 <= mode['expected'] <= 0o777), 'file modes must use ordinary permission bits')
+    require(mode['expected'] == (None if old is None else old[1]), 'stale file mode or creation collision')
+    return mode['new']
+
+
 def apply_change(request, root, target):
     captured = capture(request, root)
     before = validate(captured, request, root)
@@ -118,7 +130,7 @@ def apply_change(request, root, target):
     require(expected is None or isinstance(expected, str) and re.fullmatch('[a-f0-9]{64}', expected),
             'expected file identity must be null or a lowercase SHA-256')
     require((None if old is None else sha(old[0])) == expected, 'stale file identity or creation collision')
-    wanted = (captured[change['new_file']['path']], 0o644 if old is None else old[1])
+    wanted = (captured[change['new_file']['path']], requested_mode(change, old))
     require(wanted != old, 'file change makes no difference')
     install(root, target, wanted, old)
     try:
@@ -143,7 +155,7 @@ def write_file(request, root):
     root = Path(root)
     require(request.get('action') == 'write-file', 'file writer requires write-file action')
     change = request['change']
-    require(set(change) == {'path', 'expected_sha256', 'new_file', 'body_sha256', 'reviewer', 'review'},
+    require(set(change) - {'mode'} == {'path', 'expected_sha256', 'new_file', 'body_sha256', 'reviewer', 'review'},
             'file change has missing or unsupported fields')
     body_revision = revision(request)
     target = target_path(root, change['path'], body_revision is not None)

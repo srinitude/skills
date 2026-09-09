@@ -56,6 +56,11 @@ class TestVariantBoundaries(unittest.TestCase):
             base = Path(temp)
             source = package(base / "source" / "demo-skill", "project")
             candidate = package(base / "stage" / "demo-skill", "user")
+            preserved = {}
+            for name in ['.git/local-state', 'node_modules/local-state']:
+                file = source / name; file.parent.mkdir(parents=True)
+                file.write_bytes(b'preserve existing state\x00'); file.chmod(0o600)
+                preserved[name] = (file.read_bytes(), file.stat().st_mode, file.stat().st_ino)
             atlas = project(base / "atlas")
             boreal = project(base / "boreal", "repo:boreal", "lib", ".js")
             result = plan(source, source.parent, "user", source.name, "--in-place")
@@ -66,6 +71,10 @@ class TestVariantBoundaries(unittest.TestCase):
             self.assertFalse(json.loads(result.stdout)["source_preserved"])
             self.assertTrue(json.loads(result.stdout)["source_change_explicit"])
             self.assertIn('scope: "user"', (source / "SKILL.md").read_text())
+            for name, expected in preserved.items():
+                file = source / name
+                self.assertTrue(file.is_file(), name)
+                self.assertEqual((file.read_bytes(), file.stat().st_mode, file.stat().st_ino), expected)
 
     def test_source_change_after_plan_rejects_candidate_and_preserves_current_source(self):
         with tempfile.TemporaryDirectory() as temp:

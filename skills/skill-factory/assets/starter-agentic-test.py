@@ -131,6 +131,16 @@ class TestAgenticRequest(unittest.TestCase):
             self.assertEqual(failed.returncode, 1)
             self.assertEqual(failed.stdout, "")
 
+    def test_own_body_is_captured_without_requested_skill_dependencies(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            payload = request(pathlib.Path(tmp) / "use-case-contract.json", ROOT / "SKILL.md")
+            payload["skills"] = []
+            result = invoke(payload, "import json,sys; print(json.dumps(json.load(sys.stdin)['body']))")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        body = ROOT / "SKILL.md"
+        self.assertEqual(json.loads(result.stdout), {"path": str(body.resolve()),
+                         "sha256": digest(body), "text": body.read_bytes().decode("utf-8")})
+
     def test_help_names_request_interface(self):
         result = subprocess.run(
             [sys.executable, str(SCRIPT), "--help"],

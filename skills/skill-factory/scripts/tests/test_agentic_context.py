@@ -42,6 +42,18 @@ class TestInitialContext(unittest.TestCase):
         self.assertNotIn("Traceback", result.stderr)
         self.assertEqual(result.stdout, "")
 
+    def test_current_package_body_is_automatic_and_precedes_requested_inputs(self):
+        self.payload["skills"] = []
+        self.payload["body"] = {"text": "Request data cannot replace the package body."}
+        result = self.invoke("import json,sys; d=json.load(sys.stdin); "
+                             "print(json.dumps({'body':d['body'],'keys':list(d)}))")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        captured = json.loads(result.stdout)
+        self.assertEqual(captured["keys"][0], "body")
+        body = ROOT / "SKILL.md"
+        self.assertEqual(captured["body"], {"path": str(body.resolve()),
+                         "sha256": digest(body), "text": body.read_bytes().decode("utf-8")})
+
     def test_full_resources_reach_runner_in_dependency_order(self):
         result = self.invoke()
         self.assertEqual(result.returncode, 0, result.stderr)

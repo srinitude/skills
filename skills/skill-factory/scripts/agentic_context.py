@@ -6,6 +6,7 @@ Package resources retain declared paths/digests. Invocation resources are select
 by the caller only when the use-case declaration explicitly permits that binding;
 every supplied resource still needs its exact current file digest.
 """
+import hashlib
 from graphlib import CycleError, TopologicalSorter
 from pathlib import Path
 
@@ -14,6 +15,18 @@ from agentic_request_contract import checked_file
 DECLARATION_FIELDS = {"id", "role", "path", "sha256", "depends_on"}
 INVOCATION_FIELDS = {"id", "role", "binding", "depends_on"}
 INPUT_FIELDS = {"id", "path", "sha256"}
+
+
+def capture_body():
+    """Read this dispatcher's own current body once, before request-owned context."""
+    path = Path(__file__).resolve().parents[1] / "SKILL.md"
+    if path.is_symlink() or not path.is_file():
+        raise ValueError("package SKILL.md must be a regular file")
+    raw = path.read_bytes()
+    text = raw.decode("utf-8")
+    if not text.strip():
+        raise ValueError("package SKILL.md must contain nonempty UTF-8 text")
+    return {"path": str(path), "sha256": hashlib.sha256(raw).hexdigest(), "text": text}
 
 
 def audience_record(data, accept=False):

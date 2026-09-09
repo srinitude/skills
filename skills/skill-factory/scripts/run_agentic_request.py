@@ -12,6 +12,12 @@ Prompt bytes, including line endings, are preserved. Only caller-authorized
 inputs may be supplied to the runner. The caller supplies the command and
 argument array. The runner receives JSON stdin; duplicate keys and non-finite
 numbers fail. This snapshot is not live-state isolation or semantic acceptance.
+Before interpreting request-owned context, read this dispatcher's own current
+package SKILL.md once. The runner receives that exact UTF-8 text and its path
+and SHA-256 in body, first in the envelope. A missing, nonregular, empty or
+invalid UTF-8 body blocks dispatch. Request data cannot override the body;
+skills[] remains the separately requested dependency list. This proves capture
+and transport, not semantic use or isolation from later package changes.
 The use-case declares initial_context IDs, roles and reading dependencies.
 Package bindings pin contract-relative paths and digests. Explicit invocation
 bindings let the caller select paths and current digests without changing the
@@ -36,7 +42,7 @@ import sys
 from pathlib import Path
 
 from agentic_request_contract import build_envelope, read_json
-from agentic_context import audience_record, capture_context
+from agentic_context import audience_record, capture_body, capture_context
 
 
 def read_request(source):
@@ -59,7 +65,7 @@ def runner_command(command, raw_arguments):
 
 def dispatch(command, data, base=None):
     base = Path.cwd() if base is None else Path(base)
-    payload = build_envelope(data, base)
+    payload = {"body": capture_body(), **build_envelope(data, base)}
     audience_record(payload["use_case"], accept=True)
     payload["context"] = capture_context(payload["use_case"], data.get("context"), base)
     result = subprocess.run(

@@ -1,18 +1,18 @@
-/** Usage: mise run ledger -- request.json. Exit 0 returns a view, 1 rejects work, 2 is CLI misuse. */
+/** Usage: mise run ledger -- request.json [--write-root ROOT]. Exit 0 returns a result, 1 rejects work, 2 is misuse. */
 import { readFile } from 'node:fs/promises';
 import { readThroughOwner, runLedger } from './review_ledger_workflow.ts';
 
-const help = `Usage: mise run ledger -- <request.json>
-Read recorded ledger relationships through native Mastra.
-Exit codes: 0 view, 1 failed input/workflow, 2 bad usage.
+const help = `Usage: mise run ledger -- <request.json> [--write-root ROOT]
+Read ledger relationships or apply one caller-scoped file change through native Mastra.
+Exit codes: 0 result, 1 failed input/workflow, 2 bad usage.
 Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact.
+Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact, write-file.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
-check-sources also requires expected_documents (name, absolute path, sha256),
+check-sources and write-file also require expected_documents (name, absolute path, sha256),
 original_source (absolute path, sha256), and inventory_document (captured name).
 The supplied inventory document binds source_sha256, source_bytes, source_lines
 and exact frozen records keyed by stable ID, plus mapping_defaults when present.
@@ -55,6 +55,30 @@ Stored states may be historical. These views perform no work, writes, invalidati
 judgment or acceptance. File observations are not live file proof. Resolve current
 owners and evidence before an effect; no warning or returned record is a write guard.
 
+write-file requires --write-root with an absolute canonical directory, selected by
+its authorized caller outside request data. Read actions reject this argument.
+It also requires change: {path, expected_sha256, new_file, body_sha256, reviewer,
+review}. Path is a canonical relative non-body file with existing parent directories.
+expected_sha256 is the current file digest, or null for exclusive creation.
+new_file has an absolute path and sha256; its actual binary bytes are installed.
+body_sha256 binds the target root's nonempty UTF-8 SKILL.md. Body case aliases reject.
+review supplies one nonempty
+string per exact field in the actual ledger's reusable_review_protocol. reviewer
+and review remain caller declarations, never authenticated judgment or permission.
+The caller first performs the required semantic review and establishes source authority.
+The owner reads the whole current ledger, body and every supplied governing input
+before and after this individual write, including repeats. Missing/stale bindings,
+unsafe paths, links, physical input aliases/overlap, creation collisions, unchanged writes and stale
+replays reject before mutation. Existing file modes stay intact; new files use 0644.
+The existing package lock serializes cooperating promotion and file writers.
+Replacement is atomic; creation is exclusive. Post-check failure attempts restoration
+only while the target still matches this write and required inputs remain readable.
+Restoration also reads all inputs before and after; drift stays failed. Unreadable
+inputs can prevent restoration, and independent target edits are never overwritten.
+This is not crash rollback, hostile-writer isolation or a cross-file transaction.
+Body rewrites, removals and other scaffold/update/maintenance writers remain outside
+this guard. Finish their integration, semantic review and ledger invalidation separately.
+
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and
 explicit facet inheritance. Historical observations keep their identity.
@@ -82,14 +106,15 @@ async function main() {
     process.stdout.write(help);
     return;
   }
-  if (args.length !== 1 || !args[0]) {
-    process.stderr.write('Usage: mise run ledger -- <request.json>\n');
+  const writing = args.length === 3 && args[1] === '--write-root' && Boolean(args[2]);
+  if ((!writing && args.length !== 1) || !args[0]) {
+    process.stderr.write('Usage: mise run ledger -- <request.json> [--write-root ROOT]\n');
     process.exitCode = 2;
     return;
   }
   try {
     const request = await readThroughOwner('parse', new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(await readFile(args[0])));
-    const result = await runLedger(request);
+    const result = await runLedger(request, writing ? args[2] : undefined);
     const report = { run_id: result.run_id, status: result.status,
       steps: Object.fromEntries(Object.entries(result.steps).filter(([id]) => id !== 'input').map(([id, step]) => [id, { status: step.status }])),
       result: result.status === 'success' ? result.result : undefined,

@@ -19,7 +19,7 @@ from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
 from standardization_seed import create_missing
-from standardization_runtime import LEDGER_FILES, ROOT_FILES, copy_runtime
+from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES, copy_runtime
 from skill_package import inventory, promote, staged
 from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
 from scope_placement import check_placement
@@ -63,7 +63,7 @@ def digest(path):
 def planned_paths(root, profile):
     paths = {path for path in root.rglob("*")
              if path.is_file() and "__pycache__" not in path.parts}
-    paths.update(root / name for name in ROOT_FILES)
+    paths.update(root / name for name in ROOT_FILES + LEDGER_EXAMPLES)
     paths.add(root / "evals/source-mapping.json")
     paths.add(root / "scripts/tests/test_package_contract.py")
     paths.update(root / target for _, target in COPIES)

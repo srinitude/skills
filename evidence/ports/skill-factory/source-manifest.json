@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "3a157a7b80b0d178e0d5207522c55e32a9a79ca011b12e9c4da40242b5dc7c9e",
-  "evidence_packet_sha256": "3a157a7b80b0d178e0d5207522c55e32a9a79ca011b12e9c4da40242b5dc7c9e",
+  "native_manifest_sha256": "ea4b6693724deb4bf9c0e88497876f26435ad168159eae58e409b9ff52f0d476",
+  "evidence_packet_sha256": "ea4b6693724deb4bf9c0e88497876f26435ad168159eae58e409b9ff52f0d476",
   "files": [
     {
       "bytes": 181,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 75354,
+      "bytes": 75588,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "129d8a9781dc0e9d9ca8ae654cb6816415a9907f4a110b6db9d8c8dee813f8ea",
+      "sha256": "875136abdb4c49cb0684382345eee979c09d5c8385f903f82497a0b13f973467",
       "source_path": "SKILL.md"
     },
     {
@@ -118,10 +118,10 @@
       "source_path": "assets/mise-primitives.json"
     },
     {
-      "bytes": 5636,
+      "bytes": 5658,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/mise-template.toml",
-      "sha256": "7d6570f113f0e07193bb6bdb15a83eabbc43247d91926b0699d3fcf3e8489a7e",
+      "sha256": "76ce8820ea1a39a7dba2c79d1c9dcba64a14a29a0556da303db8267ae9893074",
       "source_path": "assets/mise-template.toml"
     },
     {
@@ -146,10 +146,10 @@
       "source_path": "assets/registry-standardization-profiles.json"
     },
     {
-      "bytes": 75300,
+      "bytes": 75534,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template.md",
-      "sha256": "0df7f9421560b3397303738364fabb77989ccc2d37f258fee0961fa4422ddfa9",
+      "sha256": "f3b2ea8769cd55fdf6b15e7e8ef8345fb867cc2e0e36cabc39b0889ebc9a22d5",
       "source_path": "assets/skill-template.md"
     },
     {
@@ -202,10 +202,10 @@
       "source_path": "assets/use-case-contract-template.json"
     },
     {
-      "bytes": 48385,
+      "bytes": 49298,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/use-case-contract.json",
-      "sha256": "6af5088f4868f8e8da0caa0ebd95d650a5bb98e7d16a07daa2c2587a6736a00f",
+      "sha256": "2dc205bc27c9e58c6d51695ffc201038f7f0f006a600511c27201bb28b34f90e",
       "source_path": "assets/use-case-contract.json"
     },
     {
@@ -293,6 +293,13 @@
       "source_path": "examples/example-help.md"
     },
     {
+      "bytes": 3090,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/examples/example-ledger-write.md",
+      "sha256": "d2219b377d78c8623cde71f26e6eedaf9fc20d3e92f2cc38aa10df3ee767395d",
+      "source_path": "examples/example-ledger-write.md"
+    },
+    {
       "bytes": 2017,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-new-skill.md",
@@ -328,10 +335,17 @@
       "source_path": "examples/example-variant-user.md"
     },
     {
-      "bytes": 8902,
+      "bytes": 226683,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/examples/ledger-write-run.json",
+      "sha256": "632a20d969427880fc1b916c0f39785e7907c10e305c200bc08b53f1824a9efc",
+      "source_path": "examples/ledger-write-run.json"
+    },
+    {
+      "bytes": 8924,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/mise.toml",
-      "sha256": "326365739917db830eea0466a125180696c563a1d5b70fe618c9da21d94c0ea6",
+      "sha256": "6ab9e9438834596cc5a499a15d041078bd424480a0f7898869d8971817877483",
       "source_path": "mise.toml"
     },
     {
@@ -580,10 +594,10 @@
       "source_path": "scripts/resolve_scope.py"
     },
     {
-      "bytes": 1275,
+      "bytes": 1961,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/review_ledger.py",
-      "sha256": "cdd3e8bac46a5bb0f7fc4e6bf422ab98ebeb1634004e329daedd6de34eda0b51",
+      "sha256": "5ec42c40bea3db4c2844a0c67a497a84436bd3598ada051e7fc50cbbd8454bc7",
       "source_path": "scripts/review_ledger.py"
     },
     {
@@ -615,10 +629,10 @@
       "source_path": "scripts/review_ledger_graph.py"
     },
     {
-      "bytes": 7020,
+      "bytes": 7366,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/review_ledger_source.py",
-      "sha256": "c797b348ad8dcd44bebfe6625b7625bf8718d89842c170e2effd19ded95a1469",
+      "sha256": "8c98437b49187f697d7bd37e701e890caf77acfd66e8783ce4217ecc5e248cca",
       "source_path": "scripts/review_ledger_source.py"
     },
     {
@@ -629,11 +643,18 @@
       "source_path": "scripts/review_ledger_tasks.py"
     },
     {
-      "bytes": 8493,
+      "bytes": 11012,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/review_ledger_workflow.ts",
-      "sha256": "dbbd413bf121604434de9a722697b2bf999757d780e4f4345377a4b3ab877cb1",
+      "sha256": "4fbac2b61fda7fe0da80dc1cfa24e4a5bfdd7e155d85db503f237d86bd22f684",
       "source_path": "scripts/review_ledger_workflow.ts"
+    },
+    {
+      "bytes": 7337,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/review_ledger_write.py",
+      "sha256": "92a89650fff15b6e34049ff4e9d822e50505db177ef58e2db50b78e7688bcdc7",
+      "source_path": "scripts/review_ledger_write.py"
     },
     {
       "bytes": 4170,
@@ -643,17 +664,17 @@
       "source_path": "scripts/run_agentic_request.py"
     },
     {
-      "bytes": 6743,
+      "bytes": 8870,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/run_review_ledger.ts",
-      "sha256": "01e2a0947bced86d68e7c57f9cd9c83b52ad34d7892cb546a7bdb8e7f7c9e094",
+      "sha256": "6c50b96d68e2bde54270c86754f787ec36dec4da6fa43c5cb854fd6ce8af28f7",
       "source_path": "scripts/run_review_ledger.ts"
     },
     {
-      "bytes": 7240,
+      "bytes": 7298,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/scaffold_skill.py",
-      "sha256": "22e1066efff447f017847b2b111b8529dd9621e1b601811300225d4895fe5444",
+      "sha256": "dfd14f59e03341cdaafc0c48c75602440347d17d378897129426adcc5a8f220e",
       "source_path": "scripts/scaffold_skill.py"
     },
     {
@@ -664,10 +685,10 @@
       "source_path": "scripts/scope_placement.py"
     },
     {
-      "bytes": 3456,
+      "bytes": 3620,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/skill_package.py",
-      "sha256": "266214a369f4b1de001d7c62628a058294cbb2c2346868473c1992eaa8bfbfd4",
+      "sha256": "588a39a6b9b44a2ce28532d7af338bfe80eb9a8f5a29b1070fd50c12b738d7aa",
       "source_path": "scripts/skill_package.py"
     },
     {
@@ -734,10 +755,10 @@
       "source_path": "scripts/standardization_markdown.py"
     },
     {
-      "bytes": 9402,
+      "bytes": 9424,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_mise.py",
-      "sha256": "ee526928bf345c1b6daa8d8cbb2a0a3a2f262bd100dd06851b5939e432391b4a",
+      "sha256": "99aa9b557686933d6c10824becf1062d7a4a2982d9c4b2f34eae599533e001c0",
       "source_path": "scripts/standardization_mise.py"
     },
     {
@@ -755,10 +776,10 @@
       "source_path": "scripts/standardization_rewrites.py"
     },
     {
-      "bytes": 4935,
+      "bytes": 5278,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_runtime.py",
-      "sha256": "1a9541f9724a204c189c7f1a6fd74ba372ac53ccedf69beaa2ba7dc917749bac",
+      "sha256": "c4429d480cfe43848c549620ea88b3ab8411f2650587a862ebbf5dbe903ac266",
       "source_path": "scripts/standardization_runtime.py"
     },
     {
@@ -769,10 +790,10 @@
       "source_path": "scripts/standardization_seed.py"
     },
     {
-      "bytes": 8198,
+      "bytes": 8233,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardize_registry_skill.py",
-      "sha256": "4611742c1221ce242d238c3af8cfca7d2bc9081b9edca5bdc933ce2d68c3e68a",
+      "sha256": "9366631c3fd17acf69362c088721ac9a40006821d0e37e7d5f9c331328f68f49",
       "source_path": "scripts/standardize_registry_skill.py"
     },
     {
@@ -1033,6 +1054,27 @@
       "location_path": "skills/skill-factory/scripts/tests/test_review_ledger_work.py",
       "sha256": "28803b1c67cf21165617733f95abbfe5553091e9f5b9582c6d27ff9e3486c22e",
       "source_path": "scripts/tests/test_review_ledger_work.py"
+    },
+    {
+      "bytes": 9330,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_review_ledger_write.py",
+      "sha256": "61480cac8708dbdda10f4b4ae52c0095dbb33cd56c644b471c383ecd07b96856",
+      "source_path": "scripts/tests/test_review_ledger_write.py"
+    },
+    {
+      "bytes": 1908,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_review_ledger_write_boundaries.py",
+      "sha256": "2dee7ab8cbea821b780962ff9ed59ef424eb1d73ae85635a05c8796efb4a58e0",
+      "source_path": "scripts/tests/test_review_ledger_write_boundaries.py"
+    },
+    {
+      "bytes": 3521,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_review_ledger_write_recovery.py",
+      "sha256": "7f787bac5dd83e6bbcd5d596b56c6003468fff3f397dd7374a2af1e5a52b7208",
+      "source_path": "scripts/tests/test_review_ledger_write_recovery.py"
     },
     {
       "bytes": 5213,

@@ -172,7 +172,7 @@ depends = ["setup-runtime"]
 run = "npm exec --no -- tsc --noEmit --project tsconfig.json"
 
 [tasks.ledger]
-description = "Read recorded skill ledger relationships through native Mastra"
+description = "Read skill ledger context or apply a caller-scoped file change through native Mastra"
 depends = ["check-runtime"]
 run = "node scripts/run_review_ledger.ts"
 

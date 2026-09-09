@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 from scope_placement import check_placement
 from skill_package import promote, staged
-from standardization_runtime import LEDGER_FILES, ROOT_FILES
+from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
@@ -102,7 +102,7 @@ def argument_error(args):
 def build(target, tokens):
     for sub in DIRS:
         (target / sub).mkdir(parents=True)
-    for name in ROOT_FILES:
+    for name in ROOT_FILES + LEDGER_EXAMPLES:
         shutil.copy(SKILL_DIR / name, target / name)
     for destination, template in FILLED:
         (target / destination).write_text(fill(template, tokens),
@@ -117,7 +117,7 @@ def build(target, tokens):
                  "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md"]:
         shutil.copy(SKILL_DIR / "references" / name,
                     target / "references" / name)
-    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5 + len(ROOT_FILES)
+    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5 + len(ROOT_FILES) + len(LEDGER_EXAMPLES)
 
 
 def parse_args(argv):

@@ -77,18 +77,25 @@ def staged(parent, name):
         yield Path(temp) / name
 
 
-def promote(stage, target, expected=None):
-    """Guard concurrent writers and restore the prior directory on failure."""
+@contextmanager
+def package_lock(target):
+    """One cooperating writer for this package or its individual files."""
     lock = target.parent / ("." + target.name + ".skill-lock")
     descriptor = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
     try:
+        yield
+    finally:
+        os.close(descriptor)
+        lock.unlink()
+
+
+def promote(stage, target, expected=None):
+    """Guard concurrent writers and restore the prior directory on failure."""
+    with package_lock(target):
         current = inventory(target) if target.exists() else None
         if current != expected:
             raise ValueError("destination collision or destination changed since planning")
         replace_directory(stage, target)
-    finally:
-        os.close(descriptor)
-        lock.unlink()
 
 
 def replace_directory(stage, target):

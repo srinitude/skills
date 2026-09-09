@@ -419,11 +419,11 @@
         "proof": "Agent skill acceptance: Both variant directions, project fit, isolated behavior, digest preservation, collision and refresh conflict tests."
       },
       {
-        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply one caller-scoped non-body file creation/replacement.",
         "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
-        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
+        "proof": "Actual skill package native workflow cases verify full body/ledger capture, original relationship roles, inherited and declared context, finite ranks, rejected stale or malformed inputs and recovery. File-write cases check current source/body/review declarations, rejected paths/locks/replays with preserved bytes, binary creation/replacement, readable-source drift restoration and preservation of independent edits. Full semantic, human, all-writer and domain acceptance remain pending.",
         "task": "ledger",
-        "why_default_path": "The agent skill has one public path into its assigned native Mastra ledger read operation with declared locked dependencies."
+        "why_default_path": "The agent skill has one public ledger task into its assigned native Mastra operations with declared locked dependencies; its authorized caller selects the write root outside request data."
       }
     ],
     "tasks": {
@@ -603,11 +603,11 @@
         "applicability": "Run for owned skill package TypeScript changes and before lint-code; it does not validate runtime effects or semantic judgment."
       },
       "ledger": {
-        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply one caller-scoped non-body file creation/replacement.",
         "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
-        "value": "The Mise task graph invokes one native Mastra read workflow that preserves original relationship endpoints and serialized view contents.",
-        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
-        "applicability": "Use for asserted skill package relationship views and direct records. These views do not replace inherited context, derived source/reading/task relationships, current source verification, protected changes or semantic acceptance."
+        "value": "The skill package task exposes current recorded context and a shared individual file-write owner while keeping actual judgment, source authority and whole-goal acceptance separate.",
+        "proof": "Actual skill package native workflow cases verify full body/ledger capture, original relationship roles, inherited and declared context, finite ranks, rejected stale or malformed inputs and recovery. File-write cases check current source/body/review declarations, rejected paths/locks/replays with preserved bytes, binary creation/replacement, readable-source drift restoration and preservation of independent edits. Full semantic, human, all-writer and domain acceptance remain pending.",
+        "applicability": "Use for skill package ledger views, capture/live-source predicates or an explicitly authorized non-body create/replacement with complete current inputs and declared review fields. Other scaffold, update, variant and maintenance writers still require guard integration. Caller declarations do not prove authentic semantic review or confer permission."
       },
       "mise-primitives-policy": {
         "outcome": "Every official Mise primitive receives an agent skill use or justified non-use decision.",

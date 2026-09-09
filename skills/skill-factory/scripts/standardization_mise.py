@@ -13,7 +13,7 @@ POLICY_TASKS = {
         "npm ci --include=dev --ignore-scripts 1>&2"),
     "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",
         "npm exec --no -- tsc --noEmit --project tsconfig.json"),
-    "ledger": (["check-runtime"], "Read recorded skill ledger relationships through native Mastra",
+    "ledger": (["check-runtime"], "Read skill ledger context or apply a caller-scoped file change through native Mastra",
         "node scripts/run_review_ledger.ts"),
     "domain-research-policy": ([], "Validate current domain research receipts",
         "python3 scripts/check_domain_research.py ."),

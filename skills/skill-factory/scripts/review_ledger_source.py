@@ -84,13 +84,11 @@ def check_capture(data):
                      "semantic completeness, evidence acceptance or protected-write claim."}
 
 
-def live_file(binding):
+def read_file(binding):
     path = Path(binding["path"])
     require(path.is_absolute() and path.is_file() and not path.is_symlink(),
             "live source input must be an absolute regular non-symlink file")
-    raw = path.read_bytes()
-    require(hashlib.sha256(raw).hexdigest() == binding["sha256"], "live source input digest mismatch")
-    return raw
+    return path.read_bytes()
 
 
 def frozen_inventory(data, document):
@@ -110,21 +108,33 @@ def frozen_inventory(data, document):
             "source records or defaults differ from the supplied frozen inventory")
 
 
-def check_sources(data, request):
+def check_source_capture(data, request, files):
     result = check_capture(data)
     captured = {document["name"]: document for document in data["packet_documents"]}
     expected = unique(request["expected_documents"], "name", "expected document identity")
     require(set(expected) == set(captured), "supplied document inventory differs from capture")
     for name, binding in expected.items():
         require(binding["sha256"] == captured[name]["sha256"], "supplied document digest differs from capture")
-        require(live_file(binding) == captured[name]["text"].encode(), "live document differs from captured bytes")
+        require(checked_capture(binding, files) == captured[name]["text"].encode(), "live document differs from captured bytes")
     original = request["original_source"]
     require(original["sha256"] == data["source"]["sha256"], "supplied original digest differs from captured source")
     source = next(document for document in captured.values() if document["sha256"] == original["sha256"])
-    require(live_file(original) == source["text"].encode(), "original source differs from captured source bytes")
+    require(checked_capture(original, files) == source["text"].encode(), "original source differs from captured source bytes")
     require(request["inventory_document"] in captured, "missing supplied frozen inventory document")
     frozen_inventory(data, captured[request["inventory_document"]])
     return {**result, "scope": "supplied live bindings and frozen source inventory only",
             "limit": "Exact supplied document inventory, live document/original bytes and frozen source records. "
                      "The caller must establish the bindings' independent authority. No semantic completeness, "
                      "human or evidence acceptance, cross-file transaction, hostile-writer isolation or protected-write claim."}
+
+
+def checked_capture(binding, files):
+    raw = files[binding["path"]]
+    require(hashlib.sha256(raw).hexdigest() == binding["sha256"], "captured live input digest mismatch")
+    return raw
+
+
+def check_sources(data, request):
+    bindings = [*request["expected_documents"], request["original_source"]]
+    files = {item["path"]: read_file(item) for item in bindings}
+    return check_source_capture(data, request, files)

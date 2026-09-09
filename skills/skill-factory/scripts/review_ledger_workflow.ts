@@ -1,4 +1,4 @@
-/** Native read-only ledger operation. It cannot grant semantic or execution acceptance. */
+/** Native ledger reads and caller-scoped file writes; semantic acceptance remains separate. */
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { lstat, readFile } from 'node:fs/promises';
@@ -14,12 +14,16 @@ const sourceBinding = z.object({
   path: z.string().min(1).refine(isAbsolute, 'Use an absolute source path'), sha256: digest,
 }).strict();
 export const requestSchema = z.object({
-  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact']),
+  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'write-file']),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
   ledger_sha256: digest,
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
   original_source: sourceBinding.optional(),
   inventory_document: z.string().min(1).optional(),
+  change: z.object({
+    path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding,
+    body_sha256: digest, reviewer: z.string().min(1), review: z.record(z.string(), z.string().min(1)),
+  }).strict().optional(),
   selector: z.string().min(1).optional(),
   direction: z.enum(['in', 'out', 'both']).optional(),
   relation_type: z.string().min(1).optional(),
@@ -36,7 +40,8 @@ export const requestSchema = z.object({
   }).strict().optional(),
 }).strict().superRefine((request, context) => {
   const rules = [
-    { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources'], required: true },
+    { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources', 'write-file'], required: true },
+    { fields: ['change'], actions: ['write-file'], required: true },
     { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },
@@ -60,12 +65,13 @@ const viewSchema = z.object({ view_text: z.string(), source_sha256: digest }).st
 const resultSchema = z.object({
   body: bodySchema, ledger: z.object({ path: z.string(), sha256: digest, bytes: z.number() }),
   view_text: z.string(), source_sha256: digest, execution_acceptance: z.literal('pending'),
-  coverage: z.literal('recorded context, relationships and source checks only'), limit: z.string(),
+  coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only']), limit: z.string(),
 });
 
-export function readThroughOwner(operation: 'parse' | 'view', input: string): Promise<unknown> {
+export function readThroughOwner(operation: 'parse' | 'view' | 'write', input: string, writeRoot?: string): Promise<unknown> {
   return new Promise((accept, reject) => {
-    const child = spawn('python3', [reader, operation], { stdio: ['pipe', 'pipe', 'pipe'] });
+    const args = [reader, operation, ...(writeRoot === undefined ? [] : ['--write-root', writeRoot])];
+    const child = spawn('python3', args, { stdio: ['pipe', 'pipe', 'pipe'] });
     const stdout: Buffer[] = [], stderr: Buffer[] = [];
     child.stdout.on('data', (chunk: Buffer) => stdout.push(chunk));
     child.stderr.on('data', (chunk: Buffer) => stderr.push(chunk));
@@ -114,8 +120,38 @@ const workflow = createWorkflow({
   options: { validateInputs: true },
 }).then(captureInputs).then(buildView).commit();
 
-export async function runLedger(input: unknown) {
+function writeWorkflow(root: string) {
+  const inputSchema = z.object({ request: requestSchema, body: bodySchema });
+  const captureBody = createStep({
+    id: 'capture-write-body', inputSchema: requestSchema, outputSchema: inputSchema,
+    execute: async ({ inputData }) => ({ request: inputData, body: await capture(bodyPath) }),
+  });
+  const applyFile = createStep({
+    id: 'apply-bound-file-change', inputSchema, outputSchema: resultSchema,
+    execute: async ({ inputData: { request, body } }) => {
+      const result = viewSchema.extend({ ledger_bytes: z.number().int().nonnegative() }).parse(
+        await readThroughOwner('write', JSON.stringify(request), root));
+      return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: result.ledger_bytes },
+        view_text: result.view_text, source_sha256: result.source_sha256,
+        execution_acceptance: 'pending' as const, coverage: 'bound non-body file write only' as const,
+        limit: 'The caller selected the write root outside request data. The file owner reads the full current '
+          + 'ledger, target body and supplied governing inputs before and after this create/replacement. '
+          + 'Review fields remain caller declarations. This does not guard other writers or confer source '
+          + 'authority, semantic or human acceptance. See the returned per-file restoration and isolation limits.' };
+    },
+  });
+  return createWorkflow({ id: 'review-ledger-file-write', inputSchema: requestSchema,
+    outputSchema: resultSchema, options: { validateInputs: true },
+  }).then(captureBody).then(applyFile).commit();
+}
+
+export async function runLedger(input: unknown, writeRoot?: string) {
   const request = requestSchema.parse(input);
-  const run = await workflow.createRun();
+  const writing = request.action === 'write-file';
+  if (writing && (writeRoot === undefined || !isAbsolute(writeRoot)))
+    throw new Error('write-file requires a caller-selected absolute --write-root');
+  if (!writing && writeRoot !== undefined) throw new Error('Read actions reject --write-root');
+  const selected = writing ? writeWorkflow(writeRoot as string) : workflow;
+  const run = await selected.createRun();
   return { ...await run.start({ inputData: request }), run_id: run.runId };
 }

@@ -1,6 +1,6 @@
 # Use-case specificity
 
-Read this file before creating, updating, standardizing, or importing a skill. The target is a reusable skill for one coherent task class, not prose that could survive a domain-name swap.
+Read this file before creating, updating, standardizing, or importing a skill. Load its parent references/generation-contract.md through `mise run validate` for the package contract. The target is a reusable skill for one coherent task class, not prose that could survive a domain-name swap.
 
 ## Research basis
 
@@ -15,6 +15,8 @@ Use every relevant available web research capability. Start with current first-p
 Register a question for every domain dimension before drafting. Retain at least four distinct current web sources across at least two hosts and two source classes. Record source URL, class, checked timestamp with timezone, supported claim, covered dimensions, limitation, and disposition in `assets/use-case-contract.json` through `mise run domain-research-policy`. A check timestamp older than 31 days is stale, and a future timestamp fails. Search for counterevidence to the strongest retained claim and record how it changed or bounded the package.
 
 Run `mise run domain-research-policy` before accepting any domain map. The task proves receipt shape, diversity, current access time, and coverage. It cannot prove that a source supports the recorded claim. Read each source and make that judgment directly. If current web evidence is unavailable or external access is prohibited, mark affected domain claims `BLOCKED`; do not fill them from plausible memory.
+
+Standardization retains supplied research receipts and disconfirmation records with their actual timestamps, dimensions, provenance, and limits. Source URLs and proposed claims are research inputs, not completed research. Do not stamp them with the current time, broaden their reviewed dimensions, or manufacture contrary findings. Missing evidence stays empty and fails `mise run domain-research-policy`; stale evidence remains stale until the responsible review actually occurs.
 
 ## Domain map
 
@@ -50,6 +52,12 @@ Map these dimensions for the target skill. Add a domain-owned dimension when it 
 Treat the domain dimensions above as the aspect layer. Map the skill body, references, assets, scripts, tests, Mise tasks, examples, evals, policies, schemas, and records as the primitive layer. Every material aspect and primitive states its domain role, protected outcome, concrete progress value, motivation, prevented failure, and proof. A shared validator may retain shared implementation, but its value in the target package must still be specific. Never copy a factory seed, generic resource policy, example, eval, rationale, or task and call standard shape domain work.
 
 Map every Mise task separately in the use-case contract. Its record must explain the domain result it advances, why it exists, the concrete progress it creates, the proof it returns, and when the skill's nature makes it applicable. Domain terms must be normalized, unique phrases and must match whole words, never convenient substrings. Run `mise run use-case-policy` and `mise run task-graph-policy`. Then perform two semantic attacks. Replace the skill name with an unrelated domain; if the package still reads plausibly, it is generic. Remove its domain terms; if the remaining instructions still claim full use-case completion, the domain behavior is missing. Repair the lowest owner and rerun both Mise policies.
+
+Map every aspect and primitive through discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Each phase names a real, domain-specific task whose contract states the objective progress, motivation, value, proof, applicability, and prevented failure. A generic lifecycle profile, missing phase, nonexistent task owner, or mapping that does not change the target skill result fails.
+
+Every deterministic, model-owned, or human-owned material decision states its outcome, motivation, why the selected path fits, owner, inputs, expected effect, proof, falsifier, and failure branch in assets/decision-records.json through `mise run decision-policy`. Structure proves only that the reasoning trace exists; direct review decides whether its reason and evidence are true.
+
+Classify every official Mise config, task, task-config, and tool primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use each relevant primitive where it creates domain progress or stronger proof, including a useful creative composition. Give every non-use a target-skill reason. A schema-derived catalog is exhaustive for its exact runner release; no primitive is accepted for ceremony alone.
 
 ## Deterministic split
 

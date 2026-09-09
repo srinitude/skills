@@ -60,7 +60,7 @@ class TestScaffoldOutput(unittest.TestCase):
         for rel in ["SKILL.md", "mise.toml", ".github/workflows/ci.yml",
                     "references/generation-contract.md", "assets",
                     "references/resource-and-experiment-design.md",
-                    "references/writing-rules.md",
+                    "references/writing-rules.md", "references/code-rules.md",
                     "assets/improvement-contract.json",
                     "assets/use-case-contract.json",
                     "assets/decision-records.json",
@@ -115,15 +115,17 @@ class TestScaffoldOutput(unittest.TestCase):
         heading = "## Optional final improvement experiment"
         self.assertIn(heading, body)
         self.assertGreater(body.index(heading), body.index("## When is the work done?"))
+        self.assertIn("references/resource-and-experiment-design.md", body[body.index(heading):])
+        rules = (self.skill / "references/resource-and-experiment-design.md").read_text().lower()
         for phrase in [
-            "one named dimension",
+            "one improvement dimension",
             "fresh baseline",
-            "frozen evaluator",
+            "freeze the evaluator",
             "restore the last accepted version",
-            "mise run improvement-policy",
-            "resource measures",
+            "resource disposition",
+            "no protected regression",
         ]:
-            self.assertIn(phrase, body)
+            self.assertIn(phrase, rules)
 
     def test_generated_improvement_policy_passes(self):
         result = run("check_improvement_contract.py", self.skill)

@@ -30,15 +30,13 @@ from runtime_package import copy_runtime, NATIVE_PROBES, HUMAN_SUPPORT
 
 FACTORY = Path(__file__).resolve().parents[1]
 COPIES = [
-    ("assets/human-catalogs.json", "assets/human-catalogs.json"),
-    ("assets/improvement-contract.json", "assets/improvement-contract.json"),
-    ("assets/mise-primitives-catalog.json", "assets/mise-primitives-catalog.json"),
-    ("references/resource-and-experiment-design.md", "references/resource-and-experiment-design.md"),
-    ("references/use-case-specificity.md", "references/use-case-specificity.md"),
-    ("references/human-matrix-format.md", "references/human-matrix-format.md"),
-    ("references/generation-contract.md", "references/generation-contract.md"),
-    ("references/skill-scope-contract.md", "references/skill-scope-contract.md"),
-    ("references/evidence-acceptance.md", "references/evidence-acceptance.md"),
+    "assets/human-catalogs.json", "assets/improvement-contract.json",
+    "assets/mise-primitives-catalog.json",
+    "references/resource-and-experiment-design.md",
+    "references/use-case-specificity.md", "references/human-matrix-format.md",
+    "references/generation-contract.md", "references/writing-rules.md",
+    "references/code-rules.md", "references/skill-scope-contract.md",
+    "references/evidence-acceptance.md",
 ]
 SCRIPTS = [
     "agentic_request_contract.py", "run_agentic_request.py", "domain_text.py",
@@ -73,7 +71,7 @@ def planned_paths(root, profile):
     paths = {root / p.relative_to(root.resolve()) for p in owned_files(root)} if root.is_dir() else set()
     paths.add(root / "evals/source-mapping.json")
     paths.add(root / "scripts/tests/test_package_contract.py")
-    paths.update(root / target for _, target in COPIES)
+    paths.update(root / name for name in COPIES)
     paths.update(root / "scripts" / name for name in SCRIPTS)
     assets = ["use-case-contract.json", "primitive-lifecycle.json",
               "decision-records.json", "invocation-receipt-template.json",
@@ -87,12 +85,14 @@ def planned_paths(root, profile):
 
 def copy_support(root):
     copy_runtime(FACTORY, root)
-    for source, target in COPIES:
-        destination = root / target
+    for name in COPIES:
+        destination = root / name
         destination.parent.mkdir(parents=True, exist_ok=True)
-        if target == "assets/human-catalogs.json" and destination.exists() and digest(destination) != digest(FACTORY / source):
+        if name == "assets/human-catalogs.json" and destination.exists() and digest(destination) != digest(FACTORY / name):
             raise ValueError("human catalog versions differ; reconcile the declared source inventory explicitly")
-        shutil.copyfile(FACTORY / source, destination)
+        if name in {"references/writing-rules.md", "references/code-rules.md"} and destination.exists() and digest(destination) != digest(FACTORY / name):
+            raise ValueError(f"reconcile the existing {name} explicitly before replacing its rules")
+        shutil.copyfile(FACTORY / name, destination)
     (root / "scripts").mkdir(exist_ok=True)
     for name in SCRIPTS:
         target = root / "scripts" / name

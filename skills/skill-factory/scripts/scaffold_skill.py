@@ -122,7 +122,7 @@ def build(target, tokens):
     for name in CHECKERS:
         shutil.copy(SKILL_DIR / "scripts" / name, target / "scripts" / name)
     for name in ["generation-contract.md", "resource-and-experiment-design.md",
-                 "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md",
+                 "use-case-specificity.md", "writing-rules.md", "code-rules.md", "skill-scope-contract.md",
                  "evidence-acceptance.md", "human-matrix-format.md"]:
         shutil.copy(SKILL_DIR / "references" / name,
                     target / "references" / name)

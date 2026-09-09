@@ -90,6 +90,38 @@ class TestStandardizationRecords(unittest.TestCase):
             self.assertEqual(actual["records"][1], {"id": "D-2", "state": "pending", "requires": ["H-4"]})
             self.assertEqual(inventory(root), before)
 
+    def test_required_writing_and_code_owners_are_copied(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root, profile, target = prepare(Path(temp).resolve())
+            before = inventory(root)
+            result = invoke(root, profile, target)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            for name in ["writing-rules.md", "code-rules.md"]:
+                self.assertEqual((target / "references" / name).read_bytes(),
+                                 (SKILL_DIR / "references" / name).read_bytes())
+            self.assertEqual(inventory(root), before)
+
+    def test_conflicting_existing_rule_owner_is_preserved_until_explicit_reconciliation(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root, profile, target = prepare(Path(temp).resolve())
+            path = root / "references/code-rules.md"
+            path.write_text("# Stale copied rules\n")
+            before = inventory(root)
+            rejected = invoke(root, profile, target)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn("reconcile", rejected.stderr)
+            self.assertEqual(inventory(root), before)
+            self.assertFalse(target.exists())
+            data = json.loads(profile.read_text())
+            data["text_rewrites"]["references/code-rules.md"] = [{
+                "old": path.read_text(), "new": (SKILL_DIR / "references/code-rules.md").read_text()}]
+            profile.write_text(json.dumps(data))
+            repaired = invoke(root, profile, target)
+            self.assertEqual(repaired.returncode, 0, repaired.stdout + repaired.stderr)
+            self.assertEqual((target / "references/code-rules.md").read_bytes(),
+                             (SKILL_DIR / "references/code-rules.md").read_bytes())
+            self.assertEqual(inventory(root), before)
+
     def test_invalid_existing_domain_record_rejects_and_recovers(self):
         with tempfile.TemporaryDirectory() as temp:
             root, profile, target = prepare(Path(temp).resolve())

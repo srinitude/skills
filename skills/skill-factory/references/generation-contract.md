@@ -45,23 +45,13 @@ The command grammar starts with help and adds only the commands the skill needs.
 
 ## Use-case specificity
 
-Every aspect and primitive must serve the target task class. Map actors, objects, actions, states, invariants, variants, interfaces, authorities, failures, recoveries, evidence, time, resources, quality, terminology, and exclusions. Map the skill body, references, assets, scripts, tests, Mise tasks, examples, evals, policies, schemas, and records. Each material item names its domain role, outcome, progress value, motivation, prevented failure, and evidence.
-
-Load references/use-case-specificity.md and fill assets/use-case-contract.json through `mise run domain-research-policy` and `mise run use-case-policy`. Verify claim support, domain-name substitution, and domain-term removal. Generic or invented domain content fails.
-
-Every new or updated package carries and uses the mandatory human-study and human-work matrix for both audiences and scopes. Load references/use-case-specificity.md through `mise run domain-research-policy` for the meaning and research contract, then references/human-matrix-format.md through `mise run human-matrix` for its actual resource and schema boundary. Require relevant selection in domain research, use-case framing, decisions and evaluation, with independent resource resolution and actual domain proof. Missing support, unavailable declared resources or bypassed required use blocks acceptance.
-
-Standardization retains supplied research receipts and disconfirmation records with their actual timestamps, dimensions, provenance, and limits. Source URLs and proposed claims are research inputs, not completed research. Do not stamp them with the current time, broaden their reviewed dimensions, or manufacture contrary findings. Missing evidence stays empty and fails `mise run domain-research-policy`; stale evidence remains stale until the responsible review actually occurs.
-
-Map every aspect and primitive through discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Each phase names a real, domain-specific task whose contract states the objective progress, motivation, value, proof, applicability, and prevented failure. A generic lifecycle profile, missing phase, nonexistent task owner, or mapping that does not change the target skill result fails.
-
-Every deterministic, model-owned, or human-owned material decision states its outcome, motivation, why the selected path fits, owner, inputs, expected effect, proof, falsifier, and failure branch in assets/decision-records.json through `mise run decision-policy`. Structure proves only that the reasoning trace exists; direct review decides whether its reason and evidence are true.
+Before defining or changing domain aspects or primitives, load references/use-case-specificity.md through `mise run domain-research-policy`. Its domain maps, required matrix use, research preservation, lifecycle and decision records, Mise dispositions and semantic attacks bind every new or updated package.
 
 ## Simplicity and language
 
 Simplicity is a protected behavior. Every created, updated, standardized, or imported skill must preserve every accepted behavior while using the smallest coherent structure that makes the causal path easy to reason about. Keep one canonical owner per rule, one stable term per concept, one default path per job, and one material decision per branch. Remove duplicate rules, decorative sections, needless indirection, and options that produce the same result. Do not hide essential domain complexity or weaken proof, safety, authority, or behavior to make a package shorter.
 
-Use plain and direct language. Every skill loads references/writing-rules.md through `mise run lint-writing`. Put the result first. Use common words, active verbs, one idea per sentence, one topic per paragraph, and execution order for steps. Define a term once and use it consistently. Mechanical lint proves only its stated checks. Same-meaning human review must also confirm that the instructions are clear, complete, and no harder to follow than the domain requires.
+Use plain and direct language. Put the result first. Use common words, active verbs, one idea per sentence, one topic per paragraph, and execution order for steps. Define a term once and use it consistently. Mechanical lint proves only its stated checks. Same-meaning human review must also confirm that the instructions are clear, complete, and no harder to follow than the domain requires.
 
 ## Deterministic and model-owned boundary
 
@@ -81,11 +71,7 @@ Do not cache mutable remote state, live judgment, an external side effect, or ra
 
 ## Markdown layout
 
-Every markdown file contains at most 200 physical lines and lays wrappable prose out as one physical line per block: a paragraph, or a list item plus its continuation lines, never holds an internal hard line break, and no maximum line length applies. Blank lines between elements stay exactly as markdown readability requires. YAML frontmatter, headings, table rows, code fences and their content, indented code, and blank lines are exempt only from the block layout rule. The writing lint enforces both rules on every markdown file.
-
-Every Markdown reference to a package-owned file or directory must name its owning `mise run <task>` in the same prose line or fenced block. This includes references/, assets/, examples/, evals/, fixtures/, schemas/, templates/, data/, configuration, documentation, tests, workflows, prompts, policies, evidence, media, and any custom support or ownership directory; add a newly introduced root to `mise run lint-writing`. Direct implementation paths remain forbidden even when a task is named. The task is the public route, while the path supplies progressive disclosure under that route.
-
-Classify every official Mise config, task, task-config, and tool primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use each relevant primitive where it creates domain progress or stronger proof, including a useful creative composition. Give every non-use a target-skill reason. A schema-derived catalog is exhaustive for its exact runner release; no primitive is accepted for ceremony alone.
+Load references/writing-rules.md through `mise run lint-writing` before Markdown authoring. Its line layout, exclusions, file-reference routing and full-tree checks bind every factory and output file.
 
 ## Examples
 
@@ -93,13 +79,11 @@ Every skill ships examples/ through `mise run validate`, with at least one worke
 
 ## Code
 
-Caps for every code file: 200 lines of code per file, 30 per function or class counting its own lines, block nesting depth 3 inside any function, measured from the test declaration in tests. No work markers, mocks, stubs, or placeholder branches. Real behavior only. Prefer the standard library.
-
-Every script supports --help with usage, exit codes, and an example. Scripts take input from flags or stdin, never from a prompt. Data goes to stdout, diagnostics to stderr. Exit 0 on success, 1 on a failed check, 2 on bad usage. Reruns are safe.
+Load references/code-rules.md through `mise run lint-code` before implementation. Its file, function and nesting caps, script interfaces, standard-library preference and test-first order bind every code file and output.
 
 ## Tests, tasks, CI
 
-Build order is fixed and test-first: mise.toml, then the CI workflow and the tests that pin the task graph, then script tests, then scripts, then docs, then evals. A behavior starts as a failing test. Local runs and remote CI use one command, `mise run ci`. Tests cover contracts users touch: flags, exit codes, file outputs, integration boundaries. Never private internals.
+Build in the fixed test-first order at references/code-rules.md through `mise run lint-code`. Local runs and remote CI use one command, `mise run ci`.
 
 Every generated SKILL.md contains one numbered `Ordered workflow` before its detailed branches. Each step names `Mise:` work, `Model:` work, or both. Use `Branch:`, `If:`, `For each:`, `Repeat:`, and `Stop:` where the domain has a real decision, collection, retry, or terminal state. Each failure returns to the lowest owning step and invalidates its dependents. Do not add a loop or branch that cannot change action, evidence, recovery, or acceptance.
 

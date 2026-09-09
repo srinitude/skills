@@ -1,6 +1,6 @@
 # Code rules
 
-These caps bind every code file in this skill and in every generated skill. `mise run lint-code` owns the complete tree check.
+These caps bind every code file in this skill and in every generated skill. Load references/generation-contract.md through `mise run validate` for the parent package contract. `mise run lint-code` owns the complete tree check.
 
 ## Size and shape
 
@@ -11,7 +11,7 @@ These caps bind every code file in this skill and in every generated skill. `mis
 
 ## Script interface
 
-Every implementation command behind a Mise task meets one interface:
+Every script supports --help with usage, exit codes and an example. Its command stays behind the owning Mise task and meets one interface:
 
 - prints usage, exit codes, and an example with --help
 - takes input from flags or stdin, never from an interactive prompt

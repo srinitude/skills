@@ -1,6 +1,6 @@
 """Read and validate one registry-skill domain profile."""
-import json
 from pathlib import Path
+from source_coverage import load_json, require
 
 DIMENSIONS = [
     "actors", "objects", "actions", "states", "invariants", "variants",
@@ -19,13 +19,16 @@ PHASES = [
 
 def load_profile(path, skill=None):
     try:
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
+        data = load_json(path)
+    except (OSError, ValueError) as error:
         raise ValueError(f"profile cannot be read: {error}") from error
+    require(isinstance(data, dict), "profile must be an object")
     if "profiles" in data:
+        require(isinstance(data["profiles"], dict), "profiles must be an object")
         if not skill or skill not in data["profiles"]:
             raise ValueError(f"profile set has no entry for {skill}")
-        return data["profiles"][skill]
+        data = data["profiles"][skill]
+        require(isinstance(data, dict), "selected profile must be an object")
     return data
 
 
@@ -71,6 +74,7 @@ def script_task_problems(tasks):
                  and text(item.get("script")) and text(item.get("description")))
         if not valid or Path(str(item.get("script", ""))).name != item.get("script"):
             found.append(f"script_tasks.{name} is invalid")
+            continue
         if "args" in item and not text(item["args"]):
             found.append(f"script_tasks.{name}.args must be nonempty text")
         if "runner" in item and not text(item["runner"]):
@@ -132,6 +136,7 @@ def source_problems(sources):
 
 
 def validate_profile(data, target):
+    require(isinstance(data, dict), "profile must be an object")
     found = profile_problems(data)
     if data.get("skill") != target.name:
         found.append("profile skill must match the target directory")

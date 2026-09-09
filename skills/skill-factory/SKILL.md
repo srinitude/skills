@@ -14,6 +14,18 @@ skill-factory creates, updates, and standardizes working agent skills. It preser
 
 ## Outcome and motivation
 
+Primary audience: agent.
+
+The main result is for an agent or model to consume. Verify its interface, actual downstream use, semantic correctness, and failure handling; retain requirements for affected people.
+
+Executor and workflow owner: use the named public operation and its input contract. Readers, orchestrators, executors, reviewers, and approvers may differ.
+
+Mechanical evidence: a named predicate checked captured inputs; it cannot establish an untested subjective response. Model assessment: a model inspected the actual result; identify its modalities, criteria, and limits.
+
+Human evidence: a person supplied a preference, observation, review, or decision. Identify the role, context, and artifact. Permission, preference, and task performance are distinct.
+
+Gate or open choice: required evidence blocks its dependent action or claim. Preserve optional feedback and creative choices. Audience labels grant no permissions or instruction authority.
+
 The outcome is a skill that produces the intended user-visible result and can prove it. Package shape is necessary evidence, never the result by itself. State the reason behind every material constraint so the executor can adapt inside the allowed boundary without defeating the outcome. Keep deterministic mechanics out of prose so model attention stays on semantics, judgment, creative work, and exceptions.
 
 ## Simplicity and language
@@ -28,6 +40,8 @@ Use plain and direct language. Load [the writing rules](references/writing-rules
 
 Use the user's request and live owning sources first. Then use the current target skill, [the generation contract](references/generation-contract.md) through `mise run validate`, task-specific references, worked examples, and eval evidence. Load [use-case specificity](references/use-case-specificity.md) through `mise run domain-research-policy` before defining domain behavior, terms, roles, constraints, or proof. Every aspect and primitive must state its domain role, protected outcome, concrete progress value, motivation, prevented failure, and proof. Load [resource and experiment design](references/resource-and-experiment-design.md) through `mise run improvement-policy` before choosing a data structure, format, cache, benchmark, or improvement trial. The required generated-skill order is Outcome, Motivation, Evidence, Mise task graph, Steps, Assets, then Evals. This order links intent to action and action to proof.
 
+Before each invocation, use the relevant human-study and human-work selection through `mise run human-matrix`. Load references/use-case-specificity.md through `mise run domain-research-policy` for its required research, use-case, decision and evaluation use. Both audiences and scopes retain the complete declared inventories, explicit resources, extensions and higher-order representation; lookup or machine-only output cannot waive the contract.
+
 ## Which commands does this skill accept?
 
 Interpret the user's request as one of these commands.
@@ -39,6 +53,7 @@ Interpret the user's request as one of these commands.
 | update <path> <prompt> | Change an existing skill and preserve its domain purpose and accepted behavior. |
 | standardize <path> | Transform an existing skill into this factory's standard format without replacing its domain purpose. |
 | standardize-target <path> <profile> | Plan or apply a profile-bound in-place registry standardization after the baseline is frozen. |
+| workflow | Prepare a standardized candidate, persist its review pause, then consume bound evidence before promotion. |
 | refresh-registry-lineage <skill...> | Refresh source lineage after accepted registry skill changes. |
 | import <source> <destination> | Convert a host-specific source into a separate portable skill and repository-guidance package. |
 | variant <source> <user-or-project> | Create an independently adapted skill, or refresh one when explicitly requested. |
@@ -53,10 +68,10 @@ Suppose the request matches no command, or a required fact cannot be retrieved. 
 1. **Frame the outcome and domain.** Model: classify the command, freeze the user-visible result, boundaries, forbidden results, and accepted behavior without inventing a fact. Branch: choose new, update, standardize, import, variant, validate, eval, doctor, or help from the request. Before writing, use `mise run resolve-scope` to honor explicit choice, preserve valid scope on updates, or ask one concise question when intended availability is unresolved.
 2. **Prove runner readiness.** Mise: run `mise run doctor`. Model: choose the matching public operation. If: readiness is false, stop the blocked work and report the exact failed prerequisite.
 3. **Ground the use case.** Mise: run `mise run domain-research-policy` and `mise run use-case-policy`. Model: gather current sources, test counterevidence, and decide the target skill's terms, roles, failures, evidence, and exclusions. For each: accept, reject, bound, or mark every required source and domain dimension inapplicable with a reason.
-4. **Freeze and route the change.** Mise: run `mise run plan-standardize -- <source>` when the operation has a source. Run `mise run audit-source-corpus -- <source>` for a client-specific corpus import; a portable skill package uses the package checks. For an in-place registry update, run `mise run standardize-target -- <source> --profile <profile>` without `--apply`, review the profile and change set, then rerun with `--apply`. Model: preserve the baseline, locate the smallest owner, and reject collisions, unknown ownership, or host-only assumptions.
+4. **Freeze and route the change.** Mise: run `mise run plan-standardize -- <source>` when the operation has a source. Run `mise run audit-source-corpus -- <source>` for a client-specific corpus import; a portable skill package uses the package checks. For registry standardization, load references/mastra-workflows.md through `mise run workflow -- --help` and use its preparation, persisted review and guarded promotion path. Model: preserve the baseline, locate the smallest owner, and reject collisions, unknown ownership, or host-only assumptions.
 5. **Build under BOOTSTRAP, RED, GREEN, REFACTOR.** Mise: run `mise run task-graph-policy`, then `mise run test` to capture RED and again after each change. Model: write the domain reasoning, creative behavior, and exception handling that deterministic code cannot decide. Repeat: observe one behavior contract fail in RED, implement the smallest change, rerun to GREEN, and refactor under the same contract until the required behavior passes or a real blocker stops the loop.
 6. **Produce integrated proof.** Mise: run `mise run decision-policy`, the target skill's `mise run ci`, then `mise run refresh-registry-lineage -- <skill>`, `mise run validate-target -- <path>`, and `mise run eval-target -- <path>`. Model: review semantics, source-to-claim links, direct perception when required, counterexamples, and whether the result actually fulfills the frozen outcome. If: a check or judgment fails, return to the lowest owning step and invalidate its dependents.
-7. **Account for the invocation.** Mise: run `mise run invocation-policy -- <receipt>`. Model: state every remaining limit. For each: record every task's run evidence or a domain-specific inapplicability reason in the receipt.
+7. **Account for the invocation and assess evidence.** Mise: run `mise run invocation-policy -- <receipt>` with the host-bound context and receipt digests defined in references/evidence-acceptance.md through that same task. Model: inspect the actual contents and every remaining limit. For each: record every task's run evidence or source-supported inapplicability reason, then assess every required claim. Accounting alone leaves acceptance pending.
 8. **Keep or restore an improvement.** Mise: run `mise run improvement-policy` before an optional trial. Model: retain a candidate only when its named dimension improves and no protected dimension regresses; otherwise restore the accepted digest and verify it.
 9. **Finish maintenance last.** Mise: run `mise run mise-primitives-update` only after accepted outcome work concludes, then rerun `mise run ci`. Model: reconcile any changed primitive and report a package-manager blocker without force. Stop: end at the first fully accepted state; do not add unrelated work.
 
@@ -84,14 +99,14 @@ Map actors, objects, actions, states, invariants, variants, interfaces, authorit
 
 Classify every official Mise primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use only outcome-serving primitives; give each non-use a domain reason. Missing, stale, invented, or nominal use fails.
 
-Account for every invocation task. Run the chosen path and give each other task request-specific `inapplicable` proof. Validate the receipt with `mise run invocation-policy -- <receipt>`. Keep command output for every run claim; silence fails.
+Account for every invocation task. Run the chosen path and give each other task request-specific `inapplicable` proof. Keep actual command output for each run claim; silence fails. Use the evidence contract at step 7 through `mise run invocation-policy` for acceptance.
 
 Keep the Mise version fixed during outcome work. Run `mise run mise-primitives-update` only after acceptance, reconcile its catalog, then rerun `mise run ci` and record version and digest. A package-manager or update failure is `BLOCKED`; never force replacement.
 
 ## Operation branches
 
-- **New:** Run `mise run doctor`, reuse an owner through `mise run source-corpus`, then `mise run new -- --name <name> --description "<description>" --scope <user-or-project> --dest <destination>`. Author tasks, graph tests, behavior tests, scripts, SKILL.md, references, assets, examples, and evals in RED, GREEN, REFACTOR order. A fresh scaffold stays blocked until all placeholder seeds are replaced.
-- **Update or standardize:** Run `mise run plan-standardize -- <source>` and save its `baseline_digest`. For registry-wide policy adoption, run `mise run standardize-target -- <source> --profile <profile>` first as a no-write plan, then add `--apply` only after the domain profile and baseline are accepted. These operations preserve domain purpose, triggers, accepted behavior, evidence, outcome, proof, boundaries, forbidden outcomes, and mandatory methods. Change the smallest owner, then compare against the baseline.
+- **New:** Run `mise run doctor`, reuse an owner through `mise run source-corpus`, then `mise run new -- --name <name> --description "<description>" --scope <user-or-project> --audience <human-or-agent> --dest <destination>`. Author tasks, graph tests, behavior tests, scripts, SKILL.md, references, assets, examples, and evals in RED, GREEN, REFACTOR order. A fresh scaffold stays blocked until all placeholder seeds are replaced. Deliver a completed candidate through the same new route with `--candidate` and the external bindings in references/evidence-acceptance.md, loaded through `mise run invocation-policy`.
+- **Update or standardize:** Run `mise run plan-standardize -- <source>` and save its `baseline_digest`. For registry-wide policy adoption, run `mise run standardize-target -- <source> --profile <profile>` first as a no-write plan. Prepare a separate candidate, then apply its exact reviewed bytes and external evidence bindings using references/evidence-acceptance.md through `mise run invocation-policy`. These operations preserve domain purpose, triggers, accepted behavior, evidence, outcome, proof, boundaries, forbidden outcomes, and mandatory methods. Change the smallest owner, then compare against the baseline.
 - **Import:** Also run `mise run audit-source-corpus -- <source>`. Keep coding-agent clients distinct from package formats. Reject collisions, symlinks, unknown owners, and platform-specific assumptions. Translate capability instructions to SKILL.md, repository rules to AGENTS.md, and host ownership to `.agents/`. The source stays unchanged unless the user requests in-place migration.
 - **Variant:** Load references/scope-variants.md through `mise run variant`. Plan, read the complete source and target project context, prepare a separate candidate, validate adapted behavior, and accept through that task. The report and lineage identify both scopes, adaptations, and source preservation. An explicit refresh compares recorded baselines and resolves customization conflicts. Explicit in-place adaptation uses the same gates. Load examples/example-variant-project.md or examples/example-variant-user.md through `mise run variant` for the matching direction.
 - **Validate or eval:** Run `mise run validate-target -- <path>` or `mise run eval-target -- <path>`. Acceptance requires scope. Add `--inspect-legacy` only when inspecting an untouched legacy skill. Report every failure and grade behavioral cases against fresh saved evidence.
@@ -110,7 +125,7 @@ A passing command exits 0. `mise run validate`, `mise run lint-writing`, `mise r
 
 ## When is the work done?
 
-Done means fresh `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, `mise run validate-target`, `mise run eval-target`, and `mise run invocation-policy -- <receipt>` evidence passes; task-specific behavior, source-to-claim review, domain-swap attack, and domain-term-removal attack pass; the log traces outcome through motivation, evidence, tasks, steps, assets, and evals; no generic aspect, primitive, lifecycle phase, Mise disposition, task, placeholder, source collision, host-only assumption, skipped applicable task, or unproved completion claim remains.
+Done means fresh `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, `mise run validate-target`, `mise run eval-target`, and host-bound evidence acceptance through `mise run invocation-policy` pass; task-specific behavior, source-to-claim review, domain-swap attack, and domain-term-removal attack pass; the log traces outcome through motivation, evidence, tasks, steps, assets, and evals; no generic aspect, primitive, lifecycle phase, Mise disposition, task, placeholder, source collision, host-only assumption, skipped applicable task, or unproved completion claim remains.
 
 ## Optional final improvement experiment
 

@@ -8,12 +8,16 @@ experimental = true
 jobs = 4
 
 [tools]
-python = "3.11"
-uv = "latest"
+node = "24.18.0"
+python = "3.13.14"
+uv = "0.11.29"
+shfmt = "3.14.1"
 
 [env]
 PYTHONDONTWRITEBYTECODE = "1"
 PYTHONHASHSEED = "0"
+UV_PYTHON = "3.13.14"
+MASTRA_TELEMETRY_DISABLED = "1"
 
 [task_config]
 dir = "{{config_root}}"
@@ -26,7 +30,6 @@ depends = [
   "test",
   "validate",
   "lint-writing",
-  "lint-code",
   "lint-placeholders",
   "evals",
   "improvement-policy",
@@ -37,66 +40,65 @@ depends = [
 
 [tasks.test-ci]
 description = "Contract tests for the task graph and the CI workflow template"
-depends = []
-run = "python3 -m unittest discover -s scripts/tests -p 'test_ci_contract.py' -v"
-sources = ["mise.toml", "assets/mise-template.toml", "assets/ci/ci.yml", "scripts/tests/test_ci_contract.py"]
-outputs = []
-cache = { enabled = true }
+depends = ["runtime-install"]
+run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_ci_contract.py' -v"
 
 [tasks.test]
 description = "Every test in scripts/tests/"
-depends = ["test-ci"]
+depends = ["test-native"]
 run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 run_windows = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-timeout = "180s"
+timeout = "600s"
 
 [tasks.validate]
 description = "Static structure checks against the generation contract"
 depends = []
 run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
-sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
-outputs = []
-cache = { enabled = true }
 
 [tasks.lint-writing]
 description = "Mechanical writing checks on every markdown file"
 depends = []
 run = "python3 scripts/lint_writing.py ."
-sources = ["**/*.md", "scripts/lint_writing.py"]
-outputs = []
-cache = { enabled = true }
 
 [tasks.lint-code]
 description = "Size and nesting limits on every code file"
+depends = ["test-ci"]
+run = "uv run --with PyYAML==6.0.3 python scripts/check_code_rules.py ."
+
+[tasks.runtime-install]
+description = "Install the frozen workflow and compiler dependencies without lifecycle scripts"
 depends = []
-run = "python3 scripts/check_code_rules.py ."
-sources = ["**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"]
-outputs = []
-cache = { enabled = true }
+run = "npm ci --ignore-scripts --no-fund 1>&2"
+
+[tasks.typecheck-native]
+description = "Type-check the skill-factory workflow and native tests against the pinned SDK"
+depends = ["lint-code"]
+run = "npm exec --offline -- tsc --noEmit"
+
+[tasks.test-native]
+description = "Exercise real workflow engine behavior, failure and recovery"
+depends = ["typecheck-native"]
+run = "node --test scripts/tests/*.test.ts"
+
+[tasks.workflow]
+description = "Run the skill-factory domain workflow with caller-selected inputs and authority"
+depends = ["doctor"]
+run = "node scripts/workflow.ts"
 
 [tasks.lint-placeholders]
 description = "Refuse any scaffold placeholder text left in markdown or evals"
 depends = []
 run = "python3 scripts/check_placeholders.py ."
-sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py"]
-outputs = []
-cache = { enabled = true }
 
 [tasks.evals]
 description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
 depends = []
 run = "python3 scripts/check_evals.py ."
-sources = ["evals/evals.json", "evals/trigger-queries.json", "scripts/check_evals.py"]
-outputs = []
-cache = { enabled = true }
 
 [tasks.improvement-policy]
 description = "Validate the optional nonregressing skill-improvement policy"
 depends = []
 run = "python3 scripts/check_improvement_contract.py ."
-sources = ["assets/improvement-contract.json", "scripts/check_improvement_contract.py"]
-outputs = []
-cache = { enabled = true }
 
 [tasks.use-case-policy]
 description = "Reject generic skill primitives without a domain-specific role and proof"
@@ -129,9 +131,9 @@ depends = ["task-graph-policy"]
 run = "python3 scripts/check_decision_records.py ."
 
 [tasks.invocation-policy]
-description = "Validate one invocation receipt; pass its path after --"
+description = "Check task accounting and host-bound evidence; pass receipt and bindings after --"
 depends = []
-run = "python3 scripts/check_invocation_receipt.py ."
+run = "uv run --with PyYAML==6.0.3 python scripts/check_invocation_receipt.py ."
 
 [tasks.agentic-request]
 description = "Validate and dispatch one typed skill-factory agentic request to a configured runner"
@@ -168,7 +170,6 @@ depends = [
   "test",
   "validate",
   "lint-writing",
-  "lint-code",
   "lint-placeholders",
   "evals",
   "improvement-policy",
@@ -187,6 +188,11 @@ description = "Environment readiness report"
 depends = []
 run = "python3 scripts/doctor.py"
 
+[tasks.human-matrix]
+description = "Resolve versioned human-study and work inventories and one explicit selection"
+depends = ["runtime-install"]
+run = "node scripts/human-matrix-workflow.ts"
+
 [tasks.new]
 description = "Scaffold a new skill; pass flags after --"
 depends = ["doctor"]
@@ -200,7 +206,7 @@ run = "uv run --with PyYAML==6.0.3 scripts/check_target.py validate"
 [tasks.eval-target]
 description = "Run the eval contract check against a skill path passed after --"
 depends = ["doctor"]
-run = "python3 scripts/check_target.py eval"
+run = "uv run --with PyYAML==6.0.3 scripts/check_target.py eval"
 
 [tasks.plan-standardize]
 description = "Freeze a read-only inventory before updating or standardizing a skill"

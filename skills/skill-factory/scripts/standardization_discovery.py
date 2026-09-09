@@ -3,6 +3,7 @@ import copy
 import re
 import tomllib
 from pathlib import Path
+from skill_package import owned_files
 
 from standardization_markdown import (
     BARE_SCRIPT_PATH_RE,
@@ -14,7 +15,7 @@ from standardization_markdown import (
 
 def documented_paths(root):
     found = set()
-    for markdown in root.rglob("*.md"):
+    for markdown in (p for p in owned_files(root) if p.suffix == ".md"):
         text = markdown.read_text(encoding="utf-8")
         found.update(match.group(1) for match in SCRIPT_RE.finditer(text))
         found.update(match.group(1) for match in SCRIPT_LINK_RE.finditer(text))

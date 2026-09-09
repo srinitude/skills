@@ -17,6 +17,7 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
+from invocation_acceptance import arguments, bindings, guard
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 CHECKS = {
@@ -41,6 +42,8 @@ def run_check(script, target, inspect_legacy=False):
     command = [sys.executable, str(SCRIPT_DIR / script), str(target)]
     if script == "validate_skill.py" and not inspect_legacy:
         command.append("--accept")
+    if script == "check_use_case_contract.py" and inspect_legacy:
+        command.append("--inspect-legacy")
     result = subprocess.run(command, capture_output=True, text=True)
     print(f"[{Path(script).stem}]")
     if result.stdout:
@@ -55,6 +58,24 @@ def run_mode(mode, target, inspect_legacy=False):
     return 1 if any(codes) else 0
 
 
+def evidence_result(args, target):
+    trusted = bindings(args)
+    if not any(trusted.values()):
+        print("evidence acceptance: pending; selected check mechanics only")
+        return 0
+    if args.inspect_legacy:
+        print("FAIL legacy inspection cannot accept changed output")
+        return 1
+    expected = {"route": args.mode + "-target", "inputs": {"mode": args.mode}}
+    try:
+        result = guard(target, target, expected, trusted)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print(f"FAIL {error}")
+        return 1
+    print(f"evidence acceptance: {result['state']}; {result['requirements']} host-bound claims")
+    return 0
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -62,6 +83,7 @@ def main(argv=None):
     parser.add_argument("skill_root")
     parser.add_argument("--inspect-legacy", action="store_true",
                         help="inspect unchanged legacy skills without accepting updated output")
+    arguments(parser)
     args = parser.parse_args(argv)
     candidate = Path(args.skill_root)
     if candidate.is_symlink():
@@ -71,7 +93,7 @@ def main(argv=None):
     if not (target / "SKILL.md").is_file():
         print(f"FAIL not a skill directory: {target}")
         return 1
-    return run_mode(args.mode, target, args.inspect_legacy)
+    return run_mode(args.mode, target, args.inspect_legacy) or evidence_result(args, target)
 
 
 if __name__ == "__main__":

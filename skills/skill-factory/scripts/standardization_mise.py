@@ -1,95 +1,85 @@
 """Normalize one registry skill Mise graph."""
 import json
 import re
+import tomllib
+from pathlib import Path
 
-POLICY_TASKS = {
-    "domain-research-policy": ([], "Validate current domain research receipts",
-        "python3 scripts/check_domain_research.py ."),
-    "use-case-policy": (["domain-research-policy"], "Validate domain-specific owners",
-        "python3 scripts/check_use_case_contract.py ."),
-    "mise-primitives-policy": (["use-case-policy"], "Validate Mise primitive use",
-        "python3 scripts/check_mise_primitives.py ."),
-    "primitive-lifecycle-policy": (["mise-primitives-policy"], "Validate lifecycle ownership",
-        "python3 scripts/check_primitive_lifecycle.py ."),
-    "task-graph-policy": (["primitive-lifecycle-policy"], "Validate the Mise task graph",
-        "python3 scripts/check_task_graph.py ."),
-    "decision-policy": (["task-graph-policy"], "Validate motivated decisions",
-        "python3 scripts/check_decision_records.py ."),
-    "improvement-policy": ([], "Validate nonregressing improvement trials",
-        "python3 scripts/check_improvement_contract.py ."),
-    "invocation-policy": ([], "Validate one task-accounting receipt",
-        "python3 scripts/check_invocation_receipt.py ."),
-    "agentic-request": ([], "Dispatch one typed model-owned request",
-        "python3 scripts/run_agentic_request.py"),
-    "mise-latest": ([], "Update Mise after accepted work",
-        "mise self-update --yes --no-plugins"),
-    "mise-primitives-update": (["mise-latest"], "Refresh the Mise primitive catalog",
-        "python3 scripts/sync_mise_primitives.py ."),
-}
-SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
-NESTED_RE = re.compile(r"mise run ([a-z0-9][a-z0-9:-]*)")
-DEPENDS_RE = re.compile(r"(?s)depends\s*=\s*\[(.*?)\]")
-QUOTED_RE = re.compile(r'"([a-z0-9][a-z0-9:-]*)"')
+from mise_text import field, sections, table_defaults, value
+from mise_task_graph import cycle
+
+BARE_MISE = re.compile(r"mise run ([a-z0-9][a-z0-9:-]*)")
+NATIVE_CHAIN = {"runtime-install", "lint-code", "typecheck-native", "test-native"}
 
 
-def split_sections(text):
-    matches = list(SECTION_RE.finditer(text))
-    preamble = text[:matches[0].start()] if matches else text
-    sections = []
-    for index, match in enumerate(matches):
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-        sections.append((match.group(1), text[match.end():end].strip("\n")))
-    return preamble.rstrip(), sections
-
-
-def strip_key(block, key):
-    lines, output, skipping = block.splitlines(), [], False
-    for line in lines:
-        if skipping:
-            skipping = not line.strip().endswith("]")
-            continue
-        if re.match(rf"^{re.escape(key)}\s*=", line):
-            skipping = "[" in line and not line.strip().endswith("]")
-            continue
-        output.append(line)
-    return "\n".join(output).strip()
-
-
-def nested_dependencies(block):
-    found = []
-    for name in NESTED_RE.findall(block):
-        if name not in found:
-            found.append(name)
-    return found
-
-
-def declared_dependencies(block):
-    match = DEPENDS_RE.search(block)
-    return QUOTED_RE.findall(match.group(1)) if match else []
-
-
-def dependency_line(names):
-    return "depends = [" + ", ".join(f'\"{name}\"' for name in names) + "]"
+def migrate_call(block, task, dependencies):
+    commands = task.get("run", [])
+    commands = [commands] if isinstance(commands, str) else commands
+    if not any(isinstance(cmd, str) and "mise run" in cmd for cmd in commands):
+        return block, dependencies
+    match = BARE_MISE.fullmatch(commands[0]) if len(commands) == 1 else None
+    execution = set(task) - {"run", "depends", "description", "alias"}
+    if not match or dependencies or execution:
+        raise ValueError("nested Mise call needs an explicit task migration preserving arguments, order and environment")
+    return field(block, "run", None), [match[1]]
 
 
 def normalize_existing(name, block):
     block = re.sub(r"scripts/validate_skill\.py \.(?! --accept)",
                    "scripts/validate_skill.py . --accept", block)
-    dependencies = declared_dependencies(block)
-    if name == "ci":
-        dependencies += [item for item in nested_dependencies(block)
-                         if item not in dependencies]
+    task = tomllib.loads(block)
+    dependencies = task.get("depends", [])
+    if not isinstance(dependencies, list):
+        raise ValueError(f"tasks.{name}.depends needs an explicit array migration")
+    block, dependencies = migrate_call(block, task, dependencies)
     if name == "ci" and "decision-policy" not in dependencies:
         dependencies.append("decision-policy")
-    result = strip_key(strip_key(block, "run" if name == "ci" else "depends"), "depends")
-    parts = [result, dependency_line(dependencies)] if result else [dependency_line(dependencies)]
-    return "\n".join(parts)
+    return field(block, "depends", value(dependencies))
 
 
-def policy_block(name, spec):
-    depends, description, command = spec
-    return "\n".join([f"[tasks.{name}]", f'description = "{description}"',
-                       f'run = "{command}"', dependency_line(depends)])
+def template(profile):
+    path = Path(__file__).resolve().parents[1] / "assets/mise-template.toml"
+    name = (profile or {}).get("skill", "skill")
+    text = path.read_text().replace("{{NAME}}", json.dumps(name)[1:-1])
+    config = tomllib.loads(text)
+    _, blocks = sections(text)
+    return config, {name: body for name, body in blocks if name != "info"}
+
+
+def reaches(tasks, start, target):
+    seen, pending = set(), [start]
+    while pending:
+        name = pending.pop()
+        if name == target:
+            return True
+        if name in seen:
+            continue
+        seen.add(name)
+        pending.extend(item for item in tasks.get(name, {}).get("depends", [])
+                       if isinstance(item, str) and item in tasks)
+    return False
+
+
+def wire_checks(text, defaults):
+    tasks = tomllib.loads(text)["tasks"]
+    for name in ["lint-code", "typecheck-native", "test-native", "test", "ci"]:
+        deps = tasks[name]["depends"]
+        for dependency in defaults[name]["depends"]:
+            if not reaches(tasks, name, dependency):
+                deps.append(dependency)
+    graph = {name: [d for d in task["depends"] if isinstance(d, str) and d in tasks]
+             for name, task in tasks.items()}
+    if cycle(graph):
+        raise ValueError("native prerequisites conflict with existing order; reconcile the task cycle explicitly")
+    preamble, blocks = sections(text)
+    result = []
+    for name, body in blocks:
+        deps = tasks[name]["depends"]
+        kept = [item for item in deps if not (isinstance(item, str) and item in NATIVE_CHAIN
+                and any(isinstance(other, str) and other != item and reaches(tasks, other, item)
+                        for other in deps))]
+        key = name if re.fullmatch(r"[A-Za-z0-9_-]+", name) else json.dumps(name)
+        result.append(f"[tasks.{key}]\n{field(body, 'depends', value(kept))}")
+    return preamble + "\n\n" + "\n\n".join(result) + "\n"
 
 
 def main_task_block(profile):
@@ -118,30 +108,39 @@ def command_task_block(name, spec):
 def existing_block(name, block, profile):
     scripts = profile.get("script_tasks", {}) if profile else {}
     commands = profile.get("command_tasks", {}) if profile else {}
+    replacement = None
     if name in scripts:
-        return script_task_block(name, scripts[name])
-    if name in commands:
-        return command_task_block(name, commands[name])
-    if profile and name == profile["main_task"] and profile.get("main_run"):
-        return main_task_block(profile)
-    return f"[tasks.{name}]\n{normalize_existing(name, block)}"
+        replacement = script_task_block(name, scripts[name])
+    elif name in commands:
+        replacement = command_task_block(name, commands[name])
+    elif profile and name == profile["main_task"] and profile.get("main_run"):
+        block = field(block, "run", value(profile["main_run"]))
+    if replacement:
+        updates = tomllib.loads(replacement)["tasks"][name]
+        for key in ["description", "run"]:
+            block = field(block, key, value(updates[key]))
+    key = name if re.fullmatch(r"[A-Za-z0-9_-]+", name) else json.dumps(name)
+    return f"[tasks.{key}]\n{normalize_existing(name, block)}"
 
 
 def normalize_mise(text, profile=None):
-    preamble, existing = split_sections(text)
+    config, defaults = template(profile)
+    text = table_defaults(text, "tools", config["tools"])
+    preamble, existing = sections(text)
     names = {name for name, _ in existing}
     blocks = [existing_block(name, block, profile) for name, block in existing]
-    blocks += [policy_block(name, spec) for name, spec in POLICY_TASKS.items()
+    blocks += [f"[tasks.{name}]\n{body}" for name, body in defaults.items()
                if name not in names]
-    if profile and profile["main_task"] not in names | set(POLICY_TASKS):
+    if profile and profile["main_task"] not in names | set(defaults):
         if not profile.get("main_run"):
             raise ValueError("profile main_task needs main_run when the task is missing")
         blocks.append(main_task_block(profile))
     if profile:
         blocks += [script_task_block(name, spec)
                    for name, spec in profile.get("script_tasks", {}).items()
-                   if name not in names | set(POLICY_TASKS)]
+                   if name not in names | set(defaults)]
         blocks += [command_task_block(name, spec)
                    for name, spec in profile.get("command_tasks", {}).items()
-                   if name not in names | set(POLICY_TASKS)]
-    return (preamble + "\n\n" if preamble else "") + "\n\n".join(blocks) + "\n"
+                   if name not in names | set(defaults)]
+    output = (preamble + "\n\n" if preamble else "") + "\n\n".join(blocks) + "\n"
+    return wire_checks(output, config["tasks"])

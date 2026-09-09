@@ -1,6 +1,9 @@
 {
   "version": "1.1.0",
   "skill": "{{NAME}}",
+  "audience": {
+    "primary": "{{AUDIENCE}}"
+  },
   "outcome": "SCAFFOLD-PLACEHOLDER name the observable {{NAME}} result using its own domain terms.",
   "motivations": [
     {
@@ -28,22 +31,54 @@
     "SCAFFOLD-PLACEHOLDER second {{NAME}} proof"
   ],
   "domain_dimensions": {
-    "actors": ["SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."],
-    "objects": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."],
-    "actions": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."],
-    "states": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."],
-    "invariants": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."],
-    "variants": ["SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."],
-    "interfaces": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."],
-    "authorities": ["SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."],
-    "failures": ["SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."],
-    "recoveries": ["SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."],
-    "evidence": ["SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."],
-    "time": ["SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."],
-    "resources": ["SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."],
-    "quality": ["SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."],
-    "terminology": ["SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."],
-    "exclusions": ["SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."]
+    "actors": [
+      "SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."
+    ],
+    "objects": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."
+    ],
+    "actions": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."
+    ],
+    "states": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."
+    ],
+    "invariants": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."
+    ],
+    "variants": [
+      "SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."
+    ],
+    "interfaces": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."
+    ],
+    "authorities": [
+      "SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."
+    ],
+    "failures": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."
+    ],
+    "recoveries": [
+      "SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."
+    ],
+    "evidence": [
+      "SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."
+    ],
+    "time": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."
+    ],
+    "resources": [
+      "SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."
+    ],
+    "quality": [
+      "SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."
+    ],
+    "terminology": [
+      "SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."
+    ],
+    "exclusions": [
+      "SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."
+    ]
   },
   "research_questions": {
     "actors": "SCAFFOLD-PLACEHOLDER which actors define or use {{NAME}}?",
@@ -147,6 +182,13 @@
         "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} must reconcile upstream Mise primitives.",
         "why_default_path": "SCAFFOLD-PLACEHOLDER explain the post-self-update {{NAME}} catalog path.",
         "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} catalog and disposition receipt."
+      },
+      {
+        "task": "human-matrix",
+        "outcome": "SCAFFOLD-PLACEHOLDER: outcome for actual human-study/work selection.",
+        "motivation": "SCAFFOLD-PLACEHOLDER: motivation for actual human-study/work selection.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER: why_default_path for actual human-study/work selection.",
+        "proof": "SCAFFOLD-PLACEHOLDER: proof for actual human-study/work selection."
       }
     ],
     "tasks": {
@@ -156,6 +198,9 @@
       "validate": {},
       "lint-writing": {},
       "lint-code": {},
+      "runtime-install": {},
+      "typecheck-native": {},
+      "test-native": {},
       "lint-placeholders": {},
       "evals": {},
       "improvement-policy": {},
@@ -168,7 +213,14 @@
       "invocation-policy": {},
       "agentic-request": {},
       "mise-latest": {},
-      "mise-primitives-update": {}
+      "mise-primitives-update": {},
+      "human-matrix": {
+        "outcome": "SCAFFOLD-PLACEHOLDER: outcome for the actual human-study/work selection.",
+        "motivation": "SCAFFOLD-PLACEHOLDER: motivation for the actual human-study/work selection.",
+        "value": "SCAFFOLD-PLACEHOLDER: value for the actual human-study/work selection.",
+        "proof": "SCAFFOLD-PLACEHOLDER: proof for the actual human-study/work selection.",
+        "applicability": "SCAFFOLD-PLACEHOLDER: applicability for the actual human-study/work selection."
+      }
     }
   },
   "primitive_roles": {

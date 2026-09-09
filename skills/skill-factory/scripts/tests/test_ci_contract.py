@@ -1,7 +1,10 @@
 """Contract tests for the mise task graph and the CI workflow template."""
 import pathlib
+import json
 import tomllib
 import unittest
+
+from cli import run
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 REQUIRED_TASKS = [
@@ -20,7 +23,7 @@ REQUIRED_TASKS = [
 CHECK_JOBS = ["validate", "lint-writing", "lint-code",
               "lint-placeholders", "evals", "improvement-policy",
               "decision-policy"]
-FACTORY_CI_JOBS = ["test"] + CHECK_JOBS + ["source-corpus", "lineage"]
+FACTORY_CI_JOBS = ["test"] + [job for job in CHECK_JOBS if job != "lint-code"] + ["source-corpus", "lineage"]
 
 
 def load_tasks(path):
@@ -37,11 +40,67 @@ class TestMiseTaskGraph(unittest.TestCase):
         for name in REQUIRED_TASKS:
             self.assertIn(name, self.tasks, f"missing task: {name}")
 
+    def test_native_workflow_has_pinned_tools_and_an_ordered_check_path(self):
+        config = tomllib.loads((SKILL_DIR / "mise.toml").read_text())
+        self.assertEqual(config["tools"]["node"], "24.18.0")
+        self.assertEqual(config["tools"]["python"], "3.13.14")
+        self.assertEqual(config["tools"]["uv"], "0.11.29")
+        package = json.loads((SKILL_DIR / "package.json").read_text())
+        self.assertEqual(package["dependencies"]["@mastra/core"], "1.64.0")
+        self.assertEqual(package["dependencies"]["@mastra/libsql"], "1.22.3")
+        self.assertEqual(package["packageManager"], "npm@11.16.0")
+        self.assertEqual(self.tasks["test-ci"]["depends"], ["runtime-install"])
+        self.assertEqual(self.tasks["lint-code"]["depends"], ["test-ci"])
+        self.assertEqual(self.tasks["typecheck-native"]["depends"], ["lint-code"])
+        self.assertEqual(self.tasks["test-native"]["depends"], ["typecheck-native"])
+        self.assertIn("test-native", self.tasks["test"]["depends"])
+        self.assertNotIn("lint-code", self.tasks["ci"]["depends"])
+        self.assertIn("--ignore-scripts", self.tasks["runtime-install"]["run"])
+        self.assertIn("scripts/workflow.ts", self.tasks["workflow"]["run"])
+
+    def test_workflow_cli_exposes_domain_operation_and_external_acceptance(self):
+        import subprocess
+        result = subprocess.run(["node", str(SKILL_DIR / "scripts/workflow.ts"), "--help"],
+                                capture_output=True, text=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for flag in ["start", "resume", "reject", "--source", "--profile", "--candidate",
+                     "--state-dir", "--run-id", "--acceptance-context", "--receipt-sha256"]:
+            self.assertIn(flag, result.stdout)
+
+    def test_source_coverage_uses_the_existing_public_policy_route(self):
+        self.assertIn("check_use_case_contract.py", self.tasks["use-case-policy"]["run"])
+        result = run("check_use_case_contract.py", "--help")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for flag in ["--source", "--coverage", "--source-sha256", "--coverage-sha256"]:
+            self.assertIn(flag, result.stdout)
+
+    def test_acceptance_stays_at_the_existing_invocation_owner(self):
+        self.assertIn("check_invocation_receipt.py", self.tasks["invocation-policy"]["run"])
+        result = run("check_invocation_receipt.py", "--help")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for flag in ["--acceptance-context", "--context-sha256", "--receipt-sha256"]:
+            self.assertIn(flag, result.stdout)
+
+    def test_audience_uses_current_authoring_and_validation_routes(self):
+        for script in ["scaffold_skill.py", "standardize_registry_skill.py"]:
+            result = run(script, "--help")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("--audience", result.stdout)
+        self.assertIn("--inspect-legacy", run("check_use_case_contract.py", "--help").stdout)
+
+    def test_mutating_consumers_take_external_acceptance_bindings(self):
+        for command in [("scaffold_skill.py",), ("standardize_registry_skill.py",),
+                        ("skill_variant.py", "accept"), ("check_target.py",)]:
+            result = run(*command, "--help")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            for flag in ["--acceptance-context", "--context-sha256", "--receipt", "--receipt-sha256"]:
+                self.assertIn(flag, result.stdout)
+
     def test_ci_uses_dependency_edges(self):
         task = self.tasks["ci"]
         self.assertEqual(set(task["depends"]), set(FACTORY_CI_JOBS))
         self.assertNotIn("run", task)
-        self.assertEqual(self.tasks["test"]["depends"], ["test-ci"])
+        self.assertEqual(self.tasks["test"]["depends"], ["test-native"])
 
     def test_ci_covers_every_check_job(self):
         self.assertEqual(set(self.tasks["ci"]["depends"]),
@@ -62,7 +121,7 @@ class TestMiseTaskGraph(unittest.TestCase):
             self.tasks["validate-target"]["run"],
             "uv run --with PyYAML==6.0.3 scripts/check_target.py validate")
         self.assertEqual(self.tasks["eval-target"]["run"],
-                         "python3 scripts/check_target.py eval")
+                         "uv run --with PyYAML==6.0.3 scripts/check_target.py eval")
 
     def test_standardization_plan_stays_behind_mise(self):
         run = self.tasks["plan-standardize"]["run"]
@@ -117,8 +176,15 @@ class TestGeneratedSkillTemplate(unittest.TestCase):
 
     def test_template_has_single_ci_entrypoint(self):
         task = self.tasks["ci"]
-        self.assertEqual(set(task["depends"]), set(["test"] + CHECK_JOBS))
+        self.assertEqual(set(task["depends"]), set(FACTORY_CI_JOBS) - {"source-corpus", "lineage"})
         self.assertNotIn("run", task)
+
+    def test_template_native_gates_form_one_prerequisite_path(self):
+        self.assertEqual(self.tasks["lint-code"]["depends"], ["runtime-install"])
+        self.assertEqual(self.tasks["typecheck-native"]["depends"], ["lint-code"])
+        self.assertEqual(self.tasks["test-native"]["depends"], ["typecheck-native"])
+        self.assertEqual(self.tasks["test"]["depends"], ["test-native"])
+        self.assertIn("--ignore-scripts", self.tasks["runtime-install"]["run"])
 
     def test_template_jobs_match_factory_jobs(self):
         for job in ["info", "test", "domain-research-policy",

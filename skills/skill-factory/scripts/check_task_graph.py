@@ -19,23 +19,12 @@ import tomllib
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
+from mise_task_graph import cycle, graphs, structure_problems
+from source_coverage import load_json
 
 DETAIL_FIELDS = {"outcome", "motivation", "value", "proof",
                  "applicability"}
 OP_FIELDS = {"task", "outcome", "motivation", "why_default_path", "proof"}
-
-
-def dependencies(task):
-    return task.get("depends", []) + task.get("depends_post", [])
-
-
-def run_commands(task):
-    value = task.get("run", "")
-    if isinstance(value, str):
-        return [value]
-    if isinstance(value, list) and all(isinstance(item, str) for item in value):
-        return value
-    return []
 
 
 def load(root):
@@ -43,58 +32,10 @@ def load(root):
         with (root / "mise.toml").open("rb") as handle:
             tasks = tomllib.load(handle).get("tasks", {})
         path = root / "assets/use-case-contract.json"
-        use_case = json.loads(path.read_text(encoding="utf-8"))
+        use_case = load_json(path)
     except (OSError, ValueError, json.JSONDecodeError) as error:
         raise ValueError(str(error)) from error
     return tasks, use_case
-
-
-def structure_problems(tasks):
-    found, declared = [], set(tasks)
-    for name, task in tasks.items():
-        if not isinstance(task.get("depends"), list):
-            found.append(f"tasks.{name}.depends must be an explicit array")
-            continue
-        if "depends_post" in task and not isinstance(task["depends_post"], list):
-            found.append(f"tasks.{name}.depends_post must be an array")
-            continue
-        unknown = set(dependencies(task)) - declared
-        if unknown:
-            found.append(f"tasks.{name} has unknown dependencies: " +
-                         ", ".join(sorted(unknown)))
-        if not task.get("description"):
-            found.append(f"tasks.{name}.description is required")
-        if "run" in task and not run_commands(task):
-            found.append(f"tasks.{name}.run must be text or a text array")
-        elif any("mise run" in command for command in run_commands(task)):
-            found.append(f"tasks.{name}.run must not invoke Mise")
-    return found
-
-
-def visit_node(tasks, name, state, trail):
-    if state.get(name) == 1:
-        return trail[trail.index(name):] + [name]
-    if state.get(name) == 2:
-        return None
-    state[name] = 1
-    trail.append(name)
-    for dependency in dependencies(tasks[name]):
-        if dependency in tasks:
-            cycle = visit_node(tasks, dependency, state, trail)
-            if cycle:
-                return cycle
-    trail.pop()
-    state[name] = 2
-    return None
-
-
-def find_cycle(tasks):
-    state, trail = {}, []
-    for name in tasks:
-        cycle = visit_node(tasks, name, state, trail)
-        if cycle:
-            return cycle
-    return None
 
 
 def path_counts(tasks, start):
@@ -104,10 +45,10 @@ def path_counts(tasks, start):
         if name in reachable:
             continue
         reachable.add(name)
-        pending.extend(item for item in dependencies(tasks[name]) if item in tasks)
+        pending.extend(item for item in tasks[name] if item in tasks)
     incoming = {name: 0 for name in reachable}
     for name in reachable:
-        for dependency in dependencies(tasks[name]):
+        for dependency in tasks[name]:
             if dependency in incoming:
                 incoming[dependency] += 1
     ready = [name for name, count in incoming.items() if count == 0]
@@ -115,7 +56,7 @@ def path_counts(tasks, start):
     counts[start] = 1
     while ready:
         name = ready.pop()
-        for dependency in dependencies(tasks[name]):
+        for dependency in tasks[name]:
             if dependency not in incoming:
                 continue
             counts[dependency] = min(2, counts[dependency] + counts[name])
@@ -193,16 +134,20 @@ def route_problems(tasks, entries):
 
 def problems(tasks, use_case):
     found = structure_problems(tasks)
-    cycle = find_cycle(tasks)
-    if cycle:
-        found.append("cycle: " + " -> ".join(cycle))
+    if found:
+        return found
     contract, ci_task, operations, terms = contract_problems(tasks, use_case)
     found.extend(contract)
     operation_issues, names = operation_problems(tasks, operations, terms)
     found.extend(operation_issues)
-    if not cycle:
-        found.extend(route_problems(tasks, [ci_task] + names))
-    return found
+    for windows in (False, True):
+        calls, order = graphs(tasks, windows)
+        found_cycle = cycle(calls) or cycle(order)
+        if found_cycle:
+            found.append("cycle: " + " -> ".join(found_cycle))
+        else:
+            found.extend(route_problems(calls, [ci_task] + names))
+    return list(dict.fromkeys(found))
 
 
 def main(argv=None):
@@ -219,6 +164,7 @@ def main(argv=None):
     for problem in found:
         print(f"FAIL {problem}")
     print(f"task graph: {len(found)} problems")
+    print("Explicit references only; native configuration, phase/argument variants and runtime effects require separate evidence.")
     return 1 if found else 0
 
 

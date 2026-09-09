@@ -17,6 +17,7 @@ class TestScopeDestination(unittest.TestCase):
                 "visible_roots": [str(root)], "reference": "https://agentskills.io/client-implementation/adding-skills-support"}))
             before = snapshot(root)
             result = run("scaffold_skill.py", "--name", "demo-skill", "--scope", "user",
+                         "--audience", "agent",
                          "--description", "Use when testing destination scope.", "--dest", root,
                          "--placement-receipt", receipt)
             self.assertEqual(result.returncode, 1, result.stdout + result.stderr)

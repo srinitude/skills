@@ -6,18 +6,18 @@
     "config": {
       "used": ["env", "min_version", "settings", "task_config", "tasks", "tools"],
       "not_applicable": ["_", "alias", "bootstrap", "deps", "dotenv", "dotfiles", "env_file", "env_path", "history", "hooks", "monorepo", "monorepo_root", "oci", "plugins", "redactions", "shell_alias", "task_templates", "tool_alias", "tool_config", "vars", "watch_files", "wrappers"],
-      "used_reason": "skill-factory uses the Mise task graph, a Python toolchain, a minimum runner contract, bounded parallel jobs, artifact caching, a fixed task root, and deterministic Python environment values to produce portable agent skill packages quickly and correctly.",
+      "used_reason": "skill-factory uses the Mise task graph, pinned native toolchains, a minimum runner contract, bounded parallel jobs, a fixed task root, and explicit environment values to produce portable agent skill packages.",
       "nonuse_reason": "The remaining top-level Mise features do not improve this single-package agent skill factory result, or they introduce remote services, secrets, shell state, repository scale, or side effects that this invocation does not own. Dotfile history is outside agent skill package maintenance; Git lineage and invocation receipts already own change evidence.",
-      "creative_use": "The agent skill environment disables bytecode cache files while bounded Mise concurrency and content-addressed static-check caches shorten repeated proof without caching live judgment.",
+      "creative_use": "The agent skill environment disables bytecode files and uses dependency download caches while package checks rerun against their current owned inputs.",
       "evidence": "mise.toml, generated mise template, speed-contract tests, and plan-standardize runtime-cache tests."
     },
     "task": {
-      "used": ["alias", "cache", "depends", "depends_post", "description", "output", "outputs", "run", "run_windows", "sources", "timeout"],
-      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "env", "extends", "file", "hide", "interactive", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "tools", "usage", "vars", "wait_for", "watch"],
-      "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, declared sources, empty-output check caches, portable Python tools, argument contracts, platform commands, and prefixed evidence for agent skill operations.",
-      "nonuse_reason": "The unused task fields would add interactive locks, hidden evidence, sandbox claims, file-task indirection, Rust behavior, or watchers that do not advance this agent skill package operation.",
-      "creative_use": "Agent skill static checks cache only successful no-output evidence while live research, model judgment, external targets, mutation, and lineage stay uncached; timeouts bound stalls and a post dependency rejects unreconciled primitives after runner maintenance.",
-      "evidence": "mise.toml, generated mise template, speed-contract tests, task graph tests, timeout failures, and cross-platform command tests."
+      "used": ["alias", "depends", "depends_post", "description", "output", "run", "run_windows", "timeout"],
+      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "cache", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "env", "extends", "file", "hide", "interactive", "outputs", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "sources", "tools", "usage", "vars", "wait_for", "watch"],
+      "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, native tools, argument contracts, platform commands, and prefixed evidence for agent skill operations.",
+      "nonuse_reason": "This agent skill package has no proved complete result-cache key. Freshness skips and artifact caching therefore remain unused. Other unused fields lack a demonstrated operation-specific need; this disposition does not forbid justified target-specific use.",
+      "creative_use": "Agent skill package checks rerun even after a prior pass so newly discovered files and changed checker dependencies cannot inherit stale acceptance; timeouts bound stalls and a post dependency checks primitives after runner maintenance.",
+      "evidence": "mise.toml, generated mise template, test_native_task_cache.py repeated-run rejection, speed-contract tests, and task graph tests."
     },
     "task_config": {
       "used": ["dir"],

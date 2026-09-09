@@ -5,6 +5,7 @@ import sys
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 SCRIPTS = SKILL_DIR / "scripts"
+sys.path.insert(0, str(SCRIPTS))
 
 
 def run(script, *args, cwd=None, env=None):

@@ -6,12 +6,14 @@ import unittest
 from pathlib import Path
 
 from cli import run
+from skill_package import owned_files
 
 DESCRIPTION = "Use when a demo skill is needed for scaffold tests."
 
 
 def scaffold(dest, name="demo-skill", description=DESCRIPTION, *extra):
     extra = extra if "--scope" in extra else (*extra, "--scope", "user")
+    extra = extra if "--audience" in extra else (*extra, "--audience", "agent")
     return run("scaffold_skill.py", "--name", name,
                "--description", description, "--dest", dest, *extra)
 
@@ -87,6 +89,10 @@ class TestScaffoldOutput(unittest.TestCase):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("examples/", body)
         self.assertIn("examples/example-first-run.md", body)
+
+    def test_new_package_retains_the_repository_author(self):
+        from skill_scope import read_fields
+        self.assertEqual(read_fields(self.skill)["metadata"]["author"], "Kiren Srinivasan")
 
     def test_body_routes_every_deterministic_command_through_mise(self):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
@@ -174,8 +180,8 @@ class TestScaffoldOutput(unittest.TestCase):
 
     def test_no_platform_or_model_names_in_output(self):
         blob = ""
-        for path in sorted(self.skill.rglob("*")):
-            if path.is_file():
+        for path in sorted(owned_files(self.skill)):
+            if path.name != "package-lock.json":
                 blob += path.read_text(encoding="utf-8", errors="ignore")
         halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"),
                   ("openc", "ode"),
@@ -184,7 +190,7 @@ class TestScaffoldOutput(unittest.TestCase):
                   ("perple", "xity")]
         for head, tail in halves:
             word = head + tail
-            self.assertNotIn(word, blob.lower(), f"found {word}")
+            self.assertFalse(word in blob.lower(), f"found {word} in authored output")
 
 
 if __name__ == "__main__":

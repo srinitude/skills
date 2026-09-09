@@ -17,6 +17,7 @@ from skill_package import inventory, tree_digest
 from variant_accept import accept
 from variant_draft import draft, save_output
 from variant_plan import make_plan
+from invocation_acceptance import arguments, bindings
 
 
 def parser_for_operation():
@@ -43,6 +44,8 @@ def parser_for_operation():
     commit.add_argument("--plan", required=True)
     commit.add_argument("--candidate", required=True)
     commit.add_argument("--review", required=True)
+    commit.add_argument("--prepare", help="save an unaccepted complete candidate at a new path")
+    arguments(commit)
     return parser
 
 
@@ -52,7 +55,7 @@ def execute(args, plan):
     elif args.operation == "review":
         result = draft(plan, args.candidate)
     else:
-        return accept(plan, args.candidate, load_json(args.review))
+        return accept(plan, args.candidate, load_json(args.review), bindings(args), args.prepare)
     if args.output:
         save_output(args.output, result, plan, getattr(args, "candidate", None))
     return result

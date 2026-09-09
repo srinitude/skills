@@ -2,9 +2,10 @@
 import json
 import tempfile
 import unittest
+import tomllib
 from pathlib import Path
 
-from cli import run
+from publication_fixtures import standardize
 
 SOURCES = [
     {"source": "https://www.rfc-editor.org/rfc/rfc3339", "source_class": "standard",
@@ -17,17 +18,15 @@ SOURCES = [
      "claim": "Dates need a profile.", "limitations": "No current civil time."},
 ]
 MISE_TEXT = (
-    "[tasks.anchor]\ndescription = \"Read the clock anchor\"\n"
-    "run = \"python3 scripts/anchor.py\"\n\n[tasks.ci]\n"
-    "description = \"Check the clock anchor\"\nrun = [\"mise run anchor\"]\n\n"
-    "[tasks.inspect-anchor]\ndescription = \"Old inspector\"\n"
-    "run = \"python3 scripts/inspect.py\"\n"
+    '[tasks.anchor]\ndescription = "Read the clock anchor"\nrun = "python3 scripts/anchor.py"\n\n'
+    '[tasks.ci]\ndescription = "Check the clock anchor"\nrun = ["mise run anchor"]\n\n'
+    '[tasks.inspect-anchor]\ndescription = "Old inspector"\nrun = "python3 scripts/inspect.py"\n'
 )
 
 
 def profile():
     return {
-        "skill": "clock-anchor",
+        "skill": "clock-anchor", "audience": {"primary": "agent"},
         "primary_term": "clock anchor",
         "domain_terms": ["clock anchor", "timezone offset", "relative date"],
         "outcome": "Return one fresh clock anchor for each direct turn.",
@@ -85,8 +84,8 @@ def write_target(root):
 
 class TestRegistryStandardization(unittest.TestCase):
     def invoke(self, root, profile_path, apply=False):
-        args = ["standardize_registry_skill.py", root, "--profile", profile_path]
-        return run(*args, *(["--scope", "user", "--apply"] if apply else []))
+        args = [root, "--profile", profile_path]
+        return standardize(*args, *(["--scope", "user", "--apply"] if apply else []))
 
     def test_plan_makes_no_writes(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -135,7 +134,8 @@ class TestRegistryStandardization(unittest.TestCase):
 
     def assert_package_graph(self, root):
             mise = (root / "mise.toml").read_text(encoding="utf-8")
-            self.assertIn('depends = ["anchor", "decision-policy"]', mise)
+            self.assertEqual(tomllib.loads(mise)["tasks"]["ci"]["depends"],
+                             ["anchor", "decision-policy", "test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy"])
             self.assertIn("[tasks.inspect-anchor]", mise)
             self.assertIn("[tasks.report-clock]", mise)
             self.assertIn("uv run python scripts/inspect.py --format json", mise)
@@ -194,7 +194,7 @@ class TestRegistryStandardization(unittest.TestCase):
             ci_test = (tests / "test_ci_contract.py").read_text()
             source_test = (tests / "test_source_mapping.py").read_text()
             script_test = (tests / "test_scripts.py").read_text()
-            self.assertIn('tasks["ci"]["depends"]', ci_test)
+            self.assertIn('self.assertEqual(tasks["ci"], EXPECTED_CI)', ci_test)
             self.assertNotIn('tasks["ci"]["run"]', ci_test)
             self.assertNotIn('f"mise run {job}"', ci_test)
             self.assertIn("for key in EXPECTED_FILES", source_test)

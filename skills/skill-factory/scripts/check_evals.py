@@ -18,6 +18,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from source_coverage import load_json
 
 
 def nonempty(value):
@@ -26,8 +27,11 @@ def nonempty(value):
 
 def check_case(case, index, skill, problems):
     where = f"evals.json case {index}"
-    if not isinstance(case.get("id"), int):
-        problems.append(f"{where}: id must be an integer")
+    if not isinstance(case, dict):
+        problems.append(f"{where}: must be an object")
+        return
+    if not (type(case.get("id")) is int or nonempty(case.get("id"))):
+        problems.append(f"{where}: id must be an integer or nonempty string")
     for key in ["prompt", "expected_output"]:
         if not nonempty(case.get(key)):
             problems.append(f"{where}: {key} must be a non-empty string")
@@ -42,13 +46,16 @@ def check_case(case, index, skill, problems):
 
 
 def check_cases(doc, skill, minimum, problems):
+    if not isinstance(doc, dict):
+        problems.append("evals.json: must be an object")
+        return
     if not nonempty(doc.get("skill_name")):
         problems.append("evals.json: skill_name must be a non-empty string")
     cases = doc.get("evals")
     if not isinstance(cases, list) or len(cases) < minimum:
         problems.append(f"evals.json: needs at least {minimum} cases")
         return
-    ids = [case.get("id") for case in cases]
+    ids = [json.dumps(case.get("id"), sort_keys=True) for case in cases if isinstance(case, dict)]
     if len(set(ids)) != len(ids):
         problems.append("evals.json: case ids must be unique")
     for index, case in enumerate(cases, start=1):
@@ -73,7 +80,8 @@ def check_queries(queries, minimum, problems):
         if not isinstance(flag, bool):
             problems.append(f"trigger-queries.json entry {index}: "
                             "should_trigger must be true or false")
-        labels.add(flag)
+        if isinstance(flag, bool):
+            labels.add(flag)
     if not {True, False} <= labels:
         problems.append("trigger-queries.json: needs positive and "
                         "negative queries")
@@ -84,8 +92,8 @@ def load(path, problems):
         problems.append(f"missing {path.parent.name}/{path.name}")
         return None
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as error:
+        return load_json(path)
+    except (OSError, ValueError) as error:
         problems.append(f"{path.name}: invalid JSON: {error}")
         return None
 

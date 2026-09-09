@@ -18,6 +18,8 @@ import sys
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term, words
+from source_coverage import check_arguments, load_json, mapping_problems
+from use_case_audience import problems as audience_problems
 
 KINDS = {"skill_body", "references", "assets", "scripts", "tests",
          "mise_tasks", "examples", "evals", "policies", "schemas",
@@ -37,7 +39,7 @@ def load(root):
     if not path.is_file():
         raise ValueError(f"missing {path}")
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return load_json(path)
     except json.JSONDecodeError as error:
         raise ValueError(f"invalid JSON: {error}") from error
 
@@ -149,14 +151,18 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
+    parser.add_argument("--inspect-legacy", action="store_true", help="inspect untouched legacy audience data without accepting changes")
+    for name in ["source", "coverage", "source-sha256", "coverage-sha256"]:
+        parser.add_argument("--" + name, help="caller-bound source coverage input")
     args = parser.parse_args(argv)
     root = Path(args.skill_root).resolve()
     try:
+        check_arguments(args)
         data = load(root)
-    except ValueError as error:
+        found = problems(data, root) + mapping_problems(root) + audience_problems(data, root, args.inspect_legacy)
+    except (ValueError, OSError, UnicodeError) as error:
         print(f"FAIL {error}")
         return 1
-    found = problems(data, root)
     for problem in found:
         print(f"FAIL {problem}")
     print(f"use-case contract: {len(found)} problems")

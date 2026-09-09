@@ -21,6 +21,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from skill_package import selected_files
 
 SENTINEL = "SCAFFOLD-" + "PLACEHOLDER"
 TEMPLATE_RE = re.compile(r"\{\{[A-Za-z0-9_]+\}\}")
@@ -86,13 +87,10 @@ def collect(targets):
     files = []
     for target in targets:
         path = Path(target)
+        found = selected_files([target], SUFFIXES)
         if path.is_dir():
-            files.extend(p for p in sorted(path.rglob("*"))
-                         if wanted(p, path))
-        elif path.is_file():
-            files.append(path)
-        else:
-            raise FileNotFoundError(target)
+            found = [p for p in found if wanted(p, path.resolve())]
+        files.extend(found)
     return files
 
 
@@ -108,6 +106,9 @@ def main(argv=None):
     except FileNotFoundError as missing:
         print(f"error: no such file or directory: {missing}", file=sys.stderr)
         return 2
+    except (OSError, ValueError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 1
     problems = []
     for path in files:
         problems.extend(check_file(path))

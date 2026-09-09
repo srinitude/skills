@@ -1,5 +1,4 @@
 """Build factory policy assets for one registry skill."""
-import datetime
 import json
 from pathlib import Path
 
@@ -20,16 +19,6 @@ def motivations(profile):
          "reason": f"The {term} judgment needs fresh deterministic evidence.",
          "failure_prevented": f"A {term} claim backed only by prose or intent."},
     ]
-
-
-def research(profile, stamp):
-    records = []
-    for source in profile["sources"]:
-        item = dict(source)
-        item.update({"disposition": source.get("disposition", "bounded"),
-                     "checked_at": stamp, "dimensions": DIMENSIONS})
-        records.append(item)
-    return records
 
 
 def primitive_roles(profile):
@@ -57,7 +46,7 @@ def task_records(profile, tasks):
 
 def operations(profile, tasks):
     candidates = [profile["main_task"], "invocation-policy", "agentic-request",
-                  "improvement-policy", "mise-primitives-update"]
+                  "improvement-policy", "mise-primitives-update", "human-matrix"]
     candidates += profile.get("public_tasks", [])
     candidates = list(dict.fromkeys(candidates))
     term = profile["primary_term"]
@@ -68,26 +57,24 @@ def operations(profile, tasks):
             for name in candidates if name in tasks]
 
 
-def use_case(profile, tasks, stamp=None):
-    stamp = stamp or datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+def use_case(profile, tasks, previous=None):
+    previous = previous or {}
     term = profile["primary_term"]
     dimensions = {name: [f"The {term} contract owns {name} decisions."]
                   for name in DIMENSIONS}
     questions = {name: f"What can change the {term} {name} decision?"
                  for name in DIMENSIONS}
     return {"version": "1.0.0", "skill": profile["skill"],
-            "outcome": profile["outcome"], "motivations": motivations(profile),
+            "outcome": profile["outcome"], "audience": profile["audience"], "motivations": motivations(profile),
             "domain_terms": profile["domain_terms"],
             "domain_failures": [f"The {term} result changes without proof.",
                                 f"The {term} package reports a false pass."],
             "domain_evidence": [f"Fresh {term} task output and saved receipts.",
                                 f"Current {term} behavior and counterexample checks."],
             "domain_dimensions": dimensions, "research_questions": questions,
-            "research_receipts": research(profile, stamp),
-            "disconfirmation": [{"question": f"Can structure alone prove the {term} result?",
-                "source": profile["sources"][0]["source"], "checked_at": stamp,
-                "result": f"No. The {term} behavior still needs direct evaluation.",
-                "disposition": f"Keep structure and {term} behavior as separate gates."}],
+            "research_sources": profile["sources"],
+            "research_receipts": profile.get("research_receipts", previous.get("research_receipts", [])),
+            "disconfirmation": profile.get("disconfirmation", previous.get("disconfirmation", [])),
             "task_graph": {"ci_task": "ci", "public_operations": operations(profile, tasks),
                            "tasks": task_records(profile, tasks)},
             "primitive_roles": primitive_roles(profile)}

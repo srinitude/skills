@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from cli import run
+from publication_fixtures import variant
 from test_scope_standardization import snapshot
 from test_skill_variant import plan
 from variant_fixtures import export_packages, package, project, review, write_json
@@ -14,7 +15,7 @@ def accept(base, data, source, candidate, scenarios):
     plan_path, review_path = base / "plan.json", base / "review.json"
     write_json(plan_path, data)
     write_json(review_path, review(source, candidate, scenarios))
-    return run("skill_variant.py", "accept", "--plan", plan_path,
+    return variant("--plan", plan_path,
                "--candidate", candidate, "--review", review_path)
 
 

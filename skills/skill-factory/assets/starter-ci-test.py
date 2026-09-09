@@ -14,14 +14,14 @@ SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 CHECK_JOBS = ["validate", "lint-writing", "lint-code",
               "lint-placeholders", "evals", "improvement-policy",
               "decision-policy"]
-REQUIRED_TASKS = ["ci", "info", "test"] + CHECK_JOBS
+REQUIRED_TASKS = ["ci", "info", "test", "runtime-install", "typecheck-native", "test-native"] + CHECK_JOBS
 REQUIRED_TASKS += ["task-graph-policy", "use-case-policy",
                    "domain-research-policy", "mise-primitives-policy",
                    "primitive-lifecycle-policy", "invocation-policy",
                    "agentic-request",
                    "mise-latest", "mise-primitives-update"]
-CACHEABLE = ["validate", "lint-writing", "lint-code",
-             "lint-placeholders", "evals", "improvement-policy"]
+FRESH_CHECKS = ["validate", "lint-writing", "lint-code",
+                "lint-placeholders", "evals", "improvement-policy"]
 
 
 def load_tasks(path):
@@ -46,8 +46,14 @@ class TestTaskGraph(unittest.TestCase):
     def test_ci_invokes_every_check_job(self):
         task = self.tasks["ci"]
         self.assertEqual(set(task["depends"]),
-                         set(["test"] + CHECK_JOBS))
+                         set(["test"] + CHECK_JOBS) - {"lint-code"})
         self.assertNotIn("run", task)
+
+    def test_native_checks_follow_installation_and_typechecking(self):
+        self.assertEqual(self.tasks["lint-code"]["depends"], ["runtime-install"])
+        self.assertEqual(self.tasks["typecheck-native"]["depends"], ["lint-code"])
+        self.assertEqual(self.tasks["test-native"]["depends"], ["typecheck-native"])
+        self.assertEqual(self.tasks["test"]["depends"], ["test-native"])
 
     def test_every_task_has_a_description(self):
         for name, task in self.tasks.items():
@@ -86,14 +92,14 @@ class TestTaskGraph(unittest.TestCase):
         self.assertEqual(task["depends"], ["mise-latest"])
         self.assertEqual(task["depends_post"], ["mise-primitives-policy"])
 
-    def test_bounded_concurrency_and_safe_caching_are_enabled(self):
+    def test_package_checks_rerun_with_bounded_concurrency(self):
         self.assertTrue(self.config["settings"]["experimental"])
         self.assertGreater(self.config["settings"]["jobs"], 1)
-        for name in CACHEABLE:
+        for name in FRESH_CHECKS:
             task = self.tasks[name]
-            self.assertTrue(task["cache"]["enabled"], name)
-            self.assertTrue(task["sources"], name)
-            self.assertEqual(task["outputs"], [], name)
+            self.assertNotIn("sources", task, name)
+            self.assertNotIn("outputs", task, name)
+            self.assertFalse(task.get("cache", {}).get("enabled", False), name)
 
     def test_live_tests_are_not_cached(self):
         self.assertNotIn("cache", self.tasks["test"])

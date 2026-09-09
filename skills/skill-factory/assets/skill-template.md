@@ -3,7 +3,7 @@ name: {{NAME}}
 description: "{{DESCRIPTION}}"
 license: MIT
 metadata:
-  author: skill-factory
+  author: Kiren Srinivasan
   version: "0.1.0"
   scope: "{{SCOPE}}"
 ---
@@ -15,6 +15,8 @@ metadata:
 SCAFFOLD-PLACEHOLDER: rewrite this whole line as two or three sentences naming the result this skill produces, then rerun `mise run lint-placeholders` until it prints 0 placeholders.
 
 ## Outcome
+
+{{AUDIENCE_KEY}}
 
 State the observable user result, its scope, its forbidden outcomes, and the evidence that permits completion. An artifact or passing task is evidence only for the behavior it checks.
 
@@ -38,6 +40,8 @@ Name live authoritative sources first, then local references, examples, and prio
 
 Read references/use-case-specificity.md before defining domain behavior. The aspect layer covers actors, objects, actions, states, invariants, variants, interfaces, authorities, failures, recoveries, evidence, time, resources, quality, terminology, and exclusions. The primitive layer covers every skill body, reference, asset, script, test, Mise task, example, eval, policy, schema, and record. Record each item's {{NAME}} role, protected outcome, concrete progress value, motivation, prevented failure, and proof in assets/use-case-contract.json. Run `mise run domain-research-policy` and `mise run use-case-policy`; a fresh scaffold must fail both until every seed is replaced with source-backed {{NAME}} content.
 
+Before each invocation, use the relevant human-study and human-work selection through `mise run human-matrix`. Load references/use-case-specificity.md through `mise run domain-research-policy` for its required research, use-case, decision and evaluation use. Both audiences and scopes retain the complete declared inventories, explicit resources, extensions and higher-order representation; lookup or machine-only output cannot waive the contract.
+
 ## Which commands does this skill accept?
 
 Interpret the user's request as one of these commands.
@@ -58,7 +62,7 @@ Suppose the request matches none of these. Stop, say what is missing, and wait. 
 4. **Choose the smallest valid route.** Mise: run `mise run task-graph-policy` after declaring the operation and its dependencies. Model: locate the lowest {{NAME}} owner and keep unrelated behavior unchanged.
 5. **Execute BOOTSTRAP, RED, GREEN, REFACTOR.** Mise: run `mise run task-graph-policy`, then `mise run test` to capture RED and again after each change. Model: perform the semantic, creative, perceptual, and exception work that {{NAME}} needs and code cannot decide. Repeat: observe one behavior contract fail in RED, run the smallest domain operation, rerun to GREEN, and refactor under the same checks until the required behavior passes or a real blocker stops the loop.
 6. **Produce integrated proof.** Mise: run `mise run decision-policy`, `mise run ci`, and the applicable {{NAME}} eval task. Model: judge source-to-claim links, counterexamples, direct human-sense evidence when required, and whether the promised outcome is truly fulfilled. If: a check or judgment fails, return to the lowest owning step and invalidate its dependents.
-7. **Account for the invocation.** Mise: run `mise run invocation-policy -- <receipt>`. Model: state every remaining limit. For each: record every task's run evidence or a {{NAME}}-specific inapplicability reason in the receipt.
+7. **Account for the invocation and assess evidence.** Mise: run `mise run invocation-policy -- <receipt>` with the host-bound context and receipt digests defined in references/evidence-acceptance.md through that same task. Model: inspect actual {{NAME}} evidence and state every limit. For each: account for tasks and assess every required claim. Accounting alone leaves acceptance pending.
 8. **Keep or restore an improvement.** Mise: run `mise run improvement-policy` before an optional trial. Model: keep the candidate only when its named dimension improves and no protected dimension regresses; otherwise restore and verify the accepted digest.
 9. **Finish maintenance last.** Mise: run `mise run mise-primitives-update` only after accepted {{NAME}} work concludes, then rerun `mise run ci`. Model: reconcile changed primitives and report any real blocker. Stop: end at the first fully accepted state; do not add unrelated work.
 
@@ -83,6 +87,8 @@ Choose data structures, algorithms, file formats, batching, indexes, and cache k
 Each deterministic job has one owning, {{NAME}}-specific Mise task whose outcome, motivation, concrete progress value, proof, and applicability are recorded in assets/use-case-contract.json through `mise run task-graph-policy`. Derive the job bound, cache keys, and batching from the {{NAME}} dependency and resource profile. Express prerequisite edges once, parallelize independent read-only work, serialize shared writers, and cache only tasks whose complete declared inputs and outputs determine the result. Keep live, mutating, network, model-owned, and human-judged work uncached. Measure cold and warm aggregate paths, and retain an optimization only when speed improves without a protected regression. Stop with `BLOCKED` if Mise is absent.
 
 Every task declares its dependency list, including an empty list for a true root. Every task leads to CI, a public operation, or a required dependency. From a public operation, each dependency has one reachable path. Cycles, diamonds, disconnected tasks, unknown edges, redundant transitive edges, and nested Mise calls fail `mise run task-graph-policy`.
+
+Before implementation or invocation, load [the native workflow contract](references/generation-contract.md#tests-tasks-ci) through `mise run validate`. The promised {{NAME}} operation must run through its real domain Mastra workflow behind the owning public Mise task. The starter's install, syntax, type-check and engine-test chain supports that work; it does not create the domain workflow or prove its outcome. Keep the scaffold unaccepted until its actual inputs, resources, decisions, effects, recovery and domain evidence satisfy the contract.
 
 Map every aspect and primitive across discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Every phase owner must be a real, {{NAME}}-specific task that traces to objective progress, motivation, proof, and a prevented failure.
 
@@ -149,7 +155,7 @@ Update evals/evals.json through `mise run evals` whenever behavior changes, and 
 
 ## When is the work done?
 
-Done needs fresh evidence from `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, and `mise run invocation-policy -- <receipt>`: every job exits 0, validation prints PASS, writing and code checks report 0 problems, placeholder checks report 0 placeholders, evals hold at least four cases for the real job, and examples hold one complete run per command plus the likely failure. Semantic acceptance also needs source-to-claim review plus domain-swap and domain-term-removal attacks.
+Done needs fresh evidence from `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, and host-bound evidence acceptance through `mise run invocation-policy`: every job exits 0, validation prints PASS, writing and code checks report 0 problems, placeholder checks report 0 placeholders, evals hold at least four cases for the real job, and examples hold one complete run per command plus the likely failure. Semantic acceptance also needs source-to-claim review plus domain-swap and domain-term-removal attacks. Accounting alone never permits completion.
 
 ## Optional final improvement experiment
 

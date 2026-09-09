@@ -1,5 +1,4 @@
 """The factory's variant checks work outside the source registry."""
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -7,6 +6,7 @@ import unittest
 from pathlib import Path
 
 from cli import SKILL_DIR
+from skill_package import copy_owned
 
 
 class TestPortableFactory(unittest.TestCase):
@@ -14,8 +14,11 @@ class TestPortableFactory(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp)
             target = base / "standalone" / "skill-factory"
-            shutil.copytree(SKILL_DIR, target,
-                            ignore=shutil.ignore_patterns(".mise", ".artifacts", "__pycache__"))
+            copy_owned(SKILL_DIR, target)
+            self.assertFalse((target / "node_modules").exists())
+            install = subprocess.run(["npm", "ci", "--offline", "--ignore-scripts", "--no-fund"],
+                cwd=target, capture_output=True, text=True, timeout=180)
+            self.assertEqual(install.returncode, 0, install.stdout + install.stderr)
             result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s",
                 str(target / "scripts/tests"), "-p", "test_variant_acceptance.py", "-v"],
                 cwd=base, capture_output=True, text=True, timeout=180)

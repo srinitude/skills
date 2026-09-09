@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "distribution": "External source bindings. Source documents and extracted definitions are not bundled for redistribution.",
+  "catalogs": {
+    "oecd-ford-2015": {
+      "title": "OECD Frascati Manual, Fields of R&D, Table 2.2",
+      "version": "2015",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/frascati-manual-2015_g1g57dcb/9789264239012-en.pdf",
+      "sha256": "98e19466a97c2c63e2d8070fe66de7ac8ad18db253429d979349f8a2e72f3775",
+      "bytes": 4974093,
+      "concepts": 48,
+      "roots": 6,
+      "locator": "PDF page 61, printed page 59; section 2.6",
+      "scope": "Research disciplines. This classification does not enumerate every human mechanism. Its other categories do not establish knowledge of every specific field.",
+      "license": "2015 copyright notice on PDF page 4: own use and attributed excerpts; wider redistribution rights are not assumed.",
+      "attribution": "OECD (2015), Frascati Manual 2015, OECD Publishing, Paris, https://doi.org/10.1787/9789264239012-en"
+    },
+    "isco-08": {
+      "title": "ILO International Standard Classification of Occupations, ISCO-08",
+      "version": "ISCO-08, linked 2021 English structure and definitions",
+      "url": "https://www.ilo.org/ilostat-files/ISCO/newdocs-08-2021/ISCO-08/ISCO-08%20EN%20Structure%20and%20definitions.xlsx",
+      "sha256": "df10744491b4216ed3580e8263b6324502e774c16667a1d7ecdbee50e85505e7",
+      "bytes": 303771,
+      "concepts": 619,
+      "roots": 10,
+      "locator": "Worksheet ISCO-08 EN Struct and defin, rows 2 to 620",
+      "scope": "Occupational tasks and duties. Paid employment alone does not cover all human work. Source labels retain their original wording.",
+      "license": "https://www.ilo.org/rights-and-permissions; pre-3-May-2023 material is not automatically CC BY. External access is declared without granting redistribution rights.",
+      "attribution": "International Labour Organization, ISCO-08 English structure and definitions."
+    },
+    "icatus-2016": {
+      "title": "UN International Classification of Activities for Time Use Statistics",
+      "version": "ICATUS 2016, revision as of 10 March 2017",
+      "url": "https://unstats.un.org/unsd/demographic-social/time-use/icatus-2016/",
+      "sha256": "4732ba8fb30fe51b987b636dde738a75f94faf72b87a8e6ad3d85d848ea11b0a",
+      "bytes": 842926,
+      "concepts": 230,
+      "roots": 9,
+      "locator": "timeuseTree rows and the corresponding definition dialogs",
+      "scope": "Paid, unpaid, domestic, care, cultural, social, learning and everyday activities; future or unresolved activities remain explicit extensions.",
+      "license": "https://www.un.org/en/about-us/terms-of-use; personal non-commercial access terms include restrictions on redistribution and derivative works. No redistribution right is granted here.",
+      "attribution": "United Nations Statistics Division, ICATUS 2016."
+    },
+    "onet-31.0": {
+      "title": "O*NET 31.0 Database Content Model Reference",
+      "version": "31.0",
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_json/content_model_reference.json",
+      "sha256": "58f597d04b4bf1f457a4b50eaed67ddd120740df602acd404578acd78129e32e",
+      "bytes": 489988,
+      "concepts": 3006,
+      "roots": 6,
+      "locator": "Native JSON row records, element_id",
+      "scope": "US occupational descriptions, abilities, skills and context. These are not predictions about an individual's capabilities or preferences. Missing descriptions remain missing.",
+      "license": "https://www.onetcenter.org/license_db.html; downloadable database CC BY 4.0, https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Uses O*NET 31.0 Database, U.S. Department of Labor, Employment and Training Administration. Extraction changes format and adds identifiers and parent links; no endorsement is implied. O*NET is a trademark of USDOL/ETA."
+    },
+    "nist-ai-200-1-2024": {
+      "title": "NIST AI 200-1, AI Use Taxonomy: A Human-Centered Approach",
+      "version": "March 2024",
+      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=956852",
+      "sha256": "4f84c5008b374e6f1b51a9070c7c1714c739a2b0d1aa531f433c3d9340051aa9",
+      "bytes": 452161,
+      "concepts": 16,
+      "roots": 16,
+      "locator": "Table 1, PDF pages 9 and 10",
+      "scope": "Contributions by AI to human tasks. Activities can combine; proposed future validation is not evidence of universal coverage or effectiveness. Identifiers are derived from activity labels because the source supplies no codes.",
+      "license": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications; technical-publication terms and third-party exceptions apply.",
+      "attribution": "NIST AI 200-1 (March 2024). Republished courtesy of NIST. Local extraction changes format and adds derived identifiers."
+    }
+  }
+}

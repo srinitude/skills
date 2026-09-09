@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Size and nesting limits for code files.
 
-Rules, applied to every .py and .sh file under the target:
+Rules cover Python, shell, JavaScript and TypeScript owned files:
   max 200 lines of code per file (blank and comment lines excluded)
   max 30 lines of code per function or class, own lines only
   max block nesting depth of 3 inside any function
   no leftover work markers in any code file
+JSON, TOML and YAML also receive strict native parsing.
+TypeScript semantic checking remains the typecheck-native task.
 
 Exit codes:
   0  every file passed
@@ -17,8 +19,14 @@ Example:
 """
 import argparse
 import ast
+import json
+import subprocess
 import sys
+import tomllib
 from pathlib import Path
+from code_languages import collect, language, DATA, JS, SHELL
+from check_shell_code import check as check_shell
+from source_coverage import parse_json
 
 MAX_FILE = 200
 MAX_CONSTRUCT = 30
@@ -90,28 +98,50 @@ def check_python(path, text, problems):
             check_construct(node, lines, path, problems)
 
 
-def check_shell(path, text, problems):
-    lines = text.splitlines()
-    if loc(lines) > MAX_FILE:
-        problems.append(f"{path}: {loc(lines)} lines of code; cap is 200")
+def check_data(path, text, problems):
+    try:
+        if path.suffix.lower() == ".json":
+            parse_json(text)
+        elif path.suffix.lower() == ".toml":
+            tomllib.loads(text)
+        else:
+            from validate_skill import yaml, UniqueKeyLoader
+            yaml.load(text, Loader=UniqueKeyLoader)
+    except Exception as error:
+        problems.append(f"{path}: data parse failed: {error}")
+
+
+def check_native(files, problems):
+    if not files:
+        return
+    script = Path(__file__).with_name("check_native_code.mjs")
+    result = subprocess.run(["node", str(script), "--files-from-stdin"],
+                            input=json.dumps([str(path) for path in files]), text=True,
+                            capture_output=True, timeout=60)
+    try:
+        report = parse_json(result.stdout)
+        problems.extend(report["problems"])
+        if result.returncode and not report["problems"]:
+            raise ValueError("native checker failed without a diagnostic")
+    except (ValueError, KeyError, TypeError) as error:
+        problems.append(f"native code check failed: {error}: {result.stderr.strip()}")
 
 
 def check_file(path, problems):
     text = path.read_text(encoding="utf-8")
+    kind = language(path)
+    if kind in DATA:
+        check_data(path, text, problems)
+        return
     check_markers(path, text, problems)
-    if path.suffix == ".py":
+    if kind in JS:
+        return
+    if kind == ".py":
         check_python(path, text, problems)
-    else:
+    elif kind in SHELL:
         check_shell(path, text, problems)
-
-
-def collect(target):
-    path = Path(target)
-    if path.is_dir():
-        return sorted(path.rglob("*.py")) + sorted(path.rglob("*.sh"))
-    if path.is_file():
-        return [path]
-    raise FileNotFoundError(target)
+    else:
+        problems.append(f"{path}: no native checker declared for this language")
 
 
 def main(argv=None):
@@ -126,9 +156,16 @@ def main(argv=None):
         print(f"error: no such file or directory: {missing}",
               file=sys.stderr)
         return 2
+    except (OSError, ValueError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 1
     problems = []
-    for path in files:
-        check_file(path, problems)
+    try:
+        for path in files:
+            check_file(path, problems)
+        check_native([path for path in files if path.suffix.lower() in JS], problems)
+    except (OSError, UnicodeError, subprocess.TimeoutExpired) as error:
+        problems.append(f"code check could not complete: {error}")
     for problem in problems:
         print(problem)
     print(f"checked {len(files)} files, {len(problems)} problems")

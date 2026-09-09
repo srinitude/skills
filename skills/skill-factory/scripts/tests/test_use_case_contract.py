@@ -69,6 +69,7 @@ def research_fields():
 def contract(name="release-notes"):
     data = {
         "version": "1.0.0", "skill": name,
+        "audience": {"primary": "human"},
         "outcome": "Produce release notes from git history for a change audience.",
         "motivations": motivations(),
         "domain_terms": ["release notes", "git history", "change audience"],
@@ -88,8 +89,11 @@ def contract(name="release-notes"):
 
 def write_skill(root, data):
     (root / "assets").mkdir()
+    audience = data.get("audience", {})
+    primary = audience.get("primary") if isinstance(audience, dict) else None
+    label = f"\n## Outcome\n\nPrimary audience: {primary}.\n" if isinstance(primary, str) and primary in {"human", "agent"} else ""
     (root / "SKILL.md").write_text(
-        "---\nname: release-notes\ndescription: Use when notes are needed.\n---\n",
+        "---\nname: release-notes\ndescription: Use when notes are needed.\n---\n" + label,
         encoding="utf-8")
     path = root / "assets" / "use-case-contract.json"
     path.write_text(json.dumps(data), encoding="utf-8")

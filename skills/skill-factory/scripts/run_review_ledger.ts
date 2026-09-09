@@ -32,9 +32,18 @@ Source checks prove only supplied live bindings and the frozen source inventory.
 The optional derived_relationships version-1 ledger profile adds declared clause,
 group, section and source-links.json definition relations plus recorded reading
 prerequisites. Historical declarations and current import observations stay distinct.
+Version-2 python-imports-and-toml-tasks-v2 task observations must match the recorded
+current file digest. Task selectors such as task:mise.toml#build expose their whole
+declarations, conditions, arguments, environment, repeated occurrences and file context.
+Same-file literal depends, depends_post and wait_for references add conditional
+executes-before edges; structured run/run_windows entries add references with their
+sequence positions and parallel groups. Shell entries remain in the declaration.
+Aliases, patterns, templates, includes, inheritance, external references and argument
+interpolation need native resolution; unresolved forms remain visible. No declaration
+proves native task selection, execution, live files or acceptance.
 Unknown profile rules, missing references, stale observations and reading cycles reject.
-Absent profiles retain asserted-only views. Task and other derived coverage, source
-authority and semantic acceptance remain separate.
+Absent profiles retain asserted-only edges. Other derived coverage, source authority
+and semantic acceptance remain separate.
 `;
 
 async function main() {

@@ -3,15 +3,9 @@ import json
 from graphlib import TopologicalSorter
 
 from agentic_request_contract import read_json
-from review_ledger_context import require
+from review_ledger_context import relation, require
 from review_ledger_source import check_capture, unique
-
-
-def relation(identifier, kind, provider, consumer, meaning, condition, basis_kind):
-    return {"id": identifier, "type": kind, "from": provider, "to": consumer,
-            "basis": [provider, consumer], "meaning": meaning, "condition": condition,
-            "review_state": "reviewed", "reviewer": "Captured declaration predicate; no semantic or execution acceptance",
-            "basis_kind": basis_kind}
+from review_ledger_tasks import task_edges
 
 
 def source_edges(data):
@@ -105,3 +99,4 @@ def derived_edges(data, index):
             "unsupported derived source rule; preserve it for implementation and review")
     yield from source_edges(data)
     yield from reading_edges(data, index)
+    yield from task_edges(index)

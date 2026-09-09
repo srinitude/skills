@@ -7,6 +7,13 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def relation(identifier, kind, provider, consumer, meaning, condition, basis_kind):
+    return {"id": identifier, "type": kind, "from": provider, "to": consumer,
+            "basis": [provider, consumer], "meaning": meaning, "condition": condition,
+            "review_state": "reviewed", "reviewer": "Captured declaration predicate; no semantic or execution acceptance",
+            "basis_kind": basis_kind}
+
+
 def file_subjects(data):
     baseline, history = {}, {}
     for record in data.get("functional_file_map", []):
@@ -28,9 +35,6 @@ def file_subjects(data):
         "limit": "Recorded package observations only; no live file existence or semantic judgment."}
         for name in names}
     result["file-set:governed"] = {"members": sorted(result)}
-    for name, file in data.get("dependency_snapshot", {}).get("files", {}).items():
-        for task, declaration in (file.get("mise_tasks") or {}).items():
-            result[f"task:{name}#{task}"] = {"file": name, "name": task, "declaration": declaration}
     return result
 
 
@@ -85,6 +89,8 @@ def context_parents(data, review_graph, selector):
 def detail_context(data, index, selector):
     reviews, review_graph, effective = reviewed_facets(data, index)
     parents, facet_owner = context_parents(data, review_graph, selector)
+    if selector.startswith("task:"):
+        parents.setdefault(selector, []).append("file:" + index[selector]["file"])
     pending, selected = [selector], {}
     while pending:
         node = pending.pop()

@@ -3,6 +3,7 @@ from collections import deque
 
 from review_ledger_context import detail_context, file_subjects, require
 from review_ledger_derived import derived_edges
+from review_ledger_tasks import task_subjects
 from review_ledger_source import check_capture, check_sources
 
 
@@ -29,6 +30,7 @@ def subjects(data):
         for line, text in enumerate(document["text"].splitlines(True), 1):
             result[f"document-line:{document['name']}@{line}"] = {"line": line, "text": text}
     result.update(file_subjects(data))
+    result.update(task_subjects(data, result))
     return result
 
 

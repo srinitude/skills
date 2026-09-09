@@ -8,6 +8,8 @@ experimental = true
 jobs = 4
 
 [tools]
+node = "24.18.0"
+npm = "11.16.0"
 python = "3.11"
 uv = "latest"
 
@@ -68,9 +70,9 @@ cache = { enabled = true }
 
 [tasks.lint-code]
 description = "Size and nesting limits on every code file"
-depends = []
+depends = ["check-runtime"]
 run = "python3 scripts/check_code_rules.py ."
-sources = ["**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"]
+sources = ["mise.toml", "package.json", "package-lock.json", "tsconfig.json", "**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx", "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx"]
 outputs = []
 cache = { enabled = true }
 
@@ -226,3 +228,13 @@ run = "uv run --with PyYAML==6.0.3 scripts/skill_variant.py"
 description = "Refresh source lineage for named registry skills"
 depends = ["doctor"]
 run = "python3 scripts/refresh_registry_lineage.py"
+
+[tasks.setup-runtime]
+description = "Install the exact locked skill code-check dependencies"
+depends = []
+run = "npm ci --include=dev --ignore-scripts"
+
+[tasks.check-runtime]
+description = "Strictly type-check owned skill TypeScript with the declared compiler"
+depends = ["setup-runtime"]
+run = "npm exec --no -- tsc --noEmit --project tsconfig.json"

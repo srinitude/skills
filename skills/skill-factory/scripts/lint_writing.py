@@ -24,6 +24,8 @@ import re
 import sys
 from pathlib import Path
 
+from skill_package import owned_paths
+
 WORDS = [
     "delve", "delves", "delving", "delved", "tapestry", "camaraderie",
     "kaleidoscope", "cacophony", "palpable", "solace", "fleeting",
@@ -200,7 +202,7 @@ def collect(targets):
     for target in targets:
         path = Path(target)
         if path.is_dir():
-            files.extend(sorted(path.rglob("*.md")))
+            files.extend(p for p in sorted(owned_paths(path)) if p.suffix == ".md")
         elif path.is_file():
             files.append(path)
         else:
@@ -217,13 +219,11 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         files = collect(args.targets)
-    except FileNotFoundError as missing:
+    except (OSError, ValueError) as missing:
         print(f"error: no such file or directory: {missing}",
               file=sys.stderr)
         return 2
-    problems = []
-    for path in files:
-        problems.extend(check_file(path))
+    problems = [problem for path in files for problem in check_file(path)]
     for problem in problems:
         print(problem)
     print(f"checked {len(files)} files, {len(problems)} problems")

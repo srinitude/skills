@@ -20,7 +20,7 @@ The authoring directory below is a portable label for the local fixture director
 
 ```text
 $ mise run new -- --name line-budget --description "Use when Markdown line budgets or largest sections must be measured." --scope user --dest <authoring-parent>
-files: 42
+files: 48
 scope: user
 scope_label: user-level
 placement: authoring
@@ -32,7 +32,7 @@ exit 0
 
 ```yaml
 metadata:
-  author: skill-factory
+  author: Kiren Srinivasan
   version: "0.1.0"
   scope: "user"
 ```

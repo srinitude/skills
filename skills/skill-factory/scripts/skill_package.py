@@ -22,20 +22,30 @@ def real_path(value):
     return path.resolve()
 
 
-def inventory(root):
+def walk_error(error):
+    raise error
+
+
+def owned_paths(root):
     root = real_path(root)
     if not root.is_dir():
         raise ValueError("package or project directory is missing")
-    found = {}
-    for path in sorted(root.rglob("*")):
-        relative = path.relative_to(root)
-        if SKIP.intersection(relative.parts) or path.name == ".DS_Store":
-            continue
-        if path.is_symlink() or not (path.is_dir() or path.is_file()):
-            raise ValueError(f"unsupported package entry: {relative}")
-        if path.is_file() and path.suffix not in {".pyc", ".pyo"}:
-            found[relative.as_posix()] = sha(path.read_bytes())
-    return found
+    for folder, dirs, names in os.walk(root, followlinks=False, onerror=walk_error):
+        dirs[:] = sorted(name for name in dirs if name not in SKIP)
+        for name in sorted(dirs + names):
+            path = Path(folder) / name
+            if name in SKIP or name == ".DS_Store":
+                continue
+            if path.is_symlink() or not (path.is_dir() or path.is_file()):
+                raise ValueError(f"unsupported package entry: {path.relative_to(root)}")
+            if path.is_file() and path.suffix not in {".pyc", ".pyo"}:
+                yield path
+
+
+def inventory(root):
+    root = real_path(root)
+    return {path.relative_to(root).as_posix(): sha(path.read_bytes())
+            for path in sorted(owned_paths(root))}
 
 
 def tree_digest(files):

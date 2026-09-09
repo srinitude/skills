@@ -185,7 +185,21 @@
       "invocation-policy": {},
       "agentic-request": {},
       "mise-latest": {},
-      "mise-primitives-update": {}
+      "mise-primitives-update": {},
+      "setup-runtime": {
+        "outcome": "Install the exact locked JavaScript and TypeScript checker dependencies for the agent skill package.",
+        "motivation": "The skill package code checker must not resolve an ambient compiler or undeclared runtime dependency.",
+        "value": "A native lock provides exact skill package compiler and schema artifacts before their consumers.",
+        "proof": "The agent skill package native installer verifies its lock, completes successfully and leaves the declared compiler available.",
+        "applicability": "Run before a skill package check-runtime task; installation alone is not activation, authorization or domain acceptance."
+      },
+      "check-runtime": {
+        "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
+        "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
+        "value": "The Mise task graph orders locked installation before strict owned-source type checks and dependent lint-code work.",
+        "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
+        "applicability": "Run for owned skill package TypeScript changes and before lint-code; it does not validate runtime effects or semantic judgment."
+      }
     }
   },
   "primitive_roles": {

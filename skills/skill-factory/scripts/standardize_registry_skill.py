@@ -20,6 +20,7 @@ from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
 from standardization_seed import create_missing
+from standardization_runtime import ROOT_FILES, copy_runtime
 from skill_package import inventory, promote, staged
 from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
 from scope_placement import check_placement
@@ -42,12 +43,16 @@ SCRIPTS = [
     "sync_mise_primitives.py",
 ]
 SCRIPTS += ["validate_skill.py", "lint_writing.py", "check_code_rules.py",
-            "check_evals.py", "check_placeholders.py", "agentic_context.py"]
+            "check_evals.py", "check_placeholders.py", "agentic_context.py",
+            "check_javascript.ts", "skill_package.py"]
 CANONICAL_SCRIPTS = set(SCRIPTS[:12]) | {
     "check_placeholders.py",
     "agentic_context.py",
     "lint_writing.py",
     "validate_skill.py",
+    "check_code_rules.py",
+    "check_javascript.ts",
+    "skill_package.py",
 }
 
 
@@ -58,6 +63,7 @@ def digest(path):
 def planned_paths(root, profile):
     paths = {path for path in root.rglob("*")
              if path.is_file() and "__pycache__" not in path.parts}
+    paths.update(root / name for name in ROOT_FILES)
     paths.add(root / "evals/source-mapping.json")
     paths.add(root / "scripts/tests/test_package_contract.py")
     paths.update(root / target for _, target in COPIES)
@@ -73,6 +79,7 @@ def planned_paths(root, profile):
 
 
 def copy_support(root):
+    copy_runtime(FACTORY, root)
     for source, target in COPIES:
         destination = root / target
         destination.parent.mkdir(parents=True, exist_ok=True)

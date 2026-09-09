@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Size and nesting limits for code files.
 
-Rules, applied to every .py and .sh file under the target:
+Rules for owned Python, shell, JavaScript and TypeScript source files:
   max 200 lines of code per file (blank and comment lines excluded)
   max 30 lines of code per function or class, own lines only
   max block nesting depth of 3 inside any function
@@ -17,8 +17,15 @@ Example:
 """
 import argparse
 import ast
+import json
+import subprocess
 import sys
 from pathlib import Path
+
+from skill_package import owned_paths
+
+JAVASCRIPT = {".js", ".mjs", ".cjs", ".jsx", ".ts", ".mts", ".cts", ".tsx"}
+SUPPORTED = JAVASCRIPT | {".py", ".sh"}
 
 MAX_FILE = 200
 MAX_CONSTRUCT = 30
@@ -101,17 +108,40 @@ def check_file(path, problems):
     check_markers(path, text, problems)
     if path.suffix == ".py":
         check_python(path, text, problems)
-    else:
+    elif path.suffix == ".sh":
         check_shell(path, text, problems)
 
 
 def collect(target):
     path = Path(target)
-    if path.is_dir():
-        return sorted(path.rglob("*.py")) + sorted(path.rglob("*.sh"))
-    if path.is_file():
-        return [path]
-    raise FileNotFoundError(target)
+    if path.is_symlink():
+        raise ValueError("symlink code targets are unsupported")
+    if not path.exists():
+        raise FileNotFoundError(target)
+    if not path.is_dir():
+        if path.is_file() and path.suffix in SUPPORTED:
+            return [path]
+        raise ValueError("unsupported code extension: " + path.suffix)
+    return [path for path in sorted(owned_paths(path)) if path.suffix in SUPPORTED]
+
+
+def check_javascript(files, problems):
+    selected = [str(path.resolve()) for path in files if path.suffix in JAVASCRIPT]
+    if not selected:
+        return
+    request = {"files": selected, "file": MAX_FILE,
+               "construct": MAX_CONSTRUCT, "depth": MAX_DEPTH}
+    script = Path(__file__).with_name("check_javascript.ts")
+    result = subprocess.run(["node", str(script)], input=json.dumps(request),
+                            text=True, capture_output=True, check=False)
+    if result.returncode not in (0, 1):
+        raise ValueError("JavaScript/TypeScript checker failed: " + result.stderr.strip())
+    entries = json.loads(result.stdout)
+    if not isinstance(entries, list) or not all(isinstance(p, str) for p in entries):
+        raise ValueError("invalid JavaScript/TypeScript checker result")
+    if bool(entries) != bool(result.returncode):
+        raise ValueError("JavaScript/TypeScript checker status mismatch")
+    problems.extend(entries)
 
 
 def main(argv=None):
@@ -122,13 +152,18 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         files = collect(args.target)
-    except FileNotFoundError as missing:
-        print(f"error: no such file or directory: {missing}",
+    except (FileNotFoundError, ValueError) as missing:
+        print(f"error: {missing}",
               file=sys.stderr)
         return 2
     problems = []
     for path in files:
         check_file(path, problems)
+    try:
+        check_javascript(files, problems)
+    except (OSError, ValueError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
     for problem in problems:
         print(problem)
     print(f"checked {len(files)} files, {len(problems)} problems")

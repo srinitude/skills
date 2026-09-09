@@ -9,6 +9,14 @@ These caps bind every code file in this skill and in every generated skill. `mis
 - Block nesting caps at depth 3 inside any function. Test functions count depth from the test declaration.
 - No work markers, mocks, stubs, or placeholder branches. Every code path does real work. Split a file before it hits a cap.
 
+## Native checker boundary
+
+`mise run lint-code` checks owned Python, shell, JavaScript and TypeScript files. Its `check-runtime` prerequisite first installs the native lock through `mise run setup-runtime`, then checks owned TypeScript with the declared compiler. The source parser counts actual syntax, excludes comments from code lines, and retains multiline literal content. Installed dependencies, caches, bytecode and tool state remain outside owned-file checks; owned symlinks fail.
+
+The managed environment pins Node and npm, with exact compiler/schema dependencies in package.json and package-lock.json. `mise run check-runtime` uses strict application checking with `skipLibCheck`, matching the verified upstream and repository configuration. It does not prove that every dependency declaration is sound, nor that application runtime behavior is correct. Keep failed dependency checks and actual runtime/API probes as separate evidence. The source parser enforces code shape; domain and human proof remain required.
+
+Scaffolding copies the same runtime contract and code-check owners. `mise run standardize-target` replaces only a recognized prior checker or the current exact checker. Conflicting runtime manifests, tool pins or unreviewed checker customizations require explicit reconciliation before that migration; rejection preserves the original target.
+
 ## Script interface
 
 Every implementation command behind a Mise task meets one interface:

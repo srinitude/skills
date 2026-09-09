@@ -2,7 +2,13 @@
 import json
 import re
 
+from standardization_runtime import runtime_preamble
+
 POLICY_TASKS = {
+    "setup-runtime": ([], "Install exact locked skill code-check dependencies",
+        "npm ci --include=dev --ignore-scripts"),
+    "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",
+        "npm exec --no -- tsc --noEmit --project tsconfig.json"),
     "domain-research-policy": ([], "Validate current domain research receipts",
         "python3 scripts/check_domain_research.py ."),
     "use-case-policy": (["domain-research-policy"], "Validate domain-specific owners",
@@ -77,6 +83,8 @@ def normalize_existing(name, block):
         block = re.sub(rf"scripts/{checker}\.py \.(?! --accept)",
                        f"scripts/{checker}.py . --accept", block)
     dependencies = declared_dependencies(block)
+    if name == "lint-code" and "check-runtime" not in dependencies:
+        dependencies.append("check-runtime")
     if name == "ci":
         dependencies += [item for item in nested_dependencies(block)
                          if item not in dependencies]
@@ -130,6 +138,7 @@ def existing_block(name, block, profile):
 
 def normalize_mise(text, profile=None):
     preamble, existing = split_sections(text)
+    preamble = runtime_preamble(preamble)
     names = {name for name, _ in existing}
     blocks = [existing_block(name, block, profile) for name, block in existing]
     blocks += [policy_block(name, spec) for name, spec in POLICY_TASKS.items()

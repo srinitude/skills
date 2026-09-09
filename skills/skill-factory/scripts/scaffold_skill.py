@@ -27,6 +27,7 @@ import sys
 from pathlib import Path
 from scope_placement import check_placement
 from skill_package import promote, staged
+from standardization_runtime import ROOT_FILES
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
@@ -68,7 +69,7 @@ CHECKERS = ["lint_writing.py", "validate_skill.py",
             "check_placeholders.py", "check_improvement_contract.py",
             "check_use_case_contract.py", "check_domain_research.py",
             "check_task_graph.py", "check_invocation_receipt.py"]
-CHECKERS.append("domain_text.py")
+CHECKERS.extend(["domain_text.py", "check_javascript.ts", "skill_package.py"])
 CHECKERS.append("check_decision_records.py")
 CHECKERS.extend(["check_mise_primitives.py", "check_primitive_lifecycle.py",
                  "sync_mise_primitives.py"])
@@ -99,6 +100,8 @@ def argument_error(args):
 def build(target, tokens):
     for sub in DIRS:
         (target / sub).mkdir(parents=True)
+    for name in ROOT_FILES:
+        shutil.copy(SKILL_DIR / name, target / name)
     for destination, template in FILLED:
         (target / destination).write_text(fill(template, tokens),
                                           encoding="utf-8")
@@ -112,7 +115,7 @@ def build(target, tokens):
                  "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md"]:
         shutil.copy(SKILL_DIR / "references" / name,
                     target / "references" / name)
-    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5
+    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5 + len(ROOT_FILES)
 
 
 def parse_args(argv):

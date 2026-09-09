@@ -1,44 +1,20 @@
-# Example: choose scope before a new scaffold
+# Create a scaffold from its reviewed file plan
 
-This example covers the scope boundary before implementing a line-budget capability.
+This example removes the guess about inspecting every planned byte, supplying current ledger reviews before creation, rejecting stale work and preserving the unfinished seed boundary. Load it for `mise run new`. The [complete observed run](new-skill-run.json) contains the example request, executor reply, every exact command, working directory, stdout, stderr, exit code, governing input file and complete created file. Base64 values preserve exact bytes and line endings. Runtime prerequisites are identified separately from command effects.
 
-## User says
+The example request was: “Prepare a user-scope scaffold from a reviewed plan. Demonstrate missing and stale review rejection, then create the exact reviewed files.” The executor replied: “The plan produced no package files. Missing and stale reviews were rejected. The current review produced the exact planned scaffold; domain implementation and acceptance remain pending.”
 
-```text
-Create a user-level skill scaffold for checking Markdown line budgets. I want it available across my projects. Call it line-budget and keep the package in my authoring directory.
-```
+Use `mise run new -- --name <name> --description "<description>" --scope <user-or-project> --dest <parent> --plan` first. The plan contains the full current factory body, owned-file identities, source bindings, exact rendered/copy bytes, construction phases and observed local Python imports. The authoring destination does not determine scope or authorize installation. The record preserves the actual readiness report followed by the command result.
 
-## Executor replies
+| Actual run | Observed result |
+| --- | --- |
+| Plan | Exit 0; complete plan returned and no package files created. |
+| Omit review | Exit 1; authoring destination unchanged. |
+| Supply stale plan review | Exit 1; authoring destination unchanged. |
+| Restore current review and create | Exit 0; every created byte matches the plan, construction order is recorded and execution acceptance remains pending. |
 
-```text
-The scaffold records user scope. Its own validator can read that designation. The domain implementation and seeded evals still need work before this is an accepted skill.
-```
+After reviewing the actual plan, repeat the same flags with `--review <review.json>` in place of `--plan`. The review object has exactly `plan_sha256`, `context`, `body_review` and `files`. The plan digest uses sorted-key JSON, compact comma/colon separators, default ASCII escaping and no trailing newline. Context supplies the exact ledger, ledger digest, expected documents, original source and frozen inventory name required by `mise run ledger`. Each planned path needs a reviewer and every actual ledger review field. Use `mise run new -- --help` for the precise interface.
 
-## Commands run
+The initial body review binds its path, digest, candidate bytes, source and ledger; `previous_sha256` is explicitly null for creation. It declares initial review with execution acceptance pending. The builder reads the full governing inputs around every file write. Before the body is installed it uses the reviewed candidate; canonical body creation uses `body_revision`; later writes read the installed body. All file reviews are checked before staging starts. Current factory inputs are checked around each write, and exact package bytes are checked before the existing guarded promotion.
 
-The authoring directory below is a portable label for the local fixture directory. Readiness output and the absolute created path are omitted from the report excerpt.
-
-```text
-$ mise run new -- --name line-budget --description "Use when Markdown line budgets or largest sections must be measured." --scope user --dest <authoring-parent>
-files: 48
-scope: user
-scope_label: user-level
-placement: authoring
-blocked_until: every SCAFFOLD placeholder is replaced; check_placeholders.py exits 1 until then
-exit 0
-```
-
-## Resulting metadata
-
-```yaml
-metadata:
-  author: Kiren Srinivasan
-  version: "0.1.0"
-  scope: "user"
-```
-
-Use `--scope project` for intended availability in one project. The designation describes availability; the authoring directory does not determine it. When an installation is requested, the integration verifies the destination separately. When scope is unresolved, `mise run resolve-scope` returns the one availability question before creating files. Omitting the scaffold's scope flag exits with a usage error.
-
-## What the run proves
-
-The scaffold has one explicit designation, preserves the standard metadata, and ships its own checker with strict scope acceptance. `mise run test -- -k Scope` verifies creation in both scopes, update preservation, explicit choice, legacy inspection, invalid metadata, and no-write failures. These scope checks do not prove the line-budget behavior or remove the scaffold's unfinished-content gate.
+The source fixture and review text are explicit non-independent declarations. They prove the recorded mechanical paths, not authenticated human judgment, complete source meaning, domain-workflow granularity, all update routes or accepted domain behavior. Construction order and observed imports do not prove complete runtime or reading dependencies. Seeds remain blocked until their actual domain implementation, resources, examples, evaluations and acceptance are finished. Use `mise run test` for current scaffold and copied-runtime regression checks.

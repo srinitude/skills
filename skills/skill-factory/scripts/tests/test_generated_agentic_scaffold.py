@@ -4,16 +4,13 @@ import pathlib
 import tempfile
 import unittest
 
-from cli import run
+from test_scaffold_skill import scaffold
 
 
 class TestGeneratedAgenticScaffold(unittest.TestCase):
     def test_scaffold_carries_dispatch_task_script_test_and_request(self):
         with tempfile.TemporaryDirectory() as tmp:
-            result = run(
-                "scaffold_skill.py", "--name", "agentic-trial",
-                "--description", "Use when an agentic trial is requested.",
-                "--dest", tmp, "--scope", "user")
+            result = scaffold(tmp, "agentic-trial", "Use when an agentic trial is requested.")
             root = pathlib.Path(tmp) / "agentic-trial"
             config = (root / "mise.toml").read_text(encoding="utf-8")
             body = (root / "SKILL.md").read_text(encoding="utf-8")

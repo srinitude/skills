@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "dc38779fdf1915a81d79e9ac638313158695dcde5c2ef0f8c4fb879cd4d3c352",
+  "native_manifest_sha256": "24698b684e3e4a0010c1847fd00bb38f2a17a0eaed7e84478805f76d859e7f7a",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -290,6 +290,12 @@
       "path": "examples/ledger-write-run.json",
       "source_paths": [
         "examples/ledger-write-run.json"
+      ]
+    },
+    {
+      "path": "examples/new-skill-run.json",
+      "source_paths": [
+        "examples/new-skill-run.json"
       ]
     },
     {
@@ -581,6 +587,18 @@
       ]
     },
     {
+      "path": "scripts/scaffold_plan.py",
+      "source_paths": [
+        "scripts/scaffold_plan.py"
+      ]
+    },
+    {
+      "path": "scripts/scaffold_review.py",
+      "source_paths": [
+        "scripts/scaffold_review.py"
+      ]
+    },
+    {
       "path": "scripts/scaffold_skill.py",
       "source_paths": [
         "scripts/scaffold_skill.py"
@@ -704,6 +722,12 @@
       "path": "scripts/tests/cli.py",
       "source_paths": [
         "scripts/tests/cli.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/scaffold_test_support.py",
+      "source_paths": [
+        "scripts/tests/scaffold_test_support.py"
       ]
     },
     {
@@ -947,6 +971,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_scaffold_review.py",
+      "source_paths": [
+        "scripts/tests/test_scaffold_review.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_scaffold_skill.py",
       "source_paths": [
         "scripts/tests/test_scaffold_skill.py"
@@ -1174,7 +1204,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "a6267052ea4465ab10fbc525489dd25b09731a6ab2b4a512c8f4d5b7668af683"
+      "sha256": "1f218b2d9a9e39bed1d8842d95dea8f5fe9fb4ed7214cf6281576a468efa3614"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1246,7 +1276,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "48aaacf051f3defb8a1ae8b4747f9b428d6941b684468a2fd83d5d5bd4fcae0b"
+      "sha256": "e5d982831bbacdae4c4ceb66e74070cb091949f52faf9d031efbc75c3416b40e"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1334,7 +1364,7 @@
     },
     {
       "path": "examples/example-new-skill.md",
-      "sha256": "2ec5f4201bdbc1c0dc5d27d872b165def38a010ab96be44279971973e1189914"
+      "sha256": "efe5a216ca56bcdcc0d57e67788b0179d2db42c592adf110e010b0ae786acdd3"
     },
     {
       "path": "examples/example-placeholder-scaffold-caught.md",
@@ -1355,6 +1385,10 @@
     {
       "path": "examples/ledger-write-run.json",
       "sha256": "0a2c7453b5a841855a70480fd826c3313c46172cc6e4ffa657ddeeec00239c1c"
+    },
+    {
+      "path": "examples/new-skill-run.json",
+      "sha256": "ebeb303dd2919d1211ea23bfd88640161e36a04acbc752072cb2fb297ba499d0"
     },
     {
       "path": "mise.toml",
@@ -1478,7 +1512,7 @@
     },
     {
       "path": "scripts/doctor.py",
-      "sha256": "3888133472577dba0de8aeb4526ee634639510998a5e00c9de48562c64b3e5bd"
+      "sha256": "8654b8f8fec68a9cd532196e6839c9331414e755a36de4679f9c0b070afbfcae"
     },
     {
       "path": "scripts/domain_text.py",
@@ -1549,8 +1583,16 @@
       "sha256": "136fbfdb9b3bf1b96a7a94013a4ad8b9fd533f43a507c5308d1a36849964a9fd"
     },
     {
+      "path": "scripts/scaffold_plan.py",
+      "sha256": "90bfbc493a4d95d7c76c747b6ada9f232b11ab892f527536952c10a612682aac"
+    },
+    {
+      "path": "scripts/scaffold_review.py",
+      "sha256": "fd37421c370bb6ed99e6b41c5acbdd2593105be4eef347c3dbc8719d178a90e7"
+    },
+    {
       "path": "scripts/scaffold_skill.py",
-      "sha256": "dfd14f59e03341cdaafc0c48c75602440347d17d378897129426adcc5a8f220e"
+      "sha256": "ee475bd33d7c818ca24b16eb8fed6d4b17bf4108fe06b11aff84076115a269e6"
     },
     {
       "path": "scripts/scope_placement.py",
@@ -1633,6 +1675,10 @@
       "sha256": "9e4239c5995eedcbe9581a46ef6358ef688cf709d5d888c343a9931cbf6f9b54"
     },
     {
+      "path": "scripts/tests/scaffold_test_support.py",
+      "sha256": "9ec88d78f4785055b1a20cb1211f09dd55732bdcd2f2a0c854373ed9e46d8ed9"
+    },
+    {
       "path": "scripts/tests/standardization_fixtures.py",
       "sha256": "220d66aa191a1b0d5ad1929dff3ad1d16719d15dc61896edad8251e027edd0ef"
     },
@@ -1694,7 +1740,7 @@
     },
     {
       "path": "scripts/tests/test_generated_agentic_scaffold.py",
-      "sha256": "c03bfe60058a527c2a11ea55e46b52abd971bac43355c2a45a040ad481761aa2"
+      "sha256": "5801fc4983138558db226e442be9a6f273abad6a5a3d89e87cf97749f293fc33"
     },
     {
       "path": "scripts/tests/test_invocation_receipt.py",
@@ -1793,8 +1839,12 @@
       "sha256": "55ed141e37d18947a852a601d66d0a158bcfd7eec7550e602c7cab16a43ff4e1"
     },
     {
+      "path": "scripts/tests/test_scaffold_review.py",
+      "sha256": "a24e3be210a56c44d214b0982469ed815bf8ce0c7dfca9029178e6eb597afe1e"
+    },
+    {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "aa0f29554f369a9f1a987850f044b1aa6837bbaeec31076c816f687b8cbf6380"
+      "sha256": "179375976d7e73d137d14acf66a9f249935ebec454d41ae6ebef34610048ac47"
     },
     {
       "path": "scripts/tests/test_scope_destination.py",

@@ -1,4 +1,4 @@
-"""Contracts for factory boundaries, operations, and improvement policy."""
+"""Document-presence guards and machine policy contracts, not semantic acceptance."""
 import json
 import pathlib
 import unittest
@@ -10,15 +10,16 @@ class TestDeterministicBoundary(unittest.TestCase):
     def test_factory_and_recursive_contract_put_programmatic_work_in_mise(self):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         contract = (SKILL_DIR / "references" / "generation-contract.md").read_text()
-        self.assertIn("## Deterministic and model-owned boundary", skill)
-        self.assertIn("Mise owns every deterministic command", skill)
+        self.assertIn("## Mise task graph", skill)
+        self.assertIn("Mise invokes Mastra once at an explicit boundary", skill)
+        self.assertIn("Mastra directly invokes existing scripts or authorized runners", skill)
         self.assertNotIn("python3 scripts/", skill)
-        for phrase in ["schemas, parsing, validation, file generation, state transitions",
-                       "model-owned boundary", "one owning Mise task",
-                       "fresh baseline", "frozen evaluator", "Pareto",
-                       "restore the last accepted version",
-                       "data structures and algorithms",
-                       "measure or justify as not applicable"]:
+        for phrase in ["Mise for public entry/environment/outer prerequisites",
+                       "Mastra for actual domain steps", "scripts for mechanics",
+                       "fresh baseline", "evaluator", "Pareto",
+                       "restore accepted bytes and verify their digest",
+                       "Choose structures/algorithms from measured",
+                       "every trial measures or justifies non-use"]:
             self.assertIn(phrase, contract)
 
     def test_mise_preserves_model_capabilities(self):
@@ -27,9 +28,15 @@ class TestDeterministicBoundary(unittest.TestCase):
                  SKILL_DIR / "assets" / "skill-template.md"]
         for path in paths:
             text = path.read_text(encoding="utf-8")
-            self.assertIn("Mise is an orchestration boundary, not a capability ceiling", text)
-            self.assertIn("every available, authorized capability", text)
-            self.assertIn("never replace direct judgment with a proxy", text)
+            self.assertIn("caller", text.lower())
+            self.assertIn("authorized", text)
+            self.assertIn("creative", text)
+            self.assertIn("judgment", text)
+            self.assertNotIn("Mise owns every deterministic command", text)
+        for path in [paths[0], paths[2]]:
+            text = path.read_text(encoding="utf-8")
+            self.assertIn("Preserve selected host models/tools, modalities", text)
+            self.assertIn("no separate Agent, provider, account, model policy", text)
 
     def test_factory_has_machine_readable_improvement_contract(self):
         path = SKILL_DIR / "assets" / "improvement-contract.json"
@@ -57,12 +64,12 @@ class TestFactoryOperations(unittest.TestCase):
         for command in ["new <prompt>", "update <path> <prompt>",
                         "standardize <path>", "import <source> <destination>"]:
             self.assertIn(command, self.skill)
-        self.assertIn("preserve its domain purpose", self.skill)
+        self.assertIn("preserving domain purpose", self.skill)
         self.assertIn("baseline_digest", self.skill)
 
     def test_portable_import_contract_names_canonical_owners(self):
-        for phrase in ["AGENTS.md", ".agents/", "source stays unchanged",
-                       "platform-specific assumptions"]:
+        for phrase in ["AGENTS.md", ".agents/", "Preserve source bytes unless",
+                       "Reject retained platform assumptions or lost source behavior"]:
             self.assertIn(phrase, self.contract)
 
     def test_required_concept_order_is_explicit(self):

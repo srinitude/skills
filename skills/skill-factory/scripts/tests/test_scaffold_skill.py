@@ -1,4 +1,4 @@
-"""Tests for scripts/scaffold_skill.py: scaffolds must pass every check."""
+"""Scaffold shape and copied contracts; seeded outputs must fail acceptance."""
 import subprocess
 import sys
 import tempfile
@@ -90,8 +90,9 @@ class TestScaffoldOutput(unittest.TestCase):
 
     def test_body_routes_every_deterministic_command_through_mise(self):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("Mise owns every deterministic command", body)
-        self.assertIn("model-owned boundary", body)
+        self.assertIn("Mise invokes Mastra once at an explicit boundary", body)
+        self.assertIn("Mastra directly invokes existing scripts or authorized runners", body)
+        self.assertIn("**Agentic request contract.**", body)
         self.assertNotIn("python3 scripts/", body)
         self.assertIn("mise run info", body)
         self.assertIn("mise run ci", body)
@@ -100,22 +101,23 @@ class TestScaffoldOutput(unittest.TestCase):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
         rules = (self.skill / "references" / "writing-rules.md").read_text(
             encoding="utf-8")
-        self.assertIn("## Simplicity and language", body)
+        self.assertIn("## Motivation", body)
         self.assertIn("references/writing-rules.md", body)
         self.assertIn("## Plain language", rules)
 
     def test_body_ends_with_optional_nonregressing_improvement_step(self):
         body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
-        heading = "## Optional final improvement experiment"
+        heading = "**Efficiency and optional improvement.**"
         self.assertIn(heading, body)
-        self.assertGreater(body.index(heading), body.index("## When is the work done?"))
+        self.assertGreater(body.index(heading), body.index("## Evals"))
+        self.assertIn("Only after required work is accepted", body)
         for phrase in [
             "one named dimension",
-            "fresh baseline",
-            "frozen evaluator",
-            "restore the last accepted version",
+            "fresh accepted baseline",
+            "evaluator, fixtures, environment",
+            "restore the accepted bytes and verify them",
             "mise run improvement-policy",
-            "resource measures",
+            "protected dimensions",
         ]:
             self.assertIn(phrase, body)
 

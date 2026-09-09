@@ -157,7 +157,7 @@ class TestRegistryStandardization(unittest.TestCase):
             profile_path.write_text(json.dumps(profile()), encoding="utf-8")
             result = self.invoke(root, profile_path, apply=True)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            self.assertIn("Every generated skill follows", contract.read_text())
+            self.assertEqual(contract.read_bytes(), (Path(__file__).resolve().parents[2] / "references/generation-contract.md").read_bytes())
 
     def test_apply_refreshes_the_placeholder_gate(self):
         with tempfile.TemporaryDirectory() as temp:

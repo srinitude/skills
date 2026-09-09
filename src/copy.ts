@@ -101,7 +101,9 @@ function scanText(path: string, source: string): CopyFinding[] {
     if (lines >= 200)
       found.push(finding('MARKDOWN_LINES', 'Markdown must stay below 200 lines', path));
     // The generation contract gives canonical skill bodies a separate size limit.
-    const skillBody = /^skills\/[^/]+\/SKILL\.md$/.test(path);
+    const skillBody =
+      /^skills\/[^/]+\/SKILL\.md$/.test(path) ||
+      path === 'skills/skill-factory/assets/skill-template.md';
     const limit = skillBody ? 100_000 : 20_000;
     const characters = skillBody ? Array.from(source).length : source.length;
     if (characters >= limit) {

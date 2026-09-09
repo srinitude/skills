@@ -1,11 +1,16 @@
 """Scaffold shape and copied contracts; seeded outputs must fail acceptance."""
+import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from cli import run
+from cli import SCRIPTS, run
+
+sys.path.insert(0, str(SCRIPTS))
+from skill_package import owned_paths
 
 DESCRIPTION = "Use when a demo skill is needed for scaffold tests."
 
@@ -168,17 +173,20 @@ class TestScaffoldOutput(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout)
 
     def test_generated_tests_pass(self):
-        cmd = [sys.executable, "-m", "unittest", "discover",
-               "-s", "scripts/tests", "-p", "test_*.py"]
-        proc = subprocess.run(cmd, cwd=self.skill, capture_output=True,
+        cmd = ["mise", "run", "--force", "--task-cache", "off", "test"]
+        env = dict(os.environ, MISE_TRUSTED_CONFIG_PATHS=str(self.skill))
+        proc = subprocess.run(cmd, cwd=self.skill, env=env, capture_output=True,
                               text=True, timeout=180)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
 
     def test_no_platform_or_model_names_in_output(self):
         blob = ""
-        for path in sorted(self.skill.rglob("*")):
-            if path.is_file():
-                blob += path.read_text(encoding="utf-8", errors="ignore")
+        for path in owned_paths(self.skill):
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if path.name == "package-lock.json":
+                text = json.dumps(json.loads(text, object_hook=lambda item:
+                    {key: value for key, value in item.items() if key != "integrity"}))
+            blob += text
         halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"),
                   ("openc", "ode"),
                   ("copi", "lot"), ("cur", "sor"), ("gem", "ini"),

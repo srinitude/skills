@@ -20,7 +20,7 @@ from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
 from standardization_seed import create_missing
-from standardization_runtime import ROOT_FILES, copy_runtime
+from standardization_runtime import LEDGER_FILES, ROOT_FILES, copy_runtime
 from skill_package import inventory, promote, staged
 from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
 from scope_placement import check_placement
@@ -45,6 +45,7 @@ SCRIPTS = [
 SCRIPTS += ["validate_skill.py", "lint_writing.py", "check_code_rules.py",
             "check_evals.py", "check_placeholders.py", "agentic_context.py",
             "check_javascript.ts", "skill_package.py"]
+SCRIPTS += list(LEDGER_FILES)
 CANONICAL_SCRIPTS = set(SCRIPTS[:12]) | {
     "check_placeholders.py",
     "agentic_context.py",
@@ -88,6 +89,7 @@ def copy_support(root):
     for name in SCRIPTS:
         target = root / "scripts" / name
         if not target.exists() or name in CANONICAL_SCRIPTS:
+            target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(FACTORY / "scripts" / name, target)
 
 

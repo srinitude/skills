@@ -8,9 +8,11 @@ from standardization_runtime import isolate_python_helpers, runtime_preamble
 
 POLICY_TASKS = {
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
-        "npm ci --include=dev --ignore-scripts"),
+        "npm ci --include=dev --ignore-scripts 1>&2"),
     "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",
         "npm exec --no -- tsc --noEmit --project tsconfig.json"),
+    "ledger": (["check-runtime"], "Read recorded skill ledger relationships through native Mastra",
+        "node scripts/run_review_ledger.ts"),
     "domain-research-policy": ([], "Validate current domain research receipts",
         "python3 scripts/check_domain_research.py ."),
     "use-case-policy": (["domain-research-policy"], "Validate domain-specific owners",

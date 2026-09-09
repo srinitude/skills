@@ -2,7 +2,10 @@
   "version": "1.1.0",
   "skill": "{{NAME}}",
   "outcome": "SCAFFOLD-PLACEHOLDER name the observable {{NAME}} result using its own domain terms.",
-  "audience": {"primary": "SCAFFOLD-PLACEHOLDER human or agent from the main {{NAME}} result", "secondary": []},
+  "audience": {
+    "primary": "SCAFFOLD-PLACEHOLDER human or agent from the main {{NAME}} result",
+    "secondary": []
+  },
   "motivations": [
     {
       "constraint": "SCAFFOLD-PLACEHOLDER name one {{NAME}} constraint.",
@@ -29,22 +32,54 @@
     "SCAFFOLD-PLACEHOLDER second {{NAME}} proof"
   ],
   "domain_dimensions": {
-    "actors": ["SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."],
-    "objects": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."],
-    "actions": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."],
-    "states": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."],
-    "invariants": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."],
-    "variants": ["SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."],
-    "interfaces": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."],
-    "authorities": ["SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."],
-    "failures": ["SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."],
-    "recoveries": ["SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."],
-    "evidence": ["SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."],
-    "time": ["SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."],
-    "resources": ["SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."],
-    "quality": ["SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."],
-    "terminology": ["SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."],
-    "exclusions": ["SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."]
+    "actors": [
+      "SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."
+    ],
+    "objects": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."
+    ],
+    "actions": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."
+    ],
+    "states": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."
+    ],
+    "invariants": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."
+    ],
+    "variants": [
+      "SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."
+    ],
+    "interfaces": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."
+    ],
+    "authorities": [
+      "SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."
+    ],
+    "failures": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."
+    ],
+    "recoveries": [
+      "SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."
+    ],
+    "evidence": [
+      "SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."
+    ],
+    "time": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."
+    ],
+    "resources": [
+      "SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."
+    ],
+    "quality": [
+      "SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."
+    ],
+    "terminology": [
+      "SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."
+    ],
+    "exclusions": [
+      "SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."
+    ]
   },
   "research_questions": {
     "actors": "SCAFFOLD-PLACEHOLDER which actors define or use {{NAME}}?",
@@ -164,28 +199,26 @@
         "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} must reconcile upstream Mise primitives.",
         "why_default_path": "SCAFFOLD-PLACEHOLDER explain the post-self-update {{NAME}} catalog path.",
         "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} catalog and disposition receipt."
+      },
+      {
+        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
+        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
+        "task": "ledger",
+        "why_default_path": "The agent skill has one public path into its assigned native Mastra ledger read operation with declared locked dependencies."
       }
     ],
     "tasks": {
-      "ci": {},
-      "info": {},
-      "test": {},
       "validate": {},
       "lint-writing": {},
-      "lint-code": {},
       "lint-placeholders": {},
       "evals": {},
       "improvement-policy": {},
+      "info": {},
       "domain-research-policy": {},
-      "use-case-policy": {},
-      "mise-primitives-policy": {},
-      "primitive-lifecycle-policy": {},
-      "task-graph-policy": {},
-      "decision-policy": {},
       "invocation-policy": {},
       "agentic-request": {},
       "mise-latest": {},
-      "mise-primitives-update": {},
       "setup-runtime": {
         "outcome": "Install the exact locked JavaScript and TypeScript checker dependencies for the agent skill package.",
         "motivation": "The skill package code checker must not resolve an ambient compiler or undeclared runtime dependency.",
@@ -193,13 +226,29 @@
         "proof": "The agent skill package native installer verifies its lock, completes successfully and leaves the declared compiler available.",
         "applicability": "Run before a skill package check-runtime task; installation alone is not activation, authorization or domain acceptance."
       },
+      "use-case-policy": {},
       "check-runtime": {
         "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
         "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
         "value": "The Mise task graph orders locked installation before strict owned-source type checks and dependent lint-code work.",
         "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
         "applicability": "Run for owned skill package TypeScript changes and before lint-code; it does not validate runtime effects or semantic judgment."
-      }
+      },
+      "ledger": {
+        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
+        "value": "The Mise task graph invokes one native Mastra read workflow that preserves original relationship endpoints and serialized view contents.",
+        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
+        "applicability": "Use for asserted skill package relationship views and direct records. These views do not replace inherited context, derived source/reading/task relationships, current source verification, protected changes or semantic acceptance."
+      },
+      "mise-primitives-policy": {},
+      "lint-code": {},
+      "primitive-lifecycle-policy": {},
+      "mise-primitives-update": {},
+      "test": {},
+      "task-graph-policy": {},
+      "decision-policy": {},
+      "ci": {}
     }
   },
   "primitive_roles": {

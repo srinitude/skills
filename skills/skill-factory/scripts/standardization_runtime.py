@@ -5,6 +5,8 @@ import shutil
 import tomllib
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
+LEDGER_FILES = ("review_ledger_graph.py", "review_ledger.py", "review_ledger_workflow.ts",
+                "run_review_ledger.ts", "tests/test_review_ledger_runtime.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
@@ -12,6 +14,10 @@ LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db1
 
 
 def copy_runtime(factory, root):
+    for name in LEDGER_FILES:
+        target = root / "scripts" / name
+        if target.exists() and target.read_bytes() != (factory / "scripts" / name).read_bytes():
+            raise ValueError("ledger runtime owner needs explicit reconciliation: " + name)
     for name in ROOT_FILES:
         target = root / name
         if target.exists() and target.read_bytes() != (factory / name).read_bytes():

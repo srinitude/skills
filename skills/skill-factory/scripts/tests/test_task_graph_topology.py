@@ -16,6 +16,7 @@ EXPECTED = {
     "lint-writing": [],
     "setup-runtime": [],
     "check-runtime": ["setup-runtime"],
+    "ledger": ["check-runtime"],
     "lint-code": ["check-runtime"],
     "lint-placeholders": [],
     "evals": [],

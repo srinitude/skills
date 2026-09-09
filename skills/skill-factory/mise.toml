@@ -109,7 +109,7 @@ run = "python3 scripts/doctor.py"
 [tasks.setup-runtime]
 description = "Install the exact locked skill code-check dependencies"
 depends = []
-run = "npm ci --include=dev --ignore-scripts"
+run = "npm ci --include=dev --ignore-scripts 1>&2"
 
 [tasks.use-case-policy]
 description = "Reject generic skill primitives without a domain-specific role and proof"
@@ -170,6 +170,11 @@ run = "python3 scripts/refresh_registry_lineage.py"
 description = "Strictly type-check owned skill TypeScript with the declared compiler"
 depends = ["setup-runtime"]
 run = "npm exec --no -- tsc --noEmit --project tsconfig.json"
+
+[tasks.ledger]
+description = "Read recorded skill ledger relationships through native Mastra"
+depends = ["check-runtime"]
+run = "node scripts/run_review_ledger.ts"
 
 [tasks.mise-primitives-policy]
 description = "Validate every official Mise primitive disposition for skill-factory"

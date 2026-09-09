@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 from scope_placement import check_placement
 from skill_package import promote, staged
-from standardization_runtime import ROOT_FILES
+from standardization_runtime import LEDGER_FILES, ROOT_FILES
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
@@ -60,16 +60,18 @@ COPIED = [
     ("scripts/tests/test_agentic_request.py", "starter-agentic-test.py"),
 ]
 SCRIPT_COPIED = [
+    ("scripts/domain_text.py", "domain_text.py"),
     ("scripts/run_agentic_request.py", "run_agentic_request.py"),
     ("scripts/agentic_request_contract.py", "agentic_request_contract.py"),
     ("scripts/agentic_context.py", "agentic_context.py"),
 ]
+SCRIPT_COPIED += [("scripts/" + name, name) for name in LEDGER_FILES]
 CHECKERS = ["lint_writing.py", "validate_skill.py",
             "check_code_rules.py", "check_evals.py",
             "check_placeholders.py", "check_improvement_contract.py",
             "check_use_case_contract.py", "check_domain_research.py",
             "check_task_graph.py", "check_invocation_receipt.py"]
-CHECKERS.extend(["domain_text.py", "check_javascript.ts", "skill_package.py"])
+CHECKERS.extend(["check_javascript.ts", "skill_package.py"])
 CHECKERS.append("check_decision_records.py")
 CHECKERS.extend(["check_mise_primitives.py", "check_primitive_lifecycle.py",
                  "sync_mise_primitives.py"])

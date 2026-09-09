@@ -84,7 +84,7 @@ def task_records(profile, tasks):
 
 def operations(profile, tasks):
     candidates = [profile["main_task"], "invocation-policy", "agentic-request",
-                  "improvement-policy", "mise-primitives-update"]
+                  "improvement-policy", "mise-primitives-update", "ledger"]
     candidates += profile.get("public_tasks", [])
     candidates = list(dict.fromkeys(candidates))
     term = profile["primary_term"]

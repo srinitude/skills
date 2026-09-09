@@ -2,6 +2,7 @@
 from collections import deque
 
 from review_ledger_context import detail_context, file_subjects, require
+from review_ledger_candidates import pairs, selections
 from review_ledger_derived import derived_edges
 from review_ledger_tasks import task_subjects
 from review_ledger_source import check_capture, check_sources
@@ -95,6 +96,15 @@ def trace(data, index, selector, direction, depth, relation_type):
             "nodes": sorted(seen), "edges": list(found.values())}
 
 
+def show_subject(data, index, selector):
+    context = detail_context(data, index, selector)
+    selected = set(context["subjects"])
+    context["relationships"] = [edge for edge in data["semantic_model"]["relationships"]
+                                if selected.intersection(resolved_ends(edge, "from", index) + resolved_ends(edge, "to", index))]
+    return {"id": selector, "entry": index[selector], "review": data["semantic_model"].get("entry_reviews", {}).get(selector),
+            "context": context}
+
+
 def view(data, request):
     if request["action"] == "check-sources":
         return check_sources(data, request)
@@ -108,14 +118,11 @@ def view(data, request):
     if action == "catalog":
         return {key: value for key, value in data["semantic_model"].items()
                 if key in {"facets", "relationship_types", "themes", "rule_types", "traversals", "body_hub", "entry_defaults", "derived_relationships"}}
+    if action in {"pairs", "selections"}:
+        return (pairs if action == "pairs" else selections)(data, index, request)
     require(selector in index, "unknown ledger subject")
     if action == "show":
-        context = detail_context(data, index, selector)
-        selected = set(context["subjects"])
-        context["relationships"] = [edge for edge in data["semantic_model"]["relationships"]
-                                    if selected.intersection(resolved_ends(edge, "from", index) + resolved_ends(edge, "to", index))]
-        return {"id": selector, "entry": index[selector], "review": data["semantic_model"].get("entry_reviews", {}).get(selector),
-                "context": context}
+        return show_subject(data, index, selector)
     direction, relation_type = request.get("direction", "both"), request.get("relation_type")
     require(direction in {"in", "out", "both"}, "invalid relationship direction")
     if action == "relations":

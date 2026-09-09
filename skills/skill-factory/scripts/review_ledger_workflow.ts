@@ -14,7 +14,7 @@ const sourceBinding = z.object({
   path: z.string().min(1).refine(isAbsolute, 'Use an absolute source path'), sha256: digest,
 }).strict();
 export const requestSchema = z.object({
-  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources']),
+  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections']),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
   ledger_sha256: digest,
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
@@ -24,24 +24,35 @@ export const requestSchema = z.object({
   direction: z.enum(['in', 'out', 'both']).optional(),
   relation_type: z.string().min(1).optional(),
   depth: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER).optional(),
+  scope: z.enum(['all', 'rules']).optional(),
+  offset: z.string().regex(/^(0|[1-9][0-9]*)$/).optional(),
+  limit: z.number().int().positive().max(Number.MAX_SAFE_INTEGER).optional(),
+  budget: z.number().int().positive().max(Number.MAX_SAFE_INTEGER).optional(),
+  selection: z.object({
+    members: z.array(z.string().min(1)),
+    size: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
+    order: z.enum(['ordered', 'unordered']), repeats: z.boolean(),
+    budget: z.number().int().positive().max(Number.MAX_SAFE_INTEGER),
+  }).strict().optional(),
 }).strict().superRefine((request, context) => {
-  for (const field of ['expected_documents', 'original_source', 'inventory_document'] as const) {
-    if (request.action === 'check-sources' && request[field] === undefined)
-      context.addIssue({ code: 'custom', message: `check-sources requires ${field}` });
-    if (request.action !== 'check-sources' && request[field] !== undefined)
-      context.addIssue({ code: 'custom', message: `${field} requires check-sources` });
+  const rules = [
+    { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources'], required: true },
+    { fields: ['selector'], actions: ['show', 'relations', 'trace'], required: true },
+    { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
+    { fields: ['depth'], actions: ['trace'], required: false },
+    { fields: ['scope', 'budget'], actions: ['pairs'], required: true },
+    { fields: ['selection'], actions: ['selections'], required: true },
+    { fields: ['offset', 'limit'], actions: ['pairs', 'selections'], required: true },
+  ] as const;
+  for (const rule of rules) {
+    const used = rule.actions.some(action => action === request.action);
+    for (const field of rule.fields) {
+      if (used && rule.required && request[field] === undefined)
+        context.addIssue({ code: 'custom', message: `${request.action} requires ${field}` });
+      if (!used && request[field] !== undefined)
+        context.addIssue({ code: 'custom', message: `${field} does not apply to ${request.action}` });
+    }
   }
-  const needsSubject = ['show', 'relations', 'trace'].includes(request.action);
-  if (!needsSubject && request.selector !== undefined)
-    context.addIssue({ code: 'custom', message: 'This action does not use a selector' });
-  if (needsSubject && !request.selector)
-    context.addIssue({ code: 'custom', message: 'This action requires a selector' });
-  for (const field of ['direction', 'relation_type', 'depth'] as const) {
-    if (request[field] !== undefined && !['relations', 'trace'].includes(request.action))
-      context.addIssue({ code: 'custom', message: `${field} needs a relationship action` });
-  }
-  if (request.depth !== undefined && request.action !== 'trace')
-    context.addIssue({ code: 'custom', message: 'depth requires trace' });
 });
 const bodySchema = z.object({ path: z.string(), sha256: digest, text: z.string().min(1) });
 const capturedSchema = z.object({ request: requestSchema, body: bodySchema, ledger_text: z.string(), ledger_bytes: z.number().int().nonnegative() });
@@ -94,7 +105,7 @@ const buildView = createStep({
     const view = viewSchema.parse(await readThroughOwner('view', JSON.stringify({ request, ledger_text })));
     return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: ledger_bytes }, ...view,
       execution_acceptance: 'pending' as const, coverage: 'recorded context, relationships and source checks only' as const,
-      limit: 'Selected read/check action over exact full ledger/body capture. Capture checks validate present document bytes and source/clause locators. Source checks also compare supplied live original/document bindings and the frozen coverage inventory; the caller must establish their independent authority. Read views retain recorded source-parent/review-inheritance context and asserted/declared reachability. Preserve conditions, review states, conjunctions and original endpoints; reachability is not transitive truth. File baselines and history remain distinct from recorded current package observations, which are not live file proof. A declared versioned profile adds captured source structure and reading order. Version-2 TOML task observations expose whole declarations, same-file literal references, unresolved forms and conditional dependency/run edges bound to the recorded current file hash. Native task resolution and execution remain separate; other derived relationships remain incomplete. The full ledger still governs. No semantic review, model use, protected write, durable recovery or final acceptance. The capture has no cross-file transaction or hostile-writer isolation.',
+      limit: 'Selected read/check action over exact full ledger/body capture. Capture checks validate present document bytes and source/clause locators. Source checks also compare supplied live original/document bindings and the frozen coverage inventory; the caller must establish their independent authority. Read views retain recorded source-parent/review-inheritance context and asserted/declared reachability. Preserve conditions, review states, conjunctions and original endpoints; reachability is not transitive truth. File baselines and history remain distinct from recorded current package observations, which are not live file proof. A declared versioned profile adds captured source structure and reading order. Version-2 TOML task observations expose whole declarations, same-file literal references, unresolved forms and conditional dependency/run edges bound to the recorded current file hash. Native task resolution and execution remain separate; other derived relationships remain incomplete. Candidate pages use explicit scopes or selected known IDs, exact decimal ranks/counts, declared order/repetition and work budgets. Direct ranking avoids prefix scans; candidates stay unreviewed and do not replace higher-order relationship records, complete matrix inventories or their actual use. The full ledger still governs. No semantic review, model use, protected write, durable recovery or final acceptance. The capture has no cross-file transaction or hostile-writer isolation.',
     };
   },
 });

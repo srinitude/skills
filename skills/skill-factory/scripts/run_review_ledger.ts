@@ -9,7 +9,7 @@ Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture, check-sources.
+Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
 check-sources also requires expected_documents (name, absolute path, sha256),
@@ -24,6 +24,26 @@ show, relations and trace require selector, for example source:rule-id.
 relations and trace accept direction: in, out or both (default both), and
 relation_type from the ledger catalog. trace accepts depth: a nonnegative
 safe integer (default 1). Zero depth keeps only the starting subject.
+
+pairs requires scope (all or rules), offset, limit and budget. All includes every
+indexed subject; rules selects only recorded obligation rows and their clauses.
+Subject IDs sort by Unicode code point; ordered pairs include self-pairs.
+selections requires offset, limit and selection: {members, size, order, repeats,
+budget}. Members are unique existing subject IDs. Size is a nonnegative safe
+integer; order is ordered or unordered; repeats is a boolean.
+Both actions require offset as canonical nonnegative decimal text, e.g. "0".
+Limit and each budget are positive safe integers. Counts, ranks and continuation
+offsets return decimal strings without JavaScript integer rounding. Empty pools
+and zero-length selections retain their mathematical meanings, not acceptance.
+Ordered pools preserve input position; unordered membership uses Unicode code-point
+ID order. Each result preserves meaningful sequence and repetition. Pages rank
+results directly without rescanning earlier pages. Reuse the same ledger digest
+and selection for continuation; a changed input invalidates the previous space.
+Budgeted work slots cover pools and result work, not integer arithmetic cost or OS
+time/memory. Infeasible requests reject rather than silently truncate or sample.
+Candidates remain unreviewed. Conditions, roles, groups and higher-order meaning
+remain in the actual relationship records. Enumeration does not prove vocabulary,
+evidence, permission, required matrix use, semantic judgment or execution acceptance.
 
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and

@@ -9,7 +9,7 @@ Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections.
+Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
 check-sources also requires expected_documents (name, absolute path, sha256),
@@ -19,8 +19,9 @@ and exact frozen records keyed by stable ID, plus mapping_defaults when present.
 Root records may follow dependency order; nested contents and JSON types stay exact.
 These inputs must come from independent source authority. Each present captured
 document needs one exact live binding.
-Only show, relations and trace accept a selector.
-show, relations and trace require selector, for example source:rule-id.
+show, relations, trace, work and impact require selector. Other actions reject it.
+Use a known subject ID, for example source:rule-id. impact requires file:<path>
+for one recorded file, including a recorded missing file; a file set is not a file.
 relations and trace accept direction: in, out or both (default both), and
 relation_type from the ledger catalog. trace accepts depth: a nonnegative
 safe integer (default 1). Zero depth keeps only the starting subject.
@@ -44,6 +45,15 @@ time/memory. Infeasible requests reject rather than silently truncate or sample.
 Candidates remain unreviewed. Conditions, roles, groups and higher-order meaning
 remain in the actual relationship records. Enumeration does not prove vocabulary,
 evidence, permission, required matrix use, semantic judgment or execution acceptance.
+
+work and impact expose the complete recorded review workflow, review fields,
+body-hub decisions and mechanism map beside the selected subject and its inherited
+context. The workflow requires consecutive integer step numbers starting at 1,
+nonempty action/rule text, review records with nonempty field/review text, and
+nonempty body_hub/mechanism_map objects. Extension fields remain intact.
+Stored states may be historical. These views perform no work, writes, invalidation,
+judgment or acceptance. File observations are not live file proof. Resolve current
+owners and evidence before an effect; no warning or returned record is a write guard.
 
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and

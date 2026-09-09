@@ -1,7 +1,7 @@
 """Views of asserted ledger relationships; capture and semantic acceptance are separate."""
 from collections import deque
 
-from review_ledger_context import detail_context, file_subjects, require
+from review_ledger_context import detail_context, file_subjects, recorded_work_contract, require
 from review_ledger_candidates import pairs, selections
 from review_ledger_derived import derived_edges
 from review_ledger_tasks import task_subjects
@@ -105,6 +105,17 @@ def show_subject(data, index, selector):
             "context": context}
 
 
+def work_view(data, index, selector, action):
+    require(action != "impact" or selector.startswith("file:"), "impact requires a recorded file subject")
+    return {**show_subject(data, index, selector), **recorded_work_contract(data),
+            "source_sha256": data["source"]["sha256"], "execution_acceptance": "pending",
+            "scope": "recorded file impact only" if action == "impact" else "recorded work context only",
+            "limit": "Whole recorded method, review fields, body decisions and mechanism map with original context. "
+                     "Stored states and instructions are recorded data, not verified current runtime facts or authority. "
+                     "This view performs no work, writes, invalidation, semantic review or acceptance. "
+                     "File observations are not live file proof. Use existing authorized owners and verify their current state."}
+
+
 def view(data, request):
     if request["action"] == "check-sources":
         return check_sources(data, request)
@@ -121,8 +132,8 @@ def view(data, request):
     if action in {"pairs", "selections"}:
         return (pairs if action == "pairs" else selections)(data, index, request)
     require(selector in index, "unknown ledger subject")
-    if action == "show":
-        return show_subject(data, index, selector)
+    if action in {"show", "work", "impact"}:
+        return show_subject(data, index, selector) if action == "show" else work_view(data, index, selector, action)
     direction, relation_type = request.get("direction", "both"), request.get("relation_type")
     require(direction in {"in", "out", "both"}, "invalid relationship direction")
     if action == "relations":

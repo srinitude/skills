@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "f0c51232db9aa8aa531cf7ab36018a290d6e060620f3ea426fece9c4247b501f",
+  "native_manifest_sha256": "3a157a7b80b0d178e0d5207522c55e32a9a79ca011b12e9c4da40242b5dc7c9e",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -881,6 +881,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_review_ledger_work.py",
+      "source_paths": [
+        "scripts/tests/test_review_ledger_work.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
       "source_paths": [
         "scripts/tests/test_runtime_task_dependencies.py"
@@ -1114,7 +1120,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "2e7c60e4ae2120648922501a9147ff082b7c32ac6dcd297836095a50c0b4652e"
+      "sha256": "129d8a9781dc0e9d9ca8ae654cb6816415a9907f4a110b6db9d8c8dee813f8ea"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1186,7 +1192,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "c21cc24228fb18cdf789220ae0fc6015fb0157bfd7f672f673f08213d3b73395"
+      "sha256": "0df7f9421560b3397303738364fabb77989ccc2d37f258fee0961fa4422ddfa9"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1442,7 +1448,7 @@
     },
     {
       "path": "scripts/review_ledger_context.py",
-      "sha256": "9a42dc3d42727fa38b3cd345b6f865a46c21c51b81187bcfcd289fd74e9ee07c"
+      "sha256": "795c8339233fb11f09d016af091c98d30e6dec2628df272f18bed673cf29cb2d"
     },
     {
       "path": "scripts/review_ledger_derived.py",
@@ -1450,7 +1456,7 @@
     },
     {
       "path": "scripts/review_ledger_graph.py",
-      "sha256": "adf68605b6588341d832e8fc59499d82d4d4e5f621bd70806f8dbdcee0a52783"
+      "sha256": "f544464f1e51f7fd94c73de2f3015a1bc2cf7fa9b2df52609bc6a6734b69b2cf"
     },
     {
       "path": "scripts/review_ledger_source.py",
@@ -1462,7 +1468,7 @@
     },
     {
       "path": "scripts/review_ledger_workflow.ts",
-      "sha256": "5c3ed759a0fba2fc935cb7bde04906436f79e57ddd5d7fd23255bcb2c6e1fb53"
+      "sha256": "dbbd413bf121604434de9a722697b2bf999757d780e4f4345377a4b3ab877cb1"
     },
     {
       "path": "scripts/run_agentic_request.py",
@@ -1470,7 +1476,7 @@
     },
     {
       "path": "scripts/run_review_ledger.ts",
-      "sha256": "6de386dc9f1fffc8f2ddc7b34a5597ec1c2d9b3d483ed1f6baa9d5b2a2c3c410"
+      "sha256": "01e2a0947bced86d68e7c57f9cd9c83b52ad34d7892cb546a7bdb8e7f7c9e094"
     },
     {
       "path": "scripts/scaffold_skill.py",
@@ -1534,7 +1540,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "24c022f741288b96a86eaf15c90f92ae9f0c4d672cc5f1dff9551c51cd69f742"
+      "sha256": "1a9541f9724a204c189c7f1a6fd74ba372ac53ccedf69beaa2ba7dc917749bac"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -1687,6 +1693,10 @@
     {
       "path": "scripts/tests/test_review_ledger_tasks.py",
       "sha256": "a9e04ed7eec0c731f9bfebcd07254dabda268fe086c2789c814a451cab3e34e9"
+    },
+    {
+      "path": "scripts/tests/test_review_ledger_work.py",
+      "sha256": "28803b1c67cf21165617733f95abbfe5553091e9f5b9582c6d27ff9e3486c22e"
     },
     {
       "path": "scripts/tests/test_runtime_task_dependencies.py",

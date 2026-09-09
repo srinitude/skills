@@ -106,3 +106,20 @@ def detail_context(data, index, selector):
             "limit": "Recorded source parents, source documents and explicit review inheritance. "
                      "Context keeps its own identity; no inherited relationship truth or acceptance. "
                      "Unrecorded context, live source identity and complete derived relationships require separate checks."}
+
+
+def recorded_work_contract(data):
+    workflow = data.get("dependency_traversal", {}).get("workflow")
+    protocol, model = data.get("reusable_review_protocol"), data["semantic_model"]
+    require(isinstance(workflow, list) and workflow, "missing recorded review workflow")
+    for position, step in enumerate(workflow, 1):
+        require(isinstance(step, dict) and type(step.get("step")) is int and step["step"] == position
+                and all(isinstance(step.get(key), str) and step[key].strip() for key in ["action", "rule"]),
+                "invalid recorded review workflow order or fields")
+    require(isinstance(protocol, list) and protocol, "missing recorded review protocol")
+    require(all(isinstance(row, dict) and all(isinstance(row.get(key), str) and row[key].strip()
+                for key in ["field", "review"]) for row in protocol), "invalid recorded review protocol")
+    require(all(isinstance(model.get(key), dict) and model[key] for key in ["body_hub", "mechanism_map"]),
+            "missing recorded body or mechanism owner")
+    return {"method": workflow, "review_fields": protocol,
+            "body_hub": model["body_hub"], "mechanism_map": model["mechanism_map"]}

@@ -14,7 +14,7 @@ const sourceBinding = z.object({
   path: z.string().min(1).refine(isAbsolute, 'Use an absolute source path'), sha256: digest,
 }).strict();
 export const requestSchema = z.object({
-  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections']),
+  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact']),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
   ledger_sha256: digest,
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
@@ -37,7 +37,7 @@ export const requestSchema = z.object({
 }).strict().superRefine((request, context) => {
   const rules = [
     { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources'], required: true },
-    { fields: ['selector'], actions: ['show', 'relations', 'trace'], required: true },
+    { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },
     { fields: ['scope', 'budget'], actions: ['pairs'], required: true },
@@ -105,7 +105,7 @@ const buildView = createStep({
     const view = viewSchema.parse(await readThroughOwner('view', JSON.stringify({ request, ledger_text })));
     return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: ledger_bytes }, ...view,
       execution_acceptance: 'pending' as const, coverage: 'recorded context, relationships and source checks only' as const,
-      limit: 'Selected read/check action over exact full ledger/body capture. Capture checks validate present document bytes and source/clause locators. Source checks also compare supplied live original/document bindings and the frozen coverage inventory; the caller must establish their independent authority. Read views retain recorded source-parent/review-inheritance context and asserted/declared reachability. Preserve conditions, review states, conjunctions and original endpoints; reachability is not transitive truth. File baselines and history remain distinct from recorded current package observations, which are not live file proof. A declared versioned profile adds captured source structure and reading order. Version-2 TOML task observations expose whole declarations, same-file literal references, unresolved forms and conditional dependency/run edges bound to the recorded current file hash. Native task resolution and execution remain separate; other derived relationships remain incomplete. Candidate pages use explicit scopes or selected known IDs, exact decimal ranks/counts, declared order/repetition and work budgets. Direct ranking avoids prefix scans; candidates stay unreviewed and do not replace higher-order relationship records, complete matrix inventories or their actual use. The full ledger still governs. No semantic review, model use, protected write, durable recovery or final acceptance. The capture has no cross-file transaction or hostile-writer isolation.',
+      limit: 'Selected read/check action over exact full ledger/body capture. Capture checks validate present document bytes and source/clause locators. Source checks also compare supplied live original/document bindings and the frozen coverage inventory; the caller must establish their independent authority. Read views retain recorded source-parent/review-inheritance context and asserted/declared reachability. Preserve conditions, review states, conjunctions and original endpoints; reachability is not transitive truth. File baselines and history remain distinct from recorded current package observations, which are not live file proof. A declared versioned profile adds captured source structure and reading order. Version-2 TOML task observations expose whole declarations, same-file literal references, unresolved forms and conditional dependency/run edges bound to the recorded current file hash. Native task resolution and execution remain separate; other derived relationships remain incomplete. Candidate pages use explicit scopes or selected known IDs, exact decimal ranks/counts, declared order/repetition and work budgets. Direct ranking avoids prefix scans; candidates stay unreviewed and do not replace higher-order relationship records, complete matrix inventories or their actual use. Work and impact views retain complete recorded review steps, fields, body decisions and mechanism owners beside source/inherited relationship context. Recorded states remain observations; these views perform no work or invalidation. The full ledger still governs. No semantic review, model use, protected write, durable recovery or final acceptance. The capture has no cross-file transaction or hostile-writer isolation.',
     };
   },
 });

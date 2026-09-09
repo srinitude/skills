@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "3800551d80d460d87485efc293756c754510d61371d54ede95575041713e4468",
+  "native_manifest_sha256": "4af4f392f3d34e308ed2d839883a63bf586efe589e0cdfaf186f838d1a8b8d05",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -500,6 +500,12 @@
       "path": "scripts/review_ledger.py",
       "source_paths": [
         "scripts/review_ledger.py"
+      ]
+    },
+    {
+      "path": "scripts/review_ledger_context.py",
+      "source_paths": [
+        "scripts/review_ledger_context.py"
       ]
     },
     {
@@ -1060,7 +1066,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "4a44db3e885afa2136855cf19060e91ef9141d75fb21a926a5d4eb70cf894b0c"
+      "sha256": "ff8bb45ce3b644036df738472c9dfe0e23ff5ffab610a922b54a0a3766f53fc1"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1132,7 +1138,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "77c7a460cb98e3445233e4f70644c6c55e0d66c05e3ad2e156025ee9a81893ca"
+      "sha256": "4300e4cf019efe2b1b92923dafd8e653a6f43033360b83fae059c835410406b1"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1383,12 +1389,16 @@
       "sha256": "cdd3e8bac46a5bb0f7fc4e6bf422ab98ebeb1634004e329daedd6de34eda0b51"
     },
     {
+      "path": "scripts/review_ledger_context.py",
+      "sha256": "b60253cf967752f099186815a34106b8f7a57b15d9bf3747c0375545afe8625d"
+    },
+    {
       "path": "scripts/review_ledger_graph.py",
-      "sha256": "8dd77d8468d8b0d194e99d72d3c4a52b9ddf976b889e23adb8935695f62e6186"
+      "sha256": "b9dbf236a0633b17ea0ff585b771aa492785cc029825ea502688135aae58ef6f"
     },
     {
       "path": "scripts/review_ledger_workflow.ts",
-      "sha256": "d5757407da2d4855d9a6b17ef9ec8de402abbd3029794de39d22afde755f8ab8"
+      "sha256": "13a4d8d60652ad07b57ce8e3209d81d1f63ef3594d66081cd46c239fc5c22cb5"
     },
     {
       "path": "scripts/run_agentic_request.py",
@@ -1396,7 +1406,7 @@
     },
     {
       "path": "scripts/run_review_ledger.ts",
-      "sha256": "013c82b190d8cbd90eae0e73931c6346c9265a658d37885dc0aaf100b94aa239"
+      "sha256": "bbda88a1361cb3677fea2a9133b15b8d7141bd9745ab572c1c437a6a0fa252f3"
     },
     {
       "path": "scripts/scaffold_skill.py",
@@ -1460,7 +1470,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "fdccd9ef911d58d06bb1d9c68d21afa3109b39d042f876dffea914e6d694282d"
+      "sha256": "3f758aa69e321ca508bfada0d1a1c78f9d43d086863ac63e96bfb55be8460ba6"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -1596,7 +1606,7 @@
     },
     {
       "path": "scripts/tests/test_review_ledger_runtime.py",
-      "sha256": "aeae4d63834c6545f326ca6fa7d64bf3fad68332d4f788cc941865e221d1fd37"
+      "sha256": "356aa2e1ffee4640d31291260a55bddacf5e2b9400f70ffe939cb6aab8a48387"
     },
     {
       "path": "scripts/tests/test_runtime_task_dependencies.py",

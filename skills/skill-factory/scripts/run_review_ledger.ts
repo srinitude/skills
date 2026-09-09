@@ -16,8 +16,9 @@ relation_type from the ledger catalog. trace accepts depth: a nonnegative
 safe integer (default 1). Zero depth keeps only the starting subject.
 
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
-Views preserve asserted conditions and review states; they do not imply truth,
-semantic acceptance, inherited context or complete derived relationships.
+Views preserve asserted conditions, review states, recorded source context and
+explicit facet inheritance. Historical observations keep their identity.
+Derived relationship coverage, live-source proof and acceptance remain incomplete.
 `;
 
 async function main() {

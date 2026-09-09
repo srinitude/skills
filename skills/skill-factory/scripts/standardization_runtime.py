@@ -5,7 +5,7 @@ import shutil
 import tomllib
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
-LEDGER_FILES = ("review_ledger_graph.py", "review_ledger.py", "review_ledger_workflow.ts",
+LEDGER_FILES = ("review_ledger_context.py", "review_ledger_graph.py", "review_ledger.py", "review_ledger_workflow.ts",
                 "run_review_ledger.ts", "tests/test_review_ledger_runtime.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.

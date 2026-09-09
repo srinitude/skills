@@ -1,29 +1,13 @@
 """Views of asserted ledger relationships; capture and semantic acceptance are separate."""
 from collections import deque
 
-
-def require(condition, message):
-    if not condition:
-        raise ValueError(message)
+from review_ledger_context import detail_context, file_subjects, require
 
 
 def endpoints(value):
     values = value if isinstance(value, list) else [value]
     require(values and all(isinstance(x, str) and x for x in values), "invalid relationship endpoints")
     return values
-
-
-def file_subjects(data):
-    result = {"file:" + f["path"]: f for f in data.get("functional_file_map", [])}
-    for change in data["semantic_model"].get("review_changes", []):
-        snapshot = change.get("previous", {}).get("package_snapshot") or {}
-        result.update({"file:" + name: record for name, record in snapshot.get("files", {}).items()})
-    result.update({"file:" + name: record for name, record in data.get("package_snapshot", {}).get("files", {}).items()})
-    result["file-set:governed"] = {"members": sorted(result)}
-    for name, file in data.get("dependency_snapshot", {}).get("files", {}).items():
-        for task, declaration in (file.get("mise_tasks") or {}).items():
-            result[f"task:{name}#{task}"] = {"file": name, "name": task, "declaration": declaration}
-    return result
 
 
 def subjects(data):
@@ -116,7 +100,12 @@ def view(data, request):
                 if key in {"facets", "relationship_types", "themes", "rule_types", "traversals", "body_hub", "entry_defaults"}}
     require(selector in index, "unknown ledger subject")
     if action == "show":
-        return {"id": selector, "entry": index[selector], "review": data["semantic_model"].get("entry_reviews", {}).get(selector)}
+        context = detail_context(data, index, selector)
+        selected = set(context["subjects"])
+        context["relationships"] = [edge for edge in data["semantic_model"]["relationships"]
+                                    if selected.intersection(resolved_ends(edge, "from", index) + resolved_ends(edge, "to", index))]
+        return {"id": selector, "entry": index[selector], "review": data["semantic_model"].get("entry_reviews", {}).get(selector),
+                "context": context}
     direction, relation_type = request.get("direction", "both"), request.get("relation_type")
     require(direction in {"in", "out", "both"}, "invalid relationship direction")
     if action == "relations":

@@ -32,9 +32,14 @@ class TestLedgerRuntime(unittest.TestCase):
         self.ledger.write_text(json.dumps(self.data))
 
     def invoke(self, public=False, **changes):
-        request = {"action": "trace", "ledger": str(self.ledger),
+        action = changes.get("action", "trace")
+        request = {"action": action, "ledger": str(self.ledger),
                    "ledger_sha256": hashlib.sha256(self.ledger.read_bytes()).hexdigest(),
-                   "selector": "source:read", "direction": "out", "relation_type": "motivates", "depth": 1}
+                   "selector": "source:read"}
+        if action in {"relations", "trace"}:
+            request.update(direction="out", relation_type="motivates")
+        if action == "trace":
+            request["depth"] = 1
         request.update(changes)
         self.request.write_text(json.dumps(request))
         command = (["mise", "run", "--force", "--task-cache", "off", "ledger", "--", str(self.request)]
@@ -56,7 +61,7 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertEqual(view["edges"], self.data["semantic_model"]["relationships"])
         self.assertEqual(view["nodes"], ["source:read", "source:write"])
         self.assertEqual(result["execution_acceptance"], "pending")
-        self.assertEqual(result["coverage"], "asserted relationships and direct records only")
+        self.assertEqual(result["coverage"], "asserted relationships and recorded context only")
 
     def test_public_entry_emits_one_json_result(self):
         self.result(self.invoke(public=True))
@@ -86,6 +91,68 @@ class TestLedgerRuntime(unittest.TestCase):
             self.assertEqual(self.invoke(**change).returncode, 1)
         self.result(self.invoke())
 
+
+    def test_detail_keeps_inherited_meaning_parent_context_and_original_edges(self):
+        self.data["source_records"][0]["clauses"] = [{"id": "read-part", "quote": "current evidence"}]
+        self.data["semantic_model"]["entry_reviews"] = {
+            "source:review": {"inherits": [], "facets": {"meaning": "Review actual evidence."}, "state": "partial"},
+            "source:read": {"inherits": ["source:review"], "facets": {}, "state": "pending"}}
+        self.ledger.write_text(json.dumps(self.data))
+        view = json.loads(self.result(self.invoke(action="show", selector="clause:read-part"))["view_text"])
+        self.assertEqual(view["entry"], self.data["source_records"][0]["clauses"][0])
+        self.assertEqual(view["context"]["effective_facets"], {"meaning": "Review actual evidence."})
+        self.assertEqual(view["context"]["subjects"], ["source:review", "source:read", "clause:read-part"])
+        self.assertEqual(view["context"]["relationships"], self.data["semantic_model"]["relationships"])
+        self.assertEqual(view["context"]["reviews"]["source:read"]["state"], "pending")
+
+    def test_inheritance_conflicts_and_cycles_reject_before_valid_recovery(self):
+        reviews = {"source:review": {"facets": {"meaning": "Review."}},
+                   "source:write": {"facets": {"meaning": "Preserve."}},
+                   "source:read": {"inherits": ["source:review", "source:write"], "facets": {}}}
+        self.data["semantic_model"]["entry_reviews"] = reviews
+        self.ledger.write_text(json.dumps(self.data))
+        self.assertEqual(self.invoke(action="show").returncode, 1)
+        reviews["source:read"]["facets"]["meaning"] = "Review the preservation decision."
+        self.ledger.write_text(json.dumps(self.data))
+        view = json.loads(self.result(self.invoke(action="show"))["view_text"])
+        self.assertEqual(view["context"]["effective_facets"], reviews["source:read"]["facets"])
+        reviews["source:review"]["inherits"] = ["source:read"]
+        self.ledger.write_text(json.dumps(self.data))
+        self.assertEqual(self.invoke(action="show").returncode, 1)
+        del reviews["source:review"]["inherits"]
+        self.ledger.write_text(json.dumps(self.data))
+        self.result(self.invoke(action="show"))
+
+    def test_file_detail_keeps_history_and_does_not_relabel_it_current(self):
+        baseline = {"path": "removed.py", "sha256": "1" * 64, "note": "Original owner."}
+        historic = {"sha256": "2" * 64, "note": "Earlier observation."}
+        self.data["functional_file_map"] = [baseline]
+        self.data["semantic_model"]["review_changes"] = [{"previous": {"package_snapshot": {"files": {"removed.py": historic}}}}]
+        self.data["package_snapshot"] = {"files": {"current.py": {"sha256": "3" * 64}}}
+        self.ledger.write_text(json.dumps(self.data))
+        entry = json.loads(self.result(self.invoke(action="show", selector="file:removed.py"))["view_text"])["entry"]
+        self.assertEqual(entry["recorded_package_state"], "missing")
+        self.assertIsNone(entry["current"])
+        self.assertEqual(entry["baseline"], baseline)
+        self.assertEqual(entry["history"], [{"review_change": 0, "record": historic}])
+        self.data["functional_file_map"].append(dict(baseline))
+        self.ledger.write_text(json.dumps(self.data))
+        self.assertEqual(self.invoke(action="show", selector="file:removed.py").returncode, 1)
+        self.data["functional_file_map"].pop()
+        self.ledger.write_text(json.dumps(self.data))
+        self.result(self.invoke(action="show", selector="file:removed.py"))
+
+    def test_source_context_orders_group_prerequisites_before_consumers(self):
+        self.data["source_records"][0]["owner_group"] = "consumer"
+        self.data["source_owner_groups"] = [
+            {"id": "consumer", "reading_prerequisites": ["provider"]},
+            {"id": "provider", "reading_prerequisites": []}]
+        self.ledger.write_text(json.dumps(self.data))
+        view = json.loads(self.result(self.invoke(action="show"))["view_text"])
+        order = view["context"]["subjects"]
+        self.assertIn("group:provider", order)
+        self.assertLess(order.index("group:provider"), order.index("group:consumer"))
+        self.assertLess(order.index("group:consumer"), order.index("source:read"))
 
 if __name__ == "__main__":
     unittest.main()

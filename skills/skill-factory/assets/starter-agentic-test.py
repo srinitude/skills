@@ -70,7 +70,8 @@ class TestAgenticRequest(unittest.TestCase):
         runner = (
             "import json,sys; d=json.load(sys.stdin); "
             "print(json.dumps({'skill':d['use_case']['skill'],"
-            "'skills':len(d['skills']),'primitives':len(d['primitives'])}))"
+            "'skills':len(d['skills']),'primitives':len(d['primitives']),"
+            "'skill_text':d['skills'][0]['text'],'contract_text':d['use_case']['text']}))"
         )
         with tempfile.TemporaryDirectory() as tmp:
             payload = request(pathlib.Path(tmp) / "use-case-contract.json", skill)
@@ -81,7 +82,11 @@ class TestAgenticRequest(unittest.TestCase):
                 input=json.dumps(payload), capture_output=True, text=True,
                 check=False)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)["skill"], ROOT.name)
+        output = json.loads(result.stdout)
+        self.assertEqual(output["skill"], ROOT.name)
+        self.assertEqual(output["skill_text"], skill.read_bytes().decode())
+        self.assertEqual(json.loads(output["contract_text"])["outcome"],
+                         payload["use_case"]["promised_outcome"])
 
     def test_help_names_request_interface(self):
         result = subprocess.run(

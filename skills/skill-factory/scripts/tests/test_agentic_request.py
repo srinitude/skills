@@ -23,6 +23,9 @@ def echo_runner_code():
         "'prompt_bytes':len(d['prompt'].encode()),"
         "'skill':d['use_case']['skill'],"
         "'skills':len(d['skills']),"
+        "'skill_text':d['skills'][0]['text'],"
+        "'contract_text':d['use_case']['text'],"
+        "'prompt_sha256':d['prompt_sha256'],"
         "'primitives':[p['name'] for p in d['primitives']]}))"
     )
 
@@ -74,15 +77,21 @@ def runner_args(code=None):
             "--runner-args-json", json.dumps(arguments)]
 
 
+def invoke_stdin(content, code=None):
+    return subprocess.run([sys.executable, str(SCRIPT), "--request", "-",
+                           *runner_args(code)], input=content,
+                          capture_output=True, text=True, check=False)
+
+
 class TestAgenticRequest(unittest.TestCase):
     def test_long_prompt_skill_and_primitives_reach_real_runner(self):
         with tempfile.TemporaryDirectory() as tmp:
             prompt = pathlib.Path(tmp) / "prompt.md"
-            prompt.write_text("Agent skill domain instruction.\n" * 10000,
-                              encoding="utf-8")
+            prompt.write_bytes(("Agent skill caf\u00e9 instruction.\r\n" * 10000).encode())
             skill = ROOT / "SKILL.md"
             manifest = pathlib.Path(tmp) / "request.json"
-            manifest.write_text(json.dumps(request(prompt, skill)), encoding="utf-8")
+            payload = request(prompt, skill)
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
             result = subprocess.run(
                 [sys.executable, str(SCRIPT), "--request", str(manifest),
                  *runner_args()],
@@ -93,6 +102,9 @@ class TestAgenticRequest(unittest.TestCase):
         self.assertEqual(output["skills"], 1)
         self.assertEqual(output["skill"], "skill-factory")
         self.assertEqual(output["primitives"], ["agent skill web evidence"])
+        self.assertEqual(output["skill_text"], skill.read_bytes().decode())
+        self.assertEqual(output["contract_text"], CONTRACT.read_bytes().decode())
+        self.assertEqual(output["prompt_sha256"], payload["prompt"]["sha256"])
 
     def test_request_can_arrive_on_standard_input(self):
         payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")
@@ -100,20 +112,14 @@ class TestAgenticRequest(unittest.TestCase):
             "text": "Use the supplied agent skill.",
             "trace": trace("The inline agent skill prompt"),
         }
-        result = subprocess.run(
-            [sys.executable, str(SCRIPT), "--request", "-", *runner_args()],
-            input=json.dumps(payload), capture_output=True, text=True,
-            check=False)
+        result = invoke_stdin(json.dumps(payload))
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout)["skills"], 1)
 
     def test_digest_mismatch_blocks_before_runner(self):
         payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")
         payload["skills"][0]["sha256"] = "0" * 64
-        result = subprocess.run(
-            [sys.executable, str(SCRIPT), "--request", "-", *runner_args()],
-            input=json.dumps(payload), capture_output=True, text=True,
-            check=False)
+        result = invoke_stdin(json.dumps(payload))
         self.assertEqual(result.returncode, 1)
         self.assertIn("digest", result.stderr.lower())
 
@@ -157,10 +163,7 @@ class TestAgenticRequest(unittest.TestCase):
     def test_promised_outcome_must_match_the_owning_contract(self):
         payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")
         payload["use_case"]["promised_outcome"] = "A generic result."
-        result = subprocess.run(
-            [sys.executable, str(SCRIPT), "--request", "-", *runner_args()],
-            input=json.dumps(payload), capture_output=True, text=True,
-            check=False)
+        result = invoke_stdin(json.dumps(payload))
         self.assertEqual(result.returncode, 1)
         self.assertIn("promised outcome", result.stderr.lower())
 
@@ -183,6 +186,31 @@ class TestAgenticRequest(unittest.TestCase):
                 capture_output=True, text=True, check=False)
         self.assertEqual(result.returncode, 1)
         self.assertIn("agentic-request", result.stderr.lower())
+
+
+    def test_noncanonical_json_blocks_before_runner(self):
+        raw = json.dumps(request(ROOT / "SKILL.md", ROOT / "SKILL.md"))
+        cases = [('{"version":0,' + raw[1:], "duplicate JSON key"),
+                 (raw.replace('"version": 1', '"version": true'), "version 1")]
+        cases += [(raw.replace('"provider": "web"', '"provider": ' + value), "finite")
+                  for value in ["NaN", "Infinity", "-Infinity", "1e999"]]
+        for content, message in cases:
+            with self.subTest(content=content[:40], message=message):
+                result = invoke_stdin(content, "print('RUNNER_STARTED')")
+                self.assertEqual(result.returncode, 1)
+                self.assertIn(message, result.stderr)
+                self.assertEqual(result.stdout, "")
+
+    def test_duplicate_contract_does_not_reach_runner(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            contract = pathlib.Path(tmp) / "use-case-contract.json"
+            contract.write_text('{"skill":"wrong",' + CONTRACT.read_text()[1:])
+            payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")
+            payload["use_case"].update(path=str(contract), sha256=digest(contract))
+            result = invoke_stdin(json.dumps(payload), "print('RUNNER_STARTED')")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("duplicate JSON key", result.stderr)
+        self.assertEqual(result.stdout, "")
 
 
 if __name__ == "__main__":

@@ -34,8 +34,9 @@ class TestLedgerRuntime(unittest.TestCase):
     def invoke(self, public=False, **changes):
         action = changes.get("action", "trace")
         request = {"action": action, "ledger": str(self.ledger),
-                   "ledger_sha256": hashlib.sha256(self.ledger.read_bytes()).hexdigest(),
-                   "selector": "source:read"}
+                   "ledger_sha256": hashlib.sha256(self.ledger.read_bytes()).hexdigest()}
+        if action in {"show", "relations", "trace"}:
+            request["selector"] = "source:read"
         if action in {"relations", "trace"}:
             request.update(direction="out", relation_type="motivates")
         if action == "trace":
@@ -61,7 +62,7 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertEqual(view["edges"], self.data["semantic_model"]["relationships"])
         self.assertEqual(view["nodes"], ["source:read", "source:write"])
         self.assertEqual(result["execution_acceptance"], "pending")
-        self.assertEqual(result["coverage"], "asserted relationships and recorded context only")
+        self.assertEqual(result["coverage"], "recorded context, relationships and capture checks only")
 
     def test_public_entry_emits_one_json_result(self):
         self.result(self.invoke(public=True))
@@ -153,6 +154,29 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertIn("group:provider", order)
         self.assertLess(order.index("group:provider"), order.index("group:consumer"))
         self.assertLess(order.index("group:consumer"), order.index("source:read"))
+
+    def test_capture_check_rejects_changed_source_text_and_recovers(self):
+        text = "\n".join(row["text"] for row in self.data["source_records"])
+        raw, start = text.encode(), 0
+        source = {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "lines": 3}
+        self.data["source"] = source
+        self.data["packet_documents"] = [{"name": "rules.txt", "text": text, **source}]
+        for number, (row, line) in enumerate(zip(self.data["source_records"], raw.splitlines(keepends=True)), 1):
+            row.update(source_sha256=source["sha256"], quote=line.decode(), byte_start=start,
+                       byte_end_exclusive=start + len(line), line_start=number, line_end=number)
+            start += len(line)
+        self.ledger.write_text(json.dumps(self.data))
+        view = json.loads(self.result(self.invoke(action="check-capture"))["view_text"])
+        self.assertEqual((view["documents"], view["source_records"]), (1, 3))
+        self.assertEqual(view["scope"], "captured bytes and locators only")
+        valid = self.ledger.read_bytes()
+        self.data["source_records"][0]["quote"] += "Changed"
+        self.ledger.write_text(json.dumps(self.data))
+        invalid = self.ledger.read_bytes()
+        self.assertEqual(self.invoke(action="check-capture").returncode, 1)
+        self.assertEqual(self.ledger.read_bytes(), invalid)
+        self.ledger.write_bytes(valid)
+        self.result(self.invoke(action="check-capture"))
 
 if __name__ == "__main__":
     unittest.main()

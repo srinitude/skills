@@ -2,6 +2,7 @@
 from collections import deque
 
 from review_ledger_context import detail_context, file_subjects, require
+from review_ledger_source import check_capture
 
 
 def endpoints(value):
@@ -92,6 +93,8 @@ def trace(data, index, selector, direction, depth, relation_type):
 
 
 def view(data, request):
+    if request["action"] == "check-capture":
+        return check_capture(data)
     index = subjects(data)
     validate_graph(data, index)
     action, selector = request["action"], request.get("selector")

@@ -9,7 +9,10 @@ Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace.
+Actions: catalog, show, relations, trace, check-capture.
+check-capture validates the documents present and the full source byte partition,
+including source/clause byte and line locations. It does not read live originals.
+Only show, relations and trace accept a selector.
 show, relations and trace require selector, for example source:rule-id.
 relations and trace accept direction: in, out or both (default both), and
 relation_type from the ledger catalog. trace accepts depth: a nonnegative

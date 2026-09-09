@@ -38,6 +38,29 @@ def support_files(files, factory, copies, scripts, canonical):
             files[target] = (factory / target).read_bytes()
 
 
+def body_policy(text, template, prefix, label):
+    policies = [line.strip() for line in template.splitlines() if line.strip().startswith(prefix)]
+    if len(policies) != 1:
+        raise ValueError('factory must have exactly one canonical ' + label + ' paragraph')
+    existing = [line.strip() for line in text.splitlines() if prefix in line]
+    if existing:
+        if existing != policies:
+            raise ValueError('existing ' + label + ' policy needs an explicit reviewed profile migration')
+        return text
+    marker = '\nMise owns repeatable mechanics'
+    if text.count(marker) != 1:
+        raise ValueError(label + ' policy insertion needs a reviewed body owner')
+    return text.replace(marker, '\n' + policies[0] + '\n' + marker, 1)
+
+
+def body_policies(text, factory):
+    template = (factory / 'assets/skill-template.md').read_text(encoding='utf-8')
+    for prefix, label in [('For every individual added, changed or removed file', 'file-review'),
+                          ('**Efficiency and optional improvement.**', 'efficiency')]:
+        text = body_policy(text, template, prefix, label)
+    return text
+
+
 def render(root, original, profile, scope, factory, sources, stamp):
     files = dict(original)
     seeds(root, files, profile, factory)
@@ -55,6 +78,7 @@ def render(root, original, profile, scope, factory, sources, stamp):
             files[name] = rewrite_markdown(files[name].decode('utf-8'), owners, profile,
                                            add_contract=name == 'SKILL.md').encode('utf-8')
     text_rewrites(files, profile, True)
+    files['SKILL.md'] = body_policies(files['SKILL.md'].decode('utf-8'), factory).encode('utf-8')
     contract_files(files, tasks, profile)
     asset_files(files, profile, tasks, stamp)
     if scope is not None:

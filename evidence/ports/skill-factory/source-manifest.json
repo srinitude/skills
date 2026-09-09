@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "e5c6f522527913851afcb61d098653ad00dc6c65977babbc66e62dabb50abc98",
-  "evidence_packet_sha256": "e5c6f522527913851afcb61d098653ad00dc6c65977babbc66e62dabb50abc98",
+  "native_manifest_sha256": "3d0de36443525962338741d3b5c37b0de2b9473449af3e35876e534b1adc6ab0",
+  "evidence_packet_sha256": "3d0de36443525962338741d3b5c37b0de2b9473449af3e35876e534b1adc6ab0",
   "files": [
     {
       "bytes": 181,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 78790,
+      "bytes": 82117,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "96c01a394850104d805eb929ea804105daf8da9970313ad62861fdf574db0205",
+      "sha256": "aa7f8ee4ae8ee802028c128b13ee4c01a23949b8430de197fd15472422973859",
       "source_path": "SKILL.md"
     },
     {
@@ -146,10 +146,10 @@
       "source_path": "assets/registry-standardization-profiles.json"
     },
     {
-      "bytes": 78106,
+      "bytes": 81133,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template.md",
-      "sha256": "2417b802c26c0cde6990d39cb4a9b92b35ea2cd8bc3ff826122b06a3747a7a25",
+      "sha256": "c40aca72b39a4b6a4ceff4b628f632790857eb97e05f395475ba2b9db75d4e27",
       "source_path": "assets/skill-template.md"
     },
     {
@@ -300,10 +300,10 @@
       "source_path": "examples/example-ledger-write.md"
     },
     {
-      "bytes": 3568,
+      "bytes": 3933,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-new-skill.md",
-      "sha256": "efe5a216ca56bcdcc0d57e67788b0179d2db42c592adf110e010b0ae786acdd3",
+      "sha256": "f4a6ccf9e0ca28c630c73de8ca4e85925ea7a7f95409a8c41407bf8b63f96325",
       "source_path": "examples/example-new-skill.md"
     },
     {
@@ -314,10 +314,10 @@
       "source_path": "examples/example-placeholder-scaffold-caught.md"
     },
     {
-      "bytes": 2396,
+      "bytes": 2755,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-standardization.md",
-      "sha256": "45b426055e2d9cbff48fb98f86f80c0cc453418e0137fbdb24cfa315c02d641d",
+      "sha256": "fc4d293c1cd1975e96c528a08eda888a1145d30e47c19cb4395ed04b325f23b9",
       "source_path": "examples/example-standardization.md"
     },
     {
@@ -356,17 +356,17 @@
       "source_path": "examples/ledger-write-run.json"
     },
     {
-      "bytes": 3437709,
+      "bytes": 4075520,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/new-skill-run.json",
-      "sha256": "ebeb303dd2919d1211ea23bfd88640161e36a04acbc752072cb2fb297ba499d0",
+      "sha256": "d25be0a24dcae3c30248797fcfbe792d1311b8e4cd4bff911d7bdc7e63997457",
       "source_path": "examples/new-skill-run.json"
     },
     {
-      "bytes": 9912070,
+      "bytes": 9966115,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/standardization-run.json",
-      "sha256": "ba255cbe5ab4586aeed2611ca6ac33f02e73350d63293017a5557f3bfee45694",
+      "sha256": "95ca8d9a737ec35cca9b188a594169402eb90edc5d155abd5aec77253c4dc315",
       "source_path": "examples/standardization-run.json"
     },
     {
@@ -825,10 +825,10 @@
       "source_path": "scripts/standardization_profile.py"
     },
     {
-      "bytes": 2762,
+      "bytes": 3993,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_render.py",
-      "sha256": "e4e70f63c9d8d78d21f425e1f2f7cb1f985fef04ba3fb6f3f8078e735c665d5c",
+      "sha256": "9113e120a0b1e61629d210cf7e312710b23b1cd8b877ae09d622039346d42738",
       "source_path": "scripts/standardization_render.py"
     },
     {
@@ -1196,10 +1196,10 @@
       "source_path": "scripts/tests/test_runtime_task_dependencies.py"
     },
     {
-      "bytes": 6693,
+      "bytes": 7640,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_review.py",
-      "sha256": "a24e3be210a56c44d214b0982469ed815bf8ce0c7dfca9029178e6eb597afe1e",
+      "sha256": "7d389a3b8271730a921fe790c6c96ffc34ad9102bac4947cc379dd1e5246744f",
       "source_path": "scripts/tests/test_scaffold_review.py"
     },
     {
@@ -1301,10 +1301,10 @@
       "source_path": "scripts/tests/test_standardization_inventory.py"
     },
     {
-      "bytes": 6788,
+      "bytes": 9084,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_review.py",
-      "sha256": "ee4008320f19b8d6ea16f3633cffc425af9fb0773a37d414fc8844a00f32d4a8",
+      "sha256": "c3c50b152e4290842bd51670706ee70aee6a28e7e55f228da664fc51c13ca3c7",
       "source_path": "scripts/tests/test_standardization_review.py"
     },
     {

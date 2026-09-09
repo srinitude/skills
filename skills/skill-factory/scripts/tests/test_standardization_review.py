@@ -131,5 +131,39 @@ class TestStandardizationReview(unittest.TestCase):
         self.reject_config_drift('package.yaml', b'prettier: {}', b'prettier: { }')
 
 
+    def test_updated_body_inherits_the_accepted_outcome_efficiency_rules(self):
+        path, _, plan_path = self.reviewed_plan()
+        result = run('standardize_registry_skill.py', *self.args, '--apply', '--plan-file', plan_path, '--review', path)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        body = (self.root / 'SKILL.md').read_text()
+        self.assertIn('Close the smallest ready functional path', body)
+        self.assertIn('Use the complete pre-read to choose the change before writing', body)
+        self.assertIn('Use the complete post-read to compare the actual changed file', body)
+        self.assertIn('append a durable entry to the existing per-file change history', body)
+        self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', body)
+        self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', body)
+
+
+
+    def test_custom_efficiency_policy_requires_explicit_reviewed_migration(self):
+        custom = '**Efficiency and optional improvement.** Preserve the project-specific review order.'
+        body = self.root / 'SKILL.md'; body.write_text(body.read_text() + '\n' + custom + '\n')
+        before = self.snapshot()
+        result = run('standardize_registry_skill.py', *self.args)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('efficiency', result.stderr)
+        self.assertEqual(self.snapshot(), before)
+        template = (SCRIPTS.parent / 'assets/skill-template.md').read_text()
+        current = next(line for line in template.splitlines() if line.startswith('**Efficiency and optional improvement.**'))
+        data = profile(); data['text_rewrites']['SKILL.md'] = [{'old': custom, 'new': current + '\n\nPreserve the project-specific review order.'}]
+        self.config.write_text(json.dumps(data))
+        path, _, plan_path = self.reviewed_plan()
+        result = run('standardize_registry_skill.py', *self.args, '--apply', '--plan-file', plan_path, '--review', path)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(body.read_text().count(current), 1)
+        self.assertIn('Preserve the project-specific review order.', body.read_text())
+
+
+
 if __name__ == '__main__':
     unittest.main()

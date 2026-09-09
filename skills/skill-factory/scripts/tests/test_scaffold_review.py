@@ -120,5 +120,19 @@ runpy.run_path(script,run_name='__main__')
         self.assertIn('DESTINATION-MUTATION', result.stderr)
 
 
+    def test_created_body_inherits_the_accepted_outcome_efficiency_rules(self):
+        plan = self.planned(); path, _, _ = review_fixture(self, plan)
+        result = run('scaffold_skill.py', *self.args, '--review', path)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        body = (self.root / 'demo-skill/SKILL.md').read_text()
+        self.assertIn('Close the smallest ready functional path', body)
+        self.assertIn('Use the complete pre-read to choose the change before writing', body)
+        self.assertIn('Use the complete post-read to compare the actual changed file', body)
+        self.assertIn('append a durable entry to the existing per-file change history', body)
+        self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', body)
+        self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', body)
+
+
+
 if __name__ == '__main__':
     unittest.main()

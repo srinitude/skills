@@ -23,6 +23,7 @@ def file_subjects(data):
     result = {"file:" + name: {
         "path": name, "baseline": baseline.get(name), "history": history.get(name, []),
         "current": current.get(name),
+        "dependency_observation": data.get("dependency_snapshot", {}).get("files", {}).get(name),
         "recorded_package_state": ("not-observed" if snapshot is None else "present" if name in current else "missing"),
         "limit": "Recorded package observations only; no live file existence or semantic judgment."}
         for name in names}

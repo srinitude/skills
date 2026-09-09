@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { readThroughOwner, runLedger } from './review_ledger_workflow.ts';
 
 const help = `Usage: mise run ledger -- <request.json>
-Read an asserted ledger relationship view through native Mastra.
+Read recorded ledger relationships through native Mastra.
 Exit codes: 0 view, 1 failed input/workflow, 2 bad usage.
 Example: mise run ledger -- review-request.json
 
@@ -29,7 +29,12 @@ The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and
 explicit facet inheritance. Historical observations keep their identity.
 Source checks prove only supplied live bindings and the frozen source inventory.
-Derived relationship coverage, source authority and semantic acceptance remain separate.
+The optional derived_relationships version-1 ledger profile adds declared clause,
+group, section and source-links.json definition relations plus recorded reading
+prerequisites. Historical declarations and current import observations stay distinct.
+Unknown profile rules, missing references, stale observations and reading cycles reject.
+Absent profiles retain asserted-only views. Task and other derived coverage, source
+authority and semantic acceptance remain separate.
 `;
 
 async function main() {

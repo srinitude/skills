@@ -2,6 +2,7 @@
 from collections import deque
 
 from review_ledger_context import detail_context, file_subjects, require
+from review_ledger_derived import derived_edges
 from review_ledger_source import check_capture, check_sources
 
 
@@ -98,11 +99,13 @@ def view(data, request):
     if request["action"] == "check-capture":
         return check_capture(data)
     index = subjects(data)
+    model = data["semantic_model"]
+    data = {**data, "semantic_model": {**model, "relationships": [*model["relationships"], *derived_edges(data, index)]}}
     validate_graph(data, index)
     action, selector = request["action"], request.get("selector")
     if action == "catalog":
         return {key: value for key, value in data["semantic_model"].items()
-                if key in {"facets", "relationship_types", "themes", "rule_types", "traversals", "body_hub", "entry_defaults"}}
+                if key in {"facets", "relationship_types", "themes", "rule_types", "traversals", "body_hub", "entry_defaults", "derived_relationships"}}
     require(selector in index, "unknown ledger subject")
     if action == "show":
         context = detail_context(data, index, selector)

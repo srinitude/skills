@@ -2,6 +2,7 @@
 import hashlib
 import json
 import sys
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -51,6 +52,33 @@ class TestMappingPromotion(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(path.read_text(), bound)
         self.assertIn(current, (root / "SKILL.md").read_text())
+
+    def test_standardization_preserves_a_failing_exact_inventory_check(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "clock-anchor"
+            write_target(root)
+            tests = root / "scripts/tests"
+            tests.mkdir()
+            path = tests / "test_source_mapping.py"
+            raw = ("import unittest\r\n"
+                   "class ExactSource(unittest.TestCase):\r\n"
+                   "    def test_inventory(self):\r\n"
+                   "        files = {'kept': 'café', 'unexpected': 'new'}\r\n"
+                   "        EXPECTED_FILES = {'kept': 'café'}\r\n"
+                   "        self.assertEqual(files, EXPECTED_FILES)\r\n"
+                   "unittest.main()\r\n").encode()
+            path.write_bytes(raw)
+            config = Path(temp) / "profile.json"
+            config.write_text(json.dumps(profile()))
+            before = subprocess.run([sys.executable, str(path)], capture_output=True)
+            self.assertEqual(before.returncode, 1, before.stderr)
+            result = run("standardize_registry_skill.py", root, "--profile", config,
+                         "--scope", "user", "--apply")
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual(path.read_bytes(), raw)
+            after = subprocess.run([sys.executable, str(path)], capture_output=True)
+            self.assertEqual(after.returncode, 1, after.stderr)
+            self.assertIn(b"unexpected", after.stderr)
 
     def test_assertions_are_not_rewritten_to_fit_changed_output(self):
         with tempfile.TemporaryDirectory() as temp:

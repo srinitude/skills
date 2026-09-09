@@ -97,7 +97,7 @@ class TestRegistryStandardization(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn("documented_example", checker.read_text())
 
-    def test_apply_rewrites_legacy_graph_and_lineage_tests(self):
+    def test_apply_updates_graph_and_preserves_source_inventory_assertion(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "clock-anchor"
             write_target(root)
@@ -123,7 +123,7 @@ class TestRegistryStandardization(unittest.TestCase):
             self.assertIn('tasks["ci"]["depends"]', ci_test)
             self.assertNotIn('tasks["ci"]["run"]', ci_test)
             self.assertNotIn('f"mise run {job}"', ci_test)
-            self.assertIn("for key in EXPECTED_FILES", source_test)
+            self.assertEqual(source_test, "self.assertEqual(files, EXPECTED_FILES)\n")
             self.assertIn("CLI_SCRIPTS", script_test)
             self.assertNotIn('glob("*.py")', script_test)
 

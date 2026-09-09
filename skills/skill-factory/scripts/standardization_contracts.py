@@ -83,15 +83,6 @@ def repair_ci_test(root, tasks, profile):
         write(target, ci_contract(profile["skill"], tasks["ci"]["depends"]))
 
 
-def repair_source_tests(root):
-    for path in (root / "scripts/tests").glob("test_source_mapping.py"):
-        text = path.read_text(encoding="utf-8")
-        old = "self.assertEqual(files, EXPECTED_FILES)"
-        new = "self.assertEqual({key: files[key] for key in EXPECTED_FILES}, EXPECTED_FILES)"
-        if old in text:
-            write(path, text.replace(old, new))
-
-
 def cli_scripts(tasks):
     found = set()
     for task in tasks.values():
@@ -119,6 +110,5 @@ def repair_help_tests(root, tasks):
 def repair_contracts(root, tasks, profile, owners, snapshots):
     repair_validator(root)
     repair_ci_test(root, tasks, profile)
-    repair_source_tests(root)
     repair_help_tests(root, tasks)
     repair_mapping_json(root, owners, profile, snapshots)

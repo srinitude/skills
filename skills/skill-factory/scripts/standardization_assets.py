@@ -57,6 +57,15 @@ def operations(profile, tasks):
             for name in candidates if name in tasks]
 
 
+def fill_missing(defaults, previous):
+    for name, value in previous.items():
+        if isinstance(value, dict) and isinstance(defaults.get(name), dict):
+            defaults[name] = fill_missing(defaults[name], value)
+        else:
+            defaults[name] = value
+    return defaults
+
+
 def use_case(profile, tasks, previous=None):
     previous = previous or {}
     term = profile["primary_term"]
@@ -64,7 +73,7 @@ def use_case(profile, tasks, previous=None):
                   for name in DIMENSIONS}
     questions = {name: f"What can change the {term} {name} decision?"
                  for name in DIMENSIONS}
-    return {"version": "1.0.0", "skill": profile["skill"],
+    data = {"version": "1.0.0", "skill": profile["skill"],
             "outcome": profile["outcome"], "audience": profile["audience"], "motivations": motivations(profile),
             "domain_terms": profile["domain_terms"],
             "domain_failures": [f"The {term} result changes without proof.",
@@ -78,6 +87,12 @@ def use_case(profile, tasks, previous=None):
             "task_graph": {"ci_task": "ci", "public_operations": operations(profile, tasks),
                            "tasks": task_records(profile, tasks)},
             "primitive_roles": primitive_roles(profile)}
+    data = fill_missing(data, previous)
+    data["audience"] = profile["audience"]
+    for name in ["research_receipts", "disconfirmation"]:
+        if name in profile:
+            data[name] = profile[name]
+    return data
 
 
 def lifecycle(profile):

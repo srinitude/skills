@@ -18,7 +18,7 @@ from standardization_mapping import snapshot_public_lines
 from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
-from standardization_seed import create_missing
+from standardization_seed import create_missing, write_json_if_missing
 from skill_package import inventory, owned_files
 from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
 from scope_placement import check_placement
@@ -105,11 +105,11 @@ def write_assets(root, profile, tasks):
     contract = root / "assets/use-case-contract.json"
     previous = load_json(contract) if contract.is_file() else {}
     write_json(contract, use_case(profile, tasks, previous))
-    write_json(root / "assets/primitive-lifecycle.json", lifecycle(profile))
-    write_json(root / "assets/decision-records.json", decisions(profile))
-    write_json(root / "assets/invocation-receipt-template.json", invocation(profile))
+    write_json_if_missing(root / "assets/primitive-lifecycle.json", lifecycle(profile))
+    write_json_if_missing(root / "assets/decision-records.json", decisions(profile))
+    write_json_if_missing(root / "assets/invocation-receipt-template.json", invocation(profile))
     catalog = json.loads((root / "assets/mise-primitives-catalog.json").read_text())
-    write_json(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
+    write_json_if_missing(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
 
 
 def primitive_map(root, profile, catalog):

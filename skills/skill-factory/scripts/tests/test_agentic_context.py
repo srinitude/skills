@@ -52,6 +52,19 @@ class TestInitialContext(unittest.TestCase):
         self.assertEqual([item["sha256"] for item in context],
                          [digest(self.ledger), digest(self.matrix)])
 
+    def test_audience_failure_blocks_runner_and_valid_enum_recovers(self):
+        for value in [None, {"primary": "person"}, {"primary": []}]:
+            with self.subTest(value=value):
+                self.data["audience"] = value
+                blocked = self.invoke("print('RUNNER_STARTED')")
+                self.assertEqual(blocked.returncode, 1, blocked.stdout + blocked.stderr)
+                self.assertIn("audience", blocked.stderr)
+                self.assertEqual(blocked.stdout, "")
+        for primary in ["human", "agent"]:
+            self.data["audience"] = {"primary": primary}
+            recovered = self.invoke("print('RUNNER_STARTED')")
+            self.assertEqual(recovered.returncode, 0, recovered.stderr)
+
     def test_missing_declaration_blocks_before_runner(self):
         self.data.pop("initial_context")
         self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))

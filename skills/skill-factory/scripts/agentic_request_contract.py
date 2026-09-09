@@ -118,7 +118,8 @@ def use_case_record(item, base):
     task = agentic_task_record(data, terms)
     record = {"path": str(path), "sha256": actual, "text": text, "skill": skill,
               "promised_outcome": outcome, "domain_terms": terms,
-              "agentic_task": task, "initial_context": data.get("initial_context")}
+              "agentic_task": task, "audience": data.get("audience"),
+              "initial_context": data.get("initial_context")}
     return record, terms
 
 

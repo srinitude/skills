@@ -1,4 +1,4 @@
-"""Capture caller-supplied initial resources under the owning use-case bindings.
+"""Validate initial audience declarations and capture use-case-bound resources.
 
 This orders required reading only. It neither evaluates the ledger's semantics
 nor grants authority, proves model consumption or implements a domain workflow.
@@ -14,6 +14,21 @@ from agentic_request_contract import checked_file
 DECLARATION_FIELDS = {"id", "role", "path", "sha256", "depends_on"}
 INVOCATION_FIELDS = {"id", "role", "binding", "depends_on"}
 INPUT_FIELDS = {"id", "path", "sha256"}
+
+
+def audience_record(data, accept=False):
+    """Validate declaration shape only; preserve unresolved legacy inspection."""
+    if "audience" not in data and not accept:
+        return None
+    audience = data.get("audience")
+    if not isinstance(audience, dict) or audience.get("primary") not in ("human", "agent"):
+        raise ValueError("audience.primary must explicitly be human or agent")
+    secondary = audience.get("secondary", [])
+    if (not isinstance(secondary, list)
+            or not all(isinstance(item, str) and item.strip() for item in secondary)
+            or len(secondary) != len(set(secondary))):
+        raise ValueError("audience.secondary must contain unique nonempty consumer names")
+    return audience
 
 
 def indexed(items, label):

@@ -50,7 +50,7 @@ def request(contract, skill):
     initial = [{"id": "ledger", "role": "ledger", "path": ledger.name,
                 "sha256": digest(ledger), "depends_on": []}]
     contract.write_text(json.dumps({
-        "skill": ROOT.name, "outcome": outcome,
+        "skill": ROOT.name, "outcome": outcome, "audience": {"primary": "agent"},
         "domain_terms": ["agent skill", "skill package", "domain result"],
         "task_graph": task_graph(),
         "initial_context": initial,

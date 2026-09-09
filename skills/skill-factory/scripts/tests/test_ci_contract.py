@@ -57,6 +57,11 @@ class TestMiseTaskGraph(unittest.TestCase):
             self.assertIn("scripts/", run)
             self.assertNotIn("mise run", run)
 
+    def test_policy_routes_require_changed_output_designations(self):
+        for relative in ["mise.toml", "assets/mise-template.toml"]:
+            task = load_tasks(SKILL_DIR / relative)["use-case-policy"]
+            self.assertIn("--accept", task["run"])
+
     def test_target_commands_stay_behind_mise(self):
         self.assertEqual(
             self.tasks["validate-target"]["run"],

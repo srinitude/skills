@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 
 from agentic_request_contract import build_envelope, read_json
-from agentic_context import capture_context
+from agentic_context import audience_record, capture_context
 
 
 def read_request(source):
@@ -60,6 +60,7 @@ def runner_command(command, raw_arguments):
 def dispatch(command, data, base=None):
     base = Path.cwd() if base is None else Path(base)
     payload = build_envelope(data, base)
+    audience_record(payload["use_case"], accept=True)
     payload["context"] = capture_context(payload["use_case"], data.get("context"), base)
     result = subprocess.run(
         command, input=json.dumps(payload, allow_nan=False), capture_output=True,

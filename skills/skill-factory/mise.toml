@@ -101,7 +101,7 @@ cache = { enabled = true }
 [tasks.use-case-policy]
 description = "Reject generic skill primitives without a domain-specific role and proof"
 depends = ["domain-research-policy"]
-run = "python3 scripts/check_use_case_contract.py ."
+run = "python3 scripts/check_use_case_contract.py . --accept"
 
 [tasks.mise-primitives-policy]
 description = "Validate every official Mise primitive disposition for skill-factory"

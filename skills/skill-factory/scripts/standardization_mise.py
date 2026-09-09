@@ -6,7 +6,7 @@ POLICY_TASKS = {
     "domain-research-policy": ([], "Validate current domain research receipts",
         "python3 scripts/check_domain_research.py ."),
     "use-case-policy": (["domain-research-policy"], "Validate domain-specific owners",
-        "python3 scripts/check_use_case_contract.py ."),
+        "python3 scripts/check_use_case_contract.py . --accept"),
     "mise-primitives-policy": (["use-case-policy"], "Validate Mise primitive use",
         "python3 scripts/check_mise_primitives.py ."),
     "primitive-lifecycle-policy": (["mise-primitives-policy"], "Validate lifecycle ownership",
@@ -73,8 +73,9 @@ def dependency_line(names):
 
 
 def normalize_existing(name, block):
-    block = re.sub(r"scripts/validate_skill\.py \.(?! --accept)",
-                   "scripts/validate_skill.py . --accept", block)
+    for checker in ["validate_skill", "check_use_case_contract"]:
+        block = re.sub(rf"scripts/{checker}\.py \.(?! --accept)",
+                       f"scripts/{checker}.py . --accept", block)
     dependencies = declared_dependencies(block)
     if name == "ci":
         dependencies += [item for item in nested_dependencies(block)

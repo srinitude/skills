@@ -10,8 +10,8 @@ jobs = 4
 [tools]
 node = "24.18.0"
 npm = "11.16.0"
-python = "3.11"
-uv = "latest"
+python = "3.11.15"
+uv = "0.11.29"
 
 [env]
 PYTHONDONTWRITEBYTECODE = "1"
@@ -21,9 +21,10 @@ PYTHONHASHSEED = "0"
 dir = "{{config_root}}"
 
 [tasks.validate]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Static structure checks against the generation contract"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
 outputs = []
 cache = { enabled = true }
@@ -66,9 +67,10 @@ depends = []
 run = "python3 scripts/check_source_corpus.py"
 
 [tasks.lineage]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Validate current source-lineage hashes and release version"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py ."
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py ."
 
 [tasks.test-ci]
 description = "Contract tests for the task graph and the CI workflow template"
@@ -120,14 +122,16 @@ depends = ["doctor", "source-corpus"]
 run = "python3 scripts/check_source_corpus.py"
 
 [tasks.new]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Scaffold a new skill; pass flags after --"
 depends = ["doctor"]
-run = "uv run --with PyYAML==6.0.3 scripts/scaffold_skill.py"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/scaffold_skill.py"
 
 [tasks.validate-target]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Run every static factory check against a skill path passed after --"
 depends = ["doctor"]
-run = "uv run --with PyYAML==6.0.3 scripts/check_target.py validate"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_target.py validate"
 
 [tasks.eval-target]
 description = "Run the eval contract check against a skill path passed after --"
@@ -140,19 +144,22 @@ depends = ["doctor", "source-corpus"]
 run = "python3 scripts/plan_standardize.py"
 
 [tasks.standardize-target]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Apply one profile-bound registry skill standardization"
 depends = ["doctor", "source-corpus"]
-run = "uv run --with PyYAML==6.0.3 scripts/standardize_registry_skill.py"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/standardize_registry_skill.py"
 
 [tasks.resolve-scope]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Resolve intended skill availability before writing"
 depends = ["doctor"]
-run = "uv run --with PyYAML==6.0.3 scripts/resolve_scope.py"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/resolve_scope.py"
 
 [tasks.variant]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Plan or accept an independently adapted skill variant"
 depends = ["doctor"]
-run = "uv run --with PyYAML==6.0.3 scripts/skill_variant.py"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/skill_variant.py"
 
 [tasks.refresh-registry-lineage]
 description = "Refresh source lineage for named registry skills"
@@ -183,9 +190,10 @@ depends = ["mise-primitives-policy"]
 run = "python3 scripts/check_primitive_lifecycle.py ."
 
 [tasks.test]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
-run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-run_windows = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 timeout = "180s"
 depends = ["test-ci", "lint-code"]
 
@@ -206,8 +214,9 @@ output = "prefix"
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus", "lineage"]
 
 [tasks.refresh-lineage]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Atomically refresh source-lineage after accepted changes"
-run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py . --write"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py . --write"
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus"]
 
 [tasks.mise-primitives-update]

@@ -3,12 +3,13 @@ import json
 from pathlib import Path
 
 BASE_MISE = '''[tools]
-python = "3.12"
+python = "3.11.15"
+uv = "0.11.29"
 
 [tasks.test]
 description = "Run {term} contract tests"
 depends = []
-run = "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 
 [tasks.validate]
 description = "Validate the {term} package"

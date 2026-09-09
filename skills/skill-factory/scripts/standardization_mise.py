@@ -4,7 +4,7 @@ import re
 import tomllib
 from graphlib import TopologicalSorter
 
-from standardization_runtime import runtime_preamble
+from standardization_runtime import isolate_python_helpers, runtime_preamble
 
 POLICY_TASKS = {
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
@@ -163,6 +163,7 @@ def order_runtime_tasks(text):
             raise ValueError("native runtime task needs explicit reconciliation: " + name)
     blocks, graph = {}, {}
     for name, block in sections:
+        block = isolate_python_helpers(block)
         dependencies = runtime_dependencies(name, tasks[name].get("depends", []), tasks)
         graph[name] = dependencies + tasks[name].get("depends_post", [])
         if not set(graph[name]) <= set(tasks):

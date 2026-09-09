@@ -44,6 +44,44 @@ class TestRuntimeDependencies(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "native runtime task"):
             normalize_mise(invalid)
 
+    def test_shared_python_helpers_have_an_explicit_mise_owned_environment(self):
+        for name in ["mise.toml", "assets/mise-template.toml"]:
+            config = tomllib.loads((SKILL_DIR / name).read_text())
+            self.assertEqual(config["tools"]["python"], "3.11.15")
+            self.assertEqual(config["tools"]["uv"], "0.11.29")
+            commands = [(task.get(field, ""), task) for task in config["tasks"].values()
+                        for field in ["run", "run_windows"]]
+            for command, task in commands:
+                if isinstance(command, str) and command.startswith("uv run "):
+                    self.assertIn("--no-project --isolated --no-python-downloads", command)
+                    self.assertEqual(task["env"]["UV_PYTHON"], "{{tools.python.path}}")
+
+    def test_standardization_isolates_shared_helpers_and_preserves_domain_owners(self):
+        source = base_mise({"primary_term": "source-ledger"})
+        source += '\n[tasks.domain]\nrun = "uv run --project custom python tool.py"\nenv = { UV_PYTHON = "owned" }\ndepends = []\n'
+        result = normalize_mise(source)
+        config = tomllib.loads(result)
+        self.assertEqual(config["tools"]["python"], tomllib.loads(source)["tools"]["python"])
+        self.assertEqual(config["tools"]["uv"], "0.11.29")
+        self.assertEqual(config["tasks"]["domain"], tomllib.loads(source)["tasks"]["domain"])
+        task = config["tasks"]["validate"]
+        self.assertIn("--no-project --isolated --no-python-downloads", task["run"])
+        self.assertEqual(task["env"], {"UV_PYTHON": "{{tools.python.path}}"})
+        self.assertEqual(normalize_mise(result), result)
+
+    def test_custom_helper_environment_requires_reconciliation_without_mutation(self):
+        source = base_mise({"primary_term": "source-ledger"})
+        source = source.replace('[tasks.validate]', '[tasks.validate]\nenv = { UV_PYTHON = "custom" }')
+        with self.assertRaisesRegex(ValueError, "Python helper environment"):
+            normalize_mise(source)
+
+    def test_uv_version_customization_requires_reconciliation(self):
+        source = base_mise({"primary_term": "source-ledger"})
+        with self.assertRaisesRegex(ValueError, "runtime uv version"):
+            normalize_mise(source.replace('uv = "0.11.29"', 'uv = "custom"'))
+        legacy = source.replace('uv = "0.11.29"', 'uv = "latest"')
+        self.assertEqual(tomllib.loads(normalize_mise(legacy))["tools"]["uv"], "0.11.29")
+
     def test_task_definitions_follow_their_reading_dependencies(self):
         for name in ["mise.toml", "assets/mise-template.toml"]:
             with self.subTest(name=name):

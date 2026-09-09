@@ -66,7 +66,7 @@ class TestMiseTaskGraph(unittest.TestCase):
     def test_target_commands_stay_behind_mise(self):
         self.assertEqual(
             self.tasks["validate-target"]["run"],
-            "uv run --with PyYAML==6.0.3 scripts/check_target.py validate")
+            "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_target.py validate")
         self.assertEqual(self.tasks["eval-target"]["run"],
                          "python3 scripts/check_target.py eval")
 

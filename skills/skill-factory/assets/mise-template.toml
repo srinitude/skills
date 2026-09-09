@@ -10,8 +10,8 @@ jobs = 4
 [tools]
 node = "24.18.0"
 npm = "11.16.0"
-python = "3.11"
-uv = "latest"
+python = "3.11.15"
+uv = "0.11.29"
 
 [env]
 PYTHONDONTWRITEBYTECODE = "1"
@@ -21,9 +21,10 @@ PYTHONHASHSEED = "0"
 dir = "{{config_root}}"
 
 [tasks.validate]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Static structure checks against the generation contract"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
 outputs = []
 cache = { enabled = true }
@@ -128,9 +129,10 @@ run_windows = "python scripts/sync_mise_primitives.py ."
 timeout = "60s"
 
 [tasks.test]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
-run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-run_windows = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 timeout = "180s"
 depends = ["lint-code"]
 

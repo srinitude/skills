@@ -76,6 +76,22 @@ class TestLineageContract(unittest.TestCase):
         self.assertFalse(any(path.startswith((".mise/", "node_modules/"))
                              for path in paths))
 
+    def test_runtime_symlinks_are_excluded_but_owned_links_cannot_change_lineage(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.write_minimum(root)
+            bins = root / "node_modules/.bin"
+            bins.mkdir(parents=True)
+            (bins / "compiler").symlink_to(root / "SKILL.md")
+            result = run("check_lineage.py", root, "--write")
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            path = root / "evals/source-lineage.json"
+            before = path.read_bytes()
+            (root / "owned-link").symlink_to(root / "SKILL.md")
+            result = run("check_lineage.py", root, "--write")
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            self.assertEqual(path.read_bytes(), before)
+
     def test_lineage_rejects_external_file_symlinks(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)

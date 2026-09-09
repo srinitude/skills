@@ -39,6 +39,19 @@ class TestPlanStandardizeReport(unittest.TestCase):
         paths = [item["path"] for item in report["files"]]
         self.assertFalse(any("__pycache__" in path for path in paths))
 
+    def test_runtime_links_do_not_block_the_plan(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "SKILL.md").write_text("# Test source\n")
+            bins = root / "node_modules/.bin"
+            bins.mkdir(parents=True)
+            (bins / "compiler").symlink_to(root / "SKILL.md")
+            result = run("plan_standardize.py", root)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            report = json.loads(result.stdout)
+            self.assertEqual(report["symlinks"], [])
+            self.assertEqual([item["path"] for item in report["files"]], ["SKILL.md"])
+
     def test_report_freezes_files_and_missing_standard_owners(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

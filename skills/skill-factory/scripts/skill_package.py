@@ -26,7 +26,7 @@ def walk_error(error):
     raise error
 
 
-def owned_paths(root):
+def owned_entries(root):
     root = real_path(root)
     if not root.is_dir():
         raise ValueError("package or project directory is missing")
@@ -36,10 +36,16 @@ def owned_paths(root):
             path = Path(folder) / name
             if name in SKIP or name == ".DS_Store":
                 continue
-            if path.is_symlink() or not (path.is_dir() or path.is_file()):
-                raise ValueError(f"unsupported package entry: {path.relative_to(root)}")
-            if path.is_file() and path.suffix not in {".pyc", ".pyo"}:
-                yield path
+            yield path
+
+
+def owned_paths(root):
+    root = real_path(root)
+    for path in owned_entries(root):
+        if path.is_symlink() or not (path.is_dir() or path.is_file()):
+            raise ValueError(f"unsupported package entry: {path.relative_to(root)}")
+        if path.is_file() and path.suffix not in {".pyc", ".pyo"}:
+            yield path
 
 
 def inventory(root):

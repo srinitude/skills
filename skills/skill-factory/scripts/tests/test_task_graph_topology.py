@@ -4,14 +4,14 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CI_JOBS = ["test", "validate", "lint-writing", "lint-code",
+CI_JOBS = ["test", "validate", "lint-writing",
            "lint-placeholders", "evals", "improvement-policy",
            "decision-policy", "source-corpus", "lineage"]
 ACCEPTANCE_JOBS = [job for job in CI_JOBS if job != "lineage"]
 EXPECTED = {
     "ci": CI_JOBS,
     "test-ci": [],
-    "test": ["test-ci"],
+    "test": ["test-ci", "lint-code"],
     "validate": [],
     "lint-writing": [],
     "setup-runtime": [],

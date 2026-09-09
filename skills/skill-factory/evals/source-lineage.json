@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "2ba792e2401b2ee097d3fd18a329a0320fbbd1dbe8e734d47b517e4acaf19b48",
+  "native_manifest_sha256": "9c05a2447788f7c8defd651732ed6b91b07276893bb3f07e61c1643d862fded6",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -287,6 +287,18 @@
       ]
     },
     {
+      "path": "package-lock.json",
+      "source_paths": [
+        "package-lock.json"
+      ]
+    },
+    {
+      "path": "package.json",
+      "source_paths": [
+        "package.json"
+      ]
+    },
+    {
       "path": "references/code-rules.md",
       "source_paths": [
         "references/code-rules.md"
@@ -347,6 +359,12 @@
       ]
     },
     {
+      "path": "scripts/agentic_context.py",
+      "source_paths": [
+        "scripts/agentic_context.py"
+      ]
+    },
+    {
       "path": "scripts/agentic_request_contract.py",
       "source_paths": [
         "scripts/agentic_request_contract.py"
@@ -386,6 +404,12 @@
       "path": "scripts/check_invocation_receipt.py",
       "source_paths": [
         "scripts/check_invocation_receipt.py"
+      ]
+    },
+    {
+      "path": "scripts/check_javascript.ts",
+      "source_paths": [
+        "scripts/check_javascript.ts"
       ]
     },
     {
@@ -569,6 +593,12 @@
       ]
     },
     {
+      "path": "scripts/standardization_runtime.py",
+      "source_paths": [
+        "scripts/standardization_runtime.py"
+      ]
+    },
+    {
       "path": "scripts/standardization_seed.py",
       "source_paths": [
         "scripts/standardization_seed.py"
@@ -587,9 +617,21 @@
       ]
     },
     {
+      "path": "scripts/tests/agentic_request_fixtures.py",
+      "source_paths": [
+        "scripts/tests/agentic_request_fixtures.py"
+      ]
+    },
+    {
       "path": "scripts/tests/cli.py",
       "source_paths": [
         "scripts/tests/cli.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/standardization_fixtures.py",
+      "source_paths": [
+        "scripts/tests/standardization_fixtures.py"
       ]
     },
     {
@@ -602,6 +644,12 @@
       "path": "scripts/tests/test_adversarial_source_boundaries.py",
       "source_paths": [
         "scripts/tests/test_adversarial_source_boundaries.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_agentic_context.py",
+      "source_paths": [
+        "scripts/tests/test_agentic_context.py"
       ]
     },
     {
@@ -632,6 +680,12 @@
       "path": "scripts/tests/test_check_target.py",
       "source_paths": [
         "scripts/tests/test_check_target.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_checker_ownership.py",
+      "source_paths": [
+        "scripts/tests/test_checker_ownership.py"
       ]
     },
     {
@@ -677,6 +731,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_javascript_code_rules.py",
+      "source_paths": [
+        "scripts/tests/test_javascript_code_rules.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_lineage_contract.py",
       "source_paths": [
         "scripts/tests/test_lineage_contract.py"
@@ -686,6 +746,12 @@
       "path": "scripts/tests/test_lint_writing.py",
       "source_paths": [
         "scripts/tests/test_lint_writing.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_mapping_promotion.py",
+      "source_paths": [
+        "scripts/tests/test_mapping_promotion.py"
       ]
     },
     {
@@ -728,6 +794,12 @@
       "path": "scripts/tests/test_refresh_registry_lineage.py",
       "source_paths": [
         "scripts/tests/test_refresh_registry_lineage.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_runtime_task_dependencies.py",
+      "source_paths": [
+        "scripts/tests/test_runtime_task_dependencies.py"
       ]
     },
     {
@@ -797,6 +869,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_standardization_inputs.py",
+      "source_paths": [
+        "scripts/tests/test_standardization_inputs.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_standardization_inventory.py",
       "source_paths": [
         "scripts/tests/test_standardization_inventory.py"
@@ -827,9 +905,21 @@
       ]
     },
     {
+      "path": "scripts/tests/test_template_dependency_order.py",
+      "source_paths": [
+        "scripts/tests/test_template_dependency_order.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_token_efficiency_contract.py",
       "source_paths": [
         "scripts/tests/test_token_efficiency_contract.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_use_case_acceptance.py",
+      "source_paths": [
+        "scripts/tests/test_use_case_acceptance.py"
       ]
     },
     {
@@ -921,6 +1011,12 @@
       "source_paths": [
         "scripts/variant_schema.py"
       ]
+    },
+    {
+      "path": "tsconfig.json",
+      "source_paths": [
+        "tsconfig.json"
+      ]
     }
   ],
   "source_files": [
@@ -934,11 +1030,11 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "8e3b4c3dcf0e43cdf36d19b9035072f7f76d3cae50372b99836e68e675a0612a"
+      "sha256": "00c2c43107b42bccdf2dd193344ff60e385fb0898a689e0b885fecc8e18cf59e"
     },
     {
       "path": "assets/agentic-request-template.json",
-      "sha256": "ae5c74d7ebcd4b485b81f7d3f4dc075d5047574bfa316c28422ac3c20c8332b5"
+      "sha256": "377daa8d75dc5d4efc11c2ffc1088ba4d415626ff48bea4212c057cde55f9433"
     },
     {
       "path": "assets/ci/ci.yml",
@@ -990,7 +1086,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "bbf79b9b298620d02c9435c59693c03be145b7fd4ed1db1d6935560a4ba3655c"
+      "sha256": "27cd4de7f73e2622617bccefbc009bea49f3e1845d4abadcbb725d1e0f6be076"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1006,7 +1102,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "bb87e4650d4d98050d3f01de5554ca351300da8bf974bf707de983e36397c117"
+      "sha256": "9c9a4f08dbea9fd412883a876f2eaa5647724c5fc1953967ac6815f7f34b0ba6"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1014,11 +1110,11 @@
     },
     {
       "path": "assets/starter-agentic-test.py",
-      "sha256": "a9b684375c69951d74083898f6d6c3f13a84783540147bff14122394a0ec71ad"
+      "sha256": "c5804e1259734aceb28d87d0136f65be20a482200636e964c1914fcffbd3c513"
     },
     {
       "path": "assets/starter-ci-test.py",
-      "sha256": "352caa26866039188db276093ff032f49635c59723f4eb6cbb2fc6fb34f3e494"
+      "sha256": "b3e5dcd87fb2a7b91caef2f4dbfe63ee4dcb9daad6b7ee10964f4c7e26fcc5ea"
     },
     {
       "path": "assets/starter-script.py",
@@ -1034,11 +1130,11 @@
     },
     {
       "path": "assets/use-case-contract-template.json",
-      "sha256": "e2d933a50a9e25daf16e2764d25c0020761e247642ecd9d5102dc4a1b9fb8bb0"
+      "sha256": "c19a26fd516825876a36cb42726d7045fa3ae12b6c139cb2073088d08fd7ebbb"
     },
     {
       "path": "assets/use-case-contract.json",
-      "sha256": "31bce5e733f34b30c82b17faa609b011914287fc345bdd1cc472e79e18de98bf"
+      "sha256": "a451bf0772284326396c92cdd0b0a01eae8256a0400ba232d6e2d844b17e8b02"
     },
     {
       "path": "assets/variant-review.schema.json",
@@ -1090,7 +1186,7 @@
     },
     {
       "path": "examples/example-new-skill.md",
-      "sha256": "d4bfbb556e7168a1e13631cfb8d06bd87a55750439cd109a871939f6f8786ed1"
+      "sha256": "2ec5f4201bdbc1c0dc5d27d872b165def38a010ab96be44279971973e1189914"
     },
     {
       "path": "examples/example-placeholder-scaffold-caught.md",
@@ -1110,11 +1206,19 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "c29614af6d819f6ce20b18b06c3e01660c2ea82f7c741f1f265018a33f0227c4"
+      "sha256": "8acfa4a83dceb4f9e7ddd0a7d03d37bd3943b2e919969a0761e1e154f40cb890"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "13006f250eabf1b935f8469d4bfadc0940c3fbc2ba18acb7c053ef6f86169141"
+    },
+    {
+      "path": "package.json",
+      "sha256": "9f3d055a8a1c83b81908f550ca19b0714e5b909e606860ec46cd89c5e386795c"
     },
     {
       "path": "references/code-rules.md",
-      "sha256": "c01b3ef367e55c8c4c1bc6bcd70de9d4c5de16c200630041dfc42e5f310734d7"
+      "sha256": "23b65bf50d49f1d720e9f59d460383cce58dc0220a122a2e8b50e270bcfd2293"
     },
     {
       "path": "references/decisions.md",
@@ -1126,7 +1230,7 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "a51f168f6f13196c04a7b983c199a5c6d1d8be14d8952291123e5d8f8de4538f"
+      "sha256": "147ed2f91f45a7aebc0c9834ad8b30a56b387faa71ca93869cf93c4fcc339d59"
     },
     {
       "path": "references/registry.md",
@@ -1150,15 +1254,19 @@
     },
     {
       "path": "references/writing-rules.md",
-      "sha256": "e2de5be3d6eeee5af6680f226b219a36eb8a355faa160a593aa8d4a52c43f4ad"
+      "sha256": "11d0e04b880d58a62b7961a40e2fab1907e72f180df86a11b5f2275687b8651c"
+    },
+    {
+      "path": "scripts/agentic_context.py",
+      "sha256": "2e5afeceadc396693c0973d057c91254990b2b9cd35d57c26e85d0d45f124166"
     },
     {
       "path": "scripts/agentic_request_contract.py",
-      "sha256": "fde69a88acaa362ef3ec44662dcebe8dcb7600f82bd4e372c0f0674d2ab22ad5"
+      "sha256": "a892b27e7b474b92f184d801bfe663db6facb55135e29515838e0a50a3748a70"
     },
     {
       "path": "scripts/check_code_rules.py",
-      "sha256": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824"
+      "sha256": "1b46ebf4fe1d63ea9ecf2e26e544d5da5de65abc330a045f615ca1f35cbd6781"
     },
     {
       "path": "scripts/check_decision_records.py",
@@ -1181,8 +1289,12 @@
       "sha256": "7d547b7e167849e4c471c367b2e8c1e6858151659839ff9118ffd5555675432f"
     },
     {
+      "path": "scripts/check_javascript.ts",
+      "sha256": "49b3c8e14c38919f467e66957b83fe8e5b376601697b6679bdf0ebd36cc1d37b"
+    },
+    {
       "path": "scripts/check_lineage.py",
-      "sha256": "845aa4da66ecc748df198b2ccde3e10fe629c4f917554a66da9c1db3bb2f0061"
+      "sha256": "bc7ee283c702b072a435aefb9a9c15f647366570d89bccb0f6b9c1e1ed11ca79"
     },
     {
       "path": "scripts/check_mise_primitives.py",
@@ -1190,7 +1302,7 @@
     },
     {
       "path": "scripts/check_placeholders.py",
-      "sha256": "d944b0c712ee5a9d041755d4433b2818d693557d736ce67b4fc2ecfe7c07c8ed"
+      "sha256": "b9238e64d208ebc50fbbcf1afd360d738749f34236795e2ae27a4ca928a15b7a"
     },
     {
       "path": "scripts/check_primitive_lifecycle.py",
@@ -1202,15 +1314,15 @@
     },
     {
       "path": "scripts/check_target.py",
-      "sha256": "5ca771c6fcbb7d8681a7a728fad77915d1a735f951bbc39a55535d6b677a0a1f"
+      "sha256": "4388e7fb8683d29ca30fdb583c67e2d562b9439bbafac9efbd43965a5d8935de"
     },
     {
       "path": "scripts/check_task_graph.py",
-      "sha256": "8af024693eedd92a6bea714df7d7b1d7c64f1b62bf241307b856fb38051c252c"
+      "sha256": "02ecc5e6816dbb8a240044960dbe22c33c5fd894a2148cc47589081f7cfde37e"
     },
     {
       "path": "scripts/check_use_case_contract.py",
-      "sha256": "8867af8c0193656d9efb222abce27f8704e02cc62183b43193f4ced660f5d9bf"
+      "sha256": "838b9ac1b805f0b03de0c30e8f70da09c758eec8bf58d821da8c14ec1526dd96"
     },
     {
       "path": "scripts/doctor.py",
@@ -1222,15 +1334,15 @@
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "9f1895e4922dee00bf6c6598fa0076dd51020fe96521d56d20de39911cef1633"
+      "sha256": "f1ca05c653d630db731c3a86e0744a62338afbece2fa2b5a774c511554aee7f1"
     },
     {
       "path": "scripts/plan_standardize.py",
-      "sha256": "80986de73842df61815b7e253c97b16991bf0d976bfafa08184160ffec26790f"
+      "sha256": "7a654affb2a8c2337e6f840d85fa9ad2ee67aa315e50b8d008836714374491e3"
     },
     {
       "path": "scripts/refresh_registry_lineage.py",
-      "sha256": "29cff16cff85d1fded75df804f18fe315178e2944db0d62cb67e936223598292"
+      "sha256": "fd995527a487188a9d2aa7e39b5554ed3c4fd62ba894985f3b47367d174b6fa5"
     },
     {
       "path": "scripts/resolve_scope.py",
@@ -1238,11 +1350,11 @@
     },
     {
       "path": "scripts/run_agentic_request.py",
-      "sha256": "9c673f3a30915fb960cbf0c48d39ce3810d215e19239881ceaf4615192135f40"
+      "sha256": "cc5e9d73830d1c5c21566746147a7f3e805d99badfe9956b98d2905c1082c1d7"
     },
     {
       "path": "scripts/scaffold_skill.py",
-      "sha256": "a7f7c55a86662fcd39211c3495ab724b03278427eb83b9f642cbb285aba31438"
+      "sha256": "c8ee5474e3ee5767cccf34360bf980fd939b7858215ac16687a5d0288c0790da"
     },
     {
       "path": "scripts/scope_placement.py",
@@ -1250,7 +1362,7 @@
     },
     {
       "path": "scripts/skill_package.py",
-      "sha256": "466753d6f604a9433e9b51ace0a58d3f5f34191dc98b0083689aab25dfae7184"
+      "sha256": "266214a369f4b1de001d7c62628a058294cbb2c2346868473c1992eaa8bfbfd4"
     },
     {
       "path": "scripts/skill_scope.py",
@@ -1262,7 +1374,7 @@
     },
     {
       "path": "scripts/standardization_assets.py",
-      "sha256": "2260c218e90e28283e21ef0e34002b5e26e46674af0b76fc9ff4187006ccd397"
+      "sha256": "b2f510884c5242df7dda4c7cc7dd3c637aa72c2fe1951179bfea4ba1bb24843b"
     },
     {
       "path": "scripts/standardization_baseline.py",
@@ -1270,7 +1382,7 @@
     },
     {
       "path": "scripts/standardization_contracts.py",
-      "sha256": "d9f5343adab38bddca49cb0b5efb4fc0eb6396d7ce3ea515fe22613ac0bf6780"
+      "sha256": "a4fd694f6003269464f71178258b2f23207e96115aceeb387f82a7238c1215e3"
     },
     {
       "path": "scripts/standardization_discovery.py",
@@ -1282,7 +1394,7 @@
     },
     {
       "path": "scripts/standardization_mapping.py",
-      "sha256": "e9ceed20881712a107b32751e6f31c1248ccce50c3028d35c9038011ddc56c64"
+      "sha256": "648bb0c1ad789585e86e7cd214bd0c3ca9177a91fab1f2f0259b5a60bdd9adad"
     },
     {
       "path": "scripts/standardization_markdown.py",
@@ -1290,15 +1402,19 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "f4a65606287710befe467b080a2934c79212b63b5f3a23bd5930ea536defa9a2"
+      "sha256": "e07e13834a74190689ea02adb16e7ef1000185f6ba9d5d6ab729602c6e54258d"
     },
     {
       "path": "scripts/standardization_profile.py",
-      "sha256": "ec2b0bec3eb86db7f70b8c5f9930b1b516a4e447739f4bd6fe5f29090c1f195b"
+      "sha256": "0063ad3d498b99c77d4d748c3022f8ba766f093874c91da7d10a46886618a393"
     },
     {
       "path": "scripts/standardization_rewrites.py",
       "sha256": "7f70152812a9ccc6b8b39d089aab3988365dbc5d43cd27b3caaa3c5644a3789d"
+    },
+    {
+      "path": "scripts/standardization_runtime.py",
+      "sha256": "886edeb0cd862fdb11f9bc4dd616ec517e0fba447ddfeefda2f5537af9abee66"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -1306,15 +1422,23 @@
     },
     {
       "path": "scripts/standardize_registry_skill.py",
-      "sha256": "2eb30552e5376871106cdfa45691814898f0cb0c55087d54fee247efdc6282d9"
+      "sha256": "69c86a18e82192566004bd6f84994090914cdd83ad7daa131abed7e2c4651505"
     },
     {
       "path": "scripts/sync_mise_primitives.py",
       "sha256": "75415d9266df6b8fc7a37f3c9e83c0d03623f00355fa06889331da37cac3b216"
     },
     {
+      "path": "scripts/tests/agentic_request_fixtures.py",
+      "sha256": "b85259904831243e1a3f6f848391f93f0d7f05ebdf6fd9270a238599f36b4964"
+    },
+    {
       "path": "scripts/tests/cli.py",
       "sha256": "9e4239c5995eedcbe9581a46ef6358ef688cf709d5d888c343a9931cbf6f9b54"
+    },
+    {
+      "path": "scripts/tests/standardization_fixtures.py",
+      "sha256": "220d66aa191a1b0d5ad1929dff3ad1d16719d15dc61896edad8251e027edd0ef"
     },
     {
       "path": "scripts/tests/test_adversarial_fail_closed.py",
@@ -1325,8 +1449,12 @@
       "sha256": "85a74c75b771df36fe75775cbcb57d94fedd8db01aa8c70a6eb9c5f219a098ba"
     },
     {
+      "path": "scripts/tests/test_agentic_context.py",
+      "sha256": "71e93236aaee9426a80e3feffddcb0dce26529317248150ba7d95344f21e3793"
+    },
+    {
       "path": "scripts/tests/test_agentic_request.py",
-      "sha256": "42d3f87e2fe975bb5a58860d6de6b121d164c37951410e0df86ccf491d70cbb5"
+      "sha256": "6bbe73c4bcb8bdfa4f76ae45f627f277c700368d04157eb4e76072d62e4d6b13"
     },
     {
       "path": "scripts/tests/test_check_code_rules.py",
@@ -1345,8 +1473,12 @@
       "sha256": "91b9b88d7cd6c8c3810b83961ec3c012ffdbaa38c5167ff8e234c78065685751"
     },
     {
+      "path": "scripts/tests/test_checker_ownership.py",
+      "sha256": "a739f5dd5811ed4c821aaa036e4c17f6ae03bdc43738ed16e697b317cb0fea26"
+    },
+    {
       "path": "scripts/tests/test_ci_contract.py",
-      "sha256": "4221ce9ae7f41e13c4ea69dd6d02a193aa5873cd90ecc3fe5fc1e8e1062baff4"
+      "sha256": "e1723ab0b118b0ca6da290d8b7bba3bcc6a0d8ad913a25e05f870fd6bef43812"
     },
     {
       "path": "scripts/tests/test_decision_records.py",
@@ -1362,23 +1494,31 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "e56374c99ab58e1461071f58ff0422ef6370050b4d24a16109985fafdf63072d"
+      "sha256": "8a3b6a15bff7593df1016af62664d02245499644a1b3777e707099efdde2782c"
     },
     {
       "path": "scripts/tests/test_generated_agentic_scaffold.py",
-      "sha256": "f26809f577badab9fe2768f7eedc067e29381c9b7ec3b54cf9ab0064b86d5b29"
+      "sha256": "c03bfe60058a527c2a11ea55e46b52abd971bac43355c2a45a040ad481761aa2"
     },
     {
       "path": "scripts/tests/test_invocation_receipt.py",
       "sha256": "360e89f56487871fe701ecd7e8e2dee8c8e545114a6f029e8814b19a292f7d03"
     },
     {
+      "path": "scripts/tests/test_javascript_code_rules.py",
+      "sha256": "5a7a7cb36bea12a4c924ae5ee90be998fd5b932470148fcde88b1a55201e61d2"
+    },
+    {
       "path": "scripts/tests/test_lineage_contract.py",
-      "sha256": "3aea5951a9bbae46f4bb89e788d3ed3dc0b8437c0da8351d542220eaf48c96a7"
+      "sha256": "e81b35ae1a2ee258a756fbb9b475b13dee74eb4e5b79091e16d473d01e23593e"
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
-      "sha256": "91300d55688a97ac48fc9a35d6c618c6e72b3672e9190ae2aa70528dbf0aebc1"
+      "sha256": "4ce75dfe3fc465243ccf80f99fd2a911c9a57fb66039cb0091614fb9468ee520"
+    },
+    {
+      "path": "scripts/tests/test_mapping_promotion.py",
+      "sha256": "55f19b776db1fd22701d870b5862c1de40b7be61bdfc34eb2ababed987254878"
     },
     {
       "path": "scripts/tests/test_mise_primitives.py",
@@ -1390,11 +1530,11 @@
     },
     {
       "path": "scripts/tests/test_ordered_workflow_contract.py",
-      "sha256": "c3e7d25ffe1d25d3586154ae8e754eb3ff2e4371a35cc59b282e322463ee2461"
+      "sha256": "547f2405ff598aea42c2758987de23e5f69e01873668dc70ca79a85378bc77f2"
     },
     {
       "path": "scripts/tests/test_plan_standardize.py",
-      "sha256": "9aa10b8b82a36e592701a2dd7c4a32e6cb18a0dcc75e3d5e505c72d97e968327"
+      "sha256": "fdfd85bfd3fb7c790c423e38b87dd353a45e9dac6c6d7fda75243b4996dd500b"
     },
     {
       "path": "scripts/tests/test_portable_factory.py",
@@ -1406,11 +1546,15 @@
     },
     {
       "path": "scripts/tests/test_refresh_registry_lineage.py",
-      "sha256": "b56d6ee65dbd13395062ec1596c6719549c2752156ad834fd8ac323e2ffd9ede"
+      "sha256": "71b1955ae08af9f3025baa3439d17086bd79ce369b0dfcb1d1c30428ac286f65"
+    },
+    {
+      "path": "scripts/tests/test_runtime_task_dependencies.py",
+      "sha256": "572991754e566b37d270ff1237cdb8c4b672145974330ae0a301d340d9acc340"
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "f58881ce4d5ce8da41dadd446348884148ebcec312e53d8f11ced6456a534054"
+      "sha256": "8f040794ebaacc44111170202fd3dd15ba0bc52694a21aee2d005289c4c68999"
     },
     {
       "path": "scripts/tests/test_scope_destination.py",
@@ -1422,7 +1566,7 @@
     },
     {
       "path": "scripts/tests/test_simplicity_contract.py",
-      "sha256": "e14a664a1fc0501b7c6a6ba28d5ad84fd92be4a4e3732a601ec8f86ce38f7776"
+      "sha256": "ae53fb20c8a2ccc70a0e2ba5d23e05a4e1714dfb9e186240f6589fd4260cdd94"
     },
     {
       "path": "scripts/tests/test_skill_scope.py",
@@ -1442,15 +1586,19 @@
     },
     {
       "path": "scripts/tests/test_standardization_contracts.py",
-      "sha256": "e3f615e1529669991217e6a90c7cbee03b3b58c18499371da2ba212c31e79761"
+      "sha256": "52bdbd5f342a2b69f1e51b711cba1f0827b2024118966655afc4b524593c63f5"
     },
     {
       "path": "scripts/tests/test_standardization_copy.py",
-      "sha256": "998f2c1d7f5aa1cb36113669d0005b2d5853f58159ce6266ad4687c820ee5596"
+      "sha256": "0d8475f7039f40796631222497c47b2aaee0141b6511dac007f4e4b48e05daca"
     },
     {
       "path": "scripts/tests/test_standardization_format.py",
       "sha256": "dba108d850f91b1d5c3cb25bb4e6da32d50785939c26e8a76b9712c2590ed3c6"
+    },
+    {
+      "path": "scripts/tests/test_standardization_inputs.py",
+      "sha256": "c0148ce601ec9f277e7a77e35c9638544e6bb225659e0b8ff9041dedc2eada95"
     },
     {
       "path": "scripts/tests/test_standardization_inventory.py",
@@ -1458,7 +1606,7 @@
     },
     {
       "path": "scripts/tests/test_standardize_registry_skill.py",
-      "sha256": "08c42aa0b6962a4109a42b7feec201d4479889ac5bfff574233b092857ed1d7d"
+      "sha256": "b9d95cffd6f26b13044e95d66e89c76fa3bd1ab51a6b8edca5d4b0d7cdb34132"
     },
     {
       "path": "scripts/tests/test_sync_mise_primitives.py",
@@ -1466,15 +1614,23 @@
     },
     {
       "path": "scripts/tests/test_task_graph_policy.py",
-      "sha256": "11da7d983555e9b602ea052af667a2256d567047d0504dc4feeed112935696f5"
+      "sha256": "87bf739ff2a41a7975ffabe5916b89da67800d482b173aa3d72332d145479292"
     },
     {
       "path": "scripts/tests/test_task_graph_topology.py",
-      "sha256": "f94bccd910483e1a6181baaca2560251efb5dc98ced635633855c91f1170c077"
+      "sha256": "c2ffe2695a9b671d2ffcff892014ee89fd6090cf74c97a91edc7c37a02ac5d70"
+    },
+    {
+      "path": "scripts/tests/test_template_dependency_order.py",
+      "sha256": "c5ba7503f35e37026ed967996c0079d80d031414179ba1e3cabfd508fa468c15"
     },
     {
       "path": "scripts/tests/test_token_efficiency_contract.py",
-      "sha256": "1a9bbb722b3306bdc9c3903a74dce682884a26ada51a45a708e22bd83f9e4eb1"
+      "sha256": "568c4d9b7489341a781faeb06014adb686a6edf34990dac9e8bca1001bd8e0f3"
+    },
+    {
+      "path": "scripts/tests/test_use_case_acceptance.py",
+      "sha256": "3493daa44827ceb2456e6f55ff174dba108408a82a1f11451257944cd0e6fd2c"
     },
     {
       "path": "scripts/tests/test_use_case_contract.py",
@@ -1506,7 +1662,7 @@
     },
     {
       "path": "scripts/tests/variant_fixtures.py",
-      "sha256": "6bf2319f9130ac83484941ee0501dba80d4090c7ebcffbe61d3d26abb4f592f9"
+      "sha256": "73343b0880b0f8c81889873343123d5dd38dad207b5e99788eb5fe9e7881a553"
     },
     {
       "path": "scripts/validate_skill.py",
@@ -1535,6 +1691,10 @@
     {
       "path": "scripts/variant_schema.py",
       "sha256": "b0b5a794411c4c4858a29f35615dec36c69c6403ac103490f325ec2b3db86320"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "123412b493c51ecfb20cee097a963f2a6c57efb6b4aa422676275e88833b02f4"
     }
   ],
   "source_case_ids": [

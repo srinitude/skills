@@ -21,12 +21,10 @@ import sys
 import tempfile
 from pathlib import Path
 from validate_skill import parse_header, split_frontmatter
+from skill_package import owned_paths
 
 SELF = Path(__file__).resolve().parents[1]
 LINEAGE = "evals/source-lineage.json"
-SKIP_PARTS = {".git", ".mise", "__pycache__", "node_modules",
-              ".pytest_cache", ".mypy_cache", ".ruff_cache"}
-SKIP_NAMES = {".DS_Store"}
 
 
 def digest(data):
@@ -34,20 +32,9 @@ def digest(data):
 
 
 def files(root):
-    found = []
-    for path in root.rglob("*"):
-        relative = path.relative_to(root).as_posix()
-        if path.is_file() and not path.is_symlink() and relative != LINEAGE:
-            if (not SKIP_PARTS.intersection(path.parts)
-                    and path.name not in SKIP_NAMES
-                    and path.suffix not in {".pyc", ".pyo"}):
-                found.append(relative)
-    return sorted(found)
-
-
-def symlink_paths(root):
-    return sorted(path.relative_to(root).as_posix()
-                  for path in root.rglob("*") if path.is_symlink())
+    root = root.resolve()
+    return sorted(path.relative_to(root).as_posix() for path in owned_paths(root)
+                  if path.relative_to(root).as_posix() != LINEAGE)
 
 
 def metadata(root):
@@ -143,11 +130,6 @@ def write_atomic(path, document):
 
 def report(root, write=False):
     path = root / LINEAGE
-    links = symlink_paths(root)
-    if links:
-        return {"status": "FAIL", "mode": "write" if write else "check",
-                "files": len(files(root)),
-                "problems": ["symlinks are not portable: " + ", ".join(links)]}
     expected = current_document(root)
     if write:
         write_atomic(path, expected)

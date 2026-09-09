@@ -46,8 +46,9 @@ class TestTaskGraph(unittest.TestCase):
     def test_ci_invokes_every_check_job(self):
         task = self.tasks["ci"]
         self.assertEqual(set(task["depends"]),
-                         set(["test"] + CHECK_JOBS))
+                         set(["test"] + [job for job in CHECK_JOBS if job != "lint-code"]))
         self.assertNotIn("run", task)
+        self.assertEqual(self.tasks["test"]["depends"], ["lint-code"])
 
     def test_every_task_has_a_description(self):
         for name, task in self.tasks.items():

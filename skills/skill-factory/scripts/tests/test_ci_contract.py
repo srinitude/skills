@@ -20,7 +20,8 @@ REQUIRED_TASKS = [
 CHECK_JOBS = ["validate", "lint-writing", "lint-code",
               "lint-placeholders", "evals", "improvement-policy",
               "decision-policy"]
-FACTORY_CI_JOBS = ["test"] + CHECK_JOBS + ["source-corpus", "lineage"]
+DIRECT_CHECKS = [job for job in CHECK_JOBS if job != "lint-code"]
+FACTORY_CI_JOBS = ["test"] + DIRECT_CHECKS + ["source-corpus", "lineage"]
 
 
 def load_tasks(path):
@@ -41,7 +42,7 @@ class TestMiseTaskGraph(unittest.TestCase):
         task = self.tasks["ci"]
         self.assertEqual(set(task["depends"]), set(FACTORY_CI_JOBS))
         self.assertNotIn("run", task)
-        self.assertEqual(self.tasks["test"]["depends"], ["test-ci"])
+        self.assertEqual(self.tasks["test"]["depends"], ["test-ci", "lint-code"])
 
     def test_ci_covers_every_check_job(self):
         self.assertEqual(set(self.tasks["ci"]["depends"]),
@@ -122,7 +123,7 @@ class TestGeneratedSkillTemplate(unittest.TestCase):
 
     def test_template_has_single_ci_entrypoint(self):
         task = self.tasks["ci"]
-        self.assertEqual(set(task["depends"]), set(["test"] + CHECK_JOBS))
+        self.assertEqual(set(task["depends"]), set(["test"] + DIRECT_CHECKS))
         self.assertNotIn("run", task)
 
     def test_template_jobs_match_factory_jobs(self):

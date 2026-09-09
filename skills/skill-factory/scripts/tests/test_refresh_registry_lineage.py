@@ -92,6 +92,19 @@ class TestRegistryLineageRefresh(unittest.TestCase):
                 ("files", skill, (lineage, manifest)),
             ])
 
+    def test_public_inventory_excludes_runtime_but_rejects_owned_links(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.fixture(root, "repository_baseline")
+            skill = root / "skills/clock-anchor"
+            bins = skill / "node_modules/.bin"
+            bins.mkdir(parents=True)
+            (bins / "compiler").symlink_to(skill / "SKILL.md")
+            self.assertEqual(MODULE.public_paths(root, "clock-anchor"), ["SKILL.md"])
+            (skill / "owned-link").symlink_to(skill / "SKILL.md")
+            with self.assertRaises(ValueError):
+                MODULE.public_paths(root, "clock-anchor")
+
     def test_unknown_skill_fails_before_execution(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

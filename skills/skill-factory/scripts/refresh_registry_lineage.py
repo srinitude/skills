@@ -6,6 +6,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from skill_package import owned_paths
 
 from standardization_format import format_files, format_target
 
@@ -32,16 +33,9 @@ def digest(data):
 
 
 def public_paths(root, skill):
-    base, found = root / "skills" / skill, []
-    for path in base.rglob("*"):
-        if "__pycache__" in path.parts or path.is_dir():
-            continue
-        if path.is_symlink() or not path.is_file():
-            raise ValueError(f"unsupported public entry: {path.relative_to(base)}")
-        relative = path.relative_to(base).as_posix()
-        if relative != "evals/source-lineage.json":
-            found.append(relative)
-    return sorted(found)
+    base = (root / "skills" / skill).resolve()
+    return sorted(path.relative_to(base).as_posix() for path in owned_paths(base)
+                  if path.relative_to(base).as_posix() != "evals/source-lineage.json")
 
 
 def repository_entry(root, source_path, location_path):

@@ -1,6 +1,8 @@
 """Normalize one registry skill Mise graph."""
 import json
 import re
+import tomllib
+from graphlib import TopologicalSorter
 
 from standardization_runtime import runtime_preamble
 
@@ -136,6 +138,43 @@ def existing_block(name, block, profile):
     return f"[tasks.{name}]\n{normalize_existing(name, block)}"
 
 
+
+def runtime_dependencies(name, dependencies, names):
+    result = list(dependencies)
+    provider = {"test": "lint-code", "lint-code": "check-runtime"}.get(name)
+    if provider in names and provider not in result:
+        result.append(provider)
+    # Remove only edges duplicated by this exact declared native preparation chain.
+    if "test" in result and "lint-code" in names:
+        result = [item for item in result if item not in {"lint-code", "setup-runtime", "check-runtime"}]
+    elif "lint-code" in result:
+        result = [item for item in result if item not in {"setup-runtime", "check-runtime"}]
+    elif "check-runtime" in result:
+        result = [item for item in result if item != "setup-runtime"]
+    return result
+
+
+def order_runtime_tasks(text):
+    preamble, sections = split_sections(text)
+    tasks = tomllib.loads(text)["tasks"]
+    for name in ["setup-runtime", "check-runtime"]:
+        if name in tasks and (tasks[name].get("run") != POLICY_TASKS[name][2]
+                              or tasks[name].get("depends") != POLICY_TASKS[name][0]):
+            raise ValueError("native runtime task needs explicit reconciliation: " + name)
+    blocks, graph = {}, {}
+    for name, block in sections:
+        dependencies = runtime_dependencies(name, tasks[name].get("depends", []), tasks)
+        graph[name] = dependencies + tasks[name].get("depends_post", [])
+        if not set(graph[name]) <= set(tasks):
+            raise ValueError("unknown task reading dependency: " + name)
+        if dependencies != tasks[name].get("depends"):
+            block = strip_key(block, "depends") + "\n" + dependency_line(dependencies)
+        blocks[name] = f"[tasks.{name}]\n{block}"
+    # Definition-reading order includes post-task definitions, not their execution order.
+    ordered = [blocks[name] for name in TopologicalSorter(graph).static_order()]
+    return preamble + "\n\n" + "\n\n".join(ordered) + "\n"
+
+
 def normalize_mise(text, profile=None):
     preamble, existing = split_sections(text)
     preamble = runtime_preamble(preamble)
@@ -154,4 +193,5 @@ def normalize_mise(text, profile=None):
         blocks += [command_task_block(name, spec)
                    for name, spec in profile.get("command_tasks", {}).items()
                    if name not in names | set(POLICY_TASKS)]
-    return (preamble + "\n\n" if preamble else "") + "\n\n".join(blocks) + "\n"
+    combined = (preamble + "\n\n" if preamble else "") + "\n\n".join(blocks) + "\n"
+    return order_runtime_tasks(combined)

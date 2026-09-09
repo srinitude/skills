@@ -166,7 +166,7 @@ class TestScaffoldOutput(unittest.TestCase):
 
     def test_generated_code_passes_code_rules(self):
         result = run("check_code_rules.py", self.skill)
-        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_generated_evals_pass_schema_checks(self):
         result = run("check_evals.py", self.skill)

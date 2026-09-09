@@ -20,6 +20,7 @@ export const requestSchema = z.object({
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
   original_source: sourceBinding.optional(),
   inventory_document: z.string().min(1).optional(),
+  bootstrap_body: z.object({ body: sourceBinding, review: sourceBinding }).strict().optional(),
   change: z.object({
     path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding,
     body_sha256: digest, reviewer: z.string().min(1), review: z.record(z.string(), z.string().min(1)),
@@ -42,6 +43,7 @@ export const requestSchema = z.object({
   const rules = [
     { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources', 'write-file'], required: true },
     { fields: ['change'], actions: ['write-file'], required: true },
+    { fields: ['bootstrap_body'], actions: ['write-file'], required: false },
     { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },

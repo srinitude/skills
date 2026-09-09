@@ -27,15 +27,48 @@ def target_path(root, name):
     return target
 
 
+def body_inputs(request, root):
+    bootstrap = request.get('bootstrap_body')
+    if bootstrap is None:
+        return [{'path': str(root / 'SKILL.md'), 'sha256': request['change']['body_sha256']}]
+    require(isinstance(bootstrap, dict) and set(bootstrap) == {'body', 'review'},
+            'bootstrap requires exact body and review bindings')
+    require(all(isinstance(value, dict) and set(value) == {'path', 'sha256'}
+                for value in bootstrap.values()), 'invalid bootstrap file binding')
+    require(bootstrap['body']['sha256'] == request['change']['body_sha256'],
+            'bootstrap body differs from the reviewed change')
+    return [bootstrap['body'], bootstrap['review']]
+
+
 def bindings(request, root):
     return [{'path': request['ledger'], 'sha256': request['ledger_sha256']},
-            {'path': str(root / 'SKILL.md'), 'sha256': request['change']['body_sha256']},
-            *request['expected_documents'], request['original_source'], request['change']['new_file']]
+            *body_inputs(request, root), *request['expected_documents'],
+            request['original_source'], request['change']['new_file']]
 
 
 def capture(request, root):
-    return {path: read_file({'path': path}) for path in dict.fromkeys(
-        binding['path'] for binding in bindings(request, root))}
+    paths = [binding['path'] for binding in bindings(request, root)]
+    if request.get('bootstrap_body') is not None:
+        paths.extend(str(path) for path in root.iterdir() if path.name.casefold() == 'skill.md')
+    return {path: read_file({'path': path}) for path in dict.fromkeys(paths)}
+
+
+def bootstrap_review(captured, request, root, source_sha256):
+    bootstrap = request.get('bootstrap_body')
+    if bootstrap is None:
+        return {}
+    require(not any(path.name.casefold() == 'skill.md' for path in root.iterdir()),
+            'bootstrap cannot hide an installed body or body alias')
+    review = read_json(captured[bootstrap['review']['path']].decode('utf-8'))
+    require(isinstance(review, dict) and review.get('candidate_sha256') == bootstrap['body']['sha256']
+            and review.get('ledger_sha256') == request['ledger_sha256']
+            and review.get('source_sha256') == source_sha256
+            and review.get('execution_acceptance') == 'pending', 'stale or invalid initial body review')
+    initial = review.get('initial_contract_validation')
+    require(isinstance(initial, dict) and initial.get('state') == 'PASS'
+            and all(isinstance(initial.get(key), str) and initial[key].strip()
+                    for key in ['reviewer', 'method', 'limit']), 'initial body review is unfinished')
+    return {'bootstrap_review': review}
 
 
 def validate(captured, request, root):
@@ -51,7 +84,7 @@ def validate(captured, request, root):
             and all(isinstance(value, str) and value.strip() for value in review.values()),
             'supply one nonempty declaration for every actual review field')
     require(isinstance(change['reviewer'], str) and change['reviewer'].strip(), 'missing declared reviewer')
-    body_path = str(root / 'SKILL.md')
+    body_path = body_inputs(request, root)[0]['path']
     body_text = captured[body_path].decode('utf-8')
     require(body_text.strip(), 'current target body must be nonempty')
     return {'ledger_sha256': sha(ledger_raw), 'ledger_bytes': len(ledger_raw),
@@ -59,6 +92,7 @@ def validate(captured, request, root):
             'body': {'path': body_path, 'sha256': sha(captured[body_path]),
                      'text': body_text},
             'input_bytes': {path: len(raw) for path, raw in captured.items()},
+            **bootstrap_review(captured, request, root, sources['source_sha256']),
             'method': protocol['method'], 'review_fields': protocol['review_fields']}
 
 
@@ -128,6 +162,7 @@ def apply_change(request, root, target):
             'limit': 'Exact supplied byte bindings and this individual non-body create/replacement only. '
                      'Review values are caller declarations, not authenticated judgment or permission. '
                      'The caller establishes source authority and completes semantic review and invalidation. '
+                     'Bootstrap review is a bound caller declaration, not proof of complete body meaning. '
                      'Other write paths are not guarded by this function. Cooperating package lock, atomic '
                      'replacement and conditional in-process restoration only; no crash rollback, cross-file '
                      'transaction or hostile-writer isolation. Unreadable inputs can prevent restoration.'}

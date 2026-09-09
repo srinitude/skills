@@ -61,7 +61,8 @@ It also requires change: {path, expected_sha256, new_file, body_sha256, reviewer
 review}. Path is a canonical relative non-body file with existing parent directories.
 expected_sha256 is the current file digest, or null for exclusive creation.
 new_file has an absolute path and sha256; its actual binary bytes are installed.
-body_sha256 binds the target root's nonempty UTF-8 SKILL.md. Body case aliases reject.
+body_sha256 binds the target root's nonempty UTF-8 SKILL.md, or the explicit
+bootstrap candidate described below. Body case aliases reject.
 review supplies one nonempty
 string per exact field in the actual ledger's reusable_review_protocol. reviewer
 and review remain caller declarations, never authenticated judgment or permission.
@@ -78,6 +79,20 @@ inputs can prevent restoration, and independent target edits are never overwritt
 This is not crash rollback, hostile-writer isolation or a cross-file transaction.
 Body rewrites, removals and other scaffold/update/maintenance writers remain outside
 this guard. Finish their integration, semantic review and ledger invalidation separately.
+
+Before a target SKILL.md exists, write-file may supply bootstrap_body: {body, review}.
+Each member is an absolute regular-file path and exact sha256 binding. Read actions
+reject bootstrap_body. The candidate must be nonempty UTF-8 and match body_sha256.
+The review JSON binds candidate_sha256, ledger_sha256 and source_sha256 to current
+inputs, keeps execution_acceptance: "pending", and supplies initial_contract_validation:
+{state: "PASS", reviewer, method, limit}, with nonempty reviewer/method/limit text.
+Extension fields remain intact. These are declared initial-review results, not
+machine proof of complete meaning, authenticated judgment or final acceptance.
+The writer reads the full candidate and review before and after each write, plus
+all normal governing inputs. Any installed body or case alias rejects bootstrap.
+This route creates no SKILL.md and never hides an installed one. It supports the
+required task/test/script build order after initial candidate review; scaffold and
+standardization must still explicitly integrate this guard before acceptance.
 
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and

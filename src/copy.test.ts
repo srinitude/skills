@@ -61,8 +61,12 @@ test('reports banned wording and duplicate skill locations', async () => {
 
 test.each([
   ['Expert review supplies bounded evidence.', false],
+  ['Separate expert craft review from observed task performance.', false],
+  ['Expert craft reviews supply bounded evidence.', false],
   ['Separate model/expert assessments from observed outcomes.', false],
   ['Expert review is available for beginners.', true],
+  ['Expert craft review is available for novices.', true],
+  ['This guide is for an expert craft reviewer.', true],
   ['This guide is for experts.', true],
   ['A novice can run this command.', true],
 ])('distinguishes evidence roles from reader labels: %s', async (source, rejected) => {

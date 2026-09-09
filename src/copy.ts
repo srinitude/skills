@@ -74,7 +74,10 @@ function scanText(path: string, source: string): CopyFinding[] {
     found.push(finding('BANNED_TERM', 'public copy contains a banned source term', path));
   }
   // These evidence roles do not label the reader's ability. Other labels still fail.
-  const readerCopy = source.replace(/\bexpert\s+(?:reviews?|assessments?)\b/gi, '');
+  const readerCopy = source.replace(
+    /\bexpert\s+(?:(?:craft\s+)?reviews?|assessments?)\b/gi,
+    '',
+  );
   if (audienceLabels.test(readerCopy)) {
     found.push(finding('AUDIENCE_LABEL', 'public copy labels its reader', path));
   }

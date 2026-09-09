@@ -75,7 +75,9 @@ def package(root, scope, project_id="repo:atlas"):
     seed_evals(root)
     data = {"skill": root.name, "primary_term": "file inventory", "outcome": "Count configured source files and lines without writes.",
             "domain_terms": ["file inventory", "source files", "project configuration"], "main_task": "inventory",
-            "main_run": "python3 scripts/inventory.py", "sources": SOURCES}
+            "main_run": "python3 scripts/inventory.py", "sources": SOURCES,
+            "audience": {"primary": "agent"}, "initial_context": [{"id": "governing-ledger", "role": "ledger", "binding": "invocation", "depends_on": []},
+                            {"id": "study-work-matrix", "role": "resource", "binding": "invocation", "depends_on": ["governing-ledger"]}]}
     apply(root, data)
     return root
 

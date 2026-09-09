@@ -3,7 +3,34 @@ import datetime
 import json
 from pathlib import Path
 
+from agentic_request_contract import read_json
+from agentic_context import audience_record, declaration_order
+from standardization_rewrites import safe_target
 from standardization_profile import DIMENSIONS, PHASES, PRIMITIVES
+
+
+def existing_use_case(root):
+    path = root / "assets/use-case-contract.json"
+    if not path.exists() and not path.is_symlink():
+        return None
+    data = read_json(safe_target(root, "assets/use-case-contract.json").read_bytes().decode("utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("existing use-case contract must be an object")
+    return data
+
+
+def resolved_initial_profile(root, profile):
+    """Preserve existing declarations; supplied changes need prior adaptation."""
+    previous = existing_use_case(root) or {}
+    resolved = dict(profile)
+    for field in ["audience", "initial_context"]:
+        if field in previous:
+            if field in profile and profile[field] != previous[field]:
+                raise ValueError(f"{field} conflicts with the existing use-case; reconcile its adaptation first")
+            resolved[field] = previous[field]
+    audience_record(resolved, accept=True)
+    declaration_order(resolved.get("initial_context"))
+    return resolved
 
 
 def phrase(profile, subject):
@@ -77,6 +104,7 @@ def use_case(profile, tasks, stamp=None):
                  for name in DIMENSIONS}
     return {"version": "1.0.0", "skill": profile["skill"],
             "outcome": profile["outcome"], "motivations": motivations(profile),
+            "audience": profile["audience"], "initial_context": profile["initial_context"],
             "domain_terms": profile["domain_terms"],
             "domain_failures": [f"The {term} result changes without proof.",
                                 f"The {term} package reports a false pass."],

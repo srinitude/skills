@@ -8,7 +8,8 @@ import sys
 import tomllib
 from pathlib import Path
 
-from standardization_assets import decisions, invocation, lifecycle, use_case, write_json
+from standardization_assets import (decisions, existing_use_case, invocation, lifecycle,
+                                   resolved_initial_profile, use_case, write_json)
 from standardization_baseline import restore_tracked_text
 from standardization_contracts import repair_contracts
 from standardization_discovery import enrich_profile
@@ -85,23 +86,17 @@ def copy_support(root):
 
 def write_assets(root, profile, tasks):
     contract = root / "assets/use-case-contract.json"
-    stamp = existing_research_stamp(contract)
-    write_json(contract, use_case(profile, tasks, stamp))
+    profile = resolved_initial_profile(root, profile)
+    previous = existing_use_case(root)
+    current = dict(previous) if previous is not None else use_case(profile, tasks)
+    current.update({field: profile[field] for field in ["audience", "initial_context"]})
+    if current != previous:
+        write_json(contract, current)
     write_json(root / "assets/primitive-lifecycle.json", lifecycle(profile))
     write_json(root / "assets/decision-records.json", decisions(profile))
     write_json(root / "assets/invocation-receipt-template.json", invocation(profile))
     catalog = json.loads((root / "assets/mise-primitives-catalog.json").read_text())
     write_json(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
-
-
-def existing_research_stamp(path):
-    if not path.is_file():
-        return None
-    try:
-        receipts = json.loads(path.read_text()).get("research_receipts", [])
-    except json.JSONDecodeError:
-        return None
-    return receipts[0].get("checked_at") if receipts else None
 
 
 def primitive_map(root, profile, catalog):
@@ -125,6 +120,7 @@ def primitive_map(root, profile, catalog):
 
 
 def apply(root, profile, rebase=False):
+    profile = resolved_initial_profile(root, profile)
     if rebase:
         restore_tracked_text(root)
     create_missing(root, profile, FACTORY)
@@ -151,6 +147,7 @@ def apply(root, profile, rebase=False):
 
 def apply_scoped(root, profile, scope, rebase=False):
     before = inventory(root)
+    profile = resolved_initial_profile(root, profile)
     with staged(root.parent, root.name) as candidate:
         shutil.copytree(root, candidate, symlinks=True)
         if rebase:

@@ -21,6 +21,7 @@ export const requestSchema = z.object({
   original_source: sourceBinding.optional(),
   inventory_document: z.string().min(1).optional(),
   bootstrap_body: z.object({ body: sourceBinding, review: sourceBinding }).strict().optional(),
+  body_revision: z.object({ previous: sourceBinding.nullable(), review: sourceBinding }).strict().optional(),
   change: z.object({
     path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding,
     body_sha256: digest, reviewer: z.string().min(1), review: z.record(z.string(), z.string().min(1)),
@@ -43,7 +44,7 @@ export const requestSchema = z.object({
   const rules = [
     { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources', 'write-file'], required: true },
     { fields: ['change'], actions: ['write-file'], required: true },
-    { fields: ['bootstrap_body'], actions: ['write-file'], required: false },
+    { fields: ['bootstrap_body', 'body_revision'], actions: ['write-file'], required: false },
     { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },
@@ -67,7 +68,7 @@ const viewSchema = z.object({ view_text: z.string(), source_sha256: digest }).st
 const resultSchema = z.object({
   body: bodySchema, ledger: z.object({ path: z.string(), sha256: digest, bytes: z.number() }),
   view_text: z.string(), source_sha256: digest, execution_acceptance: z.literal('pending'),
-  coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only']), limit: z.string(),
+  coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only', 'bound body revision only']), limit: z.string(),
 });
 
 export function readThroughOwner(operation: 'parse' | 'view' | 'write', input: string, writeRoot?: string): Promise<unknown> {
@@ -135,7 +136,7 @@ function writeWorkflow(root: string) {
         await readThroughOwner('write', JSON.stringify(request), root));
       return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: result.ledger_bytes },
         view_text: result.view_text, source_sha256: result.source_sha256,
-        execution_acceptance: 'pending' as const, coverage: 'bound non-body file write only' as const,
+        execution_acceptance: 'pending' as const, coverage: request.body_revision ? 'bound body revision only' as const : 'bound non-body file write only' as const,
         limit: 'The caller selected the write root outside request data. The file owner reads the full current '
           + 'ledger, target body and supplied governing inputs before and after this create/replacement. '
           + 'Review fields remain caller declarations. This does not guard other writers or confer source '

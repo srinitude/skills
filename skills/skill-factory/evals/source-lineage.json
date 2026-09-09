@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "1fa045972dae34e19ad1d56b295ca8c6764740c5216d016275ce95d8277d0265",
+  "native_manifest_sha256": "dc38779fdf1915a81d79e9ac638313158695dcde5c2ef0f8c4fb879cd4d3c352",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -515,6 +515,12 @@
       ]
     },
     {
+      "path": "scripts/review_ledger_body.py",
+      "source_paths": [
+        "scripts/review_ledger_body.py"
+      ]
+    },
+    {
       "path": "scripts/review_ledger_candidates.py",
       "source_paths": [
         "scripts/review_ledger_candidates.py"
@@ -869,6 +875,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_review_ledger_body.py",
+      "source_paths": [
+        "scripts/tests/test_review_ledger_body.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_review_ledger_bootstrap.py",
       "source_paths": [
         "scripts/tests/test_review_ledger_bootstrap.py"
@@ -1162,7 +1174,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "5814b9a496ae293dabde5085a9050ad56e7c7a42c2e9f18feece32f870568242"
+      "sha256": "a6267052ea4465ab10fbc525489dd25b09731a6ab2b4a512c8f4d5b7668af683"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1234,7 +1246,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "7d0252bafb94a18ef92dc2348f1e37907d7bee775d08d8985684bb5d1bd190ff"
+      "sha256": "48aaacf051f3defb8a1ae8b4747f9b428d6941b684468a2fd83d5d5bd4fcae0b"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1318,7 +1330,7 @@
     },
     {
       "path": "examples/example-ledger-write.md",
-      "sha256": "0b6b1435d67babbf903a3593485d7a01c153f99c32a48e8b425e04e869e9a013"
+      "sha256": "8570508b3adfee0b00491e4519d4da09751bf4568612771a23bdd2ac3f23c49e"
     },
     {
       "path": "examples/example-new-skill.md",
@@ -1342,7 +1354,7 @@
     },
     {
       "path": "examples/ledger-write-run.json",
-      "sha256": "5a27d978a4954c8c2c07fcb67a385f76f83d6a5c27b13896aecb9f4c995b05a3"
+      "sha256": "0a2c7453b5a841855a70480fd826c3313c46172cc6e4ffa657ddeeec00239c1c"
     },
     {
       "path": "mise.toml",
@@ -1493,6 +1505,10 @@
       "sha256": "5ec42c40bea3db4c2844a0c67a497a84436bd3598ada051e7fc50cbbd8454bc7"
     },
     {
+      "path": "scripts/review_ledger_body.py",
+      "sha256": "ea89e613af66aa3acbf07d996e13e309ea83bdc31d098fb4eb5fa464eb5c3c48"
+    },
+    {
       "path": "scripts/review_ledger_candidates.py",
       "sha256": "10f07a728139b03f753bc9f9e1ecb458ad9b5882a4d5389fe8f1a37c676660c8"
     },
@@ -1518,11 +1534,11 @@
     },
     {
       "path": "scripts/review_ledger_workflow.ts",
-      "sha256": "67aab438109ceaa5d25772e12d6357996ad753cf3be31a7c3cb632c869e744fe"
+      "sha256": "ef78b4ceedc96775381066c9ca96a237fd60598fb4053807676a861431e906d5"
     },
     {
       "path": "scripts/review_ledger_write.py",
-      "sha256": "86a790a62a0e46af6e82b136a3b0a7fb05005b65cb080cc26c5553472e4ea5f1"
+      "sha256": "f81527a4fa092c077ace9374b072d35d43e104faeca742279096e31194f3984c"
     },
     {
       "path": "scripts/run_agentic_request.py",
@@ -1530,7 +1546,7 @@
     },
     {
       "path": "scripts/run_review_ledger.ts",
-      "sha256": "d019777f86d5000cedaf51c6eaa1f0677e544dca17da4140911ee695775e111c"
+      "sha256": "136fbfdb9b3bf1b96a7a94013a4ad8b9fd533f43a507c5308d1a36849964a9fd"
     },
     {
       "path": "scripts/scaffold_skill.py",
@@ -1594,7 +1610,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "3fb39de134900aa04c97c48e0e4bc9938d3ff4521f8794a3345be15309f37056"
+      "sha256": "a90d91119ec2c98fa620b660058180fa97f9eeaaa34c7d236d3fcd33d63ecf57"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -1727,6 +1743,10 @@
     {
       "path": "scripts/tests/test_refresh_registry_lineage.py",
       "sha256": "71b1955ae08af9f3025baa3439d17086bd79ce369b0dfcb1d1c30428ac286f65"
+    },
+    {
+      "path": "scripts/tests/test_review_ledger_body.py",
+      "sha256": "d948108cc3d07adc048ceab5a0a86a03f3910d3d67737d3f5f5c66c25a9e477f"
     },
     {
       "path": "scripts/tests/test_review_ledger_bootstrap.py",

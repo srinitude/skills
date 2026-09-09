@@ -58,7 +58,8 @@ owners and evidence before an effect; no warning or returned record is a write g
 write-file requires --write-root with an absolute canonical directory, selected by
 its authorized caller outside request data. Read actions reject this argument.
 It also requires change: {path, expected_sha256, new_file, body_sha256, reviewer,
-review}. Path is a canonical relative non-body file with existing parent directories.
+review}. Path is a canonical relative file with existing parent directories. SKILL.md
+requires the explicit body_revision input below; body case aliases reject.
 expected_sha256 is the current file digest, or null for exclusive creation.
 new_file has an absolute path and sha256; its actual binary bytes are installed.
 body_sha256 binds the target root's nonempty UTF-8 SKILL.md, or the explicit
@@ -77,8 +78,7 @@ only while the target still matches this write and required inputs remain readab
 Restoration also reads all inputs before and after; drift stays failed. Unreadable
 inputs can prevent restoration, and independent target edits are never overwritten.
 This is not crash rollback, hostile-writer isolation or a cross-file transaction.
-Body rewrites, removals and other scaffold/update/maintenance writers remain outside
-this guard. Finish their integration, semantic review and ledger invalidation separately.
+Removals and other scaffold/update/maintenance writers remain outside this guard. Finish their integration, semantic review and ledger invalidation separately.
 
 Before a target SKILL.md exists, write-file may supply bootstrap_body: {body, review}.
 Each member is an absolute regular-file path and exact sha256 binding. Read actions
@@ -93,6 +93,20 @@ all normal governing inputs. Any installed body or case alias rejects bootstrap.
 This route creates no SKILL.md and never hides an installed one. It supports the
 required task/test/script build order after initial candidate review; scaffold and
 standardization must still explicitly integrate this guard before acceptance.
+
+For SKILL.md creation/replacement, supply body_revision: {previous, review} instead
+of bootstrap_body. previous is null for creation or an absolute, separately retained
+old-body snapshot with sha256 for replacement. review is an absolute path/sha256
+binding. new_file supplies the nonempty UTF-8 candidate. expected_sha256 matches
+previous or null; body_sha256 matches the previous body or the candidate for creation.
+The review uses the initial-review fields above and also requires previous_sha256,
+matching that prior identity or explicitly null. Candidate, source and ledger remain
+bound. Before/after captures read all governing inputs, the snapshot and review;
+replacement reads the actual old body before and the installed candidate afterward.
+Creation requires absence and then exact installed candidate readback. Supplied
+sources, snapshots, reviews and candidates cannot overlap the destination. Modes
+and independent edits retain the existing preservation and restoration rules.
+Review text remains a declaration with semantic, human and final acceptance pending.
 
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and

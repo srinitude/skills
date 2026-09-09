@@ -1,4 +1,4 @@
-"""Bound non-body file writes; callers retain authority and semantic judgment."""
+"""Bound file writes and explicit body revisions; callers retain authority and semantic judgment."""
 import os
 import re
 import stat
@@ -8,17 +8,19 @@ from pathlib import Path
 
 from agentic_request_contract import read_json
 from review_ledger_context import recorded_work_contract, require
+from review_ledger_body import body_inputs, body_review, revision
 from review_ledger_source import check_source_capture, read_file
 from skill_package import SKIP, package_lock, sha
 
 
-def target_path(root, name):
+def target_path(root, name, allow_body=False):
     require(root.is_absolute() and root.is_dir() and root.resolve() == root,
             'write root must be an absolute canonical directory')
     relative = Path(name)
     require(name and relative.parts and not relative.is_absolute()
             and relative.as_posix() == name and not set(relative.parts) & (SKIP | {'..'})
-            and name.casefold() != 'skill.md', 'unsupported owned file path; body writes need their separate review')
+            and (name.casefold() != 'skill.md' or allow_body and name == 'SKILL.md'),
+            'unsupported owned file path; body writes need their separate review')
     target = root / relative
     require(target.resolve() == target and not target.is_symlink() and target.parent.is_dir(),
             'file path escapes its root, uses a symlink or has a missing parent')
@@ -27,52 +29,21 @@ def target_path(root, name):
     return target
 
 
-def body_inputs(request, root):
-    bootstrap = request.get('bootstrap_body')
-    if bootstrap is None:
-        return [{'path': str(root / 'SKILL.md'), 'sha256': request['change']['body_sha256']}]
-    require(isinstance(bootstrap, dict) and set(bootstrap) == {'body', 'review'},
-            'bootstrap requires exact body and review bindings')
-    require(all(isinstance(value, dict) and set(value) == {'path', 'sha256'}
-                for value in bootstrap.values()), 'invalid bootstrap file binding')
-    require(bootstrap['body']['sha256'] == request['change']['body_sha256'],
-            'bootstrap body differs from the reviewed change')
-    return [bootstrap['body'], bootstrap['review']]
-
-
-def bindings(request, root):
+def bindings(request, root, phase='before'):
     return [{'path': request['ledger'], 'sha256': request['ledger_sha256']},
-            *body_inputs(request, root), *request['expected_documents'],
+            *body_inputs(request, root, phase), *request['expected_documents'],
             request['original_source'], request['change']['new_file']]
 
 
-def capture(request, root):
-    paths = [binding['path'] for binding in bindings(request, root)]
-    if request.get('bootstrap_body') is not None:
+def capture(request, root, phase='before'):
+    paths = [binding['path'] for binding in bindings(request, root, phase)]
+    if request.get('bootstrap_body') is not None or request.get('body_revision') is not None:
         paths.extend(str(path) for path in root.iterdir() if path.name.casefold() == 'skill.md')
     return {path: read_file({'path': path}) for path in dict.fromkeys(paths)}
 
 
-def bootstrap_review(captured, request, root, source_sha256):
-    bootstrap = request.get('bootstrap_body')
-    if bootstrap is None:
-        return {}
-    require(not any(path.name.casefold() == 'skill.md' for path in root.iterdir()),
-            'bootstrap cannot hide an installed body or body alias')
-    review = read_json(captured[bootstrap['review']['path']].decode('utf-8'))
-    require(isinstance(review, dict) and review.get('candidate_sha256') == bootstrap['body']['sha256']
-            and review.get('ledger_sha256') == request['ledger_sha256']
-            and review.get('source_sha256') == source_sha256
-            and review.get('execution_acceptance') == 'pending', 'stale or invalid initial body review')
-    initial = review.get('initial_contract_validation')
-    require(isinstance(initial, dict) and initial.get('state') == 'PASS'
-            and all(isinstance(initial.get(key), str) and initial[key].strip()
-                    for key in ['reviewer', 'method', 'limit']), 'initial body review is unfinished')
-    return {'bootstrap_review': review}
-
-
-def validate(captured, request, root):
-    for binding in bindings(request, root):
+def validate(captured, request, root, phase='before'):
+    for binding in bindings(request, root, phase):
         require(sha(captured[binding['path']]) == binding['sha256'], 'current write input digest mismatch')
     ledger_raw = captured[request['ledger']]
     data = read_json(ledger_raw.decode('utf-8'))
@@ -84,7 +55,7 @@ def validate(captured, request, root):
             and all(isinstance(value, str) and value.strip() for value in review.values()),
             'supply one nonempty declaration for every actual review field')
     require(isinstance(change['reviewer'], str) and change['reviewer'].strip(), 'missing declared reviewer')
-    body_path = body_inputs(request, root)[0]['path']
+    body_path = body_inputs(request, root, phase)[0]['path']
     body_text = captured[body_path].decode('utf-8')
     require(body_text.strip(), 'current target body must be nonempty')
     return {'ledger_sha256': sha(ledger_raw), 'ledger_bytes': len(ledger_raw),
@@ -92,7 +63,7 @@ def validate(captured, request, root):
             'body': {'path': body_path, 'sha256': sha(captured[body_path]),
                      'text': body_text},
             'input_bytes': {path: len(raw) for path, raw in captured.items()},
-            **bootstrap_review(captured, request, root, sources['source_sha256']),
+            **body_review(captured, request, root, sources['source_sha256'], phase),
             'method': protocol['method'], 'review_fields': protocol['review_fields']}
 
 
@@ -151,7 +122,7 @@ def apply_change(request, root, target):
     require(wanted != old, 'file change makes no difference')
     install(root, target, wanted, old)
     try:
-        after = validate(capture(request, root), request, root)
+        after = validate(capture(request, root, 'after'), request, root, 'after')
         require(current(target) == wanted, 'file differs from the requested bytes or mode after writing')
     except BaseException:
         restore(request, root, target, old, wanted)
@@ -159,10 +130,10 @@ def apply_change(request, root, target):
     return {'path': change['path'], 'old_sha256': expected, 'new_sha256': sha(wanted[0]),
             'mode': wanted[1], 'before': before, 'after': after,
             'reviewer': change['reviewer'], 'review': change['review'], 'execution_acceptance': 'pending',
-            'limit': 'Exact supplied byte bindings and this individual non-body create/replacement only. '
+            'limit': 'Exact supplied byte bindings and this individual file create/replacement only. '
                      'Review values are caller declarations, not authenticated judgment or permission. '
                      'The caller establishes source authority and completes semantic review and invalidation. '
-                     'Bootstrap review is a bound caller declaration, not proof of complete body meaning. '
+                     'Bootstrap and body revision reviews are bound declarations, not proof of complete body meaning. '
                      'Other write paths are not guarded by this function. Cooperating package lock, atomic '
                      'replacement and conditional in-process restoration only; no crash rollback, cross-file '
                      'transaction or hostile-writer isolation. Unreadable inputs can prevent restoration.'}
@@ -174,10 +145,14 @@ def write_file(request, root):
     change = request['change']
     require(set(change) == {'path', 'expected_sha256', 'new_file', 'body_sha256', 'reviewer', 'review'},
             'file change has missing or unsupported fields')
-    target = target_path(root, change['path'])
-    input_paths = [Path(item['path']) for item in bindings(request, root)]
+    body_revision = revision(request)
+    target = target_path(root, change['path'], body_revision is not None)
+    inputs = bindings(request, root)
+    if body_revision is not None:
+        inputs.pop(1)  # Only the actual body input may be the target; all supplied inputs remain protected.
+    input_paths = [Path(item['path']) for item in inputs]
     with package_lock(root):
-        target = target_path(root, change['path'])
+        target = target_path(root, change['path'], body_revision is not None)
         require(all(target != path.resolve() and (not target.exists() or not path.exists()
                     or not target.samefile(path)) for path in input_paths),
                 'file change overlaps a governing or prepared input')

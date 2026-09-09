@@ -35,7 +35,7 @@
     "plugin.yaml",
     "schemas/",
     "skills/",
-    "!skills/**/scripts/tests/**",
+    "!skills/!(skill-factory)/**/scripts/tests/**",
     "!skills/**/node_modules/**",
     "!skills/**/.git/**",
     "!skills/**/.mise/**",

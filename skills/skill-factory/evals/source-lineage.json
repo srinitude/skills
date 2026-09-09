@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "2e85b067ecc6e03fe258f269934c8b6e3fc133aba5dc8c70d48e071a26ee56ef",
+  "native_manifest_sha256": "f5acdeb66ac7a017d257377604f74cbccb846a5e6b564e55a3c580bb53d6dda7",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1254,7 +1254,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "3b4ad099119126bbf002f92617165775f16def9dc0c6fa824ab06ef5fbf7c906"
+      "sha256": "326365739917db830eea0466a125180696c563a1d5b70fe618c9da21d94c0ea6"
     },
     {
       "path": "package-lock.json",
@@ -1446,7 +1446,7 @@
     },
     {
       "path": "scripts/standardization_assets.py",
-      "sha256": "812aade0baa0189ae97381045219badc31246e39d89853f685bab15868e567bd"
+      "sha256": "dad6b1856bf757ee46bdf8304a06bfee3f4b0f62ab231b84052e24a06566ca7b"
     },
     {
       "path": "scripts/standardization_baseline.py",
@@ -1462,7 +1462,7 @@
     },
     {
       "path": "scripts/standardization_format.py",
-      "sha256": "3b3f53eff124e1da47da86b8303461c908156dfc0733db9a5221398b70a3518e"
+      "sha256": "a4efa0cdd0136fdbac331e16c3ead2dd9d7d803cf2298c6ceaa637975ec12be0"
     },
     {
       "path": "scripts/standardization_mapping.py",
@@ -1474,7 +1474,7 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "36d8ef0f75b62add9393994861a5a28aaa4b20866fad15c9f009c0852a665e34"
+      "sha256": "ee526928bf345c1b6daa8d8cbb2a0a3a2f262bd100dd06851b5939e432391b4a"
     },
     {
       "path": "scripts/standardization_profile.py",
@@ -1494,7 +1494,7 @@
     },
     {
       "path": "scripts/standardize_registry_skill.py",
-      "sha256": "cd58bca1005c72419fd861120fc2005f1ba56e93cd1fe31b4e8bc4eefa0eee05"
+      "sha256": "4611742c1221ce242d238c3af8cfca7d2bc9081b9edca5bdc933ce2d68c3e68a"
     },
     {
       "path": "scripts/sync_mise_primitives.py",
@@ -1678,7 +1678,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_inputs.py",
-      "sha256": "c0148ce601ec9f277e7a77e35c9638544e6bb225659e0b8ff9041dedc2eada95"
+      "sha256": "d74f93bc9724e0e380fda9a7e2bea8c39ef34223d377e30282767ea7f7c273b4"
     },
     {
       "path": "scripts/tests/test_standardization_inventory.py",

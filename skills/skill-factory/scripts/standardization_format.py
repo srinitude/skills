@@ -35,6 +35,9 @@ def format_target(root):
 
 
 def format_files(root, paths):
+    paths = tuple(paths)
+    if not paths:
+        return
     owner = formatter_command(root)
     if owner is None:
         return

@@ -7,6 +7,8 @@ from graphlib import TopologicalSorter
 from standardization_runtime import isolate_python_helpers, runtime_preamble
 
 POLICY_TASKS = {
+    "validate": ([], "Validate the current skill package and changed-output declarations",
+        "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"),
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
         "npm ci --include=dev --ignore-scripts 1>&2"),
     "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",

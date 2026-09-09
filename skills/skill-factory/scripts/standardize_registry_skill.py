@@ -8,12 +8,11 @@ import sys
 import tomllib
 from pathlib import Path
 
-from standardization_assets import (decisions, existing_use_case, invocation, lifecycle,
-                                   resolved_initial_profile, use_case, write_json)
+from standardization_assets import resolved_initial_profile, validate_policy_assets, write_assets
 from standardization_baseline import restore_tracked_text
 from standardization_contracts import repair_contracts
 from standardization_discovery import enrich_profile
-from standardization_format import format_target
+from standardization_format import format_files
 from standardization_markdown import rewrite_markdown, script_task_map
 from standardization_mapping import repair_mapping_json, snapshot_public_lines
 from standardization_mise import normalize_mise
@@ -93,42 +92,8 @@ def copy_support(root):
             shutil.copyfile(FACTORY / "scripts" / name, target)
 
 
-def write_assets(root, profile, tasks):
-    contract = root / "assets/use-case-contract.json"
-    profile = resolved_initial_profile(root, profile)
-    previous = existing_use_case(root)
-    current = dict(previous) if previous is not None else use_case(profile, tasks)
-    current.update({field: profile[field] for field in ["audience", "initial_context"]})
-    if current != previous:
-        write_json(contract, current)
-    write_json(root / "assets/primitive-lifecycle.json", lifecycle(profile))
-    write_json(root / "assets/decision-records.json", decisions(profile))
-    write_json(root / "assets/invocation-receipt-template.json", invocation(profile))
-    catalog = json.loads((root / "assets/mise-primitives-catalog.json").read_text())
-    write_json(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
-
-
-def primitive_map(root, profile, catalog):
-    with (root / "mise.toml").open("rb") as handle:
-        config = tomllib.load(handle)
-    actual = {"config": set(config) & set(catalog["groups"]["config"]),
-              "task_config": set(config.get("task_config", {})), "tool": set()}
-    actual["task"] = {key for task in config.get("tasks", {}).values()
-                      for key in task if key in catalog["groups"]["task"]}
-    actual["tool"] = {"version"} if config.get("tools") else set()
-    term, groups = profile["primary_term"], {}
-    for name, available in catalog["groups"].items():
-        groups[name] = {"used": sorted(actual[name]),
-            "not_applicable": sorted(set(available) - actual[name]),
-            "used_reason": f"The {term} graph uses these {name} primitives.",
-            "nonuse_reason": f"Other {term} {name} primitives add no proved value.",
-            "creative_use": f"The {term} graph uses {name} primitives on one proof path.",
-            "evidence": f"Current {term} Mise configuration and task output."}
-    return {"version": "1.0.0", "skill": profile["skill"],
-            "catalog_version": catalog["version"], "groups": groups}
-
-
 def apply(root, profile, rebase=False):
+    original_files = inventory(root)
     profile = resolved_initial_profile(root, profile)
     if rebase:
         restore_tracked_text(root)
@@ -151,7 +116,10 @@ def apply(root, profile, rebase=False):
     apply_rewrites(root, profile)
     repair_contracts(root, tasks, profile, owners, snapshots)
     write_assets(root, profile, tasks)
-    format_target(root)
+    changed = [root / name for name, entry in inventory(root).items()
+               if original_files.get(name) != entry]
+    format_files(root, changed)
+    validate_policy_assets(root)
 
 
 def apply_scoped(root, profile, scope, rebase=False):

@@ -46,7 +46,7 @@ class TestMappingMigration(unittest.TestCase):
             mapping = root / "evals/source-mapping.json"
             self.assertIn(mapping, planned_paths(root, {}))
 
-    def test_rewritten_public_line_refreshes_mapping_hash(self):
+    def test_rewritten_public_line_requires_review_and_preserves_mapping(self):
         with tempfile.TemporaryDirectory() as temp:
             repo = Path(temp)
             root = repo / "skills/example"
@@ -64,10 +64,13 @@ class TestMappingMigration(unittest.TestCase):
             (root / "evals/source-mapping.json").write_text(json.dumps(mapping))
             prior = snapshot_public_lines(root)
             (root / "SKILL.md").write_text(expected + "\n")
+            before = (root / "evals/source-mapping.json").read_bytes()
+            with self.assertRaisesRegex(ValueError, "source mapping"):
+                repair_mapping_json(root, {"check.py": "check"}, {}, prior)
+            self.assertEqual((root / "evals/source-mapping.json").read_bytes(), before)
+            (root / "SKILL.md").write_text(source + "\n")
             repair_mapping_json(root, {"check.py": "check"}, {}, prior)
-            saved = json.loads((root / "evals/source-mapping.json").read_text())
-            digest = hashlib.sha256(expected.encode()).hexdigest()
-            self.assertEqual(saved["entries"][0]["public_text_sha256"], digest)
+            self.assertEqual((root / "evals/source-mapping.json").read_bytes(), before)
 
     def test_rewrite_repairs_a_routed_mise_link(self):
         profile = {"line_task_routes": [{

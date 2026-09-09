@@ -14,7 +14,7 @@ from standardization_contracts import repair_contracts
 from standardization_discovery import enrich_profile
 from standardization_format import format_target
 from standardization_markdown import rewrite_markdown, script_task_map
-from standardization_mapping import snapshot_public_lines
+from standardization_mapping import repair_mapping_json, snapshot_public_lines
 from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
@@ -159,6 +159,7 @@ def apply_scoped(root, profile, scope, rebase=False):
         file = candidate / "SKILL.md"
         file.write_text(scoped_text(file.read_text(), scope), encoding="utf-8")
         read_fields(candidate)
+        repair_mapping_json(candidate)
         promote(candidate, root, before)
 
 

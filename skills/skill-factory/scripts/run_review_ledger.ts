@@ -9,9 +9,16 @@ Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture.
+Actions: catalog, show, relations, trace, check-capture, check-sources.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
+check-sources also requires expected_documents (name, absolute path, sha256),
+original_source (absolute path, sha256), and inventory_document (captured name).
+The supplied inventory document binds source_sha256, source_bytes, source_lines
+and exact frozen records keyed by stable ID, plus mapping_defaults when present.
+Root records may follow dependency order; nested contents and JSON types stay exact.
+These inputs must come from independent source authority. Each present captured
+document needs one exact live binding.
 Only show, relations and trace accept a selector.
 show, relations and trace require selector, for example source:rule-id.
 relations and trace accept direction: in, out or both (default both), and
@@ -21,7 +28,8 @@ safe integer (default 1). Zero depth keeps only the starting subject.
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and
 explicit facet inheritance. Historical observations keep their identity.
-Derived relationship coverage, live-source proof and acceptance remain incomplete.
+Source checks prove only supplied live bindings and the frozen source inventory.
+Derived relationship coverage, source authority and semantic acceptance remain separate.
 `;
 
 async function main() {

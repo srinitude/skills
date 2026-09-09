@@ -1,12 +1,14 @@
 """Captured-byte consistency is distinct from live-source and semantic proof."""
 import copy
 import hashlib
+import json
+import tempfile
 import unittest
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from review_ledger_source import check_capture
+from review_ledger_source import check_capture, check_sources
 
 
 class TestCapturedSource(unittest.TestCase):
@@ -70,6 +72,91 @@ class TestCapturedSource(unittest.TestCase):
             change(candidate)
             with self.assertRaises(ValueError):
                 check_capture(candidate)
+
+
+class TestLiveSource(unittest.TestCase):
+    def setUp(self):
+        TestCapturedSource.setUp(self)
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.data["source_mapping_defaults"] = {"preserve": True, "limit": 1}
+        inventory = {"source_sha256": self.data["source"]["sha256"],
+                     "source_bytes": self.data["source"]["bytes"], "source_lines": 2,
+                     "records": copy.deepcopy(self.data["source_records"]),
+                     "mapping_defaults": copy.deepcopy(self.data["source_mapping_defaults"])}
+        for name, text in [("coverage.json", json.dumps(inventory)), ("empty-context.txt", "")]:
+            raw = text.encode()
+            self.data["packet_documents"].append({"name": name, "text": text,
+                "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw),
+                "lines": len(raw.splitlines())})
+        expected = []
+        for document in self.data["packet_documents"]:
+            path = self.root / document["name"]
+            path.write_bytes(document["text"].encode())
+            expected.append({"name": document["name"], "path": str(path), "sha256": document["sha256"]})
+        original = self.root / "original.txt"
+        original.write_bytes(self.data["packet_documents"][0]["text"].encode())
+        self.request = {"expected_documents": expected, "inventory_document": "coverage.json",
+                        "original_source": {"path": str(original), "sha256": self.data["source"]["sha256"]}}
+
+    def test_supplied_live_inventory_original_and_frozen_records_pass(self):
+        before = {p.name: p.read_bytes() for p in self.root.iterdir()}
+        result = check_sources(self.data, self.request)
+        self.assertEqual(result["documents"], 3)
+        self.assertEqual(result["source_records"], 2)
+        self.assertEqual(result["scope"], "supplied live bindings and frozen source inventory only")
+        self.assertEqual(before, {p.name: p.read_bytes() for p in self.root.iterdir()})
+
+    def test_dependency_order_can_differ_from_frozen_source_order(self):
+        self.data["source_records"].reverse()
+        self.assertEqual(check_sources(self.data, self.request)["source_records"], 2)
+
+    def test_frozen_defaults_preserve_values_types_and_presence(self):
+        for change in [lambda d: d.pop("source_mapping_defaults"),
+                       lambda d: d["source_mapping_defaults"].update(preserve=1),
+                       lambda d: d["source_mapping_defaults"].update(limit=1.0),
+                       lambda d: d["source_mapping_defaults"].update(extra="unbound")]:
+            changed = copy.deepcopy(self.data)
+            change(changed)
+            with self.assertRaises(ValueError):
+                check_sources(changed, self.request)
+        check_sources(self.data, self.request)
+
+    def test_external_bindings_reject_capture_omission_live_drift_and_symlink(self):
+        changed = copy.deepcopy(self.data)
+        changed["packet_documents"].pop()
+        with self.assertRaises(ValueError):
+            check_sources(changed, self.request)
+        for path in [self.root / "source.txt", self.root / "original.txt"]:
+            valid = path.read_bytes()
+            path.write_bytes(valid + b"changed")
+            with self.assertRaises(ValueError):
+                check_sources(self.data, self.request)
+            path.write_bytes(valid)
+        path = self.root / "empty-context.txt"
+        path.unlink()
+        path.symlink_to(self.root / "source.txt")
+        with self.assertRaises(ValueError):
+            check_sources(self.data, self.request)
+        path.unlink()
+        path.write_bytes(b"")
+        check_sources(self.data, self.request)
+
+    def test_frozen_inventory_rejects_renamed_omitted_or_rebound_records(self):
+        for change in [lambda d: d["source_records"][0].update(id="renamed"),
+                       lambda d: d["source_records"][0].update(clauses=[]),
+                       lambda d: d["source_records"][0].update(kind="discarded-context")]:
+            changed = copy.deepcopy(self.data)
+            change(changed)
+            check_capture(changed)
+            with self.assertRaises(ValueError):
+                check_sources(changed, self.request)
+        expected = copy.deepcopy(self.request)
+        expected["expected_documents"][0]["sha256"] = "0" * 64
+        with self.assertRaises(ValueError):
+            check_sources(self.data, expected)
+        check_sources(self.data, self.request)
 
 
 if __name__ == "__main__":

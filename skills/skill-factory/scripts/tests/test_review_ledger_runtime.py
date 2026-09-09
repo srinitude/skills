@@ -62,7 +62,7 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertEqual(view["edges"], self.data["semantic_model"]["relationships"])
         self.assertEqual(view["nodes"], ["source:read", "source:write"])
         self.assertEqual(result["execution_acceptance"], "pending")
-        self.assertEqual(result["coverage"], "recorded context, relationships and capture checks only")
+        self.assertEqual(result["coverage"], "recorded context, relationships and source checks only")
 
     def test_public_entry_emits_one_json_result(self):
         self.result(self.invoke(public=True))
@@ -155,7 +155,7 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertLess(order.index("group:provider"), order.index("group:consumer"))
         self.assertLess(order.index("group:consumer"), order.index("source:read"))
 
-    def test_capture_check_rejects_changed_source_text_and_recovers(self):
+    def captured_source(self):
         text = "\n".join(row["text"] for row in self.data["source_records"])
         raw, start = text.encode(), 0
         source = {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "lines": 3}
@@ -166,6 +166,9 @@ class TestLedgerRuntime(unittest.TestCase):
                        byte_end_exclusive=start + len(line), line_start=number, line_end=number)
             start += len(line)
         self.ledger.write_text(json.dumps(self.data))
+
+    def test_capture_check_rejects_changed_source_text_and_recovers(self):
+        self.captured_source()
         view = json.loads(self.result(self.invoke(action="check-capture"))["view_text"])
         self.assertEqual((view["documents"], view["source_records"]), (1, 3))
         self.assertEqual(view["scope"], "captured bytes and locators only")
@@ -177,6 +180,40 @@ class TestLedgerRuntime(unittest.TestCase):
         self.assertEqual(self.ledger.read_bytes(), invalid)
         self.ledger.write_bytes(valid)
         self.result(self.invoke(action="check-capture"))
+
+    def live_source_bindings(self):
+        self.captured_source()
+        source = self.data["source"]
+        inventory = {"source_sha256": source["sha256"], "source_bytes": source["bytes"],
+                     "source_lines": source["lines"], "records": self.data["source_records"]}
+        text = json.dumps(inventory)
+        self.data["packet_documents"].append({"name": "coverage.json", "text": text,
+            "sha256": hashlib.sha256(text.encode()).hexdigest(), "bytes": len(text.encode()), "lines": 1})
+        expected = []
+        for document in self.data["packet_documents"]:
+            path = self.folder / document["name"]
+            path.write_bytes(document["text"].encode())
+            expected.append({"name": document["name"], "path": str(path), "sha256": document["sha256"]})
+        original = self.folder / "original.txt"
+        original.write_bytes(self.data["packet_documents"][0]["text"].encode())
+        self.ledger.write_text(json.dumps(self.data))
+        return {"expected_documents": expected, "inventory_document": "coverage.json",
+                "original_source": {"path": str(original), "sha256": source["sha256"]}}
+
+    def test_live_source_binding_blocks_inventory_rewrite_and_recovers(self):
+        bindings = self.live_source_bindings()
+        view = json.loads(self.result(self.invoke(action="check-sources", **bindings))["view_text"])
+        self.assertEqual(view["scope"], "supplied live bindings and frozen source inventory only")
+        self.assertEqual(self.invoke(action="check-sources").returncode, 1)
+        self.assertEqual(self.invoke(action="check-capture", **bindings).returncode, 1)
+        valid = self.ledger.read_bytes()
+        self.data["source_records"][0]["id"] = "different"
+        self.ledger.write_text(json.dumps(self.data))
+        bad = self.ledger.read_bytes()
+        self.assertEqual(self.invoke(action="check-sources", **bindings).returncode, 1)
+        self.assertEqual(self.ledger.read_bytes(), bad)
+        self.ledger.write_bytes(valid)
+        self.result(self.invoke(action="check-sources", **bindings))
 
 if __name__ == "__main__":
     unittest.main()

@@ -51,8 +51,10 @@ WORD_RES = [(w, re.compile(r"\b%s\b" % re.escape(w), re.I)) for w in WORDS]
 LIST_RE = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 SCRIPT_PATH_RE = re.compile(r"(?<![\w-])scripts/")
+REFERENCE_DEFINITION_RE = re.compile(r" {0,3}\[[^\[\]\n]+\]:[ \t]*(?:<[^<>\n]*>|[^\s<>]+)[ \t]*$")
+SCRIPT_OWNER_LINK_RE = re.compile(r"(\[[^\]\n]+\])\(scripts/[\w./-]+\)")
 RESOURCE_ROOTS = (
-    "references", "assets", "examples", "evals", "fixtures", "schemas",
+    "scripts", "references", "assets", "examples", "evals", "fixtures", "schemas",
     "templates", "data", "config", "configs", "docs", "tests", ".github",
     ".agents", "prompts", "hooks", "workflows", "reports", "artifacts",
     "snapshots", "baselines", "benchmarks", "corpus", "corpora", "policies",
@@ -88,14 +90,12 @@ def check_symbols(line):
     found.extend(msg for pattern, msg in LATIN if pattern.search(line))
     if line.startswith("####"):
         found.append("heading nested past three levels")
-    if SCRIPT_PATH_RE.search(line):
+    if SCRIPT_PATH_RE.search(SCRIPT_OWNER_LINK_RE.sub(r"\1", line)):
         found.append("markdown must reference the owning Mise task, not scripts/")
     return found
 
 
 def check_resource_path(line, fence_paired):
-    if SCRIPT_PATH_RE.search(line):
-        return []
     plain = URL_RE.sub("", line)
     referenced = ROOT_PATH_RE.search(plain) or FILE_PATH_RE.search(plain)
     if referenced and "mise run " not in line and not fence_paired:
@@ -151,6 +151,9 @@ def collect_blocks(lines):
     blocks, current, fence = [], [], False
     for number in range(skip_frontmatter(lines), len(lines)):
         line = lines[number]
+        # Single-line untitled definitions are not wrappable prose.
+        if not current and not fence and REFERENCE_DEFINITION_RE.fullmatch(line):
+            continue
         broke, fence = breaks_block(line, fence)
         code = not current and (line[:4] == "    " or line[:1] == "\t")
         if broke or code:

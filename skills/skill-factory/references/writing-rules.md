@@ -18,7 +18,8 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 ## Reasoning simplicity
 
 - Use the smallest coherent structure that preserves every required rule and accepted behavior.
-- Keep one canonical owner per rule and link to it instead of restating it.
+- Keep one canonical owner per rule and link to it instead of restating it. Define a repeated link target once per document, following [reference-link syntax](https://spec.commonmark.org/0.31.2/#link-reference-definitions). A definition cannot interrupt an open paragraph.
+- Link specific implementation owners descriptively while naming their public `mise run` route in the same block or section. A link identifies the owner; execution still uses the public task. Bare script commands remain forbidden in operative Markdown. The lint checks bounded spellings and layout, not semantic intent, all Markdown syntax, target validity or actual resource consumption.
 - Use one stable term per concept. Define it once, then keep it exact.
 - Keep one material decision per branch. Remove choices that lead to the same action or result.
 - Keep the causal chain visible: outcome, reason, evidence, action, readback, and completion.
@@ -40,7 +41,7 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 - Every wrappable block is exactly one physical line. A paragraph, or a list item together with what would have been its continuation lines, holds no internal hard line breaks.
 - There is no maximum line length. Text fills every column naturally because nothing is manually wrapped, exactly like the one line frontmatter description in SKILL.md.
 - Blank lines between markdown elements (headings, paragraphs, lists, code fences, tables) stay exactly as normal markdown readability requires.
-- Exempt from the one line rule: YAML frontmatter, headings, table rows, code fence delimiters and everything inside fences, indented code blocks, and blank lines.
+- Exempt from the one line rule: YAML frontmatter, headings, table rows, code fence delimiters and everything inside fences, indented code blocks, single-line untitled reference definitions, and blank lines.
 - The lint reports any block spanning more than one physical line as path:line; join the block into one line with single spaces.
 
 ## How do I avoid the banned list on the first draft?

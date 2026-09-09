@@ -64,6 +64,24 @@ class TestLintWritingRules(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("Mise task", result.stdout)
 
+    def test_linked_implementation_owner_preserves_public_route(self):
+        result = self.lint_text(
+            "Run `mise run validate`.\n\n"
+            "Inspect [the validator](scripts/check.py) for its predicate.\n")
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_linked_owner_does_not_hide_a_direct_command(self):
+        result = self.lint_text(
+            "See [the owner](scripts/check.py), then run "
+            "`python3 scripts/check.py`.\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Mise task", result.stdout)
+
+    def test_linked_implementation_owner_still_needs_public_route(self):
+        result = self.lint_text("Inspect [the owner](scripts/check.py).\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("owning Mise task", result.stdout)
+
     def test_markdown_can_reference_owning_mise_task(self):
         result = self.lint_text("Run `mise run validate`.\n")
         self.assertEqual(result.returncode, 0, result.stdout)
@@ -142,6 +160,20 @@ class TestOneLineBlocks(unittest.TestCase):
         result = self.lint_text("Paragraph one stays whole.\n\n"
                                 "Paragraph two stays whole.\n")
         self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_reference_definitions_are_separate_markdown_blocks(self):
+        text = ("Use [first] and [second].\n\n"
+                "[first]: https://example.com/one\n"
+                "[second]: https://example.com/two\n")
+        result = self.lint_text(text)
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_reference_definition_cannot_interrupt_prose(self):
+        result = self.lint_text(
+            "A paragraph is still open.\n"
+            "[reference]: https://example.com/one\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("hard line break", result.stdout)
 
     def test_frontmatter_is_exempt(self):
         text = ("---\nname: sample\ndescription: \"Use when testing.\"\n"

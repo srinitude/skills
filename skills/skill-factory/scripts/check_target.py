@@ -18,6 +18,7 @@ import subprocess
 import sys
 from pathlib import Path
 from invocation_acceptance import arguments, bindings, guard
+import human_matrix_use
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 CHECKS = {
@@ -38,12 +39,14 @@ CHECKS = {
 }
 
 
-def run_check(script, target, inspect_legacy=False):
+def run_check(script, target, inspect_legacy=False, human=()):
     command = [sys.executable, str(SCRIPT_DIR / script), str(target)]
     if script == "validate_skill.py" and not inspect_legacy:
         command.append("--accept")
     if script == "check_use_case_contract.py" and inspect_legacy:
         command.append("--inspect-legacy")
+    if script in {"check_use_case_contract.py", "check_domain_research.py", "check_decision_records.py", "check_evals.py"}:
+        command.extend(human)
     result = subprocess.run(command, capture_output=True, text=True)
     print(f"[{Path(script).stem}]")
     if result.stdout:
@@ -53,8 +56,8 @@ def run_check(script, target, inspect_legacy=False):
     return result.returncode
 
 
-def run_mode(mode, target, inspect_legacy=False):
-    codes = [run_check(script, target, inspect_legacy) for script in CHECKS[mode]]
+def run_mode(mode, target, inspect_legacy=False, human=()):
+    codes = [run_check(script, target, inspect_legacy, human) for script in CHECKS[mode]]
     return 1 if any(codes) else 0
 
 
@@ -84,6 +87,7 @@ def main(argv=None):
     parser.add_argument("--inspect-legacy", action="store_true",
                         help="inspect unchanged legacy skills without accepting updated output")
     arguments(parser)
+    human_matrix_use.arguments(parser)
     args = parser.parse_args(argv)
     candidate = Path(args.skill_root)
     if candidate.is_symlink():
@@ -93,7 +97,8 @@ def main(argv=None):
     if not (target / "SKILL.md").is_file():
         print(f"FAIL not a skill directory: {target}")
         return 1
-    return run_mode(args.mode, target, args.inspect_legacy) or evidence_result(args, target)
+    human = ["--human-context", args.human_context or "", "--human-context-sha256", args.human_context_sha256 or ""]
+    return run_mode(args.mode, target, args.inspect_legacy, human) or evidence_result(args, target)
 
 
 if __name__ == "__main__":

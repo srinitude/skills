@@ -167,9 +167,10 @@ class TestScaffoldOutput(unittest.TestCase):
         result = run("check_code_rules.py", self.skill)
         self.assertEqual(result.returncode, 0, result.stdout)
 
-    def test_generated_evals_pass_schema_checks(self):
+    def test_generated_eval_schema_still_requires_actual_matrix_use(self):
         result = run("check_evals.py", self.skill)
-        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertEqual(result.stdout, "human matrix use: human matrix use requires --human-context and --human-context-sha256\neval checks: 1 problems\n")
 
     def test_generated_tests_pass(self):
         cmd = [sys.executable, "-m", "unittest", "discover",

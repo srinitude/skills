@@ -12,8 +12,8 @@
       "evidence": "mise.toml, generated mise template, speed-contract tests, and plan-standardize runtime-cache tests."
     },
     "task": {
-      "used": ["alias", "depends", "depends_post", "description", "output", "run", "run_windows", "timeout"],
-      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "cache", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "env", "extends", "file", "hide", "interactive", "outputs", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "sources", "tools", "usage", "vars", "wait_for", "watch"],
+      "used": ["alias", "depends", "depends_post", "description", "output", "run", "run_windows", "timeout", "usage"],
+      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "cache", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "env", "extends", "file", "hide", "interactive", "outputs", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "sources", "tools", "vars", "wait_for", "watch"],
       "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, native tools, argument contracts, platform commands, and prefixed evidence for agent skill operations.",
       "nonuse_reason": "This agent skill package has no proved complete result-cache key. Freshness skips and artifact caching therefore remain unused. Other unused fields lack a demonstrated operation-specific need; this disposition does not forbid justified target-specific use.",
       "creative_use": "Agent skill package checks rerun even after a prior pass so newly discovered files and changed checker dependencies cannot inherit stale acceptance; timeouts bound stalls and a post dependency checks primitives after runner maintenance.",

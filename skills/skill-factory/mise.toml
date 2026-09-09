@@ -23,20 +23,11 @@ MASTRA_TELEMETRY_DISABLED = "1"
 dir = "{{config_root}}"
 
 [tasks.ci]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Full pipeline: tests, structure, writing, code, placeholders, evals, improvement policy"
 alias = "c"
 output = "prefix"
-depends = [
-  "test",
-  "validate",
-  "lint-writing",
-  "lint-placeholders",
-  "evals",
-  "improvement-policy",
-  "decision-policy",
-  "source-corpus",
-  "lineage",
-]
+depends = ["test", "validate", "lint-writing", "lint-placeholders", {"task" = "evals", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}, "improvement-policy", {"task" = "decision-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}, "source-corpus", "lineage"]
 
 [tasks.test-ci]
 description = "Contract tests for the task graph and the CI workflow template"
@@ -91,9 +82,10 @@ depends = []
 run = "python3 scripts/check_placeholders.py ."
 
 [tasks.evals]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true\nflag \"--min-cases <value>\" default=\"4\"\nflag \"--min-queries <value>\" default=\"4\""
 description = "Schema checks on evals/evals.json and evals/trigger-queries.json"
 depends = []
-run = "python3 scripts/check_evals.py ."
+run = "python3 scripts/check_evals.py . --human-context \"$usage_human_context\" --human-context-sha256 \"$usage_human_context_sha256\" --min-cases \"$usage_min_cases\" --min-queries \"$usage_min_queries\""
 
 [tasks.improvement-policy]
 description = "Validate the optional nonregressing skill-improvement policy"
@@ -101,34 +93,40 @@ depends = []
 run = "python3 scripts/check_improvement_contract.py ."
 
 [tasks.use-case-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true\nflag \"--inspect-legacy\"\nflag \"--source <value>\" default=\"\"\nflag \"--coverage <value>\" default=\"\"\nflag \"--source-sha256 <value>\" default=\"\"\nflag \"--coverage-sha256 <value>\" default=\"\""
 description = "Reject generic skill primitives without a domain-specific role and proof"
-depends = ["domain-research-policy"]
-run = "python3 scripts/check_use_case_contract.py ."
+depends = [{"task" = "domain-research-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
+run = "set --\nif [ \"${usage_inspect_legacy:-false}\" = \"true\" ]; then set -- --inspect-legacy; fi\npython3 scripts/check_use_case_contract.py . --human-context \"$usage_human_context\" --human-context-sha256 \"$usage_human_context_sha256\" --source \"$usage_source\" --coverage \"$usage_coverage\" --source-sha256 \"$usage_source_sha256\" --coverage-sha256 \"$usage_coverage_sha256\" \"$@\""
 
 [tasks.mise-primitives-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Validate every official Mise primitive disposition for skill-factory"
-depends = ["use-case-policy"]
+depends = [{"task" = "use-case-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
 run = "python3 scripts/check_mise_primitives.py ."
 
 [tasks.primitive-lifecycle-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Validate every agent skill aspect and primitive lifecycle owner"
-depends = ["mise-primitives-policy"]
+depends = [{"task" = "mise-primitives-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
 run = "python3 scripts/check_primitive_lifecycle.py ."
 
 [tasks.task-graph-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Reject generic, disconnected, circular, or alternate Mise dependency paths"
-depends = ["primitive-lifecycle-policy"]
+depends = [{"task" = "primitive-lifecycle-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
 run = "python3 scripts/check_task_graph.py ."
 
 [tasks.domain-research-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Validate source-backed domain research coverage and receipts"
 depends = []
-run = "python3 scripts/check_domain_research.py ."
+run = "python3 scripts/check_domain_research.py . --human-context \"$usage_human_context\" --human-context-sha256 \"$usage_human_context_sha256\""
 
 [tasks.decision-policy]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Validate motivated deterministic and model-owned skill decisions"
-depends = ["task-graph-policy"]
-run = "python3 scripts/check_decision_records.py ."
+depends = [{"task" = "task-graph-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
+run = "python3 scripts/check_decision_records.py . --human-context \"$usage_human_context\" --human-context-sha256 \"$usage_human_context_sha256\""
 
 [tasks.invocation-policy]
 description = "Check task accounting and host-bound evidence; pass receipt and bindings after --"
@@ -147,9 +145,10 @@ depends = []
 run = "mise self-update --yes --no-plugins"
 
 [tasks.mise-primitives-update]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Refresh skill-factory's official Mise primitive catalog after self-update"
 depends = ["mise-latest"]
-depends_post = ["refresh-lineage"]
+depends_post = [{"task" = "refresh-lineage", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}]
 run = "python3 scripts/sync_mise_primitives.py ."
 run_windows = "python scripts/sync_mise_primitives.py ."
 timeout = "60s"
@@ -165,17 +164,9 @@ depends = []
 run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py ."
 
 [tasks.refresh-lineage]
+usage = "flag \"--human-context <file>\" required=#true\nflag \"--human-context-sha256 <sha>\" required=#true"
 description = "Atomically refresh source-lineage after accepted changes"
-depends = [
-  "test",
-  "validate",
-  "lint-writing",
-  "lint-placeholders",
-  "evals",
-  "improvement-policy",
-  "decision-policy",
-  "source-corpus",
-]
+depends = ["test", "validate", "lint-writing", "lint-placeholders", {"task" = "evals", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}, "improvement-policy", {"task" = "decision-policy", "args" = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]}, "source-corpus"]
 run = "uv run --with PyYAML==6.0.3 scripts/check_lineage.py . --write"
 
 [tasks.audit-source-corpus]

@@ -51,7 +51,12 @@ EXPECTED = {
 
 def tasks():
     with (ROOT / "mise.toml").open("rb") as handle:
-        return tomllib.load(handle)["tasks"]
+        result = tomllib.load(handle)["tasks"]
+    for task in result.values():
+        for field in ["depends", "depends_post"]:
+            if field in task:
+                task[field] = [item["task"] if isinstance(item, dict) else item for item in task[field]]
+    return result
 
 
 class TestTaskGraphTopology(unittest.TestCase):

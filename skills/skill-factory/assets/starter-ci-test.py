@@ -26,7 +26,13 @@ FRESH_CHECKS = ["validate", "lint-writing", "lint-code",
 
 def load_tasks(path):
     with open(path, "rb") as handle:
-        return tomllib.load(handle).get("tasks", {})
+        data = tomllib.load(handle)
+    tasks = data.get("tasks", {})
+    for task in tasks.values():
+        for field in ["depends", "depends_post"]:
+            if field in task:
+                task[field] = [item["task"] if isinstance(item, dict) else item for item in task[field]]
+    return tasks
 
 
 def load_config(path):
@@ -37,7 +43,7 @@ def load_config(path):
 class TestTaskGraph(unittest.TestCase):
     def setUp(self):
         self.config = load_config(SKILL_DIR / "mise.toml")
-        self.tasks = self.config["tasks"]
+        self.tasks = load_tasks(SKILL_DIR / "mise.toml")
 
     def test_every_required_task_exists(self):
         for name in REQUIRED_TASKS:

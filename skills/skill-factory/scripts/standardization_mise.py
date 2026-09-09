@@ -5,7 +5,7 @@ import tomllib
 from pathlib import Path
 
 from mise_text import field, sections, table_defaults, value
-from mise_task_graph import cycle
+from mise_task_graph import cycle, reference
 
 BARE_MISE = re.compile(r"mise run ([a-z0-9][a-z0-9:-]*)")
 NATIVE_CHAIN = {"runtime-install", "lint-code", "typecheck-native", "test-native"}
@@ -31,7 +31,7 @@ def normalize_existing(name, block):
     if not isinstance(dependencies, list):
         raise ValueError(f"tasks.{name}.depends needs an explicit array migration")
     block, dependencies = migrate_call(block, task, dependencies)
-    if name == "ci" and "decision-policy" not in dependencies:
+    if name == "ci" and not any(reference(item)[0] == "decision-policy" for item in dependencies):
         dependencies.append("decision-policy")
     return field(block, "depends", value(dependencies))
 
@@ -54,8 +54,8 @@ def reaches(tasks, start, target):
         if name in seen:
             continue
         seen.add(name)
-        pending.extend(item for item in tasks.get(name, {}).get("depends", [])
-                       if isinstance(item, str) and item in tasks)
+        pending.extend(reference(item)[0] for item in tasks.get(name, {}).get("depends", [])
+                       if reference(item)[0] in tasks)
     return False
 
 
@@ -64,9 +64,9 @@ def wire_checks(text, defaults):
     for name in ["lint-code", "typecheck-native", "test-native", "test", "ci"]:
         deps = tasks[name]["depends"]
         for dependency in defaults[name]["depends"]:
-            if not reaches(tasks, name, dependency):
+            if not reaches(tasks, name, reference(dependency)[0]):
                 deps.append(dependency)
-    graph = {name: [d for d in task["depends"] if isinstance(d, str) and d in tasks]
+    graph = {name: [reference(d)[0] for d in task["depends"] if reference(d)[0] in tasks]
              for name, task in tasks.items()}
     if cycle(graph):
         raise ValueError("native prerequisites conflict with existing order; reconcile the task cycle explicitly")
@@ -143,4 +143,73 @@ def normalize_mise(text, profile=None):
                    for name, spec in profile.get("command_tasks", {}).items()
                    if name not in names | set(defaults)]
     output = (preamble + "\n\n" if preamble else "") + "\n\n".join(blocks) + "\n"
-    return wire_checks(output, config["tasks"])
+    return wire_matrix(wire_checks(output, config["tasks"]))
+
+
+def matrix_tasks(tasks):
+    selected = {"domain-research-policy", "use-case-policy", "decision-policy", "evals"} & tasks.keys()
+    while True:
+        added = {name for name, task in tasks.items() if any(reference(item)[0] in selected
+                 for field in ["depends", "depends_post"] for item in task.get(field, []))}
+        if added <= selected:
+            return selected
+        selected.update(added)
+
+
+def matrix_usage(name):
+    spec = ['flag "--human-context <file>" required=#true',
+            'flag "--human-context-sha256 <sha>" required=#true']
+    flags = ' --human-context "$usage_human_context" --human-context-sha256 "$usage_human_context_sha256"'
+    if name == "use-case-policy":
+        spec.append('flag "--inspect-legacy"')
+        for key in ["source", "coverage", "source-sha256", "coverage-sha256"]:
+            spec.append(f'flag "--{key} <value>" default=""')
+            flags += f' --{key} "$usage_{key.replace("-", "_")}"'
+        flags += ' "$@"'
+    if name == "evals":
+        for key in ["min-cases", "min-queries"]:
+            spec.append(f'flag "--{key} <value>" default="4"')
+            flags += f' --{key} "$usage_{key.replace("-", "_")}"'
+    return "\n".join(spec), flags
+
+
+def matrix_block(name, body, task, selected):
+    spec, flags = matrix_usage(name)
+    if "usage" in task and task["usage"] != spec:
+        raise ValueError("matrix arguments conflict with existing task usage; reconcile explicitly: " + name)
+    body = field(body, "usage", value(spec))
+    for key in ["depends", "depends_post"]:
+        if key in task:
+            deps = [matrix_dependency(item) if reference(item)[0] in selected else item for item in task[key]]
+            body = field(body, key, value(deps))
+    if name in {"domain-research-policy", "use-case-policy", "decision-policy", "evals"}:
+        scripts = {"domain-research-policy": "check_domain_research", "use-case-policy": "check_use_case_contract",
+                   "decision-policy": "check_decision_records", "evals": "check_evals"}
+        command = "python3 scripts/" + scripts[name] + ".py ."
+        prefix = 'set --\nif [ "${usage_inspect_legacy:-false}" = "true" ]; then set -- --inspect-legacy; fi\n' if name == "use-case-policy" else ""
+        expected = prefix + command + flags
+        if task.get("run") not in {command, expected} or "run_windows" in task:
+            raise ValueError("matrix consumer command needs explicit integration preserving existing behavior: " + name)
+        body = field(body, "run", value(expected))
+    return body
+
+
+def matrix_dependency(item):
+    name, _ = reference(item)
+    args = ["--human-context", "{{usage.human_context}}", "--human-context-sha256", "{{usage.human_context_sha256}}"]
+    if isinstance(item, dict):
+        if item.get("args") == args:
+            return item
+        raise ValueError("matrix dependency arguments need explicit integration: " + name)
+    if item != name:
+        raise ValueError("matrix dependency needs explicit argument migration: " + name)
+    return {"task": name, "args": args}
+
+
+def wire_matrix(text):
+    tasks = tomllib.loads(text)["tasks"]
+    selected = matrix_tasks(tasks)
+    preamble, blocks = sections(text)
+    rendered = [f"[tasks.{name if re.fullmatch(r'[A-Za-z0-9_-]+', name) else value(name)}]\n" + (matrix_block(name, body, tasks[name], selected)
+                if name in selected else body) for name, body in blocks]
+    return preamble + "\n\n" + "\n\n".join(rendered) + "\n"

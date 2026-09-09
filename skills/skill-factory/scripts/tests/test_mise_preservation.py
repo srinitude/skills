@@ -41,7 +41,7 @@ class TestMisePreservation(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             ci = tomllib.loads((root / "mise.toml").read_text())["tasks"]["ci"]
             self.assertEqual(ci["run"], commands)
-            self.assertEqual(ci["depends"], ["decision-policy", "test", "validate", "lint-writing",
+            self.assertEqual([item["task"] if isinstance(item, dict) else item for item in ci["depends"]], ["decision-policy", "test", "validate", "lint-writing",
                                             "lint-placeholders", "evals", "improvement-policy"])
 
     def test_multiline_program_and_nested_config_survive(self):

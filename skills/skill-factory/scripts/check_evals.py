@@ -19,6 +19,7 @@ import json
 import sys
 from pathlib import Path
 from source_coverage import load_json
+import human_matrix_use
 
 
 def nonempty(value):
@@ -98,25 +99,36 @@ def load(path, problems):
         return None
 
 
-def main(argv=None):
+def arguments(argv):
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_dir", help="path to the skill directory")
     parser.add_argument("--min-cases", type=int, default=4)
     parser.add_argument("--min-queries", type=int, default=4)
-    args = parser.parse_args(argv)
+    human_matrix_use.arguments(parser)
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = arguments(argv)
     skill = Path(args.skill_dir).resolve()
     if not skill.is_dir():
         print(f"error: no such directory: {skill}", file=sys.stderr)
         return 2
     problems = []
+    try:
+        before = human_matrix_use.snapshot(skill)
+    except (ValueError, OSError) as error:
+        print(f"FAIL {error}")
+        return 1
     doc = load(skill / "evals" / "evals.json", problems)
     if doc is not None:
         check_cases(doc, skill, args.min_cases, problems)
     queries = load(skill / "evals" / "trigger-queries.json", problems)
     if queries is not None:
         check_queries(queries, args.min_queries, problems)
+    problems += human_matrix_use.problems(args, skill, "evals", before)
     for problem in problems:
         print(problem)
     print(f"eval checks: {len(problems)} problems")

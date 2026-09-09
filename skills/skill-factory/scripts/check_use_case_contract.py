@@ -20,6 +20,7 @@ from pathlib import Path
 from domain_text import uses_generic_task_template, uses_term, words
 from source_coverage import check_arguments, load_json, mapping_problems
 from use_case_audience import problems as audience_problems
+import human_matrix_use
 
 KINDS = {"skill_body", "references", "assets", "scripts", "tests",
          "mise_tasks", "examples", "evals", "policies", "schemas",
@@ -151,6 +152,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
+    human_matrix_use.arguments(parser)
     parser.add_argument("--inspect-legacy", action="store_true", help="inspect untouched legacy audience data without accepting changes")
     for name in ["source", "coverage", "source-sha256", "coverage-sha256"]:
         parser.add_argument("--" + name, help="caller-bound source coverage input")
@@ -158,8 +160,10 @@ def main(argv=None):
     root = Path(args.skill_root).resolve()
     try:
         check_arguments(args)
+        before = human_matrix_use.snapshot(root)
         data = load(root)
         found = problems(data, root) + mapping_problems(root) + audience_problems(data, root, args.inspect_legacy)
+        found += human_matrix_use.problems(args, root, "use-case-policy", before)
     except (ValueError, OSError, UnicodeError) as error:
         print(f"FAIL {error}")
         return 1

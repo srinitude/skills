@@ -47,7 +47,8 @@ class TestStandardizationInputs(unittest.TestCase):
             triggers = json.loads((target / "evals/trigger-queries.json").read_text())
             self.assertEqual(triggers, [{**q, "query": q["prompt"]} for q in queries])
             checked = run("check_evals.py", target)
-            self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+            self.assertEqual(checked.returncode, 1, checked.stdout + checked.stderr)
+            self.assertEqual(checked.stdout, "human matrix use: human matrix use requires --human-context and --human-context-sha256\neval checks: 1 problems\n")
             self.assertEqual(inventory(root), before)
 
     def test_missing_cases_and_research_stay_missing(self):

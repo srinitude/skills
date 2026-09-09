@@ -1,5 +1,6 @@
 """Real task-listing evidence for disposable consumer tests, not skill acceptance."""
 import json
+import os
 import subprocess
 import tempfile
 import time
@@ -20,11 +21,18 @@ def inspect(root):
     before = inventory(root)
     expected = set(tomllib.loads((root / "mise.toml").read_text())["tasks"])
     argv = ["mise", "tasks", "--json"]
-    result = subprocess.run(argv, cwd=root, capture_output=True, text=True, timeout=30)
+    with tempfile.TemporaryDirectory() as state:
+        env = {**os.environ, "MISE_STATE_DIR": state}
+        trusted = subprocess.run(["mise", "trust", str(root / "mise.toml")], cwd=root,
+                                 env=env, capture_output=True, text=True, timeout=30)
+        if trusted.returncode:
+            raise ValueError(trusted.stdout + trusted.stderr)
+        result = subprocess.run(argv, cwd=root, env=env, capture_output=True, text=True, timeout=30)
     if result.returncode:
         raise ValueError(result.stdout + result.stderr)
     names = {task["name"] for task in json.loads(result.stdout)}
-    return {"execution": {"argv": argv, "exit_code": result.returncode,
+    return {"fixture_config_trust": {"exit_code": trusted.returncode, "stdout": trusted.stdout, "stderr": trusted.stderr},
+            "execution": {"argv": argv, "exit_code": result.returncode,
                           "stdout": result.stdout, "stderr": result.stderr},
             "declared_tasks_found": expected <= names, "preserved": inventory(root) == before}
 

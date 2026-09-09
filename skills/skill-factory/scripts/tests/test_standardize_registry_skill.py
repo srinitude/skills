@@ -134,7 +134,7 @@ class TestRegistryStandardization(unittest.TestCase):
 
     def assert_package_graph(self, root):
             mise = (root / "mise.toml").read_text(encoding="utf-8")
-            self.assertEqual(tomllib.loads(mise)["tasks"]["ci"]["depends"],
+            self.assertEqual([item["task"] if isinstance(item, dict) else item for item in tomllib.loads(mise)["tasks"]["ci"]["depends"]],
                              ["anchor", "decision-policy", "test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy"])
             self.assertIn("[tasks.inspect-anchor]", mise)
             self.assertIn("[tasks.report-clock]", mise)

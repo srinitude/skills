@@ -8,7 +8,7 @@ NATIVE_PROBES = ["workflow-engine.test.ts", "workflow-schemas.test.ts",
                  "workflow-storage.test.ts", "workflow-storage.fixture.ts"]
 HUMAN_SUPPORT = ["human_catalogs.py", "human_catalog_sources.py", "human_pdf_catalogs.py",
                  "human-matrix-workflow.ts", "human_matrix.py", "human_matrix_records.py",
-                 "human_combinations.py", "human_matrix_budget.py"]
+                 "human_combinations.py", "human_matrix_budget.py", "human_matrix_use.py"]
 
 
 def compatible_manifest(factory, target):

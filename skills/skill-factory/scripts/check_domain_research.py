@@ -18,6 +18,7 @@ import json
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
+import human_matrix_use
 
 DIMENSIONS = {"actors", "objects", "actions", "states", "invariants",
               "variants", "interfaces", "authorities", "failures",
@@ -177,13 +178,16 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
+    human_matrix_use.arguments(parser)
     args = parser.parse_args(argv)
+    root = Path(args.skill_root).resolve()
     try:
-        data = load(Path(args.skill_root).resolve())
-    except ValueError as error:
+        before = human_matrix_use.snapshot(root)
+        data = load(root)
+    except (ValueError, OSError) as error:
         print(f"FAIL {error}")
         return 1
-    found = problems(data)
+    found = problems(data) + human_matrix_use.problems(args, root, "domain-research-policy", before)
     for problem in found:
         print(f"FAIL {problem}")
     print(f"domain research: {len(found)} problems")

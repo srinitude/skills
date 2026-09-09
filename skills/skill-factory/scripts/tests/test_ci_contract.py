@@ -29,7 +29,12 @@ FACTORY_CI_JOBS = ["test"] + [job for job in CHECK_JOBS if job != "lint-code"] +
 def load_tasks(path):
     with open(path, "rb") as handle:
         data = tomllib.load(handle)
-    return data.get("tasks", {})
+    tasks = data.get("tasks", {})
+    for task in tasks.values():
+        for field in ["depends", "depends_post"]:
+            if field in task:
+                task[field] = [item["task"] if isinstance(item, dict) else item for item in task[field]]
+    return tasks
 
 
 class TestMiseTaskGraph(unittest.TestCase):

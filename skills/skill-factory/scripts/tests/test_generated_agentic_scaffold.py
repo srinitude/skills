@@ -31,7 +31,8 @@ class TestGeneratedAgenticScaffold(unittest.TestCase):
                                  "**Agentic request contract.**"]))
             request = json.loads(request_path.read_text(encoding="utf-8"))
             self.assertEqual(request["version"], 1)
-            self.assertIn("use_case", request)
+            self.assertEqual((request_path.parent / request["use_case"]["path"]).resolve(),
+                             (root / "assets/use-case-contract.json").resolve())
             self.assertIn("trace", request["prompt"])
             self.assertIn("trace", request["skills"][0])
             self.assertIn("primitives", request)

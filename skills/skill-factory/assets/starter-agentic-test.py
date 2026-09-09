@@ -1,4 +1,4 @@
-"""Behavior test for this skill's agentic request dispatcher."""
+"""Real context transport checks; no domain or human acceptance claim."""
 import hashlib
 import json
 import pathlib
@@ -45,13 +45,19 @@ def task_graph():
 
 def request(contract, skill):
     outcome = "The agent skill produces a verified domain result."
+    ledger = contract.with_name("review-ledger.json")
+    ledger.write_text(json.dumps({"rules": ["Preserve supplied agent skill inputs."]}))
+    initial = [{"id": "ledger", "role": "ledger", "path": ledger.name,
+                "sha256": digest(ledger), "depends_on": []}]
     contract.write_text(json.dumps({
         "skill": ROOT.name, "outcome": outcome,
         "domain_terms": ["agent skill", "skill package", "domain result"],
         "task_graph": task_graph(),
+        "initial_context": initial,
     }), encoding="utf-8")
     return {
         "version": 1, "operation": "produce an agent skill domain result",
+        "context": [{"id": "ledger", "path": str(ledger), "sha256": digest(ledger)}],
         "use_case": {"path": str(contract), "sha256": digest(contract),
                      "promised_outcome": outcome},
         "prompt": {"text": "Inspect the agent skill domain result.",
@@ -64,29 +70,46 @@ def request(contract, skill):
     }
 
 
+def invoke(payload, runner):
+    return subprocess.run(
+        [sys.executable, str(SCRIPT), "--request", "-", "--runner", sys.executable,
+         "--runner-args-json", json.dumps(["-c", runner])],
+        input=json.dumps(payload), capture_output=True, text=True, check=False)
+
+
 class TestAgenticRequest(unittest.TestCase):
-    def test_domain_specific_request_reaches_runner(self):
+    def test_typed_request_with_context_reaches_runner(self):
         skill = ROOT / "SKILL.md"
         runner = (
             "import json,sys; d=json.load(sys.stdin); "
             "print(json.dumps({'skill':d['use_case']['skill'],"
-            "'skills':len(d['skills']),'primitives':len(d['primitives']),"
+            "'skills':len(d['skills']),'primitives':len(d['primitives']),'context':d['context'],"
             "'skill_text':d['skills'][0]['text'],'contract_text':d['use_case']['text']}))"
         )
         with tempfile.TemporaryDirectory() as tmp:
             payload = request(pathlib.Path(tmp) / "use-case-contract.json", skill)
-            result = subprocess.run(
-                [sys.executable, str(SCRIPT), "--request", "-",
-                 "--runner", sys.executable,
-                 "--runner-args-json", json.dumps(["-c", runner])],
-                input=json.dumps(payload), capture_output=True, text=True,
-                check=False)
+            expected_context = pathlib.Path(payload["context"][0]["path"]).read_bytes().decode()
+            result = invoke(payload, runner)
         self.assertEqual(result.returncode, 0, result.stderr)
         output = json.loads(result.stdout)
         self.assertEqual(output["skill"], ROOT.name)
+        self.assertEqual(output["context"][0]["text"], expected_context)
         self.assertEqual(output["skill_text"], skill.read_bytes().decode())
         self.assertEqual(json.loads(output["contract_text"])["outcome"],
                          payload["use_case"]["promised_outcome"])
+
+    def test_missing_context_blocks_and_valid_input_recovers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            payload = request(pathlib.Path(tmp) / "use-case-contract.json", ROOT / "SKILL.md")
+            context = payload.pop("context")
+            blocked = invoke(payload, "print('RUNNER_STARTED')")
+            self.assertEqual(blocked.returncode, 1)
+            self.assertIn("context", blocked.stderr)
+            self.assertEqual(blocked.stdout, "")
+            payload["context"] = context
+            recovered = invoke(payload, "print('RUNNER_STARTED')")
+            self.assertEqual(recovered.returncode, 0, recovered.stderr)
+            self.assertEqual(recovered.stdout.strip(), "RUNNER_STARTED")
 
     def test_help_names_request_interface(self):
         result = subprocess.run(

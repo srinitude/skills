@@ -41,9 +41,10 @@ SCRIPTS = [
     "sync_mise_primitives.py",
 ]
 SCRIPTS += ["validate_skill.py", "lint_writing.py", "check_code_rules.py",
-            "check_evals.py", "check_placeholders.py"]
+            "check_evals.py", "check_placeholders.py", "agentic_context.py"]
 CANONICAL_SCRIPTS = set(SCRIPTS[:12]) | {
     "check_placeholders.py",
+    "agentic_context.py",
     "lint_writing.py",
     "validate_skill.py",
 }

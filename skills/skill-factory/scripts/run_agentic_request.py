@@ -12,6 +12,10 @@ Prompt bytes, including line endings, are preserved. Only caller-authorized
 inputs may be supplied to the runner. The caller supplies the command and
 argument array. The runner receives JSON stdin; duplicate keys and non-finite
 numbers fail. This snapshot is not live-state isolation or semantic acceptance.
+The use-case must declare initial_context resource IDs, roles, paths, digests
+and reading dependencies. The request must supply matching context references,
+including one governing ledger. Full context text reaches the runner in reading
+dependency order; missing or invalid context blocks dispatch.
 
 Exit codes:
   0  runner exited successfully; domain acceptance is separate
@@ -29,6 +33,7 @@ import sys
 from pathlib import Path
 
 from agentic_request_contract import build_envelope, read_json
+from agentic_context import capture_context
 
 
 def read_request(source):
@@ -49,7 +54,10 @@ def runner_command(command, raw_arguments):
     return [command, *arguments]
 
 
-def dispatch(command, payload):
+def dispatch(command, data, base=None):
+    base = Path.cwd() if base is None else Path(base)
+    payload = build_envelope(data, base)
+    payload["context"] = capture_context(payload["use_case"], data.get("context"), base)
     result = subprocess.run(
         command, input=json.dumps(payload, allow_nan=False), capture_output=True,
         text=True, check=False)
@@ -67,9 +75,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         data, base = read_request(args.request)
-        payload = build_envelope(data, base)
         command = runner_command(args.runner, args.runner_args_json)
-        return dispatch(command, payload)
+        return dispatch(command, data, base)
     except (OSError, UnicodeError, ValueError, json.JSONDecodeError) as error:
         print(f"FAIL {error}", file=sys.stderr)
         return 1

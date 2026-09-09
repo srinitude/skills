@@ -110,6 +110,24 @@
       "disposition": "SCAFFOLD-PLACEHOLDER how {{NAME}} changed or why it stayed"
     }
   ],
+  "initial_context": [
+    {
+      "id": "governing-ledger",
+      "role": "ledger",
+      "path": "SCAFFOLD-PLACEHOLDER path relative to this contract for the complete {{NAME}} ledger",
+      "sha256": "SCAFFOLD-PLACEHOLDER SHA-256 of the complete {{NAME}} ledger",
+      "depends_on": []
+    },
+    {
+      "id": "study-work-matrix",
+      "role": "resource",
+      "path": "SCAFFOLD-PLACEHOLDER path relative to this contract for the required {{NAME}} matrix",
+      "sha256": "SCAFFOLD-PLACEHOLDER SHA-256 of the {{NAME}} matrix",
+      "depends_on": [
+        "governing-ledger"
+      ]
+    }
+  ],
   "task_graph": {
     "ci_task": "ci",
     "public_operations": [

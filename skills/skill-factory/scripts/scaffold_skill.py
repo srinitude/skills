@@ -61,6 +61,7 @@ COPIED = [
 SCRIPT_COPIED = [
     ("scripts/run_agentic_request.py", "run_agentic_request.py"),
     ("scripts/agentic_request_contract.py", "agentic_request_contract.py"),
+    ("scripts/agentic_context.py", "agentic_context.py"),
 ]
 CHECKERS = ["lint_writing.py", "validate_skill.py",
             "check_code_rules.py", "check_evals.py",

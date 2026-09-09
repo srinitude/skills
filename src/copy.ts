@@ -73,7 +73,9 @@ function scanText(path: string, source: string): CopyFinding[] {
   if (bannedTerms.test(source)) {
     found.push(finding('BANNED_TERM', 'public copy contains a banned source term', path));
   }
-  if (audienceLabels.test(source)) {
+  // These evidence roles do not label the reader's ability. Other labels still fail.
+  const readerCopy = source.replace(/\bexpert\s+(?:reviews?|assessments?)\b/gi, '');
+  if (audienceLabels.test(readerCopy)) {
     found.push(finding('AUDIENCE_LABEL', 'public copy labels its reader', path));
   }
   if (/[–—]/u.test(source)) {
@@ -98,9 +100,13 @@ function scanText(path: string, source: string): CopyFinding[] {
     const lines = source.trimEnd().split('\n').length;
     if (lines >= 200)
       found.push(finding('MARKDOWN_LINES', 'Markdown must stay below 200 lines', path));
-    if (source.length >= 20_000) {
+    // The generation contract gives canonical skill bodies a separate size limit.
+    const skillBody = /^skills\/[^/]+\/SKILL\.md$/.test(path);
+    const limit = skillBody ? 100_000 : 20_000;
+    const characters = skillBody ? Array.from(source).length : source.length;
+    if (characters >= limit) {
       found.push(
-        finding('MARKDOWN_SIZE', 'Markdown must stay below 20,000 characters', path),
+        finding('MARKDOWN_SIZE', `Markdown must stay below ${limit} characters`, path),
       );
     }
   }

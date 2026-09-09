@@ -2,6 +2,7 @@
   "version": "1.1.0",
   "skill": "{{NAME}}",
   "outcome": "SCAFFOLD-PLACEHOLDER name the observable {{NAME}} result using its own domain terms.",
+  "audience": {"primary": "SCAFFOLD-PLACEHOLDER human or agent from the main {{NAME}} result", "secondary": []},
   "motivations": [
     {
       "constraint": "SCAFFOLD-PLACEHOLDER name one {{NAME}} constraint.",
@@ -114,15 +115,13 @@
     {
       "id": "governing-ledger",
       "role": "ledger",
-      "path": "SCAFFOLD-PLACEHOLDER path relative to this contract for the complete {{NAME}} ledger",
-      "sha256": "SCAFFOLD-PLACEHOLDER SHA-256 of the complete {{NAME}} ledger",
+      "binding": "invocation",
       "depends_on": []
     },
     {
       "id": "study-work-matrix",
       "role": "resource",
-      "path": "SCAFFOLD-PLACEHOLDER path relative to this contract for the required {{NAME}} matrix",
-      "sha256": "SCAFFOLD-PLACEHOLDER SHA-256 of the {{NAME}} matrix",
+      "binding": "invocation",
       "depends_on": [
         "governing-ledger"
       ]

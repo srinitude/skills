@@ -9,13 +9,13 @@
   "context": [
     {
       "id": "governing-ledger",
-      "path": "SCAFFOLD-PLACEHOLDER caller-authorized governing-ledger path matching the use-case declaration",
-      "sha256": "SCAFFOLD-PLACEHOLDER exact declared governing-ledger SHA-256"
+      "path": "SCAFFOLD-PLACEHOLDER caller-authorized governing-ledger path permitted by the use-case binding",
+      "sha256": "SCAFFOLD-PLACEHOLDER current governing-ledger SHA-256 matching any package pin"
     },
     {
       "id": "study-work-matrix",
-      "path": "SCAFFOLD-PLACEHOLDER caller-authorized study-work-matrix path matching the use-case declaration",
-      "sha256": "SCAFFOLD-PLACEHOLDER exact declared study-work-matrix SHA-256"
+      "path": "SCAFFOLD-PLACEHOLDER caller-authorized study-work-matrix path permitted by the use-case binding",
+      "sha256": "SCAFFOLD-PLACEHOLDER current study-work-matrix SHA-256 matching any package pin"
     }
   ],
   "prompt": {

@@ -12,8 +12,11 @@ Prompt bytes, including line endings, are preserved. Only caller-authorized
 inputs may be supplied to the runner. The caller supplies the command and
 argument array. The runner receives JSON stdin; duplicate keys and non-finite
 numbers fail. This snapshot is not live-state isolation or semantic acceptance.
-The use-case must declare initial_context resource IDs, roles, paths, digests
-and reading dependencies. The request must supply matching context references,
+The use-case declares initial_context IDs, roles and reading dependencies.
+Package bindings pin contract-relative paths and digests. Explicit invocation
+bindings let the caller select paths and current digests without changing the
+package. Request data cannot change binding modes. Both require exact current
+nonempty UTF-8 file contents. The request supplies matching context references,
 including one governing ledger. Full context text reaches the runner in reading
 dependency order; missing or invalid context blocks dispatch.
 

@@ -116,5 +116,38 @@ class TestInitialContext(unittest.TestCase):
                 self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
 
 
+    def test_invocation_binding_captures_selected_ledger_and_keeps_package_pins(self):
+        self.data["initial_context"][1] = {
+            "id": "ledger", "role": "ledger", "binding": "invocation", "depends_on": []}
+        result = self.invoke()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        captured = json.loads(result.stdout)
+        self.assertEqual(captured[0]["text"], self.ledger.read_bytes().decode())
+        self.assertEqual(captured[0]["binding"], "invocation")
+        self.assertEqual(captured[1]["binding"], "package")
+        self.ledger.write_text('{"rule":"Review this changed invocation source."}')
+        self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
+        self.payload["context"][1]["sha256"] = digest(self.ledger)
+        recovered = self.invoke()
+        self.assertEqual(recovered.returncode, 0, recovered.stderr)
+        self.assertEqual(json.loads(recovered.stdout)[0]["text"], self.ledger.read_text())
+        self.matrix.write_text("The pinned package matrix has changed.")
+        self.payload["context"][0]["sha256"] = digest(self.matrix)
+        self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
+
+    def test_only_contract_can_select_invocation_binding(self):
+        original = json.dumps(self.data["initial_context"])
+        for binding in ["unknown", None, [], {}]:
+            with self.subTest(binding=binding):
+                self.data["initial_context"] = json.loads(original)
+                self.data["initial_context"][1]["binding"] = binding
+                self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
+        self.data["initial_context"] = json.loads(original)
+        self.data["initial_context"][1]["binding"] = "invocation"
+        self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
+        self.data["initial_context"] = json.loads(original)
+        self.payload["context"][1]["binding"] = "invocation"
+        self.assert_blocked(self.invoke("print('RUNNER_STARTED')"))
+
 if __name__ == "__main__":
     unittest.main()

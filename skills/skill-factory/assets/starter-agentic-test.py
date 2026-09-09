@@ -111,6 +111,26 @@ class TestAgenticRequest(unittest.TestCase):
             self.assertEqual(recovered.returncode, 0, recovered.stderr)
             self.assertEqual(recovered.stdout.strip(), "RUNNER_STARTED")
 
+    def test_invocation_binding_transports_current_bytes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            contract = pathlib.Path(tmp) / "use-case-contract.json"
+            payload = request(contract, ROOT / "SKILL.md")
+            data = json.loads(contract.read_text())
+            data["initial_context"] = [{"id": "ledger", "role": "ledger",
+                                        "binding": "invocation", "depends_on": []}]
+            contract.write_text(json.dumps(data))
+            payload["use_case"]["sha256"] = digest(contract)
+            result = invoke(payload, "import json,sys; print(json.dumps(json.load(sys.stdin)['context']))")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            context = json.loads(result.stdout)
+            self.assertEqual(context[0]["binding"], "invocation")
+            self.assertEqual(context[0]["text"],
+                             pathlib.Path(payload["context"][0]["path"]).read_text())
+            payload["context"][0]["sha256"] = "0" * 64
+            failed = invoke(payload, "print('RUNNER_STARTED')")
+            self.assertEqual(failed.returncode, 1)
+            self.assertEqual(failed.stdout, "")
+
     def test_help_names_request_interface(self):
         result = subprocess.run(
             [sys.executable, str(SCRIPT), "--help"],

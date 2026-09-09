@@ -2,6 +2,9 @@
 
 This orders required reading only. It neither evaluates the ledger's semantics
 nor grants authority, proves model consumption or implements a domain workflow.
+Package resources retain declared paths/digests. Invocation resources are selected
+by the caller only when the use-case declaration explicitly permits that binding;
+every supplied resource still needs its exact current file digest.
 """
 from graphlib import CycleError, TopologicalSorter
 from pathlib import Path
@@ -9,6 +12,7 @@ from pathlib import Path
 from agentic_request_contract import checked_file
 
 DECLARATION_FIELDS = {"id", "role", "path", "sha256", "depends_on"}
+INVOCATION_FIELDS = {"id", "role", "binding", "depends_on"}
 INPUT_FIELDS = {"id", "path", "sha256"}
 
 
@@ -26,17 +30,29 @@ def indexed(items, label):
     return records
 
 
+def check_binding(item, name):
+    binding = item.get("binding", "package")
+    if binding not in ("package", "invocation") or item.get("role") not in ("ledger", "resource"):
+        raise ValueError(f"initial_context {name} has invalid binding or role")
+    expected = INVOCATION_FIELDS if binding == "invocation" else DECLARATION_FIELDS
+    if binding == "package" and "binding" in item:
+        expected = expected | {"binding"}
+    if set(item) != expected:
+        raise ValueError(f"initial_context {name} has invalid binding fields")
+    if binding == "invocation":
+        return
+    path, digest = item["path"], item["sha256"]
+    if not isinstance(path, str) or not path.strip():
+        raise ValueError(f"initial_context {name} needs a path")
+    if (not isinstance(digest, str) or len(digest) != 64
+            or any(letter not in "0123456789abcdef" for letter in digest)):
+        raise ValueError(f"initial_context {name} needs a full SHA-256 digest")
+
+
 def declaration_order(value):
     records = indexed(value, "initial_context")
     for name, item in records.items():
-        if set(item) != DECLARATION_FIELDS or item["role"] not in ("ledger", "resource"):
-            raise ValueError(f"initial_context {name} has invalid fields or role")
-        path, digest = item["path"], item["sha256"]
-        if not isinstance(path, str) or not path.strip():
-            raise ValueError(f"initial_context {name} needs a path")
-        if (not isinstance(digest, str) or len(digest) != 64
-                or any(letter not in "0123456789abcdef" for letter in digest)):
-            raise ValueError(f"initial_context {name} needs a full SHA-256 digest")
+        check_binding(item, name)
         dependencies = item["depends_on"]
         if (not isinstance(dependencies, list)
                 or not all(isinstance(key, str) for key in dependencies)
@@ -60,17 +76,19 @@ def resource_snapshot(declared, supplied, contract_base, input_base):
     path = supplied["path"]
     if not isinstance(path, str) or not path.strip():
         raise ValueError(f"context {name} needs a supplied path")
-    expected = (contract_base / declared["path"]).resolve()
-    actual = (input_base / path).resolve()
-    if actual != expected or supplied["sha256"] != declared["sha256"]:
-        raise ValueError(f"context {name} differs from its use-case binding")
+    binding = declared.get("binding", "package")
+    if binding == "package":
+        expected = (contract_base / declared["path"]).resolve()
+        actual = (input_base / path).resolve()
+        if actual != expected or supplied["sha256"] != declared["sha256"]:
+            raise ValueError(f"context {name} differs from its use-case binding")
     try:
         path, digest, text = checked_file(supplied, f"context {name}", input_base)
     except (OSError, UnicodeError, ValueError) as error:
         raise ValueError(f"context {name}: {error}") from error
     if not text.strip():
         raise ValueError(f"context {name} must not be empty")
-    return {"id": name, "role": declared["role"], "path": str(path),
+    return {"id": name, "role": declared["role"], "binding": binding, "path": str(path),
             "sha256": digest, "text": text, "depends_on": declared["depends_on"]}
 
 

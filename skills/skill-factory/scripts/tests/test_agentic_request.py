@@ -1,5 +1,4 @@
 """Behavior tests for the platform-neutral agentic request dispatcher."""
-import hashlib
 import json
 import pathlib
 import subprocess
@@ -7,80 +6,10 @@ import sys
 import tempfile
 import unittest
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / "scripts" / "run_agentic_request.py"
-CONTRACT = ROOT / "assets" / "use-case-contract.json"
-
-
-def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def echo_runner_code():
-    return (
-        "import json,sys; d=json.load(sys.stdin); "
-        "print(json.dumps({'operation':d['operation'],"
-        "'prompt_bytes':len(d['prompt'].encode()),"
-        "'skill':d['use_case']['skill'],"
-        "'skills':len(d['skills']),"
-        "'skill_text':d['skills'][0]['text'],"
-        "'contract_text':d['use_case']['text'],"
-        "'prompt_sha256':d['prompt_sha256'],"
-        "'primitives':[p['name'] for p in d['primitives']]}))"
-    )
-
-
-def trace(subject):
-    return {
-        "domain_role": f"{subject} supports the agent skill operation.",
-        "outcome_contribution": f"{subject} advances the skill package outcome.",
-        "relevance": f"{subject} is needed for this agent skill update.",
-        "expected_proof": f"The skill package receipt proves {subject} was used.",
-    }
-
-
-def generic_trace(subject):
-    return {
-        "domain_role": f"{subject} supports the operation.",
-        "outcome_contribution": f"{subject} advances the result.",
-        "relevance": f"{subject} is needed for this update.",
-        "expected_proof": f"The receipt proves {subject} was used.",
-    }
-
-
-def request(prompt, skill):
-    contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
-    return {
-        "version": 1,
-        "operation": "update agent skill package",
-        "use_case": {
-            "path": str(CONTRACT),
-            "sha256": digest(CONTRACT),
-            "promised_outcome": contract["outcome"],
-        },
-        "prompt": {"file": str(prompt), "sha256": digest(prompt),
-                   "trace": trace("The domain prompt")},
-        "skills": [{"path": str(skill), "sha256": digest(skill),
-                    "trace": trace("The skill-factory dependency")}],
-        "primitives": [{
-            "kind": "tool",
-            "name": "agent skill web evidence",
-            "configuration": {"provider": "web"},
-            "trace": trace("The agent skill web tool"),
-        }],
-    }
-
-
-def runner_args(code=None):
-    arguments = ["-c", code or echo_runner_code()]
-    return ["--runner", sys.executable,
-            "--runner-args-json", json.dumps(arguments)]
-
-
-def invoke_stdin(content, code=None):
-    return subprocess.run([sys.executable, str(SCRIPT), "--request", "-",
-                           *runner_args(code)], input=content,
-                          capture_output=True, text=True, check=False)
+from agentic_request_fixtures import (
+    CONTRACT, CONTEXT_BYTES, ROOT, SCRIPT, context_resources, digest,
+    generic_trace, invoke_stdin, request, runner_args, trace,
+)
 
 
 class TestAgenticRequest(unittest.TestCase):
@@ -91,6 +20,7 @@ class TestAgenticRequest(unittest.TestCase):
             skill = ROOT / "SKILL.md"
             manifest = pathlib.Path(tmp) / "request.json"
             payload = request(prompt, skill)
+            payload["context"] = context_resources(tmp)
             manifest.write_text(json.dumps(payload), encoding="utf-8")
             result = subprocess.run(
                 [sys.executable, str(SCRIPT), "--request", str(manifest),
@@ -105,6 +35,8 @@ class TestAgenticRequest(unittest.TestCase):
         self.assertEqual(output["skill_text"], skill.read_bytes().decode())
         self.assertEqual(output["contract_text"], CONTRACT.read_bytes().decode())
         self.assertEqual(output["prompt_sha256"], payload["prompt"]["sha256"])
+        self.assertEqual({x["id"]: x["text"].encode() for x in output["context"]},
+                         CONTEXT_BYTES)
 
     def test_request_can_arrive_on_standard_input(self):
         payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")
@@ -112,9 +44,14 @@ class TestAgenticRequest(unittest.TestCase):
             "text": "Use the supplied agent skill.",
             "trace": trace("The inline agent skill prompt"),
         }
-        result = invoke_stdin(json.dumps(payload))
+        with tempfile.TemporaryDirectory() as tmp:
+            payload["context"] = context_resources(tmp)
+            result = invoke_stdin(json.dumps(payload))
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)["skills"], 1)
+        output = json.loads(result.stdout)
+        self.assertEqual(output["skills"], 1)
+        self.assertEqual({x["id"]: x["text"].encode() for x in output["context"]},
+                         CONTEXT_BYTES)
 
     def test_digest_mismatch_blocks_before_runner(self):
         payload = request(ROOT / "SKILL.md", ROOT / "SKILL.md")

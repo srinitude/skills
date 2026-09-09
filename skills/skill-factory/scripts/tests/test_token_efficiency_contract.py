@@ -19,8 +19,8 @@ class TestTokenEfficiencyContract(unittest.TestCase):
     def test_factory_and_generated_skill_bound_context(self):
         for text in [self.body, self.contract, self.template]:
             lowered = text.lower()
-            self.assertRegex(lowered, r"context(?: and resource)? budgets?")
-            self.assertRegex(lowered, r"canonical(?: rule)? owner")
+            self.assertRegex(lowered, r"(?:context(?: and resource)? budgets?|budget context)")
+            self.assertRegex(lowered, r"canonical(?: rule| meaning)? owner")
             self.assertIn("digest", lowered)
 
     def test_token_efficiency_cannot_remove_domain_judgment(self):

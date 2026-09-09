@@ -12,8 +12,12 @@ class TestSimplicityContract(unittest.TestCase):
     def test_factory_names_simplicity_as_an_invariant(self):
         text = self.read("SKILL.md")
         self.assertIn("## Motivation", text)
-        self.assertIn("smallest coherent structure", text)
-        self.assertIn("same-meaning human review", text)
+        for phrase in ["Simple means understandable and complete under the contract",
+                       "Keep one canonical meaning owner, stable term, default route",
+                       "Reuse accepted structures before adding code or dependencies",
+                       "speed never justify lost meaning, context, safety",
+                       "Same-meaning human review must confirm clarity and completeness"]:
+            self.assertIn(phrase, text)
 
     def test_recursive_contract_preserves_plain_language_rules(self):
         text = self.read("references/generation-contract.md")

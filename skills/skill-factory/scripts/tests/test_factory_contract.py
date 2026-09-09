@@ -11,8 +11,12 @@ class TestDeterministicBoundary(unittest.TestCase):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         contract = (SKILL_DIR / "references" / "generation-contract.md").read_text()
         self.assertIn("## Mise task graph", skill)
-        self.assertIn("Mise invokes Mastra once at an explicit boundary", skill)
-        self.assertIn("Mastra directly invokes existing scripts or authorized runners", skill)
+        for phrase in ["Mise owns the public command surface, pinned environment and outer prerequisites",
+                       "Mastra owns each delegated domain workflow",
+                       "Tested scripts perform repeatable leaves and exact predicates directly",
+                       "Put an explicit handoff between these owners",
+                       "never recursively invoke competing Mise graphs from workflow steps"]:
+            self.assertIn(phrase, skill)
         self.assertNotIn("python3 scripts/", skill)
         for phrase in ["Mise for public entry/environment/outer prerequisites",
                        "Mastra for actual domain steps", "scripts for mechanics",
@@ -35,8 +39,14 @@ class TestDeterministicBoundary(unittest.TestCase):
             self.assertNotIn("Mise owns every deterministic command", text)
         for path in [paths[0], paths[2]]:
             text = path.read_text(encoding="utf-8")
-            self.assertIn("Preserve selected host models/tools, modalities", text)
-            self.assertIn("no separate Agent, provider, account, model policy", text)
+            if path.name == "SKILL.md":
+                self.assertIn("Preserve every available authorized capability", text)
+                self.assertIn("Preserve non-text modalities through the real capable runner", text)
+                self.assertIn("extra Agent/provider infrastructure is unnecessary", text)
+                self.assertIn("caller already supplies the runner", text)
+            else:
+                self.assertIn("Preserve selected host models/tools, modalities", text)
+                self.assertIn("no separate Agent, provider, account, model policy", text)
 
     def test_factory_has_machine_readable_improvement_contract(self):
         path = SKILL_DIR / "assets" / "improvement-contract.json"
@@ -64,7 +74,7 @@ class TestFactoryOperations(unittest.TestCase):
         for command in ["new <prompt>", "update <path> <prompt>",
                         "standardize <path>", "import <source> <destination>"]:
             self.assertIn(command, self.skill)
-        self.assertIn("preserving domain purpose", self.skill)
+        self.assertIn("Preserve domain purpose and accepted behavior", self.skill)
         self.assertIn("baseline_digest", self.skill)
 
     def test_portable_import_contract_names_canonical_owners(self):

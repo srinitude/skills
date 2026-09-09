@@ -7,8 +7,14 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 OWNERS = [ROOT / "SKILL.md", ROOT / "assets" / "skill-template.md"]
 SECTIONS = ["Outcome", "Motivation", "Evidence", "Mise task graph",
             "Steps", "Assets", "Evals"]
-LEDGER_ANCHORS = ["Start here.", "Reusable ledger artifact, owned here.",
-                  "Relationship records.", "Dependency contract.", "Step contract."]
+LEDGER_ANCHORS = {
+    "SKILL.md": ["Read this entire body first.",
+                 "The reusable ledger is the working record",
+                 "Relationships have their own identities",
+                 "Discover prerequisites backward from the promised usable outcome"],
+    "skill-template.md": ["**Start here.**", "**Reusable ledger artifact, owned here.**",
+                          "**Relationship records.**", "**Dependency contract.**"],
+}
 
 
 def section(text, name):
@@ -54,10 +60,9 @@ class TestOrderedWorkflowContract(unittest.TestCase):
             with self.subTest(path=path.name):
                 text = path.read_text(encoding="utf-8")
                 positions = []
-                for anchor in LEDGER_ANCHORS:
-                    label = f"**{anchor}**"
-                    self.assertEqual(text.count(label), 1, anchor)
-                    positions.append(text.index(label))
+                for anchor in LEDGER_ANCHORS[path.name]:
+                    self.assertEqual(text.count(anchor), 1, anchor)
+                    positions.append(text.index(anchor))
                 self.assertEqual(positions, sorted(positions))
                 self.assertLess(positions[-1], text.index("1. **"))
 
@@ -65,8 +70,15 @@ class TestOrderedWorkflowContract(unittest.TestCase):
         for path in OWNERS:
             with self.subTest(path=path.name):
                 graph = section(path.read_text(encoding="utf-8"), "Mise task graph")
-                self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
-                self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)
+                if path.name == "SKILL.md":
+                    self.assertIn("Mise owns the public command surface", graph)
+                    self.assertIn("Mastra owns each delegated domain workflow", graph)
+                    self.assertIn("Tested scripts perform repeatable leaves", graph)
+                    self.assertIn("Put an explicit handoff between these owners", graph)
+                    self.assertIn("never recursively invoke competing Mise graphs", graph)
+                else:
+                    self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
+                    self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)
                 self.assertNotIn("Mise owns every deterministic command", graph)
 
 

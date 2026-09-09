@@ -13,8 +13,7 @@ class TestGeneratedAgenticScaffold(unittest.TestCase):
             result = run(
                 "scaffold_skill.py", "--name", "agentic-trial",
                 "--description", "Use when an agentic trial is requested.",
-                "--dest", tmp, "--scope", "user", "--audience", "agent")
-            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                "--dest", tmp, "--scope", "user")
             root = pathlib.Path(tmp) / "agentic-trial"
             config = (root / "mise.toml").read_text(encoding="utf-8")
             body = (root / "SKILL.md").read_text(encoding="utf-8")
@@ -25,6 +24,7 @@ class TestGeneratedAgenticScaffold(unittest.TestCase):
                 root / "scripts" / "tests" / "test_agentic_request.py",
                 request_path,
             ]
+            self.assertEqual(result.returncode, 0, result.stderr)
             self.assertTrue(all(path.exists() for path in required))
             self.assertIn("[tasks.agentic-request]", config)
             self.assertIn("agentic-trial agentic request", config)

@@ -6,7 +6,6 @@ import unittest
 from pathlib import Path
 
 from cli import run
-from publication_fixtures import variant
 from test_scope_standardization import snapshot
 from test_skill_variant import plan
 from test_variant_acceptance import accept
@@ -78,7 +77,7 @@ class TestVariantRefresh(unittest.TestCase):
         value = review(source, merged, scenarios)
         value["resolutions"] = {"scripts/inventory.py": "Keep variant comment exclusion and add upstream blank-line exclusion."}
         write_json(base / "review.json", value)
-        result = variant("--plan", base / "plan.json",
+        result = run("skill_variant.py", "accept", "--plan", base / "plan.json",
                      "--candidate", merged, "--review", base / "review.json")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual((target / "CUSTOM.md").read_text(), "Keep comment exclusion.\n")

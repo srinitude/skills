@@ -79,8 +79,6 @@ Send long prompts and extensible agentic requests through standard input or dige
 
 Declare sources, outputs, arguments, environment, tool versions, platform, and dependency artifacts in a cache key. Use content digests for large stable inputs. Do not cache a task that reads time, mutable network state, ambient user state, uncaptured randomness, or model-owned or human-owned judgment. Treat a cache hit as reused computation, never fresh external proof. Mise reduces mechanical delay and exposes reproducible faults so the model can spend its context and time on meaning, creativity, perception, and exceptions that code cannot decide.
 
-The factory and starter package checks currently rerun without task freshness skips or artifact caches. Their former extension globs missed newly added languages and their keys omitted checker dependencies and runtime context. The repeated public `lint-code` regression adds an unsupported source file after a passing run and requires rejection. Dependency download caches remain separate. A target may adopt a result cache after proving complete keys, misses, hits, invalidation, missing outputs, failed-run reruns, and forced uncached proof with `mise run --force --task-cache off TASK`.
-
 Measure each script as its own workload before tuning the whole graph. A script can become faster while delaying the critical path through startup, serialization, extra artifacts, or cache churn. Retain an optimization only when the end-to-end graph remains correct and no protected resource dimension regresses.
 
 ## Experiment contract

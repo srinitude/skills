@@ -1,6 +1,6 @@
 # Use-case specificity
 
-Read this file before creating, updating, standardizing, or importing a skill. Load its parent references/generation-contract.md through `mise run validate` for the package contract. The target is a reusable skill for one coherent task class, not prose that could survive a domain-name swap.
+Read this file before creating, updating, standardizing, or importing a skill. The target is a reusable skill for one coherent task class, not prose that could survive a domain-name swap.
 
 ## Research basis
 
@@ -16,15 +16,7 @@ Register a question for every domain dimension before drafting. Retain at least 
 
 Run `mise run domain-research-policy` before accepting any domain map. The task proves receipt shape, diversity, current access time, and coverage. It cannot prove that a source supports the recorded claim. Read each source and make that judgment directly. If current web evidence is unavailable or external access is prohibited, mark affected domain claims `BLOCKED`; do not fill them from plausible memory.
 
-Standardization retains supplied research receipts and disconfirmation records with their actual timestamps, dimensions, provenance, and limits. Source URLs and proposed claims are research inputs, not completed research. Do not stamp them with the current time, broaden their reviewed dimensions, or manufacture contrary findings. Missing evidence stays empty and fails `mise run domain-research-policy`; stale evidence remains stale until the responsible review actually occurs.
-
 ## Domain map
-
-The canonical `audience.primary` field in assets/use-case-contract.json is `human` or `agent`; check it through `mise run use-case-policy`. It identifies the main consumer of the promised result, independently of the executor and `metadata.scope`. Either audience can have either scope. Honor explicit choices and preserve valid existing designations. Resolve missing or conflicting meaning from the actual purpose and authoritative context before an affected write; ask one concise question only when it remains unresolved. Do not hide a material human audience behind an agent label.
-
-Derive the early SKILL.md audience label and reading/action/evidence key from that field. Put the key in the Outcome/Evidence structure before operational steps. Distinguish the primary consumer, actual executor and workflow owner, mechanical evidence, model assessment, authentic human evidence, mandatory gates, and open creative choices. Use explicit labels; the designation grants neither runtime permission nor instruction authority. Identify secondary consumers and each distinct output's real audience where this changes obligations in the existing domain and ownership records.
-
-Use `mise run new -- --audience <human-or-agent>` with the other creation arguments. For an authorized update, `mise run standardize-target` preserves the current audience unless an explicit `--audience` choice changes it. A label change only declares the new target: acceptance still requires adapted inputs, instructions, interfaces, presentation, evaluation, and required human participation. Check actual output suitability and downstream use. Untouched legacy inspection can use `mise run use-case-policy -- --inspect-legacy`; accepting new or updated output cannot omit the designation. Invalid types, values, duplicate keys, contradictory body labels, and a key following execution steps fail.
 
 Map these dimensions for the target skill. Add a domain-owned dimension when it changes behavior or proof.
 
@@ -53,34 +45,6 @@ Treat the domain dimensions above as the aspect layer. Map the skill body, refer
 
 Map every Mise task separately in the use-case contract. Its record must explain the domain result it advances, why it exists, the concrete progress it creates, the proof it returns, and when the skill's nature makes it applicable. Domain terms must be normalized, unique phrases and must match whole words, never convenient substrings. Run `mise run use-case-policy` and `mise run task-graph-policy`. Then perform two semantic attacks. Replace the skill name with an unrelated domain; if the package still reads plausibly, it is generic. Remove its domain terms; if the remaining instructions still claim full use-case completion, the domain behavior is missing. Repair the lowest owner and rerun both Mise policies.
 
-Map every aspect and primitive through discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Each phase names a real, domain-specific task whose contract states the objective progress, motivation, value, proof, applicability, and prevented failure. A generic lifecycle profile, missing phase, nonexistent task owner, or mapping that does not change the target skill result fails.
-
-Every deterministic, model-owned, or human-owned material decision states its outcome, motivation, why the selected path fits, owner, inputs, expected effect, proof, falsifier, and failure branch in assets/decision-records.json through `mise run decision-policy`. Structure proves only that the reasoning trace exists; direct review decides whether its reason and evidence are true.
-
-Classify every official Mise config, task, task-config, and tool primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use each relevant primitive where it creates domain progress or stronger proof, including a useful creative composition. Give every non-use a target-skill reason. A schema-derived catalog is exhaustive for its exact runner release; no primitive is accepted for ceremony alone.
-
 ## Deterministic split
 
 Assume an apparently nondeterministic job can be decomposed further. Move its stable shell into Mise: input manifest, query register, source receipt, schema, coverage matrix, task order, dependency check, timestamp, digest, budget, output envelope, decision record, and rollback receipt. Repeat until only source interpretation, causal reasoning, creative choice, direct perception, or human-sense judgment remains. Record why that core needs model capability that code cannot supply.
-
-## Required human-study and human-work matrix
-
-The matrix is required in this factory and every new or updated skill, for both audiences and both scopes. Its presence, explicit resource access, required use, independent operation and acceptance evidence are separate obligations. Each invocation uses its relevant selection in domain research, use-case framing, decisions and evaluation. A machine-facing result still retains this contract; justify non-use of a particular human evaluation from the actual outcome. Do not replace the full declared inventories with a fixed shortlist or call unresolved relationships inapplicable.
-
-Start with the actual brief, artifact, activity, people, purpose, medium, setting, access needs, abilities, expertise, language, cultural context and time horizon. Separate producer capability from recipient need. Select the relevant outcomes: perception, understanding, learning, accomplishment, recovery, comfort, emotion, trust, originality or preference. Do not average unlike outcomes into a taste score, infer individual preferences from demographics, or collect sensitive attributes to fill a model.
-
-Load assets/human-catalogs.json through `mise run human-matrix` for the exact source versions, URLs, digests, hierarchy counts, scope, attribution and reuse limits. OECD research fields, ISCO occupations, ICATUS everyday and unpaid activities, O*NET abilities and work context, and NIST AI contributions are complementary inventories. None certifies every mechanism, activity or future field. Retain absent definitions, unmapped items, overlaps and named extensions. Source-defined other categories do not establish knowledge of their unspecified members. Preserve captured labels and distinguish a missing definition from an inferred one.
-
-Load references/human-matrix-format.md through `mise run human-matrix` before constructing or consuming a matrix. That reference owns resource inputs, schema fields, symbolic selection, canonical identity and enumeration budgets; this file owns required use and human evidence.
-
-## From evidence to human outcomes
-
-Use the matrix to frame an exact question about which property or choice could affect which outcome, for whom and under what conditions. Search neighboring and missing fields, relevant activities and counterevidence to challenge the first mapping. Extend disciplinary and activity discovery for the task. Include a field only when applicable evidence or a labeled hypothesis bears on a concrete outcome or choice. Preserve several valid creative directions.
-
-Read relevant standards, reviews and original studies with their methods and limits. Record publication and revision dates, population, setting, task, medium, comparison, measures, effect and uncertainty when available, and access limits. Separate normative requirements, causal findings, associations, theories, domain practice and model inference. Translate each retained finding into a specific choice, constraint, input, test or review criterion; record the transfer reason, interactions and tradeoffs in existing domain and decision records. Individually supported choices do not establish a supported combined effect.
-
-Assign each condition to an actual mechanical predicate, model assessment, human observation or authorized decision. Artifact measurements establish their named property under captured conditions. Research can support an expectation; a model's review or a review by a person with relevant expertise establishes that evaluator's assessment. None alone establishes the actual recipient's response or universal taste. Preserve conflicting findings, unsupported transfer and unavailable physical or sensory capabilities. A photograph cannot establish smell, taste, touch or physical performance. Synthetic respondents remain simulations.
-
-Create, directly inspect and revise the actual artifact. Evaluate the intended outcome separately from perceived ease, popularity, fluency or satisfaction. Use domain criteria, defect examples, comparisons and multiple acceptable outcomes. For material human claims, distinguish craft review, preference and observed performance; use relevant participants and matched, blinded or counterbalanced comparisons when feasible, recording selection, exposure, order and sample limits. Calibrate claims that model judges predict human assessment against held-out or actual human evidence; inspect order, verbosity and shared-bias sensitivity. Agreement between model calls is not independent human confirmation.
-
-Use the existing Mastra human-input and host-authority contract when an actual response, observation, expertise or permission is required, or a targeted authorized interaction best resolves material uncertainty. Prepare the concrete artifact and question before asking. Preserve authentic provenance, explicit decisions, current input binding, expiry and recovery. Continue eligible work while required input is pending. Do not fabricate participants, physical measurements, permissions, numerical confidence or demonstrated improvement. A missing required human or physical evaluation blocks only its dependent claim or action and remains incomplete.

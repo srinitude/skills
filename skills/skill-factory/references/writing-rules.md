@@ -1,6 +1,6 @@
 # Writing rules for markdown files
 
-Load these rules through `mise run lint-writing`; references/generation-contract.md through `mise run validate` owns their package context. Two rule sets apply together. Plain language makes any reader act correctly on the first pass. Human prose keeps the text free of the machine tells the lint flags.
+Two rule sets apply together. Plain language makes any reader act correctly on the first pass. Human prose keeps the text free of the machine tells the lint flags.
 
 ## Plain language
 
@@ -37,17 +37,11 @@ Load these rules through `mise run lint-writing`; references/generation-contract
 
 ## Line layout
 
-Every Markdown file contains at most 200 physical lines.
-
 - Every wrappable block is exactly one physical line. A paragraph, or a list item together with what would have been its continuation lines, holds no internal hard line breaks.
 - There is no maximum line length. Text fills every column naturally because nothing is manually wrapped, exactly like the one line frontmatter description in SKILL.md.
 - Blank lines between markdown elements (headings, paragraphs, lists, code fences, tables) stay exactly as normal markdown readability requires.
 - Exempt from the one line rule: YAML frontmatter, headings, table rows, code fence delimiters and everything inside fences, indented code blocks, and blank lines.
 - The lint reports any block spanning more than one physical line as path:line; join the block into one line with single spaces.
-
-## Owned file references
-
-Every Markdown reference to a package-owned file or directory must name its owning `mise run <task>` in the same prose line or fenced block. This includes references/, assets/, examples/, evals/, fixtures/, schemas/, templates/, data/, configuration, documentation, tests, workflows, prompts, policies, evidence, media, and any custom support or ownership directory; add a newly introduced root to `mise run lint-writing`. Direct implementation paths remain forbidden even when a task is named. The task is the public route, while the path supplies progressive disclosure under that route.
 
 ## How do I avoid the banned list on the first draft?
 

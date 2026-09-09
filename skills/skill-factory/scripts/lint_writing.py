@@ -23,7 +23,6 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from skill_package import selected_files
 
 WORDS = [
     "delve", "delves", "delving", "delved", "tapestry", "camaraderie",
@@ -194,7 +193,16 @@ def check_file(path):
 
 
 def collect(targets):
-    return selected_files(targets, {".md"})
+    files = []
+    for target in targets:
+        path = Path(target)
+        if path.is_dir():
+            files.extend(sorted(path.rglob("*.md")))
+        elif path.is_file():
+            files.append(path)
+        else:
+            raise FileNotFoundError(target)
+    return files
 
 
 def main(argv=None):
@@ -210,9 +218,6 @@ def main(argv=None):
         print(f"error: no such file or directory: {missing}",
               file=sys.stderr)
         return 2
-    except (OSError, ValueError) as error:
-        print(f"error: {error}", file=sys.stderr)
-        return 1
     problems = []
     for path in files:
         problems.extend(check_file(path))

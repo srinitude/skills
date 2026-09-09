@@ -4,22 +4,17 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CI_JOBS = ["test", "validate", "lint-writing",
+CI_JOBS = ["test", "validate", "lint-writing", "lint-code",
            "lint-placeholders", "evals", "improvement-policy",
            "decision-policy", "source-corpus", "lineage"]
 ACCEPTANCE_JOBS = [job for job in CI_JOBS if job != "lineage"]
 EXPECTED = {
     "ci": CI_JOBS,
-    "test-ci": ["runtime-install"],
-    "test": ["test-native"],
+    "test-ci": [],
+    "test": ["test-ci"],
     "validate": [],
     "lint-writing": [],
-    "lint-code": ["test-ci"],
-    "runtime-install": [],
-    "human-matrix": ["runtime-install"],
-    "typecheck-native": ["lint-code"],
-    "test-native": ["typecheck-native"],
-    "workflow": ["doctor"],
+    "lint-code": [],
     "lint-placeholders": [],
     "evals": [],
     "improvement-policy": [],
@@ -51,12 +46,7 @@ EXPECTED = {
 
 def tasks():
     with (ROOT / "mise.toml").open("rb") as handle:
-        result = tomllib.load(handle)["tasks"]
-    for task in result.values():
-        for field in ["depends", "depends_post"]:
-            if field in task:
-                task[field] = [item["task"] if isinstance(item, dict) else item for item in task[field]]
-    return result
+        return tomllib.load(handle)["tasks"]
 
 
 class TestTaskGraphTopology(unittest.TestCase):

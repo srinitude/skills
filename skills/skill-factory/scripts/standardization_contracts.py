@@ -19,20 +19,20 @@ CURRENT_LAYOUT = '''    for name in REQUIRED_DIRS + ["scripts/tests"]:
             problems.append(f"body never references {name}/")
 '''
 CI_TEMPLATE = '''"""Pin the {skill} task graph and one-entry workflow."""
-import json
 import pathlib
 import tomllib
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-EXPECTED_CI = json.loads({expected!r})
+EXPECTED_CI_DEPENDS = {expected}
 
 
 class TestPackageContract(unittest.TestCase):
     def test_ci_dependency_contract(self):
         with (ROOT / "mise.toml").open("rb") as handle:
             tasks = tomllib.load(handle)["tasks"]
-        self.assertEqual(tasks["ci"], EXPECTED_CI)
+        self.assertEqual(tasks["ci"]["depends"], EXPECTED_CI_DEPENDS)
+        self.assertNotIn("run", tasks["ci"])
 
     def test_tasks_have_explicit_contracts(self):
         with (ROOT / "mise.toml").open("rb") as handle:
@@ -60,8 +60,8 @@ def write(path, text):
     path.write_text(text, encoding="utf-8")
 
 
-def ci_contract(skill, task):
-    return CI_TEMPLATE.format(skill=skill, expected=json.dumps(task))
+def ci_contract(skill, dependencies):
+    return CI_TEMPLATE.format(skill=skill, expected=json.dumps(dependencies))
 
 
 def repair_validator(root):
@@ -80,7 +80,7 @@ def repair_ci_test(root, tasks, profile):
     target = legacy if legacy.is_file() else tests / "test_package_contract.py"
     old = target.read_text(encoding="utf-8") if target.is_file() else ""
     if not old or '["ci"]["run"]' in old:
-        write(target, ci_contract(profile["skill"], tasks["ci"]))
+        write(target, ci_contract(profile["skill"], tasks["ci"]["depends"]))
 
 
 def repair_source_tests(root):

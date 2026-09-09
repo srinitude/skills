@@ -18,25 +18,19 @@ from standardization_mapping import snapshot_public_lines
 from standardization_mise import normalize_mise
 from standardization_profile import load_profile, validate_profile
 from standardization_rewrites import apply_rewrites, apply_section_rewrites
-from standardization_seed import create_missing, write_json_if_missing
-from skill_package import inventory, owned_files
+from standardization_seed import create_missing
+from skill_package import inventory, promote, staged
 from skill_scope import SCOPES, label, read_fields, resolve, scoped_text
 from scope_placement import check_placement
-from use_case_audience import body_with_key, resolve as resolve_audience
-from invocation_acceptance import arguments
-from standardization_delivery import execute as deliver
-from source_coverage import load_json
-from runtime_package import copy_runtime, NATIVE_PROBES, HUMAN_SUPPORT
 
 FACTORY = Path(__file__).resolve().parents[1]
 COPIES = [
-    "assets/human-catalogs.json", "assets/improvement-contract.json",
-    "assets/mise-primitives-catalog.json",
-    "references/resource-and-experiment-design.md",
-    "references/use-case-specificity.md", "references/human-matrix-format.md",
-    "references/generation-contract.md", "references/writing-rules.md",
-    "references/code-rules.md", "references/skill-scope-contract.md",
-    "references/evidence-acceptance.md",
+    ("assets/improvement-contract.json", "assets/improvement-contract.json"),
+    ("assets/mise-primitives-catalog.json", "assets/mise-primitives-catalog.json"),
+    ("references/resource-and-experiment-design.md", "references/resource-and-experiment-design.md"),
+    ("references/use-case-specificity.md", "references/use-case-specificity.md"),
+    ("references/generation-contract.md", "references/generation-contract.md"),
+    ("references/skill-scope-contract.md", "references/skill-scope-contract.md"),
 ]
 SCRIPTS = [
     "agentic_request_contract.py", "run_agentic_request.py", "domain_text.py",
@@ -47,17 +41,9 @@ SCRIPTS = [
     "sync_mise_primitives.py",
 ]
 SCRIPTS += ["validate_skill.py", "lint_writing.py", "check_code_rules.py",
-            "check_evals.py", "check_placeholders.py", "source_coverage.py",
-            "invocation_acceptance.py", "skill_package.py", "skill_scope.py", "use_case_audience.py", "mise_task_graph.py"]
-SCRIPTS.extend(["check_native_code.mjs", "code_languages.py", "check_shell_code.py", *HUMAN_SUPPORT])
-SCRIPTS.extend("tests/" + name for name in NATIVE_PROBES)
+            "check_evals.py", "check_placeholders.py"]
 CANONICAL_SCRIPTS = set(SCRIPTS[:12]) | {
-    "source_coverage.py",
-    "invocation_acceptance.py", "skill_package.py", "skill_scope.py",
-    "use_case_audience.py", "mise_task_graph.py",
     "check_placeholders.py",
-    "check_code_rules.py", "check_native_code.mjs",
-    "code_languages.py", "check_shell_code.py",
     "lint_writing.py",
     "validate_skill.py",
 }
@@ -68,10 +54,11 @@ def digest(path):
 
 
 def planned_paths(root, profile):
-    paths = {root / p.relative_to(root.resolve()) for p in owned_files(root)} if root.is_dir() else set()
+    paths = {path for path in root.rglob("*")
+             if path.is_file() and "__pycache__" not in path.parts}
     paths.add(root / "evals/source-mapping.json")
     paths.add(root / "scripts/tests/test_package_contract.py")
-    paths.update(root / name for name in COPIES)
+    paths.update(root / target for _, target in COPIES)
     paths.update(root / "scripts" / name for name in SCRIPTS)
     assets = ["use-case-contract.json", "primitive-lifecycle.json",
               "decision-records.json", "invocation-receipt-template.json",
@@ -84,32 +71,36 @@ def planned_paths(root, profile):
 
 
 def copy_support(root):
-    copy_runtime(FACTORY, root)
-    for name in COPIES:
-        destination = root / name
+    for source, target in COPIES:
+        destination = root / target
         destination.parent.mkdir(parents=True, exist_ok=True)
-        if name == "assets/human-catalogs.json" and destination.exists() and digest(destination) != digest(FACTORY / name):
-            raise ValueError("human catalog versions differ; reconcile the declared source inventory explicitly")
-        if name in {"references/writing-rules.md", "references/code-rules.md"} and destination.exists() and digest(destination) != digest(FACTORY / name):
-            raise ValueError(f"reconcile the existing {name} explicitly before replacing its rules")
-        shutil.copyfile(FACTORY / name, destination)
+        shutil.copyfile(FACTORY / source, destination)
     (root / "scripts").mkdir(exist_ok=True)
     for name in SCRIPTS:
         target = root / "scripts" / name
         if not target.exists() or name in CANONICAL_SCRIPTS:
-            target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(FACTORY / "scripts" / name, target)
 
 
 def write_assets(root, profile, tasks):
     contract = root / "assets/use-case-contract.json"
-    previous = load_json(contract) if contract.is_file() else {}
-    write_json(contract, use_case(profile, tasks, previous))
-    write_json_if_missing(root / "assets/primitive-lifecycle.json", lifecycle(profile))
-    write_json_if_missing(root / "assets/decision-records.json", decisions(profile))
-    write_json_if_missing(root / "assets/invocation-receipt-template.json", invocation(profile))
+    stamp = existing_research_stamp(contract)
+    write_json(contract, use_case(profile, tasks, stamp))
+    write_json(root / "assets/primitive-lifecycle.json", lifecycle(profile))
+    write_json(root / "assets/decision-records.json", decisions(profile))
+    write_json(root / "assets/invocation-receipt-template.json", invocation(profile))
     catalog = json.loads((root / "assets/mise-primitives-catalog.json").read_text())
-    write_json_if_missing(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
+    write_json(root / "assets/mise-primitives.json", primitive_map(root, profile, catalog))
+
+
+def existing_research_stamp(path):
+    if not path.is_file():
+        return None
+    try:
+        receipts = json.loads(path.read_text()).get("research_receipts", [])
+    except json.JSONDecodeError:
+        return None
+    return receipts[0].get("checked_at") if receipts else None
 
 
 def primitive_map(root, profile, catalog):
@@ -132,9 +123,7 @@ def primitive_map(root, profile, catalog):
             "catalog_version": catalog["version"], "groups": groups}
 
 
-def apply(root, profile, rebase=False, audience=None):
-    root = root.resolve()
-    profile = {**profile, "audience": resolve_audience(root, audience, profile)}
+def apply(root, profile, rebase=False):
     if rebase:
         restore_tracked_text(root)
     create_missing(root, profile, FACTORY)
@@ -149,16 +138,27 @@ def apply(root, profile, rebase=False, audience=None):
     with (root / "mise.toml").open("rb") as handle:
         tasks = tomllib.load(handle)["tasks"]
     owners = script_task_map(tasks)
-    for path in (p for p in owned_files(root) if p.suffix == ".md"):
+    for path in root.rglob("*.md"):
         body = path.read_text(encoding="utf-8")
         path.write_text(rewrite_markdown(body, owners, profile,
                         add_contract=path == root / "SKILL.md"), encoding="utf-8")
     apply_rewrites(root, profile)
     repair_contracts(root, tasks, profile, owners, snapshots)
     write_assets(root, profile, tasks)
-    body = root / "SKILL.md"
-    body.write_text(body_with_key(body.read_text("utf-8"), profile["audience"]), encoding="utf-8")
     format_target(root)
+
+
+def apply_scoped(root, profile, scope, rebase=False):
+    before = inventory(root)
+    with staged(root.parent, root.name) as candidate:
+        shutil.copytree(root, candidate, symlinks=True)
+        if rebase:
+            restore_tracked_text(root, candidate)
+        apply(candidate, profile)
+        file = candidate / "SKILL.md"
+        file.write_text(scoped_text(file.read_text(), scope), encoding="utf-8")
+        read_fields(candidate)
+        promote(candidate, root, before)
 
 
 def parse_args(argv):
@@ -168,18 +168,13 @@ def parse_args(argv):
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--rebase-tracked-text", action="store_true")
     parser.add_argument("--scope", choices=SCOPES)
-    parser.add_argument("--audience", choices=("human", "agent"))
     parser.add_argument("--placement-receipt")
-    parser.add_argument("--prepare", help="save an unaccepted complete candidate at a new path")
-    parser.add_argument("--candidate", help="apply these exact reviewed candidate bytes")
-    parser.add_argument("--check-candidate", action="store_true", help="check bound evidence without replacing the original")
-    arguments(parser)
     return parser.parse_args(argv)
 
 
 def scope_choice(root, args):
     existing = read_fields(root).get("metadata", {}).get("scope")
-    choice = resolve(existing, args.scope) if args.apply or args.check_candidate or args.prepare or existing or args.scope else None
+    choice = resolve(existing, args.scope) if args.apply or existing or args.scope else None
     if existing and args.scope and existing != args.scope:
         raise ValueError("scope change needs adaptation checks; use variant plan --in-place")
     inventory(root)
@@ -197,25 +192,22 @@ def main(argv=None):
     try:
         profile = validate_profile(load_profile(args.profile, root.name), root.resolve())
         choice = scope_choice(root, args)
-        audience = resolve_audience(root, args.audience, profile, required=args.apply or args.check_candidate or bool(args.prepare))
     except ValueError as error:
         print(f"error: {error}", file=sys.stderr)
         return 2
     before = {str(path): digest(path) for path in planned_paths(root, profile)}
-    delivery = {"acceptance": "pending"}
-    if args.apply or args.check_candidate or args.prepare:
+    if args.apply:
         try:
-            delivery = deliver(root, profile, choice["scope"], audience["primary"], args)
+            apply_scoped(root, profile, choice["scope"], args.rebase_tracked_text)
         except (OSError, ValueError) as error:
             print(f"error: {error}", file=sys.stderr)
             return 1
     after = {str(path): digest(path) for path in planned_paths(root, profile)}
-    changed = [path for path in before.keys() | after.keys() if before.get(path) != after.get(path)]
-    print(json.dumps({"target": str(root.resolve()), "mode": "prepare" if args.prepare else "apply" if args.apply else "check" if args.check_candidate else "plan",
+    changed = [path for path in before if before[path] != after[path]]
+    print(json.dumps({"target": str(root.resolve()), "mode": "apply" if args.apply else "plan",
                       "scope": choice["scope"] if choice else None,
                       "scope_label": label(choice["scope"]) if choice else None,
-                      "audience": audience["primary"] if audience else None,
-                      "writes": len(changed), "changed": sorted(changed), **delivery}, indent=2))
+                      "writes": len(changed), "changed": changed}, indent=2))
     return 0
 
 

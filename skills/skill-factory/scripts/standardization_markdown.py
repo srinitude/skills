@@ -35,7 +35,7 @@ RESOURCE_TASKS = {"evals": "evals", "tests": "test", ".github": "ci"}
 def task_script_paths(task):
     run = task.get("run", "")
     values = [run] if isinstance(run, str) else run if isinstance(run, list) else []
-    return [path for value in values if isinstance(value, str)
+    return [path for value in values
             for path in re.findall(r"scripts/([\w./-]+\.py)", value)]
 
 

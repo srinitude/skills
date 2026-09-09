@@ -3,7 +3,6 @@ import json
 from pathlib import Path
 
 from validate_skill import check_fields, parse_header, split_frontmatter
-from source_coverage import load_json
 
 SCOPES = ("user", "project")
 QUESTION = "Should this skill be available across your projects (user) or for one specific project (project)?"
@@ -83,3 +82,14 @@ def scoped_text(text, scope):
 
 def label(scope):
     return {"user": "user-level", "project": "project-level"}.get(scope)
+
+
+def load_json(path):
+    def unique(pairs):
+        data = {}
+        for key, value in pairs:
+            if key in data:
+                raise ValueError(f"duplicate JSON key: {key}")
+            data[key] = value
+        return data
+    return json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique)

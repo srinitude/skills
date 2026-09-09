@@ -13,7 +13,7 @@ Exit codes:
 Example:
   python3 scripts/scaffold_skill.py --name release-notes \\
     --description "Use when release notes are needed from a git log." \\
-    --dest /path/to/skills --scope user --audience human
+    --dest /path/to/skills --scope user
 
 Scope classifies intended availability. The explicit destination is an
 authoring directory, not evidence of scope or an installation instruction.
@@ -26,12 +26,7 @@ import shutil
 import sys
 from pathlib import Path
 from scope_placement import check_placement
-from skill_package import copy_owned, inventory, promote, real_path, staged, tree_digest
-from use_case_audience import reading_key
-from skill_scope import read_fields
-from source_coverage import load_json, require
-from invocation_acceptance import arguments, bindings
-from runtime_package import copy_runtime, NATIVE_PROBES, HUMAN_SUPPORT
+from skill_package import promote, staged
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 ASSETS = SKILL_DIR / "assets"
@@ -52,7 +47,6 @@ FILLED = [
     ("assets/agentic-request-template.json", "agentic-request-template.json"),
 ]
 COPIED = [
-    ("assets/human-catalogs.json", "human-catalogs.json"),
     (".github/workflows/ci.yml", "ci/ci.yml"),
     ("scripts/skill_info.py", "starter-script.py"),
     ("scripts/tests/test_scripts.py", "starter-test.py"),
@@ -68,19 +62,12 @@ SCRIPT_COPIED = [
     ("scripts/run_agentic_request.py", "run_agentic_request.py"),
     ("scripts/agentic_request_contract.py", "agentic_request_contract.py"),
 ]
-SCRIPT_COPIED += [("scripts/tests/" + name, "tests/" + name) for name in NATIVE_PROBES]
-SCRIPT_COPIED += [("scripts/" + name, name) for name in HUMAN_SUPPORT]
 CHECKERS = ["lint_writing.py", "validate_skill.py",
             "check_code_rules.py", "check_evals.py",
             "check_placeholders.py", "check_improvement_contract.py",
             "check_use_case_contract.py", "check_domain_research.py",
             "check_task_graph.py", "check_invocation_receipt.py"]
 CHECKERS.append("domain_text.py")
-CHECKERS.append("source_coverage.py")
-CHECKERS.append("mise_task_graph.py")
-CHECKERS.append("check_native_code.mjs")
-CHECKERS.extend(["code_languages.py", "check_shell_code.py"])
-CHECKERS.extend(["invocation_acceptance.py", "skill_package.py", "skill_scope.py", "use_case_audience.py"])
 CHECKERS.append("check_decision_records.py")
 CHECKERS.extend(["check_mise_primitives.py", "check_primitive_lifecycle.py",
                  "sync_mise_primitives.py"])
@@ -111,7 +98,6 @@ def argument_error(args):
 def build(target, tokens):
     for sub in DIRS:
         (target / sub).mkdir(parents=True)
-    copy_runtime(SKILL_DIR, target)
     for destination, template in FILLED:
         (target / destination).write_text(fill(template, tokens),
                                           encoding="utf-8")
@@ -122,11 +108,10 @@ def build(target, tokens):
     for name in CHECKERS:
         shutil.copy(SKILL_DIR / "scripts" / name, target / "scripts" / name)
     for name in ["generation-contract.md", "resource-and-experiment-design.md",
-                 "use-case-specificity.md", "writing-rules.md", "code-rules.md", "skill-scope-contract.md",
-                 "evidence-acceptance.md", "human-matrix-format.md"]:
+                 "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md"]:
         shutil.copy(SKILL_DIR / "references" / name,
                     target / "references" / name)
-    return len(inventory(target))
+    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5
 
 
 def parse_args(argv):
@@ -136,48 +121,10 @@ def parse_args(argv):
     parser.add_argument("--name", required=True)
     parser.add_argument("--description", required=True)
     parser.add_argument("--scope", choices=("user", "project"), required=True)
-    parser.add_argument("--audience", choices=("human", "agent"), required=True)
     parser.add_argument("--placement-receipt", help="verified integration receipt when installing")
     parser.add_argument("--dest", required=True,
                         help="parent directory for the new skill")
-    parser.add_argument("--candidate", help="deliver an exact reviewed package instead of creating a seed")
-    arguments(parser)
     return parser.parse_args(argv)
-
-
-def create_seed(args, target):
-    require(not any(bindings(args).values()) and not args.placement_receipt,
-            "acceptance or installation requires a reviewed --candidate; a scaffold remains unaccepted")
-    tokens = {"NAME": args.name, "DESCRIPTION": json.dumps(args.description)[1:-1],
-              "SCOPE": args.scope, "AUDIENCE": args.audience, "AUDIENCE_KEY": reading_key(args.audience),
-              "DATE": datetime.date.today().isoformat()}
-    with staged(target.parent, target.name) as candidate:
-        count = build(candidate, tokens)
-        promote(candidate, target, draft=True)
-    return {"files": count, "acceptance": "pending; unaccepted scaffold",
-            "next": "run mise run ci inside the new skill",
-            "blocked_until": "every SCAFFOLD placeholder is replaced; check_placeholders.py exits 1 until then"}
-
-
-def deliver_candidate(args, target, placement):
-    from variant_accept import package_checks
-    source = real_path(args.candidate)
-    require(not source.is_relative_to(target) and not target.is_relative_to(source),
-            "candidate and destination must be separate")
-    with staged(target.parent, target.name) as candidate:
-        copy_owned(source, candidate)
-        fields = read_fields(candidate)
-        require(fields["name"] == args.name and fields["description"] == args.description
-                and fields["metadata"].get("scope") == args.scope, "candidate differs from creation intent")
-        require(load_json(candidate / "assets/use-case-contract.json")["audience"]["primary"] == args.audience,
-                "candidate audience differs from creation intent")
-        checked = package_checks(candidate)
-        inputs = {"candidate": tree_digest(inventory(source)), "scope": args.scope, "audience": args.audience,
-                  "description": args.description, "placement": placement["kind"]}
-        check_placement(args.placement_receipt, args.scope, target)
-        promote(candidate, target, acceptance=({"route": "new", "inputs": inputs}, bindings(args)))
-    return {"files": len(inventory(target)), "acceptance": "passed", "validation": checked,
-            "limit": "Only the host-bound claims and selected package checks."}
 
 
 def main(argv=None):
@@ -195,14 +142,19 @@ def main(argv=None):
     except (OSError, ValueError, KeyError) as error:
         print(f"error: {error}")
         return 1
-    try:
-        delivery = deliver_candidate(args, target, placement) if args.candidate else create_seed(args, target)
-    except (OSError, ValueError, KeyError, TypeError) as error:
-        print(f"error: {error}")
-        return 1
-    print(json.dumps({"created": str(target),
+    tokens = {"NAME": args.name, "DESCRIPTION": json.dumps(args.description)[1:-1],
+              "SCOPE": args.scope,
+              "DATE": datetime.date.today().isoformat()}
+    with staged(target.parent, target.name) as candidate:
+        count = build(candidate, tokens)
+        promote(candidate, target)
+    print(json.dumps({"created": str(target), "files": count,
                       "scope": args.scope, "scope_label": args.scope + "-level",
-                      "audience": args.audience, "placement": placement["kind"], **delivery}))
+                      "placement": placement["kind"],
+                      "next": "run mise run ci inside the new skill",
+                      "blocked_until": "every SCAFFOLD placeholder is "
+                                       "replaced; check_placeholders.py "
+                                       "exits 1 until then"}))
     return 0
 
 

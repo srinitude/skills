@@ -19,8 +19,6 @@ import tomllib
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
-from invocation_acceptance import check
-from source_coverage import load_json
 
 FIELDS = {"task", "status", "applicability_reason", "proof"}
 STATUSES = {"run", "inapplicable"}
@@ -31,8 +29,9 @@ def load(root, receipt_path):
     try:
         with (root / "mise.toml").open("rb") as handle:
             tasks = tomllib.load(handle).get("tasks", {})
-        use_case = load_json(root / "assets/use-case-contract.json")
-        receipt = load_json(receipt_path)
+        use_case = json.loads(
+            (root / "assets/use-case-contract.json").read_text("utf-8"))
+        receipt = json.loads(receipt_path.read_text("utf-8"))
     except (OSError, ValueError, json.JSONDecodeError) as error:
         raise ValueError(str(error)) from error
     return tasks, use_case, receipt
@@ -56,8 +55,6 @@ def entry_problems(item, index, terms):
 
 
 def problems(tasks, use_case, receipt, skill):
-    if not isinstance(use_case, dict) or not isinstance(receipt, dict):
-        return ["use-case and receipt must be objects"]
     found, entries = [], receipt.get("entries", [])
     terms = use_case.get("domain_terms", [])
     if receipt.get("skill") != skill:
@@ -88,22 +85,17 @@ def main(argv=None):
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root")
     parser.add_argument("receipt")
-    for name in ["acceptance-context", "context-sha256", "receipt-sha256"]:
-        parser.add_argument("--" + name, help="host-bound evidence acceptance input")
     args = parser.parse_args(argv)
     root = Path(args.skill_root).resolve()
     try:
-        receipt_path = Path(args.receipt).absolute()
-        tasks, use_case, receipt = load(root, receipt_path)
-        found = problems(tasks, use_case, receipt, root.name)
-        report = check(root, receipt_path, receipt, args) if not found else None
-    except (ValueError, OSError, UnicodeError, KeyError, TypeError) as error:
+        tasks, use_case, receipt = load(root, Path(args.receipt).resolve())
+    except ValueError as error:
         print(f"FAIL {error}")
         return 1
+    found = problems(tasks, use_case, receipt, root.name)
     for problem in found:
         print(f"FAIL {problem}")
     print(f"invocation receipt: {len(found)} problems")
-    print("evidence acceptance: " + (json.dumps(report) if report else "pending; task accounting only"))
     return 1 if found else 0
 
 

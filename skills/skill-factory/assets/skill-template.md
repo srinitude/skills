@@ -3,7 +3,7 @@ name: {{NAME}}
 description: "{{DESCRIPTION}}"
 license: MIT
 metadata:
-  author: Kiren Srinivasan
+  author: skill-factory
   version: "0.1.0"
   scope: "{{SCOPE}}"
 ---
@@ -15,8 +15,6 @@ metadata:
 SCAFFOLD-PLACEHOLDER: rewrite this whole line as two or three sentences naming the result this skill produces, then rerun `mise run lint-placeholders` until it prints 0 placeholders.
 
 ## Outcome
-
-{{AUDIENCE_KEY}}
 
 State the observable user result, its scope, its forbidden outcomes, and the evidence that permits completion. An artifact or passing task is evidence only for the behavior it checks.
 
@@ -38,9 +36,7 @@ Name live authoritative sources first, then local references, examples, and prio
 
 ## Use-case specificity
 
-Before defining domain behavior, load references/use-case-specificity.md through `mise run domain-research-policy`. Map every domain aspect and primitive it requires, with each item's {{NAME}} role, protected outcome, progress, motivation, prevented failure and proof in assets/use-case-contract.json through `mise run use-case-policy`. Both tasks must reject every remaining seed until it contains source-backed {{NAME}} content.
-
-Before each invocation, use its relevant human-study and human-work selection. Both audiences and scopes retain complete declared inventories, explicit resources, extensions and higher-order relationships. Load references/human-matrix-format.md through `mise run human-matrix` for resource bindings and the `--human-context` and `--human-context-sha256` arguments required by domain research, use-case, decision and evaluation tasks. Lookup or machine-only output cannot waive this contract.
+Read references/use-case-specificity.md before defining domain behavior. The aspect layer covers actors, objects, actions, states, invariants, variants, interfaces, authorities, failures, recoveries, evidence, time, resources, quality, terminology, and exclusions. The primitive layer covers every skill body, reference, asset, script, test, Mise task, example, eval, policy, schema, and record. Record each item's {{NAME}} role, protected outcome, concrete progress value, motivation, prevented failure, and proof in assets/use-case-contract.json. Run `mise run domain-research-policy` and `mise run use-case-policy`; a fresh scaffold must fail both until every seed is replaced with source-backed {{NAME}} content.
 
 ## Which commands does this skill accept?
 
@@ -56,15 +52,15 @@ Suppose the request matches none of these. Stop, say what is missing, and wait. 
 
 ## Ordered workflow
 
-1. **Frame the outcome and domain.** Model: freeze the observable {{NAME}} result, scope, authority, forbidden results, and accepted behavior. Branch: select the matching {{NAME}} command. Before the first real task, look for starting-point in the surrounding skills directory; apply it first if its SKILL.md is present, otherwise continue.
+1. **Frame the outcome and domain.** Model: freeze the observable {{NAME}} result, scope, authority, forbidden results, and accepted behavior. Branch: select the one {{NAME}} command that matches the request.
 2. **Prove runner readiness.** Mise: run `mise run doctor`. Model: select the one {{NAME}} public operation that fits. If: readiness is false, stop the blocked work and report the exact failed prerequisite.
 3. **Ground the use case.** Mise: run `mise run domain-research-policy` and `mise run use-case-policy`. Model: gather current sources, test counterevidence, and decide the {{NAME}} terms, roles, failures, evidence, and exclusions. For each: accept, reject, bound, or mark every required source and domain dimension inapplicable with a reason.
 4. **Choose the smallest valid route.** Mise: run `mise run task-graph-policy` after declaring the operation and its dependencies. Model: locate the lowest {{NAME}} owner and keep unrelated behavior unchanged.
 5. **Execute BOOTSTRAP, RED, GREEN, REFACTOR.** Mise: run `mise run task-graph-policy`, then `mise run test` to capture RED and again after each change. Model: perform the semantic, creative, perceptual, and exception work that {{NAME}} needs and code cannot decide. Repeat: observe one behavior contract fail in RED, run the smallest domain operation, rerun to GREEN, and refactor under the same checks until the required behavior passes or a real blocker stops the loop.
-6. **Produce integrated proof.** Mise: run `mise run decision-policy`, `mise run ci`, and the applicable {{NAME}} eval task. Model: judge source-to-claim links, counterexamples, direct human-sense evidence when required, and whether the promised outcome is truly fulfilled. If: a check or judgment fails, fix its first cause at the lowest owning step, invalidate dependents and rerun until the check exits 0 and judgment accepts.
-7. **Account for the invocation and assess evidence.** Mise: run `mise run invocation-policy -- <receipt>` with the host-bound context and receipt digests defined in references/evidence-acceptance.md through that same task. Model: inspect actual {{NAME}} evidence and state every limit. For each: account for tasks and assess every required claim. Accounting alone leaves acceptance pending.
+6. **Produce integrated proof.** Mise: run `mise run decision-policy`, `mise run ci`, and the applicable {{NAME}} eval task. Model: judge source-to-claim links, counterexamples, direct human-sense evidence when required, and whether the promised outcome is truly fulfilled. If: a check or judgment fails, return to the lowest owning step and invalidate its dependents.
+7. **Account for the invocation.** Mise: run `mise run invocation-policy -- <receipt>`. Model: state every remaining limit. For each: record every task's run evidence or a {{NAME}}-specific inapplicability reason in the receipt.
 8. **Keep or restore an improvement.** Mise: run `mise run improvement-policy` before an optional trial. Model: keep the candidate only when its named dimension improves and no protected dimension regresses; otherwise restore and verify the accepted digest.
-9. **Finish maintenance last.** Mise: run `mise run mise-primitives-update` only after accepted {{NAME}} work concludes, then rerun `mise run ci`. Model: reconcile changed primitives and report the result with fresh task, invocation, maintenance and version evidence. Report any real blocker. Stop: end at the first fully accepted state; do not add unrelated work.
+9. **Finish maintenance last.** Mise: run `mise run mise-primitives-update` only after accepted {{NAME}} work concludes, then rerun `mise run ci`. Model: reconcile changed primitives and report any real blocker. Stop: end at the first fully accepted state; do not add unrelated work.
 
 ## Deterministic and model-owned boundary
 
@@ -88,21 +84,29 @@ Each deterministic job has one owning, {{NAME}}-specific Mise task whose outcome
 
 Every task declares its dependency list, including an empty list for a true root. Every task leads to CI, a public operation, or a required dependency. From a public operation, each dependency has one reachable path. Cycles, diamonds, disconnected tasks, unknown edges, redundant transitive edges, and nested Mise calls fail `mise run task-graph-policy`.
 
-Before implementation or invocation, load [the native workflow contract](references/generation-contract.md#tests-tasks-ci) through `mise run validate`. The promised {{NAME}} operation must run through its real domain Mastra workflow behind the owning public Mise task. The starter's install, syntax, type-check and engine-test chain supports that work; it does not create the domain workflow or prove its outcome. Keep the scaffold unaccepted until its actual inputs, resources, decisions, effects, recovery and domain evidence satisfy the contract.
-
 Map every aspect and primitive across discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Every phase owner must be a real, {{NAME}}-specific task that traces to objective progress, motivation, proof, and a prevented failure.
 
 Classify every official Mise config, task, task-config, and tool primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use every primitive that creates concrete {{NAME}} value, including useful creative compositions, and give each non-use a domain reason. Missing, stale, invented, or ceremonial dispositions fail.
 
-Load references/writing-rules.md through `mise run lint-writing` before naming a package-owned file or directory. Every such reference names its owning Mise task in the same prose line or fenced block; direct implementation paths remain forbidden. Register each new support root with that lint owner.
+Every Markdown reference to a package-owned file or directory must name its owning `mise run <task>` in the same prose line or fenced block. Apply this to references/, assets/, examples/, evals/, fixtures/, schemas/, templates/, data/, configuration, documentation, tests, workflows, prompts, policies, evidence, media, and every custom support root. Add each new root to `mise run lint-writing`. Direct implementation paths remain forbidden even when paired.
 
 For every invocation, run the selected operation path and account for every remaining task as `inapplicable` only with a {{NAME}}-specific reason and proof. Fill an external receipt from assets/invocation-receipt-template.json and run `mise run invocation-policy -- <receipt>` last. The receipt proves accounting shape, not task execution; retain current command output separately and connect it to each `run` entry. The validator accounts for itself by executing; silent omission fails.
 
 Keep the active Mise version fixed during meaningful {{NAME}} work. After the outcome and its acceptance tasks conclude, run `mise run mise-primitives-update` as the final maintenance chain. It self-updates Mise without plugins, refreshes the exact release schema catalog, and rejects unreconciled {{NAME}} dispositions. Then rerun `mise run ci` under the resulting binary and record its version and catalog digest. If package ownership or compatibility blocks it, report `BLOCKED` and never force replacement.
 
+## Steps
+
+1. Pick the command from the table that matches the request.
+2. Before the first real task, look for a scoping skill named starting-point in the surrounding skills directory. If its SKILL.md is present, apply it first. If absent, continue without it.
+3. Run the owning Mise task. Bundled scripts take flags or standard input, never prompts, and every script documents `--help`.
+4. If Mise is absent, stop with `BLOCKED`. Do not bypass the task graph with a direct script command.
+5. Run `mise run ci` from the skill root. Fix the first reported cause and rerun until the exit code is 0.
+6. Run `mise run mise-primitives-policy` and `mise run primitive-lifecycle-policy`, then record every task as run or justified inapplicable and run `mise run invocation-policy -- <receipt>`.
+7. After outcome work concludes, run `mise run mise-primitives-update`, then rerun `mise run ci` under the resulting binary. Stop with `BLOCKED` if package ownership, catalog reconciliation, or compatibility proof fails.
+8. Report the result with fresh task, invocation, maintenance, and version output as evidence.
+
 ## Assets and references
 
-- Load references/code-rules.md through `mise run lint-code` before implementing or invoking a script; preserve its flag, standard-input, help, output and exit contracts.
 - Load references/generation-contract.md through `mise run validate` before growing this skill or building another one. Every new file must meet that contract.
 - Load references/resource-and-experiment-design.md through `mise run improvement-policy` before selecting a format, data structure, cache, resource measure, benchmark, or improvement trial.
 - Load references/use-case-specificity.md through `mise run domain-research-policy` before defining or changing domain terms, roles, constraints, state, evidence, motivations, or primitive purposes.
@@ -145,8 +149,8 @@ Update evals/evals.json through `mise run evals` whenever behavior changes, and 
 
 ## When is the work done?
 
-Done needs fresh evidence from `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, and host-bound evidence acceptance through `mise run invocation-policy`: every job exits 0, validation prints PASS, writing and code checks report 0 problems, placeholder checks report 0 placeholders, evals hold at least four cases for the real job, and examples hold one complete run per command plus the likely failure. Semantic acceptance also needs source-to-claim review plus domain-swap and domain-term-removal attacks. Accounting alone never permits completion.
+Done needs fresh evidence from `mise run domain-research-policy`, `mise run use-case-policy`, `mise run mise-primitives-policy`, `mise run primitive-lifecycle-policy`, `mise run task-graph-policy`, `mise run decision-policy`, `mise run ci`, and `mise run invocation-policy -- <receipt>`: every job exits 0, validation prints PASS, writing and code checks report 0 problems, placeholder checks report 0 placeholders, evals hold at least four cases for the real job, and examples hold one complete run per command plus the likely failure. Semantic acceptance also needs source-to-claim review plus domain-swap and domain-term-removal attacks.
 
 ## Optional final improvement experiment
 
-Only after required work is accepted, load references/resource-and-experiment-design.md through `mise run improvement-policy` and follow its Experiment contract. Use the owning use-case task, freeze its evaluator and resource dispositions, and retain evidence outside the editable surface. Keep only material improvement with no protected regression; restore and verify after a worse, invalid or unknown result. Do not start an unbounded loop unless the user's terminal condition requires one.
+Run this step only after the required work is accepted. Freeze a fresh baseline, frozen evaluator, fixtures, environment, time budget, repetition count, and applicable resource measures. Change one named dimension at its smallest owning surface. Run `mise run improvement-policy`, then run the use-case experiment through its one owning Mise task. Record content digests, keep, discard, or crash status, results for every protected dimension, and reasons for each resource marked not applicable in an evidence ledger outside the editable surface. Keep the candidate only when the named dimension improves materially and no protected dimension regresses. On a worse, unknown, or invalid result, restore the last accepted version and verify its digest. Do not start an unbounded loop unless the user's terminal condition requires one.

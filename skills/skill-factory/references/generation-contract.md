@@ -45,13 +45,19 @@ The command grammar starts with help and adds only the commands the skill needs.
 
 ## Use-case specificity
 
-Before defining or changing domain aspects or primitives, load references/use-case-specificity.md through `mise run domain-research-policy`. Its domain maps, required matrix use, research preservation, lifecycle and decision records, Mise dispositions and semantic attacks bind every new or updated package.
+Every aspect and primitive must serve the target task class. Map actors, objects, actions, states, invariants, variants, interfaces, authorities, failures, recoveries, evidence, time, resources, quality, terminology, and exclusions. Map the skill body, references, assets, scripts, tests, Mise tasks, examples, evals, policies, schemas, and records. Each material item names its domain role, outcome, progress value, motivation, prevented failure, and evidence.
+
+Load references/use-case-specificity.md and fill assets/use-case-contract.json through `mise run domain-research-policy` and `mise run use-case-policy`. Verify claim support, domain-name substitution, and domain-term removal. Generic or invented domain content fails.
+
+Map every aspect and primitive through discovery, research, experiment, decision, creation, inspection, update, validation, acceptance, restoration, deprecation, and retirement in assets/primitive-lifecycle.json through `mise run primitive-lifecycle-policy`. Each phase names a real, domain-specific task whose contract states the objective progress, motivation, value, proof, applicability, and prevented failure. A generic lifecycle profile, missing phase, nonexistent task owner, or mapping that does not change the target skill result fails.
+
+Every deterministic, model-owned, or human-owned material decision states its outcome, motivation, why the selected path fits, owner, inputs, expected effect, proof, falsifier, and failure branch in assets/decision-records.json through `mise run decision-policy`. Structure proves only that the reasoning trace exists; direct review decides whether its reason and evidence are true.
 
 ## Simplicity and language
 
 Simplicity is a protected behavior. Every created, updated, standardized, or imported skill must preserve every accepted behavior while using the smallest coherent structure that makes the causal path easy to reason about. Keep one canonical owner per rule, one stable term per concept, one default path per job, and one material decision per branch. Remove duplicate rules, decorative sections, needless indirection, and options that produce the same result. Do not hide essential domain complexity or weaken proof, safety, authority, or behavior to make a package shorter.
 
-Use plain and direct language. Put the result first. Use common words, active verbs, one idea per sentence, one topic per paragraph, and execution order for steps. Define a term once and use it consistently. Mechanical lint proves only its stated checks. Same-meaning human review must also confirm that the instructions are clear, complete, and no harder to follow than the domain requires.
+Use plain and direct language. Every skill loads references/writing-rules.md through `mise run lint-writing`. Put the result first. Use common words, active verbs, one idea per sentence, one topic per paragraph, and execution order for steps. Define a term once and use it consistently. Mechanical lint proves only its stated checks. Same-meaning human review must also confirm that the instructions are clear, complete, and no harder to follow than the domain requires.
 
 ## Deterministic and model-owned boundary
 
@@ -71,7 +77,11 @@ Do not cache mutable remote state, live judgment, an external side effect, or ra
 
 ## Markdown layout
 
-Load references/writing-rules.md through `mise run lint-writing` before Markdown authoring. Its line layout, exclusions, file-reference routing and full-tree checks bind every factory and output file.
+Every markdown file contains at most 200 physical lines and lays wrappable prose out as one physical line per block: a paragraph, or a list item plus its continuation lines, never holds an internal hard line break, and no maximum line length applies. Blank lines between elements stay exactly as markdown readability requires. YAML frontmatter, headings, table rows, code fences and their content, indented code, and blank lines are exempt only from the block layout rule. The writing lint enforces both rules on every markdown file.
+
+Every Markdown reference to a package-owned file or directory must name its owning `mise run <task>` in the same prose line or fenced block. This includes references/, assets/, examples/, evals/, fixtures/, schemas/, templates/, data/, configuration, documentation, tests, workflows, prompts, policies, evidence, media, and any custom support or ownership directory; add a newly introduced root to `mise run lint-writing`. Direct implementation paths remain forbidden even when a task is named. The task is the public route, while the path supplies progressive disclosure under that route.
+
+Classify every official Mise config, task, task-config, and tool primitive in assets/mise-primitives.json through `mise run mise-primitives-policy`. Use each relevant primitive where it creates domain progress or stronger proof, including a useful creative composition. Give every non-use a target-skill reason. A schema-derived catalog is exhaustive for its exact runner release; no primitive is accepted for ceremony alone.
 
 ## Examples
 
@@ -79,19 +89,15 @@ Every skill ships examples/ through `mise run validate`, with at least one worke
 
 ## Code
 
-Load references/code-rules.md through `mise run lint-code` before implementation. Its file, function and nesting caps, script interfaces, standard-library preference and test-first order bind every code file and output.
+Caps for every code file: 200 lines of code per file, 30 per function or class counting its own lines, block nesting depth 3 inside any function, measured from the test declaration in tests. No work markers, mocks, stubs, or placeholder branches. Real behavior only. Prefer the standard library.
+
+Every script supports --help with usage, exit codes, and an example. Scripts take input from flags or stdin, never from a prompt. Data goes to stdout, diagnostics to stderr. Exit 0 on success, 1 on a failed check, 2 on bad usage. Reruns are safe.
 
 ## Tests, tasks, CI
 
-Build in the fixed test-first order at references/code-rules.md through `mise run lint-code`. Local runs and remote CI use one command, `mise run ci`.
+Build order is fixed and test-first: mise.toml, then the CI workflow and the tests that pin the task graph, then script tests, then scripts, then docs, then evals. A behavior starts as a failing test. Local runs and remote CI use one command, `mise run ci`. Tests cover contracts users touch: flags, exit codes, file outputs, integration boundaries. Never private internals.
 
 Every generated SKILL.md contains one numbered `Ordered workflow` before its detailed branches. Each step names `Mise:` work, `Model:` work, or both. Use `Branch:`, `If:`, `For each:`, `Repeat:`, and `Stop:` where the domain has a real decision, collection, retry, or terminal state. Each failure returns to the lowest owning step and invalidates its dependents. Do not add a loop or branch that cannot change action, evidence, recovery, or acceptance.
-
-Every accepted factory, generated skill, updated skill and scope variant must execute its promised domain operation through a real Mastra workflow behind a public Mise task, for both human and agent audiences. Bind the actual inputs, declared resources, step outputs, required decisions, protected effects and final domain result. Preserve working script leaves and use the smallest necessary TypeScript integration. An installed SDK, unused workflow, schema wrapper, copied engine probe or successful synthetic example cannot satisfy this requirement.
-
-Mise owns executable versions, the prepared environment and public prerequisites. Mastra owns the domain step graph and declared run state. Scripts own their actual transformations and effect guards; the host owns runner authority and authentic human identity. Pass the caller-selected runner and its argument array outside untrusted request data. Invoke leaves directly inside the prepared workflow environment. Do not create recursive Mise calls or competing retry, scheduling, cache and state owners.
-
-Keep exact compatible native executable versions, package-manager identity, dependency manifests and lockfiles under their current owners. Run clean installation without unapproved lifecycle scripts, native syntax and type checks, real engine probes, and the target's domain tests through the public task graph. Verify generated packages with their own dependencies. Preserve compatible custom runtime configuration; reconcile incompatible or partial inputs explicitly. Enforce required results at the consuming step, since output schema declarations and lifecycle callbacks do not reliably reject bad domain results in the selected engine. Persisted pauses, human decisions, replay, concurrency and failure recovery need their own actual boundary tests and stated limits before acceptance.
 
 Use dependency edges rather than repeated nested task calls when Mise can schedule independent work safely. Derive the job bound, cache keys, and task batching from the target domain's real dependency and resource profile instead of copying a generic preset. Cache only deterministic tasks with complete declared sources and outputs. Keep target-specific live, mutating, network, model-owned, and human-judged tasks outside the cache. Measure cold and warm aggregate paths, and retain an optimization only when speed improves without a protected regression. The task graph must optimize elapsed time without weakening required ordering, evidence, or model capability.
 
@@ -99,13 +105,11 @@ Every task declares a dependency list, including an empty list for a true root. 
 
 Keep the active Mise version fixed during meaningful domain work. After the skill outcome and all acceptance tasks conclude, run `mise run mise-primitives-update` as the final maintenance chain. Its predependency self-updates Mise without plugins, its body refreshes the exact release schema catalog, and its postdependency forces target-skill reconciliation plus lineage refresh when the skill owns lineage. Rerun `mise run ci` under the resulting binary and record its version and catalog digest. Treat a package-manager instruction, network failure, or compatibility regression as `BLOCKED`; never force past package ownership.
 
-Every task has a domain-specific record in assets/use-case-contract.json with outcome, motivation, progress value, proof, and applicability. Each invocation runs its selected operation path and records every remaining task as inapplicable only when the current request and skill nature supply a domain-specific reason and proof. `mise run invocation-policy -- <receipt>` validates the complete disposition; its own execution accounts for the validator task. Accounting alone leaves evidence acceptance pending. Before accepting a result, load references/evidence-acceptance.md through that same `mise run invocation-policy` route and supply its host-bound context and receipt digests. Consume actual supporting contents, current source and subject bindings, every required claim, independently frozen predicates, and responsible judgments. A valid record cannot prove that a semantic review or human contribution happened.
+Every task has a domain-specific record in assets/use-case-contract.json with outcome, motivation, progress value, proof, and applicability. Each invocation runs its selected operation path and records every remaining task as inapplicable only when the current request and skill nature supply a domain-specific reason and proof. `mise run invocation-policy -- <receipt>` validates the complete disposition; its own execution accounts for the validator task. This receipt validates accounting statements, not task execution, so acceptance also retains current command output and ties it to every run claim.
 
 ## Evals
 
 Load evals/evals.json, evals/trigger-queries.json, and the registry contract at references/eval-authoring.md through `mise run evals`. Keep at least four realistic cases with prompts, expected output, and verifiable assertions, plus positive and negative trigger queries with near misses. A registry skill also emits manifest.json, cases.json, trigger-cases.json, contract.md, rubric.md, speed-budgets.json, and source-lineage.json with real sha256 source hashes.
-
-Import the complete supplied case and trigger collections without a sample cap. Preserve stable IDs, conditions, required assertions, expected results, and additional source fields. Missing expected results or assertions remain missing; mechanical preparation cannot invent them. The minimum case count is a lower bound for acceptance, never a reason to truncate a larger source or fill an empty collection with generic cases. Run `mise run evals` to reject incomplete seeds before acceptance.
 
 An optional improvement trial begins only after required work passes. Freeze a fresh baseline, frozen evaluator, fixtures, seed when applicable, environment, time budget, repetitions, and resource measures before viewing the candidate result. Change one named dimension at the smallest owner. Record keep, discard, or crash outside the editable surface. Accept only Pareto improvement: the named dimension improves materially and no protected dimension regresses. On a worse, invalid, or unknown result, restore the last accepted version and verify its digest.
 
@@ -114,8 +118,6 @@ An optional improvement trial begins only after required work passes. Freeze a f
 Every operation that creates or changes a skill must satisfy references/skill-scope-contract.md through `mise run validate`; the factory uses its detailed variant workflow for adaptation.
 
 Before changing an existing skill, freeze a read-only file inventory, content digests, current purpose, valid triggers, accepted behavior, task graph, examples, and eval baseline. Also freeze the source outcome, proof, boundaries, forbidden outcomes, and mandatory methods. A collision, symlink, or unclassified host owner blocks the plan before any write. Preserve those owners unless the user explicitly changes them. Standardization repairs package shape and execution contracts; it does not replace domain meaning.
-
-Preserve authored use-case fields, nested conditions, stable IDs, dependency references, matrix selections, unresolved decisions, and extension fields while filling missing structural defaults. Existing lifecycle, decision, invocation-template, and Mise disposition records stay intact. Make intended record changes through the existing profile-bound text rewrites; keep unrelated entries. Resolve audience changes through the audience owner and supply fresh research records only after their actual review. Preserved records can remain incomplete or stale: preservation does not establish current applicability, evidence validity, checker parity, or acceptance. Reconcile those requirements through their own checks before use.
 
 Lineage and planning walk only owned regular files. Reject symlinks before reading or hashing them, and exclude runtime caches, dependency installations, generated bytecode, and tool state such as `.mise`, `node_modules`, `__pycache__`, and `.DS_Store`. These are execution products, not portable skill sources.
 

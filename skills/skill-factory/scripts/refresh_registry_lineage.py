@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 from standardization_format import format_files, format_target
-from skill_package import owned_files
 
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 FACTORY_SOURCE = "factory/registry-standardization-profiles.json"
@@ -33,9 +32,16 @@ def digest(data):
 
 
 def public_paths(root, skill):
-    base = (root / "skills" / skill).resolve()
-    return sorted(path.relative_to(base).as_posix() for path in owned_files(base)
-                  if path.relative_to(base).as_posix() != "evals/source-lineage.json")
+    base, found = root / "skills" / skill, []
+    for path in base.rglob("*"):
+        if "__pycache__" in path.parts or path.is_dir():
+            continue
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f"unsupported public entry: {path.relative_to(base)}")
+        relative = path.relative_to(base).as_posix()
+        if relative != "evals/source-lineage.json":
+            found.append(relative)
+    return sorted(found)
 
 
 def repository_entry(root, source_path, location_path):
@@ -102,7 +108,6 @@ def write_json(path, data):
 
 def refresh_skill(root, skill):
     skill_root = root / "skills" / skill
-    public_paths(root, skill)
     format_target(skill_root)
     lineage_path = skill_root / "evals/source-lineage.json"
     manifest_path = root / f"evidence/ports/{skill}/source-manifest.json"

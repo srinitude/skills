@@ -74,11 +74,8 @@ def package(root, scope, project_id="repo:atlas"):
     (root / "NOTICE").write_text("File inventory example. Kiren Srinivasan.\n")
     seed_evals(root)
     data = {"skill": root.name, "primary_term": "file inventory", "outcome": "Count configured source files and lines without writes.",
-            "audience": {"primary": "agent"},
             "domain_terms": ["file inventory", "source files", "project configuration"], "main_task": "inventory",
             "main_run": "python3 scripts/inventory.py", "sources": SOURCES}
-    research = json.loads(Path(__file__).with_name("file_inventory_research.json").read_text())
-    data.update({key: research[key] for key in ["research_receipts", "disconfirmation"]})
     apply(root, data)
     return root
 

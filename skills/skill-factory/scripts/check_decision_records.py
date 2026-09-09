@@ -19,7 +19,6 @@ import sys
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
-import human_matrix_use
 
 FIELDS = {"id", "kind", "outcome", "motivation", "why_this_path",
           "owner", "inputs", "expected_effect", "proof", "falsifier",
@@ -88,18 +87,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
-    human_matrix_use.arguments(parser)
     args = parser.parse_args(argv)
     root = Path(args.skill_root).resolve()
     try:
-        before = human_matrix_use.snapshot(root)
         decisions = load_json(root / "assets" / "decision-records.json")
         use_case = load_json(root / "assets" / "use-case-contract.json")
-    except (ValueError, OSError) as error:
+    except ValueError as error:
         print(f"FAIL {error}")
         return 1
     found = problems(decisions, use_case.get("domain_terms", []), root.name)
-    found += human_matrix_use.problems(args, root, "decision-policy", before)
     for problem in found:
         print(f"FAIL {problem}")
     print(f"decision records: {len(found)} problems")

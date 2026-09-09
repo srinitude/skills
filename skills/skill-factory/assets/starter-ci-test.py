@@ -14,25 +14,19 @@ SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 CHECK_JOBS = ["validate", "lint-writing", "lint-code",
               "lint-placeholders", "evals", "improvement-policy",
               "decision-policy"]
-REQUIRED_TASKS = ["ci", "info", "test", "runtime-install", "typecheck-native", "test-native"] + CHECK_JOBS
+REQUIRED_TASKS = ["ci", "info", "test"] + CHECK_JOBS
 REQUIRED_TASKS += ["task-graph-policy", "use-case-policy",
                    "domain-research-policy", "mise-primitives-policy",
                    "primitive-lifecycle-policy", "invocation-policy",
                    "agentic-request",
                    "mise-latest", "mise-primitives-update"]
-FRESH_CHECKS = ["validate", "lint-writing", "lint-code",
-                "lint-placeholders", "evals", "improvement-policy"]
+CACHEABLE = ["validate", "lint-writing", "lint-code",
+             "lint-placeholders", "evals", "improvement-policy"]
 
 
 def load_tasks(path):
     with open(path, "rb") as handle:
-        data = tomllib.load(handle)
-    tasks = data.get("tasks", {})
-    for task in tasks.values():
-        for field in ["depends", "depends_post"]:
-            if field in task:
-                task[field] = [item["task"] if isinstance(item, dict) else item for item in task[field]]
-    return tasks
+        return tomllib.load(handle).get("tasks", {})
 
 
 def load_config(path):
@@ -43,7 +37,7 @@ def load_config(path):
 class TestTaskGraph(unittest.TestCase):
     def setUp(self):
         self.config = load_config(SKILL_DIR / "mise.toml")
-        self.tasks = load_tasks(SKILL_DIR / "mise.toml")
+        self.tasks = self.config["tasks"]
 
     def test_every_required_task_exists(self):
         for name in REQUIRED_TASKS:
@@ -52,14 +46,8 @@ class TestTaskGraph(unittest.TestCase):
     def test_ci_invokes_every_check_job(self):
         task = self.tasks["ci"]
         self.assertEqual(set(task["depends"]),
-                         set(["test"] + CHECK_JOBS) - {"lint-code"})
+                         set(["test"] + CHECK_JOBS))
         self.assertNotIn("run", task)
-
-    def test_native_checks_follow_installation_and_typechecking(self):
-        self.assertEqual(self.tasks["lint-code"]["depends"], ["runtime-install"])
-        self.assertEqual(self.tasks["typecheck-native"]["depends"], ["lint-code"])
-        self.assertEqual(self.tasks["test-native"]["depends"], ["typecheck-native"])
-        self.assertEqual(self.tasks["test"]["depends"], ["test-native"])
 
     def test_every_task_has_a_description(self):
         for name, task in self.tasks.items():
@@ -98,14 +86,14 @@ class TestTaskGraph(unittest.TestCase):
         self.assertEqual(task["depends"], ["mise-latest"])
         self.assertEqual(task["depends_post"], ["mise-primitives-policy"])
 
-    def test_package_checks_rerun_with_bounded_concurrency(self):
+    def test_bounded_concurrency_and_safe_caching_are_enabled(self):
         self.assertTrue(self.config["settings"]["experimental"])
         self.assertGreater(self.config["settings"]["jobs"], 1)
-        for name in FRESH_CHECKS:
+        for name in CACHEABLE:
             task = self.tasks[name]
-            self.assertNotIn("sources", task, name)
-            self.assertNotIn("outputs", task, name)
-            self.assertFalse(task.get("cache", {}).get("enabled", False), name)
+            self.assertTrue(task["cache"]["enabled"], name)
+            self.assertTrue(task["sources"], name)
+            self.assertEqual(task["outputs"], [], name)
 
     def test_live_tests_are_not_cached(self):
         self.assertNotIn("cache", self.tasks["test"])

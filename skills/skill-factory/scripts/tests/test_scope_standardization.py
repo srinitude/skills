@@ -5,7 +5,6 @@ import unittest
 from pathlib import Path
 
 from cli import run
-from publication_fixtures import standardize
 from test_standardize_registry_skill import profile, write_target
 
 
@@ -26,7 +25,7 @@ class TestScopeStandardization(unittest.TestCase):
             file.write_text(text[:start] + 'metadata: {author: Kiren, version: "0.1.0", custom: "keep"}' + text[end:])
             path = Path(temp) / "profile.json"
             path.write_text(json.dumps(profile()))
-            result = standardize(root, "--profile", path, "--scope", "user", "--apply")
+            result = run("standardize_registry_skill.py", root, "--profile", path, "--scope", "user", "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('custom: "keep", scope: "user"', file.read_text())
             self.assertIn('author: Kiren, version: "0.1.0"', file.read_text())
@@ -38,7 +37,7 @@ class TestScopeStandardization(unittest.TestCase):
             path = Path(temp) / "profile.json"
             path.write_text(json.dumps(profile()))
             before = snapshot(root)
-            result = standardize(root, "--profile", path, "--apply")
+            result = run("standardize_registry_skill.py", root, "--profile", path, "--apply")
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("Should this skill", result.stdout + result.stderr)
             self.assertEqual(snapshot(root), before)
@@ -53,7 +52,7 @@ class TestScopeStandardization(unittest.TestCase):
             path = Path(temp) / "profile.json"
             path.write_text(json.dumps(data))
             before = snapshot(root)
-            result = standardize(root, "--profile", path,
+            result = run("standardize_registry_skill.py", root, "--profile", path,
                          "--scope", "user", "--apply")
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(snapshot(root), before)
@@ -66,7 +65,7 @@ class TestScopeStandardization(unittest.TestCase):
             path.write_text(json.dumps(profile()))
             file = root / "SKILL.md"
             file.write_text(file.read_text().replace("metadata:\n", 'metadata:\n  scope: "project"\n  project-id: "repo:clock"\n'))
-            result = standardize(root, "--profile", path, "--apply")
+            result = run("standardize_registry_skill.py", root, "--profile", path, "--apply")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('scope: "project"', file.read_text())
             self.assertIn('project-id: "repo:clock"', file.read_text())

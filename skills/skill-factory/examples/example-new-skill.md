@@ -1,6 +1,6 @@
 # Create a scaffold from its reviewed file plan
 
-This example removes the guess about inspecting every planned byte, supplying current ledger reviews before creation, rejecting stale work and preserving the unfinished seed boundary. Load it for `mise run new`. The [complete observed run](new-skill-run.json) contains the example request, executor reply, every exact command, working directory, stdout, stderr, exit code, governing input file and complete created file. Base64 values preserve exact bytes and line endings. The `stdout_base64` and `stderr_base64` fields decode to the complete observed streams. Runtime prerequisites are identified separately from command effects.
+This example removes the guess about inspecting every planned byte, supplying current ledger reviews before creation, rejecting stale work and preserving the unfinished seed boundary. Load it for `mise run new`. The [complete observed run](new-skill-run.json) contains the example request, executor reply, every exact command, working directory, stdout, stderr, exit code, governing input file and complete created file. The lossless record retains exact bytes and line endings; its decoded `stdout` and `stderr` fields contain the complete actual streams. Runtime prerequisites are identified separately from command effects.
 
 The example request was: “Prepare a user-scope scaffold from a reviewed plan. Demonstrate missing and stale review rejection, then create the exact reviewed files.” The executor replied: “The plan produced no package files. Missing and stale reviews were rejected. The current review produced the exact planned scaffold; domain implementation and acceptance remain pending.”
 
@@ -20,3 +20,7 @@ The initial body review binds its path, digest, candidate bytes, source and ledg
 The source fixture and review text are explicit non-independent declarations. They prove the recorded mechanical paths, not authenticated human judgment, complete source meaning, domain-workflow granularity, all update routes or accepted domain behavior. Construction order and observed imports do not prove complete runtime or reading dependencies. Seeds remain blocked until their actual domain implementation, resources, examples, evaluations and acceptance are finished. Use `mise run test` for current scaffold and copied-runtime regression checks.
 
 The created body includes the current efficiency policy: complete ready functional paths, justify supporting work, preserve all required reads and proof, and distinguish implementation, validation and acceptance. This recorded inheritance is not a measured speed improvement.
+
+## Read the complete record
+
+The JSON envelope keeps a readable command index and the complete original record in `record_xz_base64`. Decode it with `json.loads(lzma.decompress(base64.b64decode(envelope["record_xz_base64"])))` using Python's standard-library `json`, `lzma` and `base64` modules. Verify the decompressed bytes against `record_sha256`. Nested base64 fields still retain exact individual file or stream bytes. Compression changes storage only; no command, output, input, file, claim or limit is omitted.

@@ -7,7 +7,7 @@ from pathlib import Path
 from cli import run
 from test_scope_standardization import snapshot
 from test_skill_variant import plan
-from test_variant_acceptance import accept
+from test_variant_acceptance import accept, reviewed_accept
 from variant_fixtures import package, project, review, write_json
 
 
@@ -41,7 +41,7 @@ class TestVariantProjectContext(unittest.TestCase):
             write_json(base / "plan.json", data)
             write_json(base / "review.json", evidence)
             before = snapshot(source)
-            result = run("skill_variant.py", "accept", "--plan", base / "plan.json",
+            result = reviewed_accept("accept", "--plan", base / "plan.json",
                          "--candidate", candidate, "--review", base / "review.json")
             self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
             self.assertIn("project_review", result.stdout)

@@ -28,6 +28,15 @@ class TestRuntimeDependencies(unittest.TestCase):
             with self.subTest(name=name):
                 self.assert_ready_graph(tomllib.loads((SKILL_DIR / name).read_text())["tasks"])
 
+    def test_public_variant_and_target_validation_prepare_the_native_checker(self):
+        tasks = tomllib.loads((SKILL_DIR / "mise.toml").read_text())["tasks"]
+        for entry in ["variant", "validate-target"]:
+            with self.subTest(entry=entry):
+                counts = path_counts(tasks, entry)
+                for prerequisite in ["doctor", "check-runtime", "setup-runtime"]:
+                    self.assertEqual(counts.get(prerequisite, 0), 1, (entry, counts))
+                self.assertTrue(all(count <= 1 for count in counts.values()))
+
     def test_standardization_preserves_all_checks_on_one_runtime_path(self):
         source = base_mise({"primary_term": "source-ledger"})
         normalized = normalize_mise(source)

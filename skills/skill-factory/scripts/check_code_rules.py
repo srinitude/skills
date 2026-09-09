@@ -136,7 +136,11 @@ def check_javascript(files, problems):
                             text=True, capture_output=True, check=False)
     if result.returncode not in (0, 1):
         raise ValueError("JavaScript/TypeScript checker failed: " + result.stderr.strip())
-    entries = json.loads(result.stdout)
+    try:
+        entries = json.loads(result.stdout)
+    except json.JSONDecodeError as error:
+        raise ValueError("invalid JavaScript/TypeScript checker output: "
+                         + result.stderr.strip()) from error
     if not isinstance(entries, list) or not all(isinstance(p, str) for p in entries):
         raise ValueError("invalid JavaScript/TypeScript checker result")
     if bool(entries) != bool(result.returncode):

@@ -332,7 +332,7 @@
         "outcome": "An existing agent skill receives the complete static package check.",
         "motivation": "A skill package update needs the same structure and policy boundary as a new package.",
         "why_default_path": "The validate-target task gives external agent skill validation one entry path.",
-        "proof": "The agent skill target receipt reports every selected checker and zero failures."
+        "proof": "The agent skill public target task prepares its locked native checker runtime, reports every selected static checker and exits 0 only when all selected checks pass; schema success is not semantic or human acceptance."
       },
       {
         "task": "eval-target",
@@ -413,15 +413,15 @@
       },
       {
         "task": "variant",
-        "outcome": "Accept an independently adapted agent skill with immutable source lineage.",
+        "outcome": "Publish an independently adapted agent skill only from complete current domain and per-file ledger reviews, with actual behavior and source-preservation checks.",
         "motivation": "A scope change must preserve the skill package capability while fitting its target context.",
         "why_default_path": "This is the single agent skill owner for variant.",
-        "proof": "Agent skill acceptance: Both variant directions, project fit, isolated behavior, digest preservation, collision and refresh conflict tests."
+        "proof": "Agent skill cases exercise both variant directions, complete future files and lineage, missing or incomplete review rejection, source/candidate/project/permission drift, source preservation, guarded recovery, isolated inventory behavior and customized refresh. Finite checks and declared reviews do not establish complete semantic or human acceptance."
       },
       {
-        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply one caller-scoped non-body file creation/replacement.",
+        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply a caller-scoped file creation/replacement or explicit reviewed body revision.",
         "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
-        "proof": "Actual skill package native workflow cases verify full body/ledger capture, original relationship roles, inherited and declared context, finite ranks, rejected stale or malformed inputs and recovery. File-write cases check current source/body/review declarations, rejected paths/locks/replays with preserved bytes, binary creation/replacement, readable-source drift restoration and preservation of independent edits. Full semantic, human, all-writer and domain acceptance remain pending.",
+        "proof": "Actual skill package native workflow cases verify full ledger/body capture, typed context, finite ranks, stale-input rejection and recovery. File cases cover source/body/review bindings, bootstrap, explicit body revision, permissions, rejected paths/locks/replays, binary files and retained independent edits. Creation, standardization and variant staging reuse this writer; other maintenance writers, complete semantic and human acceptance remain pending.",
         "task": "ledger",
         "why_default_path": "The agent skill has one public ledger task into its assigned native Mastra operations with declared locked dependencies; its authorized caller selects the write root outside request data."
       }
@@ -525,6 +525,13 @@
         "proof": "The agent skill package native installer verifies its lock, completes successfully and leaves the declared compiler available.",
         "applicability": "Run before a skill package check-runtime task; installation alone is not activation, authorization or domain acceptance."
       },
+      "check-runtime": {
+        "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
+        "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
+        "value": "The Mise task graph orders locked installation before strict owned-source type checks and the dependent skill package lint-code, ledger, variant and validate-target consumers.",
+        "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
+        "applicability": "Run for owned skill package TypeScript changes and before lint-code, ledger, variant or validate-target; it does not validate runtime effects or semantic judgment."
+      },
       "use-case-policy": {
         "outcome": "Every agent skill primitive serves the target use case.",
         "motivation": "A skill package can pass generic checks without enabling the intended result.",
@@ -550,8 +557,8 @@
         "outcome": "An external agent skill receives all portable static checks.",
         "motivation": "A skill package update needs factory-level evidence before acceptance.",
         "value": "Agent skill target validation consolidates structural and policy failures.",
-        "proof": "The skill package target validation prints every checker and exits 0.",
-        "applicability": "Run when validating an existing or newly generated agent skill."
+        "proof": "The agent skill public target task prepares its locked native checker runtime, reports every selected static checker and exits 0 only when all selected checks pass; schema success is not semantic or human acceptance.",
+        "applicability": "Run when validating an existing or newly generated agent skill, after the declared doctor and check-runtime prerequisites."
       },
       "eval-target": {
         "outcome": "An external agent skill eval contract receives a factory check.",
@@ -582,11 +589,11 @@
         "applicability": "Use this agent skill operation when its scope or adaptation contract applies."
       },
       "variant": {
-        "outcome": "Accept an independently adapted agent skill with immutable source lineage.",
+        "outcome": "Publish an independently adapted agent skill only from complete current domain and per-file ledger reviews, with actual behavior and source-preservation checks.",
         "motivation": "A scope change must preserve the skill package capability while fitting its target context.",
         "value": "Accept an independently adapted agent skill with immutable source lineage.",
-        "proof": "Agent skill acceptance: Both variant directions, project fit, isolated behavior, digest preservation, collision and refresh conflict tests.",
-        "applicability": "Use this agent skill operation when its scope or adaptation contract applies."
+        "proof": "Agent skill cases exercise both variant directions, complete future files and lineage, missing or incomplete review rejection, source/candidate/project/permission drift, source preservation, guarded recovery, isolated inventory behavior and customized refresh. Finite checks and declared reviews do not establish complete semantic or human acceptance.",
+        "applicability": "Use when an agent skill scope adaptation, explicit in-place change or requested refresh applies. Prepare the declared native checker runtime first; bind publication to a saved preview and a separate complete current ledger review."
       },
       "refresh-registry-lineage": {
         "outcome": "Each named agent skill package receives current public file hashes and source lineage.",
@@ -595,19 +602,12 @@
         "proof": "The skill package source evidence command reports PASS for every named skill.",
         "applicability": "Run after accepted agent skill package files change and before repository validation."
       },
-      "check-runtime": {
-        "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
-        "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
-        "value": "The Mise task graph orders locked installation before strict owned-source type checks and dependent lint-code work.",
-        "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
-        "applicability": "Run for owned skill package TypeScript changes and before lint-code; it does not validate runtime effects or semantic judgment."
-      },
       "ledger": {
-        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply one caller-scoped non-body file creation/replacement.",
+        "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply a caller-scoped file creation/replacement or explicit reviewed body revision.",
         "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
         "value": "The skill package task exposes current recorded context and a shared individual file-write owner while keeping actual judgment, source authority and whole-goal acceptance separate.",
-        "proof": "Actual skill package native workflow cases verify full body/ledger capture, original relationship roles, inherited and declared context, finite ranks, rejected stale or malformed inputs and recovery. File-write cases check current source/body/review declarations, rejected paths/locks/replays with preserved bytes, binary creation/replacement, readable-source drift restoration and preservation of independent edits. Full semantic, human, all-writer and domain acceptance remain pending.",
-        "applicability": "Use for skill package ledger views, capture/live-source predicates or an explicitly authorized non-body create/replacement with complete current inputs and declared review fields. Other scaffold, update, variant and maintenance writers still require guard integration. Caller declarations do not prove authentic semantic review or confer permission."
+        "proof": "Actual skill package native workflow cases verify full ledger/body capture, typed context, finite ranks, stale-input rejection and recovery. File cases cover source/body/review bindings, bootstrap, explicit body revision, permissions, rejected paths/locks/replays, binary files and retained independent edits. Creation, standardization and variant staging reuse this writer; other maintenance writers, complete semantic and human acceptance remain pending.",
+        "applicability": "Use for skill package ledger views, source predicates or explicitly authorized individual writes with complete current inputs and declared review fields. The initial body and each file review also gate creation, standardization and variant staging. Other maintenance writers still require integration. Declarations do not establish authentic judgment or grant permission."
       },
       "mise-primitives-policy": {
         "outcome": "Every official Mise primitive receives an agent skill use or justified non-use decision.",

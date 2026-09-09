@@ -9,7 +9,7 @@ from pathlib import Path
 from cli import run
 from test_scope_standardization import snapshot
 from test_skill_variant import plan
-from test_variant_acceptance import accept
+from test_variant_acceptance import accept, reviewed_accept
 from variant_fixtures import package, project
 
 
@@ -69,7 +69,7 @@ class TestVariantPortability(unittest.TestCase):
             result = run("skill_variant.py", "review", "--plan", plan_path,
                          "--candidate", candidate, "--output", review_path)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            result = run("skill_variant.py", "accept", "--plan", plan_path,
+            result = reviewed_accept("accept", "--plan", plan_path,
                          "--candidate", candidate, "--review", review_path)
             self.assertEqual(result.returncode, 1)
             self.assertTrue(json.loads(result.stdout)["source_preserved"])

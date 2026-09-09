@@ -1,4 +1,7 @@
 """Tests for scripts/check_code_rules.py against real code files."""
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -28,6 +31,20 @@ class TestCheckCodeRules(unittest.TestCase):
     def test_own_code_passes(self):
         result = run("check_code_rules.py", SKILL_DIR)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_missing_native_dependency_preserves_the_actual_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in ["check_code_rules.py", "check_javascript.ts", "skill_package.py"]:
+                shutil.copy2(SKILL_DIR / "scripts" / name, root / name)
+            source = root / "sample.js"
+            source.write_text("export const answer = 42;\n")
+            result = subprocess.run([sys.executable, str(root / "check_code_rules.py"),
+                                     str(source)], capture_output=True, text=True, check=False)
+            self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+            self.assertIn("JavaScript/TypeScript checker", result.stderr)
+            self.assertIn("ERR_MODULE_NOT_FOUND", result.stderr)
+            self.assertIn("typescript", result.stderr)
 
     def test_small_clean_file_passes(self):
         result = self.check_source("def add(a, b):\n    return a + b\n")

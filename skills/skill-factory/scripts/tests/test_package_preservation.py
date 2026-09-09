@@ -62,7 +62,9 @@ class TestPackagePreservation(unittest.TestCase):
         self.check_unowned()
 
     def test_failed_final_guard_restores_the_whole_previous_package(self):
-        def verify():
+        def verify(backup):
+            self.assertEqual((backup / "SKILL.md").read_bytes(), b"old body")
+            self.assertEqual(inventory(backup), self.before)
             self.assertEqual((self.target / 'SKILL.md').read_bytes(), b'reviewed body')
             raise ValueError('current proof changed during promotion')
         with self.assertRaisesRegex(ValueError, 'current proof changed'):

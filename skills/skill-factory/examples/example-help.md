@@ -28,9 +28,9 @@ Choose user for availability across your projects or project for a specific proj
 
 ## Fresh help readback
 
-Load [the full help record](help-run.json) through `mise run new`, `mise run standardize-target` or `mise run variant` before using their flags. It contains actual complete stdout, stderr and exit codes for creation help, standardization help and variant-plan help, with the observed runtime identity. These commands create no target files. Creation exposes `--plan` and `--review`; standardization exposes `--apply`, `--plan-file` and `--review`; variant planning retains its independent scope, project, placement, refresh and in-place branches.
+Load [the full help record](help-run.json) through `mise run new`, `mise run standardize-target` or `mise run variant` before using their flags. It contains actual complete stdout, stderr and exit codes for creation help, standardization help and variant-plan and variant-accept help, with the observed runtime identity. These commands create no target files. Creation exposes `--plan` and `--review`; standardization exposes `--apply`, `--plan-file` and `--review`; variant planning retains its independent scope, project, placement, refresh and in-place branches; acceptance exposes `--preview`, `--plan-file` and `--ledger-review` in addition to its separate domain `--review`.
 
-The plan operation resolves the source, target scope, identity, destination and project context. The review operation prepares a digest-bound draft. Accept validates the completed review, adapted behavior and package before promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
+The plan operation resolves the source, target scope, identity, destination and project context. The review operation prepares a digest-bound draft. Accept requires the complete publication preview and current initial-body and every-file ledger review, then validates the separate domain review, adapted behavior and package before guarded promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
 
 ## What the run proves
 

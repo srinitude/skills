@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from cli import run
+from scaffold_test_support import review_fixture
 from test_scope_standardization import snapshot
 from test_skill_variant import plan
 from variant_fixtures import export_packages, package, project, review, write_json
@@ -14,8 +15,23 @@ def accept(base, data, source, candidate, scenarios):
     plan_path, review_path = base / "plan.json", base / "review.json"
     write_json(plan_path, data)
     write_json(review_path, review(source, candidate, scenarios))
-    return run("skill_variant.py", "accept", "--plan", plan_path,
+    return reviewed_accept("accept", "--plan", plan_path,
                "--candidate", candidate, "--review", review_path)
+
+
+def reviewed_accept(*args):
+    result = run('skill_variant.py', *args, '--preview')
+    if result.returncode:
+        return result
+    owner = unittest.TestCase()
+    try:
+        publication = json.loads(result.stdout)
+        path, _, case = review_fixture(owner, publication['plan'])
+        saved = case.folder / 'variant-publication.json'
+        write_json(saved, publication)
+        return run('skill_variant.py', *args, '--plan-file', saved, '--ledger-review', path)
+    finally:
+        owner.doCleanups()
 
 
 class TestVariantAcceptance(unittest.TestCase):

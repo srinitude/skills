@@ -133,7 +133,7 @@ def replace_directory(stage, target, *, preserve_unowned=False, verify=None):
             if inventory(target) != expected:
                 raise ValueError("promoted package differs from the validated candidate")
             if verify:
-                verify()
+                verify(backup)
         except BaseException:
             try:
                 restore_package(stage, target, backup, moved)

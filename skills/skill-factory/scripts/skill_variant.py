@@ -5,7 +5,9 @@ Exit codes: 0 success, 1 blocked or failed without promotion, 2 bad usage.
 Examples:
   mise run variant -- plan --source SOURCE --source-id skill:original \\
     --scope user --name portable-variant --dest AUTHORING_PARENT
-  mise run variant -- accept --plan PLAN.json --candidate CANDIDATE --review REVIEW.json
+  mise run variant -- accept --plan PLAN.json --candidate CANDIDATE --review REVIEW.json --preview
+  mise run variant -- accept --plan PLAN.json --candidate CANDIDATE --review REVIEW.json \
+    --plan-file PUBLICATION.json --ledger-review LEDGER_REVIEW.json
 """
 import argparse
 import json
@@ -43,6 +45,9 @@ def parser_for_operation():
     commit.add_argument("--plan", required=True)
     commit.add_argument("--candidate", required=True)
     commit.add_argument("--review", required=True)
+    commit.add_argument("--preview", action="store_true", help="show every future publication byte without writing")
+    commit.add_argument("--plan-file", help="saved complete publication preview")
+    commit.add_argument("--ledger-review", help="current initial-body and every-file ledger review")
     return parser
 
 
@@ -52,7 +57,8 @@ def execute(args, plan):
     elif args.operation == "review":
         result = draft(plan, args.candidate)
     else:
-        return accept(plan, args.candidate, load_json(args.review))
+        return accept(plan, args.candidate, load_json(args.review), input_paths=[args.plan, args.review],
+                      plan_path=args.plan_file, ledger_review=args.ledger_review, preview=args.preview)
     if args.output:
         save_output(args.output, result, plan, getattr(args, "candidate", None))
     return result

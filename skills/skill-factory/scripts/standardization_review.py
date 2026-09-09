@@ -65,7 +65,7 @@ def apply_reviewed(root, profile, scope, rebase, factory, sources, plan_path, re
         check_formatter(plan['formatter'])
         current_inputs(factory, plan, review_path, review_raw)
         read_context(review['context'])
-    def after_promotion():
+    def after_promotion(_backup):
         check_bindings(bindings)
         check_formatter(plan['formatter'], expected)
         current_inputs(factory, plan, review_path, review_raw)

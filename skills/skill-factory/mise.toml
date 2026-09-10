@@ -114,9 +114,9 @@ depends = []
 run = "python3 scripts/doctor.py"
 
 [tasks.setup-runtime]
-description = "Install the exact locked skill code-check dependencies"
+description = "Install exact locked factory checking and standardization runtimes"
 depends = []
-run = "npm ci --include=dev --ignore-scripts 1>&2"
+run = ["npm ci --include=dev --ignore-scripts 1>&2", "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]
 
 [tasks.check-runtime]
 description = "Strictly type-check owned skill TypeScript with the declared compiler"
@@ -157,9 +157,9 @@ run = "python3 scripts/plan_standardize.py"
 
 [tasks.standardize-target]
 env = { UV_PYTHON = "{{tools.python.path}}" }
-description = "Plan exact files or apply a reviewed registry skill standardization"
-depends = ["doctor", "source-corpus"]
-run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/standardize_registry_skill.py"
+description = "Plan, review and apply a registry skill through its native domain workflow"
+depends = ["doctor", "source-corpus", "check-runtime"]
+run = "node scripts/run_standardization.ts"
 
 [tasks.resolve-scope]
 env = { UV_PYTHON = "{{tools.python.path}}" }

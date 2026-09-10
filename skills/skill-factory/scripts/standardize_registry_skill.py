@@ -92,6 +92,14 @@ def scope_choice(root, args):
     return choice
 
 
+def prepare_inputs(args):
+    root = Path(args.skill_root)
+    if root.is_symlink() or not (root / 'SKILL.md').is_file():
+        raise ValueError('target must be a real skill directory')
+    profile = validate_profile(load_profile(args.profile, root.name), root.resolve())
+    return root, profile, scope_choice(root, args)
+
+
 def operation(args, root, profile, choice):
     scope = choice['scope'] if choice else None
     sources = (COPIES, SCRIPTS, CANONICAL_SCRIPTS)
@@ -110,13 +118,8 @@ def operation(args, root, profile, choice):
 
 def main(argv=None):
     args = parse_args(argv)
-    root = Path(args.skill_root)
-    if root.is_symlink() or not (root / 'SKILL.md').is_file():
-        print('error: target must be a real skill directory', file=sys.stderr)
-        return 2
     try:
-        profile = validate_profile(load_profile(args.profile, root.name), root.resolve())
-        choice = scope_choice(root, args)
+        root, profile, choice = prepare_inputs(args)
     except ValueError as error:
         print(f'error: {error}', file=sys.stderr)
         return 2

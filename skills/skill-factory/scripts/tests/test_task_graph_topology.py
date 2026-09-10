@@ -43,7 +43,7 @@ EXPECTED = {
     "validate-target": ["doctor", "check-runtime"],
     "eval-target": ["doctor"],
     "plan-standardize": ["doctor", "source-corpus"],
-    "standardize-target": ["doctor", "source-corpus"],
+    "standardize-target": ["doctor", "source-corpus", "check-runtime"],
     "refresh-registry-lineage": ["doctor", "check-runtime"],
 }
 

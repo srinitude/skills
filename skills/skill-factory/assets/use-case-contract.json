@@ -351,9 +351,9 @@
       {
         "task": "standardize-target",
         "outcome": "An existing agent skill receives its profile-bound factory owners without losing accepted behavior.",
-        "motivation": "An agent skill registry update needs one guarded write path after its baseline and domain profile are fixed.",
-        "why_default_path": "The standardize-target task gives agent skill policy adoption one idempotent in-place route.",
-        "proof": "The agent skill standardization receipt lists every changed owner and a second apply reports no changes."
+        "motivation": "An agent skill registry update needs one domain plan, review and guarded application path after its baseline and profile are fixed.",
+        "why_default_path": "The public standardize-target task keeps native leaves behind one typed agent skill workflow and explicit transient or private persisted state, with no competing scheduler.",
+        "proof": "Actual agent skill tests prove untouched planning, exact applied bytes and modes, persisted same-run recovery, rejected review with no target effect, completed/rejected replay refusal and fresh reviewed zero-write reuse. Review declarations and workflow success leave domain and human acceptance pending."
       },
       {
         "task": "refresh-registry-lineage",
@@ -526,18 +526,18 @@
         "applicability": "Run at the start of every agent skill factory operation."
       },
       "setup-runtime": {
-        "outcome": "Install the exact locked JavaScript and TypeScript checker dependencies for the agent skill package.",
-        "motivation": "The skill package code checker must not resolve an ambient compiler or undeclared runtime dependency.",
-        "value": "A native lock provides exact skill package compiler and schema artifacts before their consumers.",
-        "proof": "The agent skill package native installer verifies its lock, completes successfully and leaves the declared compiler available.",
+        "outcome": "Install exact locked checker and workflow dependencies for the agent skill factory package.",
+        "motivation": "The agent skill package must resolve declared compiler, schema, core and local workflow storage dependencies instead of ambient packages.",
+        "value": "Native locks install the shared agent skill factory packages first, then the factory-only scoped storage package with omitted peers resolving from that root; generated skill runtimes retain their own declared domain dependencies.",
+        "proof": "The native agent skill installer verifies both locks; strict TypeScript and real process-separated standardization tests prove imports and local storage use. Installation alone is not activation, authorization or domain acceptance.",
         "applicability": "Run before a skill package check-runtime task; installation alone is not activation, authorization or domain acceptance."
       },
       "check-runtime": {
         "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
         "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
-        "value": "The Mise task graph orders locked installation before strict owned-source type checks and the dependent skill package lint-code, ledger, variant and validate-target consumers.",
+        "value": "The Mise task graph orders locked installation before strict owned-source type checks and the dependent skill package lint-code, ledger, variant, standardize-target and validate-target consumers.",
         "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
-        "applicability": "Run for owned skill package TypeScript changes and before lint-code, ledger, variant or validate-target; it does not validate runtime effects or semantic judgment."
+        "applicability": "Run for owned skill package TypeScript changes and before lint-code, ledger, variant, standardize-target or validate-target; it does not validate runtime effects or semantic judgment."
       },
       "use-case-policy": {
         "outcome": "Every agent skill primitive serves the target use case.",
@@ -582,11 +582,11 @@
         "applicability": "Run before updating, standardizing, or importing an agent skill."
       },
       "standardize-target": {
-        "outcome": "An existing agent skill receives domain-specific factory policy owners through one guarded write.",
+        "outcome": "An existing agent skill receives domain-specific factory owners through a reviewed domain workflow with guarded individual writes.",
         "motivation": "An agent skill registry update needs deterministic adoption without replacing its purpose or accepted behavior.",
-        "value": "Agent skill standardization applies a reviewed domain profile, policy graph, and portable support owners idempotently.",
-        "proof": "The skill package standardization receipt lists changed files and a repeat apply reports no changes.",
-        "applicability": "Run after the agent skill baseline and domain profile are accepted for an in-place registry update."
+        "value": "The agent skill workflow prepares the exact profile-bound package, suspends for current review and invokes the native guarded application; transient state is temporary and optional private POSIX state supports process-separated run selection.",
+        "proof": "Actual agent skill tests prove untouched planning, exact applied bytes and modes, persisted same-run recovery, rejected review with no target effect, completed/rejected replay refusal and fresh reviewed zero-write reuse. Review declarations and workflow success leave domain and human acceptance pending.",
+        "applicability": "Run after the agent skill baseline and profile are reviewed for an in-place update. The public Mise task installs and checks its declared runtime first. Preserve native scope, placement and rebase arguments; bind every apply to the saved plan and current full ledger/body/file review. Persistent run selection requires matching inputs and plan; explicit rejection closes that run. Changed inputs or a finished run require a new plan and review."
       },
       "resolve-scope": {
         "outcome": "Resolve intended availability before any agent skill write.",

@@ -30,6 +30,7 @@ EXPECTED = {
     "invocation-policy": [],
     "agentic-request": [],
     "mise-latest": [],
+    "mise-primitives-plan": [],
     "mise-primitives-update": ["mise-latest"],
     "source-corpus": [],
     "lineage": [],
@@ -68,7 +69,7 @@ class TestTaskGraphTopology(unittest.TestCase):
 
     def test_catalog_update_runs_primitive_policy_after_refresh(self):
         self.assertEqual(self.tasks["mise-primitives-update"]["depends_post"],
-                         ["refresh-lineage"])
+                         [{"task": "refresh-lineage", "args": ["--review", "{{usage.lineage_review}}"]}])
 
     def test_run_commands_do_not_reinvoke_mise(self):
         for name, task in self.tasks.items():

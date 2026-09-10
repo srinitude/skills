@@ -194,6 +194,13 @@
         "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} Mise version receipt."
       },
       {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "task": "mise-primitives-plan",
+        "why_default_path": "This is the one read-only agent skill catalog preparation path before the separate reviewed maintenance operation."
+      },
+      {
         "task": "mise-primitives-update",
         "outcome": "SCAFFOLD-PLACEHOLDER name how the {{NAME}} runner primitive catalog advances the skill outcome.",
         "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} must reconcile upstream Mise primitives.",
@@ -244,6 +251,13 @@
       "mise-primitives-policy": {},
       "lint-code": {},
       "primitive-lifecycle-policy": {},
+      "mise-primitives-plan": {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "value": "The agent skill author can bind one exact prepared catalog while the current runner and owned files remain unchanged.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "applicability": "Use before reviewed agent skill catalog maintenance; prepare new input if its selected runner version or schema changes."
+      },
       "mise-primitives-update": {},
       "test": {},
       "task-graph-policy": {},

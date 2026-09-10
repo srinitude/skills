@@ -1,12 +1,14 @@
 """Add the native checker runtime without overwriting unreviewed target owners."""
 from skill_package import sha
 import re
+import json
 import tomllib
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
-LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/example-ledger-write.md")
+LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/lineage-public-run.json",
+                   "examples/catalog-public-run.json", "examples/example-ledger-write.md")
 LEDGER_FILES = ("review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
-                "run_review_ledger.ts", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py")
+                "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
@@ -77,3 +79,31 @@ def check_runtime(files, factory):
         path = 'scripts/' + name
         if path in files and sha(files[path]) not in {baseline, sha((factory / path).read_bytes())}:
             raise ValueError('runtime checker has unreviewed target customizations: ' + name)
+
+
+CATALOG_USAGE = 'flag "--review <path>" required=#true'
+CATALOG_RUN = 'python3 scripts/sync_mise_primitives.py . --review "${usage_review?}"'
+
+
+def catalog_task(block):
+    task = tomllib.loads('[task]\n' + block)['task']
+    if task.get('usage', CATALOG_USAGE) != CATALOG_USAGE:
+        raise ValueError('catalog review usage needs explicit reconciliation')
+    changes = {'run': CATALOG_RUN}
+    if 'run_windows' in task:
+        changes['run_windows'] = CATALOG_RUN.replace('python3 ', 'python ', 1)
+    result = block
+    for key, command in changes.items():
+        legacy = command.split(' --review ')[0]
+        if task.get(key) not in (legacy, command):
+            raise ValueError('catalog command needs explicit reconciliation: ' + key)
+        pattern = rf"""(?m)^({key}\s*=\s*)(?:"(?:[^"\\]|\\.)*"|'[^']*')([ \t]*(?:#[^\n]*)?)$"""
+        result, count = re.subn(pattern, lambda match: match[1] + json.dumps(command) + match[2], result)
+        if count != 1:
+            raise ValueError('catalog command syntax needs explicit reconciliation: ' + key)
+    if 'usage' not in task:
+        result = 'usage = ' + json.dumps(CATALOG_USAGE) + '\n' + result
+    expected = {**task, **changes, 'usage': CATALOG_USAGE}
+    if tomllib.loads('[task]\n' + result)['task'] != expected:
+        raise ValueError('catalog migration changed an unrelated task field')
+    return result

@@ -19,7 +19,7 @@ REQUIRED_TASKS += ["task-graph-policy", "use-case-policy",
                    "domain-research-policy", "mise-primitives-policy",
                    "primitive-lifecycle-policy", "invocation-policy",
                    "agentic-request",
-                   "mise-latest", "mise-primitives-update"]
+                   "mise-latest", "mise-primitives-plan", "mise-primitives-update"]
 CACHEABLE = ["validate", "lint-writing", "lint-code",
              "lint-placeholders", "evals", "improvement-policy"]
 
@@ -86,6 +86,10 @@ class TestTaskGraph(unittest.TestCase):
         task = self.tasks["mise-primitives-update"]
         self.assertEqual(task["depends"], ["mise-latest"])
         self.assertEqual(task["depends_post"], ["mise-primitives-policy"])
+        self.assertEqual(task["usage"], 'flag "--review <path>" required=#true')
+        self.assertIn('--review "${usage_review?}"', task["run"])
+        self.assertEqual(self.tasks["mise-primitives-plan"]["depends"], [])
+        self.assertIn('--plan', self.tasks["mise-primitives-plan"]["run"])
 
     def test_bounded_concurrency_and_safe_caching_are_enabled(self):
         self.assertTrue(self.config["settings"]["experimental"])

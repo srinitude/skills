@@ -4,7 +4,9 @@ import re
 import tomllib
 from graphlib import TopologicalSorter
 
-from standardization_runtime import isolate_python_helpers, runtime_preamble
+from check_task_graph import dependency_name
+
+from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble)
 
 POLICY_TASKS = {
     "validate": ([], "Validate the current skill package and changed-output declarations",
@@ -35,13 +37,12 @@ POLICY_TASKS = {
         "python3 scripts/run_agentic_request.py"),
     "mise-latest": ([], "Update Mise after accepted work",
         "mise self-update --yes --no-plugins"),
-    "mise-primitives-update": (["mise-latest"], "Refresh the Mise primitive catalog",
-        "python3 scripts/sync_mise_primitives.py ."),
+    "mise-primitives-plan": ([], "Plan exact selected-version catalog bytes without effects",
+        "python3 scripts/sync_mise_primitives.py . --plan"),
+    "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
 SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
 NESTED_RE = re.compile(r"mise run ([a-z0-9][a-z0-9:-]*)")
-DEPENDS_RE = re.compile(r"(?s)depends\s*=\s*\[(.*?)\]")
-QUOTED_RE = re.compile(r'"([a-z0-9][a-z0-9:-]*)"')
 
 
 def split_sections(text):
@@ -76,15 +77,26 @@ def nested_dependencies(block):
 
 
 def declared_dependencies(block):
-    match = DEPENDS_RE.search(block)
-    return QUOTED_RE.findall(match.group(1)) if match else []
+    values = tomllib.loads('[task]\n' + block)['task'].get('depends', [])
+    if not isinstance(values, list):
+        raise ValueError('dependencies must be an explicit array')
+    for value in values:
+        dependency_name(value)
+    return values
 
 
 def dependency_line(names):
-    return "depends = [" + ", ".join(f'\"{name}\"' for name in names) + "]"
+    parts = []
+    for value in names:
+        dependency_name(value)
+        parts.append(json.dumps(value) if isinstance(value, str) else
+                     '{ ' + ', '.join(f'{key} = {json.dumps(item)}' for key, item in value.items()) + ' }')
+    return 'depends = [' + ', '.join(parts) + ']'
 
 
 def normalize_existing(name, block):
+    if name == "mise-primitives-update":
+        block = catalog_task(block)
     for checker in ["validate_skill", "check_use_case_contract"]:
         block = re.sub(rf"scripts/{checker}\.py \.(?! --accept)",
                        f"scripts/{checker}.py . --accept", block)
@@ -103,8 +115,11 @@ def normalize_existing(name, block):
 
 def policy_block(name, spec):
     depends, description, command = spec
-    return "\n".join([f"[tasks.{name}]", f'description = "{description}"',
-                       f'run = "{command}"', dependency_line(depends)])
+    block = "\n".join([f'description = {json.dumps(description)}',
+                         f'run = {json.dumps(command)}', dependency_line(depends)])
+    if name == 'mise-primitives-update':
+        block = catalog_task(block)
+    return f'[tasks.{name}]\n{block}'
 
 
 def main_task_block(profile):
@@ -150,9 +165,9 @@ def runtime_dependencies(name, dependencies, names):
         result.append(provider)
     # Remove only edges duplicated by this exact declared native preparation chain.
     if "test" in result and "lint-code" in names:
-        result = [item for item in result if item not in {"lint-code", "setup-runtime", "check-runtime"}]
+        result = [item for item in result if item not in ("lint-code", "setup-runtime", "check-runtime")]
     elif "lint-code" in result:
-        result = [item for item in result if item not in {"setup-runtime", "check-runtime"}]
+        result = [item for item in result if item not in ("setup-runtime", "check-runtime")]
     elif "check-runtime" in result:
         result = [item for item in result if item != "setup-runtime"]
     return result
@@ -169,7 +184,7 @@ def order_runtime_tasks(text):
     for name, block in sections:
         block = isolate_python_helpers(block)
         dependencies = runtime_dependencies(name, tasks[name].get("depends", []), tasks)
-        graph[name] = dependencies + tasks[name].get("depends_post", [])
+        graph[name] = [dependency_name(value) for value in dependencies + tasks[name].get("depends_post", [])]
         if not set(graph[name]) <= set(tasks):
             raise ValueError("unknown task reading dependency: " + name)
         if dependencies != tasks[name].get("depends"):

@@ -1,46 +1,17 @@
-"""Behavior tests for version-bound Mise primitive catalog updates."""
+"""Retain schema field extraction and disposition checks under current file reviews."""
 import json
-import tempfile
 import unittest
-from pathlib import Path
 
-from cli import run
-
-
-def schema():
-    return {
-        "properties": {"tasks": {}, "tools": {}, "min_version": {}},
-        "$defs": {
-            "task_props": {"properties": {"run": {}, "depends": {}}},
-            "task": {"oneOf": [{}, {}, {"allOf": [{}, {
-                "properties": {"extends": {}}}]}]},
-            "task_config": {"properties": {"dir": {}}},
-            "tool_options": {"properties": {"version": {}, "os": {}}},
-            "tool": {"oneOf": [{}, {"allOf": [{}, {
-                "properties": {"lazy": {}, "postinstall": {}}}]}]},
-        },
-    }
+import test_catalog_review as reviewed
 
 
 class TestSyncMisePrimitives(unittest.TestCase):
-    def setUp(self):
-        self.temp = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp.name)
-        assets = self.root / "assets"
-        assets.mkdir()
-        self.schema_path = self.root / "schema.json"
-        self.schema_path.write_text(json.dumps(schema()), encoding="utf-8")
-        (assets / "mise-primitives-catalog.json").write_text(
-            json.dumps({"version": "old", "groups": {}}), encoding="utf-8")
-        self.decisions = assets / "mise-primitives.json"
-        self.decisions.write_text('{"keep":"unchanged"}', encoding="utf-8")
-
-    def tearDown(self):
-        self.temp.cleanup()
+    setUp = reviewed.TestCatalogReview.setUp
+    prepare = reviewed.TestCatalogReview.prepare
+    package = reviewed.TestCatalogReview.package
 
     def invoke(self, *extra):
-        return run("sync_mise_primitives.py", self.root, "--version", "9.9.9",
-                   "--schema-file", self.schema_path, *extra)
+        return reviewed.TestCatalogReview.invoke(self, *extra, review='--check' not in extra)
 
     def test_update_extracts_every_supported_schema_field(self):
         result = self.invoke()
@@ -74,7 +45,8 @@ class TestSyncMisePrimitives(unittest.TestCase):
         self.schema_path.write_text("{}", encoding="utf-8")
         result = self.invoke()
         self.assertEqual(result.returncode, 2)
-        self.assertIn("missing primitive group", result.stdout)
+        self.assertIn("missing primitive group", result.stderr)
+        self.assertEqual(result.stdout, "")
         self.assertEqual((self.root / "assets" /
                           "mise-primitives-catalog.json").read_bytes(), before)
 

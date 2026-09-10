@@ -11,7 +11,7 @@ REQUIRED_TASKS = [
     "domain-research-policy", "mise-primitives-policy",
     "primitive-lifecycle-policy", "invocation-policy",
     "agentic-request",
-    "mise-latest", "mise-primitives-update",
+    "mise-latest", "mise-primitives-plan", "mise-primitives-update",
     "doctor", "new", "resolve-scope", "variant", "validate-target", "eval-target",
     "plan-standardize", "standardize-target", "refresh-registry-lineage",
     "source-corpus", "audit-source-corpus",
@@ -88,9 +88,14 @@ class TestMiseTaskGraph(unittest.TestCase):
         self.assertNotIn("mise-latest", self.tasks["ci"]["depends"])
         update = self.tasks["mise-primitives-update"]
         self.assertEqual(update["depends"], ["mise-latest"])
-        self.assertEqual(update["depends_post"], ["refresh-lineage"])
+        self.assertEqual(update["depends_post"], [{"task": "refresh-lineage", "args": ["--review", "{{usage.lineage_review}}"]}])
         self.assertEqual(update["run"],
-                         "python3 scripts/sync_mise_primitives.py .")
+                         'python3 scripts/sync_mise_primitives.py . --review "${usage_catalog_review?}"')
+        plan = self.tasks["mise-primitives-plan"]
+        self.assertEqual(plan["depends"], [])
+        self.assertIn("--plan", plan["run"])
+        self.assertIn("--catalog-review", update["usage"])
+        self.assertIn("--lineage-review", update["usage"])
 
 
 class TestWorkflowTemplate(unittest.TestCase):
@@ -131,7 +136,7 @@ class TestGeneratedSkillTemplate(unittest.TestCase):
                     "mise-primitives-policy", "primitive-lifecycle-policy",
                     "task-graph-policy", "invocation-policy",
                     "agentic-request",
-                    "mise-latest", "mise-primitives-update"] + CHECK_JOBS:
+                    "mise-latest", "mise-primitives-plan", "mise-primitives-update"] + CHECK_JOBS:
             self.assertIn(job, self.tasks)
 
     def test_template_defers_latest_stable_mise(self):
@@ -165,6 +170,9 @@ class TestGeneratedSkillTemplate(unittest.TestCase):
         update = self.tasks["mise-primitives-update"]
         self.assertEqual(update["depends"], ["mise-latest"])
         self.assertEqual(update["depends_post"], ["mise-primitives-policy"])
+        self.assertEqual(update["usage"], 'flag "--review <path>" required=#true')
+        self.assertIn('--review "${usage_review?}"', update["run"])
+        self.assertEqual(self.tasks["mise-primitives-plan"]["depends"], [])
 
 
 if __name__ == "__main__":

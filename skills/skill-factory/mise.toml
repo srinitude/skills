@@ -96,6 +96,13 @@ depends = []
 run = "python3 scripts/run_agentic_request.py"
 run_windows = "python scripts/run_agentic_request.py"
 
+[tasks.mise-primitives-plan]
+description = "Plan exact selected-version skill catalog bytes without effects"
+depends = []
+run = "python3 scripts/sync_mise_primitives.py . --plan"
+run_windows = "python scripts/sync_mise_primitives.py . --plan"
+timeout = "60s"
+
 [tasks.mise-latest]
 description = "Install the latest stable Mise after agent skill work concludes"
 depends = []
@@ -199,7 +206,7 @@ env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
 run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-timeout = "900s"
+timeout = "1800s"
 depends = ["test-ci", "lint-code"]
 
 [tasks.task-graph-policy]
@@ -226,9 +233,10 @@ run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus"]
 
 [tasks.mise-primitives-update]
+usage = 'flag "--catalog-review <path>" required=#true; flag "--lineage-review <path>" required=#true'
 description = "Refresh skill-factory's official Mise primitive catalog after self-update"
 depends = ["mise-latest"]
-depends_post = ["refresh-lineage"]
-run = "python3 scripts/sync_mise_primitives.py ."
-run_windows = "python scripts/sync_mise_primitives.py ."
+depends_post = [{ task = "refresh-lineage", args = ["--review", "{{usage.lineage_review}}"] }]
+run = "python3 scripts/sync_mise_primitives.py . --review \"${usage_catalog_review?}\""
+run_windows = "python scripts/sync_mise_primitives.py . --review \"${usage_catalog_review?}\""
 timeout = "60s"

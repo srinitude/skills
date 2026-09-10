@@ -82,6 +82,13 @@ depends = []
 run = "python3 scripts/run_agentic_request.py"
 run_windows = "python scripts/run_agentic_request.py"
 
+[tasks.mise-primitives-plan]
+description = "Plan exact selected-version skill catalog bytes without effects"
+depends = []
+run = "python3 scripts/sync_mise_primitives.py . --plan"
+run_windows = "python scripts/sync_mise_primitives.py . --plan"
+timeout = "60s"
+
 [tasks.mise-latest]
 description = "Install the latest stable Mise after this skill invocation concludes"
 depends = []
@@ -126,11 +133,12 @@ depends = ["mise-primitives-policy"]
 run = "python3 scripts/check_primitive_lifecycle.py ."
 
 [tasks.mise-primitives-update]
+usage = 'flag "--review <path>" required=#true'
 description = "Refresh this skill's official Mise primitive catalog after self-update"
 depends = ["mise-latest"]
 depends_post = ["mise-primitives-policy"]
-run = "python3 scripts/sync_mise_primitives.py ."
-run_windows = "python scripts/sync_mise_primitives.py ."
+run = "python3 scripts/sync_mise_primitives.py . --review \"${usage_review?}\""
+run_windows = "python scripts/sync_mise_primitives.py . --review \"${usage_review?}\""
 timeout = "60s"
 
 [tasks.test]

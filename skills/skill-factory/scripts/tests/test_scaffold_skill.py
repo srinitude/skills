@@ -12,6 +12,7 @@ from scaffold_test_support import reviewed_scaffold
 
 sys.path.insert(0, str(SCRIPTS))
 from skill_package import owned_paths
+from standardization_runtime import LEDGER_EXAMPLES
 
 DESCRIPTION = "Use when a demo skill is needed for scaffold tests."
 
@@ -71,7 +72,7 @@ class TestScaffoldOutput(unittest.TestCase):
                     "assets/mise-primitives-catalog.json",
                     "assets/mise-primitives.json",
                     "assets/primitive-lifecycle.json",
-                    "scripts/skill_info.py", "scripts/tests/test_scripts.py",
+                    "scripts/skill_info.py", "scripts/tests/cli.py", "scripts/tests/test_scripts.py",
                     "scripts/tests/test_ci_contract.py",
                     "scripts/check_improvement_contract.py",
                     "scripts/check_use_case_contract.py",
@@ -179,22 +180,26 @@ class TestScaffoldOutput(unittest.TestCase):
                               text=True, timeout=180)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
 
-    def test_no_platform_or_model_names_in_output(self):
-        blob = ""
+    def test_generated_instructions_do_not_choose_a_platform_or_model(self):
+        # Complete observed records retain native schema facts, not runner choices.
+        evidence = {name for name in LEDGER_EXAMPLES if name.endswith('.json')}
+        for name in evidence:
+            self.assertEqual((self.skill / name).read_bytes(), (SCRIPTS.parent / name).read_bytes())
+        halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"), ("openc", "ode"),
+                  ("copi", "lot"), ("cur", "sor"), ("gem", "ini"), ("g", "pt"),
+                  ("anthro", "pic"), ("open", "ai"), ("perple", "xity")]
         for path in owned_paths(self.skill):
+            relative = path.relative_to(self.skill.resolve()).as_posix()
+            if relative in evidence:
+                continue
             text = path.read_text(encoding="utf-8", errors="ignore")
             if path.name == "package-lock.json":
                 text = json.dumps(json.loads(text, object_hook=lambda item:
                     {key: value for key, value in item.items() if key != "integrity"}))
-            blob += text
-        halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"),
-                  ("openc", "ode"),
-                  ("copi", "lot"), ("cur", "sor"), ("gem", "ini"),
-                  ("g", "pt"), ("anthro", "pic"), ("open", "ai"),
-                  ("perple", "xity")]
-        for head, tail in halves:
-            word = head + tail
-            self.assertNotIn(word, blob.lower(), f"found {word}")
+            for head, tail in halves:
+                self.assertFalse(head + tail in text.lower(),
+                                 f"{relative} contains a named platform/model: {head + tail}")
+
 
 
 if __name__ == "__main__":

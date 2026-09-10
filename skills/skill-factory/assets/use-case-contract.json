@@ -398,11 +398,18 @@
         "proof": "The agent skill maintenance receipt names the resulting Mise version or package-manager blocker."
       },
       {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "task": "mise-primitives-plan",
+        "why_default_path": "This is the one read-only agent skill catalog preparation path before the separate reviewed maintenance operation."
+      },
+      {
         "task": "mise-primitives-update",
         "outcome": "The agent skill receives the official Mise primitive catalog for its updated runner.",
         "motivation": "A skill package cannot assess every relevant Mise feature against a stale schema.",
-        "why_default_path": "The agent skill primitive update follows self-update, rejects unreconciled dispositions, and refreshes owned lineage.",
-        "proof": "The agent skill catalog records the exact release schema digest, the policy reports zero omissions, and owned lineage matches."
+        "why_default_path": "The agent skill update requires both review arguments, performs final-phase self-update, applies a current reviewed catalog, and passes the resulting-lineage review to its post-task. A post-task does not prove successful parent execution.",
+        "proof": "Actual agent skill plan/review inputs, exact schema-derived catalog bytes, rejected missing/stale reviews, source and request drift, mode-preserving recovery, native argument delivery, current disposition validation and lineage readback are separate required evidence."
       },
       {
         "task": "resolve-scope",
@@ -664,6 +671,13 @@
         "value": "Agent skill lineage refresh makes provenance current without partial writes.",
         "proof": "The skill package lineage refresh and readback both report PASS.",
         "applicability": "Run only after an agent skill change passes every non-lineage gate."
+      },
+      "mise-primitives-plan": {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "value": "The agent skill author can bind one exact prepared catalog while the current runner and owned files remain unchanged.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "applicability": "Use before reviewed agent skill catalog maintenance; prepare new input if its selected runner version or schema changes."
       },
       "mise-primitives-update": {
         "outcome": "The agent skill primitive catalog and owned lineage match the self-updated Mise release.",

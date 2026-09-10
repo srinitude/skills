@@ -36,7 +36,10 @@ class TestCanonicalCopy(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             for name in ["package.json", "package-lock.json", "tsconfig.json",
                          "scripts/check_code_rules.py", "scripts/check_javascript.ts",
-                         "scripts/skill_package.py"]:
+                         "scripts/skill_package.py", "scripts/sync_mise_primitives.py",
+                         "scripts/tests/test_catalog_review.py", "scripts/tests/test_sync_mise_primitives.py",
+                         "examples/example-ledger-write.md", "examples/lineage-public-run.json",
+                         "examples/catalog-public-run.json"]:
                 self.assertEqual((root / name).read_bytes(), (SKILL_DIR / name).read_bytes())
             mise = (root / "mise.toml").read_text()
             self.assertIn('[tasks.check-runtime]', mise)

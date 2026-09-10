@@ -118,7 +118,7 @@ class TestTaskGraphPolicy(unittest.TestCase):
     def test_unmodeled_dependency_forms_fail_without_tracebacks(self):
         for declaration in ['depends = "test"', 'depends = [1]',
                             'depends = [["test", "--flag"]]',
-                            'depends = []\ndepends_post = [{task = "test"}]']:
+                            'depends = []\ndepends_post = [{task = "test", args = [1]}]']:
             with self.subTest(declaration=declaration):
                 graph = task_text().replace(
                     'depends = ["test", "decision-policy"]', declaration)

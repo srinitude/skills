@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
-"""Validate declared simple-name depends/depends_post topology.
-
-Refuse unmodeled wait_for and dependency forms. Structural topology and
-domain wording do not prove runtime order, readiness, or outcome acceptance.
-
-Exit codes:
-  0  graph is specialized, connected, acyclic, and single-path
-  1  graph or its domain contract is invalid
-  2  bad usage
-
-Example:
-  python3 scripts/check_task_graph.py .
-"""
+"""Validate literal depends/depends_post topology with task arguments.
+Refuse unmodeled wait_for/dependency forms; structural/domain checks do not prove runtime order, readiness or outcome acceptance.
+Usage/example: python3 scripts/check_task_graph.py [skill_root]
+Exit 0: specialized, connected, acyclic and single-path; 1: invalid graph/domain contract; 2: bad usage."""
 import argparse
 import json
 import sys
@@ -20,19 +11,27 @@ from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
 
-DETAIL_FIELDS = {"outcome", "motivation", "value", "proof",
-                 "applicability"}
+DETAIL_FIELDS = {"outcome", "motivation", "value", "proof", "applicability"}
 OP_FIELDS = {"task", "outcome", "motivation", "why_default_path", "proof"}
 
 
+def dependency_name(value):
+    if isinstance(value, str):
+        return value
+    if (isinstance(value, dict) and set(value) in ({'task'}, {'task', 'args'})
+            and isinstance(value.get('task'), str) and isinstance(value.get('args', []), list)
+            and all(isinstance(item, str) for item in value.get('args', []))):
+        return value['task']
+    raise ValueError('dependencies need literal task names or task/args records')
+
+
 def dependencies(task):
-    return task.get("depends", []) + task.get("depends_post", [])
+    return [dependency_name(value) for value in task.get("depends", []) + task.get("depends_post", [])]
 
 
 def run_commands(task):
     value = task.get("run", "")
-    if isinstance(value, str):
-        return [value]
+    if isinstance(value, str): return [value]
     return value if isinstance(value, list) and all(isinstance(item, str) for item in value) else []
 
 
@@ -58,16 +57,18 @@ def structure_problems(tasks):
             found.append(f"tasks.{name} must be a table")
             continue
         edges = [task.get("depends"), task.get("depends_post", [])]
-        if not all(isinstance(edge, list) and
-                   all(isinstance(item, str) for item in edge) for edge in edges):
-            found.append(f"tasks.{name} dependencies must be explicit arrays of task names")
+        try:
+            if not all(isinstance(edge, list) for edge in edges):
+                raise ValueError('dependencies must be explicit arrays')
+            referenced = dependencies(task)
+        except ValueError as error:
+            found.append(f"tasks.{name} {error}")
             continue
         if "wait_for" in task:
             found.append(f"tasks.{name}.wait_for is not modeled; graph acceptance is blocked")
-        unknown = set(dependencies(task)) - declared
+        unknown = set(referenced) - declared
         if unknown:
-            found.append(f"tasks.{name} has unknown dependencies: " +
-                         ", ".join(sorted(unknown)))
+            found.append(f"tasks.{name} has unknown dependencies: " + ", ".join(sorted(unknown)))
         if not task.get("description"):
             found.append(f"tasks.{name}.description is required")
         if "run" in task and not run_commands(task):
@@ -163,8 +164,7 @@ def contract_problems(tasks, use_case):
     if extra:
         found.append("unknown task records: " + ", ".join(sorted(extra)))
     for name, item in records.items():
-        found.extend(domain_record_problems(f"tasks.{name}", item,
-                                            DETAIL_FIELDS, terms))
+        found.extend(domain_record_problems(f"tasks.{name}", item, DETAIL_FIELDS, terms))
     return found, ci_task, operations, terms
 
 
@@ -214,8 +214,7 @@ def problems(tasks, use_case):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
     args = parser.parse_args(argv)
     try:

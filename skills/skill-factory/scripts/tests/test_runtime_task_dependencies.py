@@ -6,7 +6,7 @@ import unittest
 from cli import SKILL_DIR, SCRIPTS
 
 sys.path.insert(0, str(SCRIPTS))
-from check_task_graph import find_cycle, path_counts
+from check_task_graph import dependencies, find_cycle, path_counts
 from standardization_mise import normalize_mise, runtime_dependencies
 from standardization_seed import base_mise
 
@@ -91,13 +91,37 @@ class TestRuntimeDependencies(unittest.TestCase):
         legacy = source.replace('uv = "0.11.29"', 'uv = "latest"')
         self.assertEqual(tomllib.loads(normalize_mise(legacy))["tools"]["uv"], "0.11.29")
 
+    def test_catalog_migration_preserves_options_and_rejects_customization(self):
+        source = base_mise({"primary_term": "source-ledger"})
+        output = normalize_mise(source)
+        task = tomllib.loads(output)['tasks']['mise-primitives-update']
+        self.assertEqual(task['usage'], 'flag "--review <path>" required=#true')
+        self.assertIn('--review "${usage_review?}"', task['run'])
+        self.assertIn('mise-primitives-plan', tomllib.loads(output)['tasks'])
+        self.assertEqual(normalize_mise(output), output)
+        altered = output.replace('scripts/sync_mise_primitives.py . --review', 'scripts/custom.py . --review')
+        with self.assertRaisesRegex(ValueError, 'catalog command'):
+            normalize_mise(altered)
+        altered = output.replace('required=#true', 'required=#false')
+        with self.assertRaisesRegex(ValueError, 'catalog review usage'):
+            normalize_mise(altered)
+
+    def test_catalog_migration_preserves_inline_comments(self):
+        source = base_mise({'primary_term': 'source-ledger'})
+        source += '\n[tasks.mise-primitives-update]\nrun = "python3 scripts/sync_mise_primitives.py ." # keep catalog context\n'
+        source += 'run_windows = "python scripts/sync_mise_primitives.py ." # keep Windows context\ndepends = ["mise-latest"]\n'
+        output = normalize_mise(source)
+        for comment in ['# keep catalog context', '# keep Windows context']:
+            self.assertEqual(output.count(comment), 1)
+        self.assertEqual(normalize_mise(output), output)
+
     def test_task_definitions_follow_their_reading_dependencies(self):
         for name in ["mise.toml", "assets/mise-template.toml"]:
             with self.subTest(name=name):
                 tasks = tomllib.loads((SKILL_DIR / name).read_text())["tasks"]
                 seen = set()
                 for task, fields in tasks.items():
-                    self.assertTrue(set(fields.get("depends", []) + fields.get("depends_post", [])) <= seen, task)
+                    self.assertTrue(set(dependencies(fields)) <= seen, task)
                     seen.add(task)
 
 

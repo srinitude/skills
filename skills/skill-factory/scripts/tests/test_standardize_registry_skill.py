@@ -47,7 +47,9 @@ class TestRegistryStandardization(unittest.TestCase):
             skill = (root / "SKILL.md").read_text(encoding="utf-8")
             self.assertIn("mise run anchor", skill)
             self.assertNotIn("scripts/anchor.py", skill)
-            self.assertNotIn("scripts/", skill)
+            owner = "[context reader](scripts/agentic_context.py)"
+            self.assertIn(owner, skill)
+            self.assertNotIn("scripts/", skill.replace(owner, "context reader"))
             reference = (root / "references/contract.md").read_text()
             self.assertIn("mise run anchor", reference)
             self.assertIn("mise run report-clock", reference)

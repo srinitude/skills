@@ -84,8 +84,8 @@ def replace_evidence_path(match):
     return f"{match.group('quote')}<skill-implementation>/{name}{match.group('quote')}"
 
 
-def rewrite_script_text(text, owners):
-    updated = SCRIPT_LINK_RE.sub(lambda item: replace_link(item, owners), text)
+def rewrite_unlinked_text(text, owners):
+    updated = text
     updated = TEST_RE.sub("mise run test", updated)
     updated = SCRIPT_RE.sub(lambda item: replace_script(item, owners), updated)
     updated = FENCED_SCRIPT_COMMAND_RE.sub(
@@ -94,7 +94,23 @@ def rewrite_script_text(text, owners):
     updated = BARE_SCRIPT_PATH_RE.sub(lambda item: replace_path(item, owners), updated)
     updated = SCRIPT_DIR_RE.sub("`mise run test`", updated)
     updated = SCRIPT_EVIDENCE_PATH_RE.sub(replace_evidence_path, updated)
-    return DUPLICATE_TASK_RE.sub(r"`\1`", updated)
+    return updated
+
+
+def linked_public_route(text, match):
+    before = max(0, text.rfind('\n\n', 0, match.start()) + 2)
+    after = text.find('\n\n', match.end())
+    return 'mise run ' in text[before:after if after >= 0 else None]
+
+
+def rewrite_script_text(text, owners):
+    pieces, start = [], 0
+    for match in SCRIPT_LINK_RE.finditer(text):
+        pieces.append(rewrite_unlinked_text(text[start:match.start()], owners))
+        pieces.append(match[0] if linked_public_route(text, match) else replace_link(match, owners))
+        start = match.end()
+    pieces.append(rewrite_unlinked_text(text[start:], owners))
+    return DUPLICATE_TASK_RE.sub(r'`\1`', ''.join(pieces))
 
 
 def pair_resource(line):

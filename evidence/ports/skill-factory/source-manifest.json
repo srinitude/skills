@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "a9d3052ba9c27b901e1212876098d62f69b5d7a457db40394cfd49664ce55886",
-  "evidence_packet_sha256": "a9d3052ba9c27b901e1212876098d62f69b5d7a457db40394cfd49664ce55886",
+  "native_manifest_sha256": "8abbed6b1b77e471f3c55a579e791bc7f5c23ef57a86bb8cb9d4d7ddb04253d1",
+  "evidence_packet_sha256": "8abbed6b1b77e471f3c55a579e791bc7f5c23ef57a86bb8cb9d4d7ddb04253d1",
   "files": [
     {
       "bytes": 181,
@@ -321,10 +321,10 @@
       "source_path": "examples/example-placeholder-scaffold-caught.md"
     },
     {
-      "bytes": 3236,
+      "bytes": 3552,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-standardization.md",
-      "sha256": "d5fbd7ba597e242c14caa51d1a65224339a1f67cd556d9be72ae845fb2b36f04",
+      "sha256": "d393ce6c4e407ea478e2c5253ddb4186e079d1b2d63ef5ae2197900494331d43",
       "source_path": "examples/example-standardization.md"
     },
     {
@@ -384,10 +384,10 @@
       "source_path": "examples/registry-public-run.json"
     },
     {
-      "bytes": 909654,
+      "bytes": 3140149,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/standardization-run.json",
-      "sha256": "542b54fdbf52a22d78575f3a726cf18b2a4b1eef5e9d9284d57f22643e770cd6",
+      "sha256": "cbdbf87d123f6ad367fa17cd27683cc4499fdb7dce445e4e302e3d4bebfd84ef",
       "source_path": "examples/standardization-run.json"
     },
     {
@@ -825,10 +825,10 @@
       "source_path": "scripts/standardization_contracts.py"
     },
     {
-      "bytes": 2417,
+      "bytes": 2550,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_discovery.py",
-      "sha256": "e833f7a288206b0c6ccf924e4b3fa47ba45af882c1e6cb4e572ae65d89d838c6",
+      "sha256": "991690a3a5cdc2ee93a9a8e867c532db440f935f350295ac615ea507f478de8e",
       "source_path": "scripts/standardization_discovery.py"
     },
     {
@@ -846,10 +846,10 @@
       "source_path": "scripts/standardization_mapping.py"
     },
     {
-      "bytes": 7884,
+      "bytes": 8453,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_markdown.py",
-      "sha256": "dfddbc630ab2d81224937510dac98f5e4bb6394d482f3de138fd51ce765152c3",
+      "sha256": "02760d4977ed5c3cec44012b1ad1f10c1364efc4be2464e79eeba9971543403e",
       "source_path": "scripts/standardization_markdown.py"
     },
     {
@@ -874,10 +874,10 @@
       "source_path": "scripts/standardization_profile.py"
     },
     {
-      "bytes": 3993,
+      "bytes": 6196,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_render.py",
-      "sha256": "9113e120a0b1e61629d210cf7e312710b23b1cd8b877ae09d622039346d42738",
+      "sha256": "ce11336301e3444562df6671269bb869ebe96166115bdda574c0cf9d7bfe3069",
       "source_path": "scripts/standardization_render.py"
     },
     {
@@ -1406,6 +1406,13 @@
       "source_path": "scripts/tests/test_standardization_inventory.py"
     },
     {
+      "bytes": 4306,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_standardization_ledger_body.py",
+      "sha256": "7a164cff1656788feb3da6eea3e48a6c8fedc2fdc86a6c8e893394f017ae0180",
+      "source_path": "scripts/tests/test_standardization_ledger_body.py"
+    },
+    {
       "bytes": 9084,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_review.py",
@@ -1413,10 +1420,10 @@
       "source_path": "scripts/tests/test_standardization_review.py"
     },
     {
-      "bytes": 7673,
+      "bytes": 7813,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardize_registry_skill.py",
-      "sha256": "3b99ef8f8c851f1db1a4bfe7457c9280066d94f9e67a583fd304294dc139478f",
+      "sha256": "df4c9d0fbcf1ce1f8c4d2ef55c4e2acfb44777152ece9b839937ee8af637053f",
       "source_path": "scripts/tests/test_standardize_registry_skill.py"
     },
     {

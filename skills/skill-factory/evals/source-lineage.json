@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "a9d3052ba9c27b901e1212876098d62f69b5d7a457db40394cfd49664ce55886",
+  "native_manifest_sha256": "8abbed6b1b77e471f3c55a579e791bc7f5c23ef57a86bb8cb9d4d7ddb04253d1",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1205,6 +1205,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_standardization_ledger_body.py",
+      "source_paths": [
+        "scripts/tests/test_standardization_ledger_body.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_standardization_review.py",
       "source_paths": [
         "scripts/tests/test_standardization_review.py"
@@ -1562,7 +1568,7 @@
     },
     {
       "path": "examples/example-standardization.md",
-      "sha256": "d5fbd7ba597e242c14caa51d1a65224339a1f67cd556d9be72ae845fb2b36f04"
+      "sha256": "d393ce6c4e407ea478e2c5253ddb4186e079d1b2d63ef5ae2197900494331d43"
     },
     {
       "path": "examples/example-validate.md",
@@ -1598,7 +1604,7 @@
     },
     {
       "path": "examples/standardization-run.json",
-      "sha256": "542b54fdbf52a22d78575f3a726cf18b2a4b1eef5e9d9284d57f22643e770cd6"
+      "sha256": "cbdbf87d123f6ad367fa17cd27683cc4499fdb7dce445e4e302e3d4bebfd84ef"
     },
     {
       "path": "examples/variant-public-run.json",
@@ -1850,7 +1856,7 @@
     },
     {
       "path": "scripts/standardization_discovery.py",
-      "sha256": "e833f7a288206b0c6ccf924e4b3fa47ba45af882c1e6cb4e572ae65d89d838c6"
+      "sha256": "991690a3a5cdc2ee93a9a8e867c532db440f935f350295ac615ea507f478de8e"
     },
     {
       "path": "scripts/standardization_format.py",
@@ -1862,7 +1868,7 @@
     },
     {
       "path": "scripts/standardization_markdown.py",
-      "sha256": "dfddbc630ab2d81224937510dac98f5e4bb6394d482f3de138fd51ce765152c3"
+      "sha256": "02760d4977ed5c3cec44012b1ad1f10c1364efc4be2464e79eeba9971543403e"
     },
     {
       "path": "scripts/standardization_mise.py",
@@ -1878,7 +1884,7 @@
     },
     {
       "path": "scripts/standardization_render.py",
-      "sha256": "9113e120a0b1e61629d210cf7e312710b23b1cd8b877ae09d622039346d42738"
+      "sha256": "ce11336301e3444562df6671269bb869ebe96166115bdda574c0cf9d7bfe3069"
     },
     {
       "path": "scripts/standardization_review.py",
@@ -2181,12 +2187,16 @@
       "sha256": "243991ee90dbd93511e233cdd2fcb7c4890337839a4d1d5237bbce3d3da81eaa"
     },
     {
+      "path": "scripts/tests/test_standardization_ledger_body.py",
+      "sha256": "7a164cff1656788feb3da6eea3e48a6c8fedc2fdc86a6c8e893394f017ae0180"
+    },
+    {
       "path": "scripts/tests/test_standardization_review.py",
       "sha256": "c3c50b152e4290842bd51670706ee70aee6a28e7e55f228da664fc51c13ca3c7"
     },
     {
       "path": "scripts/tests/test_standardize_registry_skill.py",
-      "sha256": "3b99ef8f8c851f1db1a4bfe7457c9280066d94f9e67a583fd304294dc139478f"
+      "sha256": "df4c9d0fbcf1ce1f8c4d2ef55c4e2acfb44777152ece9b839937ee8af637053f"
     },
     {
       "path": "scripts/tests/test_sync_mise_primitives.py",

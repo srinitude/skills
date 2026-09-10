@@ -1,5 +1,6 @@
 """Calculate standardization bytes using the existing domain transformation owners."""
 import tomllib
+import re
 from pathlib import Path
 
 from standardization_assets import asset_files
@@ -11,6 +12,7 @@ from standardization_rewrites import rewritten_section, rewritten_text
 from standardization_runtime import check_runtime, LEDGER_EXAMPLES, ROOT_FILES
 from standardization_seed import seeds
 from skill_scope import scoped_text
+from validate_skill import split_frontmatter
 
 
 def checked_name(files, name):
@@ -38,27 +40,78 @@ def support_files(files, factory, copies, scripts, canonical):
             files[target] = (factory / target).read_bytes()
 
 
-def body_policy(text, template, prefix, label):
-    policies = [line.strip() for line in template.splitlines() if line.strip().startswith(prefix)]
+BODY_POLICIES = (
+    '**Start here.**', '**Reusable ledger artifact, owned here.**',
+    '**Relationship records.**', '| Relationship family |',
+    '**Dependency contract.**', '**Order and invalidation.**',
+    '**Required initial context.**', '**Traverse, work and check.**',
+    'For every individual added, changed or removed file',
+    '**Efficiency and optional improvement.**',
+)
+
+
+def policy_blocks(text):
+    """Locate prose/table blocks without treating fenced or indented code as rules."""
+    found, start, offset, fence = [], None, 0, None
+    for line in text.splitlines(keepends=True) + ['\n']:
+        marker = re.match(r' {0,3}(`{3,}|~{3,})(.*)$', line)
+        blocked = fence is not None or marker or line.startswith(('    ', '\t'))
+        if marker and fence is None:
+            fence = marker[1]
+        elif marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
+            fence = None
+        if blocked or not line.strip():
+            if start is not None:
+                found.append((start, offset, text[start:offset].strip()))
+                start = None
+        elif start is None:
+            start = offset
+        offset += len(line)
+    return found
+
+
+def body_policy(text, template, prefix):
+    policies = [block for _, _, block in policy_blocks(template) if block.startswith(prefix)]
     if len(policies) != 1:
-        raise ValueError('factory must have exactly one canonical ' + label + ' paragraph')
-    existing = [line.strip() for line in text.splitlines() if prefix in line]
+        raise ValueError('factory needs one canonical body policy: ' + prefix)
+    existing = [(start, end, block) for start, end, block in policy_blocks(text) if block.startswith(prefix)]
+    if existing and (len(existing) != 1 or existing[0][2] != policies[0]):
+        raise ValueError('body policy needs an explicit reviewed profile migration: ' + prefix.lower())
     if existing:
-        if existing != policies:
-            raise ValueError('existing ' + label + ' policy needs an explicit reviewed profile migration')
-        return text
-    marker = '\nMise owns repeatable mechanics'
-    if text.count(marker) != 1:
-        raise ValueError(label + ' policy insertion needs a reviewed body owner')
-    return text.replace(marker, '\n' + policies[0] + '\n' + marker, 1)
+        start, end, _ = existing[0]
+        text = text[:start] + text[end:]
+    return text, policies[0]
+
+
+def body_references(text, template, policies):
+    needed = set(re.findall(r'\[[^\]\n]+\]\[([^\]\n]+)\]', '\n'.join(policies)))
+    current = [line for _, _, block in policy_blocks(text) for line in block.splitlines()]
+    definitions = []
+    for name in sorted(needed):
+        prefix = '[' + name + ']:'
+        source = [line for line in template.splitlines() if line.startswith(prefix)]
+        if len(source) != 1:
+            raise ValueError('factory needs one canonical body reference: ' + name)
+        existing = [line for line in current if line.startswith(prefix)]
+        if existing and existing != source:
+            raise ValueError('body reference needs an explicit reviewed profile migration: ' + name)
+        if not existing:
+            definitions.extend(source)
+    return text.rstrip() + ('\n\n' + '\n'.join(definitions) if definitions else '') + '\n'
 
 
 def body_policies(text, factory):
     template = (factory / 'assets/skill-template.md').read_text(encoding='utf-8')
-    for prefix, label in [('For every individual added, changed or removed file', 'file-review'),
-                          ('**Efficiency and optional improvement.**', 'efficiency')]:
-        text = body_policy(text, template, prefix, label)
-    return text
+    _, body, error = split_frontmatter(text)
+    if error:
+        raise ValueError(error)
+    header = text[:len(text) - len(body)]
+    policies = []
+    for prefix in BODY_POLICIES:
+        body, policy = body_policy(body, template, prefix)
+        policies.append(policy)
+    body = body_references(body, template, policies)
+    return header + '\n\n'.join(policies) + '\n\n' + body.lstrip()
 
 
 def render(root, original, profile, scope, factory, sources, stamp):

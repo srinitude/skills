@@ -9,6 +9,7 @@ from standardization_markdown import (
     FENCED_SCRIPT_PATH_RE,
     SCRIPT_LINK_RE,
     SCRIPT_RE,
+    linked_public_route,
 )
 
 
@@ -18,6 +19,7 @@ def documented_content(files):
         if not name.endswith(".md"):
             continue
         text = raw.decode("utf-8")
+        text = SCRIPT_LINK_RE.sub(lambda match: "" if linked_public_route(text, match) else match[0], text)
         for pattern in [SCRIPT_RE, SCRIPT_LINK_RE, FENCED_SCRIPT_PATH_RE, BARE_SCRIPT_PATH_RE]:
             found.update(match.group(1) for match in pattern.finditer(text))
     return sorted(path for path in found if path.endswith(".py") and "scripts/" + path in files)

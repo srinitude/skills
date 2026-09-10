@@ -19,6 +19,7 @@ class TestLedgerBootstrap(unittest.TestCase):
     native = write_cases.TestLedgerWrite.native
 
     def bootstrap(self):
+        self.ordinary_body_review = self.request.pop('initial_body_review')
         candidate = self.folder / 'candidate.md'
         body = self.root / 'SKILL.md'
         candidate.write_bytes(body.read_bytes())
@@ -40,6 +41,12 @@ class TestLedgerBootstrap(unittest.TestCase):
 
     def test_public_bootstrap_reads_reviewed_body_without_installing_it(self):
         candidate, review, value = self.bootstrap()
+        before = self.package()
+        for mode_value in [self.ordinary_body_review, None]:
+            mixed = copy.deepcopy(self.request); mixed['initial_body_review'] = mode_value
+            with self.assertRaises(ValueError):
+                self.invoke(mixed)
+            self.assertEqual(self.package(), before)
         process = self.native(public=True)
         self.assertEqual(process.returncode, 0, process.stdout + process.stderr)
         result = json.loads(json.loads(process.stdout)['result']['view_text'])
@@ -85,6 +92,7 @@ class TestLedgerBootstrap(unittest.TestCase):
             self.invoke()
         self.assertEqual(self.package(), before)
         del self.request['bootstrap_body']
+        self.request['initial_body_review'] = write_cases.initial_body_review(self)
         self.invoke()
 
     def test_bootstrap_body_or_review_cannot_be_the_written_file(self):

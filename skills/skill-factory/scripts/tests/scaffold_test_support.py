@@ -11,7 +11,8 @@ def review_fixture(owner, plan):
     case = TestLedgerWrite()
     case.setUp()
     owner.addCleanup(case.doCleanups)
-    context = {key: value for key, value in case.request.items() if key not in {'change', 'action'}}
+    context = {key: case.request[key] for key in
+               ('ledger', 'ledger_sha256', 'expected_documents', 'original_source', 'inventory_document')}
     body = next(item for item in plan['files'] if item['path'] == 'SKILL.md')
     initial = {'candidate_sha256': body['sha256'], 'previous_sha256': None,
                'ledger_sha256': context['ledger_sha256'], 'source_sha256': case.data['source']['sha256'],

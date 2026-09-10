@@ -1,4 +1,4 @@
-"""Bound body inputs and declared reviews for bootstrap and body revisions."""
+"""Bound initial-body reviews for ordinary writes, bootstrap and body revisions."""
 from agentic_request_contract import read_json
 from review_ledger_context import require
 
@@ -11,10 +11,12 @@ def file_binding(value):
 
 def revision(request):
     value = request.get('body_revision')
+    modes = [key for key in ['initial_body_review', 'bootstrap_body', 'body_revision'] if key in request]
+    require(len(modes) == 1, 'file writes require exactly one initial body review mode')
     if value is None:
         return None
     require(isinstance(value, dict) and set(value) == {'previous', 'review'}
-            and request.get('bootstrap_body') is None and request['change']['path'] == 'SKILL.md',
+            and request['change']['path'] == 'SKILL.md',
             'body_revision requires the canonical body and rejects bootstrap_body')
     file_binding(value['review'])
     previous = file_binding(value['previous']) if value['previous'] is not None else None
@@ -39,7 +41,8 @@ def body_inputs(request, root, phase='before'):
         return [current, *([previous] if previous is not None else []), value['review']]
     bootstrap = request.get('bootstrap_body')
     if bootstrap is None:
-        return [{'path': str(root / 'SKILL.md'), 'sha256': request['change']['body_sha256']}]
+        return [{'path': str(root / 'SKILL.md'), 'sha256': request['change']['body_sha256']},
+                file_binding(request.get('initial_body_review'))]
     require(isinstance(bootstrap, dict) and set(bootstrap) == {'body', 'review'},
             'bootstrap requires exact body and review bindings')
     for binding in bootstrap.values():
@@ -78,7 +81,10 @@ def body_review(captured, request, root, source_sha256, phase='before'):
         return {'body_revision_review': review}
     bootstrap = request.get('bootstrap_body')
     if bootstrap is None:
-        return {}
+        require(len(aliases) == 1 and aliases[0].name == 'SKILL.md',
+                'ordinary writes require the canonical body without aliases')
+        return {'initial_body_review': read_review(captured, request, request['initial_body_review'],
+                                                  request['change']['body_sha256'], source_sha256)}
     require(not aliases, 'bootstrap cannot hide an installed body or body alias')
     return {'bootstrap_review': read_review(captured, request, bootstrap['review'],
                                            bootstrap['body']['sha256'], source_sha256)}

@@ -17,6 +17,17 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def initial_body_review(case):
+    path = case.folder / 'initial-body-review.json'
+    value = dict(candidate_sha256=sha((case.root / 'SKILL.md').read_bytes()),
+        ledger_sha256=case.request['ledger_sha256'], source_sha256=case.data['source']['sha256'],
+        execution_acceptance='pending', initial_contract_validation=dict(state='PASS',
+            reviewer='Fixture author; non-independent', method='Review the sole fixture write rule.',
+            limit='Mechanical fixture declaration; no semantic or human acceptance.'))
+    path.write_text(json.dumps(value))
+    return {'path': str(path), 'sha256': sha(path.read_bytes())}
+
+
 class TestLedgerWrite(unittest.TestCase):
     def setUp(self):
         source_cases.TestLiveSource.setUp(self)
@@ -42,6 +53,7 @@ class TestLedgerWrite(unittest.TestCase):
                     'reviewer': 'Test author; mechanical fixture only',
                     'review': {'Contribution': 'Exercise exact binary file creation.',
                                'Body decision': 'The fixture body already declares the write condition.'}})
+        self.request['initial_body_review'] = initial_body_review(self)
 
     def invoke(self, request=None):
         from review_ledger_write import write_file

@@ -16,6 +16,7 @@ class TestBodyRevision(unittest.TestCase):
     interrupted = recovery.TestFileRestoration.interrupted
 
     def revision(self, replacing):
+        self.ordinary_body_review = self.request.pop('initial_body_review')
         body = self.root / 'SKILL.md'
         previous = self.folder / 'previous-body.md'
         previous.write_bytes(body.read_bytes())
@@ -39,6 +40,12 @@ class TestBodyRevision(unittest.TestCase):
 
     def test_public_creation_installs_only_the_reviewed_body(self):
         self.revision(False)
+        before = self.package()
+        for value in [self.ordinary_body_review, None]:
+            mixed = copy.deepcopy(self.request); mixed['initial_body_review'] = value
+            with self.assertRaises(ValueError):
+                self.invoke(mixed)
+            self.assertEqual(self.package(), before)
         process = self.native(public=True)
         self.assertEqual(process.returncode, 0, process.stdout + process.stderr)
         result = json.loads(json.loads(process.stdout)['result']['view_text'])

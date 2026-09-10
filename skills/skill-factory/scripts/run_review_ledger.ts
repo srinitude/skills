@@ -78,7 +78,17 @@ only while the target still matches this write and required inputs remain readab
 Restoration also reads all inputs before and after; drift stays failed. Unreadable
 inputs can prevent restoration, and independent target edits are never overwritten.
 This is not crash rollback, hostile-writer isolation or a cross-file transaction.
-Removals and other scaffold/update/maintenance writers remain outside this guard. Finish their integration, semantic review and ledger invalidation separately.
+Scaffold creation, standardization and variant staging explicitly use this guard.
+Removals and remaining maintenance writers need their own integration, semantic
+review and ledger invalidation before acceptance.
+
+Ordinary file writes require initial_body_review: {path, sha256}, binding a separate
+absolute regular-file review of the installed body. Its JSON uses the current
+candidate_sha256, ledger_sha256, source_sha256 and initial-review fields below.
+The complete review is captured and checked before and after each write; stale,
+incomplete, overlapping or changed review inputs reject. Do not combine this
+field with bootstrap_body or body_revision. Read actions reject all three fields.
+The record declares initial contract validation while full acceptance stays pending.
 
 Before a target SKILL.md exists, write-file may supply bootstrap_body: {body, review}.
 Each member is an absolute regular-file path and exact sha256 binding. Read actions
@@ -91,8 +101,8 @@ machine proof of complete meaning, authenticated judgment or final acceptance.
 The writer reads the full candidate and review before and after each write, plus
 all normal governing inputs. Any installed body or case alias rejects bootstrap.
 This route creates no SKILL.md and never hides an installed one. It supports the
-required task/test/script build order after initial candidate review; scaffold and
-standardization must still explicitly integrate this guard before acceptance.
+required task/test/script build order after initial candidate review. Scaffold,
+standardization and variant staging preserve this gate through their shared writer.
 
 For SKILL.md creation/replacement, supply body_revision: {previous, review} instead
 of bootstrap_body. previous is null for creation or an absolute, separately retained

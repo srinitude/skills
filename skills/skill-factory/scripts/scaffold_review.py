@@ -71,6 +71,8 @@ def file_request(item, review, prepared, body, installed):
         request['body_revision'] = {'previous': None, 'review': review['body_review']}
     elif not installed:
         request['bootstrap_body'] = {'body': body, 'review': review['body_review']}
+    else:
+        request['initial_body_review'] = review['body_review']
     return request
 
 

@@ -45,7 +45,7 @@ import re
 import sys
 from pathlib import Path
 from scaffold_plan import render_plan
-from scaffold_review import build_reviewed, load_review
+from scaffold_review import build_reviewed, load_review, current_inputs, read_context
 from scope_placement import check_placement
 from skill_package import promote, staged
 from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES
@@ -146,9 +146,12 @@ def execute(args, target, tokens, placement):
     if not args.review:
         raise ValueError("creation requires --review; inspect --plan first")
     review, raw = load_review(args.review, plan)
+    def check():
+        current_inputs(SKILL_DIR, plan, args.review, raw)
+        read_context(review['context'])
     with staged(target.parent, target.name) as candidate:
         writes = build_reviewed(SKILL_DIR, candidate, plan, args.review, review, raw)
-        promote(candidate, target)
+        promote(candidate, target, check=check, verify=lambda _backup: check())
     print(json.dumps({"created": str(target), "files": len(writes), "writes": writes, "execution_acceptance": "pending",
                       "scope": args.scope, "scope_label": args.scope + "-level",
                       "placement": placement["kind"],

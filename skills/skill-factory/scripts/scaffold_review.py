@@ -55,6 +55,8 @@ def load_review(path, plan):
 
 
 def current_inputs(factory, plan, review_path, review_raw):
+    body_review = read_json(review_raw.decode('utf-8'))['body_review']
+    require(sha(read_file(body_review)) == body_review['sha256'], 'initial body review changed since planning')
     require(read_file({'path': str(Path(review_path).absolute())}) == review_raw, 'scaffold review changed')
     require(inventory(factory) == plan['factory_files'], 'factory changed since scaffold planning')
     require((factory / 'SKILL.md').read_bytes() == plan['factory_body']['text'].encode('utf-8'),

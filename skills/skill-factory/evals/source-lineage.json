@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "8c327223bb19286d98ffede5571feefb03912c8b4d2fa486b89b1804eb06f178",
+  "native_manifest_sha256": "4e7a2c98dfc6e00483bcc29f21295f5e0a4c07e7a7f9359bc360886b156e5ce8",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1001,6 +1001,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_promotion_context.py",
+      "source_paths": [
+        "scripts/tests/test_promotion_context.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_refresh_registry_lineage.py",
       "source_paths": [
         "scripts/tests/test_refresh_registry_lineage.py"
@@ -1802,11 +1808,11 @@
     },
     {
       "path": "scripts/scaffold_review.py",
-      "sha256": "4af25be5ee73bc62869ccad852d260464f400c1b4ed8b8b5896125c756c6aee0"
+      "sha256": "723b46c32e084d128d4ad4b22b4d18d16aa57721dab9fd37ddec2bd2c9dbfba4"
     },
     {
       "path": "scripts/scaffold_skill.py",
-      "sha256": "ee475bd33d7c818ca24b16eb8fed6d4b17bf4108fe06b11aff84076115a269e6"
+      "sha256": "089a1ebf179405b0fa99a528bcbdb19b8d737c60e97794b350afd05dfb55382b"
     },
     {
       "path": "scripts/scope_placement.py",
@@ -2031,6 +2037,10 @@
     {
       "path": "scripts/tests/test_primitive_lifecycle.py",
       "sha256": "24dceb1719de2bc6a87a80970bf828f082e79c1dfa59b4d054022f292c1cddbc"
+    },
+    {
+      "path": "scripts/tests/test_promotion_context.py",
+      "sha256": "89c58cc8f7faaee1930ee2015132ac61765b4ece4ddd9d6da2548af2a0c1a90e"
     },
     {
       "path": "scripts/tests/test_refresh_registry_lineage.py",

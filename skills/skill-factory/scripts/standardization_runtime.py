@@ -4,6 +4,35 @@ import re
 import json
 import tomllib
 
+SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
+
+
+def section_name(match):
+    name, fields = next(iter(tomllib.loads(match.group(0))["tasks"].items()))
+    return name if not fields else None
+
+
+def task_header(name):
+    key = name if re.fullmatch(r"[A-Za-z0-9_-]+", name) else json.dumps(name)
+    return f"[tasks.{key}]"
+
+
+def split_task_body(block):
+    child = next((match for match in SECTION_RE.finditer(block) if section_name(match) is None), None)
+    return (block[:child.start()].rstrip(), block[child.start():].strip()) if child else (block, "")
+
+
+def split_sections(text):
+    matches = [(match, name) for match in SECTION_RE.finditer(text)
+               if (name := section_name(match)) is not None]
+    preamble = text[:matches[0][0].start()] if matches else text
+    sections = []
+    for index, (match, name) in enumerate(matches):
+        end = matches[index + 1][0].start() if index + 1 < len(matches) else len(text)
+        sections.append((name, text[match.end():end].strip("\n")))
+    return preamble.rstrip(), sections
+
+
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
 LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/lineage-public-run.json",
                    "examples/catalog-public-run.json", "examples/registry-public-run.json", "examples/example-ledger-write.md")
@@ -51,8 +80,7 @@ SHARED_PYTHON = ("scripts/validate_skill.py", "scripts/check_lineage.py",
                  "scripts/skill_variant.py", "python -m unittest discover")
 
 
-def isolate_python_helpers(block):
-    task = tomllib.loads("[task]\n" + block)["task"]
+def isolate_python_helpers(block, task):
     helpers = [command for field in ["run", "run_windows"]
                if isinstance(command := task.get(field), str)
                and any(command.startswith(prefix + owner + " ") or command == prefix + owner

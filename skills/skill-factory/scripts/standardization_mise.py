@@ -9,7 +9,8 @@ from standardization_seed import base_mise
 
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
-from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble)
+from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
+                                     split_sections, split_task_body, task_header)
 
 POLICY_TASKS = {
     "validate": ([], "Validate the current skill package and changed-output declarations",
@@ -44,19 +45,6 @@ POLICY_TASKS = {
         "python3 scripts/sync_mise_primitives.py . --plan"),
     "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
-SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
-
-
-def split_sections(text):
-    matches = list(SECTION_RE.finditer(text))
-    preamble = text[:matches[0].start()] if matches else text
-    sections = []
-    for index, match in enumerate(matches):
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-        sections.append((match.group(1), text[match.end():end].strip("\n")))
-    return preamble.rstrip(), sections
-
-
 def strip_key(block, key):
     lines, output, skipping = block.splitlines(), [], False
     for line in lines:
@@ -122,11 +110,11 @@ def policy_block(name, spec):
                          f'run = {json.dumps(command)}', dependency_line(depends)])
     if name == 'mise-primitives-update':
         block = catalog_task(block)
-    return f'[tasks.{name}]\n{block}'
+    return f'{task_header(name)}\n{block}'
 
 
 def command_task_block(name, spec):
-    return "\n".join([f"[tasks.{name}]",
+    return "\n".join([task_header(name),
                        f"description = {json.dumps(spec['description'])}",
                        f"run = {json.dumps(spec['run'])}", "depends = []"])
 
@@ -143,6 +131,7 @@ def script_task_block(name, spec):
 
 
 def existing_block(name, block, profile):
+    block, children = split_task_body(block)
     scripts = profile.get("script_tasks", {}) if profile else {}
     commands = profile.get("command_tasks", {}) if profile else {}
     replacement = None
@@ -161,7 +150,7 @@ def existing_block(name, block, profile):
         expected = dict(before, run=desired['run'], description=desired['description'])
         if tomllib.loads('[task]\n' + block)['task'] != expected:
             raise ValueError('task command replacement needs explicit reconciliation: ' + name)
-    return f"[tasks.{name}]\n{normalize_existing(name, block)}"
+    return f"{task_header(name)}\n{normalize_existing(name, block)}" + ("\n" + children if children else "")
 
 
 
@@ -185,7 +174,10 @@ def connect_ci_checks(blocks, graph):
         if path_counts({name: {'depends': edges} for name, edges in graph.items()}, 'ci')[check]:
             continue
         current = tomllib.loads(blocks['ci'])['tasks']['ci']['depends']
-        blocks['ci'] = strip_key(blocks['ci'], 'depends') + '\n' + dependency_line(current + [check])
+        block, children = split_task_body(blocks['ci'])
+        blocks['ci'] = strip_key(block, 'depends') + '\n' + dependency_line(current + [check])
+        if children:
+            blocks['ci'] += '\n' + children
         graph['ci'].append(check)
 
 
@@ -198,14 +190,15 @@ def order_runtime_tasks(text):
             raise ValueError("native runtime task needs explicit reconciliation: " + name)
     blocks, graph = {}, {}
     for name, block in sections:
-        block = isolate_python_helpers(block)
+        block, children = split_task_body(block)
+        block = isolate_python_helpers(block, tasks[name])
         dependencies = runtime_dependencies(name, tasks[name].get("depends", []), tasks)
         graph[name] = [dependency_name(value) for value in dependencies + tasks[name].get("depends_post", [])]
         if not set(graph[name]) <= set(tasks):
             raise ValueError("unknown task reading dependency: " + name)
         if dependencies != tasks[name].get("depends"):
             block = strip_key(block, "depends") + "\n" + dependency_line(dependencies)
-        blocks[name] = f"[tasks.{name}]\n{block}"
+        blocks[name] = f"{task_header(name)}\n{block}" + ("\n" + children if children else "")
     connect_ci_checks(blocks, graph)
     # Definition-reading order includes post-task definitions, not their execution order.
     ordered = [blocks[name] for name in TopologicalSorter(graph).static_order()]

@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "aba80b03c55fa4a3ea0bd62409460afd5e282050d17b4556f7050164cdb64dfd",
-  "evidence_packet_sha256": "aba80b03c55fa4a3ea0bd62409460afd5e282050d17b4556f7050164cdb64dfd",
+  "native_manifest_sha256": "874e0d2f2d857c2bdfa899f39b1aa8b9faff80bd7954b0e2f793ac2881521931",
+  "evidence_packet_sha256": "874e0d2f2d857c2bdfa899f39b1aa8b9faff80bd7954b0e2f793ac2881521931",
   "files": [
     {
       "bytes": 181,
@@ -853,10 +853,10 @@
       "source_path": "scripts/standardization_markdown.py"
     },
     {
-      "bytes": 11524,
+      "bytes": 11467,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_mise.py",
-      "sha256": "3aabf4587f693f09d5c9fc89a69217f16a1a37214e1bfb20399733fe4c474ecf",
+      "sha256": "688d271db6cf91ad011a5aac1aaf7212f1a0a84903e5aa76aa538a1b96f624f5",
       "source_path": "scripts/standardization_mise.py"
     },
     {
@@ -895,10 +895,10 @@
       "source_path": "scripts/standardization_rewrites.py"
     },
     {
-      "bytes": 6514,
+      "bytes": 7520,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_runtime.py",
-      "sha256": "4d75370391486eb3a5c2657d749a149b3605d0b8d906515315a5d0243405280b",
+      "sha256": "a2c80f58cb00c6a4c6fc3768790b55bacd128307d8f38b5ca5fb3ebeb58c6898",
       "source_path": "scripts/standardization_runtime.py"
     },
     {
@@ -1138,6 +1138,13 @@
       "location_path": "skills/skill-factory/scripts/tests/test_native_mapping_schema.py",
       "sha256": "47f1b897ccb7c7d6c32c95e2de4e2f0176901970a867bc3ed00eaa4bbfecf200",
       "source_path": "scripts/tests/test_native_mapping_schema.py"
+    },
+    {
+      "bytes": 2749,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_native_task_subtables.py",
+      "sha256": "661a665c2effd67334fcc4d3b2980618b41cf3d70517e0c4f0aff238c54ee9c4",
+      "source_path": "scripts/tests/test_native_task_subtables.py"
     },
     {
       "bytes": 4284,

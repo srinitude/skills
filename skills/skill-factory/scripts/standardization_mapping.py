@@ -5,6 +5,7 @@ These checks establish only current text bindings; semantic review, full source
 coverage and the target's other acceptance gates retain their actual owners.
 """
 import hashlib
+import re
 
 from agentic_request_contract import read_json
 from standardization_rewrites import safe_target
@@ -52,11 +53,19 @@ def rewritten_assertion(value, target, owners, profile):
     return BAD_MISE_LINK_RE.sub(lambda item: f"`{item.group(1)}`", value)
 
 
+def mapping_bytes(root, target):
+    if isinstance(root, dict):
+        if target not in root:
+            raise ValueError("source mapping target is absent from planned files")
+        return root[target]
+    return safe_target(root, target).read_bytes()
+
+
 def mapped_text(root, target, cache):
     if not isinstance(target, str) or not target.strip():
         raise ValueError("source mapping target must be nonempty text")
     if target not in cache:
-        cache[target] = safe_target(root, target).read_bytes().decode("utf-8")
+        cache[target] = mapping_bytes(root, target).decode("utf-8")
     return cache[target]
 
 
@@ -90,18 +99,82 @@ def check_mapping_entry(root, entry, semantic, cache):
         check_assertion(root, assertion, cache)
 
 
+def text_list(value):
+    return (isinstance(value, list) and bool(value)
+            and all(isinstance(item, str) and item.strip() for item in value)
+            and len(value) == len(set(value)))
+
+
+def check_native_source_contract(root, data):
+    """Check native schema and source identities without accepting coverage claims."""
+    required = {"schema_version", "skill", "coverage", "source_files", "source_case_ids", "adaptations", "clauses"}
+    if (set(data) != required or type(data["schema_version"]) is not int or data["schema_version"] != 1
+            or type(data["coverage"]) not in (int, float) or data["coverage"] != 1
+            or not text_list(data["source_files"]) or not text_list(data["source_case_ids"])):
+        raise ValueError("source mapping needs its owning schema validator")
+    from validate_skill import parse_header, split_frontmatter
+    header, _, error = split_frontmatter(mapping_bytes(root, "SKILL.md").decode("utf-8"))
+    fields, error = (None, error) if error else parse_header(header)
+    if error or data["skill"] != fields.get("name"):
+        raise ValueError("native source mapping names another skill")
+    lineage = read_json(mapping_bytes(root, "evals/source-lineage.json").decode("utf-8"))
+    records = lineage.get("source_files") if isinstance(lineage, dict) else None
+    if (not isinstance(records, list) or not records
+            or not all(isinstance(item, dict) and isinstance(item.get("path"), str)
+                       and isinstance(item.get("sha256"), str) and re.fullmatch(r"[a-f0-9]{64}", item["sha256"])
+                       for item in records)
+            or len({item["path"] for item in records}) != len(records)
+            or set(data["source_files"]) != {item["path"] for item in records}
+            or data["source_case_ids"] != lineage.get("source_case_ids")):
+        raise ValueError("native source mapping differs from source lineage")
+    adaptations = data["adaptations"]
+    if not isinstance(adaptations, list) or not all(
+            isinstance(item, dict) and set(item) == {"source_concept", "portable_concept", "preserved"}
+            and all(isinstance(item[key], str) and item[key].strip() for key in ("source_concept", "portable_concept"))
+            and text_list(item["preserved"]) for item in adaptations):
+        raise ValueError("invalid native source adaptations")
+
+
+def check_native_clauses(root, data):
+    """Check source references and current targets without accepting their meaning."""
+    check_native_source_contract(root, data)
+    clauses = data["clauses"]
+    if not isinstance(clauses, list) or not clauses:
+        raise ValueError("native source mapping needs clauses")
+    ids, covered, cache = set(), set(), {}
+    for item in clauses:
+        if (not isinstance(item, dict) or set(item) != {"id", "source_path", "source_lines", "meaning", "targets", "action"}
+                or not all(isinstance(item[key], str) and item[key].strip()
+                           for key in ("id", "source_path", "source_lines", "meaning", "action"))
+                or item["id"] in ids or item["source_path"] not in data["source_files"]
+                or item["action"] not in ("keep", "clarify") or not text_list(item["targets"])):
+            raise ValueError("invalid or unsupported native source clause")
+        bounds = re.fullmatch(r"([1-9][0-9]*)-([1-9][0-9]*)", item["source_lines"])
+        if not bounds or int(bounds[1]) > int(bounds[2]):
+            raise ValueError("invalid native source line range")
+        for target in item["targets"]:
+            mapped_text(root, target, cache)
+        ids.add(item["id"]); covered.add(item["source_path"])
+    if covered != set(data["source_files"]):
+        raise ValueError("native source mapping omits a source file")
+
+
 def repair_mapping_json(root, owners=None, profile=None, snapshots=None):
-    """Legacy entry point: check bindings without rewriting any mapping bytes.
+    """Check on-disk or exact planned bindings without rewriting mapping bytes.
 
     A caller may supply a separately reviewed mapping. Matching text cannot
     establish the authenticity or soundness of that review. Other mapping
     schemas need their owning validator before affected standardization.
     """
-    path = root / "evals/source-mapping.json"
-    if not path.exists() and not path.is_symlink():
+    name = "evals/source-mapping.json"
+    present = name in root if isinstance(root, dict) else ((root / name).exists() or (root / name).is_symlink())
+    if not present:
         return
     try:
-        data = read_json(safe_target(root, "evals/source-mapping.json").read_bytes().decode("utf-8"))
+        data = read_json(mapping_bytes(root, name).decode("utf-8"))
+        if isinstance(data, dict) and "clauses" in data:
+            check_native_clauses(root, data)
+            return
         if not isinstance(data, dict) or not isinstance(data.get("entries"), list) or not data["entries"]:
             raise ValueError("source mapping needs its owning schema validator")
         semantic, cache = {}, {}

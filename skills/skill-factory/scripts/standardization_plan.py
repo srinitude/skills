@@ -10,6 +10,7 @@ from scaffold_plan import phase
 from standardization_assets import resolved_initial_profile
 from standardization_baseline import tracked_paths
 from standardization_render import render
+from standardization_mapping import repair_mapping_json
 from standardization_format import format_contents
 from skill_package import inventory, owned_entries, owned_paths, sha
 from standardization_profile import selected_profile
@@ -77,6 +78,7 @@ def build_plan(root, profile, scope, rebase, factory, sources, profile_path, sta
     stamp = stamp or datetime.datetime.now().astimezone().isoformat(timespec='seconds')
     files = render(root, original, profile, scope, factory, sources, stamp)
     formatting = format_contents(root, original, files)
+    repair_mapping_json(files)
     records = planned_records(files, before)
     if (capture_files(root) != before or inventory(factory) != factory_files
             or directory_modes(root) != directories

@@ -55,6 +55,32 @@ class TestMappingPromotion(unittest.TestCase):
         self.assertEqual(path.read_text(), bound)
         self.assertIn(current, (root / "SKILL.md").read_text())
 
+    def test_plan_rejects_an_unsupported_mapping_without_writes(self):
+        self.check_planning_mapping({"clauses": [{"id": "legacy-source"}]}, 1)
+
+    def test_plan_checks_resulting_text_and_recovers_without_writes(self):
+        self.check_planning_mapping({"entries": [{"public_assertions": [{
+            "target": "SKILL.md", "contains": "Run `python3 scripts/anchor.py` once."}]}]}, 1)
+        self.check_planning_mapping({"entries": [{"public_assertions": [{
+            "target": "SKILL.md", "contains": "Run `mise run anchor` once."}]}]}, 0)
+
+    def check_planning_mapping(self, mapping, expected):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "clock-anchor"
+            write_target(root)
+            (root / "evals").mkdir()
+            (root / "evals/source-mapping.json").write_text(json.dumps(mapping))
+            config = Path(temp) / "profile.json"
+            config.write_text(json.dumps(profile()))
+            before = snapshot(root)
+            result = run("standardize_registry_skill.py", root, "--profile", config, "--scope", "user")
+            self.assertEqual(result.returncode, expected, result.stderr)
+            self.assertEqual(snapshot(root), before)
+            if expected:
+                self.assertIn("source mapping", result.stderr)
+            else:
+                self.assertEqual(json.loads(result.stdout)["writes"], 0)
+
     def test_standardization_preserves_a_failing_exact_inventory_check(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "clock-anchor"

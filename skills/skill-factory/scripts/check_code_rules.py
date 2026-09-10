@@ -57,12 +57,13 @@ def own_loc(node, lines):
 
 
 def block_depth(node):
-    deepest = 0
-    for child in ast.iter_child_nodes(node):
-        depth = block_depth(child)
-        if isinstance(child, BLOCKS):
-            depth += 1
-        deepest = max(deepest, depth)
+    deepest, pending = 0, [(node, 0)]
+    while pending:
+        parent, depth = pending.pop()
+        for child in ast.iter_child_nodes(parent):
+            level = depth + int(isinstance(child, BLOCKS))
+            deepest = max(deepest, level)
+            pending.append((child, level))
     return deepest
 
 
@@ -71,9 +72,9 @@ def check_construct(node, lines, path, problems):
     if size > MAX_CONSTRUCT:
         problems.append(f"{path}:{node.lineno}: {node.name} has {size} "
                         f"lines of code; cap is {MAX_CONSTRUCT}")
-    if isinstance(node, FUNCS) and block_depth(node) > MAX_DEPTH:
+    if isinstance(node, FUNCS) and (depth := block_depth(node)) > MAX_DEPTH:
         problems.append(f"{path}:{node.lineno}: {node.name} nesting is "
-                        f"{block_depth(node)}; cap is {MAX_DEPTH}")
+                        f"{depth}; cap is {MAX_DEPTH}")
 
 
 def check_markers(path, text, problems):
@@ -89,7 +90,7 @@ def check_python(path, text, problems):
         problems.append(f"{path}: {loc(lines)} lines of code; cap is 200")
     try:
         tree = ast.parse(text)
-    except SyntaxError as error:
+    except (SyntaxError, RecursionError) as error:
         problems.append(f"{path}: does not parse: {error}")
         return
     for node in ast.walk(tree):

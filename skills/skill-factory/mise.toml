@@ -12,6 +12,7 @@ node = "24.18.0"
 npm = "11.16.0"
 python = "3.11.15"
 uv = "0.11.29"
+usage = "6.8.0"
 
 [env]
 PYTHONDONTWRITEBYTECODE = "1"
@@ -155,7 +156,15 @@ description = "Freeze a read-only inventory before updating or standardizing a s
 depends = ["doctor", "source-corpus"]
 run = "python3 scripts/plan_standardize.py"
 
+[tasks.standardization-usage]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+description = "Export the current native standardization argument definition as Usage KDL"
+depends = []
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 --with argparse-usage==0.1.1 scripts/standardization_cli.py"
+
 [tasks.standardize-target]
+raw_args = true
+usage = "{{ read_file(path='assets/standardization.usage.kdl') }}"
 env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Plan, review and apply a registry skill through its native domain workflow"
 depends = ["doctor", "source-corpus", "check-runtime"]

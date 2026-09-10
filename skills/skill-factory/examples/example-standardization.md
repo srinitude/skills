@@ -10,6 +10,12 @@ The declared isolated factory copy and pinned tools preexist the public invocati
 
 Read the current body and its governing ledger through `mise run ledger` before making review declarations. The default workflow uses temporary state removed at exit. An explicitly selected `--workflow-state <absolute-directory>` supports process-separated review in a caller-owned private POSIX directory outside the factory and target. The workflow does not infer permission from directory selection or review text. Its storage implementation stays in the factory; standardization does not add it to generated skills.
 
+## Check the current argument interface
+
+Before planning with `mise run standardize-target`, load the current [interface record](help-run.json) through `mise run standardization-usage`. Native Python owns the arguments; the recorded Usage projection supplies help, completion and interface documentation. The public workflow rejects a missing or stale projection or disagreeing bindings before creating workflow state. Literal arguments keep their boundaries through native Mise `raw_args`; the owning code still validates domain constraints.
+
+After changing the argument definition, run `mise run --output interleave standardization-usage` and retain its exact stdout as the proposed replacement. Review and install that asset through the existing individual-file ledger route, then rerun parsing, forwarding, spec lint/diff and actual workflow checks. The read-only export does not install the asset. The interface record contains real export, lint and current-definition comparison results; the larger domain record below remains a historical workflow trace, with its own identified runtime and proof limits.
+
 ## User says
 
 ```text

@@ -10,21 +10,6 @@ import type { MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
 import { bound, createStandardizationWorkflow, inputSchema, preparedSchema, workflowRoots, type NativeResult } from './standardization_workflow.ts';
 
-const extraHelp = `
-Workflow options:
-  --workflow-state DIRECTORY  Existing absolute directory owned by this caller,
-                             private (0700) on a supported POSIX filesystem.
-                             Retains plans, native results and a local SQLite store.
-  --workflow-run UUID         Select a suspended run in --workflow-state.
-                             Resume with --apply, --plan-file and --review.
-  --workflow-reject           Reject that suspended run without applying files.
-                             Requires --workflow-state and --workflow-run.
-Use --flag VALUE or --flag=VALUE. Repeating a workflow option is an error.
-Without --workflow-state, private temporary state is removed after this command.
-Save stdout from planning, then pass that file with --plan-file when applying.
-Persistence is opt-in. A review record is not authenticated human permission.
-Success reports execution_acceptance: pending; validate the actual output separately.
-`;
 const parsedSchema = z.object({ skill_root: z.string(), profile: z.string(), apply: z.boolean(),
   plan_file: z.string().nullable(), review: z.string().nullable(), rebase_tracked_text: z.boolean(),
   scope: z.enum(['user', 'project']).nullable(), placement_receipt: z.string().nullable() }).strict();
@@ -32,45 +17,23 @@ type Parsed = z.infer<typeof parsedSchema>;
 type Selected = { state?: string; run?: string; reject?: boolean };
 type Workflow = Awaited<ReturnType<typeof createStandardizationWorkflow>>['workflow'];
 
-function splitArguments(args: string[]) {
-  const selected: Selected = {}, native: string[] = [];
-  const extra = new Map<string, 'state' | 'run'>([['--workflow-state', 'state'], ['--workflow-run', 'run']]);
-  for (let i = 0; i < args.length; i++) {
-    const token = args[i]!;
-    if (token === '--') { native.push(...args.slice(i)); break; }
-    if (token === '--workflow-reject') {
-      if (selected.reject) throw new Error('Each workflow option may appear only once');
-      selected.reject = true; continue;
-    }
-    const separator = token.indexOf('='), name = separator < 0 ? token : token.slice(0, separator), key = extra.get(name);
-    if (!key) { native.push(token); continue; }
-    const value = separator < 0 ? args[++i] : token.slice(separator + 1);
-    if (selected[key] !== undefined || !value || value.startsWith('--')) throw new Error('Each workflow option requires one explicit value');
-    selected[key] = value;
-  }
-  if (selected.state && !isAbsolute(selected.state)) throw new Error('Workflow state requires an absolute directory');
-  if (selected.run && (!selected.state || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(selected.run)))
-    throw new Error('A resumed run requires an explicit state directory and UUID');
-  if (selected.reject && !selected.run) throw new Error('Rejection requires a suspended run in an explicit state directory');
-  return { native, selected };
-}
-
 function parse(factory: string, args: string[]) {
-  const { native, selected } = splitArguments(args), script = join(factory, 'scripts/standardize_registry_skill.py');
-  const code = "import contextlib,io,json,sys\nsys.path.insert(0,sys.argv.pop(1));sys.argv[0]=sys.argv.pop(1)\nfrom standardize_registry_skill import parse_args,prepare_inputs\ncapture=io.StringIO()\ntry:\n    with contextlib.redirect_stdout(capture):\n        args=parse_args(sys.argv[1:])\nexcept SystemExit as error:\n    if error.code:\n        raise\n    print(json.dumps({'help':capture.getvalue()}))\n    sys.exit(0)\ntry:\n    prepare_inputs(args)\nexcept ValueError as error:\n    print(f'error: {error}',file=sys.stderr)\n    sys.exit(2)\nprint(json.dumps({'parsed':vars(args)}))\n";
+  const script = join(factory, 'scripts/standardize_registry_skill.py');
+  const code = "import contextlib,io,json,sys\nsys.path.insert(0,sys.argv.pop(1));sys.argv[0]=sys.argv.pop(1)\nfrom standardization_cli import parse_args\nfrom standardize_registry_skill import prepare_inputs\ncapture=io.StringIO()\ntry:\n    with contextlib.redirect_stdout(capture):\n        args,selected=parse_args(sys.argv[1:])\n        prepare_inputs(args)\nexcept SystemExit as error:\n    if error.code:\n        raise\n    print(json.dumps({'help':capture.getvalue()}))\n    sys.exit(0)\nexcept ValueError as error:\n    print(f'error: {error}',file=sys.stderr)\n    sys.exit(2)\nprint(json.dumps({'parsed':vars(args),'selected':selected}))\n";
   const result = spawnSync('uv', ['run', '--no-project', '--isolated', '--no-python-downloads',
-    '--with', 'PyYAML==6.0.3', 'python', '-c', code, join(factory, 'scripts'), script, ...native], { encoding: 'utf8' });
+    '--with', 'PyYAML==6.0.3', '--with', 'argparse-usage==0.1.1', 'python', '-c', code,
+    join(factory, 'scripts'), script, ...args], { encoding: 'utf8' });
   if (result.error) throw result.error;
   if (result.status !== 0) {
     process.stdout.write(result.stdout);
     process.stderr.write(result.stderr); process.exitCode = result.status ?? 1;
     return;
   }
-  const reply = z.union([z.object({ help: z.string() }).strict(), z.object({ parsed: parsedSchema }).strict()]).parse(JSON.parse(result.stdout));
-  if ('help' in reply) { process.stdout.write(reply.help + extraHelp); return; }
-  const parsed = reply.parsed;
-  if (selected.reject && parsed.apply) throw new Error('Rejection and --apply are mutually exclusive');
-  return { parsed, selected };
+  const selectedSchema = z.object({ state: z.string().optional(), run: z.string().optional(), reject: z.boolean().optional() }).strict();
+  const reply = z.union([z.object({ help: z.string() }).strict(),
+    z.object({ parsed: parsedSchema, selected: selectedSchema }).strict()]).parse(JSON.parse(result.stdout));
+  if ('help' in reply) { process.stdout.write(reply.help); return; }
+  return reply;
 }
 
 async function openStorage(state: string): Promise<MastraCompositeStore> {

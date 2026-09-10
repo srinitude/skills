@@ -349,6 +349,13 @@
         "proof": "The agent skill plan records digest, files, missing owners, mappings, and collisions."
       },
       {
+        "task": "standardization-usage",
+        "outcome": "Export the current agent skill standardization grammar from its native argument owner without target effects.",
+        "motivation": "Agent skill argument parsing, help, completion and documentation must preserve the same supported inputs.",
+        "proof": "Actual agent skill interface tests check current native help, five completion engines, literal argument values, aliases and missing/stale projection rejection with exact restoration. The real standardization workflow separately verifies review, effects and recovery.",
+        "why_default_path": "The agent skill has one native definition and one read-only export route; derived help and completion never become separate argument authorities."
+      },
+      {
         "task": "standardize-target",
         "outcome": "An existing agent skill receives its profile-bound factory owners without losing accepted behavior.",
         "motivation": "An agent skill registry update needs one domain plan, review and guarded application path after its baseline and profile are fixed.",
@@ -581,12 +588,19 @@
         "proof": "The skill package standardization plan emits a complete read-only JSON receipt.",
         "applicability": "Run before updating, standardizing, or importing an agent skill."
       },
+      "standardization-usage": {
+        "outcome": "Export the current agent skill standardization grammar from its native argument owner without target effects.",
+        "motivation": "Agent skill argument parsing, help, completion and documentation must preserve the same supported inputs.",
+        "value": "The agent skill export supplies exact derived KDL for reviewed replacement; native Mise reads that asset for task metadata while the actual consumer checks freshness and binding parity before workflow effects.",
+        "proof": "Actual agent skill interface tests check current native help, five completion engines, literal argument values, aliases and missing/stale projection rejection with exact restoration. The real standardization workflow separately verifies review, effects and recovery.",
+        "applicability": "Run before reviewing a changed agent skill standardization definition or regenerating its derived asset. Use native Mise output interleave so stdout contains only exact KDL bytes; diagnostics remain on stderr. Export does not install the asset, configure an interactive shell, authenticate review or accept domain behavior."
+      },
       "standardize-target": {
         "outcome": "An existing agent skill receives domain-specific factory owners through a reviewed domain workflow with guarded individual writes.",
         "motivation": "An agent skill registry update needs deterministic adoption without replacing its purpose or accepted behavior.",
         "value": "The agent skill workflow prepares the exact profile-bound package, suspends for current review and invokes the native guarded application; transient state is temporary and optional private POSIX state supports process-separated run selection.",
         "proof": "Actual agent skill tests prove untouched planning, exact applied bytes and modes, persisted same-run recovery, rejected review with no target effect, completed/rejected replay refusal and fresh reviewed zero-write reuse. Review declarations and workflow success leave domain and human acceptance pending.",
-        "applicability": "Run after the agent skill baseline and profile are reviewed for an in-place update. The public Mise task installs and checks its declared runtime first. Preserve native scope, placement and rebase arguments; bind every apply to the saved plan and current full ledger/body/file review. Persistent run selection requires matching inputs and plan; explicit rejection closes that run. Changed inputs or a finished run require a new plan and review."
+        "applicability": "Run after the agent skill baseline and profile are reviewed for an in-place update. The public Mise task installs and checks its declared runtime first. Preserve native scope, placement and rebase arguments; bind every apply to the saved plan and current full ledger/body/file review. Persistent run selection requires matching inputs and plan; explicit rejection closes that run. Changed inputs or a finished run require a new plan and review. Native Mise forwards the literal argument vector with raw_args; the native Python definition and Usage 6.8.0 must agree before workflow creation. A missing or stale derived asset blocks that consumer. Use standardization-usage to prepare reviewed replacement bytes."
       },
       "resolve-scope": {
         "outcome": "Resolve intended availability before any agent skill write.",

@@ -4,6 +4,7 @@ Refuse unmodeled wait_for/dependency forms; structural/domain checks do not prov
 Usage/example: python3 scripts/check_task_graph.py [skill_root]
 Exit 0: specialized, connected, acyclic and single-path; 1: invalid graph/domain contract; 2: bad usage."""
 import argparse
+from graphlib import CycleError, TopologicalSorter
 import json
 import sys
 import tomllib
@@ -78,29 +79,13 @@ def structure_problems(tasks):
     return found
 
 
-def visit_node(tasks, name, state, trail):
-    if state.get(name) == 1:
-        return trail[trail.index(name):] + [name]
-    if state.get(name) == 2:
-        return None
-    state[name] = 1
-    trail.append(name)
-    for dependency in dependencies(tasks[name]):
-        if dependency in tasks:
-            cycle = visit_node(tasks, dependency, state, trail)
-            if cycle:
-                return cycle
-    trail.pop()
-    state[name] = 2
-    return None
-
-
 def find_cycle(tasks):
-    state, trail = {}, []
-    for name in tasks:
-        cycle = visit_node(tasks, name, state, trail)
-        if cycle:
-            return cycle
+    graph = {name: [item for item in dependencies(task) if item in tasks]
+             for name, task in tasks.items()}
+    try:
+        TopologicalSorter(graph).prepare()
+    except CycleError as error:
+        return error.args[1][::-1]
     return None
 
 

@@ -1,6 +1,8 @@
 """Behavior tests for the complete skill-factory Mise dependency graph."""
+import json
 import tomllib
 import unittest
+import test_task_graph_policy as policy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -43,6 +45,7 @@ EXPECTED = {
     "validate-target": ["doctor", "check-runtime"],
     "eval-target": ["doctor"],
     "plan-standardize": ["doctor", "source-corpus"],
+    "standardization-usage": [],
     "standardize-target": ["doctor", "source-corpus", "check-runtime"],
     "refresh-registry-lineage": ["doctor", "check-runtime"],
 }
@@ -61,6 +64,24 @@ class TestTaskGraphTopology(unittest.TestCase):
         self.assertEqual(set(self.tasks), set(EXPECTED))
         for name, expected in EXPECTED.items():
             self.assertEqual(self.tasks[name].get("depends"), expected, name)
+
+    def test_deep_dependencies_accept_valid_graph_and_reject_cycle_without_recursion(self):
+        data = policy.contract()
+        graph = policy.task_text().replace('depends = ["test", "decision-policy"]',
+                                   'depends = ["test", "decision-policy", "deep-1499"]', 1)
+        for n in reversed(range(1500)):
+            name = f'deep-{n}'
+            prior = [f'deep-{n-1}'] if n else []
+            graph += f'\n[tasks.{name}]\ndescription = "Release notes prerequisite"\ndepends = {json.dumps(prior)}\n'
+            data['task_graph']['tasks'][name] = policy.task_policy(name)
+        for cyclic in [False, True]:
+            with self.subTest(cyclic=cyclic):
+                selected = graph.replace('[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = []',
+                                         '[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = ["deep-1499"]') if cyclic else graph
+                result = policy.TestTaskGraphPolicy().check(selected, data)
+                self.assertEqual(result.returncode, 1 if cyclic else 0, result.stderr)
+                self.assertNotIn('Traceback', result.stderr)
+                self.assertIn('cycle' if cyclic else '0 problems', result.stdout)
 
     def test_dependencies_resolve_to_declared_tasks(self):
         declared = set(self.tasks)

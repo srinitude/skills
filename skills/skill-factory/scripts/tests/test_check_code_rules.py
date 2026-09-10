@@ -50,6 +50,18 @@ class TestCheckCodeRules(unittest.TestCase):
         result = self.check_source("def add(a, b):\n    return a + b\n")
         self.assertEqual(result.returncode, 0)
 
+    def test_long_expression_does_not_become_block_nesting(self):
+        source = "def total(x):\n    return " + "+".join(["x"] * 1500) + "\n"
+        result = self.check_source(source)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_parser_depth_limit_is_reported_without_traceback(self):
+        source = "def total(x):\n    return " + "+".join(["x"] * 5000) + "\n"
+        result = self.check_source(source)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("does not parse", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
+
     def test_file_over_200_loc_fails(self):
         source = "\n".join(f"x{i} = {i}" for i in range(201)) + "\n"
         result = self.check_source(source)

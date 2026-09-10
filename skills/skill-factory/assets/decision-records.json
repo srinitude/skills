@@ -299,6 +299,26 @@
       "proof": "Agent skill scope, preview, missing/incomplete review, drift, recovery and both-direction behavior cases accompany privacy and customization review. Finite executed predicates and supplied reviews remain distinct from full semantic and human acceptance.",
       "falsifier": "An accepted skill package lacks valid scope, loses a mandatory requirement, modifies its source, or needs a hidden source installation.",
       "failure_branch": "Hold the affected agent skill write, retrieve missing context or resolve the conflict, and rerun invalidated checks."
+    },
+    {
+      "id": "native-standardization-usage-projection",
+      "kind": "deterministic",
+      "owner": "mise",
+      "outcome": "The agent skill standardization interface preserves native argument meaning across execution, help, completions and documentation.",
+      "motivation": "Independent agent skill parsers or stale generated definitions can reject valid input or describe behavior the consumer does not execute.",
+      "why_this_path": "The agent skill standardization parser supplies a checked Usage projection through the pinned published exporter, with explicit supported-action, alias and help handling. Native Mise exposes that exact asset and forwards literal arguments to the actual workflow consumer.",
+      "inputs": [
+        "agent skill native parser",
+        "Python 3.11.15",
+        "argparse-usage 0.1.1",
+        "Usage 6.8.0",
+        "reviewed KDL asset",
+        "literal argument vector"
+      ],
+      "expected_effect": "Agent skill workflow effects occur only after current projection identity and native/Usage binding agreement; derived interfaces stay usable without another semantic authority.",
+      "proof": "Actual agent skill tests cover help content, scope completions, aliases, quoted values, invalid arguments and stale/missing projection rejection with recovery. Full native workflow review and effect checks remain independently required.",
+      "falsifier": "An agent skill argument changes meaning, valid native input is lost, stale projection is accepted before effects, or exported help omits an operative rule.",
+      "failure_branch": "Block only the affected agent skill consumer, reconcile the native definition and supported exporter shape, review regenerated exact bytes, restore an accepted compatible baseline when needed, and rerun interface plus actual workflow proof."
     }
   ]
 }

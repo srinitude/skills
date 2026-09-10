@@ -68,14 +68,14 @@ def planned_paths(root, profile):
 
 def build_parser():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("skill_root")
-    parser.add_argument("--profile", required=True)
-    parser.add_argument("--apply", action="store_true")
+    parser.add_argument("skill_root", help="Existing real skill directory to inspect or update.")
+    parser.add_argument("--profile", required=True, help="JSON profile containing the reviewed domain mappings and rewrites for this skill.")
+    parser.add_argument("--apply", action="store_true", help="Apply the saved current plan through the per-file review and package promotion guards; requires --plan-file and --review.")
     parser.add_argument("--plan-file", help="saved complete no-write plan output")
     parser.add_argument("--review", help="current ledger, initial body and every planned-file review")
-    parser.add_argument("--rebase-tracked-text", action="store_true")
-    parser.add_argument("--scope", choices=SCOPES)
-    parser.add_argument("--placement-receipt")
+    parser.add_argument("--rebase-tracked-text", action="store_true", help="Plan from Git HEAD versions of tracked Markdown and evals/source-mapping.json; reviewed apply can replace their working-tree text.")
+    parser.add_argument("--scope", choices=SCOPES, help="Intended availability. Retain an existing scope; a scope change requires the separate variant adaptation path.")
+    parser.add_argument("--placement-receipt", help="Optional integration-owned installation receipt for the exact destination and discovery roots; omission means authoring, not installation proof.")
     return parser
 
 

@@ -45,9 +45,9 @@ def parser_for_operation():
     commit.add_argument("--plan", required=True)
     commit.add_argument("--candidate", required=True)
     commit.add_argument("--review", required=True)
-    commit.add_argument("--preview", action="store_true", help="show every future publication byte without writing")
+    commit.add_argument("--preview", action="store_true", help="show every future file and retirement without writing")
     commit.add_argument("--plan-file", help="saved complete publication preview")
-    commit.add_argument("--ledger-review", help="current initial-body and every-file ledger review")
+    commit.add_argument("--ledger-review", help="current initial-body and every future/retired file review")
     return parser
 
 

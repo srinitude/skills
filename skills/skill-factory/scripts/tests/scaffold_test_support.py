@@ -27,7 +27,7 @@ def review_fixture(owner, plan):
               'files': {item['path']: {'reviewer': 'Test author; fixture only', 'review': {
                   'Contribution': 'Create the exact planned test fixture file ' + item['path'],
                   'Body decision': 'The planned body declares full ledger reads; seeded domain acceptance stays pending.'}}
-                        for item in plan['files']}}
+                        for item in [*plan['files'], *plan.get('retirements', [])]}}
     path = case.folder / 'scaffold-review.json'
     path.write_text(json.dumps(record))
     return path, record, case

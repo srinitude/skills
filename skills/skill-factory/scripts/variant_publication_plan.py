@@ -1,6 +1,7 @@
 """Prepare exact future variant bytes before any staging or lineage write."""
 import base64
 import json
+from graphlib import TopologicalSorter
 from pathlib import Path
 
 from review_ledger_context import require
@@ -56,6 +57,7 @@ def publication_plan(plan, candidate, factory, input_paths, lineage):
     return {'version': 1, 'scope_plan_sha256': tree_digest(plan), 'inputs': bindings,
             'candidate': str(candidate), 'candidate_before': before, 'source_before': source_before,
             'target': str(target), 'target_before': target_before, 'files': files,
+            'retirements': retirement_files(target_before, files),
             'factory_files': factory_files, 'factory_body': {'sha256': sha(body), 'text': body.decode('utf-8')},
             'execution_acceptance': 'pending',
             'limit': 'Calculated future bytes and current identities only. Initial/per-file source review, '
@@ -68,3 +70,13 @@ def future_files(before, lineage):
     files['evals/source-lineage.json'] = {'mode': before.get('evals/source-lineage.json', {}).get('mode', 0o644),
         'sha256': sha(raw), 'content_base64': base64.b64encode(raw).decode('ascii')}
     return ordered([{'path': name, **item} for name, item in files.items()])
+
+
+def retirement_files(before, future):
+    """Retire observed Python consumers before providers; semantic order needs review."""
+    prior = before['files'] if before is not None else {}
+    retained = {item['path'] for item in future}
+    files = ordered([{'path': name, **item} for name, item in prior.items() if name not in retained])
+    records = {item['path']: item for item in files}
+    graph = {name: item['observed_python_imports'] for name, item in records.items()}
+    return [records[name] for name in reversed(tuple(TopologicalSorter(graph).static_order()))]

@@ -64,7 +64,7 @@ def operation_report(plan, review, validation, unchanged=False):
             "source": {key: plan["source"][key] for key in ["identity", "name", "scope", "digest"]},
             "target": plan["target"], "material_adaptations": material_adaptations(review),
             "source_preserved": not plan["in_place"], "source_change_explicit": plan["in_place"],
-            "validation": validation}
+            "validation": validation, "execution_acceptance": "pending"}
 
 
 def acceptance_inputs(plan, candidate, review):
@@ -118,7 +118,7 @@ def accept(plan, candidate, review, *, input_paths, plan_path=None, ledger_revie
         current_sources(plan, publication)
         current_inputs(factory, publication, ledger_review, raw)
         read_context(ledger['context'])
-        return operation_report(plan, review, [{'status': 'PASS', 'claim': 'Exact accepted rerun; no writes.'}], True)
+        return operation_report(plan, review, [{'status': 'PASS', 'claim': 'Exact reviewed rerun; no writes.'}], True)
     validation, writes = publish_reviewed(plan, publication, factory, plan_path, ledger_review,
         validate_candidate=lambda stage: validate_stage(plan, stage, review))
-    return {**operation_report(plan, review, validation), 'writes': writes, 'execution_acceptance': 'pending'}
+    return {**operation_report(plan, review, validation), 'writes': writes}

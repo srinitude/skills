@@ -16,9 +16,15 @@ Missing ledger review creates no target. A current complete review permits publi
 
 ## Rerun, refresh and evidence limits
 
-The separate current variant tests exercise a reviewed no-op rerun and changed-target rejection. A no-op still requires a new publication preview and current ledger review because the destination now exists. A requested refresh compares recorded source and target baselines, rejects unresolved conflicts, and retains independent customizations after an explicitly reconciled candidate passes. Run `mise run test -- -k Variant` for those assertions and the isolated privacy, attribution, scope, failure and recovery cases.
+The complete public record includes a fresh publication preview and current ledger review for the exact rerun. It reports `unchanged: true`, states that no files were written, and keeps `execution_acceptance: pending`. The run compares the actual target bytes before and after. The separate current variant tests also exercise changed-target rejection. A requested refresh compares recorded source and target baselines, rejects unresolved conflicts, and retains independent customizations after an explicitly reconciled candidate passes. Run `mise run test -- -k Variant` for those assertions and the isolated privacy, attribution, scope, failure and recovery cases.
 
 The complete public record establishes the two declared project operations and its finite publication predicates. Review fields are synthetic declarations; they are not actual human participation, proof of every privacy judgment, universal portability or completed goal acceptance. These limits remain explicit in the operation reports.
+
+## Explicit in-place retirement
+
+The `in-place-` cases use a separate project fixture and an explicit `--in-place` scope plan. Its portable candidate omits three old optional files. The publication preview lists each retirement with its old bytes and mode, placing the observed Python consumer before its provider. An incomplete retirement review rejects publication without changing the existing variants or the in-place fixture.
+
+After the fixture supplies each missing per-file review, publication removes exactly those three paths and reports their old identity, absent new identity and pending acceptance in its write history. The run verifies that the independent variants and candidate remain byte-exact, and that excluded local state retains its bytes and inode. Both actual public inventory calls still return one file and two lines. Separate actual interference tests verify that a failed per-retirement post-read restores the prior package and permits recovery; this public example does not simulate that failure or claim broader acceptance.
 
 ## Read the complete record
 

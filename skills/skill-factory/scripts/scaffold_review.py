@@ -37,7 +37,8 @@ def load_review(path, plan):
     fields = {item['field'] for item in definitions}
     require(len(fields) == len(definitions), 'duplicate ledger review fields')
     require(isinstance(review['files'], dict) and set(review['files']) ==
-            {item['path'] for item in plan['files']}, 'review must cover every planned file exactly')
+            {item['path'] for item in [*plan['files'], *plan.get('retirements', [])]},
+            'review must cover every planned file and retirement exactly')
     for item in review['files'].values():
         require(isinstance(item, dict) and set(item) == {'reviewer', 'review'}
                 and isinstance(item['reviewer'], str) and item['reviewer'].strip()

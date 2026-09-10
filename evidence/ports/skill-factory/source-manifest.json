@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "4e7a2c98dfc6e00483bcc29f21295f5e0a4c07e7a7f9359bc360886b156e5ce8",
-  "evidence_packet_sha256": "4e7a2c98dfc6e00483bcc29f21295f5e0a4c07e7a7f9359bc360886b156e5ce8",
+  "native_manifest_sha256": "a9d3052ba9c27b901e1212876098d62f69b5d7a457db40394cfd49664ce55886",
+  "evidence_packet_sha256": "a9d3052ba9c27b901e1212876098d62f69b5d7a457db40394cfd49664ce55886",
   "files": [
     {
       "bytes": 181,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 87550,
+      "bytes": 88483,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "9bd64986a692f92cab91d1a78f175693bb6c73c9f525ca01befcaf108a95fd6f",
+      "sha256": "33995ede6dbd7f24b192507d0d618f430d77143ce24e29a4f0f728634d1eff7a",
       "source_path": "SKILL.md"
     },
     {
@@ -146,10 +146,10 @@
       "source_path": "assets/registry-standardization-profiles.json"
     },
     {
-      "bytes": 85876,
+      "bytes": 86809,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template.md",
-      "sha256": "5bf2561fb1bbe6e7871c84adb1b5b4103a8b3637a509a7c0f2eab8503cdf6f8c",
+      "sha256": "e88b03df80835ded8df8fc3b87ba2e10adfbe1d6e22caf9fcbcc060acdc05028",
       "source_path": "assets/skill-template.md"
     },
     {
@@ -342,10 +342,10 @@
       "source_path": "examples/example-variant-project.md"
     },
     {
-      "bytes": 3587,
+      "bytes": 4786,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-variant-user.md",
-      "sha256": "d25beacb8d2f9e2196017825b236877393ee89ea4b78c3aaea994288204519dc",
+      "sha256": "f131478069215f28e5a3a1896144e2d24666af2e746896b6d3f4e8ef380286cd",
       "source_path": "examples/example-variant-user.md"
     },
     {
@@ -391,10 +391,10 @@
       "source_path": "examples/standardization-run.json"
     },
     {
-      "bytes": 3341480,
+      "bytes": 3032895,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/variant-public-run.json",
-      "sha256": "886a265c55dc4c3d218143f476d63ea3e37e1ef0f43458dde2bda3c2a91f72ae",
+      "sha256": "27df6d43bb22630d28e839ea0b99da28ccfd2777550ae7382dd5aee2b6f3f5b4",
       "source_path": "examples/variant-public-run.json"
     },
     {
@@ -461,10 +461,10 @@
       "source_path": "references/resource-and-experiment-design.md"
     },
     {
-      "bytes": 15807,
+      "bytes": 17138,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/references/scope-variants.md",
-      "sha256": "28f2c2fe6cafb4ecc999ff0b8e1640ddbb51ccd0158839d43f46bcaf14cf1ae3",
+      "sha256": "17546e9fbde2bc3cece26b4a4a05bd5bb97b3699017cf68db52228cca3fa6a44",
       "source_path": "references/scope-variants.md"
     },
     {
@@ -762,10 +762,10 @@
       "source_path": "scripts/scaffold_plan.py"
     },
     {
-      "bytes": 5958,
+      "bytes": 6018,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/scaffold_review.py",
-      "sha256": "723b46c32e084d128d4ad4b22b4d18d16aa57721dab9fd37ddec2bd2c9dbfba4",
+      "sha256": "110196f1b3693dd28dbc6cd141aa594b10e4bd0126e58b3a0a70ac4978750173",
       "source_path": "scripts/scaffold_review.py"
     },
     {
@@ -797,10 +797,10 @@
       "source_path": "scripts/skill_scope.py"
     },
     {
-      "bytes": 4765,
+      "bytes": 4776,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/skill_variant.py",
-      "sha256": "035e8b2dfa8d2bb3e5756f00e9aa1f8bebdb1bf02e50eb23b839f5e0e1b5152f",
+      "sha256": "ec8f2a60d9955161baf9d4fc7d981479c4e31ec53e4d3898ec569d8ed563c3c2",
       "source_path": "scripts/skill_variant.py"
     },
     {
@@ -937,10 +937,10 @@
       "source_path": "scripts/tests/cli.py"
     },
     {
-      "bytes": 2431,
+      "bytes": 2464,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/scaffold_test_support.py",
-      "sha256": "aca69e87f4777f718427705b49a0e4a2ac383ff9f227cf2a4c4fecff1c625933",
+      "sha256": "84384d5cf7910b6459aef7a5dd09a566c9c2dde5edd6c601ae51f1ca83b9d372",
       "source_path": "scripts/tests/scaffold_test_support.py"
     },
     {
@@ -1518,11 +1518,18 @@
       "source_path": "scripts/tests/test_variant_publication_guard.py"
     },
     {
-      "bytes": 5243,
+      "bytes": 5425,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_variant_refresh.py",
-      "sha256": "02f2fbbb97b5dc11e5a01db164cf4aa3de419db6bea9a0fa23ddba4a822219a7",
+      "sha256": "da14f795ab03b5438bb74d170cc4bf7edcd4044e10f5f7917c43ddac6a4e0c45",
       "source_path": "scripts/tests/test_variant_refresh.py"
+    },
+    {
+      "bytes": 7429,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_variant_retirement.py",
+      "sha256": "a9010a4dfb07e55c2b956361659a6108827fe7e0a2d275fa02f8c408a03d792f",
+      "source_path": "scripts/tests/test_variant_retirement.py"
     },
     {
       "bytes": 9318,
@@ -1542,7 +1549,7 @@
       "bytes": 6230,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/variant_accept.py",
-      "sha256": "acb225b7fcd5abfc2ebdc73cfbf3b3894ee3290eb5e547a7149a263df864b046",
+      "sha256": "021c924a3bd61b084e5d768769ce04ebfbcec76c38c1c7f33df670c504a82811",
       "source_path": "scripts/variant_accept.py"
     },
     {
@@ -1567,10 +1574,10 @@
       "source_path": "scripts/variant_plan.py"
     },
     {
-      "bytes": 3537,
+      "bytes": 4217,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/variant_publication_plan.py",
-      "sha256": "2b3963fda3c12c0696d385081cccbfe35befa9a1447f450260be2aa12f6d44b7",
+      "sha256": "722a4504ee966edc790c3988876fba71d1c58d3f5d72c44641317e82cdc022ab",
       "source_path": "scripts/variant_publication_plan.py"
     },
     {
@@ -1581,10 +1588,10 @@
       "source_path": "scripts/variant_review.py"
     },
     {
-      "bytes": 5082,
+      "bytes": 6750,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/variant_reviewed_publish.py",
-      "sha256": "e863fc0b24b76ab3fa4346e09a93f9bb555a01e7bdf03bce301cf71717e40a7f",
+      "sha256": "41b4e699bc0c70dd954d77061e34ae88a88d71299420086f1e0430ad31015cd5",
       "source_path": "scripts/variant_reviewed_publish.py"
     },
     {

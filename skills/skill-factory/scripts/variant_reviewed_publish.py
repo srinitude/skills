@@ -1,11 +1,13 @@
 """Publish complete future variant files through the existing ledger review guard."""
+import base64
+import stat
 from pathlib import Path
 
 from agentic_request_contract import read_json
 from review_ledger_context import require
 from review_ledger_source import read_file
 from scaffold_review import build_reviewed, current_inputs, load_review, read_context
-from skill_package import inventory, promote, staged
+from skill_package import inventory, promote, sha, staged
 from standardization_plan import directory_modes
 from standardization_review import planned_files
 from variant_context import check_current
@@ -61,6 +63,29 @@ def verify_layout(target, publication):
     require(actual == expected, 'variant directories or modes changed')
 
 
+
+def retirement_checks(publication, review, check, original, target=None):
+    records = []
+    for item in publication['retirements']:
+        check()
+        body_root = original if target is None else target
+        body = read_file({'path': str(body_root / 'SKILL.md')})
+        expected_body = (publication['target_before']['files']['SKILL.md']['sha256'] if target is None else
+                         next(file['sha256'] for file in publication['files'] if file['path'] == 'SKILL.md'))
+        require(sha(body) == expected_body, 'retirement body changed')
+        path = original / item['path']
+        require(read_file({'path': str(path)}) == base64.b64decode(item['content_base64']),
+                'retired file bytes changed')
+        require(stat.S_IMODE(path.stat().st_mode) == item['mode'], 'retired file mode changed')
+        if target is not None:
+            removed = target / item['path']
+            require(not removed.exists() and not removed.is_symlink(), 'retired file remains published')
+            records.append({'action': 'retire-file', 'path': item['path'], 'old_sha256': item['sha256'],
+                            'new_sha256': None, 'old_mode': item['mode'], 'new_mode': None,
+                            **review['files'][item['path']], 'execution_acceptance': 'pending'})
+    return records
+
+
 def publish_reviewed(plan, publication, factory, plan_path, review_path, validate_candidate):
     review, review_raw, (binding, raw) = publication_review(plan_path, review_path, publication, factory)
     target = Path(publication['target'])
@@ -79,10 +104,15 @@ def publish_reviewed(plan, publication, factory, plan_path, review_path, validat
         validation = validate_candidate(candidate)
         require(package_state(candidate)['files'] == expected, 'variant validation changed planned files or modes')
         inputs(candidate.parent)
+        def before_promotion():
+            inputs(candidate.parent, locked=True)
+            retirement_checks(publication, review, lambda: inputs(candidate.parent, locked=True), target)
         def verify(backup):
             inputs(candidate.parent, backup, True)
             require(package_state(target)['files'] == expected, 'published variant differs from reviewed files or modes')
             verify_layout(target, publication)
+            writes.extend(retirement_checks(publication, review,
+                lambda: inputs(candidate.parent, backup, True), backup, target))
         promote(candidate, target, None if before is None else {name: x['sha256'] for name, x in before['files'].items()},
-                preserve_unowned=True, check=lambda: inputs(candidate.parent, locked=True), verify=verify)
+                preserve_unowned=True, check=before_promotion, verify=verify)
     return validation, writes

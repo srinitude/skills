@@ -130,7 +130,7 @@ class TestRegistryStandardization(unittest.TestCase):
             ci_test = (tests / "test_ci_contract.py").read_text()
             source_test = (tests / "test_source_mapping.py").read_text()
             script_test = (tests / "test_scripts.py").read_text()
-            self.assertIn('tasks["ci"]["depends"]', ci_test)
+            self.assertIn('self.assertEqual(tasks["ci"], EXPECTED_CI_TASK)', ci_test)
             self.assertNotIn('tasks["ci"]["run"]', ci_test)
             self.assertNotIn('f"mise run {job}"', ci_test)
             self.assertEqual(source_test, "self.assertEqual(files, EXPECTED_FILES)\n")

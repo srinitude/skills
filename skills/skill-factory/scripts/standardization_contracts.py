@@ -1,4 +1,5 @@
 """Reconcile legacy package checks with the factory contract."""
+import ast
 import json
 import re
 from pathlib import Path
@@ -17,7 +18,7 @@ CURRENT_LAYOUT = '''    for name in REQUIRED_DIRS + ["scripts/tests"]:
         if body and f"{name}/" not in body:
             problems.append(f"body never references {name}/")
 '''
-CI_TEMPLATE = '''"""Pin the {skill} task graph and one-entry workflow."""
+LEGACY_CI_TEMPLATE = '''"""Pin the {skill} task graph and one-entry workflow."""
 import pathlib
 import tomllib
 import unittest
@@ -51,11 +52,17 @@ class TestPackageContract(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 '''
+# Exact historical template and assertion bytes identify automatic migrations.
+CI_TEMPLATE = LEGACY_CI_TEMPLATE.replace('EXPECTED_CI_DEPENDS', 'EXPECTED_CI_TASK').replace(
+    '        self.assertEqual(tasks["ci"]["depends"], EXPECTED_CI_TASK)\n        self.assertNotIn("run", tasks["ci"])',
+    '        self.assertEqual(tasks["ci"], EXPECTED_CI_TASK)')
+LEGACY_CI_ASSERTION = b'steps = self.tasks["ci"]["run"]\nself.assertIn(f"mise run {job}", " ".join(steps))\n'
+
 SCRIPT_COMMAND_RE = re.compile(r"scripts/([\w./-]+\.py)")
 
 
-def ci_contract(skill, dependencies):
-    return CI_TEMPLATE.format(skill=skill, expected=json.dumps(dependencies))
+def ci_contract(skill, task):
+    return CI_TEMPLATE.format(skill=skill, expected=repr(task))
 
 
 def cli_scripts(tasks):
@@ -68,6 +75,23 @@ def cli_scripts(tasks):
     return sorted(found)
 
 
+def owned_ci_contract(old, skill):
+    try:
+        for node in ast.parse(old).body:
+            if not isinstance(node, ast.Assign) or len(node.targets) != 1:
+                continue
+            name = node.targets[0].id if isinstance(node.targets[0], ast.Name) else ''
+            if name not in ('EXPECTED_CI_DEPENDS', 'EXPECTED_CI_TASK'):
+                continue
+            value = ast.literal_eval(node.value)
+            expected = (LEGACY_CI_TEMPLATE.format(skill=skill, expected=json.dumps(value))
+                        if name == 'EXPECTED_CI_DEPENDS' else ci_contract(skill, value))
+            return old == expected.encode()
+    except (SyntaxError, ValueError, TypeError):
+        return False
+    return False
+
+
 def contract_files(files, tasks, profile):
     validator = 'scripts/validate_skill.py'
     if validator in files:
@@ -75,8 +99,8 @@ def contract_files(files, tasks, profile):
     legacy = 'scripts/tests/test_ci_contract.py'
     target = legacy if legacy in files else 'scripts/tests/test_package_contract.py'
     old = files.get(target, b'')
-    if not old or b'["ci"]["run"]' in old:
-        files[target] = ci_contract(profile['skill'], tasks['ci']['depends']).encode()
+    if not old or old == LEGACY_CI_ASSERTION or owned_ci_contract(old, profile['skill']):
+        files[target] = ci_contract(profile['skill'], tasks['ci']).encode()
     help_path = 'scripts/tests/test_scripts.py'
     text = files.get(help_path, b'').decode('utf-8')
     old = '        scripts = sorted((SKILL_DIR / "scripts").glob("*.py"))'

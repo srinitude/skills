@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "dce518c8140f3fc4153019e8c417021cd5a8651a33c9120720a3606e295345f4",
+  "native_manifest_sha256": "0e9ba321f607d4858571783bf1255c21240999ec2633b2263eaa020ccd125ca8",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1175,6 +1175,18 @@
       ]
     },
     {
+      "path": "scripts/tests/test_standardization_ci_contract.py",
+      "source_paths": [
+        "scripts/tests/test_standardization_ci_contract.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_standardization_commands.py",
+      "source_paths": [
+        "scripts/tests/test_standardization_commands.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_standardization_contracts.py",
       "source_paths": [
         "scripts/tests/test_standardization_contracts.py"
@@ -1574,7 +1586,7 @@
     },
     {
       "path": "examples/example-standardization.md",
-      "sha256": "27f1c5595eaf79eefc9182ca3907183f121f67a3cadfe12f370d4c73c110160c"
+      "sha256": "dd4ba01129051c0fe5af28767dbef933a503a8dbcece2d207ca6a3073f480377"
     },
     {
       "path": "examples/example-validate.md",
@@ -1610,7 +1622,7 @@
     },
     {
       "path": "examples/standardization-run.json",
-      "sha256": "2c6f63ff1b095b6c293836da1aaa1795949c16bd38686c9ee3fdaa722b628974"
+      "sha256": "fe6ce3b6cab996b81fd4718f11c1bc819bcbb4f72353487e0d41028f6d57f97d"
     },
     {
       "path": "examples/variant-public-run.json",
@@ -1858,7 +1870,7 @@
     },
     {
       "path": "scripts/standardization_contracts.py",
-      "sha256": "5f1d37d40581eadb0d2b1959e56ee4277b41259ce0c5d8b1aa0d34fac72b52d4"
+      "sha256": "61c674ea9656bccfb9e0a1c5cd16ef4b85c1e628be1d9d08ceeca38a13ddda60"
     },
     {
       "path": "scripts/standardization_discovery.py",
@@ -1878,7 +1890,7 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "595c0f2d33238c710d9c82954e3f19fc9671cc2d8ffe2e51b0ab03f5f05b30fc"
+      "sha256": "3aabf4587f693f09d5c9fc89a69217f16a1a37214e1bfb20399733fe4c474ecf"
     },
     {
       "path": "scripts/standardization_plan.py",
@@ -2173,6 +2185,14 @@
       "sha256": "78ad55877cea84220f3e7d6a3af2dc30186f60286ef1530185900bd27b610959"
     },
     {
+      "path": "scripts/tests/test_standardization_ci_contract.py",
+      "sha256": "e3be2f83369decc5c9604d9676d4112ac57a71bb36228f58d0f3673f8f5fa133"
+    },
+    {
+      "path": "scripts/tests/test_standardization_commands.py",
+      "sha256": "e2f500b3ed8030965144006de4e864ae60c5d8166443aa75ae988a627e62ad73"
+    },
+    {
       "path": "scripts/tests/test_standardization_contracts.py",
       "sha256": "52bdbd5f342a2b69f1e51b711cba1f0827b2024118966655afc4b524593c63f5"
     },
@@ -2206,7 +2226,7 @@
     },
     {
       "path": "scripts/tests/test_standardize_registry_skill.py",
-      "sha256": "e9cc50d7adc57d6dc61ee73d0a74614e145e061cd2b01684ca0ce90de92244fe"
+      "sha256": "f7a1178ed10732c5f909110cb26435a26e2f3b4dda5b99daa1644c7ba15305b6"
     },
     {
       "path": "scripts/tests/test_sync_mise_primitives.py",

@@ -45,7 +45,6 @@ POLICY_TASKS = {
     "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
 SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
-NESTED_RE = re.compile(r"mise run ([a-z0-9][a-z0-9:-]*)")
 
 
 def split_sections(text):
@@ -72,11 +71,12 @@ def strip_key(block, key):
 
 
 def nested_dependencies(block):
-    found = []
-    for name in NESTED_RE.findall(block):
-        if name not in found:
-            found.append(name)
-    return found
+    command = tomllib.loads('[task]\n' + block)['task'].get('run')
+    command = command[0] if isinstance(command, list) and len(command) == 1 else command
+    match = re.fullmatch(r"mise run ([a-z0-9][a-z0-9:-]*)", command.strip()) if isinstance(command, str) else None
+    if not match and re.search(r'\bmise\s+run\b', json.dumps(command)):
+        raise ValueError('nested CI execution needs explicit reconciliation before standardization')
+    return [match.group(1)] if match else []
 
 
 def declared_dependencies(block):
@@ -106,14 +106,14 @@ def normalize_existing(name, block):
     dependencies = declared_dependencies(block)
     if name == "lint-code" and "check-runtime" not in dependencies:
         dependencies.append("check-runtime")
-    if name == "ci":
-        dependencies += [item for item in nested_dependencies(block)
-                         if item not in dependencies]
+    nested = nested_dependencies(block) if name == "ci" else []
+    dependencies += [item for item in nested if item not in dependencies]
     if name == "ci" and "decision-policy" not in dependencies:
         dependencies.append("decision-policy")
-    result = strip_key(strip_key(block, "run" if name == "ci" else "depends"), "depends")
-    parts = [result, dependency_line(dependencies)] if result else [dependency_line(dependencies)]
-    return "\n".join(parts)
+    result = strip_key(block, "depends")
+    if nested:
+        result = strip_key(result, "run")
+    return "\n".join(filter(None, [result, dependency_line(dependencies)]))
 
 
 def policy_block(name, spec):
@@ -125,38 +125,42 @@ def policy_block(name, spec):
     return f'[tasks.{name}]\n{block}'
 
 
-def main_task_block(profile):
-    name = profile["main_task"]
-    description = f"Run the {profile['primary_term']} operation"
-    command = json.dumps(profile["main_run"])
-    return "\n".join([f"[tasks.{name}]", f'description = "{description}"',
-                       f"run = {command}", "depends = []"])
-
-
-def script_task_block(name, spec):
-    suffix = f" {spec['args']}" if spec.get("args") else ""
-    runner = spec.get("runner", "python3")
-    command = json.dumps(f"{runner} scripts/{spec['script']}{suffix}")
-    description = json.dumps(spec["description"])
-    return "\n".join([f"[tasks.{name}]", f"description = {description}",
-                       f"run = {command}", "depends = []"])
-
-
 def command_task_block(name, spec):
     return "\n".join([f"[tasks.{name}]",
                        f"description = {json.dumps(spec['description'])}",
                        f"run = {json.dumps(spec['run'])}", "depends = []"])
 
 
+def main_task_block(profile):
+    return command_task_block(profile["main_task"], {
+        "description": f"Run the {profile['primary_term']} operation", "run": profile["main_run"]})
+
+
+def script_task_block(name, spec):
+    suffix = f" {spec['args']}" if spec.get("args") else ""
+    return command_task_block(name, {"description": spec["description"],
+        "run": f"{spec.get('runner', 'python3')} scripts/{spec['script']}{suffix}"})
+
+
 def existing_block(name, block, profile):
     scripts = profile.get("script_tasks", {}) if profile else {}
     commands = profile.get("command_tasks", {}) if profile else {}
+    replacement = None
     if name in scripts:
-        return script_task_block(name, scripts[name])
-    if name in commands:
-        return command_task_block(name, commands[name])
-    if profile and name == profile["main_task"] and profile.get("main_run"):
-        return main_task_block(profile)
+        replacement = script_task_block(name, scripts[name])
+    elif name in commands:
+        replacement = command_task_block(name, commands[name])
+    elif profile and name == profile["main_task"] and profile.get("main_run"):
+        replacement = main_task_block(profile)
+    if replacement:
+        before = tomllib.loads('[task]\n' + block)['task']
+        desired = tomllib.loads(replacement)['tasks'][name]
+        for key in ['run', 'description']:
+            if before.get(key) != desired[key]:
+                block = strip_key(block, key) + '\n' + key + ' = ' + json.dumps(desired[key])
+        expected = dict(before, run=desired['run'], description=desired['description'])
+        if tomllib.loads('[task]\n' + block)['task'] != expected:
+            raise ValueError('task command replacement needs explicit reconciliation: ' + name)
     return f"[tasks.{name}]\n{normalize_existing(name, block)}"
 
 

@@ -1,5 +1,7 @@
 """Tests for factory-owned in-place registry standardization."""
 import json
+import sys
+import tomllib
 import tempfile
 import unittest
 from pathlib import Path
@@ -7,6 +9,9 @@ from pathlib import Path
 from standardization_test_support import reviewed_standardize
 
 from standardization_fixtures import profile, write_target
+from cli import SCRIPTS
+sys.path.insert(0, str(SCRIPTS))
+from check_task_graph import path_counts
 
 
 class TestRegistryStandardization(unittest.TestCase):
@@ -63,7 +68,10 @@ class TestRegistryStandardization(unittest.TestCase):
 
     def assert_package_graph(self, root):
             mise = (root / "mise.toml").read_text(encoding="utf-8")
-            self.assertIn('depends = ["anchor", "decision-policy"]', mise)
+            counts = path_counts(tomllib.loads(mise)["tasks"], "ci")
+            for task in ["anchor", "decision-policy", "test", "validate",
+                         "lint-writing", "lint-code", "lint-placeholders", "evals"]:
+                self.assertEqual(counts.get(task), 1, task)
             self.assertIn("[tasks.inspect-anchor]", mise)
             self.assertIn("[tasks.report-clock]", mise)
             self.assertIn("uv run python scripts/inspect.py --format json", mise)

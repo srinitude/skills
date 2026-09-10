@@ -4,7 +4,10 @@ import re
 import tomllib
 from graphlib import TopologicalSorter
 
-from check_task_graph import dependency_name
+from check_task_graph import dependency_name, path_counts
+from standardization_seed import base_mise
+
+CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
 from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble)
 
@@ -173,6 +176,15 @@ def runtime_dependencies(name, dependencies, names):
     return result
 
 
+def connect_ci_checks(blocks, graph):
+    for check in CI_CHECKS:
+        if path_counts({name: {'depends': edges} for name, edges in graph.items()}, 'ci')[check]:
+            continue
+        current = tomllib.loads(blocks['ci'])['tasks']['ci']['depends']
+        blocks['ci'] = strip_key(blocks['ci'], 'depends') + '\n' + dependency_line(current + [check])
+        graph['ci'].append(check)
+
+
 def order_runtime_tasks(text):
     preamble, sections = split_sections(text)
     tasks = tomllib.loads(text)["tasks"]
@@ -190,6 +202,7 @@ def order_runtime_tasks(text):
         if dependencies != tasks[name].get("depends"):
             block = strip_key(block, "depends") + "\n" + dependency_line(dependencies)
         blocks[name] = f"[tasks.{name}]\n{block}"
+    connect_ci_checks(blocks, graph)
     # Definition-reading order includes post-task definitions, not their execution order.
     ordered = [blocks[name] for name in TopologicalSorter(graph).static_order()]
     return preamble + "\n\n" + "\n\n".join(ordered) + "\n"
@@ -199,6 +212,9 @@ def normalize_mise(text, profile=None):
     preamble, existing = split_sections(text)
     preamble = runtime_preamble(preamble)
     names = {name for name, _ in existing}
+    baseline = split_sections(base_mise(profile or {'primary_term': 'skill'}))[1]
+    existing += [(name, block) for name, block in baseline if name not in names]
+    names.update(name for name, _ in existing)
     blocks = [existing_block(name, block, profile) for name, block in existing]
     blocks += [policy_block(name, spec) for name, spec in POLICY_TASKS.items()
                if name not in names]

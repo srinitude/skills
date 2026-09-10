@@ -43,6 +43,35 @@ class TestRuntimeDependencies(unittest.TestCase):
         self.assert_ready_graph(tomllib.loads(normalized)["tasks"])
         self.assertEqual(normalize_mise(normalized), normalized)
 
+    def test_existing_ci_reaches_validation_once_on_direct_and_indirect_routes(self):
+        for dependency in ['anchor', 'verify-anchor']:
+            with self.subTest(dependency=dependency):
+                source = ('[tasks.anchor]\ndescription = "Read the clock"\ndepends = []\nrun = "true"\n'
+                          '[tasks.verify-anchor]\ndescription = "Check the clock package"\ndepends = ["validate"]\n'
+                          '[tasks.ci]\ndescription = "Check the clock"\ndepends = ["' + dependency + '"]\n')
+                output = normalize_mise(source)
+                tasks = tomllib.loads(output)['tasks']
+                self.assertIsNone(find_cycle(tasks))
+                self.assertEqual(path_counts(tasks, 'ci')['validate'], 1)
+                self.assertEqual(tasks['anchor']['depends'], [])
+                self.assertEqual(tasks['verify-anchor']['depends'], ['validate'])
+                self.assertLess(list(tasks).index('validate'), list(tasks).index('ci'))
+                self.assertEqual(normalize_mise(output), output)
+
+    def test_partial_legacy_ci_reaches_every_required_standard_check(self):
+        source = ('[tasks.anchor]\ndescription = "Read the clock"\ndepends = []\nrun = "true"\n'
+                  '[tasks.ci]\ndescription = "Check the clock"\nrun = "mise run anchor"\n')
+        checks = tomllib.loads(base_mise({'primary_term': 'clock'}))['tasks']['ci']['depends']
+        output = normalize_mise(source)
+        tasks = tomllib.loads(output)['tasks']
+        self.assertTrue(set(checks) <= set(tasks), set(checks) - set(tasks))
+        counts = path_counts(tasks, 'ci')
+        for check in [*checks, 'anchor', 'check-runtime', 'setup-runtime']:
+            self.assertEqual(counts[check], 1, check)
+        self.assertIsNone(find_cycle(tasks))
+        self.assertEqual(tasks['anchor'], tomllib.loads(source)['tasks']['anchor'])
+        self.assertEqual(normalize_mise(output), output)
+
     def test_absent_lint_owner_does_not_erase_the_declared_runtime(self):
         names = {"test", "check-runtime", "setup-runtime"}
         self.assertEqual(runtime_dependencies("test", ["check-runtime"], names), ["check-runtime"])

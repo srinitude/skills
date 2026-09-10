@@ -66,6 +66,16 @@ class TestStandardizationLedgerBody(unittest.TestCase):
         self.assertEqual(second, first)
         self.assertIn('[context reader](scripts/agentic_context.py)', second)
 
+    def test_standardized_body_loads_its_shipped_reference_and_example_owners(self):
+        profile = {'primary_term': 'clock anchor', 'main_task': 'anchor', 'outcome': DOMAIN}
+        first = rewrite_markdown(original_body(), {}, profile, True)
+        for owner in ['references/generation-contract.md', 'examples/example-ledger-write.md']:
+            self.assertIn(owner, first)
+            self.assertTrue((FACTORY / owner).is_file())
+        self.assertIn('before accepting', first)
+        self.assertIn('before a file change', first)
+        self.assertEqual(rewrite_markdown(first, {}, profile, True), first)
+
     def test_descriptive_owner_link_keeps_its_existing_public_route(self):
         text = 'Use [the context reader](scripts/agentic_context.py) through `mise run agentic-request`.'
         self.assertEqual(rewrite_script_text(text, {}), text)

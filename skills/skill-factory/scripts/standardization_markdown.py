@@ -164,6 +164,13 @@ def route_line(line, profile):
     return line
 
 
+RESOURCE_OWNERS = (
+    "Read the [generation contract](references/generation-contract.md) through `mise run validate` "
+    "before accepting a created or updated skill. Read the [file-review example](examples/example-ledger-write.md) "
+    "through `mise run ledger` before a file change. Actual reading and semantic review remain required."
+)
+
+
 def contract_resources():
     return ("Load `assets/use-case-contract.json` through `mise run use-case-policy` "
             "and `evals/evals.json` through `mise run evals` only when their "
@@ -189,7 +196,8 @@ def rewrite_markdown(text, owners, profile, add_contract=False):
     updated = BAD_MISE_LINK_RE.sub(lambda item: f"`{item.group(1)}`", updated)
     if add_contract and "## Factory execution contract" not in updated:
         updated = updated.rstrip() + "\n" + contract_section(profile)
-    if add_contract and contract_resources() not in updated:
-        marker = "\nMise owns repeatable mechanics"
-        updated = updated.replace(marker, "\n" + contract_resources() + "\n" + marker)
+    for resource in [contract_resources(), RESOURCE_OWNERS]:
+        if add_contract and resource not in updated:
+            marker = "\nMise owns repeatable mechanics"
+            updated = updated.replace(marker, "\n" + resource + "\n" + marker)
     return updated

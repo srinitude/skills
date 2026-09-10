@@ -37,6 +37,22 @@ class TestStandardizationPreflight(unittest.TestCase):
         self.assertEqual(choice['scope'], 'user')
         self.assertEqual(self.capture(), before)
 
+    def test_exportable_parser_preserves_the_native_argument_contract_without_effects(self):
+        before = self.capture()
+        parser = standardize.build_parser()
+        values = [str(self.root), '--pro', 'profile café 日本語.json', '--profile=',
+                  '--scope=project', '--rebase-tracked-text', '--rebase-tracked-text']
+        parsed = parser.parse_args(values)
+        self.assertEqual(vars(parsed), vars(standardize.parse_args(values)))
+        self.assertEqual(parsed.profile, '')
+        self.assertEqual(parsed.scope, 'project')
+        self.assertTrue(parsed.rebase_tracked_text)
+        literal = parser.parse_args(['--profile', '$(touch SHOULD_NOT_EXIST)', '--', '--help'])
+        self.assertEqual(literal.skill_root, '--help')
+        self.assertEqual(literal.profile, '$(touch SHOULD_NOT_EXIST)')
+        self.assertEqual(parser.parse_args(['--profile', 'cfg', '--', '-leading']).skill_root, '-leading')
+        self.assertEqual(self.capture(), before)
+
     def test_legacy_planning_keeps_unresolved_scope(self):
         before = self.capture()
         self.assertIsNone(self.prepare()[2])

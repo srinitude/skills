@@ -83,8 +83,8 @@ def check_words(line):
 
 
 def check_phrases(line):
-    lowered = line.lower()
-    return [f'banned frame "{p}"' for p in PHRASES if p in lowered]
+    return [f'banned frame "{p}"' for p in PHRASES
+            if re.search(r"(?<!\w)" + re.escape(p) + r"(?!\w)", line, re.I)]
 
 
 def check_symbols(line):

@@ -47,6 +47,17 @@ class TestLintWritingRules(unittest.TestCase):
         result = self.lint_text("It is important to note that tests run.\n")
         self.assertEqual(result.returncode, 1)
 
+    def test_phrase_boundaries_preserve_words_and_reject_actual_frames(self):
+        for text in ["Unknown causality does not justify adoption.",
+                     "The knot justifies inspection."]:
+            result = self.lint_text(text + "\n")
+            self.assertEqual(result.returncode, 0, result.stdout)
+        for text in ["Not just speed matters.", "It is NOT JUST speed.",
+                     "Certainly!", "(not only) speed."]:
+            result = self.lint_text(text + "\n")
+            self.assertEqual(result.returncode, 1, result.stdout)
+            self.assertIn("banned frame", result.stdout)
+
     def test_latin_abbreviation_fails(self):
         result = self.lint_text("Use plain words, e.g. this one.\n")
         self.assertEqual(result.returncode, 1)

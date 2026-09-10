@@ -64,6 +64,7 @@ class TestScaffoldOutput(unittest.TestCase):
         for rel in ["SKILL.md", "mise.toml", ".github/workflows/ci.yml",
                     "references/generation-contract.md", "assets",
                     "references/resource-and-experiment-design.md",
+                    "references/improvement-dimensions.md",
                     "references/writing-rules.md",
                     "assets/improvement-contract.json",
                     "assets/use-case-contract.json",
@@ -180,14 +181,35 @@ class TestScaffoldOutput(unittest.TestCase):
                               text=True, timeout=180)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
 
+    def assert_platform_neutral(self, relative, text):
+        # Exact reviewed citations are provenance, not runner selection.
+        # Other text and every other path keep the existing rejection rule.
+        if relative == "references/improvement-dimensions.md":
+            for citation in ['[infrastructure experiments](https://www.anthropic.com/engineering/infrastructure-noise)', '7: Anthropic, [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), 2026-01-09.', '8: Gian Segato, [Quantifying infrastructure noise in agentic coding evals](https://www.anthropic.com/engineering/infrastructure-noise), Anthropic, 2026-02-05.']:
+                text = text.replace(citation, "[reviewed research citation]")
+        halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"), ("openc", "ode"),
+                  ("copi", "lot"), ("cur", "sor"), ("gem", "ini"), ("g", "pt"),
+                  ("anthro", "pic"), ("open", "ai"), ("perple", "xity")]
+        for head, tail in halves:
+            self.assertFalse(head + tail in text.lower(),
+                             f"{relative} contains a named platform/model: {head + tail}")
+
+    def test_research_citation_exception_preserves_instruction_rejection(self):
+        relative = "references/improvement-dimensions.md"
+        text = (self.skill / relative).read_text()
+        self.assert_platform_neutral(relative, text)
+        for changed in [text + "\nUse the " + "anthro" + "pic runner.",
+                        text.replace("/infrastructure-noise", "/unreviewed-source")]:
+            with self.assertRaises(AssertionError):
+                self.assert_platform_neutral(relative, changed)
+        with self.assertRaises(AssertionError):
+            self.assert_platform_neutral("SKILL.md", text)
+
     def test_generated_instructions_do_not_choose_a_platform_or_model(self):
         # Complete observed records retain native schema facts, not runner choices.
         evidence = {name for name in LEDGER_EXAMPLES if name.endswith('.json')}
         for name in evidence:
             self.assertEqual((self.skill / name).read_bytes(), (SCRIPTS.parent / name).read_bytes())
-        halves = [("her", "mes"), ("cla", "ude"), ("co", "dex"), ("openc", "ode"),
-                  ("copi", "lot"), ("cur", "sor"), ("gem", "ini"), ("g", "pt"),
-                  ("anthro", "pic"), ("open", "ai"), ("perple", "xity")]
         for path in owned_paths(self.skill):
             relative = path.relative_to(self.skill.resolve()).as_posix()
             if relative in evidence:
@@ -196,9 +218,7 @@ class TestScaffoldOutput(unittest.TestCase):
             if path.name == "package-lock.json":
                 text = json.dumps(json.loads(text, object_hook=lambda item:
                     {key: value for key, value in item.items() if key != "integrity"}))
-            for head, tail in halves:
-                self.assertFalse(head + tail in text.lower(),
-                                 f"{relative} contains a named platform/model: {head + tail}")
+            self.assert_platform_neutral(relative, text)
 
 
 

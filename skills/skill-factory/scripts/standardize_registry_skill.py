@@ -17,6 +17,7 @@ COPIES = [
     ("assets/improvement-contract.json", "assets/improvement-contract.json"),
     ("assets/mise-primitives-catalog.json", "assets/mise-primitives-catalog.json"),
     ("references/resource-and-experiment-design.md", "references/resource-and-experiment-design.md"),
+    ("references/improvement-dimensions.md", "references/improvement-dimensions.md"),
     ("references/use-case-specificity.md", "references/use-case-specificity.md"),
     ("references/generation-contract.md", "references/generation-contract.md"),
     ("references/skill-scope-contract.md", "references/skill-scope-contract.md"),
@@ -65,7 +66,7 @@ def planned_paths(root, profile):
     return sorted(paths)
 
 
-def parse_args(argv):
+def build_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("skill_root")
     parser.add_argument("--profile", required=True)
@@ -75,6 +76,11 @@ def parse_args(argv):
     parser.add_argument("--rebase-tracked-text", action="store_true")
     parser.add_argument("--scope", choices=SCOPES)
     parser.add_argument("--placement-receipt")
+    return parser
+
+
+def parse_args(argv):
+    parser = build_parser()
     args = parser.parse_args(argv)
     if not args.apply and (args.plan_file or args.review):
         parser.error('--plan-file and --review require --apply')

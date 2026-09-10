@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "2ea2b55cfb8539b52f78574ad06b973b5599299adb6558f79ffa9664b7816b13",
+  "native_manifest_sha256": "45de9d545a20d0aefbffe76455dabda2de58b27ec2e6191483c5b83095716e94",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -380,6 +380,12 @@
       "path": "references/generation-contract.md",
       "source_paths": [
         "references/generation-contract.md"
+      ]
+    },
+    {
+      "path": "references/improvement-dimensions.md",
+      "source_paths": [
+        "references/improvement-dimensions.md"
       ]
     },
     {
@@ -1462,7 +1468,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "61fc3f9d1b1062b2c1cdea9809d3eb249d7f4ff93a9a529e90ed78b9d37c9871"
+      "sha256": "df119218530221d84118b02cbc17d3efa5ba4a050acef38bcf8beb950752085c"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1498,7 +1504,7 @@
     },
     {
       "path": "assets/improvement-contract.json",
-      "sha256": "87b1c0e1d6439f481a651088dfc22e3bf4c1c525a2b149777dfcf7903cb15cec"
+      "sha256": "23411a2dbe2822bca28009b84d745424b765ad6a2498217bcb02df6d6a5ef148"
     },
     {
       "path": "assets/invocation-receipt-template.json",
@@ -1534,7 +1540,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "e88b03df80835ded8df8fc3b87ba2e10adfbe1d6e22caf9fcbcc060acdc05028"
+      "sha256": "7bbf0d225a55abfc1fc86c7a050cac5491c6d4791ecfe2517e1bd179d19db40f"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1705,12 +1711,16 @@
       "sha256": "885f40c9af6516bf0336629c86930919c4d4f04ac277a3dac9507f9b8504a9a9"
     },
     {
+      "path": "references/improvement-dimensions.md",
+      "sha256": "5e28d7daed918bbcd76a647fe5c80b8be44bbe4e3dabb4df3ca8a5120f2b617a"
+    },
+    {
       "path": "references/registry.md",
       "sha256": "2dd84e3a2e3742129a1d5ff46d376d17dd09c93aaba2f5736f62a32113541301"
     },
     {
       "path": "references/resource-and-experiment-design.md",
-      "sha256": "3a9fca7c37e020994fb114c55b968b45c27dcd98e1d0930f8402443c6604d878"
+      "sha256": "80a52fc9f449882f13eeffbadd2731ce868afceabb9ae2b16a4537ef60d8af88"
     },
     {
       "path": "references/scope-variants.md",
@@ -1762,7 +1772,7 @@
     },
     {
       "path": "scripts/check_improvement_contract.py",
-      "sha256": "7a90ef820776294be93c925b91b8f5ef351dfc830b97c195a99c9194cbcba288"
+      "sha256": "770f37b9ec25f5a8de2f4b0ca711f4da6f07dbded60fd78147cc5e43b22e7137"
     },
     {
       "path": "scripts/check_invocation_receipt.py",
@@ -1814,7 +1824,7 @@
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "f1ca05c653d630db731c3a86e0744a62338afbece2fa2b5a774c511554aee7f1"
+      "sha256": "0db885592db24d4ea7776baeeb71be7eaa76f71f0b9ae1aae3bd1b28049203fc"
     },
     {
       "path": "scripts/plan_standardize.py",
@@ -1902,7 +1912,7 @@
     },
     {
       "path": "scripts/scaffold_skill.py",
-      "sha256": "089a1ebf179405b0fa99a528bcbdb19b8d737c60e97794b350afd05dfb55382b"
+      "sha256": "7cf680375cee41a39c14e9050c2425eca0bdf98ed8c11607429e1e94a89e014c"
     },
     {
       "path": "scripts/scope_placement.py",
@@ -1986,7 +1996,7 @@
     },
     {
       "path": "scripts/standardize_registry_skill.py",
-      "sha256": "a047c4fbe31f552399697e2f204d95e9dc4280117285c2afea4e424f0ba844e9"
+      "sha256": "72c7fc785eefeec840bb9a05d6cddcf455305841dbf1c583921e7cba01069779"
     },
     {
       "path": "scripts/sync_mise_primitives.py",
@@ -2070,7 +2080,7 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "8a3b6a15bff7593df1016af62664d02245499644a1b3777e707099efdde2782c"
+      "sha256": "651c61397abee061e75c0e916a015f5d078cac5e8431e49c3d7e971aeb008376"
     },
     {
       "path": "scripts/tests/test_formatter_permissions.py",
@@ -2098,7 +2108,7 @@
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
-      "sha256": "4ce75dfe3fc465243ccf80f99fd2a911c9a57fb66039cb0091614fb9468ee520"
+      "sha256": "9f672ff4b99d06064e821a5f5dd626f27eab3ad55e6658cc87c00a10fdcff114"
     },
     {
       "path": "scripts/tests/test_mapping_promotion.py",
@@ -2222,7 +2232,7 @@
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "db2a0b4084f7828c0569fca9bdf85cb1d5503eb1cf9a79210c5e7b025a244e27"
+      "sha256": "d9382ecfa768b931f42fbf97612f31cf349ae45b2522d8b1ef32839e0a16c757"
     },
     {
       "path": "scripts/tests/test_scope_destination.py",
@@ -2290,7 +2300,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_preflight.py",
-      "sha256": "e6061867407690cf60db36293107ee513adbc2f211159090aef7d970ce224e62"
+      "sha256": "51c4d3e412551023f00dc61b356b25cd5dad042483bcce03c0528e04a60a50c9"
     },
     {
       "path": "scripts/tests/test_standardization_review.py",

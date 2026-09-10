@@ -118,6 +118,7 @@ def source_files():
     sources += [('scripts/' + name, 'scripts/' + name, False) for name in CHECKERS]
     sources += [('references/' + name, 'references/' + name, False) for name in
                 ['generation-contract.md', 'resource-and-experiment-design.md',
+                 'improvement-dimensions.md',
                  'use-case-specificity.md', 'writing-rules.md', 'skill-scope-contract.md']]
     return sources
 

@@ -112,5 +112,43 @@ class TestFactoryOperations(unittest.TestCase):
         self.assertIn("mise run source-corpus", registry)
 
 
+class TestImprovementLifecycle(unittest.TestCase):
+    def test_declared_lifecycle_rejects_each_missing_or_weakened_gate(self):
+        import sys
+        sys.path.insert(0, str(SKILL_DIR / "scripts"))
+        from check_improvement_contract import load_contract, problems
+        policy = load_contract(SKILL_DIR)
+        self.assertEqual(policy["lifecycle"]["adoption"],
+                         "pending_next_invocation_confirmation")
+        self.assertEqual(problems(policy), [])
+        for key in policy["lifecycle"]:
+            candidate = json.loads(json.dumps(policy))
+            del candidate["lifecycle"][key]
+            self.assertTrue(problems(candidate), key)
+            candidate["lifecycle"][key] = "optional"
+            self.assertTrue(problems(candidate), key)
+        for invalid in [None, False, [], "accepted"]:
+            candidate = dict(policy, lifecycle=invalid)
+            self.assertTrue(problems(candidate))
+
+    def test_every_published_dimension_has_a_distinct_source_bound_id(self):
+        import re
+        text = (SKILL_DIR / "references/improvement-dimensions.md").read_text()
+        from scaffold_skill import source_files
+        from standardize_registry_skill import COPIES
+        name = "references/improvement-dimensions.md"
+        self.assertIn((name, name, False), source_files())
+        self.assertIn((name, name), COPIES)
+        parent = (SKILL_DIR / "references/resource-and-experiment-design.md").read_text()
+        self.assertIn("(improvement-dimensions.md)", parent)
+        for content in [text, parent]:
+            self.assertLess(len(content), 20_000)
+            self.assertLess(len(content.rstrip().splitlines()), 200)
+        ids = re.findall(r"^\| (Q[0-9]+) \|", text, re.MULTILINE)
+        self.assertEqual(ids, [f"Q{number:02}" for number in range(1, 65)])
+        for path in [SKILL_DIR / "SKILL.md", SKILL_DIR / "assets/skill-template.md"]:
+            self.assertIn("pending next-invocation confirmation", path.read_text())
+
+
 if __name__ == "__main__":
     unittest.main()

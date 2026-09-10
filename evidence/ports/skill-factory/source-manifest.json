@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "90e63f22b06825414eb241a8340ec9b1e7b669bab863ecf7cdf49866a5daf105",
-  "evidence_packet_sha256": "90e63f22b06825414eb241a8340ec9b1e7b669bab863ecf7cdf49866a5daf105",
+  "native_manifest_sha256": "d6497fd6323911da596fb0dfba4e8bb8c781f6f6743899387cec774eb03a20d3",
+  "evidence_packet_sha256": "d6497fd6323911da596fb0dfba4e8bb8c781f6f6743899387cec774eb03a20d3",
   "files": [
     {
       "bytes": 181,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 83503,
+      "bytes": 84329,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "fc65ae36d8dbc9fba110bd68476d45a378f4e390c3afad2034b538aa7c55109c",
+      "sha256": "b13943300868e050f45ac56ceb3f87e8e0861c92f72e474bf7d510fbb6ea66f5",
       "source_path": "SKILL.md"
     },
     {
@@ -111,10 +111,10 @@
       "source_path": "assets/mise-primitives-template.json"
     },
     {
-      "bytes": 4845,
+      "bytes": 4998,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/mise-primitives.json",
-      "sha256": "23f008cb83a77136efb492ded754cbb4ca0e9f0627fa9547cb0a0240cbfbd0b5",
+      "sha256": "03d05163a4c463d94399823109fa99ce548b355c8e9133cd14890ce3449f25c0",
       "source_path": "assets/mise-primitives.json"
     },
     {
@@ -146,10 +146,10 @@
       "source_path": "assets/registry-standardization-profiles.json"
     },
     {
-      "bytes": 82442,
+      "bytes": 82901,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template.md",
-      "sha256": "c8851b79955f96c4ca20240f6eafe677e62a2318f8dfe88ae24732c65ac2a38d",
+      "sha256": "79f40541265120b2c4d3de25e369d00473a076267d0d178e1c81b07fdedb4cbb",
       "source_path": "assets/skill-template.md"
     },
     {
@@ -293,10 +293,10 @@
       "source_path": "examples/example-help.md"
     },
     {
-      "bytes": 5510,
+      "bytes": 8203,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/example-ledger-write.md",
-      "sha256": "760341d87a292abd23ba8e3a49d20757ebb1ccc633da3e87559e8d80e69afbed",
+      "sha256": "21703afdabe3eb610fd9116746bfc1359056de43cd3a15d313e3a063bfd97113",
       "source_path": "examples/example-ledger-write.md"
     },
     {
@@ -356,6 +356,13 @@
       "source_path": "examples/ledger-write-run.json"
     },
     {
+      "bytes": 197842,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/examples/lineage-public-run.json",
+      "sha256": "18efafe8fb7d085672ae0e24d47cd2cd40fa61ff86a070a0e6304e17452a990d",
+      "source_path": "examples/lineage-public-run.json"
+    },
+    {
       "bytes": 413241,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/examples/new-skill-run.json",
@@ -377,10 +384,10 @@
       "source_path": "examples/variant-public-run.json"
     },
     {
-      "bytes": 8971,
+      "bytes": 9049,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/mise.toml",
-      "sha256": "01fd1689d31b47ebde7b65f47b1febc295c379bf3c7e19d44cff22243e083d4c",
+      "sha256": "934596ec244989419a476fcccf8fe025052c36ba43ee275f28b55905e712efba",
       "source_path": "mise.toml"
     },
     {
@@ -531,10 +538,10 @@
       "source_path": "scripts/check_javascript.ts"
     },
     {
-      "bytes": 6907,
+      "bytes": 8386,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/check_lineage.py",
-      "sha256": "bc7ee283c702b072a435aefb9a9c15f647366570d89bccb0f6b9c1e1ed11ca79",
+      "sha256": "b07e1a6f307afa43ae5431b8a48980ed220e87d5ca7d36486f531bdbf51ae7b4",
       "source_path": "scripts/check_lineage.py"
     },
     {
@@ -692,10 +699,10 @@
       "source_path": "scripts/review_ledger_workflow.ts"
     },
     {
-      "bytes": 8829,
+      "bytes": 9095,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/review_ledger_write.py",
-      "sha256": "5b0033ce039451f29289c3d8b4fed700c495cae46299e5c20fb929592237b680",
+      "sha256": "de4bc80e56e5f1511701767b532d08f94ed85ba3a4910cf8883a88ab7286d0f1",
       "source_path": "scripts/review_ledger_write.py"
     },
     {
@@ -1035,11 +1042,18 @@
       "source_path": "scripts/tests/test_javascript_code_rules.py"
     },
     {
-      "bytes": 5994,
+      "bytes": 3938,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_lineage_contract.py",
-      "sha256": "e81b35ae1a2ee258a756fbb9b475b13dee74eb4e5b79091e16d473d01e23593e",
+      "sha256": "d795c520de8c592de5c29b7d3f45f47d888144c32a687d11051303bbfb4c259e",
       "source_path": "scripts/tests/test_lineage_contract.py"
+    },
+    {
+      "bytes": 8413,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_lineage_review.py",
+      "sha256": "0542caf53cb71e84e2d9b3dd24bdedab89d5435d0cc3ad80cb9c769d142364af",
+      "source_path": "scripts/tests/test_lineage_review.py"
     },
     {
       "bytes": 9036,
@@ -1343,10 +1357,10 @@
       "source_path": "scripts/tests/test_task_graph_policy.py"
     },
     {
-      "bytes": 2931,
+      "bytes": 3123,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_task_graph_topology.py",
-      "sha256": "e81c341d4a6607591d1696e006717b1193b6b8eafec8d447e2fd6d4a5a447a44",
+      "sha256": "0e9433151d65601b945521aac809ba89542468076150ffc09d5f89542991753b",
       "source_path": "scripts/tests/test_task_graph_topology.py"
     },
     {
@@ -1455,10 +1469,10 @@
       "source_path": "scripts/variant_context.py"
     },
     {
-      "bytes": 1870,
+      "bytes": 2241,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/variant_draft.py",
-      "sha256": "7444f948e16378b3f9bf07f43269bcb1d0d2ea2dcb9ac0e0993dbe0ab424368c",
+      "sha256": "c16617f25369ff2fd5f080e56765c05903b0840a52eb4c53694355c12e55f588",
       "source_path": "scripts/variant_draft.py"
     },
     {

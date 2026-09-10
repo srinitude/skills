@@ -219,9 +219,10 @@ output = "prefix"
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus", "lineage"]
 
 [tasks.refresh-lineage]
+usage = 'flag "--review <path>" required=#true'
 env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Atomically refresh source-lineage after accepted changes"
-run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py . --write"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py . --write --review \"${usage_review?}\""
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus"]
 
 [tasks.mise-primitives-update]

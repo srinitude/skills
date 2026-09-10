@@ -77,6 +77,9 @@ class TestTaskGraphTopology(unittest.TestCase):
     def test_refresh_lineage_waits_for_every_acceptance_gate(self):
         self.assertEqual(self.tasks["refresh-lineage"]["depends"],
                          ACCEPTANCE_JOBS)
+        task = self.tasks["refresh-lineage"]
+        self.assertEqual(task["usage"], 'flag "--review <path>" required=#true')
+        self.assertIn('--review "${usage_review?}"', task["run"])
 
 
 if __name__ == "__main__":

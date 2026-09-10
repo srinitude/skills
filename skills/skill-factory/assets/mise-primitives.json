@@ -12,11 +12,11 @@
       "evidence": "mise.toml, generated mise template, speed-contract tests, and plan-standardize runtime-cache tests."
     },
     "task": {
-      "used": ["alias", "cache", "depends", "depends_post", "description", "env", "output", "outputs", "run", "run_windows", "sources", "timeout"],
-      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "extends", "file", "hide", "interactive", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "tools", "usage", "vars", "wait_for", "watch"],
-      "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, declared sources, empty-output check caches, task-local binding to Mise’s resolved Python installation for isolated uv helpers, portable Python tools, argument contracts, platform commands, and prefixed evidence for agent skill operations.",
+      "used": ["alias", "cache", "depends", "depends_post", "description", "env", "output", "outputs", "run", "run_windows", "sources", "timeout", "usage"],
+      "not_applicable": ["allow_env", "allow_net", "allow_read", "allow_write", "confirm", "deny_all", "deny_env", "deny_net", "deny_read", "deny_write", "dir", "extends", "file", "hide", "interactive", "pass_through_env", "quiet", "raw", "raw_args", "rust_cache", "shell", "silent", "tools", "vars", "wait_for", "watch"],
+      "used_reason": "skill-factory uses explicit task metadata, dependency edges, bounded execution, declared sources, empty-output check caches, task-local binding to Mise’s resolved Python installation for isolated uv helpers, portable Python tools, native required review arguments before lineage prerequisites, platform commands, and prefixed evidence for agent skill operations.",
       "nonuse_reason": "The unused task fields would add interactive locks, hidden evidence, sandbox claims, file-task indirection, Rust behavior, or watchers that do not advance this agent skill package operation.",
-      "creative_use": "Agent skill static checks cache only successful no-output evidence while live research, model judgment, external targets, mutation, and lineage stay uncached; timeouts bound stalls and a post dependency rejects unreconciled primitives after runner maintenance.",
+      "creative_use": "Agent skill static checks cache only successful no-output evidence while live research, model judgment, external targets, mutation, and lineage stay uncached; timeouts bound stalls and native required arguments reject missing lineage reviews before prerequisite work. The maintenance post dependency does not prove successful parent execution or replace per-file review.",
       "evidence": "mise.toml, generated mise template, speed-contract tests, task graph tests, timeout failures, cross-platform command tests, and runtime-task dependency tests for helper isolation and preservation of custom domain environments."
     },
     "task_config": {

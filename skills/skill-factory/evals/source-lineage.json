@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "90e63f22b06825414eb241a8340ec9b1e7b669bab863ecf7cdf49866a5daf105",
+  "native_manifest_sha256": "d6497fd6323911da596fb0dfba4e8bb8c781f6f6743899387cec774eb03a20d3",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -302,6 +302,12 @@
       "path": "examples/ledger-write-run.json",
       "source_paths": [
         "examples/ledger-write-run.json"
+      ]
+    },
+    {
+      "path": "examples/lineage-public-run.json",
+      "source_paths": [
+        "examples/lineage-public-run.json"
       ]
     },
     {
@@ -893,6 +899,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_lineage_review.py",
+      "source_paths": [
+        "scripts/tests/test_lineage_review.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_lint_writing.py",
       "source_paths": [
         "scripts/tests/test_lint_writing.py"
@@ -1300,7 +1312,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "fc65ae36d8dbc9fba110bd68476d45a378f4e390c3afad2034b538aa7c55109c"
+      "sha256": "b13943300868e050f45ac56ceb3f87e8e0861c92f72e474bf7d510fbb6ea66f5"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1352,7 +1364,7 @@
     },
     {
       "path": "assets/mise-primitives.json",
-      "sha256": "23f008cb83a77136efb492ded754cbb4ca0e9f0627fa9547cb0a0240cbfbd0b5"
+      "sha256": "03d05163a4c463d94399823109fa99ce548b355c8e9133cd14890ce3449f25c0"
     },
     {
       "path": "assets/mise-template.toml",
@@ -1372,7 +1384,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "c8851b79955f96c4ca20240f6eafe677e62a2318f8dfe88ae24732c65ac2a38d"
+      "sha256": "79f40541265120b2c4d3de25e369d00473a076267d0d178e1c81b07fdedb4cbb"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1456,7 +1468,7 @@
     },
     {
       "path": "examples/example-ledger-write.md",
-      "sha256": "760341d87a292abd23ba8e3a49d20757ebb1ccc633da3e87559e8d80e69afbed"
+      "sha256": "21703afdabe3eb610fd9116746bfc1359056de43cd3a15d313e3a063bfd97113"
     },
     {
       "path": "examples/example-new-skill.md",
@@ -1491,6 +1503,10 @@
       "sha256": "1837d95201dbec97bca128078f35445c1321a8b06cf58d37659c91ab66a5324f"
     },
     {
+      "path": "examples/lineage-public-run.json",
+      "sha256": "18efafe8fb7d085672ae0e24d47cd2cd40fa61ff86a070a0e6304e17452a990d"
+    },
+    {
       "path": "examples/new-skill-run.json",
       "sha256": "b96c9a2dd2f8799d5854deb220a9cc747713976507ec0edb8c900d6e820a45f8"
     },
@@ -1504,7 +1520,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "01fd1689d31b47ebde7b65f47b1febc295c379bf3c7e19d44cff22243e083d4c"
+      "sha256": "934596ec244989419a476fcccf8fe025052c36ba43ee275f28b55905e712efba"
     },
     {
       "path": "package-lock.json",
@@ -1592,7 +1608,7 @@
     },
     {
       "path": "scripts/check_lineage.py",
-      "sha256": "bc7ee283c702b072a435aefb9a9c15f647366570d89bccb0f6b9c1e1ed11ca79"
+      "sha256": "b07e1a6f307afa43ae5431b8a48980ed220e87d5ca7d36486f531bdbf51ae7b4"
     },
     {
       "path": "scripts/check_mise_primitives.py",
@@ -1684,7 +1700,7 @@
     },
     {
       "path": "scripts/review_ledger_write.py",
-      "sha256": "5b0033ce039451f29289c3d8b4fed700c495cae46299e5c20fb929592237b680"
+      "sha256": "de4bc80e56e5f1511701767b532d08f94ed85ba3a4910cf8883a88ab7286d0f1"
     },
     {
       "path": "scripts/run_agentic_request.py",
@@ -1880,7 +1896,11 @@
     },
     {
       "path": "scripts/tests/test_lineage_contract.py",
-      "sha256": "e81b35ae1a2ee258a756fbb9b475b13dee74eb4e5b79091e16d473d01e23593e"
+      "sha256": "d795c520de8c592de5c29b7d3f45f47d888144c32a687d11051303bbfb4c259e"
+    },
+    {
+      "path": "scripts/tests/test_lineage_review.py",
+      "sha256": "0542caf53cb71e84e2d9b3dd24bdedab89d5435d0cc3ad80cb9c769d142364af"
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
@@ -2056,7 +2076,7 @@
     },
     {
       "path": "scripts/tests/test_task_graph_topology.py",
-      "sha256": "e81c341d4a6607591d1696e006717b1193b6b8eafec8d447e2fd6d4a5a447a44"
+      "sha256": "0e9433151d65601b945521aac809ba89542468076150ffc09d5f89542991753b"
     },
     {
       "path": "scripts/tests/test_template_dependency_order.py",
@@ -2120,7 +2140,7 @@
     },
     {
       "path": "scripts/variant_draft.py",
-      "sha256": "7444f948e16378b3f9bf07f43269bcb1d0d2ea2dcb9ac0e0993dbe0ab424368c"
+      "sha256": "c16617f25369ff2fd5f080e56765c05903b0840a52eb4c53694355c12e55f588"
     },
     {
       "path": "scripts/variant_plan.py",

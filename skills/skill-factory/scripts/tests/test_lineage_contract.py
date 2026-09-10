@@ -1,131 +1,81 @@
-"""Tests for current, deterministic source-lineage evidence."""
+"""Current lineage, version and owned-file boundaries under a complete review."""
 import json
-import tempfile
 import unittest
-from pathlib import Path
 
 from cli import SKILL_DIR, run
+import test_lineage_review as reviewed
 
 
 class TestLineageContract(unittest.TestCase):
+    setUp = reviewed.TestLineageReview.setUp
+    prepare = reviewed.TestLineageReview.prepare
+    invoke = reviewed.TestLineageReview.invoke
+    package = reviewed.TestLineageReview.package
+
     def test_help_documents_usage_and_exit_codes(self):
-        result = run("check_lineage.py", "--help")
+        result = run('check_lineage.py', '--help')
         self.assertEqual(result.returncode, 0)
-        self.assertIn("usage", result.stdout.lower())
-        self.assertIn("exit code", result.stdout.lower())
+        self.assertIn('usage', result.stdout.lower())
+        self.assertIn('exit code', result.stdout.lower())
+        self.assertIn('--review', result.stdout)
 
     def test_refreshed_lineage_passes(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            (root / "evals").mkdir()
-            (root / "SKILL.md").write_text(
-                "---\nname: sample\ndescription: \"Use when testing.\"\n"
-                "metadata:\n  version: \"1.0.0\"\n---\n", encoding="utf-8")
-            cases = {"cases": [{"id": "CASE-1", "source_id": "CASE-1"}]}
-            (root / "evals" / "cases.json").write_text(
-                json.dumps(cases), encoding="utf-8")
-            refreshed = run("check_lineage.py", root, "--write")
-            result = run("check_lineage.py", root)
-        self.assertEqual(refreshed.returncode, 0, refreshed.stdout)
+        refreshed = self.invoke()
+        self.assertEqual(refreshed.returncode, 0, refreshed.stdout + refreshed.stderr)
+        result = run('check_lineage.py', self.root)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_stale_public_version_fails(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            (root / "evals").mkdir()
-            (root / "SKILL.md").write_text(
-                "---\nname: sample\ndescription: \"Use when testing.\"\n"
-                "metadata:\n  version: \"2.0.0\"\n---\n", encoding="utf-8")
-            lineage = {
-                "schema_version": 1,
-                "public_version": "1.0.0",
-                "native_version": "1.0.0",
-                "native_manifest_sha256": "0" * 64,
-                "public_files": [],
-                "source_files": [],
-                "source_case_ids": ["CASE-1"],
-            }
-            path = root / "evals" / "source-lineage.json"
-            path.write_text(json.dumps(lineage), encoding="utf-8")
-            cases = {"cases": [{"id": "CASE-1", "source_id": "CASE-1"}]}
-            (root / "evals" / "cases.json").write_text(
-                json.dumps(cases), encoding="utf-8")
-            result = run("check_lineage.py", root)
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("public_version", result.stdout)
+        lineage = json.loads(self.prepared.read_bytes())
+        lineage['public_version'] = '0.9.0'
+        self.target.write_text(json.dumps(lineage))
+        result = run('check_lineage.py', self.root)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn('public_version', result.stdout)
 
     def test_generation_contract_uses_portable_name_grammar(self):
-        contract = (SKILL_DIR / "references" / "generation-contract.md")
-        text = contract.read_text(encoding="utf-8")
-        self.assertIn("^[a-z0-9]+(?:-[a-z0-9]+)*$", text)
-        self.assertNotIn("[a-z0-9._-]*", text)
+        text = (SKILL_DIR / 'references/generation-contract.md').read_text()
+        self.assertIn('^[a-z0-9]+(?:-[a-z0-9]+)*$', text)
+        self.assertNotIn('[a-z0-9._-]*', text)
 
     def test_runtime_trees_are_excluded_from_lineage(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            self.write_minimum(root)
-            for relative in [".mise/state.json", "node_modules/pkg/index.js"]:
-                path = root / relative
-                path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text("runtime", encoding="utf-8")
-            result = run("check_lineage.py", root, "--write")
-            lineage = json.loads(
-                (root / "evals/source-lineage.json").read_text(encoding="utf-8"))
-        self.assertEqual(result.returncode, 0, result.stdout)
-        paths = [item["path"] for item in lineage["source_files"]]
-        self.assertFalse(any(path.startswith((".mise/", "node_modules/"))
-                             for path in paths))
+        for relative in ['.mise/state.json', 'node_modules/pkg/index.js']:
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('runtime')
+        self.prepare(); result = self.invoke()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        paths = [item['path'] for item in json.loads(self.target.read_bytes())['source_files']]
+        self.assertFalse(any(path.startswith(('.mise/', 'node_modules/')) for path in paths))
 
     def test_runtime_symlinks_are_excluded_but_owned_links_cannot_change_lineage(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            self.write_minimum(root)
-            bins = root / "node_modules/.bin"
-            bins.mkdir(parents=True)
-            (bins / "compiler").symlink_to(root / "SKILL.md")
-            result = run("check_lineage.py", root, "--write")
-            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            path = root / "evals/source-lineage.json"
-            before = path.read_bytes()
-            (root / "owned-link").symlink_to(root / "SKILL.md")
-            result = run("check_lineage.py", root, "--write")
-            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
-            self.assertEqual(path.read_bytes(), before)
+        bins = self.root / 'node_modules/.bin'; bins.mkdir(parents=True)
+        (bins / 'compiler').symlink_to(self.root / 'SKILL.md')
+        self.prepare(); result = self.invoke()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        (self.root / 'note.bin').write_bytes(b'new owned data'); self.prepare()
+        (self.root / 'owned-link').symlink_to(self.root / 'SKILL.md')
+        before = self.package(); result = self.invoke()
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn('owned-link', result.stdout)
+        self.assertEqual(self.package(), before)
 
     def test_lineage_rejects_external_file_symlinks(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base = Path(tmp)
-            root = base / "sample"
-            root.mkdir()
-            self.write_minimum(root)
-            external = base / "private.txt"
-            external.write_text("private", encoding="utf-8")
-            (root / "linked.txt").symlink_to(external)
-            result = run("check_lineage.py", root, "--write")
-        self.assertEqual(result.returncode, 1, result.stdout)
-        self.assertIn("linked.txt", result.stdout)
+        external = self.folder / 'private.txt'; external.write_text('private')
+        (self.root / 'linked.txt').symlink_to(external)
+        before = self.package(); result = self.invoke()
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn('linked.txt', result.stdout)
+        self.assertEqual(self.package(), before)
 
     def test_lineage_rejects_a_symlinked_skill_root(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base = Path(tmp)
-            root = base / "sample"
-            root.mkdir()
-            self.write_minimum(root)
-            linked = base / "linked-sample"
-            linked.symlink_to(root, target_is_directory=True)
-            result = run("check_lineage.py", linked, "--write")
-        self.assertEqual(result.returncode, 1, result.stdout)
-        self.assertIn("symlink", result.stdout.lower())
-
-    def write_minimum(self, root):
-        (root / "evals").mkdir()
-        (root / "SKILL.md").write_text(
-            "---\nname: sample\ndescription: \"Use when testing.\"\n"
-            "metadata:\n  version: \"1.0.0\"\n---\n", encoding="utf-8")
-        cases = {"cases": [{"id": "CASE-1", "source_id": "CASE-1"}]}
-        (root / "evals/cases.json").write_text(
-            json.dumps(cases), encoding="utf-8")
+        linked = self.folder / 'linked-sample'; linked.symlink_to(self.root, target_is_directory=True)
+        before = self.package()
+        result = run('check_lineage.py', linked, '--write', '--review', self.request_path)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn('symlink', result.stdout.lower())
+        self.assertEqual(self.package(), before)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

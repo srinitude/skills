@@ -122,7 +122,7 @@ def requested_mode(change, old):
     return mode['new']
 
 
-def apply_change(request, root, target):
+def apply_change(request, root, target, effect_check=None):
     captured = capture(request, root)
     before = validate(captured, request, root)
     change, old = request['change'], current(target)
@@ -132,10 +132,12 @@ def apply_change(request, root, target):
     require((None if old is None else sha(old[0])) == expected, 'stale file identity or creation collision')
     wanted = (captured[change['new_file']['path']], requested_mode(change, old))
     require(wanted != old, 'file change makes no difference')
+    require(effect_check is None or effect_check() is True, 'effect condition rejected before writing')
     install(root, target, wanted, old)
     try:
         after = validate(capture(request, root, 'after'), request, root, 'after')
         require(current(target) == wanted, 'file differs from the requested bytes or mode after writing')
+        require(effect_check is None or effect_check() is True, 'effect condition rejected after writing')
     except BaseException:
         restore(request, root, target, old, wanted)
         raise
@@ -151,7 +153,7 @@ def apply_change(request, root, target):
                      'transaction or hostile-writer isolation. Unreadable inputs can prevent restoration.'}
 
 
-def write_file(request, root):
+def write_file(request, root, *, effect_check=None):
     root = Path(root)
     require(request.get('action') == 'write-file', 'file writer requires write-file action')
     change = request['change']
@@ -168,4 +170,4 @@ def write_file(request, root):
         require(all(target != path.resolve() and (not target.exists() or not path.exists()
                     or not target.samefile(path)) for path in input_paths),
                 'file change overlaps a governing or prepared input')
-        return apply_change(request, root, target)
+        return apply_change(request, root, target, effect_check)

@@ -2,7 +2,7 @@
 """Check or refresh this skill's source-lineage record.
 
 Usage:
-  python3 scripts/check_lineage.py [SKILL_DIR] [--write]
+  python3 scripts/check_lineage.py [SKILL_DIR] [--plan | --write --review REQUEST]
 
 Exit codes:
   0  lineage is current, or refresh succeeded
@@ -10,18 +10,26 @@ Exit codes:
   2  bad usage
 
 Example:
-  python3 scripts/check_lineage.py . --write
+  mise run lineage -- --plan
+  mise run refresh-lineage -- --review /absolute/request.json
+
+Review uses the existing ledger write-file request, current initial_body_review
+and the plan's exact content_utf8 text (indent=2 plus newline). Full governing reads,
+canonical lineage derivation, a cooperating package lock, current request checks
+and conditional restoration guard each effect. Declarations are not acceptance.
 """
 import argparse
 import hashlib
 import json
-import os
 import re
 import sys
-import tempfile
 from pathlib import Path
 from validate_skill import parse_header, split_frontmatter
 from skill_package import owned_paths
+from agentic_request_contract import read_json
+from review_ledger_context import require
+from review_ledger_source import read_file
+from review_ledger_write import write_file
 
 SELF = Path(__file__).resolve().parents[1]
 LINEAGE = "evals/source-lineage.json"
@@ -118,22 +126,30 @@ def check_scope_binding(root, record):
         raise ValueError("source baseline must use opaque path digests")
 
 
-def write_atomic(path, document):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(document, indent=2) + "\n"
-    with tempfile.NamedTemporaryFile("w", dir=path.parent, delete=False,
-                                     encoding="utf-8") as handle:
-        handle.write(payload)
-        temporary = handle.name
-    os.replace(temporary, path)
+def reviewed_refresh(root, review):
+    require(review is not None, 'lineage writes require --review with a current write-file request')
+    binding = {'path': str(review)}
+    raw = read_file(binding)
+    request = read_json(raw.decode('utf-8'))
+    require(isinstance(request, dict) and isinstance(request.get('change'), dict)
+            and request['change'].get('path') == LINEAGE,
+            'lineage review must target evals/source-lineage.json')
+    def current_inputs():
+        require(read_file(binding) == raw, 'lineage review request changed')
+        expected = (json.dumps(current_document(root), indent=2) + '\n').encode()
+        return read_file(request['change']['new_file']) == expected
+    result = write_file(request, root, effect_check=current_inputs)
+    return {'status': 'PASS', 'mode': 'write', 'files': len(files(root)), 'change': result}
 
 
-def report(root, write=False):
+def report(root, write=False, review=None, plan=False):
+    require(not (write and plan) and (review is None or write), 'review belongs only to write mode')
+    if write:
+        return reviewed_refresh(root, review)
     path = root / LINEAGE
     expected = current_document(root)
-    if write:
-        write_atomic(path, expected)
-        return {"status": "PASS", "mode": "write", "files": len(files(root))}
+    if plan:
+        return {'status': 'PASS', 'mode': 'plan', 'content_utf8': json.dumps(expected, indent=2) + '\n'}
     try:
         actual = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
@@ -149,8 +165,13 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_dir", nargs="?", default=str(SELF))
-    parser.add_argument("--write", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true")
+    mode.add_argument("--plan", action="store_true")
+    parser.add_argument("--review")
     args = parser.parse_args(argv)
+    if args.review is not None and not args.write:
+        parser.error("--review belongs only to --write")
     candidate = Path(args.skill_dir)
     if candidate.is_symlink():
         result = {"status": "FAIL", "problems": ["skill root is a symlink"]}
@@ -161,8 +182,8 @@ def main(argv=None):
         print(json.dumps({"status": "FAIL", "problems": ["not a directory"]}))
         return 1
     try:
-        result = report(root, args.write)
-    except (OSError, ValueError, KeyError, json.JSONDecodeError) as error:
+        result = report(root, args.write, args.review, args.plan)
+    except (OSError, ValueError, KeyError, TypeError) as error:
         result = {"status": "FAIL", "problems": [str(error)]}
     print(json.dumps(result, sort_keys=True))
     return 0 if result["status"] == "PASS" else 1

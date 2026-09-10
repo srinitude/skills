@@ -31,3 +31,24 @@ Before the target body exists, the optional `bootstrap_body` argument binds the 
 For SKILL.md changes through `mise run ledger`, `body_revision` binds a separately retained previous-body snapshot or explicit absence and the initial-review file. The review also binds `previous_sha256`; `new_file` supplies the candidate. Full reads include the actual prior body before replacement and the installed candidate afterward. Body authority cannot exempt a supplied source, snapshot, review or candidate from overlap checks.
 
 These are actual mechanical runs with explicit fixture source rules. They establish the shown effects, rejections and recovery. They do not establish semantic judgment, human review, whole-skill behavior, staged-writer integration, removals or final acceptance. The separate staged-writer regression suite covers creation, standardization and variants. Complete the separate semantic review and ledger invalidation before accepting a skill change.
+
+## Refresh derived lineage from the same review
+
+Lineage uses the ordinary review above because its metadata changes a skill file. Start with `mise run lineage -- --plan` and save the returned `content_utf8` unchanged as the prepared file. Supply `initial_body_review`, the complete governing input bindings and a `change` targeting `evals/source-lineage.json`. Then use `mise run refresh-lineage -- --review <absolute-request.json>`. Mise requires that argument before starting the prerequisite checks; the writer validates its contents again at the effect. Every declared refresh prerequisite must pass.
+
+The [exact portable lineage run](lineage-public-run.json) records eight real CLI cases, complete input/output bytes, commands, working directories, standard output/error and exit codes. Its isolated factory copy uses Mise to select Python and PyYAML. It exercises the standalone Python owner directly; it does not run the full factory refresh prerequisite chain. The separate full native refresh proof belongs to the current factory update and retains its private governing inputs outside this portable example.
+
+| Case | Observed result | File effect |
+| --- | --- | --- |
+| Help | Exit 0, current lineage usage and review contract. | None. |
+| Plan | Exit 0, exact prepared JSON text. | None. |
+| Missing review | Exit 1, required review rejected. | None. |
+| Reviewed creation | Exit 0, current derived metadata accepted by the file predicate. | Created lineage. |
+| Stale package | Exit 1 after an owned file changed. | None. |
+| Edited metadata | Exit 1 despite a matching prepared-file digest. | None. |
+| Current review recovery | Exit 0 after replanning current package bytes. | Replaced lineage. |
+| Check | Exit 0, recorded lineage matches the current package. | None. |
+
+The derivation predicate must return exactly `True` before and after installation under the cooperating package lock. Changed package files or request bytes, `False`, `None`, and exceptions cannot become success. A failed post-check restores this writer's prior lineage bytes and mode only while its installed bytes still own that destination, preserving independent edits. Regression cases separately exercise the lock, source/request interference and restoration; those cases do not prove hostile-writer isolation.
+
+These outcomes cover the standalone lineage owner. A parent maintenance command still needs current reviews for each of its own effects and must provide the appropriate lineage request. A post-dependency can run after parent failure and does not supply permission, accepted parent output or final acceptance. Catalog and registry maintenance integration remains a separate obligation.

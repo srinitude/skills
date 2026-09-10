@@ -6,13 +6,22 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from unittest import mock
+import base64
+from registry_lineage_plan import build_plan
+from skill_package import inventory
+from standardization_test_support import native_formatter
 
 SCRIPT = Path(__file__).resolve().parents[1] / "refresh_registry_lineage.py"
 sys.path.insert(0, str(SCRIPT.parent))
 SPEC = importlib.util.spec_from_file_location("refresh_registry_lineage", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
+
+
+def planned_json(plan, owner):
+    item = next(item for item in plan['changes'] if item['owner'] == owner
+                and (owner == 'repository' or item['path'] == 'evals/source-lineage.json'))
+    return json.loads(base64.b64decode(item['content_base64']))
 
 
 class TestRegistryLineageRefresh(unittest.TestCase):
@@ -46,9 +55,9 @@ class TestRegistryLineageRefresh(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             self.fixture(root, "archived_source")
-            MODULE.refresh_skill(root, "clock-anchor")
-            manifest = json.loads((root / "evidence/ports/clock-anchor/source-manifest.json").read_text())
-            lineage = json.loads((root / "skills/clock-anchor/evals/source-lineage.json").read_text())
+            plan = build_plan(root.resolve(), ["clock-anchor"])
+            manifest = planned_json(plan, "repository")
+            lineage = planned_json(plan, "skill")
             self.assertEqual(manifest["source_kind"], "archived_source")
             self.assertEqual(lineage["source_files"], [{
                 "path": "native.txt", "sha256": manifest["files"][0]["sha256"]}])
@@ -65,32 +74,27 @@ class TestRegistryLineageRefresh(unittest.TestCase):
             manifest = json.loads(manifest_path.read_text())
             manifest["native_manifest_sha256"] = hashlib.sha256(b"old").hexdigest()
             manifest_path.write_text(json.dumps(manifest))
-            MODULE.refresh_skill(root, "clock-anchor")
-            lineage = json.loads((root / "skills/clock-anchor/evals/source-lineage.json").read_text())
-            saved = json.loads(manifest_path.read_text())
+            plan = build_plan(root.resolve(), ["clock-anchor"])
+            lineage = planned_json(plan, "skill")
+            saved = planned_json(plan, "repository")
             self.assertEqual(saved["native_manifest_sha256"],
                              lineage["native_manifest_sha256"])
             self.assertEqual(lineage["native_manifest_sha256"],
                              MODULE.canonical_digest(lineage["source_files"]))
 
-    def test_refresh_formats_before_hashing_and_after_writing(self):
+    def test_native_plan_formats_sources_before_derived_metadata_without_writing(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            self.fixture(root, "repository_baseline")
-            skill = root / "skills/clock-anchor"
-            lineage = skill / "evals/source-lineage.json"
-            manifest = root / "evidence/ports/clock-anchor/source-manifest.json"
-            calls = []
-            with mock.patch.object(MODULE, "format_target",
-                                   side_effect=lambda path: calls.append(("target", path))), \
-                 mock.patch.object(MODULE, "format_files",
-                                   side_effect=lambda path, files: calls.append(
-                                       ("files", path, tuple(files)))):
-                MODULE.refresh_skill(root, "clock-anchor")
-            self.assertEqual(calls, [
-                ("target", skill),
-                ("files", skill, (lineage, manifest)),
-            ])
+            root = Path(temp).resolve(); self.fixture(root, "repository_baseline")
+            native_formatter(root)
+            skill = root / 'skills/clock-anchor'
+            (skill / 'settings.json').write_text('{"value":1}')
+            before = inventory(root); plan = build_plan(root, ['clock-anchor'])
+            self.assertEqual(inventory(root), before)
+            self.assertEqual([item['path'] for item in plan['changes']],
+                ['settings.json', 'evals/source-lineage.json', 'evidence/ports/clock-anchor/source-manifest.json'])
+            current = planned_json(plan, 'repository')
+            setting = next(item for item in current['files'] if item['source_path'] == 'settings.json')
+            self.assertEqual(setting['sha256'], hashlib.sha256(b'{ "value": 1 }\n').hexdigest())
 
     def test_public_inventory_excludes_runtime_but_rejects_owned_links(self):
         with tempfile.TemporaryDirectory() as temp:

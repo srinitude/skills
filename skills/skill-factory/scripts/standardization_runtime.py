@@ -6,9 +6,9 @@ import tomllib
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
 LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/lineage-public-run.json",
-                   "examples/catalog-public-run.json", "examples/example-ledger-write.md")
+                   "examples/catalog-public-run.json", "examples/registry-public-run.json", "examples/example-ledger-write.md")
 LEDGER_FILES = ("review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
-                "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
+                "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_write.py", "tests/test_related_owner_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",

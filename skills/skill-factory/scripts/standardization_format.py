@@ -1,5 +1,6 @@
 """Apply an owning repository's local formatter when it is available."""
 import json
+import os
 import shutil
 from skill_package import inventory, sha
 from pathlib import Path
@@ -7,57 +8,60 @@ import subprocess
 
 
 CONFIG_NAMES = (
-    ".prettierrc",
-    ".prettierrc.json",
-    ".prettierrc.yaml",
-    ".prettierrc.yml",
-    "prettier.config.js",
-    "prettier.config.mjs",
+    ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
+    ".prettierrc.json5", ".prettierrc.js", "prettier.config.js", ".prettierrc.ts",
+    "prettier.config.ts", ".prettierrc.mjs", "prettier.config.mjs", ".prettierrc.mts",
+    "prettier.config.mts", ".prettierrc.cjs", "prettier.config.cjs", ".prettierrc.cts",
+    "prettier.config.cts", ".prettierrc.toml",
 )
 
 
-def formatter_command(root):
-    target = root.resolve()
-    node = shutil.which("node")
-    if not node:
-        return None
-    for repo in target.parents:
+def package_configuration(folder, command, repo):
+    package = folder / 'package.json'; yaml = folder / 'package.yaml'
+    if not package.is_file() and not yaml.is_file():
+        return False
+    if command is None:
+        if yaml.is_file():
+            return True  # Native resolution is required to distinguish YAML ownership when runtime is missing.
+        value = json.loads(package.read_text()).get('prettier')
+        return value is not None and value is not False and value != '' and value != 0
+    result = subprocess.run([*readonly_command(command), '--find-config-path',
+                             str(folder / '.skill-factory-configuration-probe.json')],
+                            cwd=repo, capture_output=True, text=True)
+    if result.returncode == 1:
+        return False
+    if result.returncode:
+        raise ValueError('repository formatter configuration lookup failed: ' + result.stderr.strip())
+    resolved = (repo / result.stdout.strip()).resolve()
+    return bool(result.stdout.strip()) and resolved.is_relative_to(repo)
+
+
+def formatter_command(root, paths=()):
+    target = root.resolve(); node = shutil.which("node")
+    folders = {target, *target.parents, *(parent for path in paths for parent in path.parents)}
+    for repo in (target, *target.parents):
+        if not (repo / ".git").exists():
+            continue
         script = repo / "node_modules/prettier/bin/prettier.cjs"
-        configured = any((repo / name).is_file() for name in CONFIG_NAMES)
-        if (repo / ".git").exists() and configured and script.is_file():
-            return [node, str(script), "--write", str(target)], repo
+        command = [node, str(script)] if node and script.is_file() else None
+        owned = sorted(folder for folder in folders if folder.is_relative_to(repo))
+        configured = any((folder / name).is_file() for folder in owned for name in CONFIG_NAMES)
+        configured = configured or any(package_configuration(folder, command, repo) for folder in owned)
+        if configured:
+            if command is None:
+                raise ValueError("configured repository formatter is not ready; selected Node and local Prettier are required")
+            return command, repo
     return None
 
 
-def format_target(root):
-    owner = formatter_command(root)
-    if owner is None:
-        return
-    command, repo = owner
-    run_formatter(command, repo)
-
-
-def format_files(root, paths):
-    paths = tuple(paths)
-    if not paths:
-        return
-    owner = formatter_command(root)
-    if owner is None:
-        return
-    command, repo = owner
-    command = [*command[:-1], *(str(path.resolve()) for path in paths)]
-    run_formatter(command, repo)
-
-
-def run_formatter(command, repo):
-    result = subprocess.run(command, cwd=repo, check=False,
-                            capture_output=True, text=True)
-    if result.returncode:
-        detail = result.stderr.strip() or result.stdout.strip()
-        raise ValueError(f"repository formatter failed: {detail}")
+def readonly_command(command):
+    if os.environ.get('NODE_OPTIONS'):
+        raise ValueError('reviewed formatting requires NODE_OPTIONS to be unset; injected runtime behavior is not bound')
+    return [command[0], '--permission', '--allow-fs-read=*', *command[1:]]
 
 
 def format_input(command, repo, path, raw):
+    command = readonly_command(command)
     info = subprocess.run([*command, '--file-info', str(path)], cwd=repo,
                           check=False, capture_output=True, text=True)
     if info.returncode:
@@ -77,33 +81,35 @@ def format_input(command, repo, path, raw):
 
 
 def format_contents(root, original, files):
-    owner = formatter_command(root)
     changed = [name for name, raw in files.items() if original.get(name) != raw]
-    if owner is None or not changed:
+    if not changed:
+        return None
+    paths = [root / name for name in changed]
+    owner = formatter_command(root, paths)
+    if owner is None:
         return None
     command, repo = owner
-    command = command[:2]
-    captured = formatter_snapshot(root, command, repo)
+    captured = formatter_snapshot(root, command, repo, paths)
     records = []
     for name in changed:
         files[name], record = format_input(command, repo, root / name, files[name])
         records.append(record)
-    if formatter_snapshot(root, command, repo) != captured:
+    if formatter_snapshot(root, command, repo, paths) != captured:
         raise ValueError('formatter inputs changed during planning')
-    return {'command': command, 'cwd': str(repo), 'root': str(root), 'inputs': captured, 'files': records,
+    return {'command': command, 'execution_command': readonly_command(command), 'cwd': str(repo), 'root': str(root), 'inputs': captured, 'files': records,
             'limit': 'Actual file-info and stdin output under the current configured owner. '
                      'Ignored or unsupported files keep their bytes. Configuration candidates, the selected Node binary and '
                      'Prettier package are bound. Dynamic config/plugin transitive imports and external effects need '
-                     'their own reviewed dependency evidence. This is not sandboxing or semantic validation.'}
+                     'their own reviewed dependency evidence. Selected Node permissions reject incidental filesystem writes and '
+                     'ungranted operations in the tested trusted-code execution; read access remains unrestricted. '
+                     'Unsupported runtimes fail without a fallback. This is not hostile-code isolation or semantic validation.'}
 
 
-def formatter_snapshot(root, command, repo):
-    names = set(CONFIG_NAMES) | {'.prettierrc.js', '.prettierrc.cjs', '.prettierrc.mjs', '.prettierrc.json5',
-            '.prettierrc.toml', '.prettierrc.ts', '.prettierrc.cts', '.prettierrc.mts', 'prettier.config.cjs',
-            'prettier.config.ts', 'prettier.config.cts', 'prettier.config.mts', '.editorconfig',
-            '.prettierignore', '.gitignore', 'package.json', 'package.yaml'}
+def formatter_snapshot(root, command, repo, paths=()):
+    names = set(CONFIG_NAMES) | {'.editorconfig', '.prettierignore', '.gitignore', 'package.json', 'package.yaml'}
+    folders = {root, *root.parents, *(parent for path in paths for parent in path.parents)}
     configs = {str(folder / name): sha((folder / name).read_bytes()) if (folder / name).is_file() else None
-               for folder in [root, *root.parents] for name in sorted(names)}
+               for folder in sorted(folders) for name in sorted(names)}
     package = Path(command[1]).parents[1].resolve()
     return {'node': {'path': command[0], 'sha256': sha(Path(command[0]).read_bytes())},
             'prettier': {'path': str(package), 'files': inventory(package)}, 'configuration': configs}
@@ -117,5 +123,6 @@ def check_formatter(record, files=None):
         path = str(Path(record['root']) / name)
         if path in expected['configuration']:
             expected['configuration'][path] = item['sha256']
-    if formatter_snapshot(Path(record['root']), record['command'], Path(record['cwd'])) != expected:
+    paths = [Path(item['path']) for item in record['files']]
+    if formatter_snapshot(Path(record['root']), record['command'], Path(record['cwd']), paths) != expected:
         raise ValueError('formatter inputs changed since the reviewed plan')

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "6d251f83df8f80776356037401fe057c43c4ea05a976c365c70506c2d94c9fb6",
+  "native_manifest_sha256": "8c327223bb19286d98ffede5571feefb03912c8b4d2fa486b89b1804eb06f178",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -323,6 +323,12 @@
       ]
     },
     {
+      "path": "examples/registry-public-run.json",
+      "source_paths": [
+        "examples/registry-public-run.json"
+      ]
+    },
+    {
       "path": "examples/standardization-run.json",
       "source_paths": [
         "examples/standardization-run.json"
@@ -542,6 +548,24 @@
       "path": "scripts/refresh_registry_lineage.py",
       "source_paths": [
         "scripts/refresh_registry_lineage.py"
+      ]
+    },
+    {
+      "path": "scripts/registry_lineage_plan.py",
+      "source_paths": [
+        "scripts/registry_lineage_plan.py"
+      ]
+    },
+    {
+      "path": "scripts/registry_lineage_review.py",
+      "source_paths": [
+        "scripts/registry_lineage_review.py"
+      ]
+    },
+    {
+      "path": "scripts/registry_lineage_sources.py",
+      "source_paths": [
+        "scripts/registry_lineage_sources.py"
       ]
     },
     {
@@ -887,6 +911,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_formatter_permissions.py",
+      "source_paths": [
+        "scripts/tests/test_formatter_permissions.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_generated_agentic_scaffold.py",
       "source_paths": [
         "scripts/tests/test_generated_agentic_scaffold.py"
@@ -974,6 +1004,24 @@
       "path": "scripts/tests/test_refresh_registry_lineage.py",
       "source_paths": [
         "scripts/tests/test_refresh_registry_lineage.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_registry_recovery.py",
+      "source_paths": [
+        "scripts/tests/test_registry_recovery.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_registry_review.py",
+      "source_paths": [
+        "scripts/tests/test_registry_review.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_related_owner_write.py",
+      "source_paths": [
+        "scripts/tests/test_related_owner_write.py"
       ]
     },
     {
@@ -1330,7 +1378,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "c0494590214029a3083bae0da3e32ce992951f0b79001392e571d5822fd569e4"
+      "sha256": "9bd64986a692f92cab91d1a78f175693bb6c73c9f525ca01befcaf108a95fd6f"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1402,7 +1450,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "a6f1a276ae867ce37199c615f154906bd7f01477db3c526f635bd6f7e27b5163"
+      "sha256": "5bf2561fb1bbe6e7871c84adb1b5b4103a8b3637a509a7c0f2eab8503cdf6f8c"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1434,7 +1482,7 @@
     },
     {
       "path": "assets/use-case-contract.json",
-      "sha256": "ca32e07b66f78c152ded6d3657ad818f8275e4b2a71ba0040107f0366fdeb289"
+      "sha256": "ab72efa38168208b1ad07289ea585d085b40211e6adc46e6cce5bd1885d7d4c7"
     },
     {
       "path": "assets/variant-review.schema.json",
@@ -1490,7 +1538,7 @@
     },
     {
       "path": "examples/example-ledger-write.md",
-      "sha256": "650ce4d9c624eabbcb35dd0e5caa9fe4588c222613888dd2e6f1746a10a198c4"
+      "sha256": "1e35d46a93c382a9ed0e15a7b3577232c8c07395e4d3caaa3d1e3392f45dbcb8"
     },
     {
       "path": "examples/example-new-skill.md",
@@ -1533,6 +1581,10 @@
       "sha256": "b96c9a2dd2f8799d5854deb220a9cc747713976507ec0edb8c900d6e820a45f8"
     },
     {
+      "path": "examples/registry-public-run.json",
+      "sha256": "f6484f501d24e7f9d765bb80b7eb5b9eda3ebe9f52f2ecd012ab3914bb0e3d0e"
+    },
+    {
       "path": "examples/standardization-run.json",
       "sha256": "542b54fdbf52a22d78575f3a726cf18b2a4b1eef5e9d9284d57f22643e770cd6"
     },
@@ -1542,7 +1594,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "44c05acdf052f961ed10637d58a88c0b634d362a2e1e5348c9b8cbcf856df485"
+      "sha256": "38a0db122ae3e6c488b276b0ef7e3b8f798d31ef7b484e53e8eaa8ab07d40e84"
     },
     {
       "path": "package-lock.json",
@@ -1678,7 +1730,19 @@
     },
     {
       "path": "scripts/refresh_registry_lineage.py",
-      "sha256": "fd995527a487188a9d2aa7e39b5554ed3c4fd62ba894985f3b47367d174b6fa5"
+      "sha256": "f7858e0c39709828e91a24c3a920a29ad5257b99192509d63920c11e5031529c"
+    },
+    {
+      "path": "scripts/registry_lineage_plan.py",
+      "sha256": "6465bf1d74c8a5536cef40ebfe4c04df06af4e50d86c227c6ec5b946c0006b9a"
+    },
+    {
+      "path": "scripts/registry_lineage_review.py",
+      "sha256": "0ff4c7cfae5e49cca14254c5bb83282ccc5efa288241635abcf6fb383bdd29f7"
+    },
+    {
+      "path": "scripts/registry_lineage_sources.py",
+      "sha256": "c8a0d9b7e88a4a1fc3287e078ee35092e1a3430f81837b88e038ab8d83d9822f"
     },
     {
       "path": "scripts/resolve_scope.py",
@@ -1722,7 +1786,7 @@
     },
     {
       "path": "scripts/review_ledger_write.py",
-      "sha256": "de4bc80e56e5f1511701767b532d08f94ed85ba3a4910cf8883a88ab7286d0f1"
+      "sha256": "787b4502c0b6ed7f000dc808282065831528bf3fa4c55d19b56743fcf47cb9a5"
     },
     {
       "path": "scripts/run_agentic_request.py",
@@ -1778,7 +1842,7 @@
     },
     {
       "path": "scripts/standardization_format.py",
-      "sha256": "eb1bab31d89d7b4f814b631e71ad6756ac2c537000b398b8ef8ec5577f92b240"
+      "sha256": "38b4a7e33169bc5f88a6bbfea5665ee7d074c683cfd44bd2ce2dd46085460df6"
     },
     {
       "path": "scripts/standardization_mapping.py",
@@ -1814,7 +1878,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "2a97ac3eafb15ced7b354eb26985eca67bdc9bf5a681cadd2520a46a009ed8d8"
+      "sha256": "4d75370391486eb3a5c2657d749a149b3605d0b8d906515315a5d0243405280b"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -1909,6 +1973,10 @@
       "sha256": "8a3b6a15bff7593df1016af62664d02245499644a1b3777e707099efdde2782c"
     },
     {
+      "path": "scripts/tests/test_formatter_permissions.py",
+      "sha256": "1a32485e0d03c97ff81264202d94a5b2ed41db8cb64506673ca1f49c23295f17"
+    },
+    {
       "path": "scripts/tests/test_generated_agentic_scaffold.py",
       "sha256": "5801fc4983138558db226e442be9a6f273abad6a5a3d89e87cf97749f293fc33"
     },
@@ -1966,7 +2034,19 @@
     },
     {
       "path": "scripts/tests/test_refresh_registry_lineage.py",
-      "sha256": "71b1955ae08af9f3025baa3439d17086bd79ce369b0dfcb1d1c30428ac286f65"
+      "sha256": "2014e76ee778f4c62d3f3171f95ce24b255b8039255a07c2ee6e056393a1a127"
+    },
+    {
+      "path": "scripts/tests/test_registry_recovery.py",
+      "sha256": "db9ad1aa1c121a622d3f84b9e0fdd2dfb77b4f36bec86b5d4a50debbbfa74233"
+    },
+    {
+      "path": "scripts/tests/test_registry_review.py",
+      "sha256": "91b7da8adf010207410cac6190f7e2de5b67e3226cc907903909a14095baede1"
+    },
+    {
+      "path": "scripts/tests/test_related_owner_write.py",
+      "sha256": "b665edb570074b5b28f42a2c0386d1fca9d7e1417aa5e32c72ecafd3d795abe8"
     },
     {
       "path": "scripts/tests/test_review_ledger_body.py",
@@ -2070,11 +2150,11 @@
     },
     {
       "path": "scripts/tests/test_standardization_copy.py",
-      "sha256": "941a2fde3507218e4648110327efb1195ce0682b94054170bc3b096087f8b9f8"
+      "sha256": "6192b2a4a9b05b9f0d5da97ac847d54b41d247d239fc24f4b775b5378412b5bb"
     },
     {
       "path": "scripts/tests/test_standardization_format.py",
-      "sha256": "b382872c963aae1f121a5a87dfdae9d947a690c36d5b94906d33d3689ebaef5b"
+      "sha256": "cf13053b0361493840f5283520bb83d9ad1e28b965e2b3f2e583e2f6a5cdf60b"
     },
     {
       "path": "scripts/tests/test_standardization_inputs.py",
@@ -2106,7 +2186,7 @@
     },
     {
       "path": "scripts/tests/test_task_graph_topology.py",
-      "sha256": "e2dbdd89285fd6181e2f074a73796fb7a5ec083bb653a20a94a94fc6217945f2"
+      "sha256": "bcd3cbdbc3ca48faad0534d2cdd0f984362456b18900dba53ef8f7fdba6eaeda"
     },
     {
       "path": "scripts/tests/test_template_dependency_order.py",

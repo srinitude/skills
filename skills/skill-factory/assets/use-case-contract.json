@@ -357,10 +357,10 @@
       },
       {
         "task": "refresh-registry-lineage",
-        "outcome": "Changed agent skill files receive current source lineage before repository acceptance.",
+        "outcome": "Named agent skill maintenance is planned and applied one current reviewed file at a time, then fully validated.",
         "motivation": "An agent skill registry update invalidates prior public file hashes and inventories.",
         "why_default_path": "The refresh-registry-lineage task gives agent skill lineage one factory-owned write route.",
-        "proof": "The skill package source evidence command reports PASS for every named agent skill."
+        "proof": "Complete current evidence for each individual agent skill effect and required rejection/recovery, followed by an empty current plan and accepted source/domain checks for every named skill; a single PASS is not completion."
       },
       {
         "task": "audit-source-corpus",
@@ -603,11 +603,11 @@
         "applicability": "Use when an agent skill scope adaptation, explicit in-place change or requested refresh applies. Prepare the declared native checker runtime first; bind publication to a saved preview and a separate complete current ledger review."
       },
       "refresh-registry-lineage": {
-        "outcome": "Each named agent skill package receives current public file hashes and source lineage.",
+        "outcome": "Named agent skill maintenance is planned and applied one current reviewed file at a time, then fully validated.",
         "motivation": "An agent skill package change invalidates its prior lineage inventory and digests.",
-        "value": "Agent skill lineage refresh routes repository evidence repair through one factory-owned command.",
-        "proof": "The skill package source evidence command reports PASS for every named skill.",
-        "applicability": "Run after accepted agent skill package files change and before repository validation."
+        "value": "Agent skill source formatting, lineage and repository evidence retain their actual owners under one guarded factory route.",
+        "proof": "Complete current evidence for each individual agent skill effect and required rejection/recovery, followed by an empty current plan and accepted source/domain checks for every named skill; a single PASS is not completion.",
+        "applicability": "Run after accepted agent skill package changes. Prepare the declared runtime, plan, review the next file, repeat from current inputs and finish repository/domain validation."
       },
       "ledger": {
         "outcome": "Read skill package recorded context, relationships, finite candidates and work views, verify supplied live sources, or apply a caller-scoped file creation/replacement or explicit reviewed body revision.",

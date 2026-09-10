@@ -153,21 +153,28 @@ def apply_change(request, root, target, effect_check=None):
                      'transaction or hostile-writer isolation. Unreadable inputs can prevent restoration.'}
 
 
-def write_file(request, root, *, effect_check=None):
+def write_file(request, root, *, effect_check=None, target_root=None):
     root = Path(root)
     require(request.get('action') == 'write-file', 'file writer requires write-file action')
     change = request['change']
     require(set(change) - {'mode'} == {'path', 'expected_sha256', 'new_file', 'body_sha256', 'reviewer', 'review'},
             'file change has missing or unsupported fields')
     body_revision = revision(request)
-    target = target_path(root, change['path'], body_revision is not None)
+    physical = root if target_root is None else Path(target_root)
+    if target_root is not None:
+        target_path(root, 'SKILL.md', True)
+        require(physical != root and root.is_relative_to(physical)
+                and request.get('initial_body_review') is not None, 'related files need an ancestor owner and ordinary body review')
+        require(not (physical / change['path']).is_relative_to(root), 'related target is inside the skill')
+    target = target_path(physical, change['path'], body_revision is not None)
     inputs = bindings(request, root)
     if body_revision is not None:
         inputs.pop(1)  # Only the actual body input may be the target; all supplied inputs remain protected.
     input_paths = [Path(item['path']) for item in inputs]
     with package_lock(root):
-        target = target_path(root, change['path'], body_revision is not None)
+        target = target_path(physical, change['path'], body_revision is not None)
         require(all(target != path.resolve() and (not target.exists() or not path.exists()
                     or not target.samefile(path)) for path in input_paths),
                 'file change overlaps a governing or prepared input')
-        return apply_change(request, root, target, effect_check)
+        result = apply_change(request, root, target, effect_check)
+        return {**result, 'body_root': str(root), 'target_root': str(physical)} if target_root is not None else result

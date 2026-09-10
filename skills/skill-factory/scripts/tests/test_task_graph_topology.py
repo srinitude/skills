@@ -44,7 +44,7 @@ EXPECTED = {
     "eval-target": ["doctor"],
     "plan-standardize": ["doctor", "source-corpus"],
     "standardize-target": ["doctor", "source-corpus"],
-    "refresh-registry-lineage": ["doctor"],
+    "refresh-registry-lineage": ["doctor", "check-runtime"],
 }
 
 

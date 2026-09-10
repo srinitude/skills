@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "45de9d545a20d0aefbffe76455dabda2de58b27ec2e6191483c5b83095716e94",
+  "native_manifest_sha256": "ad66bf2bfea00eedcf5ab84da2a6d9df00e8312b0b6c4a9433f049dcf9e39d60",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1468,7 +1468,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "df119218530221d84118b02cbc17d3efa5ba4a050acef38bcf8beb950752085c"
+      "sha256": "47d8171ffd061e35797d85c2f33a43876b51343d8fd33d19ecf49b412941760d"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1540,7 +1540,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "7bbf0d225a55abfc1fc86c7a050cac5491c6d4791ecfe2517e1bd179d19db40f"
+      "sha256": "32a70cc52a97b9af69371fced3d7dcba4e8d77c65ab40efac5a5d593d3eb7bb5"
     },
     {
       "path": "assets/source-shape-corpus.json",

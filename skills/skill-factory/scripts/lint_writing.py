@@ -19,9 +19,7 @@ Examples:
   python3 scripts/lint_writing.py .
   python3 scripts/lint_writing.py SKILL.md references/registry.md
 """
-import argparse
-import re
-import sys
+import argparse, re, sys
 from pathlib import Path
 
 from skill_package import owned_paths
@@ -73,19 +71,11 @@ STEP_LABELS = {
     "**Pass**", "**Blocked**", "**Feeds**",
 }
 
-
 def check_words(line):
-    found = []
-    for word, pattern in WORD_RES:
-        if pattern.search(line):
-            found.append(f'banned word "{word}"')
-    return found
-
+    return [f'banned word "{word}"' for word, pattern in WORD_RES if pattern.search(line)]
 
 def check_phrases(line):
-    return [f'banned frame "{p}"' for p in PHRASES
-            if re.search(r"(?<!\w)" + re.escape(p) + r"(?!\w)", line, re.I)]
-
+    return [f'banned frame "{p}"' for p in PHRASES if re.search(r"(?<!\w)" + re.escape(p) + r"(?!\w)", line, re.I)]
 
 def check_symbols(line):
     found = [name for char, name in DASHES.items() if char in line]
@@ -96,14 +86,12 @@ def check_symbols(line):
         found.append("markdown must reference the owning Mise task, not scripts/")
     return found
 
-
 def check_resource_path(line, fence_paired):
     plain = URL_RE.sub("", line)
     referenced = ROOT_PATH_RE.search(plain) or FILE_PATH_RE.search(plain)
     if referenced and "mise run " not in line and not fence_paired:
         return ["package file reference must share its block with the owning Mise task"]
     return []
-
 
 def mise_fence_lines(lines):
     paired, start = set(), None
@@ -118,10 +106,8 @@ def mise_fence_lines(lines):
         start = None
     return paired
 
-
 def mise_section_lines(lines):
-    starts = [index for index, line in enumerate(lines)
-              if line.startswith("#") and line.lstrip("#").startswith(" ")]
+    starts = [index for index, line in enumerate(lines) if line.startswith("#") and line.lstrip("#").startswith(" ")]
     boundaries = sorted(set([skip_frontmatter(lines), *starts, len(lines)]))
     paired = set()
     for index in range(len(boundaries) - 1):
@@ -130,24 +116,18 @@ def mise_section_lines(lines):
             paired.update(range(start, end))
     return paired
 
-
 def skip_frontmatter(lines):
-    if lines and lines[0].strip() == "---":
-        for index in range(1, len(lines)):
-            if lines[index].strip() == "---":
-                return index + 1
-    return 0
-
+    if not lines or lines[0].strip() != "---":
+        return 0
+    return next((index + 1 for index in range(1, len(lines)) if lines[index].strip() == "---"), 0)
 
 def breaks_block(line, fence):
-    if FENCE_RE.match(line):
-        return True, not fence
+    if FENCE_RE.match(line): return True, not fence
     stripped = line.strip()
     if (fence or not stripped or stripped.startswith(("#", "|", ">"))
             or stripped in STEP_LABELS):
         return True, fence
     return False, fence
-
 
 def collect_blocks(lines):
     blocks, current, fence = [], [], False
@@ -158,25 +138,21 @@ def collect_blocks(lines):
             continue
         broke, fence = breaks_block(line, fence)
         code = not current and (line[:4] == "    " or line[:1] == "\t")
-        if broke or code:
-            if current:
-                blocks.append(current)
+        if (broke or code) and current:
+            blocks.append(current)
             current = []
+        if broke or code:
             continue
         if LIST_RE.match(line) and current:
             blocks.append(current)
             current = []
         current.append((number + 1, line))
-    if current:
-        blocks.append(current)
+    if current: blocks.append(current)
     return blocks
 
-
 def check_block(block, path, problems):
-    for number, _ in block[1:]:
-        problems.append(f"{path}:{number}: hard line break inside a "
-                        "wrappable block; join the block into one line")
-
+    problems.extend(f"{path}:{number}: hard line break inside a wrappable block; join the block into one line"
+                    for number, _ in block[1:])
 
 def check_file(path):
     problems = []
@@ -192,10 +168,8 @@ def check_file(path):
         paired = number - 1 in fence_paired or number - 1 in section_paired
         messages += check_resource_path(line, paired)
         problems.extend(f"{path}:{number}: {m}" for m in messages)
-    for block in collect_blocks(lines):
-        check_block(block, path, problems)
+    for block in collect_blocks(lines): check_block(block, path, problems)
     return problems
-
 
 def collect(targets):
     files = []
@@ -209,26 +183,18 @@ def collect(targets):
             raise FileNotFoundError(target)
     return files
 
-
 def main(argv=None):
-    parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("targets", nargs="+",
-                        help="markdown files or directories to scan")
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("targets", nargs="+", help="markdown files or directories to scan")
     args = parser.parse_args(argv)
     try:
         files = collect(args.targets)
     except (OSError, ValueError) as missing:
-        print(f"error: no such file or directory: {missing}",
-              file=sys.stderr)
+        print(f"error: no such file or directory: {missing}", file=sys.stderr)
         return 2
     problems = [problem for path in files for problem in check_file(path)]
-    for problem in problems:
-        print(problem)
+    for problem in problems: print(problem)
     print(f"checked {len(files)} files, {len(problems)} problems")
     return 1 if problems else 0
 
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == "__main__": sys.exit(main())

@@ -79,10 +79,14 @@ def file_request(item, review, prepared, body, installed):
     return request
 
 
-def build_reviewed(factory, target, plan, review_path, review, review_raw, check=None):
+def check_current_inputs(factory, plan, review_path, review_raw, check):
     current_inputs(factory, plan, review_path, review_raw)
     if check:
         check()
+
+
+def build_reviewed(factory, target, plan, review_path, review, review_raw, check=None):
+    check_current_inputs(factory, plan, review_path, review_raw, check)
     expected = {item['path']: item['sha256'] for item in plan['files']}
     target.mkdir()
     writes = []
@@ -92,17 +96,13 @@ def build_reviewed(factory, target, plan, review_path, review, review_raw, check
         body_path = folder / 'body.md'; body_path.write_bytes(base64.b64decode(body_item['content_base64']))
         body = {'path': str(body_path), 'sha256': body_item['sha256']}
         for item in plan['files']:
-            current_inputs(factory, plan, review_path, review_raw)
-            if check:
-                check()
+            check_current_inputs(factory, plan, review_path, review_raw, check)
             prepared = folder / 'prepared.bin'; prepared.write_bytes(base64.b64decode(item['content_base64']))
             (target / item['path']).parent.mkdir(parents=True, exist_ok=True)
             request = file_request(item, review, {'path': str(prepared), 'sha256': item['sha256']},
                                    body, (target / 'SKILL.md').exists())
             result = write_file(request, target)
-            current_inputs(factory, plan, review_path, review_raw)
-            if check:
-                check()
+            check_current_inputs(factory, plan, review_path, review_raw, check)
             writes.append({key: result[key] for key in ['path', 'new_sha256', 'reviewer', 'review', 'execution_acceptance']})
     require(inventory(target) == expected, 'scaffold differs from reviewed file bytes')
     return writes

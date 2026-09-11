@@ -36,17 +36,19 @@ function parse(factory: string, args: string[]) {
   return reply;
 }
 
+async function checkDatabaseFile(path: string) {
+  try {
+    const file = await lstat(path);
+    if (!file.isFile() || file.isSymbolicLink() || file.nlink !== 1) throw new Error('Unsafe workflow database file');
+  } catch (error) { if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) throw error; }
+}
+
 async function openStorage(state: string): Promise<MastraCompositeStore> {
   const metadata = await lstat(state);
   if ((metadata.mode & 0o077) !== 0 || metadata.uid !== process.getuid?.())
     throw new Error('Persistent state requires a private directory owned by this caller on POSIX');
   const database = join(await realpath(state), 'standardization.db');
-  for (const suffix of ['', '-wal', '-shm', '-journal']) {
-    try {
-      const file = await lstat(database + suffix);
-      if (!file.isFile() || file.isSymbolicLink() || file.nlink !== 1) throw new Error('Unsafe workflow database file');
-    } catch (error) { if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) throw error; }
-  }
+  for (const suffix of ['', '-wal', '-shm', '-journal']) await checkDatabaseFile(database + suffix);
   const require = createRequire(new URL('../runtime/standardization/package.json', import.meta.url));
   const { LibSQLStore } = await import(pathToFileURL(require.resolve('@mastra/libsql')).href);
   return new LibSQLStore({ id: 'standardization-public-state', url: 'file:' + database });

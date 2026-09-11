@@ -2,6 +2,7 @@
 import base64
 import stat
 from pathlib import Path
+from functools import partial
 
 from agentic_request_contract import read_json
 from review_ledger_context import require
@@ -99,20 +100,20 @@ def publish_reviewed(plan, publication, factory, plan_path, review_path, validat
     inputs()
     with staged(target.parent, target.name) as candidate:
         writes = build_reviewed(factory, candidate, publication, review_path, review, review_raw,
-                                check=lambda: inputs(candidate.parent))
+                                check=partial(inputs, candidate.parent))
         prepare_directories(candidate, publication['candidate_before']['directories'])
         validation = validate_candidate(candidate)
         require(package_state(candidate)['files'] == expected, 'variant validation changed planned files or modes')
         inputs(candidate.parent)
         def before_promotion():
             inputs(candidate.parent, locked=True)
-            retirement_checks(publication, review, lambda: inputs(candidate.parent, locked=True), target)
+            retirement_checks(publication, review, partial(inputs, candidate.parent, locked=True), target)
         def verify(backup):
             inputs(candidate.parent, backup, True)
             require(package_state(target)['files'] == expected, 'published variant differs from reviewed files or modes')
             verify_layout(target, publication)
             writes.extend(retirement_checks(publication, review,
-                lambda: inputs(candidate.parent, backup, True), backup, target))
+                partial(inputs, candidate.parent, backup, True), backup, target))
         promote(candidate, target, None if before is None else {name: x['sha256'] for name, x in before['files'].items()},
                 preserve_unowned=True, check=before_promotion, verify=verify)
     return validation, writes

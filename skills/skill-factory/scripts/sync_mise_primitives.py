@@ -142,6 +142,17 @@ def parse_args(argv):
     return parser.parse_args(argv)
 
 
+def planned_or_checked(root, planning, expected):
+    if planning:
+        result = {'status': 'PASS', 'mode': 'plan', 'content_utf8': json.dumps(expected, indent=2) + '\n'}
+        print(json.dumps(result, sort_keys=True))
+        return 0
+    current = read_json((root / 'assets/mise-primitives-catalog.json').read_text(encoding='utf-8'))
+    stale = stable_view(current) != stable_view(expected)
+    print(f"Mise primitive catalog: {'stale' if stale else 'current'}")
+    return 1 if stale else 0
+
+
 def main(argv=None):
     args = parse_args(argv)
     candidate = Path(args.root)
@@ -153,13 +164,7 @@ def main(argv=None):
         else:
             version = args.version or installed_version()
             expected = catalog(version, schema_bytes(version, args.schema_file))
-            if args.plan:
-                result = {'status': 'PASS', 'mode': 'plan', 'content_utf8': json.dumps(expected, indent=2) + '\n'}
-            else:
-                current = read_json((root / 'assets/mise-primitives-catalog.json').read_text(encoding='utf-8'))
-                stale = stable_view(current) != stable_view(expected)
-                print(f"Mise primitive catalog: {'stale' if stale else 'current'}")
-                return 1 if stale else 0
+            return planned_or_checked(root, args.plan, expected)
     except (OSError, ValueError, TypeError, KeyError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 2

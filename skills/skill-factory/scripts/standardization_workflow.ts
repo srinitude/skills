@@ -92,8 +92,16 @@ function operation(runtime: Runtime, value: Input | Reviewed, apply: boolean, si
   });
 }
 
-function steps(runtime: Runtime, options: Options) {
-  const prepare = createStep({ id: 'prepare-standardization', inputSchema, outputSchema: preparedSchema,
+async function verifyApplied(root: string, files: { path: string; content_base64: string; mode: number }[]) {
+  for (const item of files) {
+    const target = join(root, item.path), raw = await readFile(target);
+    if (!raw.equals(Buffer.from(item.content_base64, 'base64')) || ((await lstat(target)).mode & 0o777) !== item.mode)
+      throw new Error('Applied target differs from the exact reviewed plan: ' + item.path);
+  }
+}
+
+function prepareStep(runtime: Runtime, options: Options) {
+  return createStep({ id: 'prepare-standardization', inputSchema, outputSchema: preparedSchema,
     execute: async ({ inputData, abortSignal }) => {
       await workflowRoots(runtime, inputData.target);
       if (options.preparedPlan) {
@@ -108,7 +116,10 @@ function steps(runtime: Runtime, options: Options) {
       await writeFile(plan_path, raw, { flag: 'wx', mode: 0o600 });
       return { ...inputData, plan_path, plan_sha256: digest(raw) };
     } });
-  const review = createStep({ id: 'review-standardization', inputSchema: preparedSchema, outputSchema: reviewedSchema,
+}
+
+function reviewStep() {
+  return createStep({ id: 'review-standardization', inputSchema: preparedSchema, outputSchema: reviewedSchema,
     resumeSchema: resumedSchema, suspendSchema: preparedSchema,
     execute: async ({ inputData, resumeData, suspend }) => {
       if (!resumeData) return await suspend(inputData);
@@ -119,24 +130,22 @@ function steps(runtime: Runtime, options: Options) {
       await bound(reply.review_path, reply.review_sha256);
       return { ...inputData, review_path: reply.review_path, review_sha256: reply.review_sha256 };
     } });
-  const apply = createStep({ id: 'apply-reviewed-standardization', inputSchema: reviewedSchema, outputSchema: appliedSchema,
+}
+
+function applyStep(runtime: Runtime, options: Options) {
+  return createStep({ id: 'apply-reviewed-standardization', inputSchema: reviewedSchema, outputSchema: appliedSchema,
     execute: async ({ inputData, abortSignal }) => {
       const planned = JSON.parse((await bound(inputData.plan_path, inputData.plan_sha256)).raw.toString());
       await bound(inputData.review_path, inputData.review_sha256);
       const result = appliedSchema.parse(await operation(runtime, inputData, true, abortSignal, options.onNativeResult));
-      for (const item of planned.plan.files) {
-        const target = join(inputData.target, item.path), raw = await readFile(target);
-        if (!raw.equals(Buffer.from(item.content_base64, 'base64')) || ((await lstat(target)).mode & 0o777) !== item.mode)
-          throw new Error('Applied target differs from the exact reviewed plan: ' + item.path);
-      }
+      await verifyApplied(inputData.target, planned.plan.files);
       return result;
     } });
-  return { prepare, review, apply };
 }
 
 export async function createStandardizationWorkflow(runtime: Runtime, options: Options = {}) {
   runtime = { ...runtime, ...await workflowRoots(runtime) };
-  const { prepare, review, apply } = steps(runtime, options);
+  const prepare = prepareStep(runtime, options), review = reviewStep(), apply = applyStep(runtime, options);
   const workflow = createWorkflow({ id: 'standardize-reviewed-package', inputSchema, outputSchema: appliedSchema,
     options: { validateInputs: true, autoRestartActiveRuns: false } }).then(prepare).then(review).then(apply).commit();
   const mastra = new Mastra({ workflows: { standardize: workflow },

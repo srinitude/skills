@@ -13,6 +13,13 @@ const digest = z.string().regex(/^[a-f0-9]{64}$/);
 const sourceBinding = z.object({
   path: z.string().min(1).refine(isAbsolute, 'Use an absolute source path'), sha256: digest,
 }).strict();
+function fieldIssue(request: Record<string, unknown>, context: z.RefinementCtx, field: string, used: boolean, required: boolean) {
+  if (used && required && request[field] === undefined)
+    context.addIssue({ code: 'custom', message: `${request.action} requires ${field}` });
+  if (!used && request[field] !== undefined)
+    context.addIssue({ code: 'custom', message: `${field} does not apply to ${request.action}` });
+}
+
 export const requestSchema = z.object({
   action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'file-graph', 'write-file']),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
@@ -59,10 +66,7 @@ export const requestSchema = z.object({
   for (const rule of rules) {
     const used = rule.actions.some(action => action === request.action);
     for (const field of rule.fields) {
-      if (used && rule.required && request[field] === undefined)
-        context.addIssue({ code: 'custom', message: `${request.action} requires ${field}` });
-      if (!used && request[field] !== undefined)
-        context.addIssue({ code: 'custom', message: `${field} does not apply to ${request.action}` });
+      fieldIssue(request, context, field, used, rule.required);
     }
   }
 });
@@ -75,6 +79,15 @@ const resultSchema = z.object({
   coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only', 'bound body revision only']), limit: z.string(),
 });
 
+function pipeError(error: NodeJS.ErrnoException, reject: (reason?: unknown) => void) {
+  if (error.code !== 'EPIPE') reject(error);
+}
+
+function finishRead(code: number | null, stdout: Buffer[], stderr: Buffer[], accept: (value: unknown) => void, reject: (reason?: unknown) => void) {
+  if (code !== 0) return reject(new Error(Buffer.concat(stderr).toString() || `Ledger reader exited ${code}`));
+  try { accept(JSON.parse(Buffer.concat(stdout).toString())); } catch (error) { reject(error); }
+}
+
 export function readThroughOwner(operation: 'parse' | 'view' | 'write', input: string, writeRoot?: string): Promise<unknown> {
   return new Promise((accept, reject) => {
     const args = [reader, operation, ...(writeRoot === undefined ? [] : ['--write-root', writeRoot])];
@@ -83,11 +96,8 @@ export function readThroughOwner(operation: 'parse' | 'view' | 'write', input: s
     child.stdout.on('data', (chunk: Buffer) => stdout.push(chunk));
     child.stderr.on('data', (chunk: Buffer) => stderr.push(chunk));
     child.on('error', reject);
-    child.stdin.on('error', (error: NodeJS.ErrnoException) => { if (error.code !== 'EPIPE') reject(error); });
-    child.on('close', code => {
-      if (code !== 0) return reject(new Error(Buffer.concat(stderr).toString() || `Ledger reader exited ${code}`));
-      try { accept(JSON.parse(Buffer.concat(stdout).toString())); } catch (error) { reject(error); }
-    });
+    child.stdin.on('error', (error: NodeJS.ErrnoException) => pipeError(error, reject));
+    child.on('close', code => finishRead(code, stdout, stderr, accept, reject));
     child.stdin.end(input);
   });
 }

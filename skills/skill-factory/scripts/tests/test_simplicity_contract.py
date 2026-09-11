@@ -13,10 +13,10 @@ class TestSimplicityContract(unittest.TestCase):
         text = self.read("SKILL.md")
         self.assertIn("## Motivation", text)
         for phrase in ["Simple means understandable and complete under the contract",
-                       "Keep one canonical meaning owner, stable term, default route",
-                       "Reuse accepted structures before adding code or dependencies",
-                       "speed never justify lost meaning, context, safety",
-                       "Same-meaning human review must confirm clarity and completeness"]:
+                       "Keep one meaning owner, stable term and default route per real decision",
+                       "Reuse existing code, native tools and accepted structures before adding dependencies",
+                       "never justify lost requirements, domain complexity, safety, privacy, accessibility, authority or proof",
+                       "Human same-meaning review checks clarity and completeness"]:
             self.assertIn(phrase, text)
 
     def test_recursive_contract_preserves_plain_language_rules(self):

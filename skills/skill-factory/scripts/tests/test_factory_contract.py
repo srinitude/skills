@@ -11,11 +11,11 @@ class TestDeterministicBoundary(unittest.TestCase):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         contract = (SKILL_DIR / "references" / "generation-contract.md").read_text()
         self.assertIn("## Mise task graph", skill)
-        for phrase in ["Mise owns the public command surface, pinned environment and outer prerequisites",
-                       "Mastra owns each delegated domain workflow",
-                       "Tested scripts perform repeatable leaves and exact predicates directly",
-                       "Put an explicit handoff between these owners",
-                       "never recursively invoke competing Mise graphs from workflow steps"]:
+        for phrase in ["[Mise][mise] owns public commands, pinned environments and outer prerequisites",
+                       "[Mastra][mastra] owns substantive domain control, state and recovery",
+                       "Existing tested scripts perform repeatable leaves",
+                       "Keep one owner for scheduling, retries, caching, state, effects and cleanup, with explicit handoffs",
+                       "Never add competing recursive [Mise][mise] graphs"]:
             self.assertIn(phrase, skill)
         self.assertNotIn("python3 scripts/", skill)
         for phrase in ["Mise for public entry/environment/outer prerequisites",
@@ -40,10 +40,10 @@ class TestDeterministicBoundary(unittest.TestCase):
         for path in [paths[0], paths[2]]:
             text = path.read_text(encoding="utf-8")
             if path.name == "SKILL.md":
-                self.assertIn("Preserve every available authorized capability", text)
-                self.assertIn("Preserve non-text modalities through the real capable runner", text)
-                self.assertIn("extra Agent/provider infrastructure is unnecessary", text)
-                self.assertIn("caller already supplies the runner", text)
+                self.assertIn("Preserve all relevant authorized modalities", text)
+                self.assertIn("Use a capable real runner for binary media", text)
+                self.assertIn("Availability alone grants no extra provider, cloud, voice, memory or multi-agent system", text)
+                self.assertIn("Preserve existing languages, caller-controlled runners and faithful modalities", text)
             else:
                 self.assertIn("Preserve selected host models/tools, modalities", text)
                 self.assertIn("no separate Agent, provider, account, model policy", text)
@@ -74,7 +74,7 @@ class TestFactoryOperations(unittest.TestCase):
         for command in ["new <prompt>", "update <path> <prompt>",
                         "standardize <path>", "import <source> <destination>"]:
             self.assertIn(command, self.skill)
-        self.assertIn("Preserve domain purpose and accepted behavior", self.skill)
+        self.assertIn("Preserve purpose, accepted behavior, source bytes, authorized scope", self.skill)
         self.assertIn("baseline_digest", self.skill)
 
     def test_portable_import_contract_names_canonical_owners(self):

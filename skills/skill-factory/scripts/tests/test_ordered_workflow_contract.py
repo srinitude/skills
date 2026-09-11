@@ -8,10 +8,10 @@ OWNERS = [ROOT / "SKILL.md", ROOT / "assets" / "skill-template.md"]
 SECTIONS = ["Outcome", "Motivation", "Evidence", "Mise task graph",
             "Steps", "Assets", "Evals"]
 LEDGER_ANCHORS = {
-    "SKILL.md": ["Read this entire body first.",
-                 "The reusable ledger is the working record",
-                 "Relationships have their own identities",
-                 "Discover prerequisites backward from the promised usable outcome"],
+    "SKILL.md": ["Read this complete body first.",
+                 "The ledger must retain every governing rule and source detail",
+                 "Relationships have stable IDs, typed directed endpoints",
+                 "Discover prerequisites backward from the promised outcome"],
     "skill-template.md": ["**Start here.**", "**Reusable ledger artifact, owned here.**",
                           "**Relationship records.**", "**Dependency contract.**"],
 }
@@ -49,7 +49,7 @@ class TestOrderedWorkflowContract(unittest.TestCase):
             with self.subTest(path=path.name):
                 workflow = section(path.read_text(encoding="utf-8"), "Steps")
                 for number, body in steps(workflow):
-                    self.assertRegex(body, r"\b(?:Mise|Mastra|Model|Human|Host):",
+                    self.assertRegex(body, r"^\*\*[^*]+\*\* (?:Model(?: and \[Mise\]\[mise\])?:|Mise:|Mastra:|Human:|Host:|\[Mastra\]\[mastra\] executes)",
                                      f"step {number} has no named owner")
                     self.assertTrue("Mise:" not in body or "`mise run" in body,
                                     f"step {number} names no public task")
@@ -71,11 +71,11 @@ class TestOrderedWorkflowContract(unittest.TestCase):
             with self.subTest(path=path.name):
                 graph = section(path.read_text(encoding="utf-8"), "Mise task graph")
                 if path.name == "SKILL.md":
-                    self.assertIn("Mise owns the public command surface", graph)
-                    self.assertIn("Mastra owns each delegated domain workflow", graph)
-                    self.assertIn("Tested scripts perform repeatable leaves", graph)
-                    self.assertIn("Put an explicit handoff between these owners", graph)
-                    self.assertIn("never recursively invoke competing Mise graphs", graph)
+                    self.assertIn("[Mise][mise] owns public commands", graph)
+                    self.assertIn("[Mastra][mastra] owns substantive domain control", graph)
+                    self.assertIn("Existing tested scripts perform repeatable leaves", graph)
+                    self.assertIn("with explicit handoffs", graph)
+                    self.assertIn("Never add competing recursive [Mise][mise] graphs", graph)
                 else:
                     self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
                     self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)

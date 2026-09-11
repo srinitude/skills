@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "cfc47ad86c6e15b146c84cb14d80bc99b9a01be95b00d1109dbc0874e0e53bba",
+  "native_manifest_sha256": "b9e9ea76508c94bbb3bd4f578146c196f3ed61cec7cecafd2eb3e27ced62057f",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1492,7 +1492,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "e80e5e2ad4f095af0802a8819ee5d59a569dfe324f3ee3f589a0e53949a8a926"
+      "sha256": "d9e9149d215e0f6cdcd1ef9a43999c5d1efbf6b13df469b800579ade405b371f"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -2116,7 +2116,7 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "651c61397abee061e75c0e916a015f5d078cac5e8431e49c3d7e971aeb008376"
+      "sha256": "71831122811387077813ce0317bd10f78e70af998eeb5bdc451ff91297557c2a"
     },
     {
       "path": "scripts/tests/test_formatter_permissions.py",
@@ -2168,7 +2168,7 @@
     },
     {
       "path": "scripts/tests/test_ordered_workflow_contract.py",
-      "sha256": "547f2405ff598aea42c2758987de23e5f69e01873668dc70ca79a85378bc77f2"
+      "sha256": "a9cb378e605a11baf152c0a19d337769e03bfa1473043e2dc99ce40747f70c6c"
     },
     {
       "path": "scripts/tests/test_package_preservation.py",
@@ -2280,7 +2280,7 @@
     },
     {
       "path": "scripts/tests/test_simplicity_contract.py",
-      "sha256": "ae53fb20c8a2ccc70a0e2ba5d23e05a4e1714dfb9e186240f6589fd4260cdd94"
+      "sha256": "1bdf87fd5fd99f04cfddc759d99b7d2b8d5c3949691b938c125a23b5919b7415"
     },
     {
       "path": "scripts/tests/test_skill_scope.py",

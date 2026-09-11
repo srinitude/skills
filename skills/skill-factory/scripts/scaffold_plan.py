@@ -57,6 +57,13 @@ def ordered(files):
     return result
 
 
+def render_tokens(original, tokens):
+    text = original.decode('utf-8')
+    for key, value in tokens.items():
+        text = text.replace('{{%s}}' % key, value)
+    return text.encode('utf-8')
+
+
 def render_plan(root, tokens, sources):
     body = read_file({"path": str(root / "SKILL.md")})
     require(body.decode("utf-8").strip(), "factory body must be nonempty regular UTF-8")
@@ -68,10 +75,7 @@ def render_plan(root, tokens, sources):
         original = path.read_bytes()
         raw = original
         if rendered:
-            text = original.decode('utf-8')
-            for key, value in tokens.items():
-                text = text.replace('{{%s}}' % key, value)
-            raw = text.encode('utf-8')
+            raw = render_tokens(original, tokens)
         files.append({'path': destination, 'source': {'path': source, 'sha256': sha(original)},
                       'sha256': sha(raw), 'content_base64': base64.b64encode(raw).decode('ascii')})
     require(inventory(root) == baseline, 'factory changed while rendering scaffold plan')

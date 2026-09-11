@@ -121,11 +121,10 @@ def rewrite_problems(rewrites):
         if not text(path) or not isinstance(rules, list) or not rules:
             found.append("text_rewrites entries need a path and rules")
             continue
-        for rule in rules:
-            valid = (isinstance(rule, dict) and text(rule.get("old"))
-                     and isinstance(rule.get("new"), str))
-            if not valid:
-                found.append(f"text_rewrites.{path} has an invalid rule")
+        invalid = (rule for rule in rules if not
+                   (isinstance(rule, dict) and text(rule.get("old"))
+                    and isinstance(rule.get("new"), str)))
+        found.extend(f"text_rewrites.{path} has an invalid rule" for rule in invalid)
     return found
 
 

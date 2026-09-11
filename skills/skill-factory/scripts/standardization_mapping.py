@@ -159,6 +159,18 @@ def check_native_clauses(root, data):
         raise ValueError("native source mapping omits a source file")
 
 
+def semantic_index(root, mappings, cache):
+    semantic = {}
+    if not isinstance(mappings, list):
+        raise ValueError("source mapping semantic_mappings must be an array")
+    for item in mappings:
+        if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not item["id"] or item["id"] in semantic:
+            raise ValueError("source mapping semantic IDs must be nonempty and unique")
+        check_assertion(root, item, cache)
+        semantic[item["id"]] = item
+    return semantic
+
+
 def repair_mapping_json(root, owners=None, profile=None, snapshots=None):
     """Check on-disk or exact planned bindings without rewriting mapping bytes.
 
@@ -177,15 +189,8 @@ def repair_mapping_json(root, owners=None, profile=None, snapshots=None):
             return
         if not isinstance(data, dict) or not isinstance(data.get("entries"), list) or not data["entries"]:
             raise ValueError("source mapping needs its owning schema validator")
-        semantic, cache = {}, {}
-        mappings = data.get("semantic_mappings", [])
-        if not isinstance(mappings, list):
-            raise ValueError("source mapping semantic_mappings must be an array")
-        for item in mappings:
-            if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not item["id"] or item["id"] in semantic:
-                raise ValueError("source mapping semantic IDs must be nonempty and unique")
-            check_assertion(root, item, cache)
-            semantic[item["id"]] = item
+        cache = {}
+        semantic = semantic_index(root, data.get("semantic_mappings", []), cache)
         for entry in data["entries"]:
             check_mapping_entry(root, entry, semantic, cache)
     except (OSError, ValueError) as error:

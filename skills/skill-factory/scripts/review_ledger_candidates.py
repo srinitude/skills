@@ -26,16 +26,22 @@ def page_range(request, total, budget, base, per_item):
         next_offset=str(stop) if stop < total else None, work_slots=slots, budget=budget)
 
 
+def combination_choice(n, remaining, start, rank):
+    for choice in range(start, n):
+        block = math.comb(n-choice-1, remaining-1)
+        if rank < block:
+            return choice, rank
+        rank -= block
+    return None, rank
+
+
 def combination_at(n, size, rank):
     chosen, start = [], 0
     for remaining in range(size, 0, -1):
-        for choice in range(start, n):
-            block = math.comb(n-choice-1, remaining-1)
-            if rank < block:
-                chosen.append(choice)
-                start = choice+1
-                break
-            rank -= block
+        choice, rank = combination_choice(n, remaining, start, rank)
+        if choice is not None:
+            chosen.append(choice)
+            start = choice+1
     return chosen
 
 

@@ -26,60 +26,78 @@ def steps(text):
     return re.findall(r"(?ms)^(\d+)\. (.*?)(?=^\d+\. |\Z)", text)
 
 
+def _TestOrderedWorkflowContract_test_intent_evidence_execution_and_acceptance_have_the_required_order(self):
+    for path in OWNERS:
+        with self.subTest(path=path.name):
+            text = path.read_text(encoding="utf-8")
+            self.assertEqual(re.findall(r"(?m)^## (.+)$", text), SECTIONS)
+
+def _TestOrderedWorkflowContract_test_steps_are_one_numbered_workflow_without_a_competing_copy(self):
+    for path in OWNERS:
+        with self.subTest(path=path.name):
+            text = path.read_text(encoding="utf-8")
+            workflow = steps(section(text, "Steps"))
+            numbers = [int(number) for number, _ in workflow]
+            self.assertTrue(numbers, "the Steps section has no workflow")
+            self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
+            self.assertEqual(len(steps(text)), len(workflow),
+                             "numbered work exists outside its owning section")
+
+def _check_steps_name_the_reader_or_execution_owner_and_public_tasks(self, path):
+    workflow = section(path.read_text(encoding="utf-8"), "Steps")
+    for number, body in steps(workflow):
+        self.assertRegex(body, r"^\*\*[^*]+\*\* (?:Model(?: and \[Mise\]\[mise\])?:|Mise:|Mastra:|Human:|Host:|\[Mastra\]\[mastra\] executes)",
+                         f"step {number} has no named owner")
+        self.assertTrue("Mise:" not in body or "`mise run" in body,
+                        f"step {number} names no public task")
+    self.assertIn("`mise run", workflow)
+
+
+def _TestOrderedWorkflowContract_test_steps_name_the_reader_or_execution_owner_and_public_tasks(self):
+    for path in OWNERS:
+        with self.subTest(path=path.name):
+            _check_steps_name_the_reader_or_execution_owner_and_public_tasks(self, path)
+
+def _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, path):
+    text = path.read_text(encoding="utf-8")
+    positions = []
+    for anchor in LEDGER_ANCHORS[path.name]:
+        self.assertEqual(text.count(anchor), 1, anchor)
+        positions.append(text.index(anchor))
+    self.assertEqual(positions, sorted(positions))
+    self.assertLess(positions[-1], text.index("1. **"))
+
+
+def _TestOrderedWorkflowContract_test_the_reusable_ledger_has_one_body_owner_before_its_consumers(self):
+    for path in OWNERS:
+        with self.subTest(path=path.name):
+            _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, path)
+
+def _check_outer_and_inner_owners_do_not_compete(self, path):
+    graph = section(path.read_text(encoding="utf-8"), "Mise task graph")
+    if path.name == "SKILL.md":
+        self.assertIn("[Mise][mise] owns public commands", graph)
+        self.assertIn("[Mastra][mastra] owns substantive domain control", graph)
+        self.assertIn("Existing tested scripts perform repeatable leaves", graph)
+        self.assertIn("with explicit handoffs", graph)
+        self.assertIn("Never add competing recursive [Mise][mise] graphs", graph)
+    else:
+        self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
+        self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)
+    self.assertNotIn("Mise owns every deterministic command", graph)
+
+
+def _TestOrderedWorkflowContract_test_outer_and_inner_owners_do_not_compete(self):
+    for path in OWNERS:
+        with self.subTest(path=path.name):
+            _check_outer_and_inner_owners_do_not_compete(self, path)
+
 class TestOrderedWorkflowContract(unittest.TestCase):
-    def test_intent_evidence_execution_and_acceptance_have_the_required_order(self):
-        for path in OWNERS:
-            with self.subTest(path=path.name):
-                text = path.read_text(encoding="utf-8")
-                self.assertEqual(re.findall(r"(?m)^## (.+)$", text), SECTIONS)
-
-    def test_steps_are_one_numbered_workflow_without_a_competing_copy(self):
-        for path in OWNERS:
-            with self.subTest(path=path.name):
-                text = path.read_text(encoding="utf-8")
-                workflow = steps(section(text, "Steps"))
-                numbers = [int(number) for number, _ in workflow]
-                self.assertTrue(numbers, "the Steps section has no workflow")
-                self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
-                self.assertEqual(len(steps(text)), len(workflow),
-                                 "numbered work exists outside its owning section")
-
-    def test_steps_name_the_reader_or_execution_owner_and_public_tasks(self):
-        for path in OWNERS:
-            with self.subTest(path=path.name):
-                workflow = section(path.read_text(encoding="utf-8"), "Steps")
-                for number, body in steps(workflow):
-                    self.assertRegex(body, r"^\*\*[^*]+\*\* (?:Model(?: and \[Mise\]\[mise\])?:|Mise:|Mastra:|Human:|Host:|\[Mastra\]\[mastra\] executes)",
-                                     f"step {number} has no named owner")
-                    self.assertTrue("Mise:" not in body or "`mise run" in body,
-                                    f"step {number} names no public task")
-                self.assertIn("`mise run", workflow)
-
-    def test_the_reusable_ledger_has_one_body_owner_before_its_consumers(self):
-        for path in OWNERS:
-            with self.subTest(path=path.name):
-                text = path.read_text(encoding="utf-8")
-                positions = []
-                for anchor in LEDGER_ANCHORS[path.name]:
-                    self.assertEqual(text.count(anchor), 1, anchor)
-                    positions.append(text.index(anchor))
-                self.assertEqual(positions, sorted(positions))
-                self.assertLess(positions[-1], text.index("1. **"))
-
-    def test_outer_and_inner_owners_do_not_compete(self):
-        for path in OWNERS:
-            with self.subTest(path=path.name):
-                graph = section(path.read_text(encoding="utf-8"), "Mise task graph")
-                if path.name == "SKILL.md":
-                    self.assertIn("[Mise][mise] owns public commands", graph)
-                    self.assertIn("[Mastra][mastra] owns substantive domain control", graph)
-                    self.assertIn("Existing tested scripts perform repeatable leaves", graph)
-                    self.assertIn("with explicit handoffs", graph)
-                    self.assertIn("Never add competing recursive [Mise][mise] graphs", graph)
-                else:
-                    self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
-                    self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)
-                self.assertNotIn("Mise owns every deterministic command", graph)
+    test_intent_evidence_execution_and_acceptance_have_the_required_order = _TestOrderedWorkflowContract_test_intent_evidence_execution_and_acceptance_have_the_required_order
+    test_steps_are_one_numbered_workflow_without_a_competing_copy = _TestOrderedWorkflowContract_test_steps_are_one_numbered_workflow_without_a_competing_copy
+    test_steps_name_the_reader_or_execution_owner_and_public_tasks = _TestOrderedWorkflowContract_test_steps_name_the_reader_or_execution_owner_and_public_tasks
+    test_the_reusable_ledger_has_one_body_owner_before_its_consumers = _TestOrderedWorkflowContract_test_the_reusable_ledger_has_one_body_owner_before_its_consumers
+    test_outer_and_inner_owners_do_not_compete = _TestOrderedWorkflowContract_test_outer_and_inner_owners_do_not_compete
 
 
 if __name__ == "__main__":

@@ -60,11 +60,10 @@ def policy_blocks(text):
             fence = marker[1]
         elif marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
             fence = None
-        if blocked or not line.strip():
-            if start is not None:
-                found.append((start, offset, text[start:offset].strip()))
-                start = None
-        elif start is None:
+        if (blocked or not line.strip()) and start is not None:
+            found.append((start, offset, text[start:offset].strip()))
+            start = None
+        elif not blocked and line.strip() and start is None:
             start = offset
         offset += len(line)
     return found

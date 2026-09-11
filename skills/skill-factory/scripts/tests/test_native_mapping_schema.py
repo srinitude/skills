@@ -21,43 +21,52 @@ def fixture():
     return mapping, files
 
 
+def _reject_mapping(self, mapping, files):
+    with self.assertRaisesRegex(ValueError, "source mapping"):
+        self.check(mapping, files)
+
+
+def _TestNativeMappingSchema_check(self, mapping, files):
+    files["evals/source-mapping.json"] = json.dumps(mapping).encode()
+    before = copy.deepcopy(files)
+    try:
+        repair_mapping_json(files)
+    finally:
+        self.assertEqual(files, before)
+
+def _TestNativeMappingSchema_test_bound_native_mapping_keeps_all_bytes(self):
+    self.check(*fixture())
+
+def _TestNativeMappingSchema_test_source_and_case_binding_changes_reject(self):
+    for field, value in [("source_files", ["unknown.md"]), ("source_case_ids", ["another-case"]),
+                         ("skill", "another-skill")]:
+        with self.subTest(field=field):
+            mapping, files = fixture(); mapping[field] = value
+            _reject_mapping(self, mapping, files)
+
+def _TestNativeMappingSchema_test_invalid_native_clauses_and_targets_reject(self):
+    for field, value in [("action", "drop"), ("targets", ["../outside"]),
+                         ("source_lines", "3-1"), ("meaning", "")]:
+        with self.subTest(field=field):
+            mapping, files = fixture(); mapping["clauses"][0][field] = value
+            _reject_mapping(self, mapping, files)
+    mapping, files = fixture(); mapping["clauses"] *= 2
+    with self.assertRaisesRegex(ValueError, "source mapping"):
+        self.check(mapping, files)
+
+def _TestNativeMappingSchema_test_missing_required_schema_content_rejects(self):
+    for field in ["adaptations", "clauses", "coverage"]:
+        with self.subTest(field=field):
+            mapping, files = fixture(); del mapping[field]
+            _reject_mapping(self, mapping, files)
+
+
 class TestNativeMappingSchema(unittest.TestCase):
-    def check(self, mapping, files):
-        files["evals/source-mapping.json"] = json.dumps(mapping).encode()
-        before = copy.deepcopy(files)
-        try:
-            repair_mapping_json(files)
-        finally:
-            self.assertEqual(files, before)
-
-    def test_bound_native_mapping_keeps_all_bytes(self):
-        self.check(*fixture())
-
-    def test_source_and_case_binding_changes_reject(self):
-        for field, value in [("source_files", ["unknown.md"]), ("source_case_ids", ["another-case"]),
-                             ("skill", "another-skill")]:
-            with self.subTest(field=field):
-                mapping, files = fixture(); mapping[field] = value
-                with self.assertRaisesRegex(ValueError, "source mapping"):
-                    self.check(mapping, files)
-
-    def test_invalid_native_clauses_and_targets_reject(self):
-        for field, value in [("action", "drop"), ("targets", ["../outside"]),
-                             ("source_lines", "3-1"), ("meaning", "")]:
-            with self.subTest(field=field):
-                mapping, files = fixture(); mapping["clauses"][0][field] = value
-                with self.assertRaisesRegex(ValueError, "source mapping"):
-                    self.check(mapping, files)
-        mapping, files = fixture(); mapping["clauses"] *= 2
-        with self.assertRaisesRegex(ValueError, "source mapping"):
-            self.check(mapping, files)
-
-    def test_missing_required_schema_content_rejects(self):
-        for field in ["adaptations", "clauses", "coverage"]:
-            with self.subTest(field=field):
-                mapping, files = fixture(); del mapping[field]
-                with self.assertRaisesRegex(ValueError, "source mapping"):
-                    self.check(mapping, files)
+    check = _TestNativeMappingSchema_check
+    test_bound_native_mapping_keeps_all_bytes = _TestNativeMappingSchema_test_bound_native_mapping_keeps_all_bytes
+    test_source_and_case_binding_changes_reject = _TestNativeMappingSchema_test_source_and_case_binding_changes_reject
+    test_invalid_native_clauses_and_targets_reject = _TestNativeMappingSchema_test_invalid_native_clauses_and_targets_reject
+    test_missing_required_schema_content_rejects = _TestNativeMappingSchema_test_missing_required_schema_content_rejects
 
 
 if __name__ == "__main__":

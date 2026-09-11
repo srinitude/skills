@@ -13,7 +13,9 @@ ACCEPTANCE_JOBS = [job for job in CI_JOBS if job != "lineage"]
 EXPECTED = {
     "ci": CI_JOBS,
     "test-ci": [],
-    "test": ["test-ci", "lint-code"],
+    "test": ["test-ci", "setup-graph-renderer"],
+    "setup-graph-renderer": ["lint-code"],
+    "render-file-graph": ["setup-graph-renderer"],
     "validate": [],
     "lint-writing": [],
     "setup-runtime": [],
@@ -56,52 +58,61 @@ def tasks():
         return tomllib.load(handle)["tasks"]
 
 
+def _TestTaskGraphTopology_setUp(self):
+    self.tasks = tasks()
+
+def _TestTaskGraphTopology_test_every_task_has_an_explicit_dependency_set(self):
+    self.assertEqual(set(self.tasks), set(EXPECTED))
+    for name, expected in EXPECTED.items():
+        self.assertEqual(self.tasks[name].get("depends"), expected, name)
+
+def _TestTaskGraphTopology_test_deep_dependencies_accept_valid_graph_and_reject_cycle_without_recursion(self):
+    data = policy.contract()
+    graph = policy.task_text().replace('depends = ["test", "decision-policy"]',
+                               'depends = ["test", "decision-policy", "deep-1499"]', 1)
+    for n in reversed(range(1500)):
+        name = f'deep-{n}'
+        prior = [f'deep-{n-1}'] if n else []
+        graph += f'\n[tasks.{name}]\ndescription = "Release notes prerequisite"\ndepends = {json.dumps(prior)}\n'
+        data['task_graph']['tasks'][name] = policy.task_policy(name)
+    for cyclic in [False, True]:
+        with self.subTest(cyclic=cyclic):
+            selected = graph.replace('[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = []',
+                                     '[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = ["deep-1499"]') if cyclic else graph
+            result = policy.TestTaskGraphPolicy().check(selected, data)
+            self.assertEqual(result.returncode, 1 if cyclic else 0, result.stderr)
+            self.assertNotIn('Traceback', result.stderr)
+            self.assertIn('cycle' if cyclic else '0 problems', result.stdout)
+
+def _TestTaskGraphTopology_test_dependencies_resolve_to_declared_tasks(self):
+    declared = set(self.tasks)
+    for name, task in self.tasks.items():
+        self.assertTrue(set(task["depends"]) <= declared, name)
+
+def _TestTaskGraphTopology_test_catalog_update_runs_primitive_policy_after_refresh(self):
+    self.assertEqual(self.tasks["mise-primitives-update"]["depends_post"],
+                     [{"task": "refresh-lineage", "args": ["--review", "{{usage.lineage_review}}"]}])
+
+def _TestTaskGraphTopology_test_run_commands_do_not_reinvoke_mise(self):
+    for name, task in self.tasks.items():
+        self.assertNotIn("mise run", task.get("run", ""), name)
+
+def _TestTaskGraphTopology_test_refresh_lineage_waits_for_every_acceptance_gate(self):
+    self.assertEqual(self.tasks["refresh-lineage"]["depends"],
+                     ACCEPTANCE_JOBS)
+    task = self.tasks["refresh-lineage"]
+    self.assertEqual(task["usage"], 'flag "--review <path>" required=#true')
+    self.assertIn('--review "${usage_review?}"', task["run"])
+
+
 class TestTaskGraphTopology(unittest.TestCase):
-    def setUp(self):
-        self.tasks = tasks()
-
-    def test_every_task_has_an_explicit_dependency_set(self):
-        self.assertEqual(set(self.tasks), set(EXPECTED))
-        for name, expected in EXPECTED.items():
-            self.assertEqual(self.tasks[name].get("depends"), expected, name)
-
-    def test_deep_dependencies_accept_valid_graph_and_reject_cycle_without_recursion(self):
-        data = policy.contract()
-        graph = policy.task_text().replace('depends = ["test", "decision-policy"]',
-                                   'depends = ["test", "decision-policy", "deep-1499"]', 1)
-        for n in reversed(range(1500)):
-            name = f'deep-{n}'
-            prior = [f'deep-{n-1}'] if n else []
-            graph += f'\n[tasks.{name}]\ndescription = "Release notes prerequisite"\ndepends = {json.dumps(prior)}\n'
-            data['task_graph']['tasks'][name] = policy.task_policy(name)
-        for cyclic in [False, True]:
-            with self.subTest(cyclic=cyclic):
-                selected = graph.replace('[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = []',
-                                         '[tasks.deep-0]\ndescription = "Release notes prerequisite"\ndepends = ["deep-1499"]') if cyclic else graph
-                result = policy.TestTaskGraphPolicy().check(selected, data)
-                self.assertEqual(result.returncode, 1 if cyclic else 0, result.stderr)
-                self.assertNotIn('Traceback', result.stderr)
-                self.assertIn('cycle' if cyclic else '0 problems', result.stdout)
-
-    def test_dependencies_resolve_to_declared_tasks(self):
-        declared = set(self.tasks)
-        for name, task in self.tasks.items():
-            self.assertTrue(set(task["depends"]) <= declared, name)
-
-    def test_catalog_update_runs_primitive_policy_after_refresh(self):
-        self.assertEqual(self.tasks["mise-primitives-update"]["depends_post"],
-                         [{"task": "refresh-lineage", "args": ["--review", "{{usage.lineage_review}}"]}])
-
-    def test_run_commands_do_not_reinvoke_mise(self):
-        for name, task in self.tasks.items():
-            self.assertNotIn("mise run", task.get("run", ""), name)
-
-    def test_refresh_lineage_waits_for_every_acceptance_gate(self):
-        self.assertEqual(self.tasks["refresh-lineage"]["depends"],
-                         ACCEPTANCE_JOBS)
-        task = self.tasks["refresh-lineage"]
-        self.assertEqual(task["usage"], 'flag "--review <path>" required=#true')
-        self.assertIn('--review "${usage_review?}"', task["run"])
+    setUp = _TestTaskGraphTopology_setUp
+    test_every_task_has_an_explicit_dependency_set = _TestTaskGraphTopology_test_every_task_has_an_explicit_dependency_set
+    test_deep_dependencies_accept_valid_graph_and_reject_cycle_without_recursion = _TestTaskGraphTopology_test_deep_dependencies_accept_valid_graph_and_reject_cycle_without_recursion
+    test_dependencies_resolve_to_declared_tasks = _TestTaskGraphTopology_test_dependencies_resolve_to_declared_tasks
+    test_catalog_update_runs_primitive_policy_after_refresh = _TestTaskGraphTopology_test_catalog_update_runs_primitive_policy_after_refresh
+    test_run_commands_do_not_reinvoke_mise = _TestTaskGraphTopology_test_run_commands_do_not_reinvoke_mise
+    test_refresh_lineage_waits_for_every_acceptance_gate = _TestTaskGraphTopology_test_refresh_lineage_waits_for_every_acceptance_gate
 
 
 if __name__ == "__main__":

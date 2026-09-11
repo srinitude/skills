@@ -47,9 +47,9 @@ def formatter_command(root, paths=()):
         owned = sorted(folder for folder in folders if folder.is_relative_to(repo))
         configured = any((folder / name).is_file() for folder in owned for name in CONFIG_NAMES)
         configured = configured or any(package_configuration(folder, command, repo) for folder in owned)
+        if configured and command is None:
+            raise ValueError("configured repository formatter is not ready; selected Node and local Prettier are required")
         if configured:
-            if command is None:
-                raise ValueError("configured repository formatter is not ready; selected Node and local Prettier are required")
             return command, repo
     return None
 

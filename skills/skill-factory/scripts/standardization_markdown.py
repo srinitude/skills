@@ -40,13 +40,12 @@ def task_script_paths(task):
 
 
 def script_task_map(tasks):
-    found = {}
-    ambiguous = set()
-    for name, task in tasks.items():
-        for path in task_script_paths(task):
-            if path in found and found[path] != name:
-                ambiguous.add(path)
-            found[path] = name
+    found, ambiguous = {}, set()
+    paths = ((name, path) for name, task in tasks.items() for path in task_script_paths(task))
+    for name, path in paths:
+        if path in found and found[path] != name:
+            ambiguous.add(path)
+        found[path] = name
     return {path: task for path, task in found.items() if path not in ambiguous}
 
 
@@ -151,10 +150,6 @@ def add_resource_gates(text):
     return "\n".join(output)
 
 
-def rewrite_body(text, owners):
-    return add_resource_gates(rewrite_script_text(text, owners))
-
-
 def route_line(line, profile):
     for route in profile.get("line_task_routes", []):
         if route["contains"] not in line:
@@ -191,7 +186,7 @@ def contract_section(profile):
 
 
 def rewrite_markdown(text, owners, profile, add_contract=False):
-    updated = rewrite_body(text, owners)
+    updated = add_resource_gates(rewrite_script_text(text, owners))
     updated = "\n".join(route_line(line, profile) for line in updated.split("\n"))
     updated = BAD_MISE_LINK_RE.sub(lambda item: f"`{item.group(1)}`", updated)
     if add_contract and "## Factory execution contract" not in updated:

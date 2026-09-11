@@ -32,6 +32,18 @@ def reference_targets(field, value, locator):
     return [(None, locator, "requires-native-resolution")]
 
 
+def occurrence_references(path, field, value, locator, number, tasks):
+    references = []
+    for target, location, grouping in reference_targets(field, value, locator):
+        resolved = isinstance(target, str) and target in tasks and not any(
+            char.isspace() or char in "*?[]{}" for char in target)
+        references.append({"field": field, "locator": location, "value": value,
+            "target": f"task:{path}#{target}" if resolved else None,
+            "state": "same-file-literal-reference" if resolved else "requires-native-resolution",
+            "grouping": grouping, "run_entry": number if field in {"run", "run_windows"} else None})
+    return references
+
+
 def task_references(path, name, declaration, tasks):
     fields = declaration if isinstance(declaration, dict) else {"run": declaration}
     references = []
@@ -42,13 +54,7 @@ def task_references(path, name, declaration, tasks):
         for number, value in enumerate(values):
             locator = ["tasks", name] + ([field] if isinstance(declaration, dict) else [])
             locator += [number] if isinstance(fields[field], list) else []
-            for target, location, grouping in reference_targets(field, value, locator):
-                resolved = isinstance(target, str) and target in tasks and not any(
-                    char.isspace() or char in "*?[]{}" for char in target)
-                references.append({"field": field, "locator": location, "value": value,
-                    "target": f"task:{path}#{target}" if resolved else None,
-                    "state": "same-file-literal-reference" if resolved else "requires-native-resolution",
-                    "grouping": grouping, "run_entry": number if field in {"run", "run_windows"} else None})
+            references.extend(occurrence_references(path, field, value, locator, number, tasks))
     return references
 
 
@@ -83,10 +89,8 @@ def task_edges(index):
         common = {"basis": basis, "subject_sha256": task["sha256"]}
         yield {**relation("MISE:part-of:" + selector, "part-of", selector, basis[0],
                          "The task declaration belongs to its recorded TOML file.", TASK_LIMIT, kind), **common}
-        for reference in task["references"]:
+        for reference in (row for row in task["references"] if row["target"] is not None):
             field, target = reference["field"], reference["target"]
-            if target is None:
-                continue
             running = field in {"run", "run_windows"}
             before, after = (selector, target) if running or field == "depends_post" else (target, selector)
             identifier = "MISE:reference:" + json.dumps([selector, reference["locator"]], ensure_ascii=False, separators=(",", ":"))

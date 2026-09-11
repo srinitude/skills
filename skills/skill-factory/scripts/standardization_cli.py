@@ -122,6 +122,12 @@ def checked_usage_spec():
     return spec
 
 
+def boolean_binding(value):
+    if value not in ('true', 'false'):
+        raise ValueError('Usage returned an invalid boolean binding')
+    return value == 'true'
+
+
 def check_usage(parsed, selected, argv):
     # Native validation owns rejection semantics; Usage must agree before effects.
     result = subprocess.run(['usage', 'explain', '--format', 'json', '--spec', checked_usage_spec(),
@@ -136,9 +142,7 @@ def check_usage(parsed, selected, argv):
     values = {item['name'].replace('-', '_'): item['value'] for item in report['values']}
     for name, value in expected.items():
         if isinstance(value, bool):
-            if values.get(name) not in ('true', 'false'):
-                raise ValueError('Usage returned an invalid boolean binding')
-            values[name] = values[name] == 'true'
+            values[name] = boolean_binding(values.get(name))
         elif value is None:
             values.setdefault(name, None)
     if values != expected:

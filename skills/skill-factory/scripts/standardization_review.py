@@ -38,6 +38,27 @@ def planned_files(plan):
     return {item['path']: {key: item[key] for key in ['sha256', 'mode', 'content_base64']} for item in plan['files']}
 
 
+def promotion_checks(root, factory, plan, bindings, review_path, review, review_raw, expected, changed):
+    protected = [Path(name).resolve() for name in read_context(review['context'])[1]]
+    protected += [Path(review['body_review']['path']).resolve(), *(path.resolve() for path, _ in bindings)]
+    require(not (root.is_relative_to(factory) or factory.is_relative_to(root)), 'factory and target must be independent')
+    require(not {root / name for name in changed}.intersection(protected), 'change overlaps a governing input')
+    def before_promotion():
+        check_sources(root, plan, bindings)
+        check_formatter(plan['formatter'])
+        current_inputs(factory, plan, review_path, review_raw)
+        read_context(review['context'])
+    def after_promotion(_backup):
+        check_bindings(bindings)
+        check_formatter(plan['formatter'], expected)
+        current_inputs(factory, plan, review_path, review_raw)
+        read_context(review['context'])
+        require(capture_files(root) == expected, 'promoted target differs from reviewed bytes or modes')
+        actual = directory_modes(root)
+        require(all(actual.get(name) == mode for name, mode in plan['directory_modes'].items()), 'directory modes changed')
+    return before_promotion, after_promotion
+
+
 def apply_reviewed(root, profile, scope, rebase, factory, sources, plan_path, review_path, profile_path):
     require(plan_path and review_path, 'standardization requires --plan-file and --review before applying')
     supplied, plan_raw = selected_plan(plan_path)
@@ -56,23 +77,8 @@ def apply_reviewed(root, profile, scope, rebase, factory, sources, plan_path, re
         validate_candidate(root)
         check_sources(root, plan, bindings)
         return {'changed': [], 'writes': [], 'execution_acceptance': 'pending'}
-    protected = [Path(name).resolve() for name in read_context(review['context'])[1]]
-    protected += [Path(review['body_review']['path']).resolve(), *(path.resolve() for path, _ in bindings)]
-    require(not (root.is_relative_to(factory) or factory.is_relative_to(root)), 'factory and target must be independent')
-    require(not {root / name for name in changed}.intersection(protected), 'change overlaps a governing input')
-    def before_promotion():
-        check_sources(root, plan, bindings)
-        check_formatter(plan['formatter'])
-        current_inputs(factory, plan, review_path, review_raw)
-        read_context(review['context'])
-    def after_promotion(_backup):
-        check_bindings(bindings)
-        check_formatter(plan['formatter'], expected)
-        current_inputs(factory, plan, review_path, review_raw)
-        read_context(review['context'])
-        require(capture_files(root) == expected, 'promoted target differs from reviewed bytes or modes')
-        actual = directory_modes(root)
-        require(all(actual.get(name) == mode for name, mode in plan['directory_modes'].items()), 'directory modes changed')
+    before_promotion, after_promotion = promotion_checks(
+        root, factory, plan, bindings, review_path, review, review_raw, expected, changed)
     with staged(root.parent, root.name) as candidate:
         writes = build_reviewed(factory, candidate, plan, review_path, review, review_raw,
                                 check=lambda: check_sources(root, plan, bindings))

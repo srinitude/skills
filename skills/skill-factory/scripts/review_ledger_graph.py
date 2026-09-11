@@ -89,8 +89,7 @@ def trace(data, index, selector, direction, depth, relation_type):
             continue
         for edge in adjacency.get(node, []):
             following = follow(edge, node, direction, index)
-            if following:
-                found[edge["id"]] = edge
+            found.update({edge["id"]: edge} if following else {})
             queue.extend((target, distance + 1) for target in dict.fromkeys(following) if target not in seen)
             seen.update(following)
     return {"start": selector, "direction": direction, "depth": depth,

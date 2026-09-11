@@ -75,21 +75,24 @@ def cli_scripts(tasks):
     return sorted(found)
 
 
+def ci_binding(node):
+    if not isinstance(node, ast.Assign) or len(node.targets) != 1:
+        return False
+    return isinstance(node.targets[0], ast.Name) and node.targets[0].id in ('EXPECTED_CI_DEPENDS', 'EXPECTED_CI_TASK')
+
+
 def owned_ci_contract(old, skill):
     try:
-        for node in ast.parse(old).body:
-            if not isinstance(node, ast.Assign) or len(node.targets) != 1:
-                continue
-            name = node.targets[0].id if isinstance(node.targets[0], ast.Name) else ''
-            if name not in ('EXPECTED_CI_DEPENDS', 'EXPECTED_CI_TASK'):
-                continue
-            value = ast.literal_eval(node.value)
-            expected = (LEGACY_CI_TEMPLATE.format(skill=skill, expected=json.dumps(value))
-                        if name == 'EXPECTED_CI_DEPENDS' else ci_contract(skill, value))
-            return old == expected.encode()
+        node = next((node for node in ast.parse(old).body if ci_binding(node)), None)
+        if node is None:
+            return False
+        name = node.targets[0].id
+        value = ast.literal_eval(node.value)
+        expected = (LEGACY_CI_TEMPLATE.format(skill=skill, expected=json.dumps(value))
+                    if name == 'EXPECTED_CI_DEPENDS' else ci_contract(skill, value))
+        return old == expected.encode()
     except (SyntaxError, ValueError, TypeError):
         return False
-    return False
 
 
 def contract_files(files, tasks, profile):

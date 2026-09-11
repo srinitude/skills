@@ -93,10 +93,11 @@ def isolate_python_helpers(block, task):
     elif not isinstance(environment, dict) or environment.get("UV_PYTHON") != "{{tools.python.path}}":
         raise ValueError("Python helper environment needs explicit reconciliation")
     for command in dict.fromkeys(helpers):
-        if command.startswith(UV_RUN):
-            if command not in block:
-                raise ValueError("Python helper command syntax needs explicit reconciliation")
-            block = block.replace(command, ISOLATED_UV + command[len(UV_RUN):])
+        if not command.startswith(UV_RUN):
+            continue
+        if command not in block:
+            raise ValueError("Python helper command syntax needs explicit reconciliation")
+        block = block.replace(command, ISOLATED_UV + command[len(UV_RUN):])
     return block
 
 def check_runtime(files, factory):

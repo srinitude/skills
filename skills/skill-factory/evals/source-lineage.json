@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "d9e83e66aa9b163fc19209a3de6a0e37bccda5eb3a51f9f5995c3bb1aab1c534",
+  "native_manifest_sha256": "b2c50a45678216bfec02c3802c277122c4a6127ea775dc609a70575b14a9639f",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1594,7 +1594,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "e200a759f55d3e07ba8bffccaebdd6348001e96b63b40bb1d25d9e3b40c732f2"
+      "sha256": "4e732adc327267345914de8b95e31e400e1e7d4fbb2e5cf69cf95ced42316867"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1606,11 +1606,11 @@
     },
     {
       "path": "assets/starter-agentic-test.py",
-      "sha256": "64def4eb169cd309121e08255f1f2b95273dbc0b4af0fdf9bb0eb394f7b4dd4b"
+      "sha256": "18af16cd9f171cba43a6402bf4e841624cfe43f303b7366b107e5a7be8fe11d8"
     },
     {
       "path": "assets/starter-ci-test.py",
-      "sha256": "521943ce60503d059ae711b9e00fb1bfe547531482a4a25dd52ec9ed934da413"
+      "sha256": "869789799cbd47886e4c4cb9ce5b18c80e6bbd7d601e3047f3963e89226b2f12"
     },
     {
       "path": "assets/starter-script.py",
@@ -1758,7 +1758,7 @@
     },
     {
       "path": "references/code-rules.md",
-      "sha256": "23b65bf50d49f1d720e9f59d460383cce58dc0220a122a2e8b50e270bcfd2293"
+      "sha256": "8835640ad61a64e552f9c9db39cb8dd6005b1a17686a9d37ad5fda521f40a6eb"
     },
     {
       "path": "references/decisions.md",
@@ -1822,7 +1822,7 @@
     },
     {
       "path": "scripts/check_code_rules.py",
-      "sha256": "b6115ebfb8525711815f1fd06668c500998c07d5a59dbe4cf9c59785db245ca1"
+      "sha256": "60cb1cbfc732390bdb6bc6fd53d754888cc67fea8f99274d529c63fde076a0ae"
     },
     {
       "path": "scripts/check_decision_records.py",
@@ -1830,7 +1830,7 @@
     },
     {
       "path": "scripts/check_domain_research.py",
-      "sha256": "fca082945b193764c98682fd5556b09aeb52b7f4304acf9099e3d830a2a5e3d5"
+      "sha256": "2469b12b66e49df66c710d89c4de578fd6b921c51104d6714387d73f6278bfa6"
     },
     {
       "path": "scripts/check_evals.py",
@@ -1846,7 +1846,7 @@
     },
     {
       "path": "scripts/check_javascript.ts",
-      "sha256": "49b3c8e14c38919f467e66957b83fe8e5b376601697b6679bdf0ebd36cc1d37b"
+      "sha256": "5b8c98da2a57c9200bf5861d2b17d059add6a8f7d33326587245cfaaa53fa716"
     },
     {
       "path": "scripts/check_lineage.py",
@@ -1874,7 +1874,7 @@
     },
     {
       "path": "scripts/check_task_graph.py",
-      "sha256": "9ceb0e9abcb970ef7d3ce8b547a270b90f12a3896e650d81354327cdb0588653"
+      "sha256": "9b64f475294c29aab7addb6eda5162a4c90e1d0247fc761a274c9c9656d74b5a"
     },
     {
       "path": "scripts/check_use_case_contract.py",
@@ -1890,7 +1890,7 @@
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "0db885592db24d4ea7776baeeb71be7eaa76f71f0b9ae1aae3bd1b28049203fc"
+      "sha256": "9e115e868ff6c1e86c794a0ce9fceb52451492af90e05fdc1be80a75c4b7167b"
     },
     {
       "path": "scripts/plan_standardize.py",
@@ -1922,7 +1922,7 @@
     },
     {
       "path": "scripts/review_ledger.py",
-      "sha256": "5ec42c40bea3db4c2844a0c67a497a84436bd3598ada051e7fc50cbbd8454bc7"
+      "sha256": "e63c870f8ba0edf6920543ab64cd971409b159b8072267a2f8d94501e79704ac"
     },
     {
       "path": "scripts/review_ledger_body.py",
@@ -1930,7 +1930,7 @@
     },
     {
       "path": "scripts/review_ledger_candidates.py",
-      "sha256": "10f07a728139b03f753bc9f9e1ecb458ad9b5882a4d5389fe8f1a37c676660c8"
+      "sha256": "f73a5de4e68883d67dac02980c5e9f590c6b977d23c1cedab7e6638e6f49577e"
     },
     {
       "path": "scripts/review_ledger_context.py",
@@ -1946,7 +1946,7 @@
     },
     {
       "path": "scripts/review_ledger_graph.py",
-      "sha256": "ceb974658f7fc5b54c1ae1872d4792093252e9376356e61abe5eec4c9cc8319e"
+      "sha256": "3b040b987521052d584e256cd01b6225e170e091f9600fffa73a47701fba451b"
     },
     {
       "path": "scripts/review_ledger_source.py",
@@ -1954,11 +1954,11 @@
     },
     {
       "path": "scripts/review_ledger_tasks.py",
-      "sha256": "5d2ca8135aa5ae94738d32da40b0ae0d45629c029d39ae999a3af67d896d547f"
+      "sha256": "e9b8afba314e3d7dd516c568fc7b14c6b26edd26bd6d92e84a8f2b68a0417196"
     },
     {
       "path": "scripts/review_ledger_workflow.ts",
-      "sha256": "4239309ba35594a183f6fd566471dd352d49df2696bb798b8cc685616d2bbd19"
+      "sha256": "412c7d6cd2ea2bbcc82a99a331a2d5768661cea8c39da090740731288c4866b1"
     },
     {
       "path": "scripts/review_ledger_write.py",
@@ -1974,15 +1974,15 @@
     },
     {
       "path": "scripts/run_standardization.ts",
-      "sha256": "18cd4a0cc2231e19fbf82d41d882b36b4ec36900da6d387163ae47f433d6539a"
+      "sha256": "15560b2509a1c068ad6959235cada0d554d4d7704fd9127a9d1205977f0dc1a1"
     },
     {
       "path": "scripts/scaffold_plan.py",
-      "sha256": "90bfbc493a4d95d7c76c747b6ada9f232b11ab892f527536952c10a612682aac"
+      "sha256": "826f0c9c0957364964ee41680c9a6a92797f7afdb216b207aad2a1da051e7187"
     },
     {
       "path": "scripts/scaffold_review.py",
-      "sha256": "110196f1b3693dd28dbc6cd141aa594b10e4bd0126e58b3a0a70ac4978750173"
+      "sha256": "f9e7cd7e78db77eae95de6bd4eceea75e3b187f7a22f66d94b1f0c55bd483640"
     },
     {
       "path": "scripts/scaffold_skill.py",
@@ -1994,11 +1994,11 @@
     },
     {
       "path": "scripts/skill_package.py",
-      "sha256": "c436fc2e0ac1e8b3830b0a7510681fabfe78d34d4d09a617a278a4ac9b58f119"
+      "sha256": "f1971db035b5902527aebd0a27c94b1156fa5bd8c8fdc02c0d60cecd08b09865"
     },
     {
       "path": "scripts/skill_scope.py",
-      "sha256": "9691d18125067b934dfdb59fa3306aa11c57cd1126ce4e9c3cf7d9f46508ee96"
+      "sha256": "75911994aaa6e28f63dc77168601a3f1ca82b90a7d42d9a363d3ccce74d19f11"
     },
     {
       "path": "scripts/skill_variant.py",
@@ -2014,11 +2014,11 @@
     },
     {
       "path": "scripts/standardization_cli.py",
-      "sha256": "6192660662ccff3f973af6dd7390f13de93551bcaac8c576bf01a22273ee28fa"
+      "sha256": "b98a77a9a6e97283600d21b555f5d22896af00e8ef880e8123437ecacd2089de"
     },
     {
       "path": "scripts/standardization_contracts.py",
-      "sha256": "61c674ea9656bccfb9e0a1c5cd16ef4b85c1e628be1d9d08ceeca38a13ddda60"
+      "sha256": "5459c0b6fbe996904a915b67bff92d275766b45b80eda513deb0e623345431c1"
     },
     {
       "path": "scripts/standardization_discovery.py",
@@ -2026,15 +2026,15 @@
     },
     {
       "path": "scripts/standardization_format.py",
-      "sha256": "38b4a7e33169bc5f88a6bbfea5665ee7d074c683cfd44bd2ce2dd46085460df6"
+      "sha256": "bd6fa011c3aff966744556cf4563c05f698b8c89e36c50a1907f9e54886ae7a2"
     },
     {
       "path": "scripts/standardization_mapping.py",
-      "sha256": "7d97987b0bf6d71cecd7f285192c2af198dd28af0f20b89e1deff2530864da56"
+      "sha256": "19ef30d83a7449c340d46e6a964f6176af7aa827ca163a08eef75c87cba1ae1d"
     },
     {
       "path": "scripts/standardization_markdown.py",
-      "sha256": "42240ebd833dd5fbbed9d8b21d47240c89338c559eebd589d67d561249f15625"
+      "sha256": "0ae936f1e0450bda4abbe03f272cf7e921f4379da77251f23f9e5fa64ebd4f8f"
     },
     {
       "path": "scripts/standardization_mise.py",
@@ -2046,15 +2046,15 @@
     },
     {
       "path": "scripts/standardization_profile.py",
-      "sha256": "bb470b292a01bf64ad3f3a4d55a086975ebeffd37ac905331a74f6f1fd460d9c"
+      "sha256": "ce8490b5d54b404f577f0dd24faac066e04f21b7d13d76ac1efb82b125f42078"
     },
     {
       "path": "scripts/standardization_render.py",
-      "sha256": "4f930d1a7c6d23160193c71aa27c69c648dfb9a12a34ffd7c4d2ea36007615ea"
+      "sha256": "cb336f4829261d82d19bbbf060862e327d626d72e5de206b3f068b586e7a1b00"
     },
     {
       "path": "scripts/standardization_review.py",
-      "sha256": "56276c2143c5c436bc33be56eb9d957ccd6ef8e7ee0d4189b0505380c4a94dc9"
+      "sha256": "8ceb9fa0e22dc389093c09d17de4297713d1f0db32a4cd8f7f78173e32f0f2c9"
     },
     {
       "path": "scripts/standardization_rewrites.py",
@@ -2062,7 +2062,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "b030646358905f444636740b49d8c1d7512f4a79375b684cf2f8692f75f0004f"
+      "sha256": "9fc438c211627324bc27f44da5216fbc83b7fb315a808edcf4d3feca54373e53"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -2070,7 +2070,7 @@
     },
     {
       "path": "scripts/standardization_workflow.ts",
-      "sha256": "5543e67bf838b4c81d3796c9ac2ad95e762672affaf24dcf7462618ad523fcaf"
+      "sha256": "1b9771da936ad70ea73040449828e0f45eacea6468a38ca43f7af63fa2443649"
     },
     {
       "path": "scripts/standardize_registry_skill.py",
@@ -2078,7 +2078,7 @@
     },
     {
       "path": "scripts/sync_mise_primitives.py",
-      "sha256": "9925ff8947405c09b6c007f6aa7575d20b4ab3c418e2afbcda1a13f2d1a3c31a"
+      "sha256": "943f8eb91e54f061887b5ee47d2aab9b21fff7cb3ecfbafa4aeaa326e0405cc9"
     },
     {
       "path": "scripts/tests/agentic_request_fixtures.py",
@@ -2102,7 +2102,7 @@
     },
     {
       "path": "scripts/tests/test_adversarial_fail_closed.py",
-      "sha256": "cb31f7730997259798e1c3045be82f1851cf2210aee04563e699c96ee3155f17"
+      "sha256": "a567f4f28286641cac176b06b820414d82802cad341e80035b2a503e1c9fd38e"
     },
     {
       "path": "scripts/tests/test_adversarial_source_boundaries.py",
@@ -2122,7 +2122,7 @@
     },
     {
       "path": "scripts/tests/test_check_code_rules.py",
-      "sha256": "2fb0ccea4053bd465a79375c58005863c28d26e253ec6196606c99d4d5c8b50c"
+      "sha256": "85bc3ccd0a70845551464c9c54e1d4049c4cc5cad12710eea5e27694fa3e99f6"
     },
     {
       "path": "scripts/tests/test_check_evals.py",
@@ -2138,7 +2138,7 @@
     },
     {
       "path": "scripts/tests/test_checker_ownership.py",
-      "sha256": "a739f5dd5811ed4c821aaa036e4c17f6ae03bdc43738ed16e697b317cb0fea26"
+      "sha256": "f28f9b2be6b425444c8031149b6dcbc9721ee78d189946da1d16c15542b8f4c9"
     },
     {
       "path": "scripts/tests/test_ci_contract.py",
@@ -2158,7 +2158,7 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "71831122811387077813ce0317bd10f78e70af998eeb5bdc451ff91297557c2a"
+      "sha256": "3276e25096c8cfa2a7b11c5f9a8deee885e0caa60fd277c4ee1c2b5854bb84da"
     },
     {
       "path": "scripts/tests/test_formatter_permissions.py",
@@ -2174,7 +2174,7 @@
     },
     {
       "path": "scripts/tests/test_javascript_code_rules.py",
-      "sha256": "5a7a7cb36bea12a4c924ae5ee90be998fd5b932470148fcde88b1a55201e61d2"
+      "sha256": "6461405bd704a8e1d73700bbddced48ff21daac3bb3303888c5de2c7453b57ac"
     },
     {
       "path": "scripts/tests/test_lineage_contract.py",
@@ -2182,15 +2182,15 @@
     },
     {
       "path": "scripts/tests/test_lineage_review.py",
-      "sha256": "c9568ab13f92ba115f976cc3dfd0d97982c27974f5fa0923076e8bd95251eb41"
+      "sha256": "91e596e13a4bef671fd95514d477792101686ae19736a8f20ca8cf26fe52bffd"
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
-      "sha256": "9f672ff4b99d06064e821a5f5dd626f27eab3ad55e6658cc87c00a10fdcff114"
+      "sha256": "3025e7d629fd8495f9ba6018b4b426b32afdcbf796fb65f8c9210a4575547452"
     },
     {
       "path": "scripts/tests/test_mapping_promotion.py",
-      "sha256": "5b5fc3d614a831f7736e18f63f1ba81a92ea04a106d9f20ed248b4984994cf89"
+      "sha256": "23e2511f31faa4334f944df81228cd19ae396399aa76b46d23a43b6ec3270b09"
     },
     {
       "path": "scripts/tests/test_mise_primitives.py",
@@ -2198,11 +2198,11 @@
     },
     {
       "path": "scripts/tests/test_mise_speed_contract.py",
-      "sha256": "b291c8ab7d012eecdda617d35a741602eb89f79f82cc448d2a4d49f6c8d2d14c"
+      "sha256": "fa318b204974a19963cdc511e454195161faef8f522cde9f503e4e85d101ad46"
     },
     {
       "path": "scripts/tests/test_native_mapping_schema.py",
-      "sha256": "47f1b897ccb7c7d6c32c95e2de4e2f0176901970a867bc3ed00eaa4bbfecf200"
+      "sha256": "f56ee9b47a5d7dde2a80046aa274820537021515dadca4fa23c0f7a44d14a40a"
     },
     {
       "path": "scripts/tests/test_native_task_subtables.py",
@@ -2210,7 +2210,7 @@
     },
     {
       "path": "scripts/tests/test_ordered_workflow_contract.py",
-      "sha256": "a9cb378e605a11baf152c0a19d337769e03bfa1473043e2dc99ce40747f70c6c"
+      "sha256": "6ba7bea861d87461cfdc87e77c87e3457ee8aa21bcce44fa9c7576321c0cbafc"
     },
     {
       "path": "scripts/tests/test_package_preservation.py",
@@ -2282,11 +2282,11 @@
     },
     {
       "path": "scripts/tests/test_review_ledger_runtime.py",
-      "sha256": "0ba18d20d002b5fedc448b3a264f515b9bf297d069a2b7f3eb2a1059360bf52b"
+      "sha256": "03187825bd4242fcf6e78c848642ffb1deac98f19e55824e8acb62049c7f05aa"
     },
     {
       "path": "scripts/tests/test_review_ledger_source.py",
-      "sha256": "99b391027a40d8b511df8dd14f8dd2acbfee667ed6becdc48e9b4d0619998e35"
+      "sha256": "375dc44a1838cb1b7a792853c8f8ffafe6b77bbe08040bedd769f310830996ce"
     },
     {
       "path": "scripts/tests/test_review_ledger_tasks.py",
@@ -2298,7 +2298,7 @@
     },
     {
       "path": "scripts/tests/test_review_ledger_write.py",
-      "sha256": "0ae51fdab4e40689c0de65b3099b0018b69f868bd69293b44aee2d537f1d4392"
+      "sha256": "aafbef3c18d44e3f336a3d8fd89723c7769f4d61c2ed1da9a24d7f64d8b9439e"
     },
     {
       "path": "scripts/tests/test_review_ledger_write_boundaries.py",
@@ -2310,7 +2310,7 @@
     },
     {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
-      "sha256": "380e34bf7e1d689c6150d79b72281618180c5b4afc2986e8acd516d4295b87ca"
+      "sha256": "d5208c6cccc3594978d042036c2ab9ecd1b7a7ba3c548fd0edf73b22bcabca67"
     },
     {
       "path": "scripts/tests/test_scaffold_review.py",
@@ -2318,7 +2318,7 @@
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "d9382ecfa768b931f42fbf97612f31cf349ae45b2522d8b1ef32839e0a16c757"
+      "sha256": "c3bbca4af2178c137c94e71d5b8b3dd3009cda715f14ab14c368bed7e40aa8e2"
     },
     {
       "path": "scripts/tests/test_scope_destination.py",
@@ -2334,7 +2334,7 @@
     },
     {
       "path": "scripts/tests/test_skill_scope.py",
-      "sha256": "9593b77adf93622c2e915b22473231df3481e2824c50f3275bc19c7b7e2e1c7f"
+      "sha256": "f2126e9c1da01400f483c40680a9fe75e6e50678463d70235e5c40a2cbf26017"
     },
     {
       "path": "scripts/tests/test_skill_variant.py",
@@ -2346,7 +2346,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_baseline.py",
-      "sha256": "bfe7c7318d5ec52eae0643b187824ac8284f5a9e1f4d53ba591ff9b14b08352e"
+      "sha256": "3fa177ddd9fa7e88bab7bffd0f60fef7dc49f06886fdea70e938a575a9f24d51"
     },
     {
       "path": "scripts/tests/test_standardization_boundaries.py",
@@ -2358,11 +2358,11 @@
     },
     {
       "path": "scripts/tests/test_standardization_commands.py",
-      "sha256": "e2f500b3ed8030965144006de4e864ae60c5d8166443aa75ae988a627e62ad73"
+      "sha256": "262adf7efc93cd62fc1257c1afc222d8f3fc98e4f6a6650039c48c2e00710436"
     },
     {
       "path": "scripts/tests/test_standardization_contracts.py",
-      "sha256": "52bdbd5f342a2b69f1e51b711cba1f0827b2024118966655afc4b524593c63f5"
+      "sha256": "bb6757366c144ff38e5be41de99843ce338efadd29c4f031b64fe6d4ce240610"
     },
     {
       "path": "scripts/tests/test_standardization_copy.py",
@@ -2370,11 +2370,11 @@
     },
     {
       "path": "scripts/tests/test_standardization_format.py",
-      "sha256": "cf13053b0361493840f5283520bb83d9ad1e28b965e2b3f2e583e2f6a5cdf60b"
+      "sha256": "af6a0aaa70a7b176f642cdaa0d2ba391532c192944e331d5bbb4c36b749e1df5"
     },
     {
       "path": "scripts/tests/test_standardization_inputs.py",
-      "sha256": "2ad7f03df1c5878a867f57cea8fec41aae9a269333492d1812e134bb472d70a6"
+      "sha256": "80a194f082410de4a8ed8daae64616c9d27187afebe1a0eb822c028b35ee75e9"
     },
     {
       "path": "scripts/tests/test_standardization_inventory.py",
@@ -2382,7 +2382,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_ledger_body.py",
-      "sha256": "1b653e2ecd5dc3b71d354d59623e3b70a08ed6df81d2f0e44c04efcc06c6388d"
+      "sha256": "7a543ab6713fab62515a2f44792b38dbfcd58a6134a6d6f27ee3b9d8ced17491"
     },
     {
       "path": "scripts/tests/test_standardization_preflight.py",
@@ -2398,7 +2398,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_usage.py",
-      "sha256": "1776404f0b769dcbfa647542bc84c4db4b162d499562063652cec155379a050d"
+      "sha256": "73fc071f1cd2d661519daf270548a49454acab7a934dda2d1ee30665af948eb3"
     },
     {
       "path": "scripts/tests/test_standardization_workflow.py",
@@ -2418,19 +2418,19 @@
     },
     {
       "path": "scripts/tests/test_task_graph_policy.py",
-      "sha256": "bd722272adbecf1506f4179ee1c1bbcf5d43ee16061e69bde1a3601f6c33505a"
+      "sha256": "5aad8205c0ba31732cde49a77173696541e518472c33fca48088c175c75f1d97"
     },
     {
       "path": "scripts/tests/test_task_graph_topology.py",
-      "sha256": "f391e871bac06792f183b1ba1e35e622a99358370f92c2dd1db7bac2e4656225"
+      "sha256": "d5263d9e5d9b98fe207c5809e33ce4fdbd5220285bf372504305ba26f3be7b19"
     },
     {
       "path": "scripts/tests/test_template_dependency_order.py",
-      "sha256": "c5ba7503f35e37026ed967996c0079d80d031414179ba1e3cabfd508fa468c15"
+      "sha256": "f38023291874e5ee21b7d4e794a27a141964c91f5e877be527d32bdf1c42762e"
     },
     {
       "path": "scripts/tests/test_token_efficiency_contract.py",
-      "sha256": "568c4d9b7489341a781faeb06014adb686a6edf34990dac9e8bca1001bd8e0f3"
+      "sha256": "cef7b928f18c7b6b77d8357546c57c0339992cbaefa3efaacabe6ed9c52bcef1"
     },
     {
       "path": "scripts/tests/test_use_case_acceptance.py",
@@ -2438,11 +2438,11 @@
     },
     {
       "path": "scripts/tests/test_use_case_contract.py",
-      "sha256": "0a260fe2ed4098a71e7d5fb76acf567cbf39654d518f1c3711042d75372e25a6"
+      "sha256": "cafa9d7eccecc583c9560184a5cf15c028bfb19a6ce6d4ce8bd984232ba9178e"
     },
     {
       "path": "scripts/tests/test_validate_skill.py",
-      "sha256": "db6e9876d5ccc22081ec0211005b6a7901740464ae29b2f57bcf8ad4ec23794f"
+      "sha256": "d50bcf1d36deb5979ed897c5c6ccd31ff263b7e166643fd6bbb361b92c37221b"
     },
     {
       "path": "scripts/tests/test_variant_acceptance.py",
@@ -2478,7 +2478,7 @@
     },
     {
       "path": "scripts/validate_skill.py",
-      "sha256": "28e44c912893e7224fab5a874e4fdd21c23fd4f57b5ce6c5ce9ff0cc33e9e61e"
+      "sha256": "b9d0b76927826ea8bd291c53aa38f2e9945a708c6de97bb0fd1d98490a51a2d9"
     },
     {
       "path": "scripts/variant_accept.py",
@@ -2502,11 +2502,11 @@
     },
     {
       "path": "scripts/variant_review.py",
-      "sha256": "5c6293aab4c7e0d65d9b8e5c1789719d5cd41b6eefb774d84d3e60b58f7ef5fd"
+      "sha256": "f751b6f81ff47aa00455acce1971b6bb1876e274b46fd2d6f3294a7e5e14cdef"
     },
     {
       "path": "scripts/variant_reviewed_publish.py",
-      "sha256": "41b4e699bc0c70dd954d77061e34ae88a88d71299420086f1e0430ad31015cd5"
+      "sha256": "c0f605abaeb98252767d69a4296b8bcad1fb45e2d037c35032f351ef242ddd2c"
     },
     {
       "path": "scripts/variant_schema.py",

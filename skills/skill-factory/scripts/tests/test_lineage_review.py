@@ -1,5 +1,6 @@
 """Actual lineage planning, protected effects, interference and reviewed recovery."""
 import copy
+from itertools import repeat
 import json
 import subprocess
 import sys
@@ -72,11 +73,11 @@ def _TestLineageReview_test_false_or_null_effect_checks_cannot_succeed(self):
     before = self.package()
     for value in [False, None]:
         with self.assertRaises(ValueError):
-            write_file(self.request, self.root, effect_check=lambda: value)
+            write_file(self.request, self.root, effect_check=repeat(value).__next__)
         self.assertEqual(self.package(), before)
         results = iter([True, value])
         with self.assertRaises(ValueError):
-            write_file(self.request, self.root, effect_check=lambda: next(results))
+            write_file(self.request, self.root, effect_check=results.__next__)
         self.assertEqual(self.package(), before)
     result = write_file(self.request, self.root, effect_check=lambda: True)
     self.assertEqual(result['execution_acceptance'], 'pending')

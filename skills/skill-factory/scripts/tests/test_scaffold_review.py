@@ -12,89 +12,46 @@ from test_scaffold_skill import DESCRIPTION
 from scaffold_test_support import review_fixture
 
 
-class TestScaffoldReview(unittest.TestCase):
-    def setUp(self):
-        temporary = tempfile.TemporaryDirectory()
-        self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name).resolve()
-        self.args = ('--name', 'demo-skill', '--description', DESCRIPTION,
-                     '--scope', 'user', '--dest', self.root)
+def _TestScaffoldReview_setUp(self):
+    temporary = tempfile.TemporaryDirectory()
+    self.addCleanup(temporary.cleanup)
+    self.root = Path(temporary.name).resolve()
+    self.args = ('--name', 'demo-skill', '--description', DESCRIPTION,
+                 '--scope', 'user', '--dest', self.root)
 
-    def test_missing_review_rejects_before_any_destination_mutation(self):
-        result = run('scaffold_skill.py', *self.args)
-        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn('review', result.stdout + result.stderr)
-        self.assertEqual(list(self.root.iterdir()), [])
+def _TestScaffoldReview_test_missing_review_rejects_before_any_destination_mutation(self):
+    result = run('scaffold_skill.py', *self.args)
+    self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+    self.assertIn('review', result.stdout + result.stderr)
+    self.assertEqual(list(self.root.iterdir()), [])
 
-    def test_plan_contains_actual_complete_bytes_and_writes_nothing(self):
-        result = run('scaffold_skill.py', *self.args, '--plan')
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        plan = json.loads(result.stdout)
-        self.assertEqual(plan['version'], 1)
-        self.assertEqual(plan['execution_acceptance'], 'pending')
-        files = plan['files']; names = [item['path'] for item in files]
-        self.assertEqual(len(names), len(set(names)))
-        self.assertEqual(names[0], 'mise.toml')
-        self.assertLess(names.index('scripts/tests/test_ci_contract.py'), names.index('scripts/tests/test_scripts.py'))
-        self.assertLess(names.index('scripts/tests/test_scripts.py'), names.index('scripts/skill_info.py'))
-        self.assertLess(names.index('scripts/skill_info.py'), names.index('SKILL.md'))
-        self.assertLess(names.index('SKILL.md'), names.index('evals/evals.json'))
-        for item in files:
-            raw = base64.b64decode(item['content_base64'], validate=True)
-            self.assertTrue(raw)
-            self.assertEqual(len(item['sha256']), 64)
-            self.assertEqual(len(item['source']['sha256']), 64)
-        self.assertEqual(list(self.root.iterdir()), [])
+def _TestScaffoldReview_test_plan_contains_actual_complete_bytes_and_writes_nothing(self):
+    result = run('scaffold_skill.py', *self.args, '--plan')
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    plan = json.loads(result.stdout)
+    self.assertEqual(plan['version'], 1)
+    self.assertEqual(plan['execution_acceptance'], 'pending')
+    files = plan['files']; names = [item['path'] for item in files]
+    self.assertEqual(len(names), len(set(names)))
+    self.assertEqual(names[0], 'mise.toml')
+    self.assertLess(names.index('scripts/tests/test_ci_contract.py'), names.index('scripts/tests/test_scripts.py'))
+    self.assertLess(names.index('scripts/tests/test_scripts.py'), names.index('scripts/skill_info.py'))
+    self.assertLess(names.index('scripts/skill_info.py'), names.index('SKILL.md'))
+    self.assertLess(names.index('SKILL.md'), names.index('evals/evals.json'))
+    for item in files:
+        raw = base64.b64decode(item['content_base64'], validate=True)
+        self.assertTrue(raw)
+        self.assertEqual(len(item['sha256']), 64)
+        self.assertEqual(len(item['source']['sha256']), 64)
+    self.assertEqual(list(self.root.iterdir()), [])
 
-    def planned(self):
-        result = run('scaffold_skill.py', *self.args, '--plan')
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        return json.loads(result.stdout)
+def _TestScaffoldReview_planned(self):
+    result = run('scaffold_skill.py', *self.args, '--plan')
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    return json.loads(result.stdout)
 
-    def test_reviewed_creation_matches_plan_in_order_and_stays_unaccepted(self):
-        plan = self.planned(); path, _, _ = review_fixture(self, plan)
-        result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        report = json.loads(result.stdout)
-        self.assertEqual(report['execution_acceptance'], 'pending')
-        self.assertIn('SCAFFOLD', report['blocked_until'])
-        self.assertEqual([item['path'] for item in report['writes']], [item['path'] for item in plan['files']])
-        for item in plan['files']:
-            self.assertEqual((self.root / 'demo-skill' / item['path']).read_bytes(), base64.b64decode(item['content_base64']))
-        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob('*') if p.is_file()}
-        result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertNotEqual(result.returncode, 0)
-        self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob('*') if p.is_file()})
-
-    def test_stale_or_incomplete_file_review_rejects_without_mutation_then_recovers(self):
-        plan = self.planned(); path, record, _ = review_fixture(self, plan)
-        original = json.dumps(record)
-        alterations = [lambda v: v.update(plan_sha256='0'*64),
-                       lambda v: v['files'].pop('SKILL.md'),
-                       lambda v: v['files']['mise.toml']['review'].pop('Body decision'),
-                       lambda v: v['context'].update(ledger_sha256='0'*64)]
-        for alter in alterations:
-            value = json.loads(original); alter(value); path.write_text(json.dumps(value))
-            result = run('scaffold_skill.py', *self.args, '--review', path)
-            self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
-            self.assertEqual(list(self.root.iterdir()), [])
-        path.write_text(original)
-        result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
-    def test_actual_governing_source_drift_rejects_then_recovers(self):
-        plan = self.planned(); path, record, _ = review_fixture(self, plan)
-        source = Path(record['context']['original_source']['path']); raw = source.read_bytes()
-        source.write_bytes(raw + b'changed')
-        result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(list(self.root.iterdir()), [])
-        source.write_bytes(raw)
-        result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
-    def audited(self, path):
-        code = """import pathlib,runpy,sys
+def _TestScaffoldReview_audited(self, path):
+    code = """import pathlib,runpy,sys
 script=sys.argv.pop(1); destination=pathlib.Path(sys.argv[sys.argv.index('--dest')+1])
 def observe(event,args):
     if event=='os.mkdir' and pathlib.Path(str(args[0])).is_relative_to(destination):
@@ -102,35 +59,89 @@ def observe(event,args):
 sys.addaudithook(observe);sys.path.insert(0,str(pathlib.Path(script).parent))
 runpy.run_path(script,run_name='__main__')
 """
-        return subprocess.run([sys.executable, '-c', code, str(SCRIPTS / 'scaffold_skill.py'),
-            *map(str, self.args), '--review', str(path)], capture_output=True, text=True)
+    return subprocess.run([sys.executable, '-c', code, str(SCRIPTS / 'scaffold_skill.py'),
+        *map(str, self.args), '--review', str(path)], capture_output=True, text=True)
 
-    def test_last_file_review_is_checked_before_any_staging_mutation(self):
-        plan = self.planned(); path, record, _ = review_fixture(self, plan)
-        original = json.dumps(record)
-        record['files'][plan['files'][-1]['path']]['review']['Body decision'] = ''
-        path.write_text(json.dumps(record))
-        result = self.audited(path)
-        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
-        self.assertNotIn('DESTINATION-MUTATION', result.stderr)
-        self.assertEqual(list(self.root.iterdir()), [])
-        path.write_text(original)
-        result = self.audited(path)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn('DESTINATION-MUTATION', result.stderr)
+def _TestScaffoldReview_test_reviewed_creation_matches_plan_in_order_and_stays_unaccepted(self):
+    plan = self.planned(); path, _, _ = review_fixture(self, plan)
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    report = json.loads(result.stdout)
+    self.assertEqual(report['execution_acceptance'], 'pending')
+    self.assertIn('SCAFFOLD', report['blocked_until'])
+    self.assertEqual([item['path'] for item in report['writes']], [item['path'] for item in plan['files']])
+    for item in plan['files']:
+        self.assertEqual((self.root / 'demo-skill' / item['path']).read_bytes(), base64.b64decode(item['content_base64']))
+    before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob('*') if p.is_file()}
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertNotEqual(result.returncode, 0)
+    self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob('*') if p.is_file()})
 
-
-    def test_created_body_inherits_the_accepted_outcome_efficiency_rules(self):
-        plan = self.planned(); path, _, _ = review_fixture(self, plan)
+def _TestScaffoldReview_test_stale_or_incomplete_file_review_rejects_without_mutation_then_recovers(self):
+    plan = self.planned(); path, record, _ = review_fixture(self, plan)
+    original = json.dumps(record)
+    alterations = [lambda v: v.update(plan_sha256='0'*64),
+                   lambda v: v['files'].pop('SKILL.md'),
+                   lambda v: v['files']['mise.toml']['review'].pop('Body decision'),
+                   lambda v: v['context'].update(ledger_sha256='0'*64)]
+    for alter in alterations:
+        value = json.loads(original); alter(value); path.write_text(json.dumps(value))
         result = run('scaffold_skill.py', *self.args, '--review', path)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        body = (self.root / 'demo-skill/SKILL.md').read_text()
-        self.assertIn('Close the smallest ready functional path', body)
-        self.assertIn('Use the complete pre-read to choose the change before writing', body)
-        self.assertIn('Use the complete post-read to compare the actual changed file', body)
-        self.assertIn('append a durable entry to the existing per-file change history', body)
-        self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', body)
-        self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', body)
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(list(self.root.iterdir()), [])
+    path.write_text(original)
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+def _TestScaffoldReview_test_actual_governing_source_drift_rejects_then_recovers(self):
+    plan = self.planned(); path, record, _ = review_fixture(self, plan)
+    source = Path(record['context']['original_source']['path']); raw = source.read_bytes()
+    source.write_bytes(raw + b'changed')
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+    self.assertEqual(list(self.root.iterdir()), [])
+    source.write_bytes(raw)
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+def _TestScaffoldReview_test_created_body_inherits_the_accepted_outcome_efficiency_rules(self):
+    plan = self.planned(); path, _, _ = review_fixture(self, plan)
+    result = run('scaffold_skill.py', *self.args, '--review', path)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    body = (self.root / 'demo-skill/SKILL.md').read_text()
+    self.assertIn('Close the smallest ready functional path', body)
+    self.assertIn('Use the complete pre-read to choose the change before writing', body)
+    self.assertIn('Use the complete post-read to compare the actual changed file', body)
+    self.assertIn('append a durable entry to the existing per-file change history', body)
+    self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', body)
+    self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', body)
+
+def _TestScaffoldReview_test_last_file_review_is_checked_before_any_staging_mutation(self):
+    plan = self.planned(); path, record, _ = review_fixture(self, plan)
+    original = json.dumps(record)
+    record['files'][plan['files'][-1]['path']]['review']['Body decision'] = ''
+    path.write_text(json.dumps(record))
+    result = self.audited(path)
+    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+    self.assertNotIn('DESTINATION-MUTATION', result.stderr)
+    self.assertEqual(list(self.root.iterdir()), [])
+    path.write_text(original)
+    result = self.audited(path)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    self.assertIn('DESTINATION-MUTATION', result.stderr)
+
+
+class TestScaffoldReview(unittest.TestCase):
+    setUp = _TestScaffoldReview_setUp
+    test_missing_review_rejects_before_any_destination_mutation = _TestScaffoldReview_test_missing_review_rejects_before_any_destination_mutation
+    test_plan_contains_actual_complete_bytes_and_writes_nothing = _TestScaffoldReview_test_plan_contains_actual_complete_bytes_and_writes_nothing
+    planned = _TestScaffoldReview_planned
+    test_reviewed_creation_matches_plan_in_order_and_stays_unaccepted = _TestScaffoldReview_test_reviewed_creation_matches_plan_in_order_and_stays_unaccepted
+    test_stale_or_incomplete_file_review_rejects_without_mutation_then_recovers = _TestScaffoldReview_test_stale_or_incomplete_file_review_rejects_without_mutation_then_recovers
+    test_actual_governing_source_drift_rejects_then_recovers = _TestScaffoldReview_test_actual_governing_source_drift_rejects_then_recovers
+    audited = _TestScaffoldReview_audited
+    test_last_file_review_is_checked_before_any_staging_mutation = _TestScaffoldReview_test_last_file_review_is_checked_before_any_staging_mutation
+    test_created_body_inherits_the_accepted_outcome_efficiency_rules = _TestScaffoldReview_test_created_body_inherits_the_accepted_outcome_efficiency_rules
 
 
 

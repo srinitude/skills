@@ -34,9 +34,9 @@ def split_sections(text):
 
 
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
-LEDGER_EXAMPLES = ("examples/ledger-write-run.json", "examples/lineage-public-run.json",
+LEDGER_EXAMPLES = ("examples/graph-public-run.json", "examples/ledger-write-run.json", "examples/lineage-public-run.json",
                    "examples/catalog-public-run.json", "examples/registry-public-run.json", "examples/example-ledger-write.md")
-LEDGER_FILES = ("review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_file_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
+LEDGER_FILES = ("render_file_graph.py", "tests/test_render_file_graph.py", "review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_file_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
                 "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_file_graph.py", "tests/test_review_ledger_write.py", "tests/test_related_owner_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
@@ -135,3 +135,41 @@ def catalog_task(block):
     if tomllib.loads('[task]\n' + result)['task'] != expected:
         raise ValueError('catalog migration changed an unrelated task field')
     return result
+
+
+def runtime_dependencies(name, dependencies, names):
+    result = list(dependencies)
+    provider = {"test": "setup-graph-renderer", "setup-graph-renderer": "lint-code", "lint-code": "check-runtime"}.get(name)
+    if provider in names and provider not in result:
+        result.append(provider)
+    chains = [("test", ("setup-graph-renderer", "lint-code", "setup-runtime", "check-runtime")),
+              ("setup-graph-renderer", ("lint-code", "setup-runtime", "check-runtime")),
+              ("lint-code", ("setup-runtime", "check-runtime")), ("check-runtime", ("setup-runtime",))]
+    for consumer, ancestors in chains:
+        if consumer in result and consumer in names:
+            return [item for item in result if item not in ancestors]
+    return result
+
+
+
+def strip_key(block, key):
+    lines, output, skipping = block.splitlines(), [], False
+    for line in lines:
+        if skipping:
+            skipping = not line.strip().endswith("]")
+            continue
+        if re.match(rf"^{re.escape(key)}\s*=", line):
+            skipping = "[" in line and not line.strip().endswith("]")
+            continue
+        output.append(line)
+    return "\n".join(output).strip()
+
+
+
+def nested_dependencies(block):
+    command = tomllib.loads('[task]\n' + block)['task'].get('run')
+    command = command[0] if isinstance(command, list) and len(command) == 1 else command
+    match = re.fullmatch(r"mise run ([a-z0-9][a-z0-9:-]*)", command.strip()) if isinstance(command, str) else None
+    if not match and re.search(r'\bmise\s+run\b', json.dumps(command)):
+        raise ValueError('nested CI execution needs explicit reconciliation before standardization')
+    return [match.group(1)] if match else []

@@ -32,49 +32,53 @@ except ValueError as error:
 '''
 
 
+def _TestFileRestoration_interrupted(self, independent=False):
+    request = self.folder / 'request.json'
+    request.write_text(json.dumps(self.request))
+    return subprocess.run([sys.executable, '-c', INTERFERENCE, str(request), str(self.root),
+                           'independent' if independent else 'source-only'],
+                          cwd=write_cases.ROOT / 'scripts', capture_output=True, text=True, timeout=30)
+
+def _TestFileRestoration_test_readable_source_drift_restores_create_and_replacement_then_recovers(self):
+    source = Path(self.request['original_source']['path'])
+    original = source.read_bytes()
+    target = self.root / 'result.bin'
+    for prior in [None, b'accepted contents']:
+        if prior is not None:
+            target.write_bytes(prior)
+            self.request['change']['expected_sha256'] = write_cases.sha(prior)
+        process = self.interrupted()
+        self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
+        self.assertIn('current write input digest mismatch', process.stderr)
+        self.assertEqual(source.read_bytes(), original + b'changed')
+        self.assertEqual(target.read_bytes() if target.exists() else None, prior)
+        source.write_bytes(original)
+    self.invoke()
+    self.assertEqual(target.read_bytes(), self.prepared.read_bytes())
+
+def _TestFileRestoration_test_independent_edit_is_preserved_and_recovery_requires_rebinding(self):
+    source = Path(self.request['original_source']['path'])
+    original = source.read_bytes()
+    process = self.interrupted(independent=True)
+    self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
+    self.assertIn('independently changed target was not overwritten', process.stderr)
+    target = self.root / 'result.bin'
+    self.assertEqual(target.read_bytes(), b'independent edit')
+    source.write_bytes(original)
+    with self.assertRaises(ValueError):
+        self.invoke()
+    self.assertEqual(target.read_bytes(), b'independent edit')
+    self.request['change']['expected_sha256'] = write_cases.sha(target.read_bytes())
+    self.invoke()
+    self.assertEqual(target.read_bytes(), self.prepared.read_bytes())
+
+
 class TestFileRestoration(unittest.TestCase):
     setUp = write_cases.TestLedgerWrite.setUp
     invoke = write_cases.TestLedgerWrite.invoke
-
-    def interrupted(self, independent=False):
-        request = self.folder / 'request.json'
-        request.write_text(json.dumps(self.request))
-        return subprocess.run([sys.executable, '-c', INTERFERENCE, str(request), str(self.root),
-                               'independent' if independent else 'source-only'],
-                              cwd=write_cases.ROOT / 'scripts', capture_output=True, text=True, timeout=30)
-
-    def test_readable_source_drift_restores_create_and_replacement_then_recovers(self):
-        source = Path(self.request['original_source']['path'])
-        original = source.read_bytes()
-        target = self.root / 'result.bin'
-        for prior in [None, b'accepted contents']:
-            if prior is not None:
-                target.write_bytes(prior)
-                self.request['change']['expected_sha256'] = write_cases.sha(prior)
-            process = self.interrupted()
-            self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
-            self.assertIn('current write input digest mismatch', process.stderr)
-            self.assertEqual(source.read_bytes(), original + b'changed')
-            self.assertEqual(target.read_bytes() if target.exists() else None, prior)
-            source.write_bytes(original)
-        self.invoke()
-        self.assertEqual(target.read_bytes(), self.prepared.read_bytes())
-
-    def test_independent_edit_is_preserved_and_recovery_requires_rebinding(self):
-        source = Path(self.request['original_source']['path'])
-        original = source.read_bytes()
-        process = self.interrupted(independent=True)
-        self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
-        self.assertIn('independently changed target was not overwritten', process.stderr)
-        target = self.root / 'result.bin'
-        self.assertEqual(target.read_bytes(), b'independent edit')
-        source.write_bytes(original)
-        with self.assertRaises(ValueError):
-            self.invoke()
-        self.assertEqual(target.read_bytes(), b'independent edit')
-        self.request['change']['expected_sha256'] = write_cases.sha(target.read_bytes())
-        self.invoke()
-        self.assertEqual(target.read_bytes(), self.prepared.read_bytes())
+    interrupted = _TestFileRestoration_interrupted
+    test_readable_source_drift_restores_create_and_replacement_then_recovers = _TestFileRestoration_test_readable_source_drift_restores_create_and_replacement_then_recovers
+    test_independent_edit_is_preserved_and_recovery_requires_rebinding = _TestFileRestoration_test_independent_edit_is_preserved_and_recovery_requires_rebinding
 
 
 if __name__ == '__main__':

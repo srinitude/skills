@@ -102,3 +102,52 @@ def seeds(root, files, profile, factory):
         f"# {profile['primary_term']} decisions\n\n"
         'Record accepted choices through `mise run decision-policy`. '
         'Return a failed claim to its smallest owner.\n').encode())
+
+
+def graph_task_records(term):
+    return {
+        "setup-graph-renderer": {
+            "outcome": f"Prepare the locked browser for the {term} skill file graph.",
+            "motivation": f"The {term} package cannot depend on an ambient browser.",
+            "value": f"Install the browser selected by the locked {term} renderer before its tests and graph rendering.",
+            "proof": f"The {term} renderer actually starts and renders its graph; installation alone proves no readability or domain result.",
+            "applicability": f"Before {term} graph rendering or renderer tests, with authorized network access and a supported platform."},
+        "render-file-graph": {
+            "outcome": f"Render every recorded {term} skill file node and connector into a bound SVG.",
+            "motivation": f"An incomplete {term} maintenance graph can hide a missing file or relationship.",
+            "value": f"Verify the bound {term} native ledger result, retain original records, refuse overwrites and check exact SVG topology.",
+            "proof": f"Actual {term} renderer tests reject modified inputs, omissions and duplicates and reproduce parallel/self-loop SVGs. Review live inventory and readable pixels separately.",
+            "applicability": f"After a current {term} native ledger file-graph capture; supply its path, new output directory, SHA-256 and positive timeout."}}
+
+
+def task_records(profile, tasks):
+    term = profile["primary_term"]
+    records = {name: {
+        "outcome": f"Advance the {term} result through {name}.",
+        "motivation": f"The {term} package needs the {name} gate.",
+        "value": f"Produce current {term} evidence from {name}.",
+        "proof": f"The {term} {name} task exits zero with readable output.",
+        "applicability": f"Use {name} for its declared {term} responsibility.",
+    } for name in tasks}
+
+    records.update({name: row for name, row in graph_task_records(term).items() if name in tasks})
+    return records
+
+
+def operations(profile, tasks):
+    candidates = [profile["main_task"], "invocation-policy", "agentic-request",
+                  "improvement-policy", "mise-primitives-plan", "mise-primitives-update", "ledger", "render-file-graph"]
+    candidates += profile.get("public_tasks", [])
+    candidates = list(dict.fromkeys(candidates))
+    term = profile["primary_term"]
+    records = [{"task": name, "outcome": f"Produce the named {term} {name} result.",
+             "motivation": f"The {term} workflow needs one {name} entry.",
+             "why_default_path": f"This is the single declared {term} {name} route.",
+             "proof": f"Fresh {term} {name} output and exit status."}
+            for name in candidates if name in tasks]
+
+    for row in records:
+        if row["task"] == "render-file-graph":
+            detail = graph_task_records(term)[row["task"]]
+            row.update({key: detail[key] for key in ["outcome", "motivation", "proof"]})
+    return records

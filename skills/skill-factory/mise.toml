@@ -210,13 +210,24 @@ description = "Validate every agent skill aspect and primitive lifecycle owner"
 depends = ["mise-primitives-policy"]
 run = "python3 scripts/check_primitive_lifecycle.py ."
 
+[tasks.setup-graph-renderer]
+description = "Install the browser selected by the locked skill graph renderer"
+depends = ["lint-code"]
+run = "node node_modules/puppeteer/install.mjs"
+
+[tasks.render-file-graph]
+description = "Render a bound native skill file graph and verify every SVG node and connector"
+depends = ["setup-graph-renderer"]
+run = "python3 scripts/render_file_graph.py"
+run_windows = "python scripts/render_file_graph.py"
+
 [tasks.test]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
 run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
 timeout = "1800s"
-depends = ["test-ci", "lint-code"]
+depends = ["test-ci", "setup-graph-renderer"]
 
 [tasks.task-graph-policy]
 description = "Reject generic, disconnected, circular, or alternate Mise dependency paths"

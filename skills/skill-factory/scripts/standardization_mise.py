@@ -10,9 +10,11 @@ from standardization_seed import base_mise
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
 from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
-                                     split_sections, split_task_body, task_header)
+                                     runtime_dependencies, strip_key, nested_dependencies, split_sections, split_task_body, task_header)
 
 POLICY_TASKS = {
+    "render-file-graph": (["setup-graph-renderer"], "Prepare or render the recorded agent skill file graph", "python3 scripts/render_file_graph.py"),
+    "setup-graph-renderer": (["lint-code"], "Prepare or render the recorded agent skill file graph", "node node_modules/puppeteer/install.mjs"),
     "validate": ([], "Validate the current skill package and changed-output declarations",
         "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"),
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
@@ -45,26 +47,6 @@ POLICY_TASKS = {
         "python3 scripts/sync_mise_primitives.py . --plan"),
     "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
-def strip_key(block, key):
-    lines, output, skipping = block.splitlines(), [], False
-    for line in lines:
-        if skipping:
-            skipping = not line.strip().endswith("]")
-            continue
-        if re.match(rf"^{re.escape(key)}\s*=", line):
-            skipping = "[" in line and not line.strip().endswith("]")
-            continue
-        output.append(line)
-    return "\n".join(output).strip()
-
-
-def nested_dependencies(block):
-    command = tomllib.loads('[task]\n' + block)['task'].get('run')
-    command = command[0] if isinstance(command, list) and len(command) == 1 else command
-    match = re.fullmatch(r"mise run ([a-z0-9][a-z0-9:-]*)", command.strip()) if isinstance(command, str) else None
-    if not match and re.search(r'\bmise\s+run\b', json.dumps(command)):
-        raise ValueError('nested CI execution needs explicit reconciliation before standardization')
-    return [match.group(1)] if match else []
 
 
 def declared_dependencies(block):
@@ -144,29 +126,13 @@ def existing_block(name, block, profile):
     if replacement:
         before = tomllib.loads('[task]\n' + block)['task']
         desired = tomllib.loads(replacement)['tasks'][name]
-        for key in ['run', 'description']:
-            if before.get(key) != desired[key]:
-                block = strip_key(block, key) + '\n' + key + ' = ' + json.dumps(desired[key])
+        changes = [key for key in ['run', 'description'] if before.get(key) != desired[key]]
+        for key in changes:
+            block = strip_key(block, key) + '\n' + key + ' = ' + json.dumps(desired[key])
         expected = dict(before, run=desired['run'], description=desired['description'])
         if tomllib.loads('[task]\n' + block)['task'] != expected:
             raise ValueError('task command replacement needs explicit reconciliation: ' + name)
     return f"{task_header(name)}\n{normalize_existing(name, block)}" + ("\n" + children if children else "")
-
-
-
-def runtime_dependencies(name, dependencies, names):
-    result = list(dependencies)
-    provider = {"test": "lint-code", "lint-code": "check-runtime"}.get(name)
-    if provider in names and provider not in result:
-        result.append(provider)
-    # Remove only edges duplicated by this exact declared native preparation chain.
-    if "test" in result and "lint-code" in names:
-        result = [item for item in result if item not in ("lint-code", "setup-runtime", "check-runtime")]
-    elif "lint-code" in result:
-        result = [item for item in result if item not in ("setup-runtime", "check-runtime")]
-    elif "check-runtime" in result:
-        result = [item for item in result if item != "setup-runtime"]
-    return result
 
 
 def connect_ci_checks(blocks, graph):

@@ -1,7 +1,7 @@
 """Build factory policy assets for one registry skill."""
 import datetime
 import tomllib
-from standardization_seed import json_bytes
+from standardization_seed import json_bytes, operations, task_records
 
 from agentic_request_contract import read_json
 from agentic_context import audience_record, declaration_order
@@ -48,9 +48,9 @@ def resolved_initial_profile(root, profile):
     previous = existing_use_case(root) or {}
     resolved = dict(profile)
     for field in ["audience", "initial_context"]:
+        if field in previous and field in profile and profile[field] != previous[field]:
+            raise ValueError(f"{field} conflicts with the existing use-case; reconcile its adaptation first")
         if field in previous:
-            if field in profile and profile[field] != previous[field]:
-                raise ValueError(f"{field} conflicts with the existing use-case; reconcile its adaptation first")
             resolved[field] = previous[field]
     audience_record(resolved, accept=True)
     declaration_order(resolved.get("initial_context"))
@@ -89,30 +89,6 @@ def primitive_roles(profile):
         "failure_prevented": f"Stale or generic {term} {name} behavior.",
         "proof": f"Fresh {term} {name} validation and behavioral evidence.",
     } for name in PRIMITIVES}
-
-
-def task_records(profile, tasks):
-    term = profile["primary_term"]
-    return {name: {
-        "outcome": f"Advance the {term} result through {name}.",
-        "motivation": f"The {term} package needs the {name} gate.",
-        "value": f"Produce current {term} evidence from {name}.",
-        "proof": f"The {term} {name} task exits zero with readable output.",
-        "applicability": f"Use {name} for its declared {term} responsibility.",
-    } for name in tasks}
-
-
-def operations(profile, tasks):
-    candidates = [profile["main_task"], "invocation-policy", "agentic-request",
-                  "improvement-policy", "mise-primitives-plan", "mise-primitives-update", "ledger"]
-    candidates += profile.get("public_tasks", [])
-    candidates = list(dict.fromkeys(candidates))
-    term = profile["primary_term"]
-    return [{"task": name, "outcome": f"Produce the named {term} {name} result.",
-             "motivation": f"The {term} workflow needs one {name} entry.",
-             "why_default_path": f"This is the single declared {term} {name} route.",
-             "proof": f"Fresh {term} {name} output and exit status."}
-            for name in candidates if name in tasks]
 
 
 def use_case(profile, tasks, stamp=None):
@@ -217,7 +193,7 @@ def asset_files(files, profile, tasks, stamp):
         path = 'assets/' + name
         if path not in files:
             files[path] = json_bytes(seed())
-        else:
-            value = read_json(files[path].decode('utf-8'))
-            if not isinstance(value, dict) or value.get('skill') != profile['skill']:
-                raise ValueError('existing policy asset needs reconciliation: ' + name)
+            continue
+        value = read_json(files[path].decode('utf-8'))
+        if not isinstance(value, dict) or value.get('skill') != profile['skill']:
+            raise ValueError('existing policy asset needs reconciliation: ' + name)

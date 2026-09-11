@@ -32,77 +32,86 @@ def task_ledger():
     return data
 
 
+def _TestTaskRelationships_setUp(self):
+    self.data = task_ledger()
+
+def _TestTaskRelationships_show(self):
+    return view(self.data, {'action': 'show', 'selector': 'task:mise.toml#build'})
+
+def _TestTaskRelationships_test_detail_retains_all_reference_forms_parent_and_opaque_fields(self):
+    before = copy.deepcopy(self.data)
+    shown = self.show()
+    entry = shown['entry']
+    self.assertEqual(entry['declaration'], before['dependency_snapshot']['files']['mise.toml']['mise_tasks']['build'])
+    self.assertEqual(len(entry['references']), 11)
+    self.assertEqual(entry['unresolved_references'], [])
+    self.assertEqual(entry['sha256'], '1' * 64)
+    order = shown['context']['subjects']
+    self.assertLess(order.index('file:mise.toml'), order.index('task:mise.toml#build'))
+    self.assertEqual(self.data, before)
+
+def _TestTaskRelationships_test_declared_edges_keep_native_direction_condition_grouping_and_repetition(self):
+    edges = self.show()['context']['relationships']
+    selected = [edge for edge in edges if edge.get('task_field')]
+    self.assertEqual(len(selected), 11)
+    self.assertEqual(len({edge['id'] for edge in selected}), 11)
+    for edge in selected:
+        self.assertEqual(edge['subject_sha256'], '1' * 64)
+        self.assertEqual(edge['basis_kind'], 'recorded-current-task-declaration')
+        self.assertIn('No native resolution', edge['condition'])
+        if edge['task_field'] == 'depends':
+            self.assertEqual((edge['from'], edge['to']), ('task:mise.toml#prepare', 'task:mise.toml#build'))
+        if edge['task_field'] == 'depends_post':
+            self.assertEqual(edge['from'], 'task:mise.toml#build')
+            self.assertIn('started', edge['condition'])
+        if edge['task_field'] == 'wait_for':
+            self.assertIn('already scheduled', edge['condition'])
+    parallel = [edge for edge in selected if edge.get('grouping') == 'parallel-run-entry']
+    self.assertEqual([edge['to'] for edge in parallel], ['task:mise.toml#left', 'task:mise.toml#right', 'task:mise.toml#left'])
+    self.assertEqual([edge['locator'][-1] for edge in parallel], [0, 1, 2])
+    self.assertTrue(all(edge['run_entry'] == 2 for edge in parallel))
+
+def _TestTaskRelationships_test_unknown_alias_pattern_argument_and_future_forms_stay_unresolved(self):
+    tasks = self.data['dependency_snapshot']['files']['mise.toml']['mise_tasks']
+    tasks['prepare'] = {'alias': 'alias', 'run': 'echo task'}
+    tasks['build'] = {'depends': ['prepare --flag', 'build:*', 'alias', ['missing', 'x'],
+                                 {'task': '{{vars.target}}'}],
+                      'run': [{'future_reference': 'prepare'}, 'prepare']}
+    entry = self.show()['entry']
+    self.assertEqual(len(entry['unresolved_references']), 6)
+    self.assertTrue(all(row['target'] is None for row in entry['references']))
+    self.assertEqual(entry['declaration'], tasks['build'])
+
+def _TestTaskRelationships_test_stale_or_invalid_task_observations_fail_and_restoration_recovers(self):
+    valid = copy.deepcopy(self.data)
+    for change in [lambda d: d['dependency_snapshot'].update(version=True),
+                   lambda d: d['dependency_snapshot'].update(method='unknown'),
+                   lambda d: d['dependency_snapshot']['files']['mise.toml'].update(sha256='2' * 64),
+                   lambda d: d['dependency_snapshot']['files']['mise.toml'].update(mise_tasks=[]),
+                   lambda d: d['dependency_snapshot']['files']['mise.toml']['mise_tasks'].update(build=False),
+                   lambda d: d['package_snapshot']['files'].pop('mise.toml')]:
+        self.data = copy.deepcopy(valid)
+        change(self.data)
+        with self.assertRaises(ValueError):
+            self.show()
+    self.data = valid
+    self.assertEqual(len(self.show()['entry']['references']), 11)
+
+def _TestTaskRelationships_test_unprofiled_views_keep_assertions_without_derived_task_edges(self):
+    del self.data['semantic_model']['derived_relationships']
+    shown = self.show()
+    self.assertEqual(shown['context']['relationships'], [])
+    self.assertEqual(len(shown['entry']['references']), 11)
+
+
 class TestTaskRelationships(unittest.TestCase):
-    def setUp(self):
-        self.data = task_ledger()
-
-    def show(self):
-        return view(self.data, {'action': 'show', 'selector': 'task:mise.toml#build'})
-
-    def test_detail_retains_all_reference_forms_parent_and_opaque_fields(self):
-        before = copy.deepcopy(self.data)
-        shown = self.show()
-        entry = shown['entry']
-        self.assertEqual(entry['declaration'], before['dependency_snapshot']['files']['mise.toml']['mise_tasks']['build'])
-        self.assertEqual(len(entry['references']), 11)
-        self.assertEqual(entry['unresolved_references'], [])
-        self.assertEqual(entry['sha256'], '1' * 64)
-        order = shown['context']['subjects']
-        self.assertLess(order.index('file:mise.toml'), order.index('task:mise.toml#build'))
-        self.assertEqual(self.data, before)
-
-    def test_declared_edges_keep_native_direction_condition_grouping_and_repetition(self):
-        edges = self.show()['context']['relationships']
-        selected = [edge for edge in edges if edge.get('task_field')]
-        self.assertEqual(len(selected), 11)
-        self.assertEqual(len({edge['id'] for edge in selected}), 11)
-        for edge in selected:
-            self.assertEqual(edge['subject_sha256'], '1' * 64)
-            self.assertEqual(edge['basis_kind'], 'recorded-current-task-declaration')
-            self.assertIn('No native resolution', edge['condition'])
-            if edge['task_field'] == 'depends':
-                self.assertEqual((edge['from'], edge['to']), ('task:mise.toml#prepare', 'task:mise.toml#build'))
-            if edge['task_field'] == 'depends_post':
-                self.assertEqual(edge['from'], 'task:mise.toml#build')
-                self.assertIn('started', edge['condition'])
-            if edge['task_field'] == 'wait_for':
-                self.assertIn('already scheduled', edge['condition'])
-        parallel = [edge for edge in selected if edge.get('grouping') == 'parallel-run-entry']
-        self.assertEqual([edge['to'] for edge in parallel], ['task:mise.toml#left', 'task:mise.toml#right', 'task:mise.toml#left'])
-        self.assertEqual([edge['locator'][-1] for edge in parallel], [0, 1, 2])
-        self.assertTrue(all(edge['run_entry'] == 2 for edge in parallel))
-
-    def test_unknown_alias_pattern_argument_and_future_forms_stay_unresolved(self):
-        tasks = self.data['dependency_snapshot']['files']['mise.toml']['mise_tasks']
-        tasks['prepare'] = {'alias': 'alias', 'run': 'echo task'}
-        tasks['build'] = {'depends': ['prepare --flag', 'build:*', 'alias', ['missing', 'x'],
-                                     {'task': '{{vars.target}}'}],
-                          'run': [{'future_reference': 'prepare'}, 'prepare']}
-        entry = self.show()['entry']
-        self.assertEqual(len(entry['unresolved_references']), 6)
-        self.assertTrue(all(row['target'] is None for row in entry['references']))
-        self.assertEqual(entry['declaration'], tasks['build'])
-
-    def test_stale_or_invalid_task_observations_fail_and_restoration_recovers(self):
-        valid = copy.deepcopy(self.data)
-        for change in [lambda d: d['dependency_snapshot'].update(version=True),
-                       lambda d: d['dependency_snapshot'].update(method='unknown'),
-                       lambda d: d['dependency_snapshot']['files']['mise.toml'].update(sha256='2' * 64),
-                       lambda d: d['dependency_snapshot']['files']['mise.toml'].update(mise_tasks=[]),
-                       lambda d: d['dependency_snapshot']['files']['mise.toml']['mise_tasks'].update(build=False),
-                       lambda d: d['package_snapshot']['files'].pop('mise.toml')]:
-            self.data = copy.deepcopy(valid)
-            change(self.data)
-            with self.assertRaises(ValueError):
-                self.show()
-        self.data = valid
-        self.assertEqual(len(self.show()['entry']['references']), 11)
-
-    def test_unprofiled_views_keep_assertions_without_derived_task_edges(self):
-        del self.data['semantic_model']['derived_relationships']
-        shown = self.show()
-        self.assertEqual(shown['context']['relationships'], [])
-        self.assertEqual(len(shown['entry']['references']), 11)
+    setUp = _TestTaskRelationships_setUp
+    show = _TestTaskRelationships_show
+    test_detail_retains_all_reference_forms_parent_and_opaque_fields = _TestTaskRelationships_test_detail_retains_all_reference_forms_parent_and_opaque_fields
+    test_declared_edges_keep_native_direction_condition_grouping_and_repetition = _TestTaskRelationships_test_declared_edges_keep_native_direction_condition_grouping_and_repetition
+    test_unknown_alias_pattern_argument_and_future_forms_stay_unresolved = _TestTaskRelationships_test_unknown_alias_pattern_argument_and_future_forms_stay_unresolved
+    test_stale_or_invalid_task_observations_fail_and_restoration_recovers = _TestTaskRelationships_test_stale_or_invalid_task_observations_fail_and_restoration_recovers
+    test_unprofiled_views_keep_assertions_without_derived_task_edges = _TestTaskRelationships_test_unprofiled_views_keep_assertions_without_derived_task_edges
 
 
 class TestNativeTaskRelationships(unittest.TestCase):

@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from review_ledger_file_graph import file_graph
+from review_ledger_file_graph import file_graph, projection_payload
 from review_ledger_graph import subjects, validate_graph
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -64,6 +64,9 @@ def test_task_owner_is_explicit_and_unknown_endpoint_rejects():
     data['semantic_model']['relationships'][0]['from'] = 'task:fixture'
     graph = project(data, index=index)
     assert graph['edges'][0]['from'] == 'file:mise#x.toml'
+    assert graph['projection_index']['task:fixture'] == {'file': 'mise#x.toml'}
+    rebuilt = projection_payload(graph['records'], graph['projection_index'], graph['nodes'], 20)
+    assert all(graph[key] == value for key, value in rebuilt.items())
     data['semantic_model']['relationships'][0]['from'] = 'file:unknown'
     with unittest.TestCase().assertRaisesRegex(ValueError, 'unknown relationship'):
         project(data)
@@ -123,6 +126,18 @@ def test_native_action_returns_bound_graph_and_rejects_irrelevant_fields():
         request.write_text(json.dumps({**payload, 'selector': 'file:SKILL.md'}))
         rejected = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=60)
         assert rejected.returncode == 1 and 'does not apply' in rejected.stdout + rejected.stderr
+
+
+def test_file_set_projection_can_be_rebuilt_without_the_source_ledger():
+    data = fixture()
+    index = subjects(data)
+    index['file-set:governed'] = {'members': ['file:SKILL.md', 'file:mise#x.toml']}
+    data['semantic_model']['relationships'][0]['from'] = 'file-set:governed'
+    graph = project(data, index=index)
+    assert graph['projection_index']['file-set:governed'] == index['file-set:governed']
+    rebuilt = projection_payload(graph['records'], graph['projection_index'], graph['nodes'], 2)
+    assert all(graph[key] == value for key, value in rebuilt.items())
+    assert len(graph['edges']) == 2
 
 
 def load_tests(loader, tests, pattern):

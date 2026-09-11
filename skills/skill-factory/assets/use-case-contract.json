@@ -438,6 +438,13 @@
         "proof": "Actual skill package native workflow cases verify full ledger/body capture, typed context, finite ranks, stale-input rejection and recovery. File cases cover source/body/review bindings, bootstrap, explicit body revision, permissions, rejected paths/locks/replays, binary files and retained independent edits. Creation, standardization and variant staging reuse this writer; other maintenance writers, complete semantic and human acceptance remain pending.",
         "task": "ledger",
         "why_default_path": "The agent skill has one public ledger task into its assigned native Mastra operations with declared locked dependencies; its authorized caller selects the write root outside request data."
+      },
+      {
+        "task": "render-file-graph",
+        "outcome": "Render the agent skill recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "A successful image command can otherwise omit skill package nodes or connectors while looking complete.",
+        "proof": "Actual agent skill renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "why_default_path": "The agent skill has one public render route after locked runtime, code and browser prerequisites; the native ledger remains the relationship owner."
       }
     ],
     "tasks": {
@@ -699,6 +706,20 @@
         "value": "Agent skill primitive refresh turns upstream Mise change into explicit reconciliation and current provenance.",
         "proof": "The agent skill catalog records release URL, version, hash, complete groups, and matching lineage when owned.",
         "applicability": "Run immediately after the deferred agent skill Mise self-update."
+      },
+      "setup-graph-renderer": {
+        "outcome": "The agent skill has the browser selected by its exact locked Mermaid renderer before graph rendering or renderer tests.",
+        "motivation": "An agent skill graph cannot rely on a browser left by another checkout or invocation.",
+        "value": "The agent skill native Puppeteer installer prepares its supported browser after code checks; it downloads only through the declared runtime.",
+        "proof": "The real agent skill setup task succeeds and the installed renderer produces the fixture SVG; installation alone does not prove graph readability or domain acceptance.",
+        "applicability": "Run before agent skill graph rendering and real renderer tests; network access and a supported browser platform are required."
+      },
+      "render-file-graph": {
+        "outcome": "Render the agent skill recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "A successful image command can otherwise omit skill package nodes or connectors while looking complete.",
+        "value": "The agent skill renderer verifies the native result digest, regenerates its exact Mermaid projection, refuses existing output directories and checks every rendered node and connector identity.",
+        "proof": "Actual agent skill renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "applicability": "Run for each current or intermediate agent skill file graph after its native ledger file-graph result is captured. Supply the result path, new output directory, expected SHA-256 and positive timeout; retain original records and inspect the rendered pixels before acceptance."
       }
     }
   },

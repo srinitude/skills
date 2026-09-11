@@ -66,6 +66,21 @@ def projection_plan(records, index, nodes, budget):
     return plan, omitted
 
 
+def projection_index(index):
+    return {key: {'file': index[key]['file']} if key.startswith('task:')
+            else {'members': index[key]['members']} for key in sorted(index)
+            if key.startswith('task:') or key == 'file-set:governed'}
+
+
+def projection_payload(records, index, nodes, budget):
+    plan, omitted = projection_plan(records, index, nodes, budget)
+    edges = [incidence(record, left, right, len(before) * len(after) > 1)
+             for record, before, after in plan for left, right in product(before, after)]
+    used = {edge['record'] for edge in edges}
+    return {'edges': edges, 'projection_gaps': omitted,
+            'unprojected_records': [row['id'] for row in records if row['id'] not in used]}
+
+
 def emit(graph):
     nodes = graph['nodes']
     order = ['file:SKILL.md'] + [file for file in nodes if file != 'file:SKILL.md']
@@ -90,14 +105,12 @@ def file_graph(data, index, request):
     require('file:SKILL.md' in files, 'file graph requires a recorded SKILL.md')
     nodes = {file: identity('n', file) for file in files}
     records = sorted(data['semantic_model']['relationships'], key=lambda row: row['id'])
-    plan, omitted = projection_plan(records, index, nodes, budget)
-    edges = [incidence(record, left, right, len(before) * len(after) > 1)
-             for record, before, after in plan for left, right in product(before, after)]
+    projected = projection_payload(records, index, nodes, budget)
+    edges = projected['edges']
     require(len({*nodes.values(), *(edge['id'] for edge in edges)}) == len(nodes) + len(edges),
             'file graph has duplicate or colliding identities')
-    used = {edge['record'] for edge in edges}
-    graph = {'nodes': nodes, 'edges': edges, 'records': records, 'projection_gaps': omitted,
-             'unprojected_records': [row['id'] for row in records if row['id'] not in used],
+    graph = {'nodes': nodes, **projected, 'records': records,
+             'projection_index': projection_index(index),
              'relationship_types': data['semantic_model']['relationship_types'],
              'package_snapshot': snapshot, 'ledger_sha256': request['ledger_sha256'],
              'scope': 'recorded current file incidences only', 'execution_acceptance': 'pending',

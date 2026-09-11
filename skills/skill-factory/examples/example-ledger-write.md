@@ -81,3 +81,22 @@ A repository-owned manifest uses its repository-relative `evidence/ports/<skill>
 The [complete registry run](registry-public-run.json) records actual public native help, missing/stale review rejection, individually reviewed source formatting, lineage and related-manifest effects, plus complete read-only plans and the final empty plan. Source mode `0640` and manifest mode `0600` survive. Its read-only plan commands use temporary aliases to the selected executable bytes; native effects use the unmodified public task and independently rederive current bytes. Decode its lossless XZ/base64 envelope using the catalog section's instructions. Every command, stream, exit code and fixture input/output file is retained; these explicit fixture reviews do not authenticate semantic judgment or prove whole-goal acceptance.
 
 Native formatting uses file-info and stdin output with selected Node permission controls. The tested incidental configuration write is denied; ignored/unsupported parser content remains unchanged. A configured but unavailable formatter blocks its consumer, and unbound `NODE_OPTIONS` injection is rejected. Record the exact formatter command and each consumer's ancestor configuration candidates, including nested configurations; recheck them at use. These controls are not hostile-code isolation or complete dynamic-plugin/environment dependency capture. Separate real regression cases cover body revision, changed source after an actual write, conditional manifest restoration, preserved earlier lineage and recovery.
+
+## Capture and render the recorded file graph
+
+This example removes the guess about preserving repeated connectors, rejecting invalid input and choosing a new output directory. Load it when using the ledger's `file-graph` action or `mise run render-file-graph`. The [complete graph run](graph-public-run.json) retains eight actual standalone CLI runs, their commands, streams, exit codes and complete fixture input/output bytes in the lossless envelope described above.
+
+First supply a `file-graph` request with the current ledger path, its exact `ledger_sha256` and a positive incidence `budget`. Capture the native result unchanged. The graph retains individual file nodes, typed relationship records, endpoint order, repetitions, projection gaps and the task/file-set ownership index needed to reconstruct the projection. The recorded snapshot does not prove current live files or accepted relationship meaning.
+
+The public task sequence is:
+
+```sh
+mise run ledger -- <request.json> > <native-result.json>
+mise run render-file-graph -- <native-result.json> <new-output-directory> --sha256 <native-result-sha256> --timeout <positive-seconds>
+```
+
+The renderer's parent task installs the browser selected by the locked runtime after its prerequisites pass. The destination must be new, outside the skill, with an existing parent. It retains the native result, Mermaid source, renderer configurations, actual output streams, SVG and topology proof. Promote a required owned artifact only through its reviewed file-write route. Renderer failure can leave diagnostic output; inspect it and use a new destination for recovery.
+
+The worked record uses the standalone owners through `mise exec` with an already installed locked runtime. It does not run or claim the complete parent prerequisite chain. Its two-file fixture rejects an insufficient incidence budget, recovers with a sufficient budget, rejects non-object JSON and a wrong digest without creating output, renders successfully, rejects an existing output directory and reproduces identical SVG bytes in a second directory. Both parallel connector identities survive.
+
+Verify the exact bound input, every rendered file node and connector, and retained projection meaning. Then inspect rendered geometry and pixels for readability. The example proves its recorded mechanical results only; complete live inventory, semantic and human review, full parent execution, independent output acceptance and final skill acceptance remain separate obligations.

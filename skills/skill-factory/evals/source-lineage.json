@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "b38a7411a4d2002e8de4f514d2ce5118b71726d235933a1298ff2a8d9d9d0dc4",
+  "native_manifest_sha256": "cfc47ad86c6e15b146c84cb14d80bc99b9a01be95b00d1109dbc0874e0e53bba",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -404,6 +404,12 @@
       "path": "references/resource-and-experiment-design.md",
       "source_paths": [
         "references/resource-and-experiment-design.md"
+      ]
+    },
+    {
+      "path": "references/runtime-integration.md",
+      "source_paths": [
+        "references/runtime-integration.md"
       ]
     },
     {
@@ -1486,7 +1492,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "aa4ba11fef4d715aff0995be5aad2829ec729ad1280c850309481325d3617591"
+      "sha256": "e80e5e2ad4f095af0802a8819ee5d59a569dfe324f3ee3f589a0e53949a8a926"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1650,7 +1656,7 @@
     },
     {
       "path": "examples/example-ledger-write.md",
-      "sha256": "1e35d46a93c382a9ed0e15a7b3577232c8c07395e4d3caaa3d1e3392f45dbcb8"
+      "sha256": "e5cd4d2417efbc566e38ce0cb13440b9e3f7123e84c155d033aa1488a40ecf2d"
     },
     {
       "path": "examples/example-new-skill.md",
@@ -1662,7 +1668,7 @@
     },
     {
       "path": "examples/example-standardization.md",
-      "sha256": "86f3a8b91679c9f5b6222f443dfca43ac56e277f9c1d04b7fc24235b5dad43ca"
+      "sha256": "ab7ed6aedb44162a59f1be65bf1ac59b2d8c1fff2cd93404953adba1e7603442"
     },
     {
       "path": "examples/example-validate.md",
@@ -1726,7 +1732,7 @@
     },
     {
       "path": "references/eval-authoring.md",
-      "sha256": "5ac49388767db8eede742dcf8371cfefc345102a107ad1c59706b1f49687b3d6"
+      "sha256": "8ffd4ca98cde09f9a4b9efe785dea104f32873dd43aacd09ab77bbd601b41f63"
     },
     {
       "path": "references/generation-contract.md",
@@ -1745,8 +1751,12 @@
       "sha256": "80a52fc9f449882f13eeffbadd2731ce868afceabb9ae2b16a4537ef60d8af88"
     },
     {
+      "path": "references/runtime-integration.md",
+      "sha256": "db44cc388d9067652c9f08f09bc727db48e1562c3d9dbdabb15ac60bf36c0af1"
+    },
+    {
       "path": "references/scope-variants.md",
-      "sha256": "17546e9fbde2bc3cece26b4a4a05bd5bb97b3699017cf68db52228cca3fa6a44"
+      "sha256": "134f4a46a4972c37b2f68d530eb8bc1acedcf67de54dd3b6de1c1171decde440"
     },
     {
       "path": "references/skill-scope-contract.md",
@@ -1754,7 +1764,7 @@
     },
     {
       "path": "references/use-case-specificity.md",
-      "sha256": "acd17f5a6936474a5131fa50c04f8b59aea4f50f25680e3d9092f816c16dc3d7"
+      "sha256": "90470c3722d45cb02cfb631dbd42df378b1973e81d1d2d0a3465f37047fee9d7"
     },
     {
       "path": "references/writing-rules.md",

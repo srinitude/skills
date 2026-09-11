@@ -30,41 +30,48 @@ def check_contract(code, source):
         module['TestPackageContract']().test_ci_dependency_contract()
 
 
+def _TestGeneratedCIContract_test_custom_ci_contract_passes_and_command_drift_fails(self):
+    code = generated({}, SOURCE)
+    check_contract(code, SOURCE)
+    with self.assertRaises(AssertionError):
+        check_contract(code, SOURCE.replace('first.py', 'changed.py'))
+    with self.assertRaises(AssertionError):
+        check_contract(code, SOURCE.replace('UTC', 'Asia/Kolkata'))
+
+def _TestGeneratedCIContract_test_exact_generated_contract_is_refreshed_for_changed_commands(self):
+    files = {}
+    before = generated(files, SOURCE)
+    changed = SOURCE.replace('second.py', 'corrected.py')
+    after = generated(files, changed)
+    self.assertNotEqual(before, after)
+    check_contract(after, changed)
+
+def _TestGeneratedCIContract_test_customized_contract_is_preserved_for_explicit_review(self):
+    files = {}
+    custom = generated(files, SOURCE) + b'\nDOMAIN_CHECK = "preserve-me"\n'
+    files[PATH] = custom
+    generated(files, SOURCE.replace('second.py', 'corrected.py'))
+    self.assertEqual(files[PATH], custom)
+
+def _TestGeneratedCIContract_test_custom_legacy_run_assertion_is_not_replaced(self):
+    custom = b'from unittest import TestCase\nclass Domain(TestCase):\n    def test_domain(self):\n        self.assertIn("domain-check", self.tasks["ci"]["run"])\n'
+    files = {PATH: custom}
+    generated(files, SOURCE)
+    self.assertEqual(files[PATH], custom)
+
+def _TestGeneratedCIContract_test_exact_legacy_generated_contract_is_migrated(self):
+    files = {PATH: LEGACY}
+    updated = generated(files, SOURCE)
+    self.assertNotEqual(updated, LEGACY)
+    check_contract(updated, SOURCE)
+
+
 class TestGeneratedCIContract(unittest.TestCase):
-    def test_custom_ci_contract_passes_and_command_drift_fails(self):
-        code = generated({}, SOURCE)
-        check_contract(code, SOURCE)
-        with self.assertRaises(AssertionError):
-            check_contract(code, SOURCE.replace('first.py', 'changed.py'))
-        with self.assertRaises(AssertionError):
-            check_contract(code, SOURCE.replace('UTC', 'Asia/Kolkata'))
-
-    def test_exact_generated_contract_is_refreshed_for_changed_commands(self):
-        files = {}
-        before = generated(files, SOURCE)
-        changed = SOURCE.replace('second.py', 'corrected.py')
-        after = generated(files, changed)
-        self.assertNotEqual(before, after)
-        check_contract(after, changed)
-
-    def test_customized_contract_is_preserved_for_explicit_review(self):
-        files = {}
-        custom = generated(files, SOURCE) + b'\nDOMAIN_CHECK = "preserve-me"\n'
-        files[PATH] = custom
-        generated(files, SOURCE.replace('second.py', 'corrected.py'))
-        self.assertEqual(files[PATH], custom)
-
-    def test_custom_legacy_run_assertion_is_not_replaced(self):
-        custom = b'from unittest import TestCase\nclass Domain(TestCase):\n    def test_domain(self):\n        self.assertIn("domain-check", self.tasks["ci"]["run"])\n'
-        files = {PATH: custom}
-        generated(files, SOURCE)
-        self.assertEqual(files[PATH], custom)
-
-    def test_exact_legacy_generated_contract_is_migrated(self):
-        files = {PATH: LEGACY}
-        updated = generated(files, SOURCE)
-        self.assertNotEqual(updated, LEGACY)
-        check_contract(updated, SOURCE)
+    test_custom_ci_contract_passes_and_command_drift_fails = _TestGeneratedCIContract_test_custom_ci_contract_passes_and_command_drift_fails
+    test_exact_generated_contract_is_refreshed_for_changed_commands = _TestGeneratedCIContract_test_exact_generated_contract_is_refreshed_for_changed_commands
+    test_customized_contract_is_preserved_for_explicit_review = _TestGeneratedCIContract_test_customized_contract_is_preserved_for_explicit_review
+    test_custom_legacy_run_assertion_is_not_replaced = _TestGeneratedCIContract_test_custom_legacy_run_assertion_is_not_replaced
+    test_exact_legacy_generated_contract_is_migrated = _TestGeneratedCIContract_test_exact_legacy_generated_contract_is_migrated
 
 
 # Exact previous generated contract retained as compatibility evidence.

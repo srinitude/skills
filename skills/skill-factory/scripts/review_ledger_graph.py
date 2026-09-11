@@ -6,6 +6,7 @@ from review_ledger_candidates import pairs, selections
 from review_ledger_derived import derived_edges
 from review_ledger_tasks import task_subjects
 from review_ledger_source import check_capture, check_sources
+from review_ledger_file_graph import file_graph
 
 
 def endpoints(value):
@@ -129,6 +130,8 @@ def view(data, request):
     if action == "catalog":
         return {key: value for key, value in data["semantic_model"].items()
                 if key in {"facets", "relationship_types", "themes", "rule_types", "traversals", "body_hub", "entry_defaults", "derived_relationships"}}
+    if action == "file-graph":
+        return file_graph(data, index, request)
     if action in {"pairs", "selections"}:
         return (pairs if action == "pairs" else selections)(data, index, request)
     require(selector in index, "unknown ledger subject")

@@ -9,7 +9,7 @@ Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact, write-file.
+Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact, file-graph, write-file.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
 check-sources and write-file also require expected_documents (name, absolute path, sha256),
@@ -45,6 +45,14 @@ time/memory. Infeasible requests reject rather than silently truncate or sample.
 Candidates remain unreviewed. Conditions, roles, groups and higher-order meaning
 remain in the actual relationship records. Enumeration does not prove vocabulary,
 evidence, permission, required matrix use, semantic judgment or execution acceptance.
+
+file-graph requires a positive safe-integer budget for the total file incidences.
+It emits Mermaid source, individual stable file/connector IDs, exact original
+records and explicit projection gaps from the recorded current package snapshot.
+Non-file meaning and historical endpoints remain in records; task endpoints use
+their explicit file owner. Endpoint order and repetition remain intact. The budget
+rejects excess incidences before Cartesian expansion; it is not an OS resource cap.
+This read action does not write, render, check live files or accept topology.
 
 work and impact expose the complete recorded review workflow, review fields,
 body-hub decisions and mechanism map beside the selected subject and its inherited

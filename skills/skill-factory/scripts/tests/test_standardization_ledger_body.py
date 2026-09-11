@@ -96,5 +96,26 @@ class TestStandardizationLedgerBody(unittest.TestCase):
         self.assertIn(expected_blocks()[2], actual)
 
 
+class TestWholeDirectoryPolicy(unittest.TestCase):
+    def test_policy_reaches_initial_body_and_scaffold_source(self):
+        from scaffold_skill import FILLED
+        self.assertIn(('SKILL.md', 'skill-template.md'), FILLED)
+        actual = body_policies(original_body(), FACTORY)
+        for phrase in ['**File graph.**', 'all governing goal documents',
+                       'every existing file', 'baseline and added file',
+                       'Unjustified changes remain unresolved',
+                       'cosmetic churn do not prove implementation']:
+            self.assertIn(phrase, actual)
+            self.assertLess(actual.index(phrase), actual.index(DOMAIN))
+        self.assertEqual(body_policies(actual, FACTORY), actual)
+
+    def test_weakened_graph_policy_requires_reviewed_migration(self):
+        actual = body_policies(original_body(), FACTORY)
+        weakened = actual.replace('every existing file', 'selected files')
+        self.assertNotEqual(weakened, actual)
+        with self.assertRaisesRegex(ValueError, 'reviewed.*migration'):
+            body_policies(weakened, FACTORY)
+
+
 if __name__ == '__main__':
     unittest.main()

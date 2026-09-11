@@ -14,7 +14,7 @@ const sourceBinding = z.object({
   path: z.string().min(1).refine(isAbsolute, 'Use an absolute source path'), sha256: digest,
 }).strict();
 export const requestSchema = z.object({
-  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'write-file']),
+  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'file-graph', 'write-file']),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
   ledger_sha256: digest,
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
@@ -51,7 +51,8 @@ export const requestSchema = z.object({
     { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },
-    { fields: ['scope', 'budget'], actions: ['pairs'], required: true },
+    { fields: ['scope'], actions: ['pairs'], required: true },
+    { fields: ['budget'], actions: ['pairs', 'file-graph'], required: true },
     { fields: ['selection'], actions: ['selections'], required: true },
     { fields: ['offset', 'limit'], actions: ['pairs', 'selections'], required: true },
   ] as const;

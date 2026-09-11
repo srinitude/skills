@@ -1,5 +1,7 @@
 # Skill scope and independent variants
 
+Return to the [SKILL.md scope and variant contract](../SKILL.md) for governing prerequisites, change control and acceptance.
+
 Load this owner through `mise run resolve-scope` before a skill write and through `mise run variant` before creating, adapting in place, or refreshing a variant. The [scope contract](skill-scope-contract.md), linked by the generation contract and loaded through `mise run validate`, owns the frontmatter and resolution rules. This file owns the adaptation workflow and its acceptance boundary.
 
 ## Choose intended availability

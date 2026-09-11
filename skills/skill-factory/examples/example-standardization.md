@@ -1,12 +1,14 @@
 # Example: reviewed standardization
 
+Return to the [SKILL.md standardization contract](../SKILL.md) for governing prerequisites, change control and acceptance.
+
 This example shows how a declared profile becomes a reviewed native domain workflow, then a changed skill and observed domain output. Load the full [run record](standardization-run.json) before using `mise run standardize-target`. A profile, unchanged rerun or successful promotion alone does not establish an accepted skill.
 
 ## Load the record and prerequisites
 
 The JSON envelope keeps a readable command index and the complete original record in `record_xz_base64`. Decode it with `json.loads(lzma.decompress(base64.b64decode(envelope["record_xz_base64"])))` using Python's standard-library `json`, `lzma` and `base64` modules. Verify the decompressed bytes against `record_sha256`. Nested base64 fields retain exact individual file or stream bytes. Compression changes storage only; no command, output, input, file, claim or limit is omitted.
 
-The declared isolated factory copy and pinned tools preexist the public invocations. Public prerequisites check the tools, source corpus and TypeScript runtime. Setup installs the shared root packages first, then factory-only persistent storage against their declared peers. The record identifies all 242 copied factory files. It records complete actual stdout and stderr, including discovery diagnostics, working directories, commands, exit codes, profile, plan, ledger/review, target bytes and changed workflow-state files.
+The declared isolated factory copy and pinned tools preexist the public invocations. Public prerequisites check the tools, source corpus and TypeScript runtime. Declare the pinned formatter as a package dependency so independent tests resolve the same formatter. Setup installs the shared root packages first, then factory-only persistent storage against their declared peers. The record identifies all 242 copied factory files. It records complete actual stdout and stderr, including discovery diagnostics, working directories, commands, exit codes, profile, plan, ledger/review, target bytes and changed workflow-state files.
 
 Read the current body and its governing ledger through `mise run ledger` before making review declarations. The default workflow uses temporary state removed at exit. An explicitly selected `--workflow-state <absolute-directory>` supports process-separated review in a caller-owned private POSIX directory outside the factory and target. The workflow does not infer permission from directory selection or review text. Its storage implementation stays in the factory; standardization does not add it to generated skills.
 
@@ -14,7 +16,7 @@ Read the current body and its governing ledger through `mise run ledger` before 
 
 Before planning with `mise run standardize-target`, load the current [interface record](help-run.json) through `mise run standardization-usage`. Native Python owns the arguments; the recorded Usage projection supplies help, completion and interface documentation. The public workflow rejects a missing or stale projection or disagreeing bindings before creating workflow state. Literal arguments keep their boundaries through native Mise `raw_args`; the owning code still validates domain constraints.
 
-After changing the argument definition, run `mise run --output interleave standardization-usage` and retain its exact stdout as the proposed replacement. Review and install that asset through the existing individual-file ledger route, then rerun parsing, forwarding, spec lint/diff and actual workflow checks. The read-only export does not install the asset. The interface record contains real export, lint and current-definition comparison results; the larger domain record below remains a historical workflow trace, with its own identified runtime and proof limits.
+After changing the argument definition, run `mise run --output interleave standardization-usage` and retain its exact stdout as the proposed replacement. Review and install that asset through the existing individual-file ledger route, then rerun parsing, forwarding, spec lint/diff and actual workflow checks. The read-only export has no diagnostic-producing prerequisite and does not install the asset. The interface record contains real export, lint and current-definition comparison results; the larger domain record below remains a historical workflow trace, with its own identified runtime and proof limits.
 
 ## User says
 

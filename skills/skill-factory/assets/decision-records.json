@@ -408,7 +408,7 @@
       "kind": "deterministic",
       "outcome": "Every agent skill can render its recorded file graph without losing file nodes, repeated connectors or original relationship meaning.",
       "motivation": "An agent skill image can look complete despite omitted file topology, while dense self loops can make an unsuitable layout fail.",
-      "why_this_path": "Reuse the native ledger projection and exact locked Mermaid CLI with ELK Brandes Koepf placement, stable identities, no edge merging and no forced model order. Keep complete relationship records beside the SVG and separate topology checks from live inventory and visual judgment.",
+      "why_this_path": "Reuse the agent skill native ledger projection and exact locked Mermaid CLI with ELK Brandes Koepf placement, stable identities, no edge merging and no forced model order. Keep complete relationship records beside the SVG and separate topology checks from live inventory and visual judgment.",
       "owner": "mise",
       "inputs": [
         "native agent skill file-graph result and SHA-256",

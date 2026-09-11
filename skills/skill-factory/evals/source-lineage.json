@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "2e1795ca0f4b4d0c0d61d7377c994026885311582ea80a9a92475ae06776caa1",
+  "native_manifest_sha256": "d9e83e66aa9b163fc19209a3de6a0e37bccda5eb3a51f9f5995c3bb1aab1c534",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1538,7 +1538,7 @@
     },
     {
       "path": "assets/decision-records.json",
-      "sha256": "02007d8a57b4d30b7795989fab6b1b74ae5a79d2aa3b9effadfa1e7682669eeb"
+      "sha256": "4a632a8532d3221b96f0730343a2f558bf618f322e8d55f4e874997acffff6fb"
     },
     {
       "path": "assets/decisions-template.md",

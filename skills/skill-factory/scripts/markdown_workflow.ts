@@ -2,13 +2,13 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { isDeepStrictEqual } from 'node:util';
-import { isAbsolute } from 'node:path';
+import { dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { Mastra } from '@mastra/core/mastra';
 import type { MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
-import { bound, digest } from './standardization_workflow.ts';
+import { bound, digest, taskContract, taskContractSchema } from './standardization_workflow.ts';
 
 export const phases = ['inventory', 'mechanical', 'review-request', 'macro-review', 'micro-review', 'line-review', 'review-check', 'accept'] as const;
 const text = z.string().trim().min(1), hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -142,13 +142,18 @@ function checkCompleteReviews(input: Output) {
 
 function buildWorkflow(phase: Phase, owner: () => Mastra) {
   const step = createStep({ id: phase, inputSchema: requestSchema, outputSchema,
-    resumeSchema: replySchema, suspendSchema: outputSchema,
+    resumeSchema: replySchema, suspendSchema: outputSchema.extend({ task: taskContractSchema }),
     execute: async ({ inputData, resumeData, suspend }) => {
+      const index = phases.indexOf(phase), name = 'markdown:' + phase;
+      const task = await taskContract(dirname(fileURLToPath(new URL('../mise.toml', import.meta.url))),
+        name, 'node scripts/run_markdown.ts ' + phase, [index ? 'markdown:' + phases[index - 1] : 'check-runtime']);
       const input = await predecessor(owner(), phase, inputData, await capture(inputData));
+      if ((input.report.runtime.validator_files as Record<string, string>)['../mise.toml'] !== task.sha256)
+        throw new Error('Task body changed during review capture');
       if (phase === 'review-check' || phase === 'accept') {
         checkCompleteReviews(input);
       }
-      if (phase in stages && resumeData === undefined) return await suspend(input);
+      if (phase in stages && resumeData === undefined) return await suspend({ ...input, task });
       if (phase in stages) return { ...input, reviews: { ...input.reviews, [phase]: validateReview(input, resumeData, phase) } };
       return input;
     } });

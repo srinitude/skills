@@ -1,6 +1,7 @@
 /** Reviewed domain operation. Native Python owns validation and every package effect. */
 import { createHash, randomUUID } from 'node:crypto';
-import { spawn } from 'node:child_process';
+import { spawn, execFile } from 'node:child_process';
+import { promisify, isDeepStrictEqual } from 'node:util';
 import { readFile, writeFile, lstat, realpath } from 'node:fs/promises';
 import { isAbsolute, join, relative, sep } from 'node:path';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
@@ -53,6 +54,26 @@ export async function bound(file: string, expected?: string) {
   const raw = await readFile(file), sha256 = digest(raw);
   if (expected !== undefined && sha256 !== expected) throw new Error('Changed workflow input: ' + file);
   return { raw, sha256 };
+}
+
+export const taskContractSchema = z.object({ name: z.string().min(1), source: path, sha256: hash,
+  description: z.string().min(1), depends: z.array(z.string()), run: z.array(z.string()) }).strict();
+
+export async function taskContract(root: string, name: string, command: string, depends: string[]) {
+  const source = join(root, 'mise.toml'), before = await bound(source);
+  const { stdout } = await promisify(execFile)('mise', ['-C', root, 'tasks', 'info', name, '--json'],
+    { maxBuffer: 1024 * 1024, timeout: 30000 });
+  const task = taskContractSchema.omit({ sha256: true }).strip().parse(JSON.parse(stdout));
+  if (task.name !== name || task.source !== source || !isDeepStrictEqual(task.run, [command])
+      || !isDeepStrictEqual(task.depends, depends)) throw new Error('Native task does not match its workflow: ' + name);
+  const sections = task.description.split(/^## /m).slice(1);
+  const headings = ['Why this runs', 'When to run', 'Inputs', 'Work', 'Proof'];
+  if (!task.description.startsWith('# `' + name + '`\n')
+      || !isDeepStrictEqual(sections.map(section => section.split('\n')[0]), headings)
+      || sections.some(section => !section.slice(section.indexOf('\n')).trim()))
+    throw new Error('Task needs its complete five-part work body: ' + name);
+  await bound(source, before.sha256);
+  return { ...task, sha256: before.sha256 };
 }
 
 function nativeArguments(runtime: Runtime, value: Input | Reviewed, apply: boolean) {

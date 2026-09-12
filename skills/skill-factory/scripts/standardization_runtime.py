@@ -7,21 +7,17 @@ from pathlib import Path
 
 SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
 
-
 def section_name(match):
     name, fields = next(iter(tomllib.loads(match.group(0))["tasks"].items()))
     return name if not fields else None
-
 
 def task_header(name):
     key = name if re.fullmatch(r"[A-Za-z0-9_-]+", name) else json.dumps(name)
     return f"[tasks.{key}]"
 
-
 def split_task_body(block):
     child = next((match for match in SECTION_RE.finditer(block) if section_name(match) is None), None)
     return (block[:child.start()].rstrip(), block[child.start():].strip()) if child else (block, "")
-
 
 def split_sections(text):
     matches = [(match, name) for match in SECTION_RE.finditer(text)
@@ -33,7 +29,6 @@ def split_sections(text):
         sections.append((name, text[match.end():end].strip("\n")))
     return preamble.rstrip(), sections
 
-
 ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json",
               "runtime/standardization/package.json", "runtime/standardization/package-lock.json")
 LEDGER_EXAMPLES = ("examples/graph-public-run.json", "examples/ledger-write-run.json", "examples/lineage-public-run.json",
@@ -41,12 +36,11 @@ LEDGER_EXAMPLES = ("examples/graph-public-run.json", "examples/ledger-write-run.
 LEDGER_FILES = ("render_file_graph.py", "tests/test_render_file_graph.py", "review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_file_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
                 "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_file_graph.py", "tests/test_review_ledger_write.py", "tests/test_related_owner_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
 LEDGER_FILES += ("native_file_workflow.ts", "tests/test_review_ledger_native.py", "tests/test_native_runtime_review.py", "review_ledger_native.py", "markdown_checks.py", "markdown_workflow.ts",
-                 "run_markdown.ts", "standardization_workflow.ts", "run_standardization.ts")
+                 "run_markdown.ts", "standardization_workflow.ts", "run_standardization.ts", "task_tools.ts", "tests/test_task_tools.py", "tests/test_task_tools_handoff.py")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
                   "skill_package.py": "466753d6f604a9433e9b51ace0a58d3f5f34191dc98b0083689aab25dfae7184"}
-
 
 def runtime_preamble(preamble):
     tools = tomllib.loads(preamble).get("tools", {})
@@ -75,14 +69,12 @@ def runtime_preamble(preamble):
         raise ValueError("runtime tool table needs explicit syntax reconciliation")
     return preamble.rstrip() + "\n\n[tools]\n" + "\n".join(missing)
 
-
 UV_RUN = "uv run --with PyYAML==6.0.3 "
 ISOLATED_UV = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 "
 SHARED_PYTHON = ("scripts/validate_skill.py", "scripts/check_lineage.py",
                  "scripts/scaffold_skill.py", "scripts/check_target.py",
                  "scripts/standardize_registry_skill.py", "scripts/resolve_scope.py",
                  "scripts/skill_variant.py", "python -m unittest discover")
-
 
 def isolate_python_helpers(block, task):
     helpers = [command for field in ["run", "run_windows"]
@@ -157,19 +149,33 @@ def runtime_dependencies(name, dependencies, names):
 
 
 
+def task_values(block):
+    block = re.sub(r"^\[tasks\.[^\n]+\]\s*\n", "", block)
+    try:
+        return tomllib.loads('[task]\n' + block)['task']
+    except tomllib.TOMLDecodeError:
+        return None
+
+
 def strip_key(block, key):
-    lines, output, skipping = block.splitlines(), [], False
-    for line in lines:
-        if skipping:
-            skipping = not line.strip().endswith("]")
+    original = task_values(block)
+    if original is None:
+        raise ValueError("invalid task fields before removal: " + key)
+    if key not in original:
+        return block.strip()
+    expected = {name: value for name, value in original.items() if name != key}
+    # ponytail: parse bounded task blocks; use a TOML span parser if large blocks become slow.
+    for match in re.finditer(rf"(?m)^{re.escape(key)}\s*=", block):
+        ends = (match.start() + item.end() for item in re.finditer(r"\n|$", block[match.start():]))
+        end = next((end for end in ends
+                    if task_values(block[:match.start()] + block[end:]) == expected), None)
+        if end is None:
             continue
-        if re.match(rf"^{re.escape(key)}\s*=", line):
-            skipping = "[" in line and not line.strip().endswith("]")
-            continue
-        output.append(line)
-    return "\n".join(output).strip()
-
-
+        removed = block[match.start():end]
+        comment = next((removed[item.start():] for item in re.finditer("#", removed)
+                        if task_values(removed[:item.start()]) == {key: original[key]}), "")
+        return (block[:match.start()] + comment + block[end:]).strip()
+    raise ValueError("task field needs explicit syntax reconciliation: " + key)
 
 def nested_dependencies(block):
     command = tomllib.loads('[task]\n' + block)['task'].get('run')

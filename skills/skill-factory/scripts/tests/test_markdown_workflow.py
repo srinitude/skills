@@ -15,10 +15,8 @@ PHASES = ["inventory", "mechanical", "review-request", "macro-review", "micro-re
 PRIMITIVES = ["primitive_what", "primitive_which", "primitive_when", "primitive_how",
               "primitive_why", "primitive_who", "primitive_coverage"]
 
-
 def binding(path):
     return {"path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
-
 
 def fixture(base):
     root, state = base / "skill", base / "state"
@@ -39,14 +37,12 @@ def fixture(base):
            "UV_PYTHON": sys.executable}
     return request, env
 
-
 def invoke(phase, env, public=False, root=ROOT):
     command = ["mise", "run", *([] if public else ["--skip-deps"]), "markdown:" + phase]
     result = subprocess.run(command, cwd=root, env=env, text=True, capture_output=True, timeout=180)
     lines = [line for line in result.stdout.splitlines() if line.startswith("{")]
     parsed = json.loads(lines[-1]) if lines else {}
     return result.returncode, parsed, result.stderr
-
 
 def reply_for(data, phase="review-check"):
     stages = {"macro-review": ["capability_ownership", "task_dependencies", "purpose", "primitive_which", "primitive_why", "primitive_who",
@@ -67,7 +63,6 @@ def reply_for(data, phase="review-check"):
             "request_sha256": data["request_sha256"], "reviewer": "test fixture",
             "method": "consumer rejection fixture", "files": [
                 {"path": file["path"], "sha256": file["sha256"], "answers": answers}]}
-
 
 def check_review_cases(data):
     valid = reply_for(data)
@@ -130,6 +125,11 @@ def complete_reviews(base, env, data, root=ROOT):
     for phase in ["macro-review", "micro-review", "line-review"]:
         code, waiting, error = invoke(phase, env, root=root)
         assert code == 3 and waiting["status"] == "suspended", error + str(waiting)
+        task = waiting["suspendPayload"][phase]["task"]
+        expected = tomllib.loads((root / "mise.toml").read_text())["tasks"]["markdown:" + phase]
+        assert task["name"] == "markdown:" + phase and task["description"] == expected["description"]
+        assert task["sha256"] == binding(root / "mise.toml")["sha256"]
+        assert task["depends"] == expected["depends"]
         reply = base / (phase + ".json")
         reply.write_text(json.dumps(reply_for(data, phase)))
         env["SKILL_MARKDOWN_REPLY"] = str(reply)

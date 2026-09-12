@@ -46,7 +46,24 @@ def _TestNativeTaskSubtables_test_dependency_rewrite_does_not_write_into_ci_envi
     self.assertEqual(normalize_mise(normalized), normalized)
 
 
+
+def _TestNativeTaskSubtables_test_full_task_bodies_survive_profile_updates(self):
+    description = "# `anchor`\n\n## Work\n\nKeep [links] and \"quotes\".\nrun = 'text only'\n"
+    source = NATIVE_SOURCE.replace('description = "Observe configured clock context"',
+                                  "description = '''\n" + description + "''' # keep the task note")
+    profile = {"primary_term": "clock", "main_task": "anchor",
+               "command_tasks": {"anchor": {"description": description + "\nKeep time.",
+                                           "run": "printf clock"}}}
+    normalized = normalize_mise(source, profile)
+    task = tomllib.loads(normalized)["tasks"]["anchor"]
+    self.assertEqual(task["description"], profile["command_tasks"]["anchor"]["description"])
+    self.assertEqual(task["run"], "printf clock")
+    self.assertEqual(task["env"], {"CLOCK_CONTEXT": "preserved"})
+    self.assertIn("# keep the task note", normalized)
+    self.assertEqual(normalize_mise(normalized, profile), normalized)
+
 class TestNativeTaskSubtables(unittest.TestCase):
+    test_full_task_bodies_survive_profile_updates = _TestNativeTaskSubtables_test_full_task_bodies_survive_profile_updates
     test_native_domain_environment_subtable_is_preserved = _TestNativeTaskSubtables_test_native_domain_environment_subtable_is_preserved
     test_quoted_task_names_keep_their_subtable_owner = _TestNativeTaskSubtables_test_quoted_task_names_keep_their_subtable_owner
     test_helper_subtable_environment_is_checked_before_replacement = _TestNativeTaskSubtables_test_helper_subtable_environment_is_checked_before_replacement

@@ -97,7 +97,7 @@ run = "mise self-update --yes --no-plugins"
 [tasks.setup-runtime]
 description = "Install the exact locked skill code-check dependencies"
 depends = []
-run = "npm ci --include=dev --ignore-scripts 1>&2"
+run = ["npm ci --include=dev --ignore-scripts 1>&2", "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]
 
 [tasks.use-case-policy]
 description = "Reject generic skill primitives without a domain-specific role and proof"
@@ -108,6 +108,54 @@ run = "python3 scripts/check_use_case_contract.py . --accept"
 description = "Strictly type-check owned skill TypeScript with the declared compiler"
 depends = ["setup-runtime"]
 run = "npm exec --no -- tsc --noEmit --project tsconfig.json"
+
+[tasks."markdown:inventory"]
+description = "Read every Markdown file and bind its review inputs"
+depends = ["check-runtime"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts inventory"
+
+[tasks."markdown:mechanical"]
+description = "Capture reading and structure findings for whole-file review"
+depends = ["markdown:inventory"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts mechanical"
+
+[tasks."markdown:review-request"]
+description = "Give the model the exact text, source rules and check results"
+depends = ["markdown:mechanical"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts review-request"
+
+[tasks."markdown:macro-review"]
+description = "Review the whole file before its sections"
+depends = ["markdown:review-request"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts macro-review"
+
+[tasks."markdown:micro-review"]
+description = "Review sections and blocks after whole-file review"
+depends = ["markdown:macro-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts micro-review"
+
+[tasks."markdown:line-review"]
+description = "Review words and lines after section review"
+depends = ["markdown:micro-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts line-review"
+
+[tasks."markdown:review-check"]
+description = "Reject failed checks and stale or incomplete stage reviews"
+depends = ["markdown:line-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts review-check"
+
+[tasks."markdown:accept"]
+description = "Check writing evidence and keep human approval separate"
+depends = ["markdown:review-check"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts accept"
 
 [tasks.ledger]
 description = "Read skill ledger context or apply a caller-scoped file change through native Mastra"

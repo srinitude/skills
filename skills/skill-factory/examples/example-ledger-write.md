@@ -34,6 +34,24 @@ For SKILL.md changes through `mise run ledger`, `body_revision` binds a separate
 
 These are actual mechanical runs with explicit fixture source rules. They establish the shown effects, rejections and recovery. They do not establish semantic judgment, human review, whole-skill behavior, staged-writer integration, removals or final acceptance. The separate staged-writer regression suite covers creation, standardization and variants. Complete the separate semantic review and ledger invalidation before accepting a skill change.
 
+## Authorized prerequisite with pending body validation
+
+Use this branch only when the actual authority explicitly permits a necessary prerequisite before integrated body validation. The ordinary default still rejects an unfinished body review. Select the exception outside request JSON:
+
+```sh
+mise run ledger -- <request.json> --write-root <root> --pending-body-review <review-sha256>
+```
+
+Bind that exact digest to `initial_body_review` or `body_revision.review`. Keep `initial_contract_validation.state` and `execution_acceptance` equal to `pending`; retain the ordinary source, ledger, candidate, previous-body and reviewer fields. Add `prerequisite` with exactly these keys:
+
+- `change_sha256`: SHA-256 of the complete `change` object encoded as UTF-8 JSON with sorted keys, unescaped Unicode and compact comma/colon separators. In Python, use `json.dumps(change, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()`. Modes and review declarations are part of this binding.
+- `reason`: the nonempty necessity and authorized dependency exception.
+- `pending_validation`: a nonempty list naming the remaining checks. Do not declare an unfinished review complete.
+
+The caller must establish actual authority and semantic coverage. Neither the selected digest nor these declarations authenticate approval. Preserve all other input, path, overlap, identity, mode, locking and restoration checks. Changed request content needs a renewed review and caller selection. Bootstrap rejects this exception; lineage, catalog, scaffold, standardization and registry consumers retain their existing default gate unless their own reviewed interface explicitly supports it.
+
+The regression suite exercises real writes, missing caller selection, request-data injection, a mismatched digest, changed permissions, body replacement and post-write review drift with restoration and recovery. These cases do not prove complete semantic review, independent protection or final acceptance. Keep the whole-file and dependent integration checks pending until their actual evidence passes. Return to the [body's review rules](../SKILL.md#review-and-change-through-the-ledger) for the required before/after capture, affected semantic review and valid reuse conditions.
+
 ## Refresh derived lineage from the same review
 
 The following commands belong to the factory's standalone lineage interface; use them only in a skill that owns that interface. Lineage uses the ordinary review above because its metadata changes a skill file. Start with `mise run lineage -- --plan` and save the returned `content_utf8` unchanged as the prepared file, including its two-space JSON indentation and final newline. Supply `initial_body_review`, the complete governing input bindings and a `change` targeting `evals/source-lineage.json`. Then use `mise run refresh-lineage -- --review <absolute-request.json>`. Mise requires that argument before starting the prerequisite checks; the writer validates its contents again at the effect. Every declared refresh prerequisite must pass.

@@ -32,7 +32,8 @@ def target_path(root, name, allow_body=False):
 def bindings(request, root, phase='before'):
     return [{'path': request['ledger'], 'sha256': request['ledger_sha256']},
             *body_inputs(request, root, phase), *request['expected_documents'],
-            request['original_source'], request['change']['new_file']]
+            request['original_source'], *([request['change']['new_file']]
+            if request['change']['new_file'] is not None else [])]
 
 
 def capture(request, root, phase='before'):
@@ -42,7 +43,7 @@ def capture(request, root, phase='before'):
     return {path: read_file({'path': path}) for path in dict.fromkeys(paths)}
 
 
-def validate(captured, request, root, phase='before'):
+def validate(captured, request, root, phase='before', pending_body_review=None):
     for binding in bindings(request, root, phase):
         require(sha(captured[binding['path']]) == binding['sha256'], 'current write input digest mismatch')
     ledger_raw = captured[request['ledger']]
@@ -63,7 +64,7 @@ def validate(captured, request, root, phase='before'):
             'body': {'path': body_path, 'sha256': sha(captured[body_path]),
                      'text': body_text},
             'input_bytes': {path: len(raw) for path, raw in captured.items()},
-            **body_review(captured, request, root, sources['source_sha256'], phase),
+            **body_review(captured, request, root, sources['source_sha256'], phase, pending_body_review),
             'method': protocol['method'], 'review_fields': protocol['review_fields']}
 
 
@@ -122,9 +123,9 @@ def requested_mode(change, old):
     return mode['new']
 
 
-def apply_change(request, root, target, effect_check=None):
+def apply_change(request, root, target, effect_check=None, pending_body_review=None):
     captured = capture(request, root)
-    before = validate(captured, request, root)
+    before = validate(captured, request, root, pending_body_review=pending_body_review)
     change, old = request['change'], current(target)
     expected = change['expected_sha256']
     require(expected is None or isinstance(expected, str) and re.fullmatch('[a-f0-9]{64}', expected),
@@ -135,7 +136,7 @@ def apply_change(request, root, target, effect_check=None):
     require(effect_check is None or effect_check() is True, 'effect condition rejected before writing')
     install(root, target, wanted, old)
     try:
-        after = validate(capture(request, root, 'after'), request, root, 'after')
+        after = validate(capture(request, root, 'after'), request, root, 'after', pending_body_review)
         require(current(target) == wanted, 'file differs from the requested bytes or mode after writing')
         require(effect_check is None or effect_check() is True, 'effect condition rejected after writing')
     except BaseException:
@@ -153,8 +154,10 @@ def apply_change(request, root, target, effect_check=None):
                      'transaction or hostile-writer isolation. Unreadable inputs can prevent restoration.'}
 
 
-def write_file(request, root, *, effect_check=None, target_root=None):
+def write_file(request, root, *, effect_check=None, target_root=None, pending_body_review=None):
     root = Path(root)
+    require(pending_body_review is None or isinstance(pending_body_review, str)
+            and re.fullmatch('[a-f0-9]{64}', pending_body_review), 'invalid caller-selected pending review digest')
     require(request.get('action') == 'write-file', 'file writer requires write-file action')
     change = request['change']
     require(set(change) - {'mode'} == {'path', 'expected_sha256', 'new_file', 'body_sha256', 'reviewer', 'review'},
@@ -176,5 +179,5 @@ def write_file(request, root, *, effect_check=None, target_root=None):
         require(all(target != path.resolve() and (not target.exists() or not path.exists()
                     or not target.samefile(path)) for path in input_paths),
                 'file change overlaps a governing or prepared input')
-        result = apply_change(request, root, target, effect_check)
+        result = apply_change(request, root, target, effect_check, pending_body_review)
         return {**result, 'body_root': str(root), 'target_root': str(physical)} if target_root is not None else result

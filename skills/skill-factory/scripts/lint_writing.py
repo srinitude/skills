@@ -3,11 +3,9 @@
 
 Flags machine-flavored prose: banned words and frames, em and en
 dashes, Latin shorthand, and headings nested past three levels. Also
-enforces the one line layout: every wrappable block, a paragraph or
-a list item plus its continuation lines, is exactly one physical
-line with no internal hard breaks and no maximum length. Frontmatter,
-headings, table rows, code fences and their content, indented code,
-and blank lines are exempt.
+allows wrapped paragraphs and list items. A reference definition must
+start its own block, so readers do not mistake it for paragraph text.
+Frontmatter, headings, tables, code and blank lines retain their syntax.
 Prints one line per problem as path:line: message.
 
 Exit codes:
@@ -151,8 +149,8 @@ def collect_blocks(lines):
     return blocks
 
 def check_block(block, path, problems):
-    problems.extend(f"{path}:{number}: hard line break inside a wrappable block; join the block into one line"
-                    for number, _ in block[1:])
+    problems.extend(f"{path}:{number}: reference definition cannot interrupt prose; add a blank line"
+                    for number, line in block[1:] if REFERENCE_DEFINITION_RE.fullmatch(line))
 
 def check_file(path):
     problems = []

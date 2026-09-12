@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 import test_review_ledger_write as writes
-from test_review_ledger_write_recovery import INTERFERENCE
+from test_review_ledger_write_recovery import INTERFERENCE, pending_review
 
 
 def _TestInitialReview_test_missing_review_rejects_before_effect_and_valid_review_recovers(self):
@@ -98,8 +98,72 @@ def _TestInitialReview_test_review_cannot_be_the_written_target(self):
     self.invoke()
 
 
+def _TestInitialReview_test_caller_selected_pending_review_allows_only_bound_prerequisite(self):
+    digest = pending_review(self)
+    path = self.folder / 'pending-request.json'; path.write_text(json.dumps(self.request))
+    command = ['node', str(writes.ROOT / 'scripts/run_review_ledger.ts'), str(path),
+               '--write-root', str(self.root), '--pending-body-review', digest]
+    result = subprocess.run(command, cwd=writes.ROOT, capture_output=True, text=True, timeout=60)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    report = json.loads(result.stdout)
+    self.assertEqual(report['status'], 'success')
+    effect = json.loads(report['result']['view_text'])
+    self.assertEqual(effect['execution_acceptance'], 'pending')
+    for phase in ['before', 'after']:
+        self.assertEqual(effect[phase]['initial_body_review']['initial_contract_validation']['state'], 'pending')
+        self.assertIn('change_sha256', effect[phase]['initial_body_review']['prerequisite'])
+    self.assertEqual((self.root / 'result.bin').read_bytes(), self.prepared.read_bytes())
+
+
+def _TestInitialReview_test_pending_review_cannot_select_its_own_exception(self):
+    pending_review(self); before = self.package()
+    with self.assertRaises(ValueError):
+        self.invoke()
+    request = copy.deepcopy(self.request)
+    request['pending_body_review'] = request['initial_body_review']['sha256']
+    rejected = self.native(request)
+    self.assertNotEqual(rejected.returncode, 0)
+    self.assertEqual(self.package(), before)
+
+
+def _TestInitialReview_test_pending_exception_rejects_unbound_changes(self):
+    from review_ledger_write import write_file
+    digest = pending_review(self); path = Path(self.request['initial_body_review']['path'])
+    original = path.read_bytes(); before = self.package()
+    for key, value in [('change_sha256', '0'*64), ('reason', ' '), ('pending_validation', []),
+                       ('pending_validation', ['']), ('pending_validation', 'unchecked')]:
+        review = json.loads(original); review['prerequisite'][key] = value
+        path.write_text(json.dumps(review)); bound = writes.sha(path.read_bytes())
+        self.request['initial_body_review']['sha256'] = bound
+        with self.assertRaises(ValueError):
+            write_file(self.request, self.root, pending_body_review=bound)
+        self.assertEqual(self.package(), before)
+    path.write_bytes(original); self.request['initial_body_review']['sha256'] = digest
+    with self.assertRaises(ValueError):
+        write_file(self.request, self.root, pending_body_review='0'*64)
+    self.assertEqual(self.package(), before)
+    write_file(self.request, self.root, pending_body_review=digest)
+
+
+def _TestInitialReview_test_pending_body_revision_retains_unfinished_acceptance(self):
+    from review_ledger_write import write_file
+    from test_review_ledger_body import TestBodyRevision
+    TestBodyRevision.revision(self, True)
+    self.request['initial_body_review'] = self.request['body_revision']['review']
+    digest = pending_review(self)
+    del self.request['initial_body_review']
+    result = write_file(self.request, self.root, pending_body_review=digest)
+    self.assertEqual(result['after']['body']['text'].encode(), self.prepared.read_bytes())
+    self.assertEqual(result['after']['body_revision_review']['initial_contract_validation']['state'], 'pending')
+    self.assertEqual(result['execution_acceptance'], 'pending')
+
+
 class TestInitialReview(unittest.TestCase):
+    test_pending_body_revision_retains_unfinished_acceptance = _TestInitialReview_test_pending_body_revision_retains_unfinished_acceptance
     setUp = writes.TestLedgerWrite.setUp
+    test_caller_selected_pending_review_allows_only_bound_prerequisite = _TestInitialReview_test_caller_selected_pending_review_allows_only_bound_prerequisite
+    test_pending_review_cannot_select_its_own_exception = _TestInitialReview_test_pending_review_cannot_select_its_own_exception
+    test_pending_exception_rejects_unbound_changes = _TestInitialReview_test_pending_exception_rejects_unbound_changes
     invoke = writes.TestLedgerWrite.invoke
     native = writes.TestLedgerWrite.native
     package = writes.TestLedgerWrite.package

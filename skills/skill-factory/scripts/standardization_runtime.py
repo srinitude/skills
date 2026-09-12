@@ -3,6 +3,7 @@ from skill_package import sha
 import re
 import json
 import tomllib
+from pathlib import Path
 
 SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
 
@@ -33,11 +34,14 @@ def split_sections(text):
     return preamble.rstrip(), sections
 
 
-ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json")
+ROOT_FILES = ("package.json", "package-lock.json", "tsconfig.json",
+              "runtime/standardization/package.json", "runtime/standardization/package-lock.json")
 LEDGER_EXAMPLES = ("examples/graph-public-run.json", "examples/ledger-write-run.json", "examples/lineage-public-run.json",
                    "examples/catalog-public-run.json", "examples/registry-public-run.json", "examples/example-ledger-write.md")
 LEDGER_FILES = ("render_file_graph.py", "tests/test_render_file_graph.py", "review_ledger_context.py", "review_ledger_source.py", "review_ledger_tasks.py", "review_ledger_derived.py", "review_ledger_candidates.py", "review_ledger_graph.py", "review_ledger_file_graph.py", "review_ledger_body.py", "review_ledger_write.py", "review_ledger.py", "review_ledger_workflow.ts",
                 "run_review_ledger.ts", "tests/cli.py", "tests/test_review_ledger_source.py", "tests/test_review_ledger_runtime.py", "tests/test_review_ledger_derived.py", "tests/test_review_ledger_tasks.py", "tests/test_review_ledger_candidates.py", "tests/test_review_ledger_work.py", "tests/test_review_ledger_file_graph.py", "tests/test_review_ledger_write.py", "tests/test_related_owner_write.py", "tests/test_review_ledger_modes.py", "tests/test_package_preservation.py", "tests/test_review_ledger_write_recovery.py", "tests/test_review_ledger_write_boundaries.py", "tests/test_review_ledger_bootstrap.py", "tests/test_review_ledger_body.py", "tests/test_review_ledger_initial.py", "tests/test_catalog_review.py", "tests/test_sync_mise_primitives.py")
+LEDGER_FILES += ("native_file_workflow.ts", "tests/test_review_ledger_native.py", "review_ledger_native.py", "markdown_checks.py", "markdown_workflow.ts",
+                 "run_markdown.ts", "standardization_workflow.ts", "run_standardization.ts")
 TOOLS = {"node": "24.18.0", "npm": "11.16.0", "uv": "0.11.29"}
 # The published pre-TypeScript checker is the only automatically migratable baseline.
 LEGACY_SCRIPTS = {"check_code_rules.py": "1e86522fe8549ca3ec742c989c023ff2744db167266711537dc79c268a452824",
@@ -174,3 +178,17 @@ def nested_dependencies(block):
     if not match and re.search(r'\bmise\s+run\b', json.dumps(command)):
         raise ValueError('nested CI execution needs explicit reconciliation before standardization')
     return [match.group(1)] if match else []
+
+
+MARKDOWN_TASKS = {name: task for name, task in tomllib.loads(
+    (Path(__file__).resolve().parents[1] / "mise.toml").read_text())["tasks"].items()
+    if name.startswith("markdown:")}
+
+
+def check_runtime_tasks(tasks, policy):
+    for name in ["setup-runtime", "check-runtime", *MARKDOWN_TASKS]:
+        if name in tasks and (tasks[name].get("run") != policy[name][2]
+                              or tasks[name].get("depends") != policy[name][0]):
+            raise ValueError("native runtime task needs explicit reconciliation: " + name)
+        if name in tasks and name in MARKDOWN_TASKS and tasks[name].get("env") != MARKDOWN_TASKS[name]["env"]:
+            raise ValueError("Markdown environment needs explicit reconciliation: " + name)

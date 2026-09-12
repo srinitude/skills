@@ -21,7 +21,8 @@ function fieldIssue(request: Record<string, unknown>, context: z.RefinementCtx, 
 }
 
 export const requestSchema = z.object({
-  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'file-graph', 'write-file']),
+  action: z.enum(['catalog', 'show', 'relations', 'trace', 'check-capture', 'check-sources', 'pairs', 'selections', 'work', 'impact', 'file-graph', 'write-file', 'native-file']),
+  phase: z.enum(['before', 'after']).optional(),
   ledger: z.string().min(1).refine(isAbsolute, 'Use an absolute ledger path'),
   ledger_sha256: digest,
   expected_documents: z.array(sourceBinding.extend({ name: z.string().min(1) }).strict()).min(1).optional(),
@@ -31,10 +32,11 @@ export const requestSchema = z.object({
   bootstrap_body: z.object({ body: sourceBinding, review: sourceBinding }).strict().optional(),
   body_revision: z.object({ previous: sourceBinding.nullable(), review: sourceBinding }).strict().optional(),
   change: z.object({
-    path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding,
+    path: z.string().min(1), expected_sha256: digest.nullable(), new_file: sourceBinding.nullable(),
+    operation: z.enum(['add', 'update', 'delete']).optional(),
     body_sha256: digest, reviewer: z.string().min(1), review: z.record(z.string(), z.string().min(1)),
     mode: z.object({ expected: z.number().int().min(0).max(0o777).nullable(),
-      new: z.number().int().min(0).max(0o777) }).strict().optional(),
+      new: z.number().int().min(0).max(0o777).nullable() }).strict().optional(),
   }).strict().optional(),
   selector: z.string().min(1).optional(),
   direction: z.enum(['in', 'out', 'both']).optional(),
@@ -52,9 +54,10 @@ export const requestSchema = z.object({
   }).strict().optional(),
 }).strict().superRefine((request, context) => {
   const rules = [
-    { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources', 'write-file'], required: true },
-    { fields: ['change'], actions: ['write-file'], required: true },
-    { fields: ['initial_body_review', 'bootstrap_body', 'body_revision'], actions: ['write-file'], required: false },
+    { fields: ['expected_documents', 'original_source', 'inventory_document'], actions: ['check-sources', 'write-file', 'native-file'], required: true },
+    { fields: ['change'], actions: ['write-file', 'native-file'], required: true },
+    { fields: ['initial_body_review', 'bootstrap_body', 'body_revision'], actions: ['write-file', 'native-file'], required: false },
+    { fields: ['phase'], actions: ['native-file'], required: true },
     { fields: ['selector'], actions: ['show', 'relations', 'trace', 'work', 'impact'], required: true },
     { fields: ['direction', 'relation_type'], actions: ['relations', 'trace'], required: false },
     { fields: ['depth'], actions: ['trace'], required: false },
@@ -69,6 +72,9 @@ export const requestSchema = z.object({
       fieldIssue(request, context, field, used, rule.required);
     }
   }
+  if (request.action === 'write-file' && request.change && (request.change.operation !== undefined
+    || request.change.new_file === null || request.change.mode?.new === null))
+    context.addIssue({ code: 'custom', message: 'write-file requires replacement bytes and rejects native operation fields' });
 });
 const bodySchema = z.object({ path: z.string(), sha256: digest, text: z.string().min(1) });
 const capturedSchema = z.object({ request: requestSchema, body: bodySchema, ledger_text: z.string(), ledger_bytes: z.number().int().nonnegative() });
@@ -76,7 +82,7 @@ const viewSchema = z.object({ view_text: z.string(), source_sha256: digest }).st
 const resultSchema = z.object({
   body: bodySchema, ledger: z.object({ path: z.string(), sha256: digest, bytes: z.number() }),
   view_text: z.string(), source_sha256: digest, execution_acceptance: z.literal('pending'),
-  coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only', 'bound body revision only']), limit: z.string(),
+  coverage: z.enum(['recorded context, relationships and source checks only', 'bound non-body file write only', 'bound body revision only', 'bound native file check only']), limit: z.string(),
 });
 
 function pipeError(error: NodeJS.ErrnoException, reject: (reason?: unknown) => void) {
@@ -88,9 +94,10 @@ function finishRead(code: number | null, stdout: Buffer[], stderr: Buffer[], acc
   try { accept(JSON.parse(Buffer.concat(stdout).toString())); } catch (error) { reject(error); }
 }
 
-export function readThroughOwner(operation: 'parse' | 'view' | 'write', input: string, writeRoot?: string): Promise<unknown> {
+export function readThroughOwner(operation: 'parse' | 'view' | 'write' | 'native-before' | 'native-after', input: string, writeRoot?: string, pendingBodyReview?: string): Promise<unknown> {
   return new Promise((accept, reject) => {
-    const args = [reader, operation, ...(writeRoot === undefined ? [] : ['--write-root', writeRoot])];
+    const args = [reader, operation, ...(writeRoot === undefined ? [] : ['--write-root', writeRoot]),
+      ...(pendingBodyReview === undefined ? [] : ['--pending-body-review', pendingBodyReview])];
     const child = spawn('python3', args, { stdio: ['pipe', 'pipe', 'pipe'] });
     const stdout: Buffer[] = [], stderr: Buffer[] = [];
     child.stdout.on('data', (chunk: Buffer) => stdout.push(chunk));
@@ -137,38 +144,41 @@ const workflow = createWorkflow({
   options: { validateInputs: true },
 }).then(captureInputs).then(buildView).commit();
 
-function writeWorkflow(root: string) {
+function writeWorkflow(root: string, pendingBodyReview?: string, nativePhase?: 'before' | 'after') {
+  const operation = nativePhase ? `native-${nativePhase}` as const : 'write';
   const inputSchema = z.object({ request: requestSchema, body: bodySchema });
   const captureBody = createStep({
     id: 'capture-write-body', inputSchema: requestSchema, outputSchema: inputSchema,
     execute: async ({ inputData }) => ({ request: inputData, body: await capture(bodyPath) }),
   });
   const applyFile = createStep({
-    id: 'apply-bound-file-change', inputSchema, outputSchema: resultSchema,
+    id: nativePhase ? 'check-bound-native-file' : 'apply-bound-file-change', inputSchema, outputSchema: resultSchema,
     execute: async ({ inputData: { request, body } }) => {
       const result = viewSchema.extend({ ledger_bytes: z.number().int().nonnegative() }).parse(
-        await readThroughOwner('write', JSON.stringify(request), root));
+        await readThroughOwner(operation, JSON.stringify(request), root, pendingBodyReview));
       return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: result.ledger_bytes },
         view_text: result.view_text, source_sha256: result.source_sha256,
-        execution_acceptance: 'pending' as const, coverage: request.body_revision ? 'bound body revision only' as const : 'bound non-body file write only' as const,
-        limit: 'The caller selected the write root outside request data. The file owner reads the full current '
+        execution_acceptance: 'pending' as const, coverage: nativePhase ? 'bound native file check only' as const : request.body_revision ? 'bound body revision only' as const : 'bound non-body file write only' as const,
+        limit: nativePhase ? 'Read-only native preflight/readback through the shared owner. No effect, hook activation, authorization or acceptance. See view_text for exact limits.' : 'The caller selected the write root outside request data. The file owner reads the full current '
           + 'ledger, target body and supplied governing inputs before and after this create/replacement. '
           + 'Review fields remain caller declarations. This does not guard other writers or confer source '
           + 'authority, semantic or human acceptance. See the returned per-file restoration and isolation limits.' };
     },
   });
-  return createWorkflow({ id: 'review-ledger-file-write', inputSchema: requestSchema,
+  return createWorkflow({ id: nativePhase ? 'review-ledger-native-check' : 'review-ledger-file-write', inputSchema: requestSchema,
     outputSchema: resultSchema, options: { validateInputs: true },
   }).then(captureBody).then(applyFile).commit();
 }
 
-export async function runLedger(input: unknown, writeRoot?: string) {
+export async function runLedger(input: unknown, writeRoot?: string, pendingBodyReview?: string) {
   const request = requestSchema.parse(input);
-  const writing = request.action === 'write-file';
+  const writing = request.action === 'write-file' || request.action === 'native-file';
   if (writing && (writeRoot === undefined || !isAbsolute(writeRoot)))
     throw new Error('write-file requires a caller-selected absolute --write-root');
   if (!writing && writeRoot !== undefined) throw new Error('Read actions reject --write-root');
-  const selected = writing ? writeWorkflow(writeRoot as string) : workflow;
+  if (pendingBodyReview !== undefined && (!writing || !/^[a-f0-9]{64}$/.test(pendingBodyReview)))
+    throw new Error('Pending body review requires a write and an exact lowercase SHA-256');
+  const selected = writing ? writeWorkflow(writeRoot as string, pendingBodyReview, request.phase) : workflow;
   const run = await selected.createRun();
   return { ...await run.start({ inputData: request }), run_id: run.runId };
 }

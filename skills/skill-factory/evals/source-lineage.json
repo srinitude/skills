@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "b2c50a45678216bfec02c3802c277122c4a6127ea775dc609a70575b14a9639f",
+  "native_manifest_sha256": "0bbc6beac137e9ca0cbacfc3cd425bb50420d1c943fb21f0c059ce9db26bd1c0",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -575,6 +575,24 @@
       ]
     },
     {
+      "path": "scripts/markdown_checks.py",
+      "source_paths": [
+        "scripts/markdown_checks.py"
+      ]
+    },
+    {
+      "path": "scripts/markdown_workflow.ts",
+      "source_paths": [
+        "scripts/markdown_workflow.ts"
+      ]
+    },
+    {
+      "path": "scripts/native_file_workflow.ts",
+      "source_paths": [
+        "scripts/native_file_workflow.ts"
+      ]
+    },
+    {
       "path": "scripts/plan_standardize.py",
       "source_paths": [
         "scripts/plan_standardize.py"
@@ -659,6 +677,12 @@
       ]
     },
     {
+      "path": "scripts/review_ledger_native.py",
+      "source_paths": [
+        "scripts/review_ledger_native.py"
+      ]
+    },
+    {
       "path": "scripts/review_ledger_source.py",
       "source_paths": [
         "scripts/review_ledger_source.py"
@@ -686,6 +710,12 @@
       "path": "scripts/run_agentic_request.py",
       "source_paths": [
         "scripts/run_agentic_request.py"
+      ]
+    },
+    {
+      "path": "scripts/run_markdown.ts",
+      "source_paths": [
+        "scripts/run_markdown.ts"
       ]
     },
     {
@@ -1025,6 +1055,18 @@
       ]
     },
     {
+      "path": "scripts/tests/test_markdown_reading.py",
+      "source_paths": [
+        "scripts/tests/test_markdown_reading.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_markdown_workflow.py",
+      "source_paths": [
+        "scripts/tests/test_markdown_workflow.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_mise_primitives.py",
       "source_paths": [
         "scripts/tests/test_mise_primitives.py"
@@ -1154,6 +1196,12 @@
       "path": "scripts/tests/test_review_ledger_modes.py",
       "source_paths": [
         "scripts/tests/test_review_ledger_modes.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_review_ledger_native.py",
+      "source_paths": [
+        "scripts/tests/test_review_ledger_native.py"
       ]
     },
     {
@@ -1522,7 +1570,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "0bfe38d2d5fa7bb10d5e27d61f0ad1f40d6dab452482cb43d53dcebebedb8ed7"
+      "sha256": "8af9ebe9d787c54ba2c66e51619091525389fa53590b575345746a2bca88e24f"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1578,7 +1626,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "a5995b481ea8ea78f28ed55706eb0044a23f05d0089462d5f760c25967c2b261"
+      "sha256": "9dbbe1f1745c5408cbc8b739a60fde2167fa747086d10fef9a98c036828b4bef"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1594,7 +1642,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "4e732adc327267345914de8b95e31e400e1e7d4fbb2e5cf69cf95ced42316867"
+      "sha256": "a58d7822acfa5ea9a00d02fefa1140c274c04854b26cdb8ecc8afa191b945e08"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1686,7 +1734,7 @@
     },
     {
       "path": "examples/example-ledger-write.md",
-      "sha256": "d1ce53619162d3561ce48f54bbedf41c77419d9989b5046285bd2d1cd3ddead9"
+      "sha256": "5face1a2013740af77db228038ec92f4d125c98e1bf343dcd6ad4c63018e5c3a"
     },
     {
       "path": "examples/example-new-skill.md",
@@ -1746,7 +1794,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "8e489e4d4e94346591430a844817887f581234cfac21e7ba04f63c32a99e9d28"
+      "sha256": "bb6a84d870c3d4e26e32272c847e3ff5912cded975c8146faabc24d4c031bb64"
     },
     {
       "path": "package-lock.json",
@@ -1770,7 +1818,7 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "885f40c9af6516bf0336629c86930919c4d4f04ac277a3dac9507f9b8504a9a9"
+      "sha256": "eeddae6319795008174f71ac2442dd042f6ba7937b5cb70df2db82209fd0e496"
     },
     {
       "path": "references/improvement-dimensions.md",
@@ -1802,7 +1850,7 @@
     },
     {
       "path": "references/writing-rules.md",
-      "sha256": "11d0e04b880d58a62b7961a40e2fab1907e72f180df86a11b5f2275687b8651c"
+      "sha256": "a7ca9e0274313defa06c128e53bcb0586092e7328beff3eadfc69ac55c043762"
     },
     {
       "path": "runtime/standardization/package-lock.json",
@@ -1890,7 +1938,19 @@
     },
     {
       "path": "scripts/lint_writing.py",
-      "sha256": "9e115e868ff6c1e86c794a0ce9fceb52451492af90e05fdc1be80a75c4b7167b"
+      "sha256": "1282c9dd36d7b086cf854217c5c035ea9735684207efef227f4c393fd17ccb8a"
+    },
+    {
+      "path": "scripts/markdown_checks.py",
+      "sha256": "d8e30a5025b11f5d8c66fd58453649f37320a2f80c3e53beeba357b1eec856ec"
+    },
+    {
+      "path": "scripts/markdown_workflow.ts",
+      "sha256": "5ee87cbf9fed4cf6eb32b8b428cb2aac5925ddac34ec9abcfe1d76bc7b20a513"
+    },
+    {
+      "path": "scripts/native_file_workflow.ts",
+      "sha256": "f6570dbdd4ce1c070254bb67fdbc93a708e4ddec100343424703d9f8dca62002"
     },
     {
       "path": "scripts/plan_standardize.py",
@@ -1922,11 +1982,11 @@
     },
     {
       "path": "scripts/review_ledger.py",
-      "sha256": "e63c870f8ba0edf6920543ab64cd971409b159b8072267a2f8d94501e79704ac"
+      "sha256": "c576067ea6596b33d07b9e1e279173838df6d95b226f00d53eef4d5dccb058c3"
     },
     {
       "path": "scripts/review_ledger_body.py",
-      "sha256": "ea3668c95cffcf3223c6b36ca2a124c0bd4aec11c1eadf99c4abe3c86eee54b6"
+      "sha256": "12ecb7e891d50e7a7a473322c5ddae15177b69854ec77c39b13b0e6efba23993"
     },
     {
       "path": "scripts/review_ledger_candidates.py",
@@ -1949,6 +2009,10 @@
       "sha256": "3b040b987521052d584e256cd01b6225e170e091f9600fffa73a47701fba451b"
     },
     {
+      "path": "scripts/review_ledger_native.py",
+      "sha256": "0201b7f656555aca70ff8010b5d92b19bfeb2906ccb9bd762d777246c9cff5eb"
+    },
+    {
       "path": "scripts/review_ledger_source.py",
       "sha256": "8c98437b49187f697d7bd37e701e890caf77acfd66e8783ce4217ecc5e248cca"
     },
@@ -1958,23 +2022,27 @@
     },
     {
       "path": "scripts/review_ledger_workflow.ts",
-      "sha256": "412c7d6cd2ea2bbcc82a99a331a2d5768661cea8c39da090740731288c4866b1"
+      "sha256": "f0edbef734fe6a139ad6f8459238226a171a4d015ddd5c31188877c82ab7746a"
     },
     {
       "path": "scripts/review_ledger_write.py",
-      "sha256": "787b4502c0b6ed7f000dc808282065831528bf3fa4c55d19b56743fcf47cb9a5"
+      "sha256": "b8ff76f7445dd144c2f7f985b8d1c2f8b456bba6047f9e54bbe9ac1cefa97cf6"
     },
     {
       "path": "scripts/run_agentic_request.py",
       "sha256": "ba1f93c0b8d8800ae8d041e0a5a59d7f0930caf18b6f0d3c2c7adc054570665a"
     },
     {
+      "path": "scripts/run_markdown.ts",
+      "sha256": "36d705c8751b20acacd1ea7f3939e7e8ae827f6dbec6899ad6733aabf09f0f89"
+    },
+    {
       "path": "scripts/run_review_ledger.ts",
-      "sha256": "509fd060932f7379f17613f706aeb1d13bb042116203195b46193320bde55492"
+      "sha256": "a62a0315b2edfca04d3935152a2a0c6d536a9fecf8473cd18ad59fb51908d16b"
     },
     {
       "path": "scripts/run_standardization.ts",
-      "sha256": "15560b2509a1c068ad6959235cada0d554d4d7704fd9127a9d1205977f0dc1a1"
+      "sha256": "277beb19d7b2f709d1a7bb000173c4929268b1a3729f9e882b0bbd112804a454"
     },
     {
       "path": "scripts/scaffold_plan.py",
@@ -2038,7 +2106,7 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "f262a8c15fded86219f55f78a47c229f6b572e350987d37e87c467f784cf979a"
+      "sha256": "b7f31043c4f0454dd2805dd6c1fd0b4e6b35ae0d8e05f51c7b283490189c6ecc"
     },
     {
       "path": "scripts/standardization_plan.py",
@@ -2062,7 +2130,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "9fc438c211627324bc27f44da5216fbc83b7fb315a808edcf4d3feca54373e53"
+      "sha256": "611864972c66a9a6c86d4f4b0f7b0f997a1343f0c5c1398add5b8650a07e2039"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -2186,11 +2254,19 @@
     },
     {
       "path": "scripts/tests/test_lint_writing.py",
-      "sha256": "3025e7d629fd8495f9ba6018b4b426b32afdcbf796fb65f8c9210a4575547452"
+      "sha256": "4e944d91aaa9966250b102e69187f79a36b3687d67ff04bc843fdba8fb5ce778"
     },
     {
       "path": "scripts/tests/test_mapping_promotion.py",
       "sha256": "23e2511f31faa4334f944df81228cd19ae396399aa76b46d23a43b6ec3270b09"
+    },
+    {
+      "path": "scripts/tests/test_markdown_reading.py",
+      "sha256": "5bf28ea65b8d86abb1c042c975573bd318f0a1a7d7170221163df592277948c3"
+    },
+    {
+      "path": "scripts/tests/test_markdown_workflow.py",
+      "sha256": "e493ac9efef07e9561aef9b00cd5a6092c5dd4971f5d0c97fce9673eef2fe17d"
     },
     {
       "path": "scripts/tests/test_mise_primitives.py",
@@ -2274,11 +2350,15 @@
     },
     {
       "path": "scripts/tests/test_review_ledger_initial.py",
-      "sha256": "8e832f34f8fd5ac8de4bf2e81d5d9451bac72239a1774f96c020e05768943fdf"
+      "sha256": "e8c85e48aa3276c9a8fe633c9a30bc3bd45ba5628ca2f0bba41aba948d16e40c"
     },
     {
       "path": "scripts/tests/test_review_ledger_modes.py",
       "sha256": "c1d33f3c9ad0f4fafd0d23cad21c18728fac3974da18317eab04a7afeba5dffb"
+    },
+    {
+      "path": "scripts/tests/test_review_ledger_native.py",
+      "sha256": "48f320a95af6f84ee2e2995ab40280a49a0a168f83050efbd659a65cd247d6e2"
     },
     {
       "path": "scripts/tests/test_review_ledger_runtime.py",
@@ -2306,7 +2386,7 @@
     },
     {
       "path": "scripts/tests/test_review_ledger_write_recovery.py",
-      "sha256": "9e16038cc91583467d3013a2890a3de12f748baf63fb0180961ff8a56ce32016"
+      "sha256": "ca786c0a08ae86c6b7251f6388b2f7f9c610b2f617d8b3c816b0e9b04a4657fb"
     },
     {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
@@ -2314,7 +2394,7 @@
     },
     {
       "path": "scripts/tests/test_scaffold_review.py",
-      "sha256": "3d7835ba0246145c65787f5e9442a97216a73a9dfbf1301e88eb2a4b1ccff773"
+      "sha256": "3c17356d45a311ec7b54415a645bb88ac51de9b4800827b1e3782e1b5fc536c0"
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
@@ -2390,7 +2470,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_review.py",
-      "sha256": "cf1ea83556e45560c6fdc4acc9b1cdeae94a52b6c3e9c7323dc7645f2b5fd420"
+      "sha256": "19e92377699d01d57e482b4db8a2aea45fbbe8e768e2c089d93ee0eabe3a6d6f"
     },
     {
       "path": "scripts/tests/test_standardization_seed.py",

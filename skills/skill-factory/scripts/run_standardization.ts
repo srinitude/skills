@@ -43,7 +43,7 @@ async function checkDatabaseFile(path: string) {
   } catch (error) { if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) throw error; }
 }
 
-async function openStorage(state: string): Promise<MastraCompositeStore> {
+export async function openStorage(state: string): Promise<MastraCompositeStore> {
   const metadata = await lstat(state);
   if ((metadata.mode & 0o077) !== 0 || metadata.uid !== process.getuid?.())
     throw new Error('Persistent state requires a private directory owned by this caller on POSIX');

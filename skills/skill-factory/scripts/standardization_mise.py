@@ -9,7 +9,7 @@ from standardization_seed import base_mise
 
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
-from standardization_runtime import (CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
+from standardization_runtime import (MARKDOWN_TASKS, check_runtime_tasks, CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
                                      runtime_dependencies, strip_key, nested_dependencies, split_sections, split_task_body, task_header)
 
 POLICY_TASKS = {
@@ -18,7 +18,8 @@ POLICY_TASKS = {
     "validate": ([], "Validate the current skill package and changed-output declarations",
         "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"),
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
-        "npm ci --include=dev --ignore-scripts 1>&2"),
+        ["npm ci --include=dev --ignore-scripts 1>&2",
+         "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]),
     "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",
         "npm exec --no -- tsc --noEmit --project tsconfig.json"),
     "ledger": (["check-runtime"], "Read skill ledger context or apply a caller-scoped file change through native Mastra",
@@ -47,6 +48,8 @@ POLICY_TASKS = {
         "python3 scripts/sync_mise_primitives.py . --plan"),
     "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
+POLICY_TASKS.update({name: (task["depends"], task["description"], task["run"])
+                     for name, task in MARKDOWN_TASKS.items()})
 
 
 def declared_dependencies(block):
@@ -90,6 +93,8 @@ def policy_block(name, spec):
     depends, description, command = spec
     block = "\n".join([f'description = {json.dumps(description)}',
                          f'run = {json.dumps(command)}', dependency_line(depends)])
+    if name in MARKDOWN_TASKS:
+        block = 'env = { UV_PYTHON = "{{tools.python.path}}" }\n' + block
     if name == 'mise-primitives-update':
         block = catalog_task(block)
     return f'{task_header(name)}\n{block}'
@@ -150,10 +155,7 @@ def connect_ci_checks(blocks, graph):
 def order_runtime_tasks(text):
     preamble, sections = split_sections(text)
     tasks = tomllib.loads(text)["tasks"]
-    for name in ["setup-runtime", "check-runtime"]:
-        if name in tasks and (tasks[name].get("run") != POLICY_TASKS[name][2]
-                              or tasks[name].get("depends") != POLICY_TASKS[name][0]):
-            raise ValueError("native runtime task needs explicit reconciliation: " + name)
+    check_runtime_tasks(tasks, POLICY_TASKS)
     blocks, graph = {}, {}
     for name, block in sections:
         block, children = split_task_body(block)

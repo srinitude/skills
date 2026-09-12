@@ -73,7 +73,58 @@ def _TestFileRestoration_test_independent_edit_is_preserved_and_recovery_require
     self.assertEqual(target.read_bytes(), self.prepared.read_bytes())
 
 
+def pending_review(case):
+    path = Path(case.request['initial_body_review']['path'])
+    review = json.loads(path.read_text())
+    review['initial_contract_validation']['state'] = 'pending'
+    change = case.request['change']
+    review['prerequisite'] = dict(change_sha256=write_cases.sha(json.dumps(
+        change, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()),
+        reason='Required writer repair precedes integrated body proof.',
+        pending_validation=['Whole body and dependent output integration remain unaccepted.'])
+    path.write_text(json.dumps(review))
+    case.request['initial_body_review']['sha256'] = write_cases.sha(path.read_bytes())
+    return case.request['initial_body_review']['sha256']
+
+
+
+def _TestFileRestoration_test_pending_review_drift_restores_and_requires_rebinding(self):
+    from review_ledger_write import write_file
+    digest = pending_review(self)
+    source = Path(self.request['initial_body_review']['path']); original = source.read_bytes()
+    request = self.folder / 'pending-request.json'; request.write_text(json.dumps(self.request))
+    script = INTERFERENCE.replace("Path(request['original_source']['path'])",
+                                  "Path(request['initial_body_review']['path'])")
+    script = script.replace('write_file(request, root)',
+                            "write_file(request, root, pending_body_review=request['initial_body_review']['sha256'])")
+    before = self.package()
+    result = subprocess.run([sys.executable, '-c', script, str(request), str(self.root), 'source-only'],
+                            cwd=write_cases.ROOT / 'scripts', capture_output=True, text=True, timeout=30)
+    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+    self.assertIn('current write input digest mismatch', result.stderr)
+    self.assertEqual(source.read_bytes(), original + b'changed')
+    self.assertEqual(self.package(), before)
+    source.write_bytes(original)
+    effect = write_file(self.request, self.root, pending_body_review=digest)
+    self.assertEqual(effect['execution_acceptance'], 'pending')
+
+
+def _TestFileRestoration_test_pending_permission_change_requires_a_new_review(self):
+    from review_ledger_write import write_file
+    digest = pending_review(self); before = self.package()
+    self.request['change']['mode'] = {'expected': None, 'new': 0o755}
+    with self.assertRaises(ValueError):
+        write_file(self.request, self.root, pending_body_review=digest)
+    self.assertEqual(self.package(), before)
+    digest = pending_review(self)
+    write_file(self.request, self.root, pending_body_review=digest)
+    self.assertEqual((self.root / 'result.bin').stat().st_mode & 0o777, 0o755)
+
+
 class TestFileRestoration(unittest.TestCase):
+    test_pending_review_drift_restores_and_requires_rebinding = _TestFileRestoration_test_pending_review_drift_restores_and_requires_rebinding
+    test_pending_permission_change_requires_a_new_review = _TestFileRestoration_test_pending_permission_change_requires_a_new_review
+    package = write_cases.TestLedgerWrite.package
     setUp = write_cases.TestLedgerWrite.setUp
     invoke = write_cases.TestLedgerWrite.invoke
     interrupted = _TestFileRestoration_interrupted

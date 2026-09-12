@@ -1,15 +1,23 @@
-/** Usage: mise run ledger -- request.json [--write-root ROOT]. Exit 0 returns a result, 1 rejects work, 2 is misuse. */
+/** Usage: mise run ledger -- request.json [--write-root ROOT [--pending-body-review SHA256]]. Exit 0 returns a result, 1 rejects work, 2 is misuse. */
 import { readFile } from 'node:fs/promises';
 import { readThroughOwner, runLedger } from './review_ledger_workflow.ts';
 
-const help = `Usage: mise run ledger -- <request.json> [--write-root ROOT]
-Read ledger relationships or apply one caller-scoped file change through native Mastra.
+const help = `Usage: mise run ledger -- <request.json> [--write-root ROOT [--pending-body-review SHA256]]
+Read ledger relationships or apply one caller-scoped file change through native Mastra. Saved handoff help: --native-loop --help.
 Exit codes: 0 result, 1 failed input/workflow, 2 bad usage.
 Example: mise run ledger -- review-request.json
 
 Request JSON requires action, ledger (absolute file path), and ledger_sha256
 (the 64-character lowercase SHA-256 of that file's exact current bytes).
-Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact, file-graph, write-file.
+Actions: catalog, show, relations, trace, check-capture, check-sources, pairs, selections, work, impact, file-graph, write-file, native-file.
+native-file requires phase: before or after and the same source/body/review/root bindings as write-file.
+Its change adds operation: add, update or delete; mode requires expected and new ordinary permission bits.
+Add uses null expected_sha256 and expected mode. Delete uses null new_file and new mode; SKILL.md cannot be removed.
+Update binds both existing identity and replacement bytes. Add/update candidates must be UTF-8.
+Each phase checks current inputs and file state without applying or restoring the native effect.
+The result remains pending; returned checks are not complete READY evidence, authority or hook activation.
+The current model performs authorized native effects between checks. The enclosing goal workflow owns
+the persistent handoff, graph/lineage/authority checks, event correlation and required concurrency protection.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
 check-sources and write-file also require expected_documents (name, absolute path, sha256),
@@ -126,6 +134,19 @@ sources, snapshots, reviews and candidates cannot overlap the destination. Modes
 and independent edits retain the existing preservation and restoration rules.
 Review text remains a declaration with semantic, human and final acceptance pending.
 
+For an explicitly authorized prerequisite before integrated body validation, the
+caller may select --pending-body-review SHA256 outside request data. It must match
+the bound initial_body_review or body_revision.review digest. The review retains
+initial_contract_validation.state: "pending" and execution_acceptance: "pending".
+Its prerequisite object has exactly change_sha256, reason and pending_validation.
+Hash the complete change object as UTF-8 JSON with sorted keys, no added spaces and
+unescaped Unicode, binding modes and review fields too. reason is nonempty text;
+pending_validation is a nonempty list of nonempty strings. Normal review
+fields and all before/after bindings remain required. Bootstrap rejects this mode.
+The flag selects a declared exception; it does not authenticate authority, judge
+necessity, certify semantic coverage or finalize the file. The caller must establish
+actual approval and complete every remaining validation. Other writers remain strict.
+
 The result contains the whole current SKILL.md and a JSON-encoded view_text.
 Views preserve asserted conditions, review states, recorded source context and
 explicit facet inheritance. Historical observations keep their identity.
@@ -149,19 +170,21 @@ and semantic acceptance remain separate.
 
 async function main() {
   const args = process.argv.slice(2);
+  if (args[0] === '--native-loop') return (await import('./native_file_workflow.ts')).runNativeHandoff(args.slice(1));
   if (args.length === 1 && args[0] === '--help') {
     process.stdout.write(help);
     return;
   }
-  const writing = args.length === 3 && args[1] === '--write-root' && Boolean(args[2]);
+  const pending = args.length === 5 && args[3] === '--pending-body-review' ? args[4] : undefined;
+  const writing = (args.length === 3 || pending !== undefined) && args[1] === '--write-root' && Boolean(args[2]);
   if ((!writing && args.length !== 1) || !args[0]) {
-    process.stderr.write('Usage: mise run ledger -- <request.json> [--write-root ROOT]\n');
+    process.stderr.write('Usage: mise run ledger -- <request.json> [--write-root ROOT [--pending-body-review SHA256]]\n');
     process.exitCode = 2;
     return;
   }
   try {
     const request = await readThroughOwner('parse', new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(await readFile(args[0])));
-    const result = await runLedger(request, writing ? args[2] : undefined);
+    const result = await runLedger(request, writing ? args[2] : undefined, pending);
     const report = { run_id: result.run_id, status: result.status,
       steps: Object.fromEntries(Object.entries(result.steps).filter(([id]) => id !== 'input').map(([id, step]) => [id, { status: step.status }])),
       result: result.status === 'success' ? result.result : undefined,

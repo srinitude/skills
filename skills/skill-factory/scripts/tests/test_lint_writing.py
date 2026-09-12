@@ -127,19 +127,16 @@ class TestLintWritingRules(unittest.TestCase):
     test_script_path_stays_forbidden_when_task_is_named = _TestLintWritingRules_test_script_path_stays_forbidden_when_task_is_named
 
 
-def _TestOneLineBlocks_test_hard_wrapped_paragraph_fails(self):
+def _TestOneLineBlocks_test_hard_wrapped_paragraph_passes(self):
     result = self.lint_text('First half of a sentence\ncontinues on a second line.\n')
-    self.assertEqual(result.returncode, 1)
-    self.assertIn("doc.md:2", result.stdout)
-    self.assertIn("one line", result.stdout)
+    self.assertEqual(result.returncode, 0, result.stdout)
 
 def _TestOneLineBlocks_test_single_line_paragraph_of_any_length_passes(self):
     self.check_text('word ' * 80 + 'end.\n', 0)
 
-def _TestOneLineBlocks_test_list_item_continuation_fails(self):
+def _TestOneLineBlocks_test_list_item_continuation_passes(self):
     result = self.lint_text('- A list item that\n  continues on the next line.\n')
-    self.assertEqual(result.returncode, 1)
-    self.assertIn("doc.md:2", result.stdout)
+    self.assertEqual(result.returncode, 0, result.stdout)
 
 def _TestOneLineBlocks_test_separate_list_items_pass(self):
     self.check_text('- First item, short.\n- Second item, also short.\n', 0)
@@ -156,7 +153,7 @@ def _TestOneLineBlocks_test_reference_definitions_are_separate_markdown_blocks(s
 def _TestOneLineBlocks_test_reference_definition_cannot_interrupt_prose(self):
     result = self.lint_text('A paragraph is still open.\n[reference]: https://example.com/one\n')
     self.assertEqual(result.returncode, 1)
-    self.assertIn("hard line break", result.stdout)
+    self.assertIn("reference definition cannot interrupt prose", result.stdout)
 
 def _TestOneLineBlocks_test_frontmatter_is_exempt(self):
     self.check_text('---\nname: sample\ndescription: "Use when testing."\n---\n\nBody sits on one line.\n', 0)
@@ -176,9 +173,9 @@ def _TestOneLineBlocks_test_indented_code_is_exempt(self):
 class TestOneLineBlocks(unittest.TestCase):
     check_text = check_text
     lint_text = _TestLintWritingRules_lint_text
-    test_hard_wrapped_paragraph_fails = _TestOneLineBlocks_test_hard_wrapped_paragraph_fails
+    test_hard_wrapped_paragraph_passes = _TestOneLineBlocks_test_hard_wrapped_paragraph_passes
     test_single_line_paragraph_of_any_length_passes = _TestOneLineBlocks_test_single_line_paragraph_of_any_length_passes
-    test_list_item_continuation_fails = _TestOneLineBlocks_test_list_item_continuation_fails
+    test_list_item_continuation_passes = _TestOneLineBlocks_test_list_item_continuation_passes
     test_separate_list_items_pass = _TestOneLineBlocks_test_separate_list_items_pass
     test_numbered_items_pass = _TestOneLineBlocks_test_numbered_items_pass
     test_blank_lines_between_blocks_pass = _TestOneLineBlocks_test_blank_lines_between_blocks_pass

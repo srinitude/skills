@@ -78,7 +78,11 @@ def _TestFactoryOperations_test_create_update_and_standardize_are_first_class_co
     for command in ["new <prompt>", "update <path> <prompt>",
                     "standardize <path>", "import <source> <destination>"]:
         self.assertIn(command, self.skill)
-    self.assertIn("Preserve purpose, accepted behavior, source bytes, authorized scope", self.skill)
+    outcome = self.skill.split("## Outcome", 1)[1].split("## Motivation", 1)[0]
+    for duty in ["Keep each skill's purpose", "Keep accepted behavior and source bytes",
+                 "Keep approved scope, independent variants and lineage",
+                 "Leave unrelated work intact"]:
+        self.assertIn(duty, outcome)
     self.assertIn("baseline_digest", self.skill)
 
 def _TestFactoryOperations_test_portable_import_contract_names_canonical_owners(self):

@@ -11,10 +11,11 @@ def _TestSimplicityContract_read(self, relative):
 def _TestSimplicityContract_test_factory_names_simplicity_as_an_invariant(self):
     text = self.read("SKILL.md")
     self.assertIn("## Motivation", text)
-    for phrase in ["Simple means understandable and complete under the contract",
-                   "Keep one meaning owner, stable term and default route per real decision",
+    for phrase in ["Simple means clear and complete under the contract",
+                   "Keep one owner for each meaning, one stable term and one default route per real choice",
                    "Reuse existing code, native tools and accepted structures before adding dependencies",
-                   "never justify lost requirements, domain complexity, safety, privacy, accessibility, authority or proof",
+                   "Fewer files, lines, connectors, tokens or seconds cannot justify lost rules",
+                   "They cannot cut domain complexity, safety, privacy, accessibility, authority or proof",
                    "Human same-meaning review checks clarity and completeness"]:
         self.assertIn(phrase, text)
 

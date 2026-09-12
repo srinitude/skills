@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "043874b46873d9b23b7ad1fbe7aba5410c7686ecf252f9df1fb108f90d01f67c",
+  "native_manifest_sha256": "43244f0c88e98a587bfbd6f3e086fdfe73e1458c1799359820feb4b81acfb640",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "bd59e3abc3c0314fc179bcfcfc7480ae07442aa10fa96d1f243bde85f5e75b49"
+      "sha256": "5121b0d636d9df9be4f64b03f34f99c42896e572de30333b5204fc86b050c33a"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1824,7 +1824,7 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "50b2f8e802ae37f84ac828f65cd9183130557631941c757765702e6446bbb9ee"
+      "sha256": "a86fdb4fe3cb8758c512984b798622dabf4c4bb84f26fd4a4a96c1aad9b66585"
     },
     {
       "path": "references/improvement-dimensions.md",
@@ -2232,7 +2232,7 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "3276e25096c8cfa2a7b11c5f9a8deee885e0caa60fd277c4ee1c2b5854bb84da"
+      "sha256": "89bf1bcc09aa61806e38de37c13565b6283474c5e364df70263bd68d1efcb9ec"
     },
     {
       "path": "scripts/tests/test_formatter_permissions.py",
@@ -2420,7 +2420,7 @@
     },
     {
       "path": "scripts/tests/test_simplicity_contract.py",
-      "sha256": "75a8c682bb7bb8d3cb7b78d0dd6d2f2a0484da9f9389d0b1e3312f9351b20502"
+      "sha256": "88b193f246cb3c13f8bd98e48b00d0b5aa80f8ea6ebba0546f1cf07351146210"
     },
     {
       "path": "scripts/tests/test_skill_scope.py",

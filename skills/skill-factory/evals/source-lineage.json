@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "553d54299a891492ccf1424767529a90b36e52569f17d75c9f0616680b83306f",
+  "native_manifest_sha256": "7232244b39b9e6c0bc20828011946ce3bc82b5873dc7b0fdef1ca5683a03e89c",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1570,7 +1570,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "2d9ee57dc8083a76ef49bde08a1dd8ebd930ef294ca9d07170a0ad028ca43d95"
+      "sha256": "dac87ed72299beb509a751ab75b3ae53d18351993669aca9395f73a9836b45de"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1850,7 +1850,7 @@
     },
     {
       "path": "references/writing-rules.md",
-      "sha256": "a7ca9e0274313defa06c128e53bcb0586092e7328beff3eadfc69ac55c043762"
+      "sha256": "cf6e854c8465d275b9c8a8221e2020a127c7cb0de5bbfcc8ea4a66515dc83a0c"
     },
     {
       "path": "runtime/standardization/package-lock.json",

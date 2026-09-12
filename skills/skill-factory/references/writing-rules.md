@@ -46,9 +46,24 @@ Two rule sets apply together. Plain language makes any reader act correctly on t
 
 ## Reading and meaning checks
 
-Use `mise run markdown:accept` for the full writing review. Its task order is
-inventory, mechanical checks, review request, review check, then acceptance.
-Each task requires the result of the task before it. Mastra runs the same checks.
+Use the full writing review in this order:
+
+1. `mise run markdown:inventory`: capture the files and their rules.
+2. `mise run markdown:mechanical`: report facts and all check failures.
+3. `mise run markdown:review-request`: give the model the exact review inputs.
+4. `mise run markdown:macro-review`: judge the whole file first.
+5. `mise run markdown:micro-review`: judge its sections and blocks next.
+6. `mise run markdown:line-review`: polish lines after the first two reviews pass.
+7. `mise run markdown:review-check`: check the replies and full-file readback.
+8. `mise run markdown:accept`: check all required proof before acceptance.
+
+Set `SKILL_MARKDOWN_REQUEST` to the request file and `SKILL_MARKDOWN_STATE`
+to a private state folder outside the reviewed roots. Use absolute paths.
+Each task names its prerequisite. At exit 3, the model reads the pending review.
+Set `SKILL_MARKDOWN_REPLY` to its bound reply file, then rerun that same task.
+Keep the request and state paths fixed. Missing or stale proof blocks the next task.
+Early quality failures inform whole-file review; they still block acceptance.
+Mastra calls the same check owners, never nested Mise. Keep human proof separate.
 
 Write English prose at a sixth-grade level. Use short words and clear steps.
 Keep each rule, condition, exception and proof duty. Define needed terms.

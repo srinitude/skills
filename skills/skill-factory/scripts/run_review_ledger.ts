@@ -16,8 +16,8 @@ Add uses null expected_sha256 and expected mode. Delete uses null new_file and n
 Update binds both existing identity and replacement bytes. Add/update candidates must be UTF-8.
 Each phase checks current inputs and file state without applying or restoring the native effect.
 The result remains pending; returned checks are not complete READY evidence, authority or hook activation.
-The current model performs authorized native effects between checks. The enclosing goal workflow owns
-the persistent handoff, graph/lineage/authority checks, event correlation and required concurrency protection.
+The current model performs authorized native effects between checks. Use --native-loop for
+the saved handoff. The skill's caller must verify graph, lineage, authority and required concurrency protection.
 check-capture validates the documents present and the full source byte partition,
 including source/clause byte and line locations. It does not read live originals.
 check-sources and write-file also require expected_documents (name, absolute path, sha256),

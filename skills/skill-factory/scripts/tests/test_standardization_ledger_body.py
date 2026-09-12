@@ -110,12 +110,13 @@ class TestWholeDirectoryPolicy(unittest.TestCase):
         from scaffold_skill import FILLED
         self.assertIn(('SKILL.md', 'skill-template.md'), FILLED)
         actual = body_policies(original_body(), FACTORY)
-        for phrase in ['**File graph.**', 'all governing goal documents',
+        for phrase in ['**File graph.**', 'all authorized specifications for this skill',
                        'every existing file', 'baseline and added file',
                        'Unjustified changes remain unresolved',
                        'cosmetic churn do not prove implementation']:
             self.assertIn(phrase, actual)
             self.assertLess(actual.index(phrase), actual.index(DOMAIN))
+        self.assertNotIn('goal documents', actual)
         self.assertEqual(body_policies(actual, FACTORY), actual)
 
     def test_weakened_graph_policy_requires_reviewed_migration(self):

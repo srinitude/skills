@@ -1,4 +1,4 @@
-/** Persist one native-tool handoff; full goal acceptance remains separate. */
+/** Persist one native-tool handoff; full skill acceptance remains separate. */
 import { mkdir, rmdir, lstat, realpath } from 'node:fs/promises';
 import { isAbsolute, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -63,9 +63,22 @@ function createHandoff(storage: Awaited<ReturnType<typeof openStorage>>) {
   return new Mastra({ workflows: { native: workflow }, storage, logger: false }).getWorkflow('native');
 }
 
+function reviewedRuntimeInput(saved: unknown, current: Input, after: boolean) {
+  const previous = inputSchema.parse(saved), change = previous.request.change!;
+  const expected = { ...previous, runtime: { ...previous.runtime } };
+  for (const [name, sha256] of Object.entries(previous.runtime)) {
+    const target = fileURLToPath(new URL(name, import.meta.url));
+    if (after && target === join(previous.root, change.path) && change.operation === 'update'
+      && change.expected_sha256 === sha256 && change.new_file)
+      expected.runtime[name] = change.new_file.sha256;
+  }
+  if (!isDeepStrictEqual(expected, current)) throw new Error('Saved native inputs changed');
+  return previous;
+}
+
 async function executeHandoff(workflow: ReturnType<typeof createHandoff>, input: Input, reply?: unknown) {
   const saved = await workflow.getWorkflowRunById(input.run_id);
-  if (saved && !isDeepStrictEqual(saved.payload, input)) throw new Error('Saved native inputs changed');
+  if (saved) input = reviewedRuntimeInput(saved.payload, input, reply !== undefined || saved.status === 'success');
   if (saved?.status === 'success') {
     const result = outputSchema.parse(saved.result);
     if (reply !== undefined && !isDeepStrictEqual(reply, result.receipt)) throw new Error('Completed native receipt differs');
@@ -134,7 +147,7 @@ Retain failed runs; inspect actual disk state before authorized recovery.
 The state directory must be private, owned by this caller and outside the skill.
 The lock protects each invocation, not the interval containing the native call.
 Example: mise run ledger -- --native-loop /path/request.json --write-root /path/skill --state /path/state
-Exit 0: readback passed; 1: rejected; 3: native effect needed. Goal acceptance stays pending.
+Exit 0: readback passed; 1: rejected; 3: native effect needed. Skill acceptance stays pending.
 `;
 
 export async function runNativeHandoff(args: string[]) {
@@ -153,7 +166,7 @@ export async function runNativeHandoff(args: string[]) {
     const reply = options.reply ? await readThroughOwner('parse', new TextDecoder('utf-8', { fatal: true }).decode((await bound(options.reply)).raw)) : undefined;
     const result = await executeHandoff(createHandoff(storage), input, reply);
     process.stdout.write(JSON.stringify({ ...result, execution_acceptance: 'pending',
-      limit: 'Cooperative saved handoff only. No file mutation, permission, event authentication, cross-call isolation or goal acceptance. Retain failed effects and inspect disk before recovery.' }) + '\n');
+      limit: 'Cooperative saved handoff only. No file mutation, permission, event authentication, cross-call isolation or skill acceptance. Retain failed effects and inspect disk before recovery.' }) + '\n');
     process.exitCode = result.status === 'success' ? 0 : result.status === 'suspended' ? 3 : 1;
   } catch (error) {
     process.stderr.write((error instanceof Error ? error.message : String(error)) + '\n');

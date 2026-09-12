@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "7232244b39b9e6c0bc20828011946ce3bc82b5873dc7b0fdef1ca5683a03e89c",
+  "native_manifest_sha256": "ca710d5e6c91e3009033b44e481c88a70021cab6ce7fe17f1d60468bab4377d1",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1085,6 +1085,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_native_runtime_review.py",
+      "source_paths": [
+        "scripts/tests/test_native_runtime_review.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_native_task_subtables.py",
       "source_paths": [
         "scripts/tests/test_native_task_subtables.py"
@@ -1570,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "dac87ed72299beb509a751ab75b3ae53d18351993669aca9395f73a9836b45de"
+      "sha256": "e9a69387748be295c098ae776a509375244a30118b757d3baf45849c846a0d77"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1642,7 +1648,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "49139b489fd536cee5eb31a0d96eeb7af896a4bf57a9f3630eb49c090ba0151f"
+      "sha256": "4d0a3435870f089049f6774ece578b6d6c8647be0f19263b7b5713b273dcb81b"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1950,7 +1956,7 @@
     },
     {
       "path": "scripts/native_file_workflow.ts",
-      "sha256": "f6570dbdd4ce1c070254bb67fdbc93a708e4ddec100343424703d9f8dca62002"
+      "sha256": "865b22332ddd71018bf44900617012c8a8aef059102f710fdbce47440381c314"
     },
     {
       "path": "scripts/plan_standardize.py",
@@ -2038,7 +2044,7 @@
     },
     {
       "path": "scripts/run_review_ledger.ts",
-      "sha256": "a62a0315b2edfca04d3935152a2a0c6d536a9fecf8473cd18ad59fb51908d16b"
+      "sha256": "15644441a33b1d0a02029fbb9be9f72d4670183d5f8944df3a8fd3ed94cc695c"
     },
     {
       "path": "scripts/run_standardization.ts",
@@ -2130,7 +2136,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "611864972c66a9a6c86d4f4b0f7b0f997a1343f0c5c1398add5b8650a07e2039"
+      "sha256": "14b53763c83860558fab43b5b7342d6ae0d173dc44837ddde62182bb341ec30b"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -2279,6 +2285,10 @@
     {
       "path": "scripts/tests/test_native_mapping_schema.py",
       "sha256": "f56ee9b47a5d7dde2a80046aa274820537021515dadca4fa23c0f7a44d14a40a"
+    },
+    {
+      "path": "scripts/tests/test_native_runtime_review.py",
+      "sha256": "3e52c08a7b86d3b32d04a3f5bec7f02e254fa0ad2da18891665734431c63dc02"
     },
     {
       "path": "scripts/tests/test_native_task_subtables.py",
@@ -2446,7 +2456,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_copy.py",
-      "sha256": "462a2a6d4cc6cf75c7ba2612520d25eb97893695eb5eb0d3cb6a0d9ea1c7acc3"
+      "sha256": "f359177a458642afc30c0b47b6e72af7a3f701ca29277da7b62517ee36c04817"
     },
     {
       "path": "scripts/tests/test_standardization_format.py",
@@ -2462,7 +2472,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_ledger_body.py",
-      "sha256": "7a543ab6713fab62515a2f44792b38dbfcd58a6134a6d6f27ee3b9d8ced17491"
+      "sha256": "312c9c974601b79afa441f9c59eb11a9f3b5ce38186952c507078b5115aec507"
     },
     {
       "path": "scripts/tests/test_standardization_preflight.py",

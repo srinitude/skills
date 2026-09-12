@@ -39,7 +39,7 @@ def _TestDeterministicBoundary_test_mise_preserves_model_capabilities(self):
     for path in [paths[0], paths[2]]:
         text = path.read_text(encoding="utf-8")
         if path.name == "SKILL.md":
-            self.assertIn("Preserve all relevant authorized modalities", text)
+            self.assertIn("Keep every relevant allowed medium", text)
             self.assertIn("Use a capable real runner for binary media", text)
             self.assertIn("Availability alone grants no extra provider, cloud, voice, memory or multi-agent system", text)
             self.assertIn("Preserve existing languages, caller-controlled runners and faithful modalities", text)

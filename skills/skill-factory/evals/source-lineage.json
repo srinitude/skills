@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "43244f0c88e98a587bfbd6f3e086fdfe73e1458c1799359820feb4b81acfb640",
+  "native_manifest_sha256": "63786c3689a40c86321312c32065ccb3b63a82ea8e5ff03670d468b9ee76c872",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "5121b0d636d9df9be4f64b03f34f99c42896e572de30333b5204fc86b050c33a"
+      "sha256": "2265732c0822cd3b888cb2a53e40179ae0ae2b8f47dc733e42ba65f72208477f"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -2232,7 +2232,7 @@
     },
     {
       "path": "scripts/tests/test_factory_contract.py",
-      "sha256": "89bf1bcc09aa61806e38de37c13565b6283474c5e364df70263bd68d1efcb9ec"
+      "sha256": "9b6c96a71b75b84f511500ffeebf4c4e7f7df81097d270c5f9976b1efaa4c4bd"
     },
     {
       "path": "scripts/tests/test_formatter_permissions.py",

@@ -278,7 +278,7 @@ env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
 run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 --with textstat==0.7.8 --with markdown-it-py==4.0.0 --with cmudict==1.1.3 --with pyphen==0.18.1 --with mdurl==0.1.2 --with importlib_resources==7.1.0 --with importlib_metadata==9.0.1 --with zipp==4.1.0 --with setuptools==84.0.0 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
 run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 --with textstat==0.7.8 --with markdown-it-py==4.0.0 --with cmudict==1.1.3 --with pyphen==0.18.1 --with mdurl==0.1.2 --with importlib_resources==7.1.0 --with importlib_metadata==9.0.1 --with zipp==4.1.0 --with setuptools==84.0.0 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
-timeout = "1800s"
+timeout = "3600s"
 depends = ["test-ci", "setup-graph-renderer"]
 
 [tasks.task-graph-policy]

@@ -2,9 +2,11 @@
 name: skill-factory
 description: "Use when a workflow or capability must become a new agent skill, when an existing skill must be updated or standardized without losing its purpose, when a user-level or project-level variant is needed, or when a skill needs validation, evaluation, scaffolding, scripts, tests, or a Mise task graph."
 license: MIT
-metadata: {author: Kiren Srinivasan, version: "0.5.1", scope: "user"}
+metadata:
+  author: Kiren Srinivasan
+  version: "0.5.1"
+  scope: "user"
 ---
-
 # Skill factory
 
 ## Outcome
@@ -28,9 +30,7 @@ Resolve missing scope from clear intended use and authoritative context. Resolve
 
 Turn intent into skills that can be used. Make its reasons, actions and proof open to review. For each rule that matters, state the outcome it protects and the failure it prevents. Keep valid alternatives. Keep uncertainty, intelligence, creativity, craft and taste. A part can be sound in a technical sense and still fail its task.
 
-Simple means clear and complete under the contract. Keep one owner for each meaning, one stable term and one default route per real choice. Set context budgets from the domain work, its risk and required proof. Reuse each canonical owner. Keep required full reads, domain judgment and context. Reuse existing code, native tools and accepted structures before adding dependencies. Remove content only when its consumers and ledger relationships prove it serves neither the outcome nor the skill's integrity. Fewer files, lines, connectors, tokens or seconds cannot justify lost rules. They cannot cut domain complexity, safety, privacy, accessibility, authority or proof.
-
-Choose algorithms, data structures and formats from measured needs. Check access, writes, queries, order, interoperability and lifetime. Use those same needs to choose batching and concurrency. Reuse native streaming, indexes and atomic replacement only within their real guarantees. Keep valid unexpected reasoning and solutions. If this cannot be done, use the verified complete authorized baseline or block the affected consumer. Never weaken acceptance. The graph tracks specifications and helps organize successful use. Judge the architecture by complete factory and output-skill outcomes. Counts only support that judgment.
+Simple means clear and complete under the contract. Keep one owner for each meaning, one stable term and one default route per real choice. Set context budgets from the domain work, its risk and required proof. Reuse each canonical owner. Keep required full reads, domain judgment and context. Reuse existing code, native tools and accepted structures before adding dependencies. Remove content only when its consumers and ledger relationships prove it serves neither the outcome nor the skill's integrity. Fewer files, lines, connectors, tokens or seconds cannot justify lost rules. They cannot cut domain complexity, safety, privacy, accessibility, authority or proof. Choose algorithms, data structures and formats from measured needs. Check access, writes, queries, order, interoperability and lifetime. Use those same needs to choose batching and concurrency. Reuse native streaming, indexes and atomic replacement only within their real guarantees. Keep valid unexpected reasoning and solutions. If this cannot be done, use the verified complete authorized baseline or block the affected consumer. Never weaken acceptance. The graph tracks specifications and helps organize successful use. Judge the architecture by complete factory and output-skill outcomes. Counts only support that judgment.
 
 Prevent WorkSlop: output that fails its task or leaves the recipient to finish its reasoning, checks or repair. Find the real need. Finish the producer's work, verify its claims and make the result usable. Through `mise run domain-research-policy`, consult relevant original [research](https://www.betterup.com/workslop), [preprint](https://doi.org/10.31234/osf.io/5f78h_v1) and [survey](https://zapier.com/blog/ai-workslop/). Keep their methods, populations, context and uncertainty. Consider real working conditions, culture, agency and meaningful purpose. Adoption and attractive presentation do not prove useful or causal improvement. Neither do subjective satisfaction or commercial associations. Review [Case for Conditions](https://www.betterup.com/the-case-for-conditions) and [workplace-culture findings](https://www.betterup.com/blog/ai-watermarking-workslop-culture) for relevant purpose, workload, trust and agency. Keep self-reports, associations, preprints, commercial advice and causation distinct. Do not combine separate samples or call estimated costs measured losses. Seek contrary proof and newer findings. Reward useful outcomes and honest correction. Make flawed inputs and uncertainty easy to report. Keep meaningful human control.
 

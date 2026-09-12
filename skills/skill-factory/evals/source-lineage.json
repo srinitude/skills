@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "58661d9443e7aad3009e2dabadeb7b14ac6f757d6328a73ef1d418edfeb63bc6",
+  "native_manifest_sha256": "fbe18ba4bbfce7f8b7aeb7afd290855e27b20f41d940daf86517bd0e187f65a8",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "9f3d9dcca08f0be1f4de77929f66d080528071e527a401fffbcd9a76b1be5713"
+      "sha256": "9136d987f0c68f286eaaf6634f0c54f278b601d78b81c8c934e8c126d6ceab7c"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1632,7 +1632,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "596691c50a6525d6661fd962d581b2e7d851e1ee0b5124ad168605c0910f5b0e"
+      "sha256": "8dd9cfea6bf7f6d593180a27064a558a01fa134880528246ee9fa48afe8dffd0"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1800,7 +1800,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "74bdde1cda3c12abc83e86d394b39f3c240ba30c32fca1bb074ccd8e3504220d"
+      "sha256": "4b60a3b64e088288851f9276e7f88aef12df0a55c43f045658569b4f93df6160"
     },
     {
       "path": "package-lock.json",

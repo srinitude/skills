@@ -21,6 +21,8 @@ export const requestSchema = z.object({ run_id: text, turn: text, baseline: text
 const answer = z.object({ state: z.enum(['pass', 'fail', 'pending']), reason: text,
   citations: z.array(binding.extend({ quote: text.optional() }).strict()).min(1) }).strict();
 export const questions = {
+  capability_ownership: 'Does the model keep every task it does best, including creative judgment, meaning and perception with available tools? Cite which work code checks and humans own; check task and workflow creation too. Do all scripts and Mastra starts or resumes use declared Mise tasks? Does each skill file reach its required task as input and get used? Do code checks leave model-owned judgment with the model?',
+  task_dependencies: 'For each new or changed Mise task, did the model trace inputs, setup, checks and consumers, then declare every needed task dependency? Cite the task and its review. If its list is empty, cite why it truly needs none. The model owns this judgment; a graph check alone cannot prove it.',
   purpose: 'Read the whole file. Does its purpose, coverage, order and reading experience serve its reader and skill?',
   structure: 'Do sections and blocks fit together, with sound form choices, spacing, transitions and no lost rule?',
   primitive_what: 'For each mapped Markdown feature, cite its meaning, syntax and valid example.',
@@ -39,7 +41,7 @@ export const questions = {
   exclusions: 'Are score exclusions honest, with no lost or hidden rule?',
 } as const;
 export const stages = {
-  'macro-review': ['purpose', 'primitive_which', 'primitive_why', 'primitive_who', 'primitive_coverage', 'action', 'first_load', 'integration'],
+  'macro-review': ['capability_ownership', 'task_dependencies', 'purpose', 'primitive_which', 'primitive_why', 'primitive_who', 'primitive_coverage', 'action', 'first_load', 'integration'],
   'micro-review': ['structure', 'primitive_what', 'primitive_when', 'primitive_how', 'meaning', 'rendering'],
   'line-review': ['language', 'exclusions'],
 } as const;

@@ -1,5 +1,6 @@
 """A declared native runtime edit may resume; unrelated drift must not."""
 import json
+import os
 import shutil
 import subprocess
 import unittest
@@ -102,8 +103,68 @@ def test_wrong_replacement_rejects_then_recovers(case):
     case.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
 
+def test_markdown_requires_own_mise_task(case):
+    state = case.folder / 'unused-state'
+    env = {**os.environ, 'SKILL_MARKDOWN_REQUEST': str(case.folder / 'missing.json'),
+           'SKILL_MARKDOWN_STATE': str(state)}
+    for task in [None, 'test', 'markdown:accept']:
+        env.pop('MISE_TASK_NAME', None)
+        if task is not None:
+            env['MISE_TASK_NAME'] = task
+        result = subprocess.run(['node', str(native.ROOT / 'scripts/run_markdown.ts'), 'inventory'],
+            cwd=native.ROOT, env=env, capture_output=True, text=True, timeout=30)
+        case.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        case.assertIn('Start or resume through mise run markdown:inventory', result.stderr)
+        case.assertEqual(result.stdout, '')
+        case.assertFalse(state.exists())
+
+
+def probe_mastra(case, body):
+    script = "import assert from 'node:assert/strict'; import { createStep, createWorkflow } from '@mastra/core/workflows'; import { z } from 'zod';\n" + body
+    result = subprocess.run(['node', '--input-type=module', '-e', script],
+        cwd=native.ROOT, capture_output=True, text=True, timeout=30)
+    case.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+
+def test_mastra_routes_and_post_test_loops(case):
+    probe_mastra(case, """
+const schema = z.object({ n: z.number() });
+const step = id => createStep({ id, inputSchema: schema, outputSchema: schema,
+  execute: async ({ inputData }) => ({ n: inputData.n + 1 }) });
+const workflow = id => createWorkflow({ id, inputSchema: schema, outputSchema: z.any() });
+const both = workflow('both').branch([[async () => true, step('a')], [async () => true, step('b')]]).commit();
+const result = await (await both.createRun()).start({ inputData: { n: 0 } });
+assert.equal(result.status, 'success');
+assert.deepEqual(result.result, { a: { n: 1 }, b: { n: 1 } });
+for (const method of ['dowhile', 'dountil']) {
+  const flow = workflow(method)[method](step('body'), async () => method === 'dountil').commit();
+  const output = await (await flow.createRun()).start({ inputData: { n: 0 } });
+  assert.equal(output.status, 'success'); assert.deepEqual(output.result, { n: 1 });
+}
+assert.throws(() => workflow('removed').waitForEvent('reply', step('wait')), /removed/);
+""")
+
+
+def test_mastra_bail_denial_is_not_acceptance(case):
+    probe_mastra(case, """
+const schema = z.object({ decision: z.string() }); let effects = 0;
+const review = createStep({ id: 'review', inputSchema: schema, outputSchema: schema,
+  execute: async ({ bail }) => bail({ decision: 'denied' }) });
+const effect = createStep({ id: 'effect', inputSchema: schema, outputSchema: schema,
+  execute: async ({ inputData }) => { effects++; return inputData; } });
+const flow = createWorkflow({ id: 'denial', inputSchema: schema, outputSchema: schema })
+  .then(review).then(effect).commit();
+const result = await (await flow.createRun()).start({ inputData: { decision: 'fixture only' } });
+assert.equal(result.status, 'success'); assert.equal(result.result.decision, 'denied');
+assert.equal(effects, 0); // Framework fixture, not proof of real human approval.
+""")
+
+
 class TestNativeRuntimeReview(unittest.TestCase):
+    test_mastra_routes_and_post_test_loops = test_mastra_routes_and_post_test_loops
+    test_mastra_bail_denial_is_not_acceptance = test_mastra_bail_denial_is_not_acceptance
     setUp = setup
+    test_markdown_requires_own_mise_task = test_markdown_requires_own_mise_task
     test_wrong_replacement_rejects_then_recovers = test_wrong_replacement_rejects_then_recovers
     test_declared_runner_change_resumes = test_declared_runner_change_resumes
     test_declared_handoff_change_resumes = test_declared_handoff_change_resumes

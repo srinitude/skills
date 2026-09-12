@@ -52,6 +52,8 @@ export async function runMarkdown(args = process.argv.slice(2)) {
   let storage;
   try {
     const selected = options(args);
+    if (process.env.MISE_TASK_NAME !== 'markdown:' + selected.phase)
+      throw new Error('Start or resume through mise run markdown:' + selected.phase);
     const request = requestSchema.parse(JSON.parse((await bound(selected.request)).raw.toString()));
     await stateBoundary(selected.state, request.roots);
     storage = await openStorage(selected.state);

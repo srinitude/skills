@@ -41,7 +41,7 @@ def fixture(base):
 
 
 def invoke(phase, env, public=False, root=ROOT):
-    command = ["mise", "run", "markdown:" + phase] if public else ["node", "scripts/run_markdown.ts", phase]
+    command = ["mise", "run", *([] if public else ["--skip-deps"]), "markdown:" + phase]
     result = subprocess.run(command, cwd=root, env=env, text=True, capture_output=True, timeout=180)
     lines = [line for line in result.stdout.splitlines() if line.startswith("{")]
     parsed = json.loads(lines[-1]) if lines else {}
@@ -49,13 +49,13 @@ def invoke(phase, env, public=False, root=ROOT):
 
 
 def reply_for(data, phase="review-check"):
-    stages = {"macro-review": ["purpose", "primitive_which", "primitive_why", "primitive_who",
+    stages = {"macro-review": ["capability_ownership", "task_dependencies", "purpose", "primitive_which", "primitive_why", "primitive_who",
               "primitive_coverage", "action", "first_load", "integration"],
               "micro-review": ["structure", "primitive_what", "primitive_when", "primitive_how", "meaning", "rendering"],
               "line-review": ["language", "exclusions"]}
     answers = {key: {"state": "pass", "reason": "Synthetic validator fixture; not real reader proof.",
                      "citations": []} for key in ["meaning", "action", "language", "rendering",
-                                                 "first_load", "integration", "exclusions"] + PRIMITIVES + ["purpose", "structure"]}
+                                                 "first_load", "integration", "exclusions"] + PRIMITIVES + ["purpose", "structure", "capability_ownership", "task_dependencies"]}
     answers = {k: v for k, v in answers.items() if k in stages.get(phase, answers)}
     file = data["report"]["files"][0]
     cite = {"path": file["path"], "sha256": file["sha256"], "quote": "Read the file."}
@@ -72,15 +72,15 @@ def reply_for(data, phase="review-check"):
 def check_review_cases(data):
     valid = reply_for(data)
     cases = []
-    for key in ["run", "hash", "missing", "duplicate", "pending", "cite", "quote", "render"] + PRIMITIVES + ["purpose", "structure"]:
+    for key in ["run", "hash", "missing", "duplicate", "pending", "capability_pending", "dependencies_pending", "cite", "quote", "render"] + PRIMITIVES + ["purpose", "structure", "capability_ownership", "task_dependencies"]:
         bad = json.loads(json.dumps(valid))
         answers = bad["files"][0]["answers"]
         if key == "run": bad["run_id"] = "wrong"
         if key == "hash": bad["request_sha256"] = "0" * 64
         if key == "missing": del answers["meaning"]
-        if key in PRIMITIVES + ["purpose", "structure"]: del answers[key]
+        if key in PRIMITIVES + ["purpose", "structure", "capability_ownership", "task_dependencies"]: del answers[key]
         if key == "duplicate": bad["files"].append(bad["files"][0])
-        if key == "pending": answers["meaning"]["state"] = "pending"
+        if key in ("pending", "capability_pending", "dependencies_pending"): answers[{"pending": "meaning", "capability_pending": "capability_ownership", "dependencies_pending": "task_dependencies"}[key]]["state"] = "pending"
         if key == "cite": answers["meaning"]["citations"] = []
         if key == "quote": answers["meaning"]["citations"][0]["quote"] = "Not in the file"
         if key == "render": answers["rendering"]["citations"] = answers["meaning"]["citations"]

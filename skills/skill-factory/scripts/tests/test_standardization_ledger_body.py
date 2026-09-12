@@ -127,7 +127,24 @@ class TestWholeDirectoryPolicy(unittest.TestCase):
             body_policies(weakened, FACTORY)
 
 
+def test_task_entry_policy_reaches_updated_body(self):
+    template = (FACTORY / 'assets/skill-template.md').read_text()
+    policy = next(block for block in template.split('\n\n')
+                  if block.startswith('| Key | Action and evidence meaning |'))
+    self.assertIn('Run every script through a declared Mise task', policy)
+    self.assertIn('Pass every skill file', policy)
+    self.assertIn('Keep judgment with the model', policy)
+    actual = body_policies(original_body(), FACTORY)
+    self.assertEqual(actual.count(policy), 1)
+    self.assertLess(actual.index(policy), actual.index(DOMAIN))
+    self.assertEqual(body_policies(actual, FACTORY), actual)
+    stale = actual.replace('Run every script', 'Run selected scripts')
+    with self.assertRaisesRegex(ValueError, 'reviewed.*migration'):
+        body_policies(stale, FACTORY)
+
+
 class TestPortableCodeMethods(unittest.TestCase):
+    test_task_entry_policy_reaches_updated_body = test_task_entry_policy_reaches_updated_body
     def test_current_methods_reach_the_body_without_peer_skill_dependencies(self):
         template = (FACTORY / 'assets/skill-template.md').read_text()
         policy = next(block for block in template.split('\n\n')

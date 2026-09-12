@@ -41,7 +41,7 @@ def support_files(files, factory, copies, scripts, canonical):
 
 
 BODY_POLICIES = (
-    '**Start here.**', '**Reusable ledger artifact, owned here.**',
+    '**Start here.**', '| Key | Action and evidence meaning |', '**Reusable ledger artifact, owned here.**',
     '**Relationship records.**', '| Relationship family |',
     '**Dependency contract.**', '**File graph.**', '**Order and invalidation.**',
     '**Required initial context.**', '**Traverse, work and check.**',

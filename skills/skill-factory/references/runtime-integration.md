@@ -1,41 +1,41 @@
 # Runtime integration contract
 
-Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before selecting, configuring or changing a runtime, tool interface, companion or domain workflow, read this entire contract through the resource inputs of `mise run agentic-request`. The body retains the required owners, gates and outcomes; this file owns their detailed methods and release-specific checks. Every applicable rule remains mandatory.
+Before choosing, setting up or changing runtimes, tool interfaces, companions or domain workflows, read this whole contract via `mise run agentic-request` resource inputs. [SKILL.md](../SKILL.md#mise-task-graph) keeps core owners, gates and outcomes. This file owns mandatory methods and release checks where applicable.
 
 ## Tool discovery and selection
 
-- Resolve actual readiness, public interfaces, domain fit and explicit choices before selecting the default route, real alternatives and failure branch.
-- Honor established preferences; inference stays provisional and grants no authority.
-- The integration layer owns client/account/project/callable-tool bindings and preference resolution.
-- Availability cannot follow from names, installation or model claims.
-- Use available authorized visual, audio, web research, browser/computer, tool and multimodal creation capabilities directly when required; physical smell, taste, touch and measurements need actual authorized people or instruments.
-- Discover relevant public tasks, managed tools, project commands, skills, host tools, apps, connectors, MCP servers, CLIs, browsers and services through supported protocols, including pagination and partial or changed inventories.
+- Check readiness, public interfaces, domain fit and explicit choices before choosing the default, real alternatives and failure route.
+- Honor known preferences. Inferred choices stay provisional and grant no authority.
+- Integration binds clients, accounts, projects and callable tools, and resolves preferences.
+- Names, installs and model claims cannot prove availability.
+- Use available authorized vision, audio, web research, browser/computer, tools and multimodal creation directly when required. Physical smell, taste, touch and measurements need real authorized people or instruments.
+- Use supported protocols to find relevant tasks, managed tools, project commands, skills, host tools, apps, connectors, MCP servers, CLIs, browsers and services. Handle pages and partial or changed inventories.
 - Disclose inventory limits.
-- Verify existence, operation support, readiness and authorization separately; assess exact identity, schema/version, effects, target and context.
-- Descriptions and effect annotations grant no authority.
-- Use authorized preferences and relevant task context without collecting unrelated history, credentials or account contents.
+- Check existence, supported operations, readiness and authority separately. Check exact identity, schema/version, effects, target and context.
+- Descriptions and effect labels grant no authority.
+- Use authorized preferences and relevant context. Do not collect unrelated history, credentials or account data.
 - Installation alone weakly indicates preference.
 - After mandatory choices, filter capability, privacy, permission, compatibility, fidelity and proof, then prefer the supported user preference and fastest adequate route.
-- Record provisional inference and its source without invented confidence percentages; make correction easy.
+- Record provisional choices and sources without invented confidence scores. Make correction easy.
 - Retain valid bindings using a stable tie rule, and recheck changed versions, readiness, configuration, permission, targets and preferences before dependent actions.
-- No inference permits installation, account connection, extra access, profile persistence or transmission.
+- Inference grants no install, account-connection, extra-access, saved-profile or transmission authority.
 - Use a verified allowed alternative only if fixed requirements survive; validate its actual result.
 
 ## Language and interface method
 
-- For every consumed tool, package, language, snippet and integration, define its domain result and proof; inspect published artifacts, installed types/schema, public APIs, configuration and relevant transitive behavior; design the smallest supported composition; implement its real interface; exercise effects, failure, recovery and seams; propagate independent support.
+- For every tool, package, language, snippet and integration used: define its domain result and proof; inspect published artifacts, installed types/schema, APIs, config and transitive behavior; compose the smallest supported real interfaces; test effects, failures, recovery and joins; propagate independent support.
 - For each material operation, distinguish what the dependency supplies, what this skill must implement or configure, and what remains model- or human-owned.
 - Use existing use-case, primitive, decision, integration and lineage records, not a new catalog or a record for each trivial call.
-- Record argument/return shapes, units, encoding, nullability, defaults, validation timing, errors, state lifetime, concurrency, retries, cancellation and cleanup.
-- Use current first-party sources and runtime probes; distinguish public contracts, examples, internals and unreleased changes.
-- For each encountered language or dialect, including embedded and declarative code, identify the real runtime/compiler, platform and native package constraints.
-- Match official language/standard-library, release and maintained first-party formatter/analyzer/test guidance to the target version; distinguish supported practices from proposals, previews, deprecated advice and popularity.
+- Record input/output shapes, units, encoding, nulls, defaults, check timing, errors, state lifetime, concurrency, retries, cancellation and cleanup.
+- Use current first-party sources and runtime probes. Keep public contracts, examples, internals and unreleased changes distinct.
+- For every language or dialect, including embedded and declarative code, find its actual runtime/compiler, platform and native package constraints.
+- Match official language/library and release guidance, plus maintained first-party formatters, analyzers and tests, to the target version. Separate supported use from proposals, previews, deprecated advice and popularity.
 - Apply the full ladder after tracing the outcome and every caller; preserve error, encoding, numeric, concurrency, lifetime, security and platform semantics.
 - Manage executable versions through Mise and native package locks through public tasks; a missing supported route blocks dependent acceptance, not a hidden system fallback.
 - Encode objective checks in native tools or tested scripts, pass chosen language rules as resources and retain explicit semantic reviewers.
-- Keep sources, version, applicability, decisions and proof in existing lineage; refresh affected guidance on tool/language/target/dependency/rule changes, reuse unchanged knowledge, test actual declared toolchains and propagate accepted rules/checkers.
-- Handle unfamiliar languages without a JavaScript/Python assumption, unused toolchains or repeated encyclopedic research.
-- Distinguish tag, package, CLI, binding and service identities and trace actual consumed artifacts; when source is unavailable, use official contracts and authorized probes with stated limits.
+- Keep sources, versions, applicability, choices and proof in existing lineage. Refresh guidance after tool, language, target, dependency or rule changes. Reuse unchanged knowledge; test declared toolchains; propagate accepted rules/checkers.
+- For unfamiliar languages, avoid JavaScript/Python assumptions, unused tools and repeated broad research.
+- Distinguish tag, package, CLI, binding and service identities. Trace consumed artifacts. If source is missing, use official contracts and authorized probes; state limits.
 
 ## Mise release and feature review
 
@@ -47,9 +47,9 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - At implementation start, verify the latest stable Mise release, excluding drafts/prereleases, then freeze its version and commit and reconcile exact runtime/CI pins and min_version.
 - The source research baseline is [v2026.9.3](https://github.com/jdx/mise/releases/tag/v2026.9.3), [commit 5e6a800da6f878ec56b7ffa70a76a6c595c632b5](https://github.com/jdx/mise/commit/5e6a800da6f878ec56b7ffa70a76a6c595c632b5).
 - Check every selected command, flag, setting, default, platform and dependency claim against that release documentation, schema, source/tests and installed help; resolve drift without assuming unreleased behavior.
-- Review the complete official command/feature inventory and retain outcome, use/conditional trigger/exclusion, owner, source and verification for each.
+- Review every official command and feature. Record each outcome, use/trigger/exclusion, owner, source and proof.
 - Cover toolchains/locks/platforms, configuration/secrets, task interfaces, scheduling/lifecycle, includes/templates/workspaces/invalidation, caches, diagnostics/documentation, CI/shell/IDE/bootstrap, packages/dotfiles/repos/services/remotes, OCI/MCP/plugins and tool-provided skills.
-- Assess each selected experimental feature separately with actual need, authority, activation, tests, limits and supported fallback; preserve ecosystem package managers and locks.
+- For each chosen experimental feature, check need, authority, activation, tests, limits and supported fallback. Keep native package managers and locks.
 - Inspect run references separately because `mise tasks deps` excludes them.
 - Fresh checks can use `mise run --force --task-cache off TASK`; cached logs remain historical, and checksums/cache audits prove neither determinism nor producer trust.
 - Tool locks omit some package/system dependencies; strict locking is not offline mode and has backend limits.
@@ -61,12 +61,12 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 
 ## Companion selection and authority
 
-- All five companions require current official feature/interface/source review, compatible versions and actual native boundary proof.
-- Their use remains conditional on the source-defined role.
-- Apply the same latest-stable release, immutable-commit, complete feature-map and release-specific evidence rules used for Mise to each companion.
+- Review current official features, interfaces and sources for all five companions. Prove compatible versions and actual native boundaries.
+- Use each only for its source-defined role.
+- Each companion follows Mise’s latest-stable release, frozen commit, full feature-map and release-specific proof rules.
 - Freeze a compatible set managed through Mise, retaining native package locks, and rerun affected integration checks after changes.
-- Record applicable roles and justified non-use in every output; no secrets means no lookup and no persistent process means no daemon.
-- Keep combined concurrency bounded, translate statuses without hiding errors, and run each shared check once per required input state.
+- Record each output’s roles and justified non-use. No secrets means no lookup; no persistent process means no daemon.
+- Bound total concurrency. Translate statuses without hiding errors. Run shared checks once per required input state.
 - Preserve explicit authority for hooks, vendor MCP, machine setup, provisioning, signing/publication and skill sync.
 
 ## Usage
@@ -84,13 +84,13 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - Use supported manifests, signatures, artifact/platform/resource identity and consumer policy where distribution requires them.
 - Verify signer/key policy, bytes, project/version, expiry, withdrawal/rollback and separately claimed provenance.
 - Native backends may supply installation; decoding is not verification.
-- Do not invent artifacts or signing authority.
+- Never invent artifacts or signing authority.
 - Prefer the native Mise backend when the release publishes supported manifests; it does not require the Packslip CLI.
 - Add that CLI only for actual creation or independent verification.
 - Enforce trusted issuer, host requirements, release age and sequence as well as consumer policy; CLI verification alone is insufficient.
 - Bind Usage specs and vendor skill resources to the release and review downloaded instructions before activation.
 - Preserve scope, version, lineage, license and bytes; an instruction-only skill needs no invented binary.
-- Signatures prove origin and matching bytes, not quality or execution authority.
+- Signatures prove origin and bytes, not quality or authority.
 
 ## fnox
 
@@ -98,7 +98,7 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - Bind provider/profile, identity, required names, scope, lease freshness and consumer readiness.
 - Reject missing, expired or overbroad credentials despite skips or ambient alternatives.
 - Keep secrets, keys, caches, proxy and lease material outside traces/packages.
-- Preserve separate sync, activation, authentication and isolation limits.
+- Keep sync, activation, authentication and isolation limits distinct.
 - Resolve non-sensitive references at the authorized consumer; keep values out of prompts, arguments, lineage, eval evidence and ordinary caches.
 - Use fnox exec for scoped subprocesses; the incomplete experimental mise-env-fnox plugin is not the default.
 - Missing required values must fail despite the native warn default; test missing leases, provider failure, expiry and cleanup.
@@ -114,7 +114,7 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - Activation needs purpose and authority.
 - Keep finite transformations in Mise.
 - Resolve the pinned environment for both daemon and probes because the supervisor may outlive its launch shell.
-- A live PID, open port or delay is not application readiness.
+- A PID, open port or delay cannot prove app readiness.
 - Specify health checks and interruption recovery; verify owned child termination and preservation of existing services.
 - Boot startup, schedules, shell auto-start, proxies, dashboards and exposed listeners each need an actual use case and authority.
 
@@ -126,7 +126,7 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - Incremental checks, tool installation and locks have separate limits.
 - Force the intended mode after reading effective configuration: hk check may fix or stage files.
 - Check labels and safe-mode effect labels are not isolation.
-- Declare real write sets and dependencies; per-file locks do not cover undeclared writes or separate processes.
+- Declare write sets and dependencies. File locks cannot cover undeclared writes or other processes.
 - Test partial-stage restoration and conflicts.
 - Per-directory Mise resolution can warn and fall back; inspect that behavior and configuration-cache invalidation.
 - Hooks and host snippets remain explicit integration actions.
@@ -136,32 +136,54 @@ Return to the [SKILL.md runtime rules](../SKILL.md#mise-task-graph). Before sele
 - [Mastra](https://mastra.ai/docs/workflows/overview) must execute the actual skill capability with a managed runtime, native lock and minimal necessary [TypeScript](https://www.typescriptlang.org/docs/) adapter, preserving existing script languages and caller-controlled runners.
 - Map supported input/output/state/resume schemas, steps, sequence/parallel/branch composition, loops, suspend/resume, storage/snapshots/replay, observation, dynamic definitions, scheduling and engines.
 - Optional non-use never waives the domain workflow.
-- A one-node proxy is insufficient; extra provider/Agent infrastructure is unnecessary when the caller supplies the runner.
-- Review the entire public workflow feature/API inventory for the selected compatible stable packages, with applicability, operation, exact version/engine prerequisites, source, actual behavior and validation.
-- Distinguish stable, beta, experimental, deprecated and engine-specific surfaces using public exports, docs, source/tests and executable probes; install CLI or other packages only for needed roles.
+- A one-node proxy is insufficient. A caller runner needs no extra provider/Agent setup.
+- Review every public workflow feature/API for the chosen stable compatible packages: applicability, operation, exact version/engine needs, source, actual behavior and proof.
+- Use public exports, docs, source/tests and probes to distinguish stable, beta, experimental, deprecated and engine-specific features. Install packages or a CLI only for needed roles.
 - The source baseline [core 1.64.0](https://github.com/mastra-ai/mastra/releases/tag/@mastra/core@1.64.0) requires [Node](https://nodejs.org/en/about/previous-releases) >=22.13.0; verify the consumed package and select an exact supported runtime, peers, schemas, storage, engine, platform, license and upgrade path.
 - Include registration/commit, identities, reuse/cloning/inspection/nesting, request context, mapping, foreach/concurrency, sleep/until, agent/tool/processor steps, structured results/scorers, starts/streaming/events/cancellation/retries/bail/callbacks/state, persistence/pruning/suspension/restart/time travel, dynamic serialization/registries, scheduling/history/reconciliation/workers/deployment and observation/filtering/retention.
-- Conditional features need explicit triggers; no unrelated voice, retrieval, memory, cloud or multi-agent system follows from availability.
-- Explain each real workflow entry, purpose, inputs, outputs, context, step owners, completion gates and failure states.
-- Preserve faithful multimodal/tool context through the caller runner; resolve any lossy boundary before acceptance.
+- Require triggers for optional features. Availability cannot add unrelated voice, retrieval, memory, cloud or multi-agent systems.
+- Explain each workflow entry, purpose, inputs, outputs, context, step owners, completion gates and failure states.
+- Keep full multimodal/tool context through the caller runner. Resolve any loss before acceptance.
 - Extend language discovery, size/type/build checks, tests, templates and copied checkers for added languages.
+
+### Code, model and human work
+
+Name each primitive’s work owner and proof. Code owns code work. Models own model work. Humans own human work. Keep these roles in created and updated skills.
+
+| Native feature | Use and ownership check |
+| --- | --- |
+| Steps, schemas and `.then()` | Code checks data and runs ordered work. Valid data can still hold a bad judgment. |
+| Mapping, state, context | Code passes exact inputs/results. Keep all needed model context, images and tools. |
+| `.parallel()` and `.foreach()` | Bound independent work. Join every required result with its owner and evidence. |
+| `.branch()` | Route a rule or bound model or human choice. Reject no match; use disjoint choices for one route. Test the engine: multiple true routes may run. |
+| `.dowhile()` and `.dountil()` | Bound review and repair. Both run once before testing; check authority first. Missing proof never passes at the limit. |
+| `suspend()` and resume schemas | Return the request before effects. The named model or human responds; resume the exact run and step with fresh checked input. |
+| Human input and `bail()` | Verify the person, viewed inputs, current scope and choice. Keep denial, revision and missing input distinct. Denial may return workflow `success`; never accept it. |
+| Nested runs, labels, `forEachIndex` | Bind replies to exact pending items within their approval scope. |
+| Sleep, schedules, async starts | Use an authorized, tested host. Time and queued work cannot supply human input. |
+| Snapshots, restart, time travel | Keep state/proof. Check identity, authority and safe effects before replay; replay cannot undo effects. |
+| Retries, cancel, callbacks, streams | Bound retries; stop owned work. Gate in steps. Logged errors or stream closure cannot decide acceptance. |
+| Dynamic definitions, registries | The model designs needed flows. Code checks schemas, references and faithful storage. Review beta limits. |
+| Agent, tool, processor and scorer adapters | Check fit; keep adapters optional and the caller’s model and tools. Use skill-owned evals, never Mastra scorers or required Mastra Agents. |
+
+Check choices against [human input](https://mastra.ai/docs/workflows/human-in-the-loop) and the installed API. Core 1.65.0 removed `waitForEvent`; use suspend/resume. Replies and actor labels alone cannot prove human identity or approval. Record host limits; keep missing human work pending.
 
 ## Mastra state and failure behavior
 
-- Test selected-engine behavior, including all-true branches, explicit exclusive decisions, invalid input/output/resume, changed definitions and missing steps.
+- Test the engine: all-true branches, explicit exclusive choices, bad input/output/resume, changed definitions and missing steps.
 - False predicates and swallowed completion-callback errors cannot hide failed requirements.
 - Suspend/bail must return before protected effects.
-- Storage/replay needs supported policy and fresh operation, input, identity and authentic approval bindings; it does not prove crash safety or exactly-once effects.
+- Store or replay work under supported policy with fresh operation, input, identity and real approval bindings. Storage proves neither crash safety nor exactly-once effects.
 - Dynamic beta definitions require faithful serialization and trusted registry resolution.
 - Schedules need the actual host, storage, transport and endpoint controls.
-- Optional engines are not interchangeable or uniformly production-ready.
+- Optional engines are not interchangeable or all production-ready.
 - Keep secrets outside persistable state; verify actual filtering, exporter, retention, trace and snapshot limits.
 - Record the tested engine, configuration, semantics, unsupported cases and recovery.
-- A queued run, timer, stored request, transport acknowledgment or process-local sleep proves neither durable work nor completed human input.
+- Queued runs, timers, stored requests, transport receipts and process-local sleep prove neither durable work nor human input.
 - Test multiple/no-match/error branches and keep mandatory failures in failing steps.
-- Distinguish success, failure, tripwire, suspended, waiting, pending, paused, canceled, skipped and bailed states; stream completion is not domain acceptance.
+- Distinguish success, failure, tripwire, suspended, waiting, pending, paused, canceled, skipped and bailed states.
 - Validate state/request context, transformations and configuration too; invalid foreach concurrency may fall back to one.
-- Prefer separate parallel outputs and explicit merges over unproved shared state.
+- Prefer separate parallel outputs and explicit merges to unproved shared state.
 - Bound loops, retries, total concurrency, time, tokens and effects.
 - Test storage/persistence guarantees because unsupported atomic resume can warn and proceed.
 - Replay does not undo effects: test permitted idempotency, deduplication, transactions or compensation and recheck current credentials, authority, target and resource/source identity.

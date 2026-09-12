@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "997c9a3d670dee8a3dc9f336537eed9517d63d001b7a1e45caa63fe3e14787b9",
+  "native_manifest_sha256": "548c377bf077606435f50be053f753baf2343acab6ef40968f7ae253cb42f530",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "29feaa3fc13178c17129dffe14357fec597378db1114aa6dda207cbb1f040706"
+      "sha256": "0e57b6d8e08666303dfbeee4c289525de71e9137b009ddeee0f2482d32aefb2f"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1648,7 +1648,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "182d200bd2cc88bf64eada076dd101ed9a1a9488b0aaa261f38b4a1e92007953"
+      "sha256": "e8bcf68fe3411f157911eda3c65383f6ba37deafaa759388692aea0e36c5acd8"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -2296,7 +2296,7 @@
     },
     {
       "path": "scripts/tests/test_ordered_workflow_contract.py",
-      "sha256": "a6a3cd2d328296505ae01bc16a0c211db743d85596b5f19bcf277f1bf4fa303a"
+      "sha256": "6ac2e5a66a4719b05fc6dd2e8204bac9282402e53c3d6ddde46ff1ea85a5cbb7"
     },
     {
       "path": "scripts/tests/test_package_preservation.py",

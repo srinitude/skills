@@ -8,7 +8,7 @@ OWNERS = [ROOT / "SKILL.md", ROOT / "assets" / "skill-template.md"]
 SECTIONS = ["Outcome", "Motivation", "Evidence", "Mise task graph",
             "Steps", "Assets", "Evals"]
 LEDGER_ANCHORS = {
-    "SKILL.md": ["Read this whole body first.",
+    "SKILL.md": ["On every load, read this whole SKILL.md body first.",
                  "The ledger must retain every governing rule and source detail",
                  "Relationships have stable IDs, typed directed endpoints",
                  "Discover prerequisites backward from the promised outcome"],
@@ -66,6 +66,9 @@ def _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, pat
         positions.append(text.index(anchor))
     self.assertEqual(positions, sorted(positions))
     self.assertLess(positions[-1], text.index("1. **"))
+    first = text.split("---", 2)[2].strip().split("\n\n", 1)[1]
+    self.assertTrue(first.startswith(("On every load, read this whole SKILL.md body first.",
+                                      "**Start here.** On every load, read this whole SKILL.md body first.")))
 
 
 def _TestOrderedWorkflowContract_test_the_reusable_ledger_has_one_body_owner_before_its_consumers(self):

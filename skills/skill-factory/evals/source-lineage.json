@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "f1561d9b0ba266700c8dfcdefb5990bcc235ab3d44a88c09a54cd647ca51b2de",
+  "native_manifest_sha256": "c9a6d83bde2879e0aa133ffccce99a8cee288007b09b80037f5f12a7ca26fe6e",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "29feaa3fc13178c17129dffe14357fec597378db1114aa6dda207cbb1f040706"
+      "sha256": "f4871d07028db866a000cc83cbfccce0aa1b7c96051f3ce21f235626d3641a2a"
     },
     {
       "path": "assets/agentic-request-template.json",

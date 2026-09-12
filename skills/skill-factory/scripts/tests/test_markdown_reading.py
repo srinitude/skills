@@ -144,5 +144,29 @@ class WorkflowReadingChecks(unittest.TestCase):
             repair_iterations(Path(temporary).resolve())
 
 
+
+class PayloadChecks(unittest.TestCase):
+    def test_only_exact_payload_copies_leave_the_public_trace(self):
+        import json
+        import subprocess
+        payload = {"report": {"text": "Exact source.", "failures": ["Keep this failure."]}}
+        for status in ["success", "suspended", "failed"]:
+            result = {"status": status, "steps": {"review": {
+                "output": payload, "suspendPayload": payload, "error": "Keep error",
+                "different": {"text": "Other proof"}}, "other": {"output": "Other output"}}}
+            result.update({"result": payload} if status != "suspended" else
+                          {"suspendPayload": {"review": payload}})
+            expected = json.loads(json.dumps(result))
+            expected["steps"]["review"] = expected["steps"]["review"] if status == "failed" else {
+                "error": "Keep error", "different": {"text": "Other proof"}}
+            code = ("import {publicResult} from './scripts/run_markdown.ts';"
+                    "let raw='';for await(const part of process.stdin)raw+=part;"
+                    "process.stdout.write(JSON.stringify(publicResult(JSON.parse(raw),'review')));")
+            run = subprocess.run(["node", "--input-type=module", "-e", code],
+                                 cwd=OWNER.parent.parent, input=json.dumps(result),
+                                 text=True, capture_output=True, timeout=30)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertEqual(json.loads(run.stdout), expected)
+
 if __name__ == "__main__":
     unittest.main()

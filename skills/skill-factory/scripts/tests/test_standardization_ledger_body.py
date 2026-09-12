@@ -127,5 +127,22 @@ class TestWholeDirectoryPolicy(unittest.TestCase):
             body_policies(weakened, FACTORY)
 
 
+class TestPortableCodeMethods(unittest.TestCase):
+    def test_current_methods_reach_the_body_without_peer_skill_dependencies(self):
+        template = (FACTORY / 'assets/skill-template.md').read_text()
+        policy = next(block for block in template.split('\n\n')
+                      if block.startswith('**Implement software for this outcome.**'))
+        actual = body_policies(original_body(), FACTORY)
+        self.assertEqual(actual.count(policy), 1)
+        self.assertLess(actual.index(policy), actual.index(DOMAIN))
+        self.assertIn('not required installed skills or host plugins', policy)
+        self.assertEqual(body_policies(actual, FACTORY), actual)
+
+    def test_custom_code_method_requires_reviewed_migration(self):
+        custom = '**Implement software for this outcome.** Keep a custom safety rule.'
+        with self.assertRaisesRegex(ValueError, 'reviewed.*migration'):
+            body_policies(original_body() + '\n' + custom + '\n', FACTORY)
+
+
 if __name__ == '__main__':
     unittest.main()

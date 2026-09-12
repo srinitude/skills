@@ -47,6 +47,7 @@ BODY_POLICIES = (
     '**Required initial context.**', '**Traverse, work and check.**',
     'For every individual added, changed or removed file',
     '**Efficiency and optional improvement.**',
+    '**Implement software for this outcome.**',
 )
 
 

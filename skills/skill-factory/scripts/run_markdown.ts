@@ -1,5 +1,6 @@
 /** Public Markdown gates. State uses the existing Mastra storage owner. */
 import { lstat, realpath } from 'node:fs/promises';
+import { isDeepStrictEqual } from 'node:util';
 import { isAbsolute, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { bound } from './standardization_workflow.ts';
@@ -26,6 +27,22 @@ async function stateBoundary(state: string, roots: string[]) {
   }
 }
 
+function compactStep(step: unknown, payload: unknown) {
+  if (!step || typeof step !== 'object') return step;
+  return Object.fromEntries(Object.entries(step).filter(([key, value]) =>
+    !['output', 'suspendPayload'].includes(key) || !isDeepStrictEqual(value, payload)));
+}
+
+export function publicResult(result: Record<string, unknown>, phase: string) {
+  if (!['success', 'suspended'].includes(String(result.status))) return result;
+  const waiting = result.suspendPayload;
+  const payload = result.result ?? (waiting && typeof waiting === 'object' ? Reflect.get(waiting, phase) : undefined);
+  const steps = result.steps;
+  if (payload === undefined || !steps || typeof steps !== 'object') return result;
+  return { ...result, steps: Object.fromEntries(Object.entries(steps)
+    .map(([id, step]) => [id, compactStep(step, payload)])) };
+}
+
 export async function runMarkdown(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
     process.stdout.write('Usage: mise run markdown:<phase>\nSet SKILL_MARKDOWN_REQUEST, SKILL_MARKDOWN_STATE and, for resume, SKILL_MARKDOWN_REPLY.\n'
@@ -40,7 +57,7 @@ export async function runMarkdown(args = process.argv.slice(2)) {
     storage = await openStorage(selected.state);
     const reply = selected.reply ? JSON.parse((await bound(selected.reply)).raw.toString()) : undefined;
     const result = await runPhase(markdownWorkflows(storage), selected.phase, request, reply);
-    process.stdout.write(JSON.stringify({ ...result, questions,
+    process.stdout.write(JSON.stringify({ ...publicResult(result, selected.phase), questions,
       stage_questions: selected.phase in stages ? stages[selected.phase as keyof typeof stages] : [], execution_acceptance: 'pending',
       limit: 'Cooperative checks and model review. Required human and whole-goal acceptance remain separate.' }) + '\n');
     process.exitCode = result.status === 'success' ? 0 : result.status === 'suspended' ? 3 : 1;

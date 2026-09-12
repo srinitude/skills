@@ -8,7 +8,7 @@ OWNERS = [ROOT / "SKILL.md", ROOT / "assets" / "skill-template.md"]
 SECTIONS = ["Outcome", "Motivation", "Evidence", "Mise task graph",
             "Steps", "Assets", "Evals"]
 LEDGER_ANCHORS = {
-    "SKILL.md": ["Read this complete body first.",
+    "SKILL.md": ["Read this whole body first.",
                  "The ledger must retain every governing rule and source detail",
                  "Relationships have stable IDs, typed directed endpoints",
                  "Discover prerequisites backward from the promised outcome"],

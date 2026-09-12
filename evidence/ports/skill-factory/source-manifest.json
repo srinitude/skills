@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "109d7781bb1d30f090eaa1f8b25de2b680b06cd1928fe5368839b6d2b1df566d",
-  "evidence_packet_sha256": "109d7781bb1d30f090eaa1f8b25de2b680b06cd1928fe5368839b6d2b1df566d",
+  "native_manifest_sha256": "2680c24d9405507f6c2a9c47229efb93aad9d4ae096dc4b517166df983327628",
+  "evidence_packet_sha256": "2680c24d9405507f6c2a9c47229efb93aad9d4ae096dc4b517166df983327628",
   "files": [
     {
       "bytes": 272,
@@ -1518,10 +1518,10 @@
       "source_path": "scripts/tests/test_skill_variant.py"
     },
     {
-      "bytes": 1619,
+      "bytes": 2361,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_source_corpus.py",
-      "sha256": "b3a96861e000c5c4108675700c23cb01f140acb84c2ba3f9baa00b285e2e89e2",
+      "sha256": "cdb43cfe91d55013147516f81460fd14876a95f57b2706fad9f7b8a2d9d7816f",
       "source_path": "scripts/tests/test_source_corpus.py"
     },
     {

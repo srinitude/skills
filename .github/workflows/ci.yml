@@ -20,7 +20,7 @@ jobs:
   factory:
     runs-on: ubuntu-latest
     env:
-      CHROME_DEVEL_SANDBOX: /opt/google/chrome/chrome-sandbox
+      CHROME_DEVEL_SANDBOX: /usr/local/share/chromium/chrome-linux/chrome_sandbox
     defaults:
       run:
         working-directory: skills/skill-factory

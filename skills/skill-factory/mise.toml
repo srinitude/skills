@@ -125,49 +125,395 @@ depends = ["setup-runtime"]
 run = "npm exec --no -- tsc --noEmit --project tsconfig.json"
 
 [tasks."markdown:inventory"]
-description = "Read every Markdown file and bind its review inputs"
+description = '''
+# `markdown:inventory`
+
+## Why this runs
+
+Read all Markdown files and their sources. Check the full skill.
+
+## When to run
+
+Start a Markdown review after a file change or when prior input proof is stale.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:inventory`. Read the returned file list, text and
+findings. Check that the roots cover the intended skill and that context
+records name the right source owners. Do not infer missing content from a hash.
+
+Code captures files and checks their shape. The model still reads and judges
+meaning, purpose and visual quality. This task does not edit the skill.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the exact request, file list, hashes and faults. Exit 0 means the read
+passed. Writing quality and checks that a human must make stay pending.
+'''
 depends = ["check-runtime"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts inventory"
 
 [tasks."markdown:mechanical"]
-description = "Capture reading and structure findings for whole-file review"
+description = '''
+# `markdown:mechanical`
+
+## Why this runs
+
+Find faults that code can test. The model then reviews the whole file.
+
+## When to run
+
+Collect current Markdown findings for the declared review roots.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:mechanical`. Read each fault and its place in the file.
+Check the reading grade, layout, links and file limits. Review text left out
+of the score. Do not hide prose to get a lower score.
+
+This step captures faults even when they remain. A successful capture does
+not mean the files pass. Keep sixth-grade wording and all source conditions;
+never trade meaning for a low score.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the report and exact input hashes. Exit 0 means the faults were saved.
+Open faults, model review and checks that a human must make stay pending.
+'''
 depends = ["markdown:inventory"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts mechanical"
 
 [tasks."markdown:review-request"]
-description = "Give the model the exact text, source rules and check results"
+description = '''
+# `markdown:review-request`
+
+## Why this runs
+
+Give the model exact inputs. It uses them to answer the review questions.
+
+## When to run
+
+Prepare the model's review once the files and code check results are saved.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:review-request`. Read the text, context, questions and
+faults. Check the named source rule and full file list. Use the agreed method
+to read the ledger's rules and links. The workflow checks its bytes. It does
+not judge what they mean.
+
+Name the tools the model needs, such as vision to view a page. Report any
+missing access. A script score cannot replace that work.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the report, questions and request hash. Exit 0 gives the model its inputs.
+Model review and checks that a human must make stay pending.
+'''
 depends = ["markdown:mechanical"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts review-request"
 
 [tasks."markdown:macro-review"]
-description = "Review the whole file before its sections"
+description = '''
+# `markdown:macro-review`
+
+## Why this runs
+
+Judge each whole file first, so local polish cannot hide a wrong purpose or structure.
+
+## When to run
+
+Check the file's purpose, scope and links first. Then review its parts.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:macro-review`. On exit 3, read the full file and all
+`stage_questions`. Check its purpose, full rule set, order and reader actions.
+Check model, code and human duties. Review each task's prior needs, Markdown
+forms, first-load rules and each file's path to SKILL.md.
+
+Use the model's reasoning and available tools. A graph pass does not prove
+that a task is needed or that the file serves its reader.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:macro-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the model's answers, sources and method for every file. Exit 0 means the
+answers passed the checks. Full skill acceptance stays pending.
+'''
 depends = ["markdown:review-request"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts macro-review"
 
 [tasks."markdown:micro-review"]
-description = "Review sections and blocks after whole-file review"
+description = '''
+# `markdown:micro-review`
+
+## Why this runs
+
+Judge how the file's parts fit. Use the prior whole-file review.
+
+## When to run
+
+Check layout and meaning once the whole-file review has passed.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:micro-review`. On exit 3, read the full file and all
+`stage_questions`. Check headings, lists, tables, spacing, links, images and
+other forms. Check how they are used and what the renderer supports.
+Keep who acts, when, all exceptions and the proof each rule needs.
+
+Inspect the actual rendered page with available vision tools. Cite its bound
+render with this file as `subject`. A screenshot hash does not prove that
+you looked at it. Report a missing view or tool; do not invent a visual pass.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:micro-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep source quotes, view hashes and model answers for every file. Exit 0
+means the review passed its checks. Checks that a human must make stay pending.
+'''
 depends = ["markdown:macro-review"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts micro-review"
 
 [tasks."markdown:line-review"]
-description = "Review words and lines after section review"
+description = '''
+# `markdown:line-review`
+
+## Why this runs
+
+Make words and steps easy to read. Keep all reviewed rules.
+
+## When to run
+
+Check words after the whole file and its parts have passed review.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:line-review`. On exit 3, read the file and all
+returned `stage_questions`. Use short paragraphs, simple words and clear
+actions. Define needed terms. Keep exact commands and protected quotes.
+Check score exclusions for hidden prose or lost meaning.
+
+Use sixth-grade English. Do not pad text or change rules to pass a score.
+If new words change the purpose or layout, repeat that earlier review.
+A grade score cannot prove that a reader understands.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:line-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the exact reviewed bytes, source quotes and reasons. Exit 0 means the
+word review passed its checks. Full skill and human acceptance stay pending.
+'''
 depends = ["markdown:micro-review"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts line-review"
 
 [tasks."markdown:review-check"]
-description = "Reject failed checks and stale or incomplete stage reviews"
+description = '''
+# `markdown:review-check`
+
+## Why this runs
+
+Reject stale or failed writing proof. Check that no required proof is missing.
+
+## When to run
+
+Check all results for the whole file, its parts and its words.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:review-check`. Code checks must report no faults.
+All three review stages must have full, passing answers. Read each failure.
+Keep wrong file lists, changed inputs, missing quotes and failed answers visible.
+
+Code checks hashes and the full set of answers. The model must still judge
+if those answers are true and fit the task. Do not weaken a check, erase a
+failure or mark an unread file done to make this task pass.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the current report and all three reviews with their hashes. Exit 0 means
+those checks passed. Full skill and human acceptance stay pending.
+'''
 depends = ["markdown:line-review"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts review-check"
 
 [tasks."markdown:accept"]
-description = "Check writing evidence and keep human approval separate"
+description = '''
+# `markdown:accept`
+
+## Why this runs
+
+Check current writing proof. Keep skill results and human approval as their own checks.
+
+## When to run
+
+Use this result once code checks and model reviews all pass.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:accept`. Read the report and all reviews. Check that
+no edit has made their proof stale. Check the skill's behavior and how its
+parts work together. Keep required approvals with their real owners.
+
+Record this result with its files and source rule. It does not grant approval
+to publish, merge or mark the skill done. When a human must approve, only
+that human can do so.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the passing result and its exact input hashes. The output keeps
+`execution_acceptance` as `pending`. This task cannot accept the whole skill.
+'''
 depends = ["markdown:review-check"]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 run = "node scripts/run_markdown.ts accept"

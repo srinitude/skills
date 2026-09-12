@@ -95,7 +95,32 @@ def _TestOrderedWorkflowContract_test_outer_and_inner_owners_do_not_compete(self
         with self.subTest(path=path.name):
             _check_outer_and_inner_owners_do_not_compete(self, path)
 
+
+def _TestOrderedWorkflowContract_test_markdown_tasks_supply_complete_model_instructions(self):
+    import tomllib
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from standardization_mise import normalize_mise
+    from standardization_seed import base_mise
+    sources = [(ROOT / name).read_text() for name in ["mise.toml", "assets/mise-template.toml"]]
+    sources.append(normalize_mise(base_mise({"primary_term": "skill"})))
+    headings = ["Why this runs", "When to run", "Inputs", "Work", "Proof"]
+    for source in sources:
+        tasks = {name: task for name, task in tomllib.loads(source)["tasks"].items()
+                 if name.startswith("markdown:")}
+        for name, task in tasks.items():
+            body = task["description"]
+            self.assertTrue(body.startswith(f"# `{name}`\n"))
+            self.assertEqual(re.findall(r"(?m)^## (.+)$", body), headings)
+            self.assertTrue(all(section(body, heading).strip() for heading in headings))
+            self.assertIn("SKILL_MARKDOWN_REQUEST", body)
+            self.assertIn("SKILL_MARKDOWN_STATE", body)
+            self.assertIn(f"mise run {name}", body)
+            self.assertIn("pending", section(body, "Proof"))
+            self.assertEqual(task["run"], "node scripts/run_markdown.ts " + name.split(":")[1])
+
 class TestOrderedWorkflowContract(unittest.TestCase):
+    test_markdown_tasks_supply_complete_model_instructions = _TestOrderedWorkflowContract_test_markdown_tasks_supply_complete_model_instructions
     test_intent_evidence_execution_and_acceptance_have_the_required_order = _TestOrderedWorkflowContract_test_intent_evidence_execution_and_acceptance_have_the_required_order
     test_steps_are_one_numbered_workflow_without_a_competing_copy = _TestOrderedWorkflowContract_test_steps_are_one_numbered_workflow_without_a_competing_copy
     test_steps_name_the_reader_or_execution_owner_and_public_tasks = _TestOrderedWorkflowContract_test_steps_name_the_reader_or_execution_owner_and_public_tasks

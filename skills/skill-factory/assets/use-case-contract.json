@@ -445,6 +445,13 @@
         "motivation": "A successful image command can otherwise omit skill package nodes or connectors while looking complete.",
         "proof": "Actual agent skill renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
         "why_default_path": "The agent skill has one public render route after locked runtime, code and browser prerequisites; the native ledger remains the relationship owner."
+      },
+      {
+        "task": "markdown:accept",
+        "outcome": "For the agent skill package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "why_default_path": "This agent skill public entry reaches each writing stage once through the declared Mise chain and guarded Mastra steps.",
+        "proof": "For the agent skill package: Require the full chain; keep real human and domain acceptance separate."
       }
     ],
     "tasks": {
@@ -720,6 +727,62 @@
         "value": "The agent skill renderer verifies the native result digest, regenerates its exact Mermaid projection, refuses existing output directories and checks every rendered node and connector identity.",
         "proof": "Actual agent skill renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
         "applicability": "Run for each current or intermediate agent skill file graph after its native ledger file-graph result is captured. Supply the result path, new output directory, expected SHA-256 and positive timeout; retain original records and inspect the rendered pixels before acceptance."
+      },
+      "markdown:inventory": {
+        "outcome": "For the agent skill package: Read and bind each Markdown file and all review inputs.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill inventory findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require a complete file inventory and exact input identities.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:mechanical": {
+        "outcome": "For the agent skill package: Report parse, size, reading-level, link and layout findings.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill mechanical findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require findings tied to each full file; early quality failures stay visible.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:review-request": {
+        "outcome": "For the agent skill package: Give the model the whole file, source rules and current findings.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill review-request findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require full bound text and explicit questions before model review.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:macro-review": {
+        "outcome": "For the agent skill package: Judge whole-file purpose, coverage, order and form choices.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill macro-review findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require a current model reply with reasons and cited source evidence.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:micro-review": {
+        "outcome": "For the agent skill package: Judge sections, blocks, preserved rules and rendered form.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill micro-review findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require whole-file review first and a bound render for direct inspection.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:line-review": {
+        "outcome": "For the agent skill package: Judge simple language, exact terms and honest score exclusions.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill line-review findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require section review first; do not trade a rule for a low reading score.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:review-check": {
+        "outcome": "For the agent skill package: Check all model review stages and mechanical findings together.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill review-check findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Reject failed findings, missing stages, stale inputs and unsupported citations.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "markdown:accept": {
+        "outcome": "For the agent skill package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
+        "value": "Use the agent skill accept findings before the next dependent writing step.",
+        "proof": "For the agent skill package: Require the full chain; keep real human and domain acceptance separate.",
+        "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
       }
     }
   },

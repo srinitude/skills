@@ -120,6 +120,26 @@ def graph_task_records(term):
             "applicability": f"After a current {term} native ledger file-graph capture; supply its path, new output directory, SHA-256 and positive timeout."}}
 
 
+def markdown_task_records(term):
+    roles = {
+        'inventory': ('Read and bind each Markdown file and all review inputs.', 'Require a complete file inventory and exact input identities.'),
+        'mechanical': ('Report parse, size, reading-level, link and layout findings.', 'Require findings tied to each full file; early quality failures stay visible.'),
+        'review-request': ('Give the model the whole file, source rules and current findings.', 'Require full bound text and explicit questions before model review.'),
+        'macro-review': ('Judge whole-file purpose, coverage, order and form choices.', 'Require a current model reply with reasons and cited source evidence.'),
+        'micro-review': ('Judge sections, blocks, preserved rules and rendered form.', 'Require whole-file review first and a bound render for direct inspection.'),
+        'line-review': ('Judge simple language, exact terms and honest score exclusions.', 'Require section review first; do not trade a rule for a low reading score.'),
+        'review-check': ('Check all model review stages and mechanical findings together.', 'Reject failed findings, missing stages, stale inputs and unsupported citations.'),
+        'accept': ('Close the writing checks while retaining other acceptance duties.', 'Require the full chain; keep real human and domain acceptance separate.'),
+    }
+    return {f"markdown:{phase}": {
+        "outcome": f"For the {term} skill package: {role}",
+        "motivation": f"The {term} reader needs clear instructions with no missing rule or proof.",
+        "value": f"Use the {term} {phase} findings before the next dependent writing step.",
+        "proof": f"For the {term} skill package: {proof}",
+        "applicability": f"For each existing, new or generated {term} Markdown file; preserve required human review.",
+    } for phase, (role, proof) in roles.items()}
+
+
 def task_records(profile, tasks):
     term = profile["primary_term"]
     records = {name: {
@@ -130,13 +150,13 @@ def task_records(profile, tasks):
         "applicability": f"Use {name} for its declared {term} responsibility.",
     } for name in tasks}
 
-    records.update({name: row for name, row in graph_task_records(term).items() if name in tasks})
+    records.update({name: row for name, row in (graph_task_records(term) | markdown_task_records(term)).items() if name in tasks})
     return records
 
 
 def operations(profile, tasks):
     candidates = [profile["main_task"], "invocation-policy", "agentic-request",
-                  "improvement-policy", "mise-primitives-plan", "mise-primitives-update", "ledger", "render-file-graph"]
+                  "improvement-policy", "mise-primitives-plan", "mise-primitives-update", "ledger", "render-file-graph", "markdown:accept"]
     candidates += profile.get("public_tasks", [])
     candidates = list(dict.fromkeys(candidates))
     term = profile["primary_term"]
@@ -147,7 +167,7 @@ def operations(profile, tasks):
             for name in candidates if name in tasks]
 
     for row in records:
-        if row["task"] == "render-file-graph":
-            detail = graph_task_records(term)[row["task"]]
+        if row["task"] in {"render-file-graph", "markdown:accept"}:
+            detail = (graph_task_records(term) | markdown_task_records(term))[row["task"]]
             row.update({key: detail[key] for key in ["outcome", "motivation", "proof"]})
     return records

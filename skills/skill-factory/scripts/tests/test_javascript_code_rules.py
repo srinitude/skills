@@ -90,7 +90,16 @@ def _TestJavaScriptRules_test_file_scope_depth_and_physical_boundaries(self):
     self.assertEqual(self.check(chain).returncode, 0)
 
 
+def _TestJavaScriptRules_test_all_physical_line_separators_keep_the_boundary(self):
+    separators = ("\n", "\r", "\r\n", "\v", "\f", "\x1c", "\x1d", "\x1e", "\x85", "\u2028", "\u2029")
+    for separator in separators:
+        for size, code in [(200, 0), (201, 1)]:
+            result = self.check("/*" + separator * (size - 1) + "*/")
+            self.assertEqual(result.returncode, code, repr(separator) + result.stdout + result.stderr)
+
+
 class TestJavaScriptRules(unittest.TestCase):
+    test_all_physical_line_separators_keep_the_boundary = _TestJavaScriptRules_test_all_physical_line_separators_keep_the_boundary
     check = _TestJavaScriptRules_check
     test_discovers_all_supported_extensions = _TestJavaScriptRules_test_discovers_all_supported_extensions
     test_real_ast_rejects_invalid_syntax = _TestJavaScriptRules_test_real_ast_rejects_invalid_syntax

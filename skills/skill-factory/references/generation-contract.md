@@ -1,6 +1,6 @@
 # Generation contract
 
-Every created, updated, standardized, imported or adapted skill follows this portable contract, including the factory. Read it through `mise run validate` before package changes. SKILL.md owns core behavior and the reusable ledger method; read the full body/ledger on first and every successful later load before consumers act. Links and checks never replace reading, use or judgment.
+Every created, updated, standardized, imported or adapted skill follows this portable contract, including the factory. Read it through `mise run validate` before package changes. SKILL.md owns core behavior and the reusable ledger method; read the full body first. At first and later loads, capture all governing ledger and input bytes and cover every current rule and relationship through semantic review before use. Reuse only completed reviews whose exact source, full scope and relevant context remain valid. Review changed or affected records; missing or stale coverage blocks consumers. Read declared initial resources in dependency order. Links and checks never replace reading, use or judgment.
 
 ## Layout
 
@@ -87,7 +87,7 @@ Do not cache mutable remote state, live judgment, an external side effect, or ra
 
 Every Markdown file has at most 200 physical lines, including blank lines and comments. Wrap prose and list items where it helps reading. Keep proper nesting, spacing and required line breaks. Do not use huge lines, dense cells or hidden prose to fit the cap. Keep protected source bytes unchanged.
 
-Use `mise run markdown:accept` for every factory and output Markdown file, including templates and generated text. Its explicit task chain is inventory, mechanical checks, review request, review check, then acceptance. Mastra owns each step and bound model handoff. Missing or stale prerequisite proof blocks the next step.
+Use `mise run markdown:accept` for every factory and output Markdown file, including templates and generated text. Its explicit task chain is inventory, mechanical checks, review request, whole-file review, section and block review, line review, review check, then acceptance. Mastra owns each step and bound model handoff. Early reading and layout failures inform review; all must pass before acceptance. Integrity and authority checks remain before each change. Missing or stale prerequisite proof blocks the next step.
 
 Keep the full versioned CommonMark, GFM and target-feature map at the writing owner. For each feature, the author or model states what it means, which form fits, when and how to use it, why it helps, and who writes, checks and approves it. Include valid syntax, examples, variants and reasons for non-use. Do not force every feature into every file or infer target support.
 

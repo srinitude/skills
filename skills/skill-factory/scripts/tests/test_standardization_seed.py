@@ -1,13 +1,16 @@
 """Preserve authored evals and reject unfinished standardization seeds."""
 import json
 import tempfile
+import tomllib
 import unittest
 from pathlib import Path
 
 from cli import SKILL_DIR
 from check_evals import check_cases, check_queries
 from check_placeholders import line_problems
-from standardization_seed import build_evals, build_triggers, seeds
+from standardization_seed import build_evals, build_triggers, seeds, base_mise, operations, task_records
+from standardization_mise import normalize_mise
+from check_task_graph import problems, route_problems
 
 PROFILE = {"skill": "clock-anchor", "primary_term": "clock anchor",
            "outcome": "Read the current clock anchor with its UTC offset."}
@@ -88,7 +91,29 @@ def _TestStandardizationSeeds_test_existing_eval_owners_do_not_read_unused_broke
         self.assertEqual(files[name], value)
 
 
+def _TestStandardizationSeeds_test_generated_markdown_tasks_have_one_public_path(self):
+    tasks = tomllib.loads(normalize_mise(base_mise(PROFILE)))["tasks"]
+    profile = {**PROFILE, "main_task": "validate"}
+    graph = {"ci_task": "ci", "public_operations": operations(profile, tasks),
+             "tasks": task_records(profile, tasks)}
+    contract = {"domain_terms": ["clock anchor"], "task_graph": graph}
+    self.assertEqual(problems(tasks, contract), [])
+    self.assertIn("markdown:accept", [row["task"] for row in graph["public_operations"]])
+    graph["public_operations"] = [row for row in graph["public_operations"] if row["task"] != "markdown:accept"]
+    self.assertTrue(any("no public operation reaches markdown:" in row for row in problems(tasks, contract)))
+
+
+def _TestStandardizationSeeds_test_scaffold_template_accounts_for_every_task(self):
+    tasks = tomllib.loads((SKILL_DIR / "assets/mise-template.toml").read_text())["tasks"]
+    graph = json.loads((SKILL_DIR / "assets/use-case-contract-template.json").read_text())["task_graph"]
+    self.assertEqual(set(tasks), set(graph["tasks"]))
+    entries = [graph["ci_task"], *[row["task"] for row in graph["public_operations"]]]
+    self.assertEqual(route_problems(tasks, entries), [])
+
+
 class TestStandardizationSeeds(unittest.TestCase):
+    test_scaffold_template_accounts_for_every_task = _TestStandardizationSeeds_test_scaffold_template_accounts_for_every_task
+    test_generated_markdown_tasks_have_one_public_path = _TestStandardizationSeeds_test_generated_markdown_tasks_have_one_public_path
     test_missing_triggers_have_required_shape_but_cannot_pass_as_authored = _TestStandardizationSeeds_test_missing_triggers_have_required_shape_but_cannot_pass_as_authored
     test_missing_eval_details_remain_detectable_placeholders = _TestStandardizationSeeds_test_missing_eval_details_remain_detectable_placeholders
     test_all_legacy_triggers_and_labels_survive_without_coercion = _TestStandardizationSeeds_test_all_legacy_triggers_and_labels_survive_without_coercion

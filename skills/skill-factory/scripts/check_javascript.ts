@@ -35,8 +35,11 @@ function children(node: ts.Node) {
 
 function physicalLines(text: string) {
   if (!text.length) return 0;
-  const lines = text.split(/\r\n|[\n\r\v\f\x1c-\x1e\x85\u2028\u2029]/);
-  return lines.length - Number(lines.at(-1) === '');
+  const normalized = text.replaceAll('\r\n', '\n');
+  const separators = new Set('\n\r\v\f\x1c\x1d\x1e\x85\u2028\u2029');
+  let count = 1;
+  for (const character of normalized) count += Number(separators.has(character));
+  return count - Number(separators.has(normalized.at(-1)!));
 }
 
 function wholeLines(node: ts.Node, source: ts.SourceFile) {

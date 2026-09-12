@@ -155,9 +155,8 @@ function buildWorkflow(phase: Phase, owner: () => Mastra) {
 }
 
 export function markdownWorkflows(storage: MastraCompositeStore) {
-  let mastra: Mastra;
   const workflows = Object.fromEntries(phases.map(phase => ['markdown-' + phase, buildWorkflow(phase, () => mastra)]));
-  mastra = new Mastra({ workflows, storage, logger: false });
+  const mastra: Mastra = new Mastra({ workflows, storage, logger: false });
   return mastra;
 }
 

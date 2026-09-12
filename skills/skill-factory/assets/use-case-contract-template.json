@@ -213,6 +213,20 @@
         "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
         "task": "ledger",
         "why_default_path": "The agent skill has one public path into its assigned native Mastra ledger read operation with declared locked dependencies."
+      },
+      {
+        "task": "markdown:accept",
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER This {{NAME}} public entry reaches each writing stage once through the declared Mise chain and guarded Mastra steps.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require the full chain; keep real human and domain acceptance separate."
+      },
+      {
+        "task": "render-file-graph",
+        "outcome": "SCAFFOLD-PLACEHOLDER Render the {{NAME}} recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "SCAFFOLD-PLACEHOLDER A successful image command can otherwise omit {{NAME}} package nodes or connectors while looking complete.",
+        "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER The {{NAME}} has one public render route after locked runtime, code and browser prerequisites; the native ledger remains the relationship owner."
       }
     ],
     "tasks": {
@@ -262,7 +276,77 @@
       "test": {},
       "task-graph-policy": {},
       "decision-policy": {},
-      "ci": {}
+      "ci": {},
+      "markdown:inventory": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Read and bind each Markdown file and all review inputs.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} inventory findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require a complete file inventory and exact input identities.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:mechanical": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Report parse, size, reading-level, link and layout findings.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} mechanical findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require findings tied to each full file; early quality failures stay visible.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:review-request": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Give the model the whole file, source rules and current findings.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} review-request findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require full bound text and explicit questions before model review.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:macro-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge whole-file purpose, coverage, order and form choices.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} macro-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require a current model reply with reasons and cited source evidence.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:micro-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge sections, blocks, preserved rules and rendered form.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} micro-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require whole-file review first and a bound render for direct inspection.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:line-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge simple language, exact terms and honest score exclusions.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} line-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require section review first; do not trade a rule for a low reading score.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:review-check": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Check all model review stages and mechanical findings together.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} review-check findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Reject failed findings, missing stages, stale inputs and unsupported citations.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:accept": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} accept findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require the full chain; keep real human and domain acceptance separate.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "setup-graph-renderer": {
+        "outcome": "SCAFFOLD-PLACEHOLDER The {{NAME}} has the browser selected by its exact locked Mermaid renderer before graph rendering or renderer tests.",
+        "motivation": "SCAFFOLD-PLACEHOLDER An {{NAME}} graph cannot rely on a browser left by another checkout or invocation.",
+        "value": "SCAFFOLD-PLACEHOLDER The {{NAME}} native Puppeteer installer prepares its supported browser after code checks; it downloads only through the declared runtime.",
+        "proof": "SCAFFOLD-PLACEHOLDER The real {{NAME}} setup task succeeds and the installed renderer produces the fixture SVG; installation alone does not prove graph readability or domain acceptance.",
+        "applicability": "SCAFFOLD-PLACEHOLDER Run before {{NAME}} graph rendering and real renderer tests; network access and a supported browser platform are required."
+      },
+      "render-file-graph": {
+        "outcome": "SCAFFOLD-PLACEHOLDER Render the {{NAME}} recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "SCAFFOLD-PLACEHOLDER A successful image command can otherwise omit {{NAME}} package nodes or connectors while looking complete.",
+        "value": "SCAFFOLD-PLACEHOLDER The {{NAME}} renderer verifies the native result digest, regenerates its exact Mermaid projection, refuses existing output directories and checks every rendered node and connector identity.",
+        "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "applicability": "SCAFFOLD-PLACEHOLDER Run for each current or intermediate {{NAME}} file graph after its native ledger file-graph result is captured. Supply the result path, new output directory, expected SHA-256 and positive timeout; retain original records and inspect the rendered pixels before acceptance."
+      }
     }
   },
   "primitive_roles": {

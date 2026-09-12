@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "0bbc6beac137e9ca0cbacfc3cd425bb50420d1c943fb21f0c059ce9db26bd1c0",
+  "native_manifest_sha256": "553d54299a891492ccf1424767529a90b36e52569f17d75c9f0616680b83306f",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1570,7 +1570,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "8af9ebe9d787c54ba2c66e51619091525389fa53590b575345746a2bca88e24f"
+      "sha256": "2d9ee57dc8083a76ef49bde08a1dd8ebd930ef294ca9d07170a0ad028ca43d95"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1642,7 +1642,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "a58d7822acfa5ea9a00d02fefa1140c274c04854b26cdb8ecc8afa191b945e08"
+      "sha256": "49139b489fd536cee5eb31a0d96eeb7af896a4bf57a9f3630eb49c090ba0151f"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1674,11 +1674,11 @@
     },
     {
       "path": "assets/use-case-contract-template.json",
-      "sha256": "e6bd8ebc16255720f516fa4a1a6879ce2d9b69532bfdac984261b2529e724ff8"
+      "sha256": "f869d89e40911df20fb77df6c82bff8ad795d6c9c5a9006c9d42791c5cbfbe74"
     },
     {
       "path": "assets/use-case-contract.json",
-      "sha256": "d37ac2f0dad1fe2ba7a811e7d371e46b6f5b2d44aa1eb25c00a99046db9f8f1c"
+      "sha256": "d4b9b59854fa05c9e3adc127a6a8ee76fea68341709628381d083507a4c701d5"
     },
     {
       "path": "assets/variant-review.schema.json",
@@ -1818,7 +1818,7 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "eeddae6319795008174f71ac2442dd042f6ba7937b5cb70df2db82209fd0e496"
+      "sha256": "50b2f8e802ae37f84ac828f65cd9183130557631941c757765702e6446bbb9ee"
     },
     {
       "path": "references/improvement-dimensions.md",
@@ -1894,7 +1894,7 @@
     },
     {
       "path": "scripts/check_javascript.ts",
-      "sha256": "5b8c98da2a57c9200bf5861d2b17d059add6a8f7d33326587245cfaaa53fa716"
+      "sha256": "e8e34414bdf62e39f6d8f5d264aa1a5dbedbac94527ad44e6feba2d29ace4604"
     },
     {
       "path": "scripts/check_lineage.py",
@@ -1946,7 +1946,7 @@
     },
     {
       "path": "scripts/markdown_workflow.ts",
-      "sha256": "5ee87cbf9fed4cf6eb32b8b428cb2aac5925ddac34ec9abcfe1d76bc7b20a513"
+      "sha256": "fb74546772285cef4283a8a60c77c2525f520935094a47b2d8dfe58f0d825d51"
     },
     {
       "path": "scripts/native_file_workflow.ts",
@@ -2134,7 +2134,7 @@
     },
     {
       "path": "scripts/standardization_seed.py",
-      "sha256": "d5b14023353980ca3af343dd8a989de673bcd3ca1e8640789a53f116739dbaa0"
+      "sha256": "66937a5ec617c3e427dd906d2941be6e14283488746204ee8f01db8aee5fc95c"
     },
     {
       "path": "scripts/standardization_workflow.ts",
@@ -2242,7 +2242,7 @@
     },
     {
       "path": "scripts/tests/test_javascript_code_rules.py",
-      "sha256": "6461405bd704a8e1d73700bbddced48ff21daac3bb3303888c5de2c7453b57ac"
+      "sha256": "a90d13a4a4aa3cab7c0e68c1b66a30bb9a03bdf1058277ae4e68773bd22fbdbb"
     },
     {
       "path": "scripts/tests/test_lineage_contract.py",
@@ -2474,7 +2474,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_seed.py",
-      "sha256": "cdbfc685597a3588ee711e6596647cc3424ddb61b27df9caf9afde63617e90bd"
+      "sha256": "9fa175bf3cf8e297dc75065e5cb209a736479ad9c673f8cf9f7b47f821787087"
     },
     {
       "path": "scripts/tests/test_standardization_usage.py",

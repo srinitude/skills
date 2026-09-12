@@ -6,7 +6,7 @@ from graphlib import TopologicalSorter
 from pathlib import Path
 
 from check_task_graph import dependency_name, path_counts
-from standardization_seed import base_mise
+from standardization_seed import base_mise, normalize_cache_sources
 
 FACTORY_TASKS = tomllib.loads((Path(__file__).resolve().parents[1] / "mise.toml").read_text())["tasks"]
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
@@ -88,7 +88,7 @@ def normalize_existing(name, block):
     result = strip_key(block, "depends")
     if nested:
         result = strip_key(result, "run")
-    return "\n".join(filter(None, [result, dependency_line(dependencies)]))
+    return normalize_cache_sources(name, "\n".join(filter(None, [result, dependency_line(dependencies)])), FACTORY_TASKS)
 
 
 def policy_block(name, spec):

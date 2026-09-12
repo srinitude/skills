@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "2680c24d9405507f6c2a9c47229efb93aad9d4ae096dc4b517166df983327628",
-  "evidence_packet_sha256": "2680c24d9405507f6c2a9c47229efb93aad9d4ae096dc4b517166df983327628",
+  "native_manifest_sha256": "b253b4d2de3994d4ac03516890cf8b0d798f7ec0d295d26cdcea260a9c7e01c1",
+  "evidence_packet_sha256": "b253b4d2de3994d4ac03516890cf8b0d798f7ec0d295d26cdcea260a9c7e01c1",
   "files": [
     {
       "bytes": 272,
@@ -118,10 +118,10 @@
       "source_path": "assets/mise-primitives.json"
     },
     {
-      "bytes": 9592,
+      "bytes": 9842,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/mise-template.toml",
-      "sha256": "2e05a3de9279b99270dc08daf033459928fd98d7c5d7e9a693bdf562a7997895",
+      "sha256": "d8307beb9f832f9b34ad7cb36243115e7d791d66bc8d5390bb3272473abe39b8",
       "source_path": "assets/mise-template.toml"
     },
     {
@@ -412,10 +412,10 @@
       "source_path": "examples/variant-public-run.json"
     },
     {
-      "bytes": 13992,
+      "bytes": 14242,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/mise.toml",
-      "sha256": "4bd923310fab3cc35264b2b2076e2e080ae54437bf430f4f69429f45f1b083ae",
+      "sha256": "804ad9eb0547e021dfd72544697b2eed260383bcdda7d44938718b9c7191303b",
       "source_path": "mise.toml"
     },
     {
@@ -958,10 +958,10 @@
       "source_path": "scripts/standardization_markdown.py"
     },
     {
-      "bytes": 10406,
+      "bytes": 10477,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_mise.py",
-      "sha256": "e83bdb9e305721b0f8826131b34bcb488fcd4aa142cf6c0c51f69c495fbc1d4b",
+      "sha256": "97847ed20df2f58e80d9c49c0aa2923ddcd5b93caf329805262a238ce3cc4328",
       "source_path": "scripts/standardization_mise.py"
     },
     {
@@ -1007,10 +1007,10 @@
       "source_path": "scripts/standardization_runtime.py"
     },
     {
-      "bytes": 8783,
+      "bytes": 9800,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_seed.py",
-      "sha256": "0134f4c5b288bdec47477d11fc770764320b300840ad70e3dd032f69dab8bad0",
+      "sha256": "d00e2d3f1549fa0ba4dda4fe684ec7d949b7ac8ce686520b7e1cc0c451eca0e9",
       "source_path": "scripts/standardization_seed.py"
     },
     {
@@ -1252,10 +1252,10 @@
       "source_path": "scripts/tests/test_mise_primitives.py"
     },
     {
-      "bytes": 2147,
+      "bytes": 5641,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_mise_speed_contract.py",
-      "sha256": "fa318b204974a19963cdc511e454195161faef8f522cde9f503e4e85d101ad46",
+      "sha256": "120d241b3a96dfb2b1e4defe6ef8acd2f5c841103339ac80eab913a2aee640b0",
       "source_path": "scripts/tests/test_mise_speed_contract.py"
     },
     {
@@ -1301,10 +1301,10 @@
       "source_path": "scripts/tests/test_plan_standardize.py"
     },
     {
-      "bytes": 999,
+      "bytes": 1702,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_portable_factory.py",
-      "sha256": "21048178fe478ed82a9a81808d43ce7547cdca0db5ef9385173a32bd5aaba273",
+      "sha256": "c8aa50f3d4db08653e2e368e3572202f5de2e07399d19bad43c0218188bdd8f8",
       "source_path": "scripts/tests/test_portable_factory.py"
     },
     {

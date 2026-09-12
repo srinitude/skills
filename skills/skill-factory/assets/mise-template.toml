@@ -33,7 +33,7 @@ cache = { enabled = true }
 description = "Mechanical writing checks on every markdown file"
 depends = []
 run = "python3 scripts/lint_writing.py ."
-sources = ["**/*.md", "scripts/lint_writing.py"]
+sources = ["**/*.md", "scripts/lint_writing.py", "scripts/skill_package.py", "!**/{.git,.mise,.artifacts,__pycache__,node_modules,.pytest_cache,.mypy_cache,.ruff_cache}/**"]
 outputs = []
 cache = { enabled = true }
 
@@ -41,7 +41,7 @@ cache = { enabled = true }
 description = "Refuse any scaffold placeholder text left in markdown or evals"
 depends = []
 run = "python3 scripts/check_placeholders.py ."
-sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py"]
+sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py", "scripts/skill_package.py", "!**/{.git,.mise,.artifacts,__pycache__,node_modules,.pytest_cache,.mypy_cache,.ruff_cache}/**"]
 outputs = []
 cache = { enabled = true }
 

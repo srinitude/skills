@@ -1,5 +1,7 @@
-"""Create only missing baseline owners for a registry skill."""
+"""Seed and reconcile baseline owners for a registry skill."""
 import json
+import re
+import tomllib
 from pathlib import Path
 
 BASE_MISE = '''[tools]
@@ -171,3 +173,23 @@ def operations(profile, tasks):
             detail = (graph_task_records(term) | markdown_task_records(term))[row["task"]]
             row.update({key: detail[key] for key in ["outcome", "motivation", "proof"]})
     return records
+
+
+def normalize_cache_sources(name, block, canonical):
+    owners = {"lint-writing": "lint_writing", "lint-placeholders": "check_placeholders"}
+    if name not in owners:
+        return block
+    task = tomllib.loads("[task]\n" + block)["task"]
+    desired = canonical[name]["sources"]
+    if task.get("sources") in (None, desired):
+        return block
+    legacy = ["**/*.md"] + (["**/*.json"] if name == "lint-placeholders" else [])
+    legacy.append("scripts/" + owners[name] + ".py")
+    if task["sources"] != legacy:
+        raise ValueError("cache sources need explicit reconciliation: " + name)
+    pattern = r"(?m)^(sources\s*=\s*)\[[^\n]*?\]([ \t]*(?:#[^\n]*)?)$"
+    result, count = re.subn(pattern, lambda match: match[1] + json.dumps(desired) + match[2], block)
+    expected = dict(task, sources=desired)
+    if count != 1 or tomllib.loads("[task]\n" + result)["task"] != expected:
+        raise ValueError("cache sources need explicit reconciliation: " + name)
+    return result

@@ -7,6 +7,11 @@ import os
 import sys
 from pathlib import Path
 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__, epilog="Example: --root /path/to/skill")
+    parser.add_argument("--root", action="append", required=True)
+    args = parser.parse_args()
+
 from markdown_it import MarkdownIt
 from textstat import textstat
 
@@ -144,12 +149,9 @@ def walk_markdown(root):
     return found
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__, epilog="Example: --root /path/to/skill")
-    parser.add_argument("--root", action="append", required=True)
-    args = parser.parse_args()
+def main(roots):
     try:
-        report = {"runtime": runtime(), "files": [{**item, **check_text(item["text"])} for item in files(args.root)],
+        report = {"runtime": runtime(), "files": [{**item, **check_text(item["text"])} for item in files(roots)],
                   "execution_acceptance": "pending"}
         print(json.dumps(report, ensure_ascii=False))
         return 1 if any(item["failures"] for item in report["files"]) else 0
@@ -159,4 +161,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(args.root))

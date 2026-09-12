@@ -107,7 +107,7 @@ def render(source, expected, output, timeout):
     completed = subprocess.run(command, capture_output=True, timeout=timeout, check=False)
     (output / 'renderer.stdout').write_bytes(completed.stdout)
     (output / 'renderer.stderr').write_bytes(completed.stderr)
-    require(completed.returncode == 0, 'mmdc failed; inspect retained renderer output')
+    require(completed.returncode == 0, f'mmdc exited {completed.returncode}: {completed.stderr.decode(errors="replace")}')
     svg = (output / 'graph.svg').read_bytes()
     proof = {'topology': svg_topology(svg, graph), 'native_result_sha256': expected,
              'svg_sha256': digest(svg), 'mmdc_version': version,

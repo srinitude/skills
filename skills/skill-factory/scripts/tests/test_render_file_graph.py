@@ -141,6 +141,21 @@ def test_nonobject_native_result_rejects_cleanly_then_valid_input_recovers():
         assert renderer.read_graph(path, sha)[1] == graph
 
 
+def test_renderer_failure_keeps_its_reason_after_output_cleanup():
+    from unittest.mock import patch
+    with tempfile.TemporaryDirectory() as temporary:
+        folder = Path(temporary)
+        path, sha = source(folder, project(fixture()))
+        failed = renderer.subprocess.CompletedProcess([], 7, b'output', b'renderer failure detail')
+        with patch.object(renderer.subprocess, 'run', return_value=failed), unittest.TestCase().assertRaises(ValueError) as caught:
+            renderer.render(path, sha, folder / 'failed', 60)
+        message = str(caught.exception)
+        assert (folder / 'failed/renderer.stderr').read_bytes() == failed.stderr
+        assert (folder / 'failed/renderer.stdout').read_bytes() == failed.stdout
+        assert not (folder / 'failed/render-proof.json').exists()
+    assert '7' in message and 'renderer failure detail' in message, message
+
+
 def load_tests(loader, tests, pattern):
     patterns = loader.testNamePatterns or ['*']
     functions = [(name, value) for name, value in globals().items() if name.startswith('test_') and callable(value)]

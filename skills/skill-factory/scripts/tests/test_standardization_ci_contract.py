@@ -105,7 +105,21 @@ def _test_commands_stop_after_failure_and_run_all_after_recovery(self):
             self.assertIn("probe-" if failed else "OK", result.stderr)
 
 
+def _test_markdown_help_works_without_optional_packages(self):
+    import subprocess
+    owner = SCRIPTS / "markdown_checks.py"
+    cases = [(["--help"], 0, "usage:"), ([], 2, "--root"),
+             (["--root", str(SCRIPTS.parent)], 1, "ModuleNotFoundError")]
+    for args, status, message in cases:
+        with self.subTest(args=args):
+            result = subprocess.run([sys.executable, "-S", str(owner), *args],
+                                    capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, status, result.stderr)
+            self.assertIn(message, result.stdout + result.stderr)
+
+
 class TestGeneratedCIContract(unittest.TestCase):
+    test_markdown_help_works_without_optional_packages = _test_markdown_help_works_without_optional_packages
     test_commands_stop_after_failure_and_run_all_after_recovery = _test_commands_stop_after_failure_and_run_all_after_recovery
     test_custom_ci_contract_passes_and_command_drift_fails = _TestGeneratedCIContract_test_custom_ci_contract_passes_and_command_drift_fails
     test_exact_generated_contract_is_refreshed_for_changed_commands = _TestGeneratedCIContract_test_exact_generated_contract_is_refreshed_for_changed_commands

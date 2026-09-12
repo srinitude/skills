@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "9f656a8bd065251bfc38dc251e6857e7c94159e689160bc08bc1610cddce0132",
+  "native_manifest_sha256": "5b6adb9574e123ca28e8fcb49eba22133a5e2ce0cf88022719f007dcce061a25",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1632,7 +1632,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "e512de80c240cfa7f59ac6a7359ac665f5b95a541e8b3231057e3b2bac78d40e"
+      "sha256": "4514181e60a1addbde9da34af98eee6795fc50e8712624052d1345647684ecc6"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1948,7 +1948,7 @@
     },
     {
       "path": "scripts/markdown_checks.py",
-      "sha256": "2d884d9b2d1040b1e706523d7ba4249b5faea01b6e36e3bb6db7ce849a33b9ef"
+      "sha256": "a95ce9cf8ddecf94d4f2b68fefddef8a5f4556373a7d3d86888761898d087178"
     },
     {
       "path": "scripts/markdown_workflow.ts",
@@ -1980,7 +1980,7 @@
     },
     {
       "path": "scripts/render_file_graph.py",
-      "sha256": "be27d5533a7ed234e6747e0c74515b08c637d0781532eb1df7f709bef7ee1e03"
+      "sha256": "a05b89d3993b4c5d9e029873e2e975285ef04b40c7a189b262c317711d98906e"
     },
     {
       "path": "scripts/resolve_scope.py",
@@ -2336,7 +2336,7 @@
     },
     {
       "path": "scripts/tests/test_render_file_graph.py",
-      "sha256": "503a9be8c917234a736f3bcded83abad544aa1cb1d0a1051fa0215a9ab85288b"
+      "sha256": "e16818da3672adf65d4e504cd06dcbda1db769b85e226856447c14cc95ca8d08"
     },
     {
       "path": "scripts/tests/test_review_ledger_body.py",
@@ -2408,7 +2408,7 @@
     },
     {
       "path": "scripts/tests/test_scaffold_skill.py",
-      "sha256": "c3bbca4af2178c137c94e71d5b8b3dd3009cda715f14ab14c368bed7e40aa8e2"
+      "sha256": "f5c5c0c25b0ef8966d97ecb3ff24c9f3258bb95d543bd91ab45a781ad4e8e7f0"
     },
     {
       "path": "scripts/tests/test_scope_destination.py",
@@ -2444,7 +2444,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_ci_contract.py",
-      "sha256": "3a59c93d08b9ab12b31c52dcaaea465510bd76c6460d60aa58df41cfcf81739b"
+      "sha256": "9156fe48642ff7756475081df6d9a279f6123ed69ba17252e983a05b16346ef7"
     },
     {
       "path": "scripts/tests/test_standardization_commands.py",

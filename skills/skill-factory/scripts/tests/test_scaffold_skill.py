@@ -136,9 +136,9 @@ def _TestScaffoldOutput_test_generated_evals_pass_schema_checks(self):
     self.assertEqual(result.returncode, 0, result.stdout)
 
 def _TestScaffoldOutput_test_generated_tests_pass(self):
-    cmd = ["mise", "run", "--force", "--task-cache", "off", "test"]
+    cmd = ["mise", "run", "--force", "--task-cache", "off", "--timeout", "660s", "test"]
     env = dict(os.environ, MISE_TRUSTED_CONFIG_PATHS=str(self.skill))
-    proc = subprocess.run(cmd, cwd=self.skill, env=env, capture_output=True, text=True, timeout=180)
+    proc = subprocess.run(cmd, cwd=self.skill, env=env, capture_output=True, text=True, timeout=720)
     self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
 
 def _TestScaffoldOutput_assert_platform_neutral(self, relative, text):

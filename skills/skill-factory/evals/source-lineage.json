@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "63786c3689a40c86321312c32065ccb3b63a82ea8e5ff03670d468b9ee76c872",
+  "native_manifest_sha256": "0f5f82366392de5a2e27452ce42b18d4acd863a6b2eb91f8072d96e0a9ba5e06",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "2265732c0822cd3b888cb2a53e40179ae0ae2b8f47dc733e42ba65f72208477f"
+      "sha256": "19d7332cda0c218a1c1d18505cc1aecaefa056af7a03937bc7c7eaa346ac880e"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1648,7 +1648,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "f8c91c43bbb50d6bd90cbabd1674c0fab22f2393b8d77e52de8b456545f05016"
+      "sha256": "3142405364353b1833ef3d9cff15bae2320f0425b91e789df31968121635c589"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1824,7 +1824,7 @@
     },
     {
       "path": "references/generation-contract.md",
-      "sha256": "a86fdb4fe3cb8758c512984b798622dabf4c4bb84f26fd4a4a96c1aad9b66585"
+      "sha256": "43b239796a51f68fdea121888f04fcf96214075742f1525064967812d3788b3b"
     },
     {
       "path": "references/improvement-dimensions.md",
@@ -1836,7 +1836,7 @@
     },
     {
       "path": "references/resource-and-experiment-design.md",
-      "sha256": "80a52fc9f449882f13eeffbadd2731ce868afceabb9ae2b16a4537ef60d8af88"
+      "sha256": "ae4828b466b51a8e6aa40c49ea2b939dd148f21a9bdc5f4dee53daa351f3baab"
     },
     {
       "path": "references/runtime-integration.md",
@@ -2040,7 +2040,7 @@
     },
     {
       "path": "scripts/run_markdown.ts",
-      "sha256": "9d9b8a1ea63015f05dad85fdb5f8215512974b98b85c3081511c5ca79cfe65c8"
+      "sha256": "849351ca082ce66424b498432f03ed9024cae1434582bfc91410fe1de8870275"
     },
     {
       "path": "scripts/run_review_ledger.ts",
@@ -2116,7 +2116,7 @@
     },
     {
       "path": "scripts/standardization_plan.py",
-      "sha256": "a7ab597cad457ebf3e44ab2b4c4635035c8b21d40502444909faa60fe4bbbae8"
+      "sha256": "f610151199bed45d6e7f90f5c543a0edaa14adaca009a3dfca05c91981c8d86c"
     },
     {
       "path": "scripts/standardization_profile.py",

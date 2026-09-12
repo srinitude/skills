@@ -91,4 +91,4 @@ def build_plan(root, profile, scope, rebase, factory, sources, profile_path, sta
             'files': records, 'execution_acceptance': 'pending',
             'limit': 'Exact captured source and calculated package bytes. Fixed construction phases are not '
                      'complete reading/runtime dependencies. Protected application, '
-                     'mapping/policy checks, source/semantic review and whole-goal acceptance remain required.'}
+                     'mapping/policy checks, source/semantic review and whole-skill acceptance remain required.'}

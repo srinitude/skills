@@ -1,6 +1,6 @@
 # Generation contract
 
-Every created, updated, standardized, imported or adapted skill follows this portable contract, including the factory. Read it through `mise run validate` before package changes. First read the full [SKILL.md body](../SKILL.md). It owns core behavior and the reusable ledger method. Apply its complete first/later-load and review rules: capture all governing bytes, review every current rule and relationship, reuse only valid completed reviews, and block consumers with missing or stale coverage. Read initial resources in dependency order. Links and checks never replace reading, use or judgment.
+Every created, updated, standardized, imported or adapted skill follows this portable contract, including the factory. Read it through `mise run validate` before package changes. First read the full [SKILL.md body](../SKILL.md). It owns core behavior and the reusable ledger method. Apply all its first/later-load and review rules: capture all governing bytes, review every current rule and relationship, reuse only valid completed reviews, and block consumers with missing or stale coverage. Read initial resources in dependency order. Links and checks never replace reading, use or judgment.
 
 ## Layout
 
@@ -8,7 +8,7 @@ Use one directory named for the skill. Include SKILL.md, support, mise.toml and 
 
 ## Body, ledger and dependency ownership
 
-Embed and apply [the body's complete ledger method](../SKILL.md#evidence) through `mise run ledger`. Reconcile every rule and relationship with the target domain and authorized sources. Keep all record facets, source content, provenance, conditions, unknowns and proof. Prove independent loading, traversal, paging, guarded work, rejection and recovery in the real Mastra domain workflow. Missing, stale or ignored input blocks consumers. Capture is not judgment; absent relations do not prove independence.
+Embed and apply [the body's complete ledger method](../SKILL.md#evidence) through `mise run ledger`. Reconcile every rule and relationship with the target domain and authorized sources. Each skill owns its source ledger and review history. Use that skill's source instructions and applicable portable factory rules. Do not use another task's ledger, quota, private records or approvals to meet this duty. Keep all record facets, source content, provenance, conditions, unknowns and proof. Prove independent loading, traversal, paging, guarded work, rejection and recovery in the real Mastra domain workflow. Missing, stale or ignored input blocks consumers. Capture is not judgment; absent relations do not prove independence.
 
 Apply [the body's full dependency contract](../SKILL.md#evidence) through `mise run ledger` to every file, section, package, task, workflow, script and handoff. Preserve its distinct orders, dependency types, readiness, scope, audience, ownership, feedback and invalidation rules. All remain required in every output.
 
@@ -16,7 +16,7 @@ Through `mise run validate`, apply every remaining [body contract](../SKILL.md) 
 
 ## Frontmatter
 
-Open with three dashes at byte 0; close the fence on its own line. Only these top-level fields are allowed: name, description, license, compatibility, metadata, allowed-tools.
+Open with three dashes at byte 0; close the fence on its own line. Allow only these top-level fields: name, description, license, compatibility, metadata, allowed-tools.
 
 - name: 1 to 64 characters matching `^[a-z0-9]+(?:-[a-z0-9]+)*$`, equal to the directory name.
 - description: quoted, 1 to 1024 characters, starts with "Use when", states applicability and user search keywords without summarizing the procedure.
@@ -25,7 +25,7 @@ Open with three dashes at byte 0; close the fence on its own line. Only these to
 
 Parse frontmatter as YAML. Reject malformed syntax, duplicate keys, invalid field types, compatibility outside 1 to 500 characters, and non-string allowed-tools. Use the pinned cached environment behind `mise run validate`.
 
-Before creating or changing a skill, load references/skill-scope-contract.md through `mise run validate`. It owns scope, legacy inspection, output acceptance, adaptation and placement. Copy it with this contract into generated packages.
+Before creating or changing a skill, load references/skill-scope-contract.md through `mise run validate`. It owns scope, legacy inspection, output acceptance, adaptation and placement. Copy both contracts to generated packages.
 
 ## Body and causal order
 
@@ -131,7 +131,7 @@ A source adapter is optional unless user-mandated. Classify current client marke
 
 ## Reuse before building
 
-Check for installed registry skills through `mise run source-corpus` before writing anything new, starting with starting-point from https://github.com/srinitude/skills. Look for skills/starting-point/SKILL.md through that task in the surrounding skills directory. Defer to an installed skill for the jobs its description names.
+Before writing anything new, use `mise run source-corpus` to find installed registry skills. Start with skills/starting-point/SKILL.md in the surrounding skills directory, from https://github.com/srinitude/skills. Defer to installed skills for jobs named by their descriptions.
 
 ## Prohibited content
 

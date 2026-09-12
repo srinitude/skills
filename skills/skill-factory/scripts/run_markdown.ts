@@ -59,7 +59,7 @@ export async function runMarkdown(args = process.argv.slice(2)) {
     const result = await runPhase(markdownWorkflows(storage), selected.phase, request, reply);
     process.stdout.write(JSON.stringify({ ...publicResult(result, selected.phase), questions,
       stage_questions: selected.phase in stages ? stages[selected.phase as keyof typeof stages] : [], execution_acceptance: 'pending',
-      limit: 'Cooperative checks and model review. Required human and whole-goal acceptance remain separate.' }) + '\n');
+      limit: 'Cooperative checks and model review. Required human and whole-skill acceptance remain separate.' }) + '\n');
     process.exitCode = result.status === 'success' ? 0 : result.status === 'suspended' ? 3 : 1;
   } catch (error) {
     process.stderr.write((error instanceof Error ? error.message : String(error)) + '\n');

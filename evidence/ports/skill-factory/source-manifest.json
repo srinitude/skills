@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "548c377bf077606435f50be053f753baf2343acab6ef40968f7ae253cb42f530",
-  "evidence_packet_sha256": "548c377bf077606435f50be053f753baf2343acab6ef40968f7ae253cb42f530",
+  "native_manifest_sha256": "6768ecd572aa9a72fb3cfbeba5c1a9f530606b952f3fe09ce0b3088b71de5b50",
+  "evidence_packet_sha256": "6768ecd572aa9a72fb3cfbeba5c1a9f530606b952f3fe09ce0b3088b71de5b50",
   "files": [
     {
       "bytes": 272,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 77105,
+      "bytes": 77182,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "0e57b6d8e08666303dfbeee4c289525de71e9137b009ddeee0f2482d32aefb2f",
+      "sha256": "6c1d692243e8cc1f79e7717d91813d1d7ea985d26cdc19ee2a3ef2e8558f3b4b",
       "source_path": "SKILL.md"
     },
     {

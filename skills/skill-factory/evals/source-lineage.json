@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "0f5f82366392de5a2e27452ce42b18d4acd863a6b2eb91f8072d96e0a9ba5e06",
+  "native_manifest_sha256": "d156c3b494d54a6b9c66c69d31c59cd307f6efa86481f930aae7868272b8d5a3",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "19d7332cda0c218a1c1d18505cc1aecaefa056af7a03937bc7c7eaa346ac880e"
+      "sha256": "6b8aa2475a6d4248fb89e894a2d278affdd3b320cbebed6b35d639cc4ff2a6bc"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1648,7 +1648,7 @@
     },
     {
       "path": "assets/skill-template.md",
-      "sha256": "3142405364353b1833ef3d9cff15bae2320f0425b91e789df31968121635c589"
+      "sha256": "182d200bd2cc88bf64eada076dd101ed9a1a9488b0aaa261f38b4a1e92007953"
     },
     {
       "path": "assets/source-shape-corpus.json",
@@ -1948,7 +1948,7 @@
     },
     {
       "path": "scripts/markdown_checks.py",
-      "sha256": "d8e30a5025b11f5d8c66fd58453649f37320a2f80c3e53beeba357b1eec856ec"
+      "sha256": "2d884d9b2d1040b1e706523d7ba4249b5faea01b6e36e3bb6db7ce849a33b9ef"
     },
     {
       "path": "scripts/markdown_workflow.ts",
@@ -2268,7 +2268,7 @@
     },
     {
       "path": "scripts/tests/test_markdown_reading.py",
-      "sha256": "89867b67d05242cdb0be346f67fae60d60111cd69382e991bf7c96890c33d296"
+      "sha256": "ad23e3999c9b19e0c064bf3dfe3323fbf3fccec96df8813c385343c063360115"
     },
     {
       "path": "scripts/tests/test_markdown_workflow.py",

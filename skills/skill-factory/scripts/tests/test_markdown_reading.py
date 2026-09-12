@@ -113,7 +113,7 @@ def workflow_review(base, request, env):
         env["SKILL_MARKDOWN_REPLY"] = str(path)
         code, resumed, error = invoke(phase, env)
         assert code == 0, error + str(resumed)
-    return invoke("review-check", env)
+    return invoke("review-check", env, public=True)
 
 
 def repair_iterations(base):
@@ -123,15 +123,16 @@ def repair_iterations(base):
     body = Path(request["roots"][0]) / "SKILL.md"
     easy = body.read_text()
     hard = easy + "\nInstitutional implementation necessitates interdisciplinary coordination and methodological standardization across jurisdictions.\n"
-    for iteration, content in enumerate([hard, easy]):
+    dense = easy + "\n" + "Read the file. " * 50 + "\n"
+    for iteration, content in enumerate([hard, easy, dense, easy]):
         body.write_text(content)
         request.update(run_id="repair-" + str(iteration), iteration=iteration)
         request["context"] = [{**item, **binding(body)} if item["role"] == "body" else item for item in request["context"]]
         Path(env["SKILL_MARKDOWN_REQUEST"]).write_text(json.dumps(request))
         env.pop("SKILL_MARKDOWN_REPLY", None)
         code, checked, error = workflow_review(base, request, env)
-        assert code == (1 if iteration == 0 else 0), error + str(checked)
-        if iteration == 0:
+        assert code == (1 if iteration % 2 == 0 else 0), error + str(checked)
+        if iteration % 2 == 0:
             assert "Fix the reported Markdown checks" in str(checked)
         else:
             assert invoke("accept", env)[0] == 0
@@ -167,6 +168,29 @@ class PayloadChecks(unittest.TestCase):
                                  text=True, capture_output=True, timeout=30)
             self.assertEqual(run.returncode, 0, run.stderr)
             self.assertEqual(json.loads(run.stdout), expected)
+
+class ParagraphChecks(unittest.TestCase):
+    def test_paragraph_boundaries_and_recovery(self):
+        owner = module()
+        cases = [('', 149), ('', 150), ('- ', 149), ('- ', 150), ('> ', 149), ('> ', 150)]
+        for prefix, words in cases:
+            raw = prefix + ' '.join(['Read', 'the', 'file.'][i % 3] for i in range(words)) + '\n'
+            result = owner.check_text(raw)
+            failures = [x for x in result['failures'] if x['rule'] == 'paragraph-words']
+            expected = [{'rule': 'paragraph-words', 'line': 1, 'words': 150,
+                         'maximum_exclusive': 150}] * (words == 150)
+            self.assertEqual(failures, expected)
+            self.assertLessEqual(result['grade'], 6)
+        wrapped = ('Read the file. ' * 25) + '\n' + ('Read the file. ' * 25)
+        self.assertTrue(any(x['rule'] == 'paragraph-words' for x in owner.check_text(wrapped)['failures']))
+        repaired = wrapped.replace('\n', '\n\n')
+        self.assertEqual(owner.check_text(repaired)['failures'], [])
+
+    def test_code_is_not_a_prose_paragraph(self):
+        result = module().check_text('```text\n' + 'Read. ' * 160 + '\n```\n')
+        self.assertEqual(result['failures'], [])
+        self.assertTrue(any(x['kind'] == 'fence' for x in result['excluded']))
+
 
 if __name__ == "__main__":
     unittest.main()

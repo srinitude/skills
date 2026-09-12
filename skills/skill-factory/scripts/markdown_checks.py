@@ -22,7 +22,8 @@ def runtime():
     if actual != VERSIONS:
         raise ValueError("Reading-check packages differ from the pinned method")
     textstat.set_lang("en_US")
-    return {"packages": actual, "python": sys.version, "policy": "markdown-reading-v1",
+    return {"packages": actual, "python": sys.version, "policy": "markdown-reading-v2",
+            "paragraph_words": {"maximum_exclusive": 150, "method": "textstat.lexicon_count; extracted paragraph prose"},
             "owner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "method": "Flesch-Kincaid; textstat English CMU dictionary with Pyphen fallback",
             "limit": "Estimated reading grade; not proof of meaning or reader performance"}
@@ -56,7 +57,7 @@ def frontmatter(text):
 
 def token_proof(tokens, excluded):
     blocks, failures, heading = [], [], 0
-    for token in tokens:
+    for index, token in enumerate(tokens):
         line = (token.map or [0])[0] + 1
         if token.type == "heading_open" and int(token.tag[1:]) > heading + 1:
             failures.append({"rule": "heading-order", "line": line})
@@ -64,10 +65,15 @@ def token_proof(tokens, excluded):
             heading = int(token.tag[1:])
         if token.type in {"fence", "code_block", "html_block"}:
             excluded.append({"kind": token.type, "start": line, "end": (token.map or [0, 0])[1]})
-        if token.type == "inline":
-            prose = inline_text(token.children)
-            blocks.append({"line": line, "text": prose, "grade": score(prose)})
-            failures.extend(inline_findings(token.children, line, excluded))
+        if token.type != "inline":
+            continue
+        prose = inline_text(token.children)
+        words = textstat.lexicon_count(prose, removepunct=True)
+        if tokens[index - 1].type == "paragraph_open" and words >= 150:
+            failures.append({"rule": "paragraph-words", "line": line,
+                             "words": words, "maximum_exclusive": 150})
+        blocks.append({"line": line, "text": prose, "grade": score(prose)})
+        failures.extend(inline_findings(token.children, line, excluded))
     return blocks, failures
 
 

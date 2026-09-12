@@ -9,7 +9,7 @@ uv = "0.11.29"
 [tasks.test]
 description = "Run {term} contract tests"
 depends = []
-run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
 
 [tasks.validate]
 description = "Validate the {term} package"

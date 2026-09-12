@@ -66,7 +66,47 @@ def _TestGeneratedCIContract_test_exact_legacy_generated_contract_is_migrated(se
     check_contract(updated, SOURCE)
 
 
+def run_test_probe(command, outcome):
+    import shlex
+    import subprocess
+    args = shlex.split(command)
+    args = args[args.index("python") + 1:]
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        tests = root / "scripts/tests"
+        tests.mkdir(parents=True)
+        (tests / "test_probe.py").write_text(
+            "import unittest\nfrom pathlib import Path\n"
+            "class Probe(unittest.TestCase):\n"
+            "    def test_a(self):\n        " + outcome + "\n"
+            "    def test_b(self):\n        Path('visited').touch()\n")
+        result = subprocess.run([sys.executable, *args], cwd=root,
+                                capture_output=True, text=True, timeout=10)
+        return result, (root / "visited").exists()
+
+
+def _test_commands_stop_after_failure_and_run_all_after_recovery(self):
+    from standardization_seed import base_mise
+    from standardization_mise import normalize_mise
+    root = SCRIPTS.parent
+    sources = [(root / name).read_text() for name in ["mise.toml", "assets/mise-template.toml"]]
+    sources += [base_mise({"primary_term": "probe"}), normalize_mise("[tasks.ci]\ndepends = []\n")]
+    from itertools import product
+    tasks = [tomllib.loads(source)["tasks"]["test"] for source in sources]
+    commands = [task[key] for task in tasks for key in ["run", "run_windows"] if key in task]
+    outcomes = ["raise AssertionError('probe-failure')", "raise RuntimeError('probe-error')", "pass"]
+    for command, outcome in product(commands, outcomes):
+        with self.subTest(command=command, outcome=outcome):
+            result, visited = run_test_probe(command, outcome)
+            failed = outcome != "pass"
+            self.assertEqual(result.returncode, int(failed), result.stderr)
+            self.assertEqual(visited, not failed, result.stderr)
+            self.assertIn("Ran 1 test" if failed else "Ran 2 tests", result.stderr)
+            self.assertIn("probe-" if failed else "OK", result.stderr)
+
+
 class TestGeneratedCIContract(unittest.TestCase):
+    test_commands_stop_after_failure_and_run_all_after_recovery = _test_commands_stop_after_failure_and_run_all_after_recovery
     test_custom_ci_contract_passes_and_command_drift_fails = _TestGeneratedCIContract_test_custom_ci_contract_passes_and_command_drift_fails
     test_exact_generated_contract_is_refreshed_for_changed_commands = _TestGeneratedCIContract_test_exact_generated_contract_is_refreshed_for_changed_commands
     test_customized_contract_is_preserved_for_explicit_review = _TestGeneratedCIContract_test_customized_contract_is_preserved_for_explicit_review

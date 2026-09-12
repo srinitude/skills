@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "d156c3b494d54a6b9c66c69d31c59cd307f6efa86481f930aae7868272b8d5a3",
+  "native_manifest_sha256": "9f656a8bd065251bfc38dc251e6857e7c94159e689160bc08bc1610cddce0132",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1632,7 +1632,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "9dbbe1f1745c5408cbc8b739a60fde2167fa747086d10fef9a98c036828b4bef"
+      "sha256": "e512de80c240cfa7f59ac6a7359ac665f5b95a541e8b3231057e3b2bac78d40e"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1800,7 +1800,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "bb6a84d870c3d4e26e32272c847e3ff5912cded975c8146faabc24d4c031bb64"
+      "sha256": "14c72cd3bbdcaa27ab75d71ffb29f18b911c4a3290a499834223a9e638220a83"
     },
     {
       "path": "package-lock.json",
@@ -2140,7 +2140,7 @@
     },
     {
       "path": "scripts/standardization_seed.py",
-      "sha256": "66937a5ec617c3e427dd906d2941be6e14283488746204ee8f01db8aee5fc95c"
+      "sha256": "0134f4c5b288bdec47477d11fc770764320b300840ad70e3dd032f69dab8bad0"
     },
     {
       "path": "scripts/standardization_workflow.ts",
@@ -2444,7 +2444,7 @@
     },
     {
       "path": "scripts/tests/test_standardization_ci_contract.py",
-      "sha256": "c01cccbc4880564d1ebbfe8229318243ac005995513d4f68e4f3b5ba57d1a374"
+      "sha256": "3a59c93d08b9ab12b31c52dcaaea465510bd76c6460d60aa58df41cfcf81739b"
     },
     {
       "path": "scripts/tests/test_standardization_commands.py",

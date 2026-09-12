@@ -203,8 +203,8 @@ run_windows = "python scripts/render_file_graph.py"
 [tasks.test]
 env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Every test in scripts/tests/"
-run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
+run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
 timeout = "180s"
 depends = ["setup-graph-renderer"]
 

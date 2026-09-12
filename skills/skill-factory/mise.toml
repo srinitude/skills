@@ -262,6 +262,7 @@ run = "python3 scripts/check_primitive_lifecycle.py ."
 description = "Install and check the locked skill graph browser"
 depends = ["lint-code"]
 run = [
+  "node --input-type=module -e \"import { lstatSync } from 'node:fs'; import { execFileSync } from 'node:child_process'; if (process.platform === 'linux' && process.env.GITHUB_ACTIONS === 'true' && process.env.RUNNER_ENVIRONMENT === 'github-hosted') { const path = '/opt/google/chrome/chrome-sandbox'; const file = lstatSync(path); if (!file.isFile() || file.uid !== 0 || ![0o755, 0o4755].includes(file.mode & 0o7777)) throw new Error('Unexpected Chrome sandbox owner or mode'); execFileSync('sudo', ['-n', 'chmod', '4755', '--', path], { stdio: 'inherit' }); }\"",
   "node node_modules/puppeteer/install.mjs",
   "node --input-type=module -e \"import puppeteer from 'puppeteer'; const browser = await puppeteer.launch({ headless: 'shell' }); await browser.close();\""
 ]

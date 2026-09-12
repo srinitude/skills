@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "f31e54f29ea896d3c53a35f9b980d71c9c121b625e89cb502327b7a914e1ea2a",
-  "evidence_packet_sha256": "f31e54f29ea896d3c53a35f9b980d71c9c121b625e89cb502327b7a914e1ea2a",
+  "native_manifest_sha256": "58661d9443e7aad3009e2dabadeb7b14ac6f757d6328a73ef1d418edfeb63bc6",
+  "evidence_packet_sha256": "58661d9443e7aad3009e2dabadeb7b14ac6f757d6328a73ef1d418edfeb63bc6",
   "files": [
     {
       "bytes": 252,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 79933,
+      "bytes": 78968,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "ad56d449e0f3c31821deb24a180d994b2bc116608a0b4115eb786314b6a4de8a",
+      "sha256": "9f3d9dcca08f0be1f4de77929f66d080528071e527a401fffbcd9a76b1be5713",
       "source_path": "SKILL.md"
     },
     {
@@ -118,10 +118,10 @@
       "source_path": "assets/mise-primitives.json"
     },
     {
-      "bytes": 8566,
+      "bytes": 9132,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/mise-template.toml",
-      "sha256": "f1c735d77afeda342154264b162fc04b8336d5c6bff44827c6a47a77a97b065c",
+      "sha256": "596691c50a6525d6661fd962d581b2e7d851e1ee0b5124ad168605c0910f5b0e",
       "source_path": "assets/mise-template.toml"
     },
     {
@@ -412,10 +412,10 @@
       "source_path": "examples/variant-public-run.json"
     },
     {
-      "bytes": 12966,
+      "bytes": 13532,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/mise.toml",
-      "sha256": "d6c7a508be5d2370a54789f90b198335b4ea263c98553e6876933fecde5463bc",
+      "sha256": "74bdde1cda3c12abc83e86d394b39f3c240ba30c32fca1bb074ccd8e3504220d",
       "source_path": "mise.toml"
     },
     {

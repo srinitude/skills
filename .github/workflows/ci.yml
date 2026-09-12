@@ -19,6 +19,8 @@ jobs:
       - run: mise run ci
   factory:
     runs-on: ubuntu-latest
+    env:
+      CHROME_DEVEL_SANDBOX: /opt/google/chrome/chrome-sandbox
     defaults:
       run:
         working-directory: skills/skill-factory

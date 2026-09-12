@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "5b6adb9574e123ca28e8fcb49eba22133a5e2ce0cf88022719f007dcce061a25",
+  "native_manifest_sha256": "f31e54f29ea896d3c53a35f9b980d71c9c121b625e89cb502327b7a914e1ea2a",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -1568,7 +1568,7 @@
   "source_files": [
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "ef17d227ced2b78e436fbc50667a994a07833c28f9c54fb5045e5dc340514271"
+      "sha256": "96d54085b989a5d3aa109b082176fc84f908036d9a40dae8424c18097aa8084c"
     },
     {
       "path": "LICENSE",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "6b8aa2475a6d4248fb89e894a2d278affdd3b320cbebed6b35d639cc4ff2a6bc"
+      "sha256": "ad56d449e0f3c31821deb24a180d994b2bc116608a0b4115eb786314b6a4de8a"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1584,7 +1584,7 @@
     },
     {
       "path": "assets/ci/ci.yml",
-      "sha256": "f6637f1f3de5d4120148da18bd3e1aff45d2b91137f9c631c66e6410b18b8877"
+      "sha256": "80183fb24099e9ba2c81445dc59a6904f3bc11a3291082b1fbbb86c9821903ca"
     },
     {
       "path": "assets/decision-records-template.json",
@@ -1632,7 +1632,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "4514181e60a1addbde9da34af98eee6795fc50e8712624052d1345647684ecc6"
+      "sha256": "f1c735d77afeda342154264b162fc04b8336d5c6bff44827c6a47a77a97b065c"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -1800,7 +1800,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "14c72cd3bbdcaa27ab75d71ffb29f18b911c4a3290a499834223a9e638220a83"
+      "sha256": "d6c7a508be5d2370a54789f90b198335b4ea263c98553e6876933fecde5463bc"
     },
     {
       "path": "package-lock.json",
@@ -2112,7 +2112,7 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "b7f31043c4f0454dd2805dd6c1fd0b4e6b35ae0d8e05f51c7b283490189c6ecc"
+      "sha256": "e83bdb9e305721b0f8826131b34bcb488fcd4aa142cf6c0c51f69c495fbc1d4b"
     },
     {
       "path": "scripts/standardization_plan.py",

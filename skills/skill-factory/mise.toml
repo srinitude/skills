@@ -259,9 +259,12 @@ depends = ["mise-primitives-policy"]
 run = "python3 scripts/check_primitive_lifecycle.py ."
 
 [tasks.setup-graph-renderer]
-description = "Install the browser selected by the locked skill graph renderer"
+description = "Install and check the locked skill graph browser"
 depends = ["lint-code"]
-run = "node node_modules/puppeteer/install.mjs"
+run = [
+  "node node_modules/puppeteer/install.mjs",
+  "node --input-type=module -e \"import puppeteer from 'puppeteer'; const browser = await puppeteer.launch({ headless: 'shell' }); await browser.close();\""
+]
 
 [tasks.render-file-graph]
 description = "Render a bound native skill file graph and verify every SVG node and connector"

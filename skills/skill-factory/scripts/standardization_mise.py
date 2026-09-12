@@ -3,10 +3,12 @@ import json
 import re
 import tomllib
 from graphlib import TopologicalSorter
+from pathlib import Path
 
 from check_task_graph import dependency_name, path_counts
 from standardization_seed import base_mise
 
+FACTORY_TASKS = tomllib.loads((Path(__file__).resolve().parents[1] / "mise.toml").read_text())["tasks"]
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
 from standardization_runtime import (MARKDOWN_TASKS, check_runtime_tasks, CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
@@ -14,7 +16,7 @@ from standardization_runtime import (MARKDOWN_TASKS, check_runtime_tasks, CATALO
 
 POLICY_TASKS = {
     "render-file-graph": (["setup-graph-renderer"], "Prepare or render the recorded agent skill file graph", "python3 scripts/render_file_graph.py"),
-    "setup-graph-renderer": (["lint-code"], "Prepare or render the recorded agent skill file graph", "node node_modules/puppeteer/install.mjs"),
+    "setup-graph-renderer": (["lint-code"], "Prepare or render the recorded agent skill file graph", FACTORY_TASKS["setup-graph-renderer"]["run"]),
     "validate": ([], "Validate the current skill package and changed-output declarations",
         "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"),
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",

@@ -17,3 +17,18 @@ jobs:
         with:
           cache: true
       - run: mise run ci
+  factory:
+    runs-on: ubuntu-latest
+    env:
+      CHROME_DEVEL_SANDBOX: /usr/local/share/chromium/chrome-linux/chrome_sandbox
+    defaults:
+      run:
+        working-directory: skills/skill-factory
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+        with:
+          version: 2026.9.3
+          cache: true
+          working_directory: skills/skill-factory
+      - run: mise run ci

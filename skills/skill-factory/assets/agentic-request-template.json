@@ -2,10 +2,22 @@
   "version": 1,
   "operation": "SCAFFOLD-PLACEHOLDER name the domain-specific {{NAME}} operation",
   "use_case": {
-    "path": "assets/use-case-contract.json",
+    "path": "use-case-contract.json",
     "sha256": "SCAFFOLD-PLACEHOLDER sha256 of the completed use-case contract",
     "promised_outcome": "SCAFFOLD-PLACEHOLDER copy the exact {{NAME}} outcome from the use-case contract"
   },
+  "context": [
+    {
+      "id": "governing-ledger",
+      "path": "SCAFFOLD-PLACEHOLDER caller-authorized governing-ledger path permitted by the use-case binding",
+      "sha256": "SCAFFOLD-PLACEHOLDER current governing-ledger SHA-256 matching any package pin"
+    },
+    {
+      "id": "study-work-matrix",
+      "path": "SCAFFOLD-PLACEHOLDER caller-authorized study-work-matrix path permitted by the use-case binding",
+      "sha256": "SCAFFOLD-PLACEHOLDER current study-work-matrix SHA-256 matching any package pin"
+    }
+  ],
   "prompt": {
     "file": "SCAFFOLD-PLACEHOLDER path to the long {{NAME}} prompt file",
     "sha256": "SCAFFOLD-PLACEHOLDER sha256 of the prompt file",

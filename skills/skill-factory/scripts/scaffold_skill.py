@@ -6,33 +6,52 @@ starter script and tests, seed evals, and copies of the checker
 scripts so the new skill verifies itself. Prints a JSON summary.
 
 Exit codes:
-  0  skill created
+  0  plan returned or scaffold created
   1  target already exists
   2  usage or input error
 
 Example:
   python3 scripts/scaffold_skill.py --name release-notes \\
     --description "Use when release notes are needed from a git log." \\
-    --dest /path/to/skills --scope user
+    --dest /path/to/skills --scope user --plan
 
 Scope classifies intended availability. The explicit destination is an
 authoring directory, not evidence of scope or an installation instruction.
+
+Use --plan to read the full current factory body, owned-file identities, rendered
+bytes, source bindings, construction phases and observed local Python imports.
+Creation requires --review FILE with exactly: plan_sha256, context, body_review,
+and files. plan_sha256 hashes JSON serialization of the plan using sorted keys,
+separators (comma, colon), default ASCII escaping and no trailing newline.
+context has ledger, ledger_sha256, expected_documents, original_source and
+inventory_document, with the same bindings as the ledger write-file operation.
+body_review binds path/sha256 for the existing initial-review JSON, with
+previous_sha256: null. files maps every planned path to reviewer and review,
+where review supplies every exact field in the actual ledger review protocol.
+Complete those declarations after reviewing the plan. They are not permission,
+authenticated semantic judgment or domain acceptance. Repeat all original flags
+with --review in place of --plan; changed date, inputs or factory files stale it.
+Each actual file uses the shared ledger writer. The bootstrap candidate applies
+before SKILL.md installation, explicit body_revision installs it, and later
+writes read the installed body. Protected public writes retain full before/after
+reads. Existing exclusive package promotion follows exact planned-byte readback.
+The result reports actual file order; every seed remains blocked pending domain
+work. Runtime/reading dependencies and native domain-workflow proof remain separate.
 """
 import argparse
 import datetime
 import json
 import re
-import shutil
 import sys
 from pathlib import Path
+from scaffold_plan import render_plan
+from scaffold_review import build_reviewed, load_review, current_inputs, read_context
 from scope_placement import check_placement
 from skill_package import promote, staged
+from standardization_runtime import LEDGER_EXAMPLES, LEDGER_FILES, ROOT_FILES
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
-ASSETS = SKILL_DIR / "assets"
 NAME_RE = re.compile(r"^(?!.*--)[a-z0-9]+(?:-[a-z0-9]+)*$")
-DIRS = ["references", "assets", "examples", "scripts",
-        "scripts/tests", "evals", ".github/workflows"]
 FILLED = [
     ("SKILL.md", "skill-template.md"),
     ("mise.toml", "mise-template.toml"),
@@ -59,25 +78,21 @@ COPIED = [
     ("scripts/tests/test_agentic_request.py", "starter-agentic-test.py"),
 ]
 SCRIPT_COPIED = [
+    ("scripts/domain_text.py", "domain_text.py"),
     ("scripts/run_agentic_request.py", "run_agentic_request.py"),
     ("scripts/agentic_request_contract.py", "agentic_request_contract.py"),
+    ("scripts/agentic_context.py", "agentic_context.py"),
 ]
+SCRIPT_COPIED += [("scripts/" + name, name) for name in LEDGER_FILES]
 CHECKERS = ["lint_writing.py", "validate_skill.py",
             "check_code_rules.py", "check_evals.py",
             "check_placeholders.py", "check_improvement_contract.py",
             "check_use_case_contract.py", "check_domain_research.py",
             "check_task_graph.py", "check_invocation_receipt.py"]
-CHECKERS.append("domain_text.py")
+CHECKERS.extend(["check_javascript.ts", "skill_package.py"])
 CHECKERS.append("check_decision_records.py")
 CHECKERS.extend(["check_mise_primitives.py", "check_primitive_lifecycle.py",
                  "sync_mise_primitives.py"])
-
-
-def fill(template, tokens):
-    text = (ASSETS / template).read_text(encoding="utf-8")
-    for key, value in tokens.items():
-        text = text.replace("{{%s}}" % key, value)
-    return text
 
 
 def argument_error(args):
@@ -95,23 +110,17 @@ def argument_error(args):
     return None
 
 
-def build(target, tokens):
-    for sub in DIRS:
-        (target / sub).mkdir(parents=True)
-    for destination, template in FILLED:
-        (target / destination).write_text(fill(template, tokens),
-                                          encoding="utf-8")
-    for destination, source in COPIED:
-        shutil.copy(ASSETS / source, target / destination)
-    for destination, source in SCRIPT_COPIED:
-        shutil.copy(SKILL_DIR / "scripts" / source, target / destination)
-    for name in CHECKERS:
-        shutil.copy(SKILL_DIR / "scripts" / name, target / "scripts" / name)
-    for name in ["generation-contract.md", "resource-and-experiment-design.md",
-                 "use-case-specificity.md", "writing-rules.md", "skill-scope-contract.md"]:
-        shutil.copy(SKILL_DIR / "references" / name,
-                    target / "references" / name)
-    return len(FILLED) + len(COPIED) + len(SCRIPT_COPIED) + len(CHECKERS) + 5
+def source_files():
+    sources = [(name, name, False) for name in ROOT_FILES + LEDGER_EXAMPLES]
+    sources += [(destination, 'assets/' + template, True) for destination, template in FILLED]
+    sources += [(destination, 'assets/' + source, False) for destination, source in COPIED]
+    sources += [(destination, 'scripts/' + source, False) for destination, source in SCRIPT_COPIED]
+    sources += [('scripts/' + name, 'scripts/' + name, False) for name in CHECKERS]
+    sources += [('references/' + name, 'references/' + name, False) for name in
+                ['generation-contract.md', 'resource-and-experiment-design.md',
+                 'improvement-dimensions.md',
+                 'use-case-specificity.md', 'writing-rules.md', 'skill-scope-contract.md']]
+    return sources
 
 
 def parse_args(argv):
@@ -124,7 +133,34 @@ def parse_args(argv):
     parser.add_argument("--placement-receipt", help="verified integration receipt when installing")
     parser.add_argument("--dest", required=True,
                         help="parent directory for the new skill")
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--plan", action="store_true", help="print full planned bytes without writes")
+    action.add_argument("--review", help="current ledger, initial body and per-file review JSON")
     return parser.parse_args(argv)
+
+
+def execute(args, target, tokens, placement):
+    plan = render_plan(SKILL_DIR, tokens, source_files())
+    if args.plan:
+        print(json.dumps(plan))
+        return 0
+    if not args.review:
+        raise ValueError("creation requires --review; inspect --plan first")
+    review, raw = load_review(args.review, plan)
+    def check():
+        current_inputs(SKILL_DIR, plan, args.review, raw)
+        read_context(review['context'])
+    with staged(target.parent, target.name) as candidate:
+        writes = build_reviewed(SKILL_DIR, candidate, plan, args.review, review, raw)
+        promote(candidate, target, check=check, verify=lambda _backup: check())
+    print(json.dumps({"created": str(target), "files": len(writes), "writes": writes, "execution_acceptance": "pending",
+                      "scope": args.scope, "scope_label": args.scope + "-level",
+                      "placement": placement["kind"],
+                      "next": "run mise run ci inside the new skill",
+                      "blocked_until": "every SCAFFOLD placeholder is "
+                                       "replaced; check_placeholders.py "
+                                       "exits 1 until then"}))
+    return 0
 
 
 def main(argv=None):
@@ -145,17 +181,12 @@ def main(argv=None):
     tokens = {"NAME": args.name, "DESCRIPTION": json.dumps(args.description)[1:-1],
               "SCOPE": args.scope,
               "DATE": datetime.date.today().isoformat()}
-    with staged(target.parent, target.name) as candidate:
-        count = build(candidate, tokens)
-        promote(candidate, target)
-    print(json.dumps({"created": str(target), "files": count,
-                      "scope": args.scope, "scope_label": args.scope + "-level",
-                      "placement": placement["kind"],
-                      "next": "run mise run ci inside the new skill",
-                      "blocked_until": "every SCAFFOLD placeholder is "
-                                       "replaced; check_placeholders.py "
-                                       "exits 1 until then"}))
-    return 0
+    try:
+        return execute(args, target, tokens, placement)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print(f"error: {error}")
+        return 1
+
 
 
 if __name__ == "__main__":

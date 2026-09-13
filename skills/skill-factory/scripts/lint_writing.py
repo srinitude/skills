@@ -3,11 +3,9 @@
 
 Flags machine-flavored prose: banned words and frames, em and en
 dashes, Latin shorthand, and headings nested past three levels. Also
-enforces the one line layout: every wrappable block, a paragraph or
-a list item plus its continuation lines, is exactly one physical
-line with no internal hard breaks and no maximum length. Frontmatter,
-headings, table rows, code fences and their content, indented code,
-and blank lines are exempt.
+allows wrapped paragraphs and list items. A reference definition must
+start its own block, so readers do not mistake it for paragraph text.
+Frontmatter, headings, tables, code and blank lines retain their syntax.
 Prints one line per problem as path:line: message.
 
 Exit codes:
@@ -19,10 +17,10 @@ Examples:
   python3 scripts/lint_writing.py .
   python3 scripts/lint_writing.py SKILL.md references/registry.md
 """
-import argparse
-import re
-import sys
+import argparse, re, sys
 from pathlib import Path
+
+from skill_package import owned_paths
 
 WORDS = [
     "delve", "delves", "delving", "delved", "tapestry", "camaraderie",
@@ -51,8 +49,10 @@ WORD_RES = [(w, re.compile(r"\b%s\b" % re.escape(w), re.I)) for w in WORDS]
 LIST_RE = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 SCRIPT_PATH_RE = re.compile(r"(?<![\w-])scripts/")
+REFERENCE_DEFINITION_RE = re.compile(r" {0,3}\[[^\[\]\n]+\]:[ \t]*(?:<[^<>\n]*>|[^\s<>]+)[ \t]*$")
+SCRIPT_OWNER_LINK_RE = re.compile(r"(\[[^\]\n]+\])\(scripts/[\w./-]+\)")
 RESOURCE_ROOTS = (
-    "references", "assets", "examples", "evals", "fixtures", "schemas",
+    "scripts", "references", "assets", "examples", "evals", "fixtures", "schemas",
     "templates", "data", "config", "configs", "docs", "tests", ".github",
     ".agents", "prompts", "hooks", "workflows", "reports", "artifacts",
     "snapshots", "baselines", "benchmarks", "corpus", "corpora", "policies",
@@ -69,39 +69,27 @@ STEP_LABELS = {
     "**Pass**", "**Blocked**", "**Feeds**",
 }
 
-
 def check_words(line):
-    found = []
-    for word, pattern in WORD_RES:
-        if pattern.search(line):
-            found.append(f'banned word "{word}"')
-    return found
-
+    return [f'banned word "{word}"' for word, pattern in WORD_RES if pattern.search(line)]
 
 def check_phrases(line):
-    lowered = line.lower()
-    return [f'banned frame "{p}"' for p in PHRASES if p in lowered]
-
+    return [f'banned frame "{p}"' for p in PHRASES if re.search(r"(?<!\w)" + re.escape(p) + r"(?!\w)", line, re.I)]
 
 def check_symbols(line):
     found = [name for char, name in DASHES.items() if char in line]
     found.extend(msg for pattern, msg in LATIN if pattern.search(line))
     if line.startswith("####"):
         found.append("heading nested past three levels")
-    if SCRIPT_PATH_RE.search(line):
+    if SCRIPT_PATH_RE.search(SCRIPT_OWNER_LINK_RE.sub(r"\1", line)):
         found.append("markdown must reference the owning Mise task, not scripts/")
     return found
 
-
 def check_resource_path(line, fence_paired):
-    if SCRIPT_PATH_RE.search(line):
-        return []
     plain = URL_RE.sub("", line)
     referenced = ROOT_PATH_RE.search(plain) or FILE_PATH_RE.search(plain)
     if referenced and "mise run " not in line and not fence_paired:
         return ["package file reference must share its block with the owning Mise task"]
     return []
-
 
 def mise_fence_lines(lines):
     paired, start = set(), None
@@ -116,10 +104,8 @@ def mise_fence_lines(lines):
         start = None
     return paired
 
-
 def mise_section_lines(lines):
-    starts = [index for index, line in enumerate(lines)
-              if line.startswith("#") and line.lstrip("#").startswith(" ")]
+    starts = [index for index, line in enumerate(lines) if line.startswith("#") and line.lstrip("#").startswith(" ")]
     boundaries = sorted(set([skip_frontmatter(lines), *starts, len(lines)]))
     paired = set()
     for index in range(len(boundaries) - 1):
@@ -128,50 +114,43 @@ def mise_section_lines(lines):
             paired.update(range(start, end))
     return paired
 
-
 def skip_frontmatter(lines):
-    if lines and lines[0].strip() == "---":
-        for index in range(1, len(lines)):
-            if lines[index].strip() == "---":
-                return index + 1
-    return 0
-
+    if not lines or lines[0].strip() != "---":
+        return 0
+    return next((index + 1 for index in range(1, len(lines)) if lines[index].strip() == "---"), 0)
 
 def breaks_block(line, fence):
-    if FENCE_RE.match(line):
-        return True, not fence
+    if FENCE_RE.match(line): return True, not fence
     stripped = line.strip()
     if (fence or not stripped or stripped.startswith(("#", "|", ">"))
             or stripped in STEP_LABELS):
         return True, fence
     return False, fence
 
-
 def collect_blocks(lines):
     blocks, current, fence = [], [], False
     for number in range(skip_frontmatter(lines), len(lines)):
         line = lines[number]
+        # Single-line untitled definitions are not wrappable prose.
+        if not current and not fence and REFERENCE_DEFINITION_RE.fullmatch(line):
+            continue
         broke, fence = breaks_block(line, fence)
         code = not current and (line[:4] == "    " or line[:1] == "\t")
-        if broke or code:
-            if current:
-                blocks.append(current)
+        if (broke or code) and current:
+            blocks.append(current)
             current = []
+        if broke or code:
             continue
         if LIST_RE.match(line) and current:
             blocks.append(current)
             current = []
         current.append((number + 1, line))
-    if current:
-        blocks.append(current)
+    if current: blocks.append(current)
     return blocks
 
-
 def check_block(block, path, problems):
-    for number, _ in block[1:]:
-        problems.append(f"{path}:{number}: hard line break inside a "
-                        "wrappable block; join the block into one line")
-
+    problems.extend(f"{path}:{number}: reference definition cannot interrupt prose; add a blank line"
+                    for number, line in block[1:] if REFERENCE_DEFINITION_RE.fullmatch(line))
 
 def check_file(path):
     problems = []
@@ -187,45 +166,33 @@ def check_file(path):
         paired = number - 1 in fence_paired or number - 1 in section_paired
         messages += check_resource_path(line, paired)
         problems.extend(f"{path}:{number}: {m}" for m in messages)
-    for block in collect_blocks(lines):
-        check_block(block, path, problems)
+    for block in collect_blocks(lines): check_block(block, path, problems)
     return problems
-
 
 def collect(targets):
     files = []
     for target in targets:
         path = Path(target)
         if path.is_dir():
-            files.extend(sorted(path.rglob("*.md")))
+            files.extend(p for p in sorted(owned_paths(path)) if p.suffix == ".md")
         elif path.is_file():
             files.append(path)
         else:
             raise FileNotFoundError(target)
     return files
 
-
 def main(argv=None):
-    parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("targets", nargs="+",
-                        help="markdown files or directories to scan")
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("targets", nargs="+", help="markdown files or directories to scan")
     args = parser.parse_args(argv)
     try:
         files = collect(args.targets)
-    except FileNotFoundError as missing:
-        print(f"error: no such file or directory: {missing}",
-              file=sys.stderr)
+    except (OSError, ValueError) as missing:
+        print(f"error: no such file or directory: {missing}", file=sys.stderr)
         return 2
-    problems = []
-    for path in files:
-        problems.extend(check_file(path))
-    for problem in problems:
-        print(problem)
+    problems = [problem for path in files for problem in check_file(path)]
+    for problem in problems: print(problem)
     print(f"checked {len(files)} files, {len(problems)} problems")
     return 1 if problems else 0
 
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == "__main__": sys.exit(main())

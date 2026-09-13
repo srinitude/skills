@@ -1,9 +1,10 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, expect, test } from 'vitest';
 
 import { validateRepository } from './repository-validation.js';
+import { repositoryFiles } from './source-evidence-files.js';
 
 const root = process.cwd();
 const temporary: string[] = [];
@@ -49,6 +50,20 @@ test('LOGIC-006A repository validation rejects an unlisted public skill file', a
 
   expect(report.status).toBe('FAIL');
   expect(report.errors.join('\n')).toMatch(/public file.*lineage|lineage.*public file/i);
+});
+
+test('source inventory excludes installed runtime entries but rejects owned links', async () => {
+  const fixture = await mkdtemp(join(tmpdir(), 'source-inventory-'));
+  temporary.push(fixture);
+  await writeFile(join(fixture, 'SKILL.md'), '# Owned source\n');
+  for (const folder of ['node_modules', '.mise', '.artifacts', '__pycache__']) {
+    await mkdir(join(fixture, folder));
+    await symlink(join(fixture, 'SKILL.md'), join(fixture, folder, 'runtime-link'));
+    await writeFile(join(fixture, folder, 'generated.json'), '{}\n');
+  }
+  expect(await repositoryFiles(fixture)).toEqual(['SKILL.md']);
+  await symlink(join(fixture, 'SKILL.md'), join(fixture, 'owned-link'));
+  await expect(repositoryFiles(fixture)).rejects.toThrow(/unsupported entry/);
 });
 
 test('LOGIC-006B repository validation rejects an unknown lineage source path', async () => {

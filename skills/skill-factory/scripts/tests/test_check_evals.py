@@ -40,44 +40,51 @@ class TestCheckEvalsCli(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
 
 
+def _TestCheckEvalsRules_test_this_skills_evals_pass(self):
+    result = run("check_evals.py", SKILL_DIR)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+def _TestCheckEvalsRules_test_valid_minimal_evals_pass(self):
+    doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
+    with tempfile.TemporaryDirectory() as tmp:
+        write_evals(tmp, doc, GOOD_QUERIES)
+        result = run("check_evals.py", tmp, "--min-cases", "1",
+                     "--min-queries", "2")
+    self.assertEqual(result.returncode, 0, result.stdout)
+
+def _TestCheckEvalsRules_test_case_missing_expected_output_fails(self):
+    bad = {k: v for k, v in GOOD_CASE.items() if k != "expected_output"}
+    doc = {"skill_name": "sample", "evals": [bad]}
+    with tempfile.TemporaryDirectory() as tmp:
+        write_evals(tmp, doc, GOOD_QUERIES)
+        result = run("check_evals.py", tmp, "--min-cases", "1",
+                     "--min-queries", "2")
+    self.assertEqual(result.returncode, 1)
+    self.assertIn("expected_output", result.stdout)
+
+def _TestCheckEvalsRules_test_missing_trigger_queries_file_fails(self):
+    doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
+    with tempfile.TemporaryDirectory() as tmp:
+        write_evals(tmp, doc, None)
+        result = run("check_evals.py", tmp, "--min-cases", "1")
+    self.assertEqual(result.returncode, 1)
+    self.assertIn("trigger-queries.json", result.stdout)
+
+def _TestCheckEvalsRules_test_queries_need_both_labels(self):
+    doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
+    one_sided = [{"query": "x", "should_trigger": True}] * 4
+    with tempfile.TemporaryDirectory() as tmp:
+        write_evals(tmp, doc, one_sided)
+        result = run("check_evals.py", tmp, "--min-cases", "1")
+    self.assertEqual(result.returncode, 1)
+
+
 class TestCheckEvalsRules(unittest.TestCase):
-    def test_this_skills_evals_pass(self):
-        result = run("check_evals.py", SKILL_DIR)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
-    def test_valid_minimal_evals_pass(self):
-        doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
-        with tempfile.TemporaryDirectory() as tmp:
-            write_evals(tmp, doc, GOOD_QUERIES)
-            result = run("check_evals.py", tmp, "--min-cases", "1",
-                         "--min-queries", "2")
-        self.assertEqual(result.returncode, 0, result.stdout)
-
-    def test_case_missing_expected_output_fails(self):
-        bad = {k: v for k, v in GOOD_CASE.items() if k != "expected_output"}
-        doc = {"skill_name": "sample", "evals": [bad]}
-        with tempfile.TemporaryDirectory() as tmp:
-            write_evals(tmp, doc, GOOD_QUERIES)
-            result = run("check_evals.py", tmp, "--min-cases", "1",
-                         "--min-queries", "2")
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("expected_output", result.stdout)
-
-    def test_missing_trigger_queries_file_fails(self):
-        doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
-        with tempfile.TemporaryDirectory() as tmp:
-            write_evals(tmp, doc, None)
-            result = run("check_evals.py", tmp, "--min-cases", "1")
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("trigger-queries.json", result.stdout)
-
-    def test_queries_need_both_labels(self):
-        doc = {"skill_name": "sample", "evals": [GOOD_CASE]}
-        one_sided = [{"query": "x", "should_trigger": True}] * 4
-        with tempfile.TemporaryDirectory() as tmp:
-            write_evals(tmp, doc, one_sided)
-            result = run("check_evals.py", tmp, "--min-cases", "1")
-        self.assertEqual(result.returncode, 1)
+    test_this_skills_evals_pass = _TestCheckEvalsRules_test_this_skills_evals_pass
+    test_valid_minimal_evals_pass = _TestCheckEvalsRules_test_valid_minimal_evals_pass
+    test_case_missing_expected_output_fails = _TestCheckEvalsRules_test_case_missing_expected_output_fails
+    test_missing_trigger_queries_file_fails = _TestCheckEvalsRules_test_missing_trigger_queries_file_fails
+    test_queries_need_both_labels = _TestCheckEvalsRules_test_queries_need_both_labels
 
 
 if __name__ == "__main__":

@@ -25,10 +25,27 @@ function inside(root: string, candidate: string): boolean {
   return candidate === root || candidate.startsWith(root + sep);
 }
 
+const runtimeEntries = new Set([
+  '.git',
+  '.mise',
+  '.artifacts',
+  '__pycache__',
+  'node_modules',
+  '.pytest_cache',
+  '.mypy_cache',
+  '.ruff_cache',
+  '.DS_Store',
+]);
+
 export async function repositoryFiles(directory: string, prefix = ''): Promise<string[]> {
   const found: string[] = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
-    if (entry.name === '__pycache__') continue;
+    if (
+      runtimeEntries.has(entry.name) ||
+      (entry.isFile() && /\.py[co]$/.test(entry.name))
+    ) {
+      continue;
+    }
     const relative = prefix ? posix.join(prefix, entry.name) : entry.name;
     if (entry.isDirectory()) {
       found.push(...(await repositoryFiles(join(directory, entry.name), relative)));

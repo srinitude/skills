@@ -1,6 +1,7 @@
 """Read and validate one registry-skill domain profile."""
-import json
 from pathlib import Path
+
+from agentic_request_contract import read_json
 
 DIMENSIONS = [
     "actors", "objects", "actions", "states", "invariants", "variants",
@@ -19,13 +20,22 @@ PHASES = [
 
 def load_profile(path, skill=None):
     try:
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
+        data = read_json(Path(path).read_bytes().decode("utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("profile must be a JSON object")
+    except (OSError, UnicodeError, ValueError) as error:
         raise ValueError(f"profile cannot be read: {error}") from error
+    return selected_profile(data, skill)
+
+
+def selected_profile(data, skill=None):
     if "profiles" in data:
-        if not skill or skill not in data["profiles"]:
-            raise ValueError(f"profile set has no entry for {skill}")
-        return data["profiles"][skill]
+        profiles = data["profiles"]
+        if not isinstance(profiles, dict) or not skill or skill not in profiles:
+            raise ValueError(f"profile set needs an object entry for {skill}")
+        data = profiles[skill]
+    if not isinstance(data, dict):
+        raise ValueError("selected profile must be a JSON object")
     return data
 
 
@@ -111,11 +121,10 @@ def rewrite_problems(rewrites):
         if not text(path) or not isinstance(rules, list) or not rules:
             found.append("text_rewrites entries need a path and rules")
             continue
-        for rule in rules:
-            valid = (isinstance(rule, dict) and text(rule.get("old"))
-                     and isinstance(rule.get("new"), str))
-            if not valid:
-                found.append(f"text_rewrites.{path} has an invalid rule")
+        invalid = (rule for rule in rules if not
+                   (isinstance(rule, dict) and text(rule.get("old"))
+                    and isinstance(rule.get("new"), str)))
+        found.extend(f"text_rewrites.{path} has an invalid rule" for rule in invalid)
     return found
 
 

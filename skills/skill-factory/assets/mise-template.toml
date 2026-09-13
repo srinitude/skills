@@ -8,8 +8,10 @@ experimental = true
 jobs = 4
 
 [tools]
-python = "3.11"
-uv = "latest"
+node = "24.18.0"
+npm = "11.16.0"
+python = "3.11.15"
+uv = "0.11.29"
 
 [env]
 PYTHONDONTWRITEBYTECODE = "1"
@@ -18,37 +20,11 @@ PYTHONHASHSEED = "0"
 [task_config]
 dir = "{{config_root}}"
 
-[tasks.ci]
-description = "Full pipeline: tests, structure, writing, code, evals, improvement policy"
-alias = "c"
-output = "prefix"
-depends = [
-  "test",
-  "validate",
-  "lint-writing",
-  "lint-code",
-  "lint-placeholders",
-  "evals",
-  "improvement-policy",
-  "decision-policy",
-]
-
-[tasks.info]
-description = "Report this skill's name and trigger description"
-depends = []
-run = "python3 scripts/skill_info.py"
-
-[tasks.test]
-description = "Every test in scripts/tests/"
-depends = []
-run = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-run_windows = "uv run --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v"
-timeout = "180s"
-
 [tasks.validate]
+env = { UV_PYTHON = "{{tools.python.path}}" }
 description = "Static structure checks against the generation contract"
 depends = []
-run = "uv run --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/validate_skill.py . --accept"
 sources = ["SKILL.md", "mise.toml", "references/**", "assets/**", "examples/**", "scripts/**", "evals/**"]
 outputs = []
 cache = { enabled = true }
@@ -57,15 +33,7 @@ cache = { enabled = true }
 description = "Mechanical writing checks on every markdown file"
 depends = []
 run = "python3 scripts/lint_writing.py ."
-sources = ["**/*.md", "scripts/lint_writing.py"]
-outputs = []
-cache = { enabled = true }
-
-[tasks.lint-code]
-description = "Size and nesting limits on every code file"
-depends = []
-run = "python3 scripts/check_code_rules.py ."
-sources = ["**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"]
+sources = ["**/*.md", "scripts/lint_writing.py", "scripts/skill_package.py", "!**/{.git,.mise,.artifacts,__pycache__,node_modules,.pytest_cache,.mypy_cache,.ruff_cache}/**"]
 outputs = []
 cache = { enabled = true }
 
@@ -73,7 +41,7 @@ cache = { enabled = true }
 description = "Refuse any scaffold placeholder text left in markdown or evals"
 depends = []
 run = "python3 scripts/check_placeholders.py ."
-sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py"]
+sources = ["**/*.md", "**/*.json", "scripts/check_placeholders.py", "scripts/skill_package.py", "!**/{.git,.mise,.artifacts,__pycache__,node_modules,.pytest_cache,.mypy_cache,.ruff_cache}/**"]
 outputs = []
 cache = { enabled = true }
 
@@ -93,35 +61,15 @@ sources = ["assets/improvement-contract.json", "scripts/check_improvement_contra
 outputs = []
 cache = { enabled = true }
 
-[tasks.use-case-policy]
-description = "Reject generic skill primitives without a domain-specific role and proof"
-depends = ["domain-research-policy"]
-run = "python3 scripts/check_use_case_contract.py ."
-
-[tasks.mise-primitives-policy]
-description = "Validate every official Mise primitive disposition for this skill"
-depends = ["use-case-policy"]
-run = "python3 scripts/check_mise_primitives.py ."
-
-[tasks.primitive-lifecycle-policy]
-description = "Validate every domain aspect and skill primitive lifecycle owner"
-depends = ["mise-primitives-policy"]
-run = "python3 scripts/check_primitive_lifecycle.py ."
-
-[tasks.task-graph-policy]
-description = "Reject generic, disconnected, circular, or alternate Mise dependency paths"
-depends = ["primitive-lifecycle-policy"]
-run = "python3 scripts/check_task_graph.py ."
+[tasks.info]
+description = "Report this skill's name and trigger description"
+depends = []
+run = "python3 scripts/skill_info.py"
 
 [tasks.domain-research-policy]
 description = "Validate source-backed domain research coverage and receipts"
 depends = []
 run = "python3 scripts/check_domain_research.py ."
-
-[tasks.decision-policy]
-description = "Validate motivated deterministic and model-owned skill decisions"
-depends = ["task-graph-policy"]
-run = "python3 scripts/check_decision_records.py ."
 
 [tasks.invocation-policy]
 description = "Validate one invocation receipt; pass its path after --"
@@ -134,15 +82,500 @@ depends = []
 run = "python3 scripts/run_agentic_request.py"
 run_windows = "python scripts/run_agentic_request.py"
 
+[tasks.mise-primitives-plan]
+description = "Plan exact selected-version skill catalog bytes without effects"
+depends = []
+run = "python3 scripts/sync_mise_primitives.py . --plan"
+run_windows = "python scripts/sync_mise_primitives.py . --plan"
+timeout = "60s"
+
 [tasks.mise-latest]
 description = "Install the latest stable Mise after this skill invocation concludes"
 depends = []
 run = "mise self-update --yes --no-plugins"
 
+[tasks.setup-runtime]
+description = "Install the exact locked skill code-check dependencies"
+depends = []
+run = ["npm ci --include=dev --ignore-scripts 1>&2", "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]
+
+[tasks.use-case-policy]
+description = "Reject generic skill primitives without a domain-specific role and proof"
+depends = ["domain-research-policy"]
+run = "python3 scripts/check_use_case_contract.py . --accept"
+
+[tasks.check-runtime]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+description = "# `check-runtime`\n\n## Why this runs\n\nCheck that the installed runtime can check this skill's code.\nKeep current proof for later model tasks.\n\n## When to run\n\nRun before work that needs the skill's TypeScript runtime.\n\n## Inputs\n\nUse this skill's native task, package files, locks, code and compiler settings.\nPrior setup must finish. Check the root package tree and actual storage module before compilation.\nFor rule work, supply both SKILL_RULE_REQUEST and SKILL_RULE_STATE as full paths.\nKeep state private and outside the skill. The request grants no rights.\n\n## Work\n\nMise runs the prior setup. This task runs its own Mastra workflow.\nCheck the root package tree. Load the storage module through its actual Node path. Run the declared compiler with no emitted code.\nBind the task, request, runtime, files and result to the same inputs.\nReject changes during the check. Keep compiler output and failures.\n\nFor a bound rule request, save the result in the same private workflow store.\nReuse passed proof only while its inputs still match.\nKeep a failed run; use a new request after an allowed repair.\nA model task must check the saved proof before relying on it.\nDo not start nested Mise or call the model's tools from this workflow.\n\n## Proof\n\nRequire a passed package check, storage import and zero compiler exit.\nReject missing or stale proof. Keep failures and test repaired runs.\nThese checks prove only the stated runtime and type rules.\nModel judgment, human evidence and skill acceptance remain separate.\n"
+depends = ["setup-runtime"]
+run = "node scripts/runtime_gate.ts"
+
+[tasks.task-tools]
+description = "# `task-tools`\n\n## Why this runs\n\nGive the model one live tool for each task in this skill.\n\n## When to run\n\nThe host opens this connection when it needs this skill's task tools.\nOpen a new connection after the adapter or its packages change.\n\n## Inputs\n\nUse the skill folder, its pinned runtime, and its native Mise task list.\nThe host must allow the task's effects and choose its request inputs.\nUse standard input and output for MCP messages. Keep logs on standard error.\n\n## Work\n\nStart with `mise run task-tools` from this skill's folder.\nThe setup workflow checks the exact task before it opens the connection.\nThe host keeps the connection open while it needs these tools.\n\nOn every skill load, survey all of this skill's tools, including hidden tasks.\nEach live task gets one tool. Inspect the needed end task with its real\narguments, environment and bound files. Read its full rules, linked inputs\nand prior tasks. Run that same tool with the returned revision.\nMise owns the task order. Mastra runs the steps within each task.\nA task cannot open another task-tools connection through this server.\n\nRead the full result. For a model step, do the work with your own tools.\nFor required human input, keep that effect pending for the real reply.\nA task pause affects that task alone.\nResume the same end task and workflow with its bound response. Do not repeat its effects.\n\nTask changes refresh the list. Changed code needs a new connection.\nA failed or stale call stays failed. Inspect current state before retrying.\nReport missing tools. Use only an allowed scoped Mise fallback with all guards.\nDo not use Mise's native MCP server or a generic task tool.\nClosing this connection grants no approval and proves no skill outcome.\n\n## Proof\n\nProve a real host connection, full task inspection and the intended task run.\nTest stale calls, removed tasks, failed work and model-step resume.\nA tool list or setup pass alone does not prove the skill worked.\n"
+depends = ["check-runtime"]
+run = "node scripts/task_tools.ts"
+
+[tasks."markdown:inventory"]
+description = '''
+# `markdown:inventory`
+
+## Why this runs
+
+Read all Markdown files and their sources. Check the full skill.
+
+## When to run
+
+Start a Markdown review after a file change or when prior input proof is stale.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:inventory`. Read the returned file list, text and
+findings. Check that the roots cover the intended skill and that context
+records name the right source owners. Do not infer missing content from a hash.
+
+Code captures files and checks their shape. The model still reads and judges
+meaning, purpose and visual quality. This task does not edit the skill.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the exact request, file list, hashes and faults. Exit 0 means the read
+passed. Writing quality and checks that a human must make stay pending.
+'''
+depends = ["check-runtime"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts inventory"
+
+[tasks."markdown:mechanical"]
+description = '''
+# `markdown:mechanical`
+
+## Why this runs
+
+Find faults that code can test. The model then reviews the whole file.
+
+## When to run
+
+Collect current Markdown findings for the declared review roots.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:mechanical`. Read each fault and its place in the file.
+Check the reading grade, layout, links and file limits. Review text left out
+of the score. Do not hide prose to get a lower score.
+
+This step captures faults even when they remain. A successful capture does
+not mean the files pass. Keep sixth-grade wording and all source conditions;
+never trade meaning for a low score.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the report and exact input hashes. Exit 0 means the faults were saved.
+Open faults, model review and checks that a human must make stay pending.
+'''
+depends = ["markdown:inventory"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts mechanical"
+
+[tasks."markdown:review-request"]
+description = '''
+# `markdown:review-request`
+
+## Why this runs
+
+Give the model exact inputs. It uses them to answer the review questions.
+
+## When to run
+
+Prepare the model's review once the files and code check results are saved.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:review-request`. Read the text, context, questions and
+faults. Check the named source rule and full file list. Use the agreed method
+to read the ledger's rules and links. The workflow checks its bytes. It does
+not judge what they mean.
+
+Name the tools the model needs, such as vision to view a page. Report any
+missing access. A script score cannot replace that work.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the report, questions and request hash. Exit 0 gives the model its inputs.
+Model review and checks that a human must make stay pending.
+'''
+depends = ["markdown:mechanical"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts review-request"
+
+[tasks."markdown:macro-review"]
+description = '''
+# `markdown:macro-review`
+
+## Why this runs
+
+Judge each whole file first, so local polish cannot hide a wrong purpose or structure.
+
+## When to run
+
+Check the file's purpose, scope and links first. Then review its parts.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:macro-review`. On exit 3, read the full file and all
+`stage_questions`. Check its purpose, full rule set, order and reader actions.
+Check model, code and human duties. Review each task's prior needs, Markdown
+forms, first-load rules and each file's path to SKILL.md.
+
+Use the model's reasoning and available tools. A graph pass does not prove
+that a task is needed or that the file serves its reader.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:macro-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the model's answers, sources and method for every file. Exit 0 means the
+answers passed the checks. Full skill acceptance stays pending.
+'''
+depends = ["markdown:review-request"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts macro-review"
+
+[tasks."markdown:micro-review"]
+description = '''
+# `markdown:micro-review`
+
+## Why this runs
+
+Judge how the file's parts fit. Use the prior whole-file review.
+
+## When to run
+
+Check layout and meaning once the whole-file review has passed.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:micro-review`. On exit 3, read the full file and all
+`stage_questions`. Check headings, lists, tables, spacing, links, images and
+other forms. Check how they are used and what the renderer supports.
+Keep who acts, when, all exceptions and the proof each rule needs.
+
+Inspect the actual rendered page with available vision tools. Cite its bound
+render with this file as `subject`. A screenshot hash does not prove that
+you looked at it. Report a missing view or tool; do not invent a visual pass.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:micro-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep source quotes, view hashes and model answers for every file. Exit 0
+means the review passed its checks. Checks that a human must make stay pending.
+'''
+depends = ["markdown:macro-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts micro-review"
+
+[tasks."markdown:line-review"]
+description = '''
+# `markdown:line-review`
+
+## Why this runs
+
+Make words and steps easy to read. Keep all reviewed rules.
+
+## When to run
+
+Check words after the whole file and its parts have passed review.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:line-review`. On exit 3, read the file and all
+returned `stage_questions`. Use short paragraphs, simple words and clear
+actions. Define needed terms. Keep exact commands and protected quotes.
+Check score exclusions for hidden prose or lost meaning.
+
+Use sixth-grade English. Do not pad text or change rules to pass a score.
+If new words change the purpose or layout, repeat that earlier review.
+A grade score cannot prove that a reader understands.
+
+On a review pause, write answers with `run_id` set to the request's ID plus
+`:line-review`, the returned `request_sha256`, `reviewer`, `method`, and `files`.
+Cover each returned file once with its `path`, `sha256`, and `answers`.
+Use exactly this stage's question keys. Each answer has `state`, `reason`,
+and `citations` with bound paths and hashes. Quote exact source text;
+render citations use the bound view. Never mark unfinished work as passed.
+
+Set `SKILL_MARKDOWN_REPLY` to that reply's full path and rerun the same
+Mise task with the same request and state. Only complete `pass` answers
+can pass; `fail` and `pending` answers require repair.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the exact reviewed bytes, source quotes and reasons. Exit 0 means the
+word review passed its checks. Full skill and human acceptance stay pending.
+'''
+depends = ["markdown:micro-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts line-review"
+
+[tasks."markdown:review-check"]
+description = '''
+# `markdown:review-check`
+
+## Why this runs
+
+Reject stale or failed writing proof. Check that no required proof is missing.
+
+## When to run
+
+Check all results for the whole file, its parts and its words.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:review-check`. Code checks must report no faults.
+All three review stages must have full, passing answers. Read each failure.
+Keep wrong file lists, changed inputs, missing quotes and failed answers visible.
+
+Code checks hashes and the full set of answers. The model must still judge
+if those answers are true and fit the task. Do not weaken a check, erase a
+failure or mark an unread file done to make this task pass.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the current report and all three reviews with their hashes. Exit 0 means
+those checks passed. Full skill and human acceptance stay pending.
+'''
+depends = ["markdown:line-review"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts review-check"
+
+[tasks."markdown:accept"]
+description = '''
+# `markdown:accept`
+
+## Why this runs
+
+Check current writing proof. Keep skill results and human approval as their own checks.
+
+## When to run
+
+Use this result once code checks and model reviews all pass.
+
+## Inputs
+
+Set `SKILL_MARKDOWN_REQUEST` to the full path of the request JSON.
+Set `SKILL_MARKDOWN_STATE` to a real, private folder outside all review roots.
+
+The request has `run_id`, `turn`, `baseline`, `iteration`, `obligation`,
+`roots`, and `context`. Use full paths. Each context record has `path`,
+`sha256`, and `role`. Bind the source, body, ledger, graph and policy.
+For a rendered view, use role `render` and set `subject` to its Markdown file.
+
+## Work
+
+Run `mise run markdown:accept`. Read the report and all reviews. Check that
+no edit has made their proof stale. Check the skill's behavior and how its
+parts work together. Keep required approvals with their real owners.
+
+Record this result with its files and source rule. It does not grant approval
+to publish, merge or mark the skill done. When a human must approve, only
+that human can do so.
+
+Keep the bound files fixed during this check. A stale input or failed step
+blocks its dependent work. Keep the failure, repair its owner, and use a new
+run ID and iteration. Do not erase failed proof or claim a hash proves meaning.
+
+## Proof
+
+Keep the passing result and its exact input hashes. The output keeps
+`execution_acceptance` as `pending`. This task cannot accept the whole skill.
+'''
+depends = ["markdown:review-check"]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+run = "node scripts/run_markdown.ts accept"
+
+[tasks.ledger]
+description = "Read skill ledger context or apply a caller-scoped file change through native Mastra"
+depends = ["check-runtime"]
+run = "node scripts/run_review_ledger.ts"
+
+[tasks.mise-primitives-policy]
+description = "Validate every official Mise primitive disposition for this skill"
+depends = ["use-case-policy"]
+run = "python3 scripts/check_mise_primitives.py ."
+
+[tasks.lint-code]
+description = "Size and nesting limits on every code file"
+depends = ["check-runtime"]
+run = "python3 scripts/check_code_rules.py ."
+sources = ["mise.toml", "package.json", "package-lock.json", "tsconfig.json", "**/*.py", "**/*.sh", "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx", "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx"]
+outputs = []
+cache = { enabled = true }
+
+[tasks.primitive-lifecycle-policy]
+description = "Validate every domain aspect and skill primitive lifecycle owner"
+depends = ["mise-primitives-policy"]
+run = "python3 scripts/check_primitive_lifecycle.py ."
+
 [tasks.mise-primitives-update]
+usage = 'flag "--review <path>" required=#true'
 description = "Refresh this skill's official Mise primitive catalog after self-update"
 depends = ["mise-latest"]
 depends_post = ["mise-primitives-policy"]
-run = "python3 scripts/sync_mise_primitives.py ."
-run_windows = "python scripts/sync_mise_primitives.py ."
+run = "python3 scripts/sync_mise_primitives.py . --review \"${usage_review?}\""
+run_windows = "python scripts/sync_mise_primitives.py . --review \"${usage_review?}\""
 timeout = "60s"
+
+[tasks.setup-graph-renderer]
+description = "Install and check the locked skill graph browser"
+depends = ["lint-code"]
+run = [
+  "node --input-type=module -e \"import { lstatSync } from 'node:fs'; import { execFileSync } from 'node:child_process'; if (process.platform === 'linux' && process.env.GITHUB_ACTIONS === 'true' && process.env.RUNNER_ENVIRONMENT === 'github-hosted') { const path = '/usr/local/share/chromium/chrome-linux/chrome_sandbox'; for (const parent of [\\\"/\\\", \\\"/usr\\\", \\\"/usr/local\\\", \\\"/usr/local/share\\\", \\\"/usr/local/share/chromium\\\", \\\"/usr/local/share/chromium/chrome-linux\\\"]) { const dir = lstatSync(parent); if (!dir.isDirectory() || dir.uid !== 0 || (dir.mode & 0o022)) throw new Error('Unsafe Chrome sandbox directory: ' + parent); } const file = lstatSync(path); if (!file.isFile() || file.uid !== 0 || ![0o755, 0o4755].includes(file.mode & 0o7777)) throw new Error('Unexpected Chrome sandbox owner or mode: ' + JSON.stringify({ regular: file.isFile(), uid: file.uid, mode: (file.mode & 0o7777).toString(8) })); execFileSync('sudo', ['-n', 'chmod', '4755', '--', path], { stdio: 'inherit' }); }\"",
+  "node node_modules/puppeteer/install.mjs",
+  "node --input-type=module -e \"import puppeteer from 'puppeteer'; const browser = await puppeteer.launch({ headless: 'shell' }); await browser.close();\""
+]
+
+[tasks.render-file-graph]
+description = "Render a bound native skill file graph and verify every SVG node and connector"
+depends = ["setup-graph-renderer"]
+run = "python3 scripts/render_file_graph.py"
+run_windows = "python scripts/render_file_graph.py"
+
+[tasks.test]
+env = { UV_PYTHON = "{{tools.python.path}}" }
+description = "Every test in scripts/tests/"
+run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
+run_windows = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast"
+timeout = "600s"
+depends = ["setup-graph-renderer"]
+
+[tasks.task-graph-policy]
+description = "Reject generic, disconnected, circular, or alternate Mise dependency paths"
+depends = ["primitive-lifecycle-policy"]
+run = "python3 scripts/check_task_graph.py ."
+
+[tasks.decision-policy]
+description = "Validate motivated deterministic and model-owned skill decisions"
+depends = ["task-graph-policy"]
+run = "python3 scripts/check_decision_records.py ."
+
+[tasks.ci]
+description = "Full pipeline: tests, structure, writing, code, evals, improvement policy"
+alias = "c"
+output = "prefix"
+depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy"]

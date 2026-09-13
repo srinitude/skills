@@ -6,6 +6,7 @@ import { afterEach, expect, test } from 'vitest';
 
 import { loadCatalog } from './catalog.js';
 import { buildPackage, packOutput } from './package.js';
+import { repositoryFiles } from './source-evidence-files.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const temporary: string[] = [];
@@ -62,7 +63,24 @@ test('builds a safe package with canonical skills and client manifests', async (
   );
   expect(result.entries.some((entry) => entry.includes('../'))).toBe(false);
   expect(result.entries.some((entry) => entry.includes('.test.'))).toBe(false);
-  expect(result.entries.some((entry) => entry.includes('/scripts/tests/'))).toBe(false);
+  expect(result.entries.some((entry) => entry.includes('/node_modules/'))).toBe(false);
+  expect(result.entries).toEqual(
+    expect.arrayContaining([
+      'package/skills/skill-factory/package.json',
+      'package/skills/skill-factory/package-lock.json',
+      'package/skills/skill-factory/tsconfig.json',
+    ]),
+  );
+  const factoryPrefix = 'package/skills/skill-factory/';
+  const factoryFiles = await repositoryFiles(join(root, 'skills', 'skill-factory'));
+  expect(result.entries.filter((entry) => entry.startsWith(factoryPrefix))).toEqual(
+    factoryFiles.map((path) => factoryPrefix + path),
+  );
+  expect(
+    result.entries.some(
+      (entry) => entry.includes('/scripts/tests/') && !entry.startsWith(factoryPrefix),
+    ),
+  ).toBe(false);
   expect(result.entries.some((entry) => entry.startsWith('package/evidence/ports/'))).toBe(
     false,
   );

@@ -8,6 +8,7 @@ from pathlib import Path
 from review_ledger_context import require
 from review_ledger_source import read_file
 from skill_package import inventory, sha
+from standardization_mise import normalize_mise
 
 
 def plan_digest(plan):
@@ -76,6 +77,8 @@ def render_plan(root, tokens, sources):
         raw = original
         if rendered:
             raw = render_tokens(original, tokens)
+        if destination == "mise.toml":
+            raw = normalize_mise(raw.decode("utf-8")).encode("utf-8")
         files.append({'path': destination, 'source': {'path': source, 'sha256': sha(original)},
                       'sha256': sha(raw), 'content_base64': base64.b64encode(raw).decode('ascii')})
     require(inventory(root) == baseline, 'factory changed while rendering scaffold plan')

@@ -1,6 +1,7 @@
 """Prove included task rules reach graph and invocation checks through native Mise."""
 import json
 import os
+import re
 import shutil
 import sys
 import subprocess
@@ -119,7 +120,8 @@ def grouped_factory(root):
     normal = [task_header(name) + "\n" + block for name, block in sections if not selected(name)]
     groups = [task_header(name).replace("[tasks.", "[") + "\n" + block
               for name, block in sections if selected(name)]
-    preamble = preamble.replace('includes = ["tasks/context.toml"]', 'includes = ["rules.toml"]')
+    preamble, count = re.subn(r'^includes = .*$', 'includes = ["rules.toml"]', preamble, flags=re.M)
+    assert count == 1, "Fixture must replace the one explicit task-file include list"
     (root / "mise.toml").write_text(preamble + "\n\n" + "\n\n".join(normal))
     (root / "rules.toml").write_text("\n\n".join(groups))
 
@@ -146,8 +148,28 @@ def test_standardization_keeps_included_factory_instructions():
         assert "included factory instructions preserved" in result.stdout
 
 
+
+def test_generated_rule_links_and_review_boundary():
+    import tomllib
+    from standardization_mise import normalize_mise
+    from standardization_seed import base_mise
+    output = normalize_mise(base_mise({"primary_term": "release notes"}))
+    tasks = tomllib.loads(output)["tasks"]
+    design = tasks["rule:eval-design"]["description"]
+    assert "](references/eval-authoring.md)" in design
+    assert "](evals/evals.json)" in tasks["rule:eval-cases"]["description"]
+    assert "](SKILL.md)" in design and "](../" not in design
+    assert normalize_mise(output) == output
+    changed = output.replace("Freeze the eval rules before building or testing.",
+                             "Skip the eval rules before building or testing.")
+    assert changed != output
+    with unittest.TestCase().assertRaisesRegex(ValueError, "instructions.*reconciliation"):
+        normalize_mise(changed)
+    assert normalize_mise(output) == output
+
+
 def load_tests(loader, tests, pattern):
     return unittest.TestSuite(unittest.FunctionTestCase(test) for test in [
         test_included_graph_and_recovery, test_included_invocation_omission_and_recovery,
         test_native_fields_keep_raw_dependency_requirements, test_malformed_or_external_includes_fail_closed,
-        test_standardization_keeps_included_factory_instructions])
+        test_standardization_keeps_included_factory_instructions, test_generated_rule_links_and_review_boundary])

@@ -2,12 +2,15 @@
 import json
 import os
 import select
+import sys
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+from task_definitions import load_tasks
 
 def task(name, command, depends=()):
     body = f"# \x60{name}\x60\n\n"
@@ -145,6 +148,13 @@ def close_entry(child):
         child.wait(timeout=10)
 
 
+def inspect_rule_tools(child, names, expected):
+    for name in ["rule:outcome", "rule:methods"]:
+        rule = tool_call(child, names[name], action="inspect")["structuredContent"]["task"]
+        assert rule["depends"] == expected[name]["depends"] and "## Work" in rule["description"]
+        assert rule["run"] == ["node scripts/run_rule.ts " + name], rule["run"]
+
+
 def test_public_task_entry():
     env = {**os.environ, "MISE_TRUSTED_CONFIG_PATHS": str(ROOT)}
     with subprocess.Popen(["mise", "run", "task-tools"], cwd=ROOT, env=env,
@@ -157,7 +167,9 @@ def test_public_task_entry():
             child.stdin.flush()
             listed = call(child, "tools/list", {})["tools"]
             names = {item["title"]: item["name"] for item in listed}
-            assert "task-tools" in names and "check-runtime" in names
+            expected = load_tasks(ROOT)
+            assert set(names) == set(expected), set(names) ^ set(expected)
+            inspect_rule_tools(child, names, expected)
             inspected = tool_call(child, names["task-tools"], action="inspect")["structuredContent"]
             assert "## Work" in inspected["task"]["description"]
             denied = tool_call(child, names["task-tools"], action="run", revision=inspected["revision"])

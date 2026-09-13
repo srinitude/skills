@@ -19,7 +19,9 @@ The initial body review binds its path, digest, candidate bytes, source and ledg
 
 The source fixture and review text are explicit non-independent declarations. They prove the recorded mechanical paths, not authenticated human judgment, complete source meaning, domain-workflow granularity, all update routes or accepted domain behavior. Construction order and observed imports do not prove complete runtime or reading dependencies. Seeds remain blocked until their actual domain implementation, resources, examples, evaluations and acceptance are finished. Use `mise run test` for current scaffold and copied-runtime regression checks.
 
-The created body includes the current efficiency policy: complete ready functional paths, justify supporting work, preserve all required reads and proof, and distinguish implementation, validation and acceptance. This recorded inheritance is not a measured speed improvement.
+The created body keeps the efficiency policy: finish ready paths, justify support work, keep required reads and proof, and separate implementation, validation and acceptance. This inherited policy is not a measured speed gain.
+
+The created `mise.toml` contains 26 rule tasks, including the Outcome, Motivation and Evals rules. Each has full instructions and named task dependencies. The scaffold owns its copied runtime. These checks prove reviewed creation and inherited task definitions; they do not accept its domain work.
 
 ## Read the complete record
 

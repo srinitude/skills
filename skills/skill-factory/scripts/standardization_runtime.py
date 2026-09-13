@@ -184,17 +184,17 @@ def nested_dependencies(block):
     if not match and re.search(r'\bmise\s+run\b', json.dumps(command)):
         raise ValueError('nested CI execution needs explicit reconciliation before standardization')
     return [match.group(1)] if match else []
-
-
-MARKDOWN_TASKS = {name: task for name, task in load_tasks(
+MODEL_TASKS = {name: task for name, task in load_tasks(
     Path(__file__).resolve().parents[1]).items()
-    if name.startswith("markdown:")}
+    if name.startswith(("markdown:", "rule:"))}
+MARKDOWN_TASKS = {name: task for name, task in MODEL_TASKS.items() if name.startswith("markdown:")}
 
 
 def check_runtime_tasks(tasks, policy):
-    for name in ["setup-runtime", "check-runtime", "task-tools", *MARKDOWN_TASKS]:
+    for name in ["setup-runtime", "check-runtime", "task-tools", *MODEL_TASKS]:
         if name in tasks and (tasks[name].get("run") != policy[name][2]
                               or tasks[name].get("depends") != policy[name][0]):
             raise ValueError("native runtime task needs explicit reconciliation: " + name)
-        if name in tasks and name in MARKDOWN_TASKS and tasks[name].get("env") != MARKDOWN_TASKS[name]["env"]:
-            raise ValueError("Markdown environment needs explicit reconciliation: " + name)
+        if name in tasks and name in MODEL_TASKS and (tasks[name].get("env") != MODEL_TASKS[name]["env"]
+                or (name.startswith("rule:") and tasks[name].get("description") != policy[name][1])):
+            raise ValueError("Model task environment or instructions need explicit reconciliation: " + name)

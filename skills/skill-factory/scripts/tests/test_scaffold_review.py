@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 import tempfile
+import tomllib
 import unittest
 from pathlib import Path
 
@@ -69,6 +70,11 @@ def _TestScaffoldReview_test_reviewed_creation_matches_plan_in_order_and_stays_u
     report = json.loads(result.stdout)
     self.assertEqual(report['execution_acceptance'], 'pending')
     self.assertIn('SCAFFOLD', report['blocked_until'])
+    tasks = tomllib.loads((self.root / 'demo-skill/mise.toml').read_text())['tasks']
+    canonical = tomllib.loads((SCRIPTS.parent / 'tasks/context.toml').read_text())
+    for name, task in canonical.items():
+        expected = dict(task, description=task['description'].replace('](../SKILL.md)', '](SKILL.md)'))
+        self.assertEqual(tasks[name], expected)
     self.assertEqual([item['path'] for item in report['writes']], [item['path'] for item in plan['files']])
     for item in plan['files']:
         self.assertEqual((self.root / 'demo-skill' / item['path']).read_bytes(), base64.b64decode(item['content_base64']))

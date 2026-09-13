@@ -1,0 +1,245 @@
+["rule:implementation-progress"]
+description = '''
+# `rule:implementation-progress`
+
+## Why this runs
+
+Make the ready skill change and prove its effect.
+
+## When to run
+
+Before selecting work, after prerequisites pass and when reporting progress.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Every action must advance a required skill-file change, validation or delivery.
+
+Close the smallest ready functional path through its gates, proof and allowed delivery.
+
+Tie reads, research, infrastructure, graph/ledger work and packaging to the change or missing proof they enable.
+
+Finish the prerequisite, then make the eligible change.
+
+Private drafts, plans, reports and queued jobs alone earn no implementation progress.
+
+Neither do cosmetic churn or repeated unchanged checks.
+
+Real progress needs a necessary skill-file change tied to a named obligation.
+
+Fresh proof must show its intended effect and required validation.
+
+An applied change with no validation stays implemented, with validation pending.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:implementation-progress"
+
+["rule:change-history"]
+description = '''
+# `rule:change-history`
+
+## Why this runs
+
+Bind each change, its proof, open gap and next action.
+
+## When to run
+
+After each change and before reusing evidence or reporting progress.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+In the existing changelog and ledger, bind the file, source rule, purpose and actual effect.
+
+Record validation, the remaining gap and next dependent action.
+
+Keep proposed, implemented, validated and accepted states distinct.
+
+Keep every gate.
+
+Resolve verified blockers or advance another eligible change.
+
+Never manufacture edits after implementation.
+
+Reuse valid unchanged proof with current bindings unless a repeat is required.
+
+Keep every required full read and integrated check.
+
+Use observed failures and timing to change methods that do not work.
+
+Put this policy in actual output bodies.
+
+Standardization reads the current canonical efficiency paragraph from the template.
+
+If existing text differs, require an explicit reviewed migration.
+
+Never replace it silently.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:implementation-progress"]
+run = "node scripts/run_rule.ts rule:change-history"
+
+["rule:acceptance"]
+description = '''
+# `rule:acceptance`
+
+## Why this runs
+
+Require fresh proof for every rule that applies.
+
+## When to run
+
+Before accepting a skill, an output or a claimed completed obligation.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Accept only fresh, sufficient proof for each required rule that applies.
+
+Cover the factory, required outputs, operations and joined use.
+
+Bind exact subjects, revisions and bytes.
+
+Bind source, actual inputs, resources and selections.
+
+Bind dependencies, environment, engine, schema and evaluator.
+
+Bind authority, protocol, domain effects, artifact provenance and responsible judgment.
+
+Missing or failed required work cannot be averaged away.
+
+Nor can stale, blocked, indeterminate or unapproved work.
+
+Required human or physical proof stays pending when absent.
+
+Keep license, attribution and versions.
+
+Keep installation and publication authority.
+
+Keep repository MCP read-only and confined to allowed paths.
+
+Add no unrequested telemetry, credentials or integrations.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:acceptance"
+
+["rule:delivery-report"]
+description = '''
+# `rule:delivery-report`
+
+## Why this runs
+
+Give the full decision trail and distinguish work from acceptance.
+
+## When to run
+
+When delivering a result or reporting its status and limits.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Return the required decision trail.
+
+Cover purpose and audience; issues, owners, changes and proof; body and load guide; all rules, operations and outputs.
+
+Cover how dependencies are found, ordered, made ready and invalidated.
+
+Cover the enforcement boundary, rejection and recovery.
+
+Include meaning and allowed variation; tools, resources and versions; [Mastra](https://mastra.ai/docs/workflows/overview), human roles and A/B/C; language and Ponytail.
+
+Include matrix coverage, participants and transfer limits; anti-patterns; measured resources and scalability; variants, lineage, and local and remote delivery.
+
+Keep implementation, validation and accepted obligations distinct.
+
+For percentages, state the denominator, weights and uncertainty.
+
+A blocked item or finished subtask does not prove the skill complete.
+
+Neither does a budget limit, queued job, local edit, pushed branch or old CI.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:change-history"]
+run = "node scripts/run_rule.ts rule:delivery-report"

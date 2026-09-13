@@ -19,7 +19,7 @@ PYTHONDONTWRITEBYTECODE = "1"
 PYTHONHASHSEED = "0"
 
 [task_config]
-includes = ["tasks/context.toml"]
+includes = ["tasks/context.toml", "tasks/evaluation.toml", "tasks/improvement.toml", "tasks/progress.toml", "tasks/outcome.toml", "tasks/principles.toml"]
 dir = "{{config_root}}"
 
 [tasks.validate]

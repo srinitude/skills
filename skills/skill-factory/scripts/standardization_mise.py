@@ -12,7 +12,7 @@ from standardization_seed import base_mise, normalize_cache_sources
 FACTORY_TASKS = load_tasks(Path(__file__).resolve().parents[1])
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
-from standardization_runtime import (MARKDOWN_TASKS, check_runtime_tasks, CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
+from standardization_runtime import (MODEL_TASKS, check_runtime_tasks, CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
                                      runtime_dependencies, strip_key, nested_dependencies, split_sections, split_task_body, task_header)
 
 POLICY_TASKS = {
@@ -52,9 +52,8 @@ POLICY_TASKS = {
         "python3 scripts/sync_mise_primitives.py . --plan"),
     "mise-primitives-update": (["mise-latest"], "Apply a current reviewed Mise primitive catalog", CATALOG_RUN),
 }
-POLICY_TASKS.update({name: (task["depends"], task["description"], task["run"])
-                     for name, task in MARKDOWN_TASKS.items()})
-
+POLICY_TASKS.update({name: (task["depends"], task["description"].replace("](../", "](") if name.startswith("rule:") else task["description"], task["run"])
+                     for name, task in MODEL_TASKS.items()})
 def declared_dependencies(block):
     values = tomllib.loads('[task]\n' + block)['task'].get('depends', [])
     if not isinstance(values, list):
@@ -95,7 +94,7 @@ def policy_block(name, spec):
     depends, description, command = spec
     block = "\n".join([f'description = {json.dumps(description)}',
                          f'run = {json.dumps(command)}', dependency_line(depends)])
-    if name in MARKDOWN_TASKS or name == 'check-runtime':
+    if name in MODEL_TASKS or name == 'check-runtime':
         block = 'env = { UV_PYTHON = "{{tools.python.path}}" }\n' + block
     if name == 'mise-primitives-update':
         block = catalog_task(block)

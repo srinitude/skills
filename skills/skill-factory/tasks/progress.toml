@@ -103,6 +103,24 @@ If existing text differs, require an explicit reviewed migration.
 
 Never replace it silently.
 
+- **Change history.** After each file change, append a record to the existing task or invocation change history.
+
+Record its exact path and before/after identities.
+
+State its effect, contribution and reason, with the source locator or quote.
+
+Add post-read findings, validation and remaining proof.
+
+Use this record to find the next unfinished prerequisite, current owner, valid evidence and repeated failures.
+
+Check it against real files before reuse.
+
+Parse each required full read once.
+
+Reuse unchanged analysis and indexes.
+
+Caches, batches and acknowledgments cannot replace mandatory reads.
+
 Read the full workflow output. Use the model's own tools and judgment.
 Code checks facts that can be tested; required human work stays with its owner.
 Do not run this task or its dependents from inside this work unit.

@@ -26,7 +26,7 @@ def receive(child, identity, timeout):
             raise AssertionError("MCP response timed out")
         line = child.stdout.readline()
         if not line:
-            raise AssertionError(child.stderr.read())
+            raise AssertionError(child.stderr.read() if child.stderr else "MCP stream closed; see inherited diagnostics")
         value = json.loads(line)
         if value.get("id") == identity:
             return value
@@ -149,17 +149,18 @@ def close_entry(child):
 
 
 def inspect_rule_tools(child, names, expected):
-    for name in ["rule:outcome", "rule:methods"]:
+    for name in (key for key in expected if key.startswith("rule:")):
         rule = tool_call(child, names[name], action="inspect")["structuredContent"]["task"]
         assert rule["depends"] == expected[name]["depends"] and "## Work" in rule["description"]
         assert rule["run"] == ["node scripts/run_rule.ts " + name], rule["run"]
+        assert rule["description"].strip() == expected[name]["description"].strip(), name
 
 
 def test_public_task_entry():
     env = {**os.environ, "MISE_TRUSTED_CONFIG_PATHS": str(ROOT)}
     with subprocess.Popen(["mise", "run", "task-tools"], cwd=ROOT, env=env,
                           stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE, text=True, bufsize=1) as child:
+                          stderr=sys.stderr, text=True, bufsize=1) as child:
         try:
             call(child, "initialize", {"protocolVersion": "2025-06-18", "capabilities": {},
                                       "clientInfo": {"name": "public-entry-test", "version": "1"}}, timeout=180)

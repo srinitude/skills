@@ -1,5 +1,6 @@
 /** Native ledger reads and caller-scoped file writes; semantic acceptance remains separate. */
 import { createHash } from 'node:crypto';
+import { isUtf8 } from 'node:buffer';
 import { spawn } from 'node:child_process';
 import { lstat, readFile } from 'node:fs/promises';
 import { isAbsolute } from 'node:path';
@@ -77,7 +78,7 @@ export const requestSchema = z.object({
     context.addIssue({ code: 'custom', message: 'write-file requires replacement bytes and rejects native operation fields' });
 });
 const bodySchema = z.object({ path: z.string(), sha256: digest, text: z.string().min(1) });
-const capturedSchema = z.object({ request: requestSchema, body: bodySchema, ledger_text: z.string(), ledger_bytes: z.number().int().nonnegative() });
+const capturedSchema = z.object({ request: requestSchema, body: bodySchema, ledger_bytes: z.number().int().nonnegative() });
 const viewSchema = z.object({ view_text: z.string(), source_sha256: digest }).strict();
 const resultSchema = z.object({
   body: bodySchema, ledger: z.object({ path: z.string(), sha256: digest, bytes: z.number() }),
@@ -115,24 +116,30 @@ async function capture(path: string, expected?: string) {
   const raw = await readFile(path);
   const sha256 = createHash('sha256').update(raw).digest('hex');
   if (expected !== undefined && sha256 !== expected) throw new Error('Ledger digest differs from required current input');
+  if (!raw.length || !isUtf8(raw)) throw new Error('Expected nonempty UTF-8 input');
+  return { path, sha256, raw, bytes: raw.length };
+}
+
+async function captureBody() {
+  const { raw, ...body } = await capture(bodyPath);
   const text = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(raw);
   if (!text.trim()) throw new Error('Expected nonempty UTF-8 input');
-  return { path, sha256, text, bytes: raw.length };
+  return { ...body, text };
 }
 
 const captureInputs = createStep({
   id: 'capture-current-body-and-ledger', inputSchema: requestSchema, outputSchema: capturedSchema,
   execute: async ({ inputData: request }) => {
-    const body = await capture(bodyPath);
+    const body = await captureBody();
     const ledger = await capture(request.ledger, request.ledger_sha256);
-    return { request, body, ledger_text: ledger.text, ledger_bytes: ledger.bytes };
+    return { request, body, ledger_bytes: ledger.bytes };
   },
 });
 const buildView = createStep({
   id: 'build-asserted-relationship-view', inputSchema: capturedSchema, outputSchema: resultSchema,
   execute: async ({ inputData }) => {
-    const { request, body, ledger_text, ledger_bytes } = inputData;
-    const view = viewSchema.parse(await readThroughOwner('view', JSON.stringify({ request, ledger_text })));
+    const { request, body, ledger_bytes } = inputData;
+    const view = viewSchema.parse(await readThroughOwner('view', JSON.stringify({ request })));
     return { body, ledger: { path: request.ledger, sha256: request.ledger_sha256, bytes: ledger_bytes }, ...view,
       execution_acceptance: 'pending' as const, coverage: 'recorded context, relationships and source checks only' as const,
       limit: 'Selected read/check action over exact full ledger/body capture. Capture checks validate present document bytes and source/clause locators. Source checks also compare supplied live original/document bindings and the frozen coverage inventory; the caller must establish their independent authority. Read views retain recorded source-parent/review-inheritance context and asserted/declared reachability. Preserve conditions, review states, conjunctions and original endpoints; reachability is not transitive truth. File baselines and history remain distinct from recorded current package observations, which are not live file proof. A declared versioned profile adds captured source structure and reading order. Version-2 TOML task observations expose whole declarations, same-file literal references, unresolved forms and conditional dependency/run edges bound to the recorded current file hash. Native task resolution and execution remain separate; other derived relationships remain incomplete. Candidate pages use explicit scopes or selected known IDs, exact decimal ranks/counts, declared order/repetition and work budgets. Direct ranking avoids prefix scans; candidates stay unreviewed and do not replace higher-order relationship records, complete matrix inventories or their actual use. Work and impact views retain complete recorded review steps, fields, body decisions and mechanism owners beside source/inherited relationship context. Recorded states remain observations; these views perform no work or invalidation. The full ledger still governs. No semantic review, model use, protected write, durable recovery or final acceptance. The capture has no cross-file transaction or hostile-writer isolation.',
@@ -147,9 +154,9 @@ const workflow = createWorkflow({
 function writeWorkflow(root: string, pendingBodyReview?: string, nativePhase?: 'before' | 'after') {
   const operation = nativePhase ? `native-${nativePhase}` as const : 'write';
   const inputSchema = z.object({ request: requestSchema, body: bodySchema });
-  const captureBody = createStep({
+  const captureWriteBody = createStep({
     id: 'capture-write-body', inputSchema: requestSchema, outputSchema: inputSchema,
-    execute: async ({ inputData }) => ({ request: inputData, body: await capture(bodyPath) }),
+    execute: async ({ inputData }) => ({ request: inputData, body: await captureBody() }),
   });
   const applyFile = createStep({
     id: nativePhase ? 'check-bound-native-file' : 'apply-bound-file-change', inputSchema, outputSchema: resultSchema,
@@ -167,7 +174,7 @@ function writeWorkflow(root: string, pendingBodyReview?: string, nativePhase?: '
   });
   return createWorkflow({ id: nativePhase ? 'review-ledger-native-check' : 'review-ledger-file-write', inputSchema: requestSchema,
     outputSchema: resultSchema, options: { validateInputs: true },
-  }).then(captureBody).then(applyFile).commit();
+  }).then(captureWriteBody).then(applyFile).commit();
 }
 
 export async function runLedger(input: unknown, writeRoot?: string, pendingBodyReview?: string) {

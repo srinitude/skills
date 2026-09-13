@@ -113,7 +113,8 @@ async function main() {
     if (state) { lockPath = join(state, 'rule-workflow.lock'); lock = await open(lockPath, 'wx', 0o600); }
     const result = state ? await savedCheck(root, storage, request) : await checked(root, storage, request);
     process.exitCode = result.status === 'success' ? 0 : 1;
-    process.stdout.write(JSON.stringify({ ...result, execution_acceptance: 'pending' }) + '\n');
+    // Keep prerequisite proof out of downstream JSON and MCP stdout.
+    process.stderr.write(JSON.stringify({ ...result, execution_acceptance: 'pending' }) + '\n');
   } catch (error) {
     process.stderr.write((error instanceof Error ? error.stack ?? error.message : String(error)) + '\n');
     process.exitCode = 1;

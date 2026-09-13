@@ -7,6 +7,7 @@ Example: review_ledger.py view < captured-ledger-request.json
 Public entry: mise run ledger -- request.json
 """
 import argparse
+import hashlib
 import json
 import sys
 
@@ -14,6 +15,17 @@ from agentic_request_contract import read_json
 from review_ledger_graph import view
 from review_ledger_write import write_file
 from review_ledger_native import native_check
+from review_ledger_source import read_file
+from review_ledger_context import require
+
+
+def captured_ledger(data):
+    request = data["request"]
+    raw = (data["ledger_text"].encode("utf-8") if "ledger_text" in data
+           else read_file({"path": request["ledger"]}))
+    require(hashlib.sha256(raw).hexdigest() == request["ledger_sha256"],
+            "ledger changed before view construction")
+    return read_json(raw.decode("utf-8"))
 
 
 def operation_result(data, operation, write_root, pending_body_review=None):
@@ -32,7 +44,7 @@ def operation_result(data, operation, write_root, pending_body_review=None):
                 "source_sha256": result["before"]["source_sha256"],
                 "ledger_bytes": result["before"]["ledger_bytes"]}
     elif operation == "view":
-        ledger = read_json(data["ledger_text"])
+        ledger = captured_ledger(data)
         result = view(ledger, data["request"])
         data = {"view_text": json.dumps(result, ensure_ascii=False, allow_nan=False),
                 "source_sha256": ledger["source"]["sha256"]}

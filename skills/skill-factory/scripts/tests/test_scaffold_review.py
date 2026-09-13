@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 
 from cli import SCRIPTS, run
+from contract_text import contract_text
 from test_scaffold_skill import DESCRIPTION
 from scaffold_test_support import review_fixture
 
@@ -114,7 +115,7 @@ def _TestScaffoldReview_test_created_body_inherits_the_accepted_outcome_efficien
     plan = self.planned(); path, _, _ = review_fixture(self, plan)
     result = run('scaffold_skill.py', *self.args, '--review', path)
     self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-    body = (self.root / 'demo-skill/SKILL.md').read_text()
+    body = contract_text(self.root / 'demo-skill/SKILL.md')
     self.assertIn('Close the smallest ready functional path', body)
     self.assertIn('The pre-review determines the necessary change, owner, prerequisites and proof', body)
     self.assertIn('the post-review checks its actual effect against all retained rules and invalidates affected evidence', body)

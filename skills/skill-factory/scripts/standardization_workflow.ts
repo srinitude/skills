@@ -9,7 +9,7 @@ import { Mastra } from '@mastra/core/mastra';
 import { InMemoryStore, type MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
 
-import { bound, digest, taskSnapshot } from './task_inventory.ts';
+import { bound, digest, taskSnapshot, type Snapshot } from './task_inventory.ts';
 export { bound, digest } from './task_inventory.ts';
 const path = z.string().min(1).refine(isAbsolute);
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -52,8 +52,7 @@ export async function workflowRoots(runtime: Runtime, target?: string) {
 export const taskContractSchema = z.object({ name: z.string().min(1), source: path, sha256: hash, revision: hash,
   description: z.string().min(1), depends: z.array(z.string()), run: z.array(z.string()) }).strict();
 
-export async function taskContract(root: string, name: string, command: string, depends: string[]) {
-  const snapshot = await taskSnapshot(root);
+async function reviewedTask(snapshot: Snapshot, name: string, command: string, depends: string[]) {
   const task = taskContractSchema.omit({ sha256: true, revision: true }).strip()
     .parse(snapshot.tasks.find(item => item.name === name));
   const before = await bound(task.source);
@@ -66,8 +65,20 @@ export async function taskContract(root: string, name: string, command: string, 
       || sections.some(section => !section.slice(section.indexOf('\n')).trim()))
     throw new Error('Task needs its complete five-part work body: ' + name);
   await bound(task.source, before.sha256);
-  if ((await taskSnapshot(root)).revision !== snapshot.revision) throw Error('Task configuration changed during review');
   return { ...task, sha256: before.sha256, revision: snapshot.revision };
+}
+
+
+export async function taskContracts(root: string, requests: { name: string; command: string; depends: string[] }[]) {
+  const snapshot = await taskSnapshot(root), results = [];
+  for (const { name, command, depends } of requests)
+    results.push(await reviewedTask(snapshot, name, command, depends));
+  if ((await taskSnapshot(root)).revision !== snapshot.revision) throw Error('Task configuration changed during review');
+  return results;
+}
+
+export async function taskContract(root: string, name: string, command: string, depends: string[]) {
+  return (await taskContracts(root, [{ name, command, depends }]))[0]!;
 }
 
 function nativeArguments(runtime: Runtime, value: Input | Reviewed, apply: boolean) {

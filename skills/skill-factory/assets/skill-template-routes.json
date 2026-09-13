@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "source": "assets/skill-template.md",
+  "source_sha256": "0073b156c163d7e0a18af1f05f6b6721bac2995acbced165b7bdcf3757fe3a65",
+  "keep": [
+    0,
+    2,
+    3,
+    8,
+    13,
+    36,
+    60,
+    66,
+    70,
+    80
+  ],
+  "routes": [
+    {
+      "block": 1,
+      "owner": "rule:context"
+    },
+    {
+      "block": 4,
+      "owner": "rule:scope-audience"
+    },
+    {
+      "block": 5,
+      "owner": "rule:scope-audience"
+    },
+    {
+      "block": 6,
+      "owner": "rule:duties"
+    },
+    {
+      "block": 7,
+      "owner": "rule:program-host"
+    },
+    {
+      "block": 9,
+      "owner": "rule:purpose"
+    },
+    {
+      "block": 10,
+      "owner": "rule:simplicity"
+    },
+    {
+      "block": 11,
+      "owner": "rule:useful-output"
+    },
+    {
+      "block": 12,
+      "owner": "rule:package-shape"
+    },
+    {
+      "block": 14,
+      "owner": "rule:source-inputs"
+    },
+    {
+      "block": 15,
+      "owner": "rule:ledger-identity"
+    },
+    {
+      "block": 16,
+      "owner": "rule:ledger-capture"
+    },
+    {
+      "block": 17,
+      "owner": "rule:ledger-relationships"
+    },
+    {
+      "block": 18,
+      "owner": "rule:ledger-relationships"
+    },
+    {
+      "block": 19,
+      "owner": "rule:ledger-traverse"
+    },
+    {
+      "block": 20,
+      "owner": "rule:staged-changes"
+    },
+    {
+      "block": 21,
+      "owner": "rule:prerequisites"
+    },
+    {
+      "block": 22,
+      "owner": "rule:graph-coverage"
+    },
+    {
+      "block": 23,
+      "owner": "rule:runtime-scheduling"
+    },
+    {
+      "block": 24,
+      "owner": "rule:meaning-decisions"
+    },
+    {
+      "block": 25,
+      "owner": "rule:runtime-interfaces"
+    },
+    {
+      "block": 26,
+      "owner": "rule:resource-duties"
+    },
+    {
+      "block": 27,
+      "owner": "rule:deterministic-checks"
+    },
+    {
+      "block": 28,
+      "owner": "rule:deterministic-checks"
+    },
+    {
+      "block": 29,
+      "owner": "rule:human-inventory"
+    },
+    {
+      "block": 30,
+      "owner": "rule:selection-meaning"
+    },
+    {
+      "block": 31,
+      "owner": "rule:human-context"
+    },
+    {
+      "block": 32,
+      "owner": "rule:creative-scope"
+    },
+    {
+      "block": 33,
+      "owner": "rule:human-proof"
+    },
+    {
+      "block": 34,
+      "owner": "rule:variants"
+    },
+    {
+      "block": 35,
+      "owner": "rule:eval-antipatterns"
+    },
+    {
+      "block": 37,
+      "owner": "rule:work-owners"
+    },
+    {
+      "block": 38,
+      "owner": "rule:commands"
+    },
+    {
+      "block": 39,
+      "owner": "rule:task-dependencies"
+    },
+    {
+      "block": 40,
+      "owner": "rule:typed-dispatch"
+    },
+    {
+      "block": 41,
+      "owner": "rule:resource-binding"
+    },
+    {
+      "block": 42,
+      "owner": "rule:resource-duties"
+    },
+    {
+      "block": 43,
+      "owner": "rule:runtime-versions"
+    },
+    {
+      "block": 44,
+      "owner": "rule:ponytail-duties"
+    },
+    {
+      "block": 45,
+      "owner": "rule:code-contract"
+    },
+    {
+      "block": 46,
+      "owner": "rule:physical-limits"
+    },
+    {
+      "block": 47,
+      "owner": "rule:mise-features"
+    },
+    {
+      "block": 48,
+      "owner": "rule:companion-authority"
+    },
+    {
+      "block": 49,
+      "owner": "rule:packslip"
+    },
+    {
+      "block": 50,
+      "owner": "rule:usage"
+    },
+    {
+      "block": 51,
+      "owner": "rule:fnox"
+    },
+    {
+      "block": 52,
+      "owner": "rule:pitchfork"
+    },
+    {
+      "block": 53,
+      "owner": "rule:hk"
+    },
+    {
+      "block": 54,
+      "owner": "rule:mastra-capability"
+    },
+    {
+      "block": 55,
+      "owner": "rule:mastra-recovery"
+    },
+    {
+      "block": 56,
+      "owner": "rule:mastra-recovery"
+    },
+    {
+      "block": 57,
+      "owner": "rule:human-review"
+    },
+    {
+      "block": 58,
+      "owner": "rule:human-handoff"
+    },
+    {
+      "block": 59,
+      "owner": "rule:workflow-granularity"
+    },
+    {
+      "block": 61,
+      "owner": "rule:commands"
+    },
+    {
+      "block": 62,
+      "owner": "rule:loop-contract"
+    },
+    {
+      "block": 63,
+      "owner": "rule:loop-contract"
+    },
+    {
+      "block": 64,
+      "owner": "rule:loop-contract"
+    },
+    {
+      "block": 65,
+      "owner": "rule:loop-contract"
+    },
+    {
+      "block": 67,
+      "owner": "rule:domain-records"
+    },
+    {
+      "block": 68,
+      "owner": "rule:examples"
+    },
+    {
+      "block": 69,
+      "owner": "rule:output-propagation"
+    },
+    {
+      "block": 71,
+      "owner": "rule:eval-design"
+    },
+    {
+      "block": 72,
+      "owner": "rule:commands"
+    },
+    {
+      "block": 73,
+      "owner": "rule:eval-recovery"
+    },
+    {
+      "block": 74,
+      "owner": "rule:eval-coverage"
+    },
+    {
+      "block": 75,
+      "owner": "rule:human-proof"
+    },
+    {
+      "block": 76,
+      "owner": "rule:eval-coverage"
+    },
+    {
+      "block": 77,
+      "owner": "rule:implementation-progress"
+    },
+    {
+      "block": 78,
+      "owner": "rule:improvement-trial"
+    },
+    {
+      "block": 79,
+      "owner": "rule:delivery-report"
+    }
+  ],
+  "review": "Exact source transport into task-owned model work. Review changes to this complete mapping before adopting a changed template. Transport and binding proof are not semantic or human acceptance."
+}

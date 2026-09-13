@@ -3,8 +3,8 @@ import json, os, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
 from cli import SCRIPTS, run
+from contract_text import contract_text
 from scaffold_test_support import reviewed_scaffold
-
 sys.path.insert(0, str(SCRIPTS))
 from skill_package import owned_paths
 from standardization_runtime import LEDGER_EXAMPLES
@@ -61,12 +61,12 @@ def _TestScaffoldOutput_test_layout_is_complete(self):
         self.assertTrue((self.skill / rel).exists(), f"missing {rel}")
 
 def _TestScaffoldOutput_test_body_points_at_examples_with_a_load_condition(self):
-    body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+    body = contract_text(self.skill / "SKILL.md")
     self.assertIn("examples/", body)
     self.assertIn("examples/example-first-run.md", body)
 
 def _TestScaffoldOutput_test_body_routes_every_deterministic_command_through_mise(self):
-    body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+    body = contract_text(self.skill / "SKILL.md")
     self.assertIn("Mise invokes Mastra once at an explicit boundary", body)
     self.assertIn("Mastra directly invokes existing scripts or authorized runners", body)
     self.assertIn("**Agentic request contract.**", body)
@@ -75,14 +75,14 @@ def _TestScaffoldOutput_test_body_routes_every_deterministic_command_through_mis
     self.assertIn("mise run ci", body)
 
 def _TestScaffoldOutput_test_body_keeps_the_factory_language_contract(self):
-    body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+    body = contract_text(self.skill / "SKILL.md")
     rules = (self.skill / 'references' / 'writing-rules.md').read_text(encoding='utf-8')
     self.assertIn("## Motivation", body)
     self.assertIn("references/writing-rules.md", body)
     self.assertIn("## Plain language", rules)
 
 def _TestScaffoldOutput_test_body_ends_with_optional_nonregressing_improvement_step(self):
-    body = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+    body = contract_text(self.skill / "SKILL.md")
     heading = "**Efficiency and optional improvement.**"
     self.assertIn(heading, body)
     self.assertGreater(body.index(heading), body.index("## Evals"))

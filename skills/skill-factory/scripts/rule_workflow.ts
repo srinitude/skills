@@ -6,7 +6,7 @@ import { Mastra } from '@mastra/core/mastra';
 import type { MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
 import { bound, digest, taskSnapshot, runtimeIdentity } from './task_inventory.ts';
-import { taskContract, taskContractSchema } from './standardization_workflow.ts';
+import { taskContracts, taskContractSchema } from './standardization_workflow.ts';
 import { readThroughOwner } from './review_ledger_workflow.ts';
 import { requireRuntimeProof } from './runtime_gate.ts';
 
@@ -70,11 +70,11 @@ function workflow(name: string) {
 
 async function contracts(root: string): Promise<Contracts> {
   const snapshot = await taskSnapshot(root), result: Contracts = {};
-  for (const task of snapshot.tasks.filter(task => task.name.startsWith('rule:'))) {
-    const dependencies = z.array(text).parse(task.depends);
-    const contract = await taskContract(root, task.name, 'node scripts/run_rule.ts ' + task.name, dependencies);
+  const requests = snapshot.tasks.filter(task => task.name.startsWith('rule:')).map(task => ({
+    name: task.name, command: 'node scripts/run_rule.ts ' + task.name, depends: z.array(text).parse(task.depends) }));
+  for (const contract of await taskContracts(root, requests)) {
     if (contract.revision !== snapshot.revision) throw Error('Task definitions changed during capture');
-    result[task.name] = contract;
+    result[contract.name] = contract;
   }
   return result;
 }

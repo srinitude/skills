@@ -5,6 +5,7 @@ import tempfile
 import unittest
 
 from test_scaffold_skill import scaffold
+from contract_text import contract_text
 
 
 class TestGeneratedAgenticScaffold(unittest.TestCase):
@@ -13,7 +14,7 @@ class TestGeneratedAgenticScaffold(unittest.TestCase):
             result = scaffold(tmp, "agentic-trial", "Use when an agentic trial is requested.")
             root = pathlib.Path(tmp) / "agentic-trial"
             config = (root / "mise.toml").read_text(encoding="utf-8")
-            body = (root / "SKILL.md").read_text(encoding="utf-8")
+            body = contract_text(root / "SKILL.md")
             request_path = root / "assets" / "agentic-request-template.json"
             required = [root / name for name in [
                 "scripts/run_agentic_request.py", "scripts/agentic_request_contract.py",

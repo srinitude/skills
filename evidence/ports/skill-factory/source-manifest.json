@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "a9f931b61dc5786e5e07ab090de76ae783652d85c6b95c0cde0a82d268b981e4",
-  "evidence_packet_sha256": "a9f931b61dc5786e5e07ab090de76ae783652d85c6b95c0cde0a82d268b981e4",
+  "native_manifest_sha256": "cb1caf32eabbde08a69cdcf17f8b893f3c09df1cc09ae3628919847dda857941",
+  "evidence_packet_sha256": "cb1caf32eabbde08a69cdcf17f8b893f3c09df1cc09ae3628919847dda857941",
   "files": [
     {
       "bytes": 272,
@@ -144,6 +144,13 @@
       "location_path": "skills/skill-factory/assets/registry-standardization-profiles.json",
       "sha256": "b215ec3409c65cdd7625b0ea605878baf739404901b426aa55229f3053ce3d18",
       "source_path": "assets/registry-standardization-profiles.json"
+    },
+    {
+      "bytes": 5316,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/assets/skill-template-routes.json",
+      "sha256": "9eda81f5f638cfe5d3d1c0df862f99ead33ad976821677a93f4d3e6eab513f95",
+      "source_path": "assets/skill-template-routes.json"
     },
     {
       "bytes": 93803,
@@ -825,10 +832,10 @@
       "source_path": "scripts/review_ledger_write.py"
     },
     {
-      "bytes": 7324,
+      "bytes": 7349,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/rule_workflow.ts",
-      "sha256": "640d2a32bd12ac5f6af21a412c49b0537b196efcb7c76cd4c1f25acb062df752",
+      "sha256": "ff5710057ff76c51ec944c854d4d86b8c8e28f20d48c36e58a491bfdbe9d92c4",
       "source_path": "scripts/rule_workflow.ts"
     },
     {
@@ -874,10 +881,10 @@
       "source_path": "scripts/runtime_gate.ts"
     },
     {
-      "bytes": 4050,
+      "bytes": 4137,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/scaffold_plan.py",
-      "sha256": "462dfa7d2bc73c05218e39023b4c7c91b16bd0d47e8e7c07a17e4c1daaf3e56b",
+      "sha256": "0e3a63f45924a044e388527b0049eb3bd6bd6c16553053e2a89aedb0ccfe04af",
       "source_path": "scripts/scaffold_plan.py"
     },
     {
@@ -886,6 +893,13 @@
       "location_path": "skills/skill-factory/scripts/scaffold_review.py",
       "sha256": "f9e7cd7e78db77eae95de6bd4eceea75e3b187f7a22f66d94b1f0c55bd483640",
       "source_path": "scripts/scaffold_review.py"
+    },
+    {
+      "bytes": 6090,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/scaffold_rules.py",
+      "sha256": "bee5475072685afef33dcd2637276c966beea622cf3830ca3505babbcb6ef062",
+      "source_path": "scripts/scaffold_rules.py"
     },
     {
       "bytes": 9337,
@@ -1035,10 +1049,10 @@
       "source_path": "scripts/standardization_seed.py"
     },
     {
-      "bytes": 10556,
+      "bytes": 11025,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_workflow.ts",
-      "sha256": "eeb8fe4f7c7aa79f32bcfed44d3a4dc67450ea87332106c09f334106636dd5bb",
+      "sha256": "c4917563cc5487473d1fadbe82c20dd04dfe1f1b7d19b9606d6550447f7c9ec6",
       "source_path": "scripts/standardization_workflow.ts"
     },
     {
@@ -1238,10 +1252,10 @@
       "source_path": "scripts/tests/test_formatter_permissions.py"
     },
     {
-      "bytes": 2146,
+      "bytes": 2171,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_generated_agentic_scaffold.py",
-      "sha256": "5801fc4983138558db226e442be9a6f273abad6a5a3d89e87cf97749f293fc33",
+      "sha256": "15f54e2cc3f49339c460c737ac0219d0d9daa1ae25e1729195f378a6815368bb",
       "source_path": "scripts/tests/test_generated_agentic_scaffold.py"
     },
     {
@@ -1546,17 +1560,24 @@
       "source_path": "scripts/tests/test_runtime_task_dependencies.py"
     },
     {
-      "bytes": 9064,
+      "bytes": 9105,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_review.py",
-      "sha256": "bc6ca6990e2d31722f6036f220dfe9f66e64cb308ff1c6649cd771871fd434e0",
+      "sha256": "d8b30c388188d6f09f0af410d36b68b34fcbad9e86e1297d4accb40f7ca65183",
       "source_path": "scripts/tests/test_scaffold_review.py"
     },
     {
-      "bytes": 12602,
+      "bytes": 3597,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_scaffold_rules.py",
+      "sha256": "68ab03152017b551a49b969ea4d2e3a6d574e5a1f48619ba4a70404b4da09079",
+      "source_path": "scripts/tests/test_scaffold_rules.py"
+    },
+    {
+      "bytes": 12581,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_skill.py",
-      "sha256": "f5c5c0c25b0ef8966d97ecb3ff24c9f3258bb95d543bd91ab45a781ad4e8e7f0",
+      "sha256": "418b7d60be6c8fd611c8bf60a1f55c9693e5c9a84ef115c639794670cb65e347",
       "source_path": "scripts/tests/test_scaffold_skill.py"
     },
     {
@@ -1726,6 +1747,13 @@
       "location_path": "skills/skill-factory/scripts/tests/test_task_argument_dependencies.py",
       "sha256": "cbe8571f990c95f800bcb3617429865976104771ec4262af0fa52c3c2807d06a",
       "source_path": "scripts/tests/test_task_argument_dependencies.py"
+    },
+    {
+      "bytes": 2168,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_task_contract_batch.py",
+      "sha256": "a8441c6308d523c7b0bdad40e7990fccd23555fa02a930215f5627d92bb65edd",
+      "source_path": "scripts/tests/test_task_contract_batch.py"
     },
     {
       "bytes": 10191,

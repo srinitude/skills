@@ -9,6 +9,7 @@ from review_ledger_context import require
 from review_ledger_source import read_file
 from skill_package import inventory, sha
 from standardization_mise import normalize_mise
+from scaffold_rules import rule_documents
 
 
 def plan_digest(plan):
@@ -69,6 +70,7 @@ def render_plan(root, tokens, sources):
     body = read_file({"path": str(root / "SKILL.md")})
     require(body.decode("utf-8").strip(), "factory body must be nonempty regular UTF-8")
     baseline = inventory(root)
+    documents = rule_documents(root, tokens, render_tokens, normalize_mise)
     files = []
     for destination, source, rendered in sources:
         path = root / source
@@ -77,8 +79,8 @@ def render_plan(root, tokens, sources):
         raw = original
         if rendered:
             raw = render_tokens(original, tokens)
-        if destination == "mise.toml":
-            raw = normalize_mise(raw.decode("utf-8")).encode("utf-8")
+        if destination in documents:
+            raw = documents[destination]
         files.append({'path': destination, 'source': {'path': source, 'sha256': sha(original)},
                       'sha256': sha(raw), 'content_base64': base64.b64encode(raw).decode('ascii')})
     require(inventory(root) == baseline, 'factory changed while rendering scaffold plan')

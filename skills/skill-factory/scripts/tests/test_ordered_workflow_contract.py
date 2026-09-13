@@ -66,7 +66,7 @@ def _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, pat
         positions.append(text.index(anchor))
     self.assertEqual(positions, sorted(positions))
     self.assertLess(positions[-1], text.index("1. **"))
-    first = text.split("---", 2)[2].strip().split("\n\n", 1)[1]
+    first = text.split("---", 2)[2].strip().split("\n\n", 1)[1].removeprefix("- ")
     self.assertTrue(first.startswith(("On every load, read this whole SKILL.md body first.",
                                       "**Start here.** On every load, read this whole SKILL.md body first.")))
 

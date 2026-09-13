@@ -39,6 +39,7 @@ def test_standardization_copies_the_locked_code_runtime():
         for name in ["package.json", "package-lock.json", "tsconfig.json",
                      "scripts/check_code_rules.py", "scripts/check_javascript.ts",
                      "scripts/native_file_workflow.ts", "scripts/run_review_ledger.ts", "scripts/tests/test_native_runtime_review.py",
+                     "scripts/rule_workflow.ts", "scripts/run_rule.ts", "scripts/tests/test_rule_workflow.py",
                          "scripts/render_file_graph.py", "scripts/tests/test_render_file_graph.py",
                      "scripts/skill_package.py", "scripts/sync_mise_primitives.py",
                      "scripts/tests/test_related_owner_write.py", "scripts/tests/test_catalog_review.py", "scripts/tests/test_sync_mise_primitives.py",
@@ -54,7 +55,7 @@ def test_standardization_copies_the_locked_code_runtime():
         check.assertIn('npm = "11.16.0"', mise)
 
 def test_conflicting_runtime_and_custom_checker_preserve_the_whole_target():
-    for name in ["package.json", "tsconfig.json", "scripts/check_code_rules.py"]:
+    for name in ["package.json", "tsconfig.json", "scripts/check_code_rules.py", "scripts/rule_workflow.ts"]:
         with check.subTest(name=name), tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "clock-anchor"
             write_target(root)

@@ -1,11 +1,13 @@
 """Behavior tests for the complete skill-factory Mise dependency graph."""
 import json
-import tomllib
+import sys
 import unittest
 import test_task_graph_policy as policy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+from task_definitions import load_tasks
 CI_JOBS = ["test", "validate", "lint-writing",
            "lint-placeholders", "evals", "improvement-policy",
            "decision-policy", "source-corpus", "lineage"]
@@ -21,6 +23,9 @@ EXPECTED = {
     "setup-runtime": [],
     "check-runtime": ["setup-runtime"],
     "ledger": ["check-runtime"],
+    "task-tools": ["check-runtime"],
+    "rule:read": ["check-runtime"],
+    "rule:context": ["rule:read"],
     'markdown:inventory': ['check-runtime'],
     'markdown:mechanical': ['markdown:inventory'],
     'markdown:review-request': ['markdown:mechanical'],
@@ -62,8 +67,7 @@ EXPECTED = {
 
 
 def tasks():
-    with (ROOT / "mise.toml").open("rb") as handle:
-        return tomllib.load(handle)["tasks"]
+    return load_tasks(ROOT)
 
 
 def _TestTaskGraphTopology_setUp(self):

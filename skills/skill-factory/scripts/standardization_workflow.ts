@@ -1,7 +1,7 @@
 /** Reviewed domain operation. Native Python owns validation and every package effect. */
-import { createHash, randomUUID } from 'node:crypto';
-import { spawn, execFile } from 'node:child_process';
-import { promisify, isDeepStrictEqual } from 'node:util';
+import { randomUUID } from 'node:crypto';
+import { spawn } from 'node:child_process';
+import { isDeepStrictEqual } from 'node:util';
 import { readFile, writeFile, lstat, realpath } from 'node:fs/promises';
 import { isAbsolute, join, relative, sep } from 'node:path';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
@@ -9,7 +9,8 @@ import { Mastra } from '@mastra/core/mastra';
 import { InMemoryStore, type MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
 
-export const digest = (raw: Uint8Array) => createHash('sha256').update(raw).digest('hex');
+import { bound, digest, taskSnapshot } from './task_inventory.ts';
+export { bound, digest } from './task_inventory.ts';
 const path = z.string().min(1).refine(isAbsolute);
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 export const inputSchema = z.object({ target: path, profile: path, scope: z.enum(['user', 'project']).optional(),
@@ -48,23 +49,15 @@ export async function workflowRoots(runtime: Runtime, target?: string) {
   return { factory, state };
 }
 
-export async function bound(file: string, expected?: string) {
-  const metadata = await lstat(file);
-  if (!metadata.isFile() || metadata.isSymbolicLink()) throw new Error('Expected a regular bound input');
-  const raw = await readFile(file), sha256 = digest(raw);
-  if (expected !== undefined && sha256 !== expected) throw new Error('Changed workflow input: ' + file);
-  return { raw, sha256 };
-}
-
-export const taskContractSchema = z.object({ name: z.string().min(1), source: path, sha256: hash,
+export const taskContractSchema = z.object({ name: z.string().min(1), source: path, sha256: hash, revision: hash,
   description: z.string().min(1), depends: z.array(z.string()), run: z.array(z.string()) }).strict();
 
 export async function taskContract(root: string, name: string, command: string, depends: string[]) {
-  const source = join(root, 'mise.toml'), before = await bound(source);
-  const { stdout } = await promisify(execFile)('mise', ['-C', root, 'tasks', 'info', name, '--json'],
-    { maxBuffer: 1024 * 1024, timeout: 30000 });
-  const task = taskContractSchema.omit({ sha256: true }).strip().parse(JSON.parse(stdout));
-  if (task.name !== name || task.source !== source || !isDeepStrictEqual(task.run, [command])
+  const snapshot = await taskSnapshot(root);
+  const task = taskContractSchema.omit({ sha256: true, revision: true }).strip()
+    .parse(snapshot.tasks.find(item => item.name === name));
+  const before = await bound(task.source);
+  if (task.name !== name || !isDeepStrictEqual(task.run, [command])
       || !isDeepStrictEqual(task.depends, depends)) throw new Error('Native task does not match its workflow: ' + name);
   const sections = task.description.split(/^## /m).slice(1);
   const headings = ['Why this runs', 'When to run', 'Inputs', 'Work', 'Proof'];
@@ -72,8 +65,9 @@ export async function taskContract(root: string, name: string, command: string, 
       || !isDeepStrictEqual(sections.map(section => section.split('\n')[0]), headings)
       || sections.some(section => !section.slice(section.indexOf('\n')).trim()))
     throw new Error('Task needs its complete five-part work body: ' + name);
-  await bound(source, before.sha256);
-  return { ...task, sha256: before.sha256 };
+  await bound(task.source, before.sha256);
+  if ((await taskSnapshot(root)).revision !== snapshot.revision) throw Error('Task configuration changed during review');
+  return { ...task, sha256: before.sha256, revision: snapshot.revision };
 }
 
 function nativeArguments(runtime: Runtime, value: Input | Reviewed, apply: boolean) {

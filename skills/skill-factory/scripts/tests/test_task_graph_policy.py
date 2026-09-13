@@ -69,7 +69,7 @@ def _TestTaskGraphPolicy_check(self, graph=None, data=None):
         root = Path(temp) / "release-notes"
         root.mkdir()
         write_skill(root, graph, data)
-        for name in ["check_task_graph.py", "domain_text.py"]:
+        for name in ["check_task_graph.py", "domain_text.py", "task_definitions.py"]:
             shutil.copyfile(Path(__file__).resolve().parents[1] / name, root / name)
         return run(root / "check_task_graph.py", root, cwd=root)
 

@@ -3,11 +3,14 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { realpath } from 'node:fs/promises';
 import { watch, type FSWatcher } from 'node:fs';
-import { dirname, isAbsolute, join, relative, sep } from 'node:path';
+import { dirname, isAbsolute, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Server } from '@modelcontextprotocol/server';
+import { StdioServerTransport } from '@modelcontextprotocol/server/stdio';
+import { createStep, createWorkflow } from '@mastra/core/workflows';
+import { taskContract, taskContractSchema } from './standardization_workflow.ts';
 import { z } from 'zod';
-import { bound, digest } from './standardization_workflow.ts';
+import { bound, digest, taskSnapshot, type Task, type Snapshot } from './task_inventory.ts';
 
 const execute = promisify(execFile);
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -19,11 +22,7 @@ const inputs = z.object({
   files: z.array(file).default([]),
   revision: hash.optional(),
 }).strict();
-const nativeTask = z.object({ name: z.string().min(1), description: z.string(),
-  source: z.string().refine(isAbsolute), config_sources: z.array(z.string()).default([]), depends: z.array(z.unknown()).default([]) }).passthrough();
-type Task = z.infer<typeof nativeTask>;
 type Input = z.infer<typeof inputs>;
-type Snapshot = { tasks: Task[]; revision: string };
 
 export function taskToolName(name: string) {
   const value = 'task_' + name.replaceAll(':', '__').replaceAll('-', '_').replaceAll('.', '_');
@@ -39,29 +38,13 @@ function environment(input: Input) {
   for (const key of ['MISE_SKIP_TASKS', 'MISE_TASK_SKIP', 'MISE_TASK_NAME']) delete env[key];
   return { ...env, MISE_TASK_SKIP_DEPENDS: '0' };
 }
-function inside(root: string, path: string) {
-  const part = relative(root, path);
-  return part !== '..' && !part.startsWith('..' + sep) && !isAbsolute(part);
-}
-async function nativeTasks(root: string, input = inputs.parse({})) {
-  const { stdout } = await execute('mise', ['-C', root, 'tasks', 'ls', '--hidden', '--json'],
-    { env: environment(input), maxBuffer: 16 * 1024 * 1024, timeout: 30000 });
-  return z.array(nativeTask).parse(JSON.parse(stdout)).filter(task => inside(root, task.source))
-    .sort((a, b) => a.name < b.name ? -1 : Number(a.name > b.name));
-}
 async function snapshot(root: string, input = inputs.parse({})): Promise<Snapshot> {
-  const tasks = await nativeTasks(root, input);
-  if (new Set(tasks.map(task => taskToolName(task.name))).size !== tasks.length)
+  const state = await taskSnapshot(root, environment(input));
+  if (new Set(state.tasks.map(task => taskToolName(task.name))).size !== state.tasks.length)
     throw Error('Task tool name collision');
-  const sources = [...new Set([join(root, 'mise.toml'),
-    ...tasks.flatMap(task => [task.source, ...task.config_sources])])].sort();
-  for (const source of sources)
-    if (!inside(root, await realpath(source))) throw Error('Task source escapes this skill');
-  const identities = await Promise.all(sources.map(async source => [source, (await bound(source)).sha256] as const));
-  if (JSON.stringify(tasks) !== JSON.stringify(await nativeTasks(root, input))) throw Error('Tasks changed during discovery');
-  for (const [source, sha256] of identities) await bound(source, sha256);
-  return { tasks, revision: digest(Buffer.from(JSON.stringify([tasks, identities]))) };
+  return state;
 }
+
 async function revision(state: Snapshot, name: string, input: Input) {
   for (const item of input.files) await bound(item.path, item.sha256);
   return digest(Buffer.from(JSON.stringify([state.revision, name, input.args, input.env, input.files])));
@@ -103,8 +86,13 @@ function handoff(output: Awaited<ReturnType<typeof runTask>>) {
   } catch { /* Preserve unrecognized output as an error or ordinary task result. */ }
 }
 type State = { root: string; codePath: string; codeHash: string; current: Snapshot; server: Server; busy: boolean };
+async function adapterIdentity(codePath: string) {
+  const files = [codePath, fileURLToPath(new URL('./task_inventory.ts', import.meta.url))];
+  const raw = await Promise.all(files.map(async path => (await bound(path)).raw));
+  return digest(Buffer.concat(raw));
+}
 async function refresh(state: State, input = inputs.parse({})) {
-  await bound(state.codePath, state.codeHash);
+  if (await adapterIdentity(state.codePath) !== state.codeHash) throw Error('Task adapter changed; reconnect tools.');
   const next = await snapshot(state.root, input), changed = next.revision !== state.current.revision;
   state.current = next;
   if (changed && state.server.transport) await state.server.sendToolListChanged();
@@ -121,6 +109,7 @@ async function callTask(state: State, name: string, raw: unknown) {
     const identity = await revision(current, task.name, input);
     if (input.action === 'inspect') return result({ status: 'inspected', task, revision: identity });
     if (identity !== input.revision) throw Error('Task or inputs changed; inspect this exact task again.');
+    if (task.name === 'task-tools') throw Error('The host opens task-tools; do not start a nested tool connection.');
     output = await runTask(state.root, task.name, input);
     const after = await refresh(state, input), unchanged = identity === await revision(after, task.name, input);
     const workflow = handoff(output), failed = output.exit_code !== 0 && !workflow;
@@ -149,7 +138,7 @@ function watchTasks(state: State) {
 }
 export async function createTaskTools(directory: string) {
   const root = await realpath(directory), codePath = fileURLToPath(import.meta.url);
-  const codeHash = (await bound(codePath)).sha256;
+  const codeHash = await adapterIdentity(codePath);
   const server = new Server({ name: 'agent-skill-tasks', version: '1.0.0' },
     { capabilities: { tools: { listChanged: true } },
       instructions: 'Inspect the relevant individual task tool. Read its full rules, then run the same tool with its revision. Mise owns dependencies; the model and human retain their judgment and approval duties.' });
@@ -163,3 +152,28 @@ export async function createTaskTools(directory: string) {
   watchTasks(state);
   return { server, refresh: () => refresh(state) };
 }
+
+async function main() {
+  const args = process.argv.slice(2);
+  if (args.length === 1 && args[0] === '--help') {
+    process.stdout.write('Usage: mise run task-tools\nOne MCP tool per live skill task over stdin/stdout.\nExample: mise -C /path/to/skill run task-tools\nExit 0: closed; 1: startup failure; 2: bad usage.\n');
+    return;
+  }
+  if (args.length || process.env.MISE_TASK_NAME !== 'task-tools') {
+    console.error('Start through mise run task-tools with no arguments.'); process.exitCode = 2; return;
+  }
+  const root = fileURLToPath(new URL('..', import.meta.url));
+  const task = await taskContract(root, 'task-tools', 'node scripts/task_tools.ts', ['check-runtime']);
+  const ready = createStep({ id: 'check-task-source', inputSchema: taskContractSchema, outputSchema: taskContractSchema,
+    execute: async ({ inputData }) => { await bound(inputData.source, inputData.sha256); return inputData; } });
+  const workflow = createWorkflow({ id: 'task-tools-readiness', inputSchema: taskContractSchema,
+    outputSchema: taskContractSchema }).then(ready).commit();
+  const checked = await (await workflow.createRun()).start({ inputData: task });
+  if (checked.status !== 'success') throw Error('Task tool readiness failed');
+  // Transport serves independent task calls after the readiness workflow has ended.
+  const { server } = await createTaskTools(root);
+  process.stdin.once('end', () => { void server.close().catch(error => { console.error(error); process.exitCode = 1; }); });
+  await server.connect(new StdioServerTransport());
+}
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url))
+  await main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -452,6 +452,20 @@
         "motivation": "The agent skill reader needs clear instructions with no missing rule or proof.",
         "why_default_path": "This agent skill public entry reaches each writing stage once through the declared Mise chain and guarded Mastra steps.",
         "proof": "For the agent skill package: Require the full chain; keep real human and domain acceptance separate."
+      },
+      {
+        "task": "task-tools",
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "why_default_path": "The host opens the agent skill connection through this one Mise entry after its runtime checks; each exposed tool calls its own task.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome."
+      },
+      {
+        "task": "rule:context",
+        "outcome": "Review the agent skill sources and valid context before relying on its rules.",
+        "motivation": "An agent skill needs its own source ledger and reviews without borrowed rights or stale proof.",
+        "proof": "The actual agent skill context tool requires body-read proof, returns the full bound task and source body, rejects a wrong reply, and resumes with fresh evidence. Complete semantic coverage and output acceptance remain separate.",
+        "why_default_path": "This agent skill load entry reaches body reading then context review through declared Mise prerequisites. It grants no unrelated task execution."
       }
     ],
     "tasks": {
@@ -783,6 +797,27 @@
         "value": "Use the agent skill accept findings before the next dependent writing step.",
         "proof": "For the agent skill package: Require the full chain; keep real human and domain acceptance separate.",
         "applicability": "For each existing, new or generated agent skill Markdown file; preserve required human review."
+      },
+      "task-tools": {
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "value": "Inspect and run the named agent skill task with bound inputs; leave judgment and approval with their owners.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome.",
+        "applicability": "When a host needs the agent skill task interface and allows the task's effects."
+      },
+      "rule:read": {
+        "outcome": "Read the whole agent skill body and select its current task rules.",
+        "motivation": "An agent skill must not act on missing, stale or unrelated instructions.",
+        "value": "Bind the agent skill body and request, expose full task instructions, and retain model and human duties.",
+        "proof": "Real agent skill workflow tests reject missing, wrong, byte-only and duplicate body inputs, and stale replies; fresh bound replies resume the same task. These checks do not prove semantic or human acceptance.",
+        "applicability": "On each agent skill load, before choosing work tasks."
+      },
+      "rule:context": {
+        "outcome": "Review the agent skill sources and valid context before relying on its rules.",
+        "motivation": "An agent skill needs its own source ledger and reviews without borrowed rights or stale proof.",
+        "value": "Check current agent skill rules and relationships, review changed inputs and allow only valid review reuse; keep other authorized work moving.",
+        "proof": "The actual agent skill context tool requires body-read proof, returns the full bound task and source body, rejects a wrong reply, and resumes with fresh evidence. Complete semantic coverage and output acceptance remain separate.",
+        "applicability": "On each agent skill load after its body read, and when affected context or reviews change."
       }
     }
   },

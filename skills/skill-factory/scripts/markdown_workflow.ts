@@ -9,6 +9,7 @@ import { Mastra } from '@mastra/core/mastra';
 import type { MastraCompositeStore } from '@mastra/core/storage';
 import { z } from 'zod';
 import { bound, digest, taskContract, taskContractSchema } from './standardization_workflow.ts';
+import { taskSnapshot } from './task_inventory.ts';
 
 export const phases = ['inventory', 'mechanical', 'review-request', 'macro-review', 'micro-review', 'line-review', 'review-check', 'accept'] as const;
 const text = z.string().trim().min(1), hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -81,9 +82,10 @@ async function capture(request: Request): Promise<Output> {
   for (const role of ['source', 'body', 'ledger', 'graph', 'policy'])
     if (!roles.has(role)) throw new Error('Missing review context: ' + role);
   report.runtime.validator_files = Object.fromEntries(await Promise.all(
-    ['markdown_workflow.ts', 'run_markdown.ts', 'standardization_workflow.ts',
+    ['markdown_workflow.ts', 'run_markdown.ts', 'standardization_workflow.ts', 'task_inventory.ts',
       'run_standardization.ts', '../package.json', '../package-lock.json', '../mise.toml'].map(async name =>
       [name, (await bound(fileURLToPath(new URL(name, import.meta.url)))).sha256])));
+  report.runtime.task_revision = (await taskSnapshot(dirname(fileURLToPath(new URL('../mise.toml', import.meta.url))))).revision;
   const captured = { request, report, context };
   return { ...captured, reviews: {}, request_sha256: digest(Buffer.from(JSON.stringify(captured))), execution_acceptance: 'pending' };
 }
@@ -148,7 +150,7 @@ function buildWorkflow(phase: Phase, owner: () => Mastra) {
       const task = await taskContract(dirname(fileURLToPath(new URL('../mise.toml', import.meta.url))),
         name, 'node scripts/run_markdown.ts ' + phase, [index ? 'markdown:' + phases[index - 1] : 'check-runtime']);
       const input = await predecessor(owner(), phase, inputData, await capture(inputData));
-      if ((input.report.runtime.validator_files as Record<string, string>)['../mise.toml'] !== task.sha256)
+      if (input.report.runtime.task_revision !== task.revision)
         throw new Error('Task body changed during review capture');
       if (phase === 'review-check' || phase === 'accept') {
         checkCompleteReviews(input);

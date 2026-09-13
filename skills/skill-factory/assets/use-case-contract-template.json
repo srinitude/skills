@@ -227,6 +227,13 @@
         "motivation": "SCAFFOLD-PLACEHOLDER A successful image command can otherwise omit {{NAME}} package nodes or connectors while looking complete.",
         "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
         "why_default_path": "SCAFFOLD-PLACEHOLDER The {{NAME}} has one public render route after locked runtime, code and browser prerequisites; the native ledger remains the relationship owner."
+      },
+      {
+        "task": "task-tools",
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "why_default_path": "The host opens the agent skill connection through this one Mise entry after its runtime checks; each exposed tool calls its own task.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome."
       }
     ],
     "tasks": {
@@ -346,6 +353,13 @@
         "value": "SCAFFOLD-PLACEHOLDER The {{NAME}} renderer verifies the native result digest, regenerates its exact Mermaid projection, refuses existing output directories and checks every rendered node and connector identity.",
         "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
         "applicability": "SCAFFOLD-PLACEHOLDER Run for each current or intermediate {{NAME}} file graph after its native ledger file-graph result is captured. Supply the result path, new output directory, expected SHA-256 and positive timeout; retain original records and inspect the rendered pixels before acceptance."
+      },
+      "task-tools": {
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "value": "Inspect and run the named agent skill task with bound inputs; leave judgment and approval with their owners.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome.",
+        "applicability": "When a host needs the agent skill task interface and allows the task's effects."
       }
     }
   },

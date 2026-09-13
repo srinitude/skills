@@ -1,11 +1,13 @@
 """Preserve authored evals and reject unfinished standardization seeds."""
 import json
 import tempfile
+import sys
 import tomllib
 import unittest
 from pathlib import Path
 
 from cli import SKILL_DIR
+sys.path.insert(0, str(SKILL_DIR / 'scripts'))
 from check_evals import check_cases, check_queries
 from check_placeholders import line_problems
 from standardization_seed import build_evals, build_triggers, seeds, base_mise, operations, task_records

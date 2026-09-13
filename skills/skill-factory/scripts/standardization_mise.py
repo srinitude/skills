@@ -4,17 +4,19 @@ import re
 import tomllib
 from graphlib import TopologicalSorter
 from pathlib import Path
+from task_definitions import load_tasks
 
 from check_task_graph import dependency_name, path_counts
 from standardization_seed import base_mise, normalize_cache_sources
 
-FACTORY_TASKS = tomllib.loads((Path(__file__).resolve().parents[1] / "mise.toml").read_text())["tasks"]
+FACTORY_TASKS = load_tasks(Path(__file__).resolve().parents[1])
 CI_CHECKS = tomllib.loads(base_mise({"primary_term": "skill"}))["tasks"]["ci"]["depends"]
 
 from standardization_runtime import (MARKDOWN_TASKS, check_runtime_tasks, CATALOG_RUN, catalog_task, isolate_python_helpers, runtime_preamble,
                                      runtime_dependencies, strip_key, nested_dependencies, split_sections, split_task_body, task_header)
 
 POLICY_TASKS = {
+    "task-tools": (["check-runtime"], FACTORY_TASKS["task-tools"]["description"], "node scripts/task_tools.ts"),
     "render-file-graph": (["setup-graph-renderer"], "Prepare or render the recorded agent skill file graph", "python3 scripts/render_file_graph.py"),
     "setup-graph-renderer": (["lint-code"], "Prepare or render the recorded agent skill file graph", FACTORY_TASKS["setup-graph-renderer"]["run"]),
     "validate": ([], "Validate the current skill package and changed-output declarations",
@@ -22,8 +24,8 @@ POLICY_TASKS = {
     "setup-runtime": ([], "Install exact locked skill code-check dependencies",
         ["npm ci --include=dev --ignore-scripts 1>&2",
          "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]),
-    "check-runtime": (["setup-runtime"], "Type-check owned skill TypeScript",
-        "npm exec --no -- tsc --noEmit --project tsconfig.json"),
+    "check-runtime": (["setup-runtime"], FACTORY_TASKS["check-runtime"]["description"],
+        "node scripts/runtime_gate.ts"),
     "ledger": (["check-runtime"], "Read skill ledger context or apply a caller-scoped file change through native Mastra",
         "node scripts/run_review_ledger.ts"),
     "domain-research-policy": ([], "Validate current domain research receipts",
@@ -53,7 +55,6 @@ POLICY_TASKS = {
 POLICY_TASKS.update({name: (task["depends"], task["description"], task["run"])
                      for name, task in MARKDOWN_TASKS.items()})
 
-
 def declared_dependencies(block):
     values = tomllib.loads('[task]\n' + block)['task'].get('depends', [])
     if not isinstance(values, list):
@@ -61,7 +62,6 @@ def declared_dependencies(block):
     for value in values:
         dependency_name(value)
     return values
-
 
 def dependency_line(names):
     parts = []
@@ -95,7 +95,7 @@ def policy_block(name, spec):
     depends, description, command = spec
     block = "\n".join([f'description = {json.dumps(description)}',
                          f'run = {json.dumps(command)}', dependency_line(depends)])
-    if name in MARKDOWN_TASKS:
+    if name in MARKDOWN_TASKS or name == 'check-runtime':
         block = 'env = { UV_PYTHON = "{{tools.python.path}}" }\n' + block
     if name == 'mise-primitives-update':
         block = catalog_task(block)

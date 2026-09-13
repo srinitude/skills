@@ -3,11 +3,12 @@
 Refuse unmodeled wait_for/dependency forms; structural/domain checks do not prove runtime order, readiness or outcome acceptance.
 Usage/example: python3 scripts/check_task_graph.py [skill_root]
 Exit 0: specialized, connected, acyclic and single-path; 1: invalid graph/domain contract; 2: bad usage."""
-import argparse, json, sys, tomllib
+import argparse, json, sys
 from graphlib import CycleError, TopologicalSorter
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
+from task_definitions import load_tasks
 
 DETAIL_FIELDS = {"outcome", "motivation", "value", "proof", "applicability"}
 OP_FIELDS = {"task", "outcome", "motivation", "why_default_path", "proof"}
@@ -37,8 +38,7 @@ def run_commands(task):
 
 def load(root):
     try:
-        with (root / "mise.toml").open("rb") as handle:
-            tasks = tomllib.load(handle).get("tasks", {})
+        tasks = load_tasks(root)
         path = root / "assets/use-case-contract.json"
         use_case = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(use_case, dict):

@@ -170,7 +170,7 @@ Start with the matching public command in the Mise task graph. Use the seven sta
 ## Evals
 
 - **Run `rule:eval-design`.** Freeze the eval rules before building or testing. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
-- **Run `rule:eval-cases`.** Run real domain cases and trigger checks. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
+- **Run `rule:eval-cases`.** Run real domain cases and trigger checks. Pass [local cases](evals/evals.json) and [trigger queries](evals/trigger-queries.json) to their owning tasks. Read the full [task rules](tasks/evaluation.toml) when its trigger applies.
 - **Run `rule:eval-recovery`.** Prove rejection, required non-effects and safe recovery. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
 - **Run `rule:eval-coverage`.** Cover required operations alone and together. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
 - **Run `rule:eval-antipatterns`.** Find real failures and test sound alternatives. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.

@@ -466,6 +466,748 @@
         "motivation": "An agent skill needs its own source ledger and reviews without borrowed rights or stale proof.",
         "proof": "The actual agent skill context tool requires body-read proof, returns the full bound task and source body, rejects a wrong reply, and resumes with fresh evidence. Complete semantic coverage and output acceptance remain separate.",
         "why_default_path": "This agent skill load entry reaches body reading then context review through declared Mise prerequisites. It grants no unrelated task execution."
+      },
+      {
+        "task": "rule:acceptance",
+        "outcome": "For the agent skill: Require fresh proof for every rule that applies.",
+        "motivation": "The agent skill must retain the complete `rule:acceptance` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:acceptance`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:acceptance` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:acceptance-owner",
+        "outcome": "For the agent skill: Keep verification, real-use validation and acceptance distinct.",
+        "motivation": "The agent skill must retain the complete `rule:acceptance-owner` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:acceptance-owner`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:acceptance-owner` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:advance",
+        "outcome": "For the agent skill: Record results, remaining work and verified delivery.",
+        "motivation": "The agent skill must retain the complete `rule:advance` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:advance`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:advance` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:body-ownership",
+        "outcome": "For the agent skill: Keep core work and load routes rooted in SKILL.md.",
+        "motivation": "The agent skill must retain the complete `rule:body-ownership` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:body-ownership`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:body-ownership` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:change-history",
+        "outcome": "For the agent skill: Bind each change, its proof, open gap and next action.",
+        "motivation": "The agent skill must retain the complete `rule:change-history` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:change-history`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:change-history` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:change-review",
+        "outcome": "For the agent skill: Review full inputs and affected meaning around each change.",
+        "motivation": "The agent skill must retain the complete `rule:change-review` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:change-review`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:change-review` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:code-contract",
+        "outcome": "For the agent skill: Keep scripts correct at real runtime boundaries.",
+        "motivation": "The agent skill must retain the complete `rule:code-contract` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:code-contract`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:code-contract` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:code-simplicity",
+        "outcome": "For the agent skill: Use the smallest sound code and measured tradeoffs.",
+        "motivation": "The agent skill must retain the complete `rule:code-simplicity` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:code-simplicity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:code-simplicity` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:commands",
+        "outcome": "For the agent skill: Choose the supported command and its reviewed path.",
+        "motivation": "The agent skill must retain the complete `rule:commands` duty at its single owner, tasks/operations.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:commands`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:commands` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:companion-authority",
+        "outcome": "For the agent skill: Check companion need, versions and authority.",
+        "motivation": "The agent skill must retain the complete `rule:companion-authority` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:companion-authority`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:companion-authority` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:consumer",
+        "outcome": "For the agent skill: Validate the result for its real consumer.",
+        "motivation": "The agent skill must retain the complete `rule:consumer` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:consumer`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:consumer` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:creative-scope",
+        "outcome": "For the agent skill: Preserve allowed creative choices and media.",
+        "motivation": "The agent skill must retain the complete `rule:creative-scope` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:creative-scope`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:creative-scope` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:delivery-report",
+        "outcome": "For the agent skill: Give the full decision trail and distinguish work from acceptance.",
+        "motivation": "The agent skill must retain the complete `rule:delivery-report` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:delivery-report`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:delivery-report` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:deterministic-checks",
+        "outcome": "For the agent skill: Prove only the exact predicates code can decide.",
+        "motivation": "The agent skill must retain the complete `rule:deterministic-checks` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:deterministic-checks`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:deterministic-checks` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:domain-records",
+        "outcome": "For the agent skill: Keep domain, lifecycle and decision records at their owners.",
+        "motivation": "The agent skill must retain the complete `rule:domain-records` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:domain-records`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:domain-records` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:duties",
+        "outcome": "For the agent skill: Assign each action, judgment, check and acceptance owner.",
+        "motivation": "The agent skill must retain the complete `rule:duties` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:duties` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-antipatterns",
+        "outcome": "For the agent skill: Find real failures and test sound alternatives.",
+        "motivation": "The agent skill must retain the complete `rule:eval-antipatterns` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-antipatterns`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-antipatterns` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-cases",
+        "outcome": "For the agent skill: Run real domain cases and trigger checks.",
+        "motivation": "The agent skill must retain the complete `rule:eval-cases` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-cases`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-cases` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-coverage",
+        "outcome": "For the agent skill: Cover required operations alone and together.",
+        "motivation": "The agent skill must retain the complete `rule:eval-coverage` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-coverage` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-design",
+        "outcome": "For the agent skill: Freeze the eval rules before building or testing.",
+        "motivation": "The agent skill must retain the complete `rule:eval-design` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-design`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-design` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-recovery",
+        "outcome": "For the agent skill: Prove rejection, required non-effects and safe recovery.",
+        "motivation": "The agent skill must retain the complete `rule:eval-recovery` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-recovery` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:eval-resources",
+        "outcome": "For the agent skill: Measure complete paths with matched inputs and honest limits.",
+        "motivation": "The agent skill must retain the complete `rule:eval-resources` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:eval-resources`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:eval-resources` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:examples",
+        "outcome": "For the agent skill: Reuse existing owners and keep complete actual examples.",
+        "motivation": "The agent skill must retain the complete `rule:examples` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:examples`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:examples` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:factory-repair",
+        "outcome": "For the agent skill: Fix factory faults before resuming affected skill work.",
+        "motivation": "The agent skill must retain the complete `rule:factory-repair` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:factory-repair`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:factory-repair` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:finalized",
+        "outcome": "For the agent skill: Review the whole changed file and its known consumers.",
+        "motivation": "The agent skill must retain the complete `rule:finalized` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:finalized`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:finalized` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:fnox",
+        "outcome": "For the agent skill: Pass scoped secrets only to ready consumers.",
+        "motivation": "The agent skill must retain the complete `rule:fnox` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:fnox`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:fnox` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:graph-coverage",
+        "outcome": "For the agent skill: Cover every file in a whole-directory update.",
+        "motivation": "The agent skill must retain the complete `rule:graph-coverage` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:graph-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:graph-coverage` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:graph-map",
+        "outcome": "For the agent skill: Map every rule to its real file owners.",
+        "motivation": "The agent skill must retain the complete `rule:graph-map` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:graph-map`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:graph-map` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:graph-order",
+        "outcome": "For the agent skill: Work outward while keeping real prerequisites.",
+        "motivation": "The agent skill must retain the complete `rule:graph-order` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:graph-order`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:graph-order` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:graph-paths",
+        "outcome": "For the agent skill: Keep every file on a true path to SKILL.md.",
+        "motivation": "The agent skill must retain the complete `rule:graph-paths` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:graph-paths`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:graph-paths` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:graph-render",
+        "outcome": "For the agent skill: Render and inspect the complete file graph.",
+        "motivation": "The agent skill must retain the complete `rule:graph-render` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:graph-render`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:graph-render` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:hk",
+        "outcome": "For the agent skill: Reuse checks within the verified hook boundary.",
+        "motivation": "The agent skill must retain the complete `rule:hk` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:hk`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:hk` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-context",
+        "outcome": "For the agent skill: Study the actual task, people and medium.",
+        "motivation": "The agent skill must retain the complete `rule:human-context` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-context`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-context` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-duty",
+        "outcome": "For the agent skill: Obtain real decisions and proof from their human owners.",
+        "motivation": "The agent skill must retain the complete `rule:human-duty` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-duty`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-duty` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-handoff",
+        "outcome": "For the agent skill: Bind real human input before protected effects.",
+        "motivation": "The agent skill must retain the complete `rule:human-handoff` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-handoff`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-handoff` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-inventory",
+        "outcome": "For the agent skill: Keep the full applicable study and work inventory.",
+        "motivation": "The agent skill must retain the complete `rule:human-inventory` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-inventory`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-inventory` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-matrix",
+        "outcome": "For the agent skill: Load and use the required human-work matrix.",
+        "motivation": "The agent skill must retain the complete `rule:human-matrix` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-matrix`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-matrix` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-proof",
+        "outcome": "For the agent skill: Match each human claim to the right proof.",
+        "motivation": "The agent skill must retain the complete `rule:human-proof` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-proof`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-proof` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:human-review",
+        "outcome": "For the agent skill: Use the full human review protocol and its limits.",
+        "motivation": "The agent skill must retain the complete `rule:human-review` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:human-review`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:human-review` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:implementation-progress",
+        "outcome": "For the agent skill: Make the ready skill change and prove its effect.",
+        "motivation": "The agent skill must retain the complete `rule:implementation-progress` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:implementation-progress`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:implementation-progress` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:implemented",
+        "outcome": "For the agent skill: Carry out the reviewed change and retain its effects.",
+        "motivation": "The agent skill must retain the complete `rule:implemented` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:implemented`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:implemented` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:improvement-confirm",
+        "outcome": "For the agent skill: Check an adopted trial on the next invocation; restore regressions.",
+        "motivation": "The agent skill must retain the complete `rule:improvement-confirm` duty at its single owner, tasks/improvement.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:improvement-confirm`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:improvement-confirm` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:improvement-trial",
+        "outcome": "For the agent skill: Load the full trial contract; keep gains only without protected loss.",
+        "motivation": "The agent skill must retain the complete `rule:improvement-trial` duty at its single owner, tasks/improvement.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:improvement-trial`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:improvement-trial` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:isolation",
+        "outcome": "For the agent skill: State and test the real limits of replay and isolation.",
+        "motivation": "The agent skill must retain the complete `rule:isolation` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:isolation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:isolation` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:judgment-scope",
+        "outcome": "For the agent skill: Keep exploration, production and acceptance distinct.",
+        "motivation": "The agent skill must retain the complete `rule:judgment-scope` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:judgment-scope`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:judgment-scope` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-applicability",
+        "outcome": "For the agent skill: State when a rule applies and what it must achieve.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-applicability` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-applicability`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-applicability` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-capture",
+        "outcome": "For the agent skill: Keep every source rule and its full context.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-capture` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-capture`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-capture` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-dependencies",
+        "outcome": "For the agent skill: Bind needed state, inputs and their lifetimes.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-dependencies` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-dependencies`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-dependencies` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-evidence",
+        "outcome": "For the agent skill: Bind each claim to its deciding proof.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-evidence` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-evidence`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-evidence` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-identity",
+        "outcome": "For the agent skill: Keep exact meaning, source identity and rule force.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-identity` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-identity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-identity` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-propagation",
+        "outcome": "For the agent skill: Trace body ownership, consumers and copied rules.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-propagation` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-propagation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-propagation` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-quality",
+        "outcome": "For the agent skill: Retain quality, resource and proof requirements.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-quality` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-quality`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-quality` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-relationships",
+        "outcome": "For the agent skill: Preserve each relationship and its exact meaning.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-relationships` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-relationships`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-relationships` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-responsibility",
+        "outcome": "For the agent skill: Assign each duty to its real owner.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-responsibility` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-responsibility`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-responsibility` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ledger-traverse",
+        "outcome": "For the agent skill: Read the right context and preserve traversal limits.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-traverse` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ledger-traverse`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ledger-traverse` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:loop-contract",
+        "outcome": "For the agent skill: Use the seven stages without replaying finished effects.",
+        "motivation": "The agent skill must retain the complete `rule:loop-contract` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:loop-contract`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:loop-contract` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-authority",
+        "outcome": "For the agent skill: Keep workflow and human authority separate.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-authority` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-authority`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-authority` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-choices",
+        "outcome": "For the agent skill: Explain and prove each Markdown form choice.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-choices` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-choices`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-choices` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-order",
+        "outcome": "For the agent skill: Review whole files before blocks and lines.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-order` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-order`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-order` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-payload",
+        "outcome": "For the agent skill: Read the full bound review result.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-payload` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-payload`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-payload` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-recovery",
+        "outcome": "For the agent skill: Prove failed and resumed review paths.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-recovery` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-recovery` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:markdown-reply",
+        "outcome": "For the agent skill: Validate the review and its exact prior stage.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-reply` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:markdown-reply`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:markdown-reply` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:mastra-capability",
+        "outcome": "For the agent skill: Run the real skill capability in Mastra.",
+        "motivation": "The agent skill must retain the complete `rule:mastra-capability` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:mastra-capability`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:mastra-capability` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:mastra-recovery",
+        "outcome": "For the agent skill: Test actual workflow state and failure behavior.",
+        "motivation": "The agent skill must retain the complete `rule:mastra-recovery` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:mastra-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:mastra-recovery` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:meaning-decisions",
+        "outcome": "For the agent skill: Resolve material facts and competing readings.",
+        "motivation": "The agent skill must retain the complete `rule:meaning-decisions` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:meaning-decisions`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:meaning-decisions` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:methods",
+        "outcome": "For the agent skill: Choose methods from measured work and proof needs.",
+        "motivation": "The agent skill must retain the complete `rule:methods` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:methods`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:methods` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:mise-features",
+        "outcome": "For the agent skill: Review each released Mise feature and its domain use.",
+        "motivation": "The agent skill must retain the complete `rule:mise-features` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:mise-features`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:mise-features` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:model-duty",
+        "outcome": "For the agent skill: Keep meaning, perception and creative judgment with the model.",
+        "motivation": "The agent skill must retain the complete `rule:model-duty` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:model-duty`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:model-duty` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:native-effects",
+        "outcome": "For the agent skill: Use the native file tool within its reviewed boundary.",
+        "motivation": "The agent skill must retain the complete `rule:native-effects` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:native-effects`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:native-effects` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:native-task-fields",
+        "outcome": "For the agent skill: Check native wait, post-task and inheritance behavior.",
+        "motivation": "The agent skill must retain the complete `rule:native-task-fields` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:native-task-fields`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:native-task-fields` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:outcome",
+        "outcome": "For the agent skill: Preserve the complete portable skill contract.",
+        "motivation": "The agent skill must retain the complete `rule:outcome` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:outcome`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:outcome` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:output-propagation",
+        "outcome": "For the agent skill: Carry the whole contract into independent outputs.",
+        "motivation": "The agent skill must retain the complete `rule:output-propagation` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:output-propagation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:output-propagation` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:package-shape",
+        "outcome": "For the agent skill: Keep valid package metadata and required files.",
+        "motivation": "The agent skill must retain the complete `rule:package-shape` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:package-shape`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:package-shape` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:packslip",
+        "outcome": "For the agent skill: Verify distribution and provenance boundaries.",
+        "motivation": "The agent skill must retain the complete `rule:packslip` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:packslip`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:packslip` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:physical-limits",
+        "outcome": "For the agent skill: Keep readable files within physical size and depth limits.",
+        "motivation": "The agent skill must retain the complete `rule:physical-limits` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:physical-limits`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:physical-limits` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:pitchfork",
+        "outcome": "For the agent skill: Own persistent processes and their cleanup.",
+        "motivation": "The agent skill must retain the complete `rule:pitchfork` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:pitchfork`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:pitchfork` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:plain-writing",
+        "outcome": "For the agent skill: Write clear sixth-grade prose and verify its meaning.",
+        "motivation": "The agent skill must retain the complete `rule:plain-writing` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:plain-writing`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:plain-writing` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ponytail-duties",
+        "outcome": "For the agent skill: Apply all six code simplicity duties within scope.",
+        "motivation": "The agent skill must retain the complete `rule:ponytail-duties` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ponytail-duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ponytail-duties` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:prerequisites",
+        "outcome": "For the agent skill: Find prerequisites from real outcomes and consumers.",
+        "motivation": "The agent skill must retain the complete `rule:prerequisites` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:prerequisites`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:prerequisites` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:program-host",
+        "outcome": "For the agent skill: Verify actual program capabilities, interfaces and authority.",
+        "motivation": "The agent skill must retain the complete `rule:program-host` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:program-host`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:program-host` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:purpose",
+        "outcome": "For the agent skill: Protect the reasons, allowed choices and intended result.",
+        "motivation": "The agent skill must retain the complete `rule:purpose` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:purpose`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:purpose` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:ready",
+        "outcome": "For the agent skill: Bind the exact allowed change and deciding checks.",
+        "motivation": "The agent skill must retain the complete `rule:ready` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:ready`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:ready` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:reconciled",
+        "outcome": "For the agent skill: Bind the current request, sources and rights.",
+        "motivation": "The agent skill must retain the complete `rule:reconciled` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:reconciled`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:reconciled` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:research-design",
+        "outcome": "For the agent skill: Use research to inform real design choices.",
+        "motivation": "The agent skill must retain the complete `rule:research-design` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:research-design`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:research-design` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:resource-binding",
+        "outcome": "For the agent skill: Bind initial resources to their actual consumers.",
+        "motivation": "The agent skill must retain the complete `rule:resource-binding` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:resource-binding`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:resource-binding` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:resource-duties",
+        "outcome": "For the agent skill: Name and test every resource handoff.",
+        "motivation": "The agent skill must retain the complete `rule:resource-duties` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:resource-duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:resource-duties` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:resource-links",
+        "outcome": "For the agent skill: Give each resource a clear route and checked link.",
+        "motivation": "The agent skill must retain the complete `rule:resource-links` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:resource-links`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:resource-links` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:rule-coverage",
+        "outcome": "For the agent skill: Give each work unit a full task, tool and workflow.",
+        "motivation": "The agent skill must retain the complete `rule:rule-coverage` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:rule-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:rule-coverage` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:runtime-interfaces",
+        "outcome": "For the agent skill: Verify the real interface before composing a runtime.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-interfaces` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:runtime-interfaces`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:runtime-interfaces` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:runtime-scheduling",
+        "outcome": "For the agent skill: Bind discovered work and protect shared state.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-scheduling` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:runtime-scheduling`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:runtime-scheduling` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:runtime-versions",
+        "outcome": "For the agent skill: Freeze compatible environments and exact versions.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-versions` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:runtime-versions`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:runtime-versions` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:scope-audience",
+        "outcome": "For the agent skill: Resolve scope, audience and allowed destinations.",
+        "motivation": "The agent skill must retain the complete `rule:scope-audience` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:scope-audience`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:scope-audience` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:selected",
+        "outcome": "For the agent skill: Choose the earliest ready gap from SKILL.md outward.",
+        "motivation": "The agent skill must retain the complete `rule:selected` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:selected`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:selected` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:selection-meaning",
+        "outcome": "For the agent skill: Preserve selection order, members and limits.",
+        "motivation": "The agent skill must retain the complete `rule:selection-meaning` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:selection-meaning`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:selection-meaning` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:simplicity",
+        "outcome": "For the agent skill: Simplify only while preserving the complete contract.",
+        "motivation": "The agent skill must retain the complete `rule:simplicity` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:simplicity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:simplicity` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:source-adaptation",
+        "outcome": "For the agent skill: Preserve source and accepted behavior during adaptation.",
+        "motivation": "The agent skill must retain the complete `rule:source-adaptation` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:source-adaptation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:source-adaptation` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:source-inputs",
+        "outcome": "For the agent skill: Bind current sources, scope and evidence.",
+        "motivation": "The agent skill must retain the complete `rule:source-inputs` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:source-inputs`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:source-inputs` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:staged-changes",
+        "outcome": "For the agent skill: Protect current content during staged promotion.",
+        "motivation": "The agent skill must retain the complete `rule:staged-changes` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:staged-changes`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:staged-changes` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:task-dependencies",
+        "outcome": "For the agent skill: Review and declare every real task dependency.",
+        "motivation": "The agent skill must retain the complete `rule:task-dependencies` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:task-dependencies`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:task-dependencies` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:typed-dispatch",
+        "outcome": "For the agent skill: Pass full bound inputs to the authorized runner.",
+        "motivation": "The agent skill must retain the complete `rule:typed-dispatch` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:typed-dispatch`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:typed-dispatch` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:usage",
+        "outcome": "For the agent skill: Keep one native argument owner.",
+        "motivation": "The agent skill must retain the complete `rule:usage` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:usage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:usage` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:useful-output",
+        "outcome": "For the agent skill: Finish the producer work and test its real usefulness.",
+        "motivation": "The agent skill must retain the complete `rule:useful-output` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:useful-output`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:useful-output` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:validated",
+        "outcome": "For the agent skill: Check actual behavior and invalidate affected proof.",
+        "motivation": "The agent skill must retain the complete `rule:validated` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:validated`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:validated` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:variants",
+        "outcome": "For the agent skill: Adapt independent variants with their own proof.",
+        "motivation": "The agent skill must retain the complete `rule:variants` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:variants`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:variants` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:work-owners",
+        "outcome": "For the agent skill: Assign tools, workflows, code and judgment to their owners.",
+        "motivation": "The agent skill must retain the complete `rule:work-owners` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:work-owners`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:work-owners` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
+      },
+      {
+        "task": "rule:workflow-granularity",
+        "outcome": "For the agent skill: Compare real workflow structures before choosing one.",
+        "motivation": "The agent skill must retain the complete `rule:workflow-granularity` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "proof": "For agent skill `rule:workflow-granularity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "why_default_path": "This agent skill operation follows the declared `rule:workflow-granularity` dependency path once. Its own tool returns full instructions; resume the same bound Mastra run without replaying finished effects."
       }
     ],
     "tasks": {
@@ -818,6 +1560,748 @@
         "value": "Check current agent skill rules and relationships, review changed inputs and allow only valid review reuse; keep other authorized work moving.",
         "proof": "The actual agent skill context tool requires body-read proof, returns the full bound task and source body, rejects a wrong reply, and resumes with fresh evidence. Complete semantic coverage and output acceptance remain separate.",
         "applicability": "On each agent skill load after its body read, and when affected context or reviews change."
+      },
+      "rule:acceptance": {
+        "outcome": "For the agent skill: Require fresh proof for every rule that applies.",
+        "motivation": "The agent skill must retain the complete `rule:acceptance` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:acceptance` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:acceptance`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting a skill, an output or a claimed completed obligation."
+      },
+      "rule:acceptance-owner": {
+        "outcome": "For the agent skill: Keep verification, real-use validation and acceptance distinct.",
+        "motivation": "The agent skill must retain the complete `rule:acceptance-owner` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:acceptance-owner` rules and bound inputs after rule:duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:acceptance-owner`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before assigning evaluators or relying on an acceptance claim."
+      },
+      "rule:advance": {
+        "outcome": "For the agent skill: Record results, remaining work and verified delivery.",
+        "motivation": "The agent skill must retain the complete `rule:advance` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:advance` rules and bound inputs after rule:finalized; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:advance`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After file finalization, when recording progress or moving toward delivery."
+      },
+      "rule:body-ownership": {
+        "outcome": "For the agent skill: Keep core work and load routes rooted in SKILL.md.",
+        "motivation": "The agent skill must retain the complete `rule:body-ownership` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:body-ownership` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:body-ownership`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before a body rewrite or a change to core behavior."
+      },
+      "rule:change-history": {
+        "outcome": "For the agent skill: Bind each change, its proof, open gap and next action.",
+        "motivation": "The agent skill must retain the complete `rule:change-history` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:change-history` rules and bound inputs after rule:implementation-progress; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:change-history`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After each change and before reusing evidence or reporting progress."
+      },
+      "rule:change-review": {
+        "outcome": "For the agent skill: Review full inputs and affected meaning around each change.",
+        "motivation": "The agent skill must retain the complete `rule:change-review` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:change-review` rules and bound inputs after rule:ledger-traverse; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:change-review`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before and after each file mutation."
+      },
+      "rule:code-contract": {
+        "outcome": "For the agent skill: Keep scripts correct at real runtime boundaries.",
+        "motivation": "The agent skill must retain the complete `rule:code-contract` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:code-contract` rules and bound inputs after rule:package-shape; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:code-contract`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When creating, changing or accepting code and code-bearing resources."
+      },
+      "rule:code-simplicity": {
+        "outcome": "For the agent skill: Use the smallest sound code and measured tradeoffs.",
+        "motivation": "The agent skill must retain the complete `rule:code-simplicity` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:code-simplicity` rules and bound inputs after rule:ponytail-duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:code-simplicity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before adding code and when reviewing a simpler implementation."
+      },
+      "rule:commands": {
+        "outcome": "For the agent skill: Choose the supported command and its reviewed path.",
+        "motivation": "The agent skill must retain the complete `rule:commands` duty at its single owner, tasks/operations.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:commands` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:commands`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When choosing or explaining a public skill command."
+      },
+      "rule:companion-authority": {
+        "outcome": "For the agent skill: Check companion need, versions and authority.",
+        "motivation": "The agent skill must retain the complete `rule:companion-authority` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:companion-authority` rules and bound inputs after rule:runtime-interfaces; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:companion-authority`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before choosing or invoking Usage, Packslip, fnox, Pitchfork or hk."
+      },
+      "rule:consumer": {
+        "outcome": "For the agent skill: Validate the result for its real consumer.",
+        "motivation": "The agent skill must retain the complete `rule:consumer` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:consumer` rules and bound inputs after rule:duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:consumer`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When choosing or checking the consumer and its next action."
+      },
+      "rule:creative-scope": {
+        "outcome": "For the agent skill: Preserve allowed creative choices and media.",
+        "motivation": "The agent skill must retain the complete `rule:creative-scope` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:creative-scope` rules and bound inputs after rule:judgment-scope; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:creative-scope`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before choosing tools or judging creative results."
+      },
+      "rule:delivery-report": {
+        "outcome": "For the agent skill: Give the full decision trail and distinguish work from acceptance.",
+        "motivation": "The agent skill must retain the complete `rule:delivery-report` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:delivery-report` rules and bound inputs after rule:change-history; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:delivery-report`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When delivering a result or reporting its status and limits."
+      },
+      "rule:deterministic-checks": {
+        "outcome": "For the agent skill: Prove only the exact predicates code can decide.",
+        "motivation": "The agent skill must retain the complete `rule:deterministic-checks` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:deterministic-checks` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:deterministic-checks`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before relying on an automated check or effect gate."
+      },
+      "rule:domain-records": {
+        "outcome": "For the agent skill: Keep domain, lifecycle and decision records at their owners.",
+        "motivation": "The agent skill must retain the complete `rule:domain-records` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:domain-records` rules and bound inputs after rule:package-shape; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:domain-records`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or changing domain, lifecycle, resource or decision records."
+      },
+      "rule:duties": {
+        "outcome": "For the agent skill: Assign each action, judgment, check and acceptance owner.",
+        "motivation": "The agent skill must retain the complete `rule:duties` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:duties` rules and bound inputs after rule:scope-audience; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before each operation."
+      },
+      "rule:eval-antipatterns": {
+        "outcome": "For the agent skill: Find real failures and test sound alternatives.",
+        "motivation": "The agent skill must retain the complete `rule:eval-antipatterns` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-antipatterns` rules and bound inputs after rule:eval-coverage; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-antipatterns`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When testing agent choices or repairing a confirmed failure."
+      },
+      "rule:eval-cases": {
+        "outcome": "For the agent skill: Run real domain cases and trigger checks.",
+        "motivation": "The agent skill must retain the complete `rule:eval-cases` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-cases` rules and bound inputs after rule:eval-design; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-cases`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When preparing or running a skill evaluation."
+      },
+      "rule:eval-coverage": {
+        "outcome": "For the agent skill: Cover required operations alone and together.",
+        "motivation": "The agent skill must retain the complete `rule:eval-coverage` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-coverage` rules and bound inputs after rule:eval-design; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When selecting cases or judging their coverage."
+      },
+      "rule:eval-design": {
+        "outcome": "For the agent skill: Freeze the eval rules before building or testing.",
+        "motivation": "The agent skill must retain the complete `rule:eval-design` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-design` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-design`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before defining, changing or running an eval."
+      },
+      "rule:eval-recovery": {
+        "outcome": "For the agent skill: Prove rejection, required non-effects and safe recovery.",
+        "motivation": "The agent skill must retain the complete `rule:eval-recovery` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-recovery` rules and bound inputs after rule:eval-cases; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When testing failed inputs, skipped gates or recovery."
+      },
+      "rule:eval-resources": {
+        "outcome": "For the agent skill: Measure complete paths with matched inputs and honest limits.",
+        "motivation": "The agent skill must retain the complete `rule:eval-resources` duty at its single owner, tasks/evaluation.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:eval-resources` rules and bound inputs after rule:eval-design; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:eval-resources`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When comparing outcomes, speed, cost or resource use."
+      },
+      "rule:examples": {
+        "outcome": "For the agent skill: Reuse existing owners and keep complete actual examples.",
+        "motivation": "The agent skill must retain the complete `rule:examples` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:examples` rules and bound inputs after rule:domain-records; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:examples`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before new work and whenever a rule, path, schema or public command changes."
+      },
+      "rule:factory-repair": {
+        "outcome": "For the agent skill: Fix factory faults before resuming affected skill work.",
+        "motivation": "The agent skill must retain the complete `rule:factory-repair` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:factory-repair` rules and bound inputs after rule:change-review; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:factory-repair`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When creating or updating a skill exposes a factory fault."
+      },
+      "rule:finalized": {
+        "outcome": "For the agent skill: Review the whole changed file and its known consumers.",
+        "motivation": "The agent skill must retain the complete `rule:finalized` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:finalized` rules and bound inputs after rule:validated; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:finalized`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After affected validation, before treating a changed file as ready for delivery."
+      },
+      "rule:fnox": {
+        "outcome": "For the agent skill: Pass scoped secrets only to ready consumers.",
+        "motivation": "The agent skill must retain the complete `rule:fnox` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:fnox` rules and bound inputs after rule:companion-authority; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:fnox`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When a ready skill consumer needs scoped secrets."
+      },
+      "rule:graph-coverage": {
+        "outcome": "For the agent skill: Cover every file in a whole-directory update.",
+        "motivation": "The agent skill must retain the complete `rule:graph-coverage` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:graph-coverage` rules and bound inputs after rule:graph-paths; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:graph-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When planning or checking a whole-directory change."
+      },
+      "rule:graph-map": {
+        "outcome": "For the agent skill: Map every rule to its real file owners.",
+        "motivation": "The agent skill must retain the complete `rule:graph-map` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:graph-map` rules and bound inputs after rule:ledger-relationships; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:graph-map`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before creating or checking graph records."
+      },
+      "rule:graph-order": {
+        "outcome": "For the agent skill: Work outward while keeping real prerequisites.",
+        "motivation": "The agent skill must retain the complete `rule:graph-order` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:graph-order` rules and bound inputs after rule:graph-paths; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:graph-order`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting a change or reusing a graph baseline."
+      },
+      "rule:graph-paths": {
+        "outcome": "For the agent skill: Keep every file on a true path to SKILL.md.",
+        "motivation": "The agent skill must retain the complete `rule:graph-paths` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:graph-paths` rules and bound inputs after rule:graph-map; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:graph-paths`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting graph structure or changing file ownership."
+      },
+      "rule:graph-render": {
+        "outcome": "For the agent skill: Render and inspect the complete file graph.",
+        "motivation": "The agent skill must retain the complete `rule:graph-render` duty at its single owner, tasks/graph.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:graph-render` rules and bound inputs after rule:graph-paths; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:graph-render`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After graph changes and before relying on its visual form."
+      },
+      "rule:hk": {
+        "outcome": "For the agent skill: Reuse checks within the verified hook boundary.",
+        "motivation": "The agent skill must retain the complete `rule:hk` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:hk` rules and bound inputs after rule:companion-authority; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:hk`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When proposing, configuring or running checks through hk hooks."
+      },
+      "rule:human-context": {
+        "outcome": "For the agent skill: Study the actual task, people and medium.",
+        "motivation": "The agent skill must retain the complete `rule:human-context` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-context` rules and bound inputs after rule:human-inventory; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-context`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before applying findings to a particular audience or task."
+      },
+      "rule:human-duty": {
+        "outcome": "For the agent skill: Obtain real decisions and proof from their human owners.",
+        "motivation": "The agent skill must retain the complete `rule:human-duty` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-duty` rules and bound inputs after rule:duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-duty`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When human decisions, permissions or performance proof apply."
+      },
+      "rule:human-handoff": {
+        "outcome": "For the agent skill: Bind real human input before protected effects.",
+        "motivation": "The agent skill must retain the complete `rule:human-handoff` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-handoff` rules and bound inputs after rule:human-context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-handoff`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When human input is required or a targeted interaction is the best authorized way to resolve material uncertainty."
+      },
+      "rule:human-inventory": {
+        "outcome": "For the agent skill: Keep the full applicable study and work inventory.",
+        "motivation": "The agent skill must retain the complete `rule:human-inventory` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-inventory` rules and bound inputs after rule:human-matrix; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-inventory`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When selecting or maintaining matrix resources."
+      },
+      "rule:human-matrix": {
+        "outcome": "For the agent skill: Load and use the required human-work matrix.",
+        "motivation": "The agent skill must retain the complete `rule:human-matrix` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-matrix` rules and bound inputs after rule:judgment-scope; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-matrix`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before domain research, design or evaluation."
+      },
+      "rule:human-proof": {
+        "outcome": "For the agent skill: Match each human claim to the right proof.",
+        "motivation": "The agent skill must retain the complete `rule:human-proof` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-proof` rules and bound inputs after rule:human-context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-proof`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before claiming a human outcome."
+      },
+      "rule:human-review": {
+        "outcome": "For the agent skill: Use the full human review protocol and its limits.",
+        "motivation": "The agent skill must retain the complete `rule:human-review` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:human-review` rules and bound inputs after rule:human-handoff; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:human-review`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before each human study, review or other relevant interaction."
+      },
+      "rule:implementation-progress": {
+        "outcome": "For the agent skill: Make the ready skill change and prove its effect.",
+        "motivation": "The agent skill must retain the complete `rule:implementation-progress` duty at its single owner, tasks/progress.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:implementation-progress` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:implementation-progress`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting work, after prerequisites pass and when reporting progress."
+      },
+      "rule:implemented": {
+        "outcome": "For the agent skill: Carry out the reviewed change and retain its effects.",
+        "motivation": "The agent skill must retain the complete `rule:implemented` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:implemented` rules and bound inputs after rule:ready; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:implemented`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Once the selected operation passes its required readiness checks."
+      },
+      "rule:improvement-confirm": {
+        "outcome": "For the agent skill: Check an adopted trial on the next invocation; restore regressions.",
+        "motivation": "The agent skill must retain the complete `rule:improvement-confirm` duty at its single owner, tasks/improvement.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:improvement-confirm` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:improvement-confirm`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before relying on an adopted trial, and at that invocation's final checkpoint."
+      },
+      "rule:improvement-trial": {
+        "outcome": "For the agent skill: Load the full trial contract; keep gains only without protected loss.",
+        "motivation": "The agent skill must retain the complete `rule:improvement-trial` duty at its single owner, tasks/improvement.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:improvement-trial` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:improvement-trial`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Read on first load; assess a trial at the last development step."
+      },
+      "rule:isolation": {
+        "outcome": "For the agent skill: State and test the real limits of replay and isolation.",
+        "motivation": "The agent skill must retain the complete `rule:isolation` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:isolation` rules and bound inputs after rule:deterministic-checks; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:isolation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before claiming repeatable effects or safe restoration."
+      },
+      "rule:judgment-scope": {
+        "outcome": "For the agent skill: Keep exploration, production and acceptance distinct.",
+        "motivation": "The agent skill must retain the complete `rule:judgment-scope` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:judgment-scope` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:judgment-scope`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before assigning creative work or its acceptance."
+      },
+      "rule:ledger-applicability": {
+        "outcome": "For the agent skill: State when a rule applies and what it must achieve.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-applicability` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-applicability` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-applicability`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-capture": {
+        "outcome": "For the agent skill: Keep every source rule and its full context.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-capture` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-capture` rules and bound inputs after rule:source-inputs; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-capture`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before creating, changing or checking ledger records."
+      },
+      "rule:ledger-dependencies": {
+        "outcome": "For the agent skill: Bind needed state, inputs and their lifetimes.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-dependencies` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-dependencies` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-dependencies`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-evidence": {
+        "outcome": "For the agent skill: Bind each claim to its deciding proof.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-evidence` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-evidence` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-evidence`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-identity": {
+        "outcome": "For the agent skill: Keep exact meaning, source identity and rule force.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-identity` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-identity` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-identity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-propagation": {
+        "outcome": "For the agent skill: Trace body ownership, consumers and copied rules.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-propagation` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-propagation` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-propagation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-quality": {
+        "outcome": "For the agent skill: Retain quality, resource and proof requirements.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-quality` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-quality` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-quality`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-relationships": {
+        "outcome": "For the agent skill: Preserve each relationship and its exact meaning.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-relationships` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-relationships` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-relationships`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before defining, changing, traversing or relying on a relationship."
+      },
+      "rule:ledger-responsibility": {
+        "outcome": "For the agent skill: Assign each duty to its real owner.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-responsibility` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-responsibility` rules and bound inputs after rule:ledger-capture; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-responsibility`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or reviewing this part of a ledger record."
+      },
+      "rule:ledger-traverse": {
+        "outcome": "For the agent skill: Read the right context and preserve traversal limits.",
+        "motivation": "The agent skill must retain the complete `rule:ledger-traverse` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ledger-traverse` rules and bound inputs after rule:ledger-relationships; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ledger-traverse`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before using ledger views or selecting work from them."
+      },
+      "rule:loop-contract": {
+        "outcome": "For the agent skill: Use the seven stages without replaying finished effects.",
+        "motivation": "The agent skill must retain the complete `rule:loop-contract` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:loop-contract` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:loop-contract`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When starting or resuming a skill creation or maintenance operation."
+      },
+      "rule:markdown-authority": {
+        "outcome": "For the agent skill: Keep workflow and human authority separate.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-authority` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-authority` rules and bound inputs after rule:markdown-order; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-authority`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When connecting Markdown checks, model review and human acceptance."
+      },
+      "rule:markdown-choices": {
+        "outcome": "For the agent skill: Explain and prove each Markdown form choice.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-choices` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-choices` rules and bound inputs after rule:markdown-payload; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-choices`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When judging Markdown forms, plain language, structure or meaning."
+      },
+      "rule:markdown-order": {
+        "outcome": "For the agent skill: Review whole files before blocks and lines.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-order` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-order` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-order`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before reviewing or rewriting any Markdown file."
+      },
+      "rule:markdown-payload": {
+        "outcome": "For the agent skill: Read the full bound review result.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-payload` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-payload` rules and bound inputs after rule:markdown-order; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-payload`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When a Markdown review task returns a result or error to the model."
+      },
+      "rule:markdown-recovery": {
+        "outcome": "For the agent skill: Prove failed and resumed review paths.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-recovery` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-recovery` rules and bound inputs after rule:markdown-reply; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting a Markdown review workflow or its recovery behavior."
+      },
+      "rule:markdown-reply": {
+        "outcome": "For the agent skill: Validate the review and its exact prior stage.",
+        "motivation": "The agent skill must retain the complete `rule:markdown-reply` duty at its single owner, tasks/writing.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:markdown-reply` rules and bound inputs after rule:markdown-choices; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:markdown-reply`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting or resuming from a Markdown review reply."
+      },
+      "rule:mastra-capability": {
+        "outcome": "For the agent skill: Run the real skill capability in Mastra.",
+        "motivation": "The agent skill must retain the complete `rule:mastra-capability` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:mastra-capability` rules and bound inputs after rule:runtime-interfaces; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:mastra-capability`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When implementing or changing the domain workflow or its runtime."
+      },
+      "rule:mastra-recovery": {
+        "outcome": "For the agent skill: Test actual workflow state and failure behavior.",
+        "motivation": "The agent skill must retain the complete `rule:mastra-recovery` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:mastra-recovery` rules and bound inputs after rule:mastra-capability; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:mastra-recovery`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting workflow state, failure, replay or recovery behavior."
+      },
+      "rule:meaning-decisions": {
+        "outcome": "For the agent skill: Resolve material facts and competing readings.",
+        "motivation": "The agent skill must retain the complete `rule:meaning-decisions` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:meaning-decisions` rules and bound inputs after rule:judgment-scope; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:meaning-decisions`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before defining, designing or accepting a decision."
+      },
+      "rule:methods": {
+        "outcome": "For the agent skill: Choose methods from measured work and proof needs.",
+        "motivation": "The agent skill must retain the complete `rule:methods` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:methods` rules and bound inputs after rule:purpose; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:methods`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting algorithms, formats, dependencies or reuse."
+      },
+      "rule:mise-features": {
+        "outcome": "For the agent skill: Review each released Mise feature and its domain use.",
+        "motivation": "The agent skill must retain the complete `rule:mise-features` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:mise-features` rules and bound inputs after rule:runtime-versions; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:mise-features`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: At implementation start and before accepting a change in Mise features or release."
+      },
+      "rule:model-duty": {
+        "outcome": "For the agent skill: Keep meaning, perception and creative judgment with the model.",
+        "motivation": "The agent skill must retain the complete `rule:model-duty` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:model-duty` rules and bound inputs after rule:duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:model-duty`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When assigning or reviewing model work."
+      },
+      "rule:native-effects": {
+        "outcome": "For the agent skill: Use the native file tool within its reviewed boundary.",
+        "motivation": "The agent skill must retain the complete `rule:native-effects` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:native-effects` rules and bound inputs after rule:change-review; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:native-effects`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before and after manual file mutations."
+      },
+      "rule:native-task-fields": {
+        "outcome": "For the agent skill: Check native wait, post-task and inheritance behavior.",
+        "motivation": "The agent skill must retain the complete `rule:native-task-fields` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:native-task-fields` rules and bound inputs after rule:task-dependencies; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:native-task-fields`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When task behavior relies on wait, post-task, inheritance, template or argument features."
+      },
+      "rule:outcome": {
+        "outcome": "For the agent skill: Preserve the complete portable skill contract.",
+        "motivation": "The agent skill must retain the complete `rule:outcome` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:outcome` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:outcome`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: On load and before choosing or changing a skill outcome."
+      },
+      "rule:output-propagation": {
+        "outcome": "For the agent skill: Carry the whole contract into independent outputs.",
+        "motivation": "The agent skill must retain the complete `rule:output-propagation` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:output-propagation` rules and bound inputs after rule:source-adaptation; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:output-propagation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before creating or changing an independently usable output skill."
+      },
+      "rule:package-shape": {
+        "outcome": "For the agent skill: Keep valid package metadata and required files.",
+        "motivation": "The agent skill must retain the complete `rule:package-shape` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:package-shape` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:package-shape`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When creating, updating or accepting a skill package or its metadata."
+      },
+      "rule:packslip": {
+        "outcome": "For the agent skill: Verify distribution and provenance boundaries.",
+        "motivation": "The agent skill must retain the complete `rule:packslip` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:packslip` rules and bound inputs after rule:companion-authority; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:packslip`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When the skill needs artifact distribution or provenance checks."
+      },
+      "rule:physical-limits": {
+        "outcome": "For the agent skill: Keep readable files within physical size and depth limits.",
+        "motivation": "The agent skill must retain the complete `rule:physical-limits` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:physical-limits` rules and bound inputs after rule:package-shape; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:physical-limits`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before accepting any new or changed Markdown or code file."
+      },
+      "rule:pitchfork": {
+        "outcome": "For the agent skill: Own persistent processes and their cleanup.",
+        "motivation": "The agent skill must retain the complete `rule:pitchfork` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:pitchfork` rules and bound inputs after rule:companion-authority; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:pitchfork`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When the skill needs a persistent process, readiness probe or owned cleanup."
+      },
+      "rule:plain-writing": {
+        "outcome": "For the agent skill: Write clear sixth-grade prose and verify its meaning.",
+        "motivation": "The agent skill must retain the complete `rule:plain-writing` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:plain-writing` rules and bound inputs after rule:physical-limits; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:plain-writing`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When writing, reviewing or accepting English prose in a skill."
+      },
+      "rule:ponytail-duties": {
+        "outcome": "For the agent skill: Apply all six code simplicity duties within scope.",
+        "motivation": "The agent skill must retain the complete `rule:ponytail-duties` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ponytail-duties` rules and bound inputs after rule:code-contract; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ponytail-duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Throughout factory code work, including review, cleanup and measured improvement."
+      },
+      "rule:prerequisites": {
+        "outcome": "For the agent skill: Find prerequisites from real outcomes and consumers.",
+        "motivation": "The agent skill must retain the complete `rule:prerequisites` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:prerequisites` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:prerequisites`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before planning execution or invalidating proof."
+      },
+      "rule:program-host": {
+        "outcome": "For the agent skill: Verify actual program capabilities, interfaces and authority.",
+        "motivation": "The agent skill must retain the complete `rule:program-host` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:program-host` rules and bound inputs after rule:duties; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:program-host`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting or using programs and host resources."
+      },
+      "rule:purpose": {
+        "outcome": "For the agent skill: Protect the reasons, allowed choices and intended result.",
+        "motivation": "The agent skill must retain the complete `rule:purpose` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:purpose` rules and bound inputs after rule:outcome; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:purpose`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: On load and before deciding how a rule serves the skill."
+      },
+      "rule:ready": {
+        "outcome": "For the agent skill: Bind the exact allowed change and deciding checks.",
+        "motivation": "The agent skill must retain the complete `rule:ready` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:ready` rules and bound inputs after rule:selected; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:ready`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After selecting a gap, before any related file or domain effect."
+      },
+      "rule:reconciled": {
+        "outcome": "For the agent skill: Bind the current request, sources and rights.",
+        "motivation": "The agent skill must retain the complete `rule:reconciled` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:reconciled` rules and bound inputs after rule:loop-contract; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:reconciled`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: At the start of an operation, or when governing inputs change."
+      },
+      "rule:research-design": {
+        "outcome": "For the agent skill: Use research to inform real design choices.",
+        "motivation": "The agent skill must retain the complete `rule:research-design` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:research-design` rules and bound inputs after rule:human-context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:research-design`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting or revising research-informed designs."
+      },
+      "rule:resource-binding": {
+        "outcome": "For the agent skill: Bind initial resources to their actual consumers.",
+        "motivation": "The agent skill must retain the complete `rule:resource-binding` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:resource-binding` rules and bound inputs after rule:typed-dispatch; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:resource-binding`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When defining or supplying initial resources for a skill invocation."
+      },
+      "rule:resource-duties": {
+        "outcome": "For the agent skill: Name and test every resource handoff.",
+        "motivation": "The agent skill must retain the complete `rule:resource-duties` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:resource-duties` rules and bound inputs after rule:resource-binding; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:resource-duties`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When adding, changing or checking a consumed resource or its handoff."
+      },
+      "rule:resource-links": {
+        "outcome": "For the agent skill: Give each resource a clear route and checked link.",
+        "motivation": "The agent skill must retain the complete `rule:resource-links` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:resource-links` rules and bound inputs after rule:package-shape; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:resource-links`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When adding, moving, changing or checking a resource reference."
+      },
+      "rule:rule-coverage": {
+        "outcome": "For the agent skill: Give each work unit a full task, tool and workflow.",
+        "motivation": "The agent skill must retain the complete `rule:rule-coverage` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:rule-coverage` rules and bound inputs after rule:work-owners; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:rule-coverage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When creating, updating or reviewing a rule, task, tool or workflow."
+      },
+      "rule:runtime-interfaces": {
+        "outcome": "For the agent skill: Verify the real interface before composing a runtime.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-interfaces` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:runtime-interfaces` rules and bound inputs after rule:work-owners; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:runtime-interfaces`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting, configuring or changing a runtime, tool interface, companion or domain workflow."
+      },
+      "rule:runtime-scheduling": {
+        "outcome": "For the agent skill: Bind discovered work and protect shared state.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-scheduling` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:runtime-scheduling` rules and bound inputs after rule:prerequisites; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:runtime-scheduling`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When runtime inputs reveal new work or affect scheduling."
+      },
+      "rule:runtime-versions": {
+        "outcome": "For the agent skill: Freeze compatible environments and exact versions.",
+        "motivation": "The agent skill must retain the complete `rule:runtime-versions` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:runtime-versions` rules and bound inputs after rule:runtime-interfaces; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:runtime-versions`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: At implementation start and when a required runtime or package changes."
+      },
+      "rule:scope-audience": {
+        "outcome": "For the agent skill: Resolve scope, audience and allowed destinations.",
+        "motivation": "The agent skill must retain the complete `rule:scope-audience` duty at its single owner, tasks/outcome.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:scope-audience` rules and bound inputs after rule:outcome; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:scope-audience`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before affected writes or audience changes."
+      },
+      "rule:selected": {
+        "outcome": "For the agent skill: Choose the earliest ready gap from SKILL.md outward.",
+        "motivation": "The agent skill must retain the complete `rule:selected` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:selected` rules and bound inputs after rule:reconciled; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:selected`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After reconciliation, when choosing the next unresolved implementation gap."
+      },
+      "rule:selection-meaning": {
+        "outcome": "For the agent skill: Preserve selection order, members and limits.",
+        "motivation": "The agent skill must retain the complete `rule:selection-meaning` duty at its single owner, tasks/judgment.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:selection-meaning` rules and bound inputs after rule:human-matrix; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:selection-meaning`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When representing or using a finite selection."
+      },
+      "rule:simplicity": {
+        "outcome": "For the agent skill: Simplify only while preserving the complete contract.",
+        "motivation": "The agent skill must retain the complete `rule:simplicity` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:simplicity` rules and bound inputs after rule:purpose; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:simplicity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before removing, combining or simplifying skill content."
+      },
+      "rule:source-adaptation": {
+        "outcome": "For the agent skill: Preserve source and accepted behavior during adaptation.",
+        "motivation": "The agent skill must retain the complete `rule:source-adaptation` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:source-adaptation` rules and bound inputs after rule:package-shape; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:source-adaptation`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before importing, standardizing or adapting an existing skill."
+      },
+      "rule:source-inputs": {
+        "outcome": "For the agent skill: Bind current sources, scope and evidence.",
+        "motivation": "The agent skill must retain the complete `rule:source-inputs` duty at its single owner, tasks/ledger.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:source-inputs` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:source-inputs`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before selecting sources or using evidence."
+      },
+      "rule:staged-changes": {
+        "outcome": "For the agent skill: Protect current content during staged promotion.",
+        "motivation": "The agent skill must retain the complete `rule:staged-changes` duty at its single owner, tasks/review.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:staged-changes` rules and bound inputs after rule:change-review; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:staged-changes`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before staging, promoting or restoring a skill."
+      },
+      "rule:task-dependencies": {
+        "outcome": "For the agent skill: Review and declare every real task dependency.",
+        "motivation": "The agent skill must retain the complete `rule:task-dependencies` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:task-dependencies` rules and bound inputs after rule:rule-coverage; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:task-dependencies`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before creating or changing any Mise task."
+      },
+      "rule:typed-dispatch": {
+        "outcome": "For the agent skill: Pass full bound inputs to the authorized runner.",
+        "motivation": "The agent skill must retain the complete `rule:typed-dispatch` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:typed-dispatch` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:typed-dispatch`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When sending a prompt or typed resources to an authorized model runner."
+      },
+      "rule:usage": {
+        "outcome": "For the agent skill: Keep one native argument owner.",
+        "motivation": "The agent skill must retain the complete `rule:usage` duty at its single owner, tasks/companions.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:usage` rules and bound inputs after rule:companion-authority; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:usage`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When parsing, exporting or forwarding command arguments, help or completion."
+      },
+      "rule:useful-output": {
+        "outcome": "For the agent skill: Finish the producer work and test its real usefulness.",
+        "motivation": "The agent skill must retain the complete `rule:useful-output` duty at its single owner, tasks/principles.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:useful-output` rules and bound inputs after rule:purpose; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:useful-output`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before designing or delivering work for a recipient."
+      },
+      "rule:validated": {
+        "outcome": "For the agent skill: Check actual behavior and invalidate affected proof.",
+        "motivation": "The agent skill must retain the complete `rule:validated` duty at its single owner, tasks/execution.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:validated` rules and bound inputs after rule:implemented; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:validated`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: After an implementation effect, before relying on its result."
+      },
+      "rule:variants": {
+        "outcome": "For the agent skill: Adapt independent variants with their own proof.",
+        "motivation": "The agent skill must retain the complete `rule:variants` duty at its single owner, tasks/package.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:variants` rules and bound inputs after rule:source-adaptation; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:variants`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: When creating or refreshing a user-level or project-level skill variant."
+      },
+      "rule:work-owners": {
+        "outcome": "For the agent skill: Assign tools, workflows, code and judgment to their owners.",
+        "motivation": "The agent skill must retain the complete `rule:work-owners` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:work-owners` rules and bound inputs after rule:context; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:work-owners`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before assigning, starting or resuming skill work."
+      },
+      "rule:workflow-granularity": {
+        "outcome": "For the agent skill: Compare real workflow structures before choosing one.",
+        "motivation": "The agent skill must retain the complete `rule:workflow-granularity` duty at its single owner, tasks/runtime.toml, under its stated conditions.",
+        "value": "The agent skill model receives the full `rule:workflow-granularity` rules and bound inputs after rule:mastra-recovery; code and human duties keep their own owners.",
+        "proof": "For agent skill `rule:workflow-granularity`, verify exact tool-to-task-to-workflow mapping, current input binding, prerequisite rejection and fresh resume. Its Work and Proof sections also require actual effect evidence; a binding pass does not establish semantic or human acceptance.",
+        "applicability": "For this agent skill and its independent outputs: Before choosing the split between tasks, workflows and executable leaves."
       }
     }
   },

@@ -19,7 +19,7 @@ PYTHONDONTWRITEBYTECODE = "1"
 PYTHONHASHSEED = "0"
 
 [task_config]
-includes = ["tasks/context.toml", "tasks/evaluation.toml", "tasks/improvement.toml", "tasks/progress.toml", "tasks/outcome.toml", "tasks/principles.toml", "tasks/ledger.toml", "tasks/graph.toml", "tasks/review.toml", "tasks/judgment.toml"]
+includes = ["tasks/context.toml", "tasks/evaluation.toml", "tasks/improvement.toml", "tasks/progress.toml", "tasks/outcome.toml", "tasks/principles.toml", "tasks/ledger.toml", "tasks/graph.toml", "tasks/review.toml", "tasks/judgment.toml", "tasks/runtime.toml", "tasks/operations.toml", "tasks/companions.toml", "tasks/execution.toml", "tasks/writing.toml", "tasks/package.toml"]
 dir = "{{config_root}}"
 
 [tasks.validate]

@@ -21,7 +21,7 @@ The source fixture and review text are explicit non-independent declarations. Th
 
 The created body keeps the efficiency policy: finish ready paths, justify support work, keep required reads and proof, and separate implementation, validation and acceptance. This inherited policy is not a measured speed gain.
 
-The created `mise.toml` contains 60 rule tasks, including the Outcome, Motivation, Evidence and Evals rules. Each has full instructions and named task dependencies. The scaffold owns its copied runtime. These checks prove reviewed creation and inherited task definitions; they do not accept its domain work.
+The created `mise.toml` contains 108 rule tasks. They cover the Outcome, Motivation, Evidence, runtime, execution, package and Evals rules. Each has full instructions and named task dependencies. The scaffold owns its copied runtime. These checks prove reviewed creation and inherited task definitions; they do not accept its domain work.
 
 ## Read the complete record
 

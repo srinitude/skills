@@ -20,12 +20,12 @@
       "evidence": "mise.toml, generated mise template, speed-contract tests, task graph tests, timeout failures, cross-platform command tests, and runtime-task dependency tests for helper isolation and preservation of custom domain environments. Standardization Usage tests verify current metadata, preserved values, rejected stale definitions and recovery."
     },
     "task_config": {
-      "used": ["dir"],
-      "not_applicable": ["cache", "cascade", "excludes", "global_env", "global_inputs", "global_pass_through_env", "includes", "input_groups", "rust_cache", "shell"],
-      "used_reason": "skill-factory fixes every agent skill task to the package root so invocation location cannot change file ownership.",
-      "nonuse_reason": "The agent skill factory has one task file, no descendant config scope, no safe artifact-cache outputs, no Rust cache, and no need to override the host shell or ambient environment inheritance.",
-      "creative_use": "A single agent skill config-root directory rule removes repeated task paths and prevents accidental reads outside the package.",
-      "evidence": "mise.toml task_config and invocation tests from a non-root working directory."
+      "used": ["dir", "includes"],
+      "not_applicable": ["cache", "cascade", "excludes", "global_env", "global_inputs", "global_pass_through_env", "input_groups", "rust_cache", "shell"],
+      "used_reason": "The agent skill fixes tasks to the package root and includes an exact list of local TOML rule owners. Native Mise discovery must agree with those sources.",
+      "nonuse_reason": "The agent skill needs no descendant config search, excluded task sources, safe artifact-output cache, Rust cache or host-shell override. Explicit includes replace the old single-file assumption.",
+      "creative_use": "The agent skill splits full rule bodies by purpose while one native include list and declared task edges preserve ownership and execution order.",
+      "evidence": "mise.toml task_config, task_definitions.py and the real grouped-task and task-tool tests check exact includes, source drift, symlink rejection, dependency order and recovery. Human and domain acceptance remain separate."
     },
     "tool": {
       "used": ["version"],

@@ -17,6 +17,8 @@ Review uses the existing ledger write-file request, current initial_body_review
 and the plan's exact content_utf8 text (indent=2 plus newline). Full governing reads,
 canonical lineage derivation, a cooperating package lock, current request checks
 and conditional restoration guard each effect. Declarations are not acceptance.
+An approved prerequisite may select --pending-body-review with its exact digest.
+This keeps unfinished body validation pending; the default remains strict.
 """
 import argparse
 import hashlib
@@ -126,7 +128,7 @@ def check_scope_binding(root, record):
         raise ValueError("source baseline must use opaque path digests")
 
 
-def reviewed_refresh(root, review):
+def reviewed_refresh(root, review, pending_body_review=None):
     require(review is not None, 'lineage writes require --review with a current write-file request')
     binding = {'path': str(review)}
     raw = read_file(binding)
@@ -138,14 +140,15 @@ def reviewed_refresh(root, review):
         require(read_file(binding) == raw, 'lineage review request changed')
         expected = (json.dumps(current_document(root), indent=2) + '\n').encode()
         return read_file(request['change']['new_file']) == expected
-    result = write_file(request, root, effect_check=current_inputs)
+    result = write_file(request, root, effect_check=current_inputs, pending_body_review=pending_body_review)
     return {'status': 'PASS', 'mode': 'write', 'files': len(files(root)), 'change': result}
 
 
-def report(root, write=False, review=None, plan=False):
+def report(root, write=False, review=None, plan=False, pending_body_review=None):
     require(not (write and plan) and (review is None or write), 'review belongs only to write mode')
+    require(pending_body_review is None or write, 'pending body review belongs only to write mode')
     if write:
-        return reviewed_refresh(root, review)
+        return reviewed_refresh(root, review, pending_body_review)
     path = root / LINEAGE
     expected = current_document(root)
     if plan:
@@ -169,9 +172,10 @@ def main(argv=None):
     mode.add_argument("--write", action="store_true")
     mode.add_argument("--plan", action="store_true")
     parser.add_argument("--review")
+    parser.add_argument("--pending-body-review", help="caller-selected digest for an authorized prerequisite")
     args = parser.parse_args(argv)
-    if args.review is not None and not args.write:
-        parser.error("--review belongs only to --write")
+    if (args.review is not None or args.pending_body_review is not None) and not args.write:
+        parser.error("--review and --pending-body-review belong only to --write")
     candidate = Path(args.skill_dir)
     if candidate.is_symlink():
         result = {"status": "FAIL", "problems": ["skill root is a symlink"]}
@@ -182,7 +186,7 @@ def main(argv=None):
         print(json.dumps({"status": "FAIL", "problems": ["not a directory"]}))
         return 1
     try:
-        result = report(root, args.write, args.review, args.plan)
+        result = report(root, args.write, args.review, args.plan, args.pending_body_review)
     except (OSError, ValueError, KeyError, TypeError) as error:
         result = {"status": "FAIL", "problems": [str(error)]}
     print(json.dumps(result, sort_keys=True))

@@ -2,12 +2,13 @@
 import json
 import pathlib
 import unittest
+from contract_text import contract_text
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 
 
 def _TestTokenEfficiencyContract_setUp(self):
-    self.body = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+    self.body = contract_text(SKILL_DIR / "SKILL.md")
     self.contract = (SKILL_DIR / "references/generation-contract.md").read_text(
         encoding="utf-8")
     self.template = (SKILL_DIR / "assets/skill-template.md").read_text(

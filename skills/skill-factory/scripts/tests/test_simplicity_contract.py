@@ -1,12 +1,13 @@
 """Bounded documentation guards; plainness and meaning still need direct review."""
 from pathlib import Path
 import unittest
+from contract_text import contract_text
 
 SKILL_DIR = Path(__file__).resolve().parents[2]
 
 
 def _TestSimplicityContract_read(self, relative):
-    return (SKILL_DIR / relative).read_text(encoding="utf-8")
+    return contract_text(SKILL_DIR / relative)
 
 def _TestSimplicityContract_test_factory_names_simplicity_as_an_invariant(self):
     text = self.read("SKILL.md")

@@ -651,10 +651,13 @@ output = "prefix"
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus", "lineage"]
 
 [tasks.refresh-lineage]
-usage = 'flag "--review <path>" required=#true'
+usage = '''
+flag "--review <path>" required=#true
+flag "--pending-body-review <digest>"
+'''
 env = { UV_PYTHON = "{{tools.python.path}}" }
-description = "Atomically refresh source-lineage after accepted changes"
-run = "uv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py . --write --review \"${usage_review?}\""
+description = "Refresh reviewed lineage; keep authorized prerequisite acceptance pending"
+run = "set -- --write --review \"${usage_review?}\"\nif [ -n \"${usage_pending_body_review:-}\" ]; then\n  set -- \"$@\" --pending-body-review \"$usage_pending_body_review\"\nfi\nuv run --no-project --isolated --no-python-downloads --with PyYAML==6.0.3 scripts/check_lineage.py . \"$@\""
 depends = ["test", "validate", "lint-writing", "lint-placeholders", "evals", "improvement-policy", "decision-policy", "source-corpus"]
 
 [tasks.mise-primitives-update]

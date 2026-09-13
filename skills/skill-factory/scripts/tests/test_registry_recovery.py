@@ -1,13 +1,17 @@
 """Real body revision and post-effect source drift through the registry consumer."""
 import json
+import io
 import sys
 import unittest
+from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
+from unittest.mock import patch
 
 import test_registry_review as cases
 import refresh_registry_lineage as registry
 import review_ledger_write as writer
 from skill_package import sha
+from skill_package import inventory
 from standardization_test_support import native_formatter
 
 
@@ -59,7 +63,40 @@ def _TestRegistryRecovery_test_post_effect_source_drift_restores_manifest_and_pr
     self.assertEqual(result['change']['new_sha256'], sha(self.manifest.read_bytes()))
 
 
+def _pending_cli(case, digest):
+    args = ['clock-anchor', '--review', str(case.review_path)]
+    if digest is not None:
+        args += ['--pending-body-review', digest]
+    out, err = io.StringIO(), io.StringIO()
+    with patch.object(registry, 'repository_root', return_value=case.repo), redirect_stdout(out), redirect_stderr(err):
+        status = registry.main(args)
+    return status, out.getvalue(), err.getvalue()
+
+
+def _test_pending_review_gates_lineage_and_related_manifest(self):
+    from test_review_ledger_write_recovery import pending_review
+    for target in ['evals/source-lineage.json', 'evidence/ports/clock-anchor/source-manifest.json']:
+        self.request = self.prepare_next()
+        self.assertEqual(self.request['change']['path'], target)
+        digest = pending_review(self)
+        self.request['pending_body_review'] = digest
+        self.review_path.write_text(json.dumps(self.request))
+        before = inventory(self.repo)
+        for selected in [None, '0' * 64]:
+            status, out, err = _pending_cli(self, selected)
+            self.assertEqual(status, 2, out + err)
+            self.assertEqual(inventory(self.repo), before)
+        status, out, err = _pending_cli(self, digest)
+        self.assertEqual(status, 0, out + err)
+        effect = json.loads(out)['change']
+        self.assertEqual(effect['execution_acceptance'], 'pending')
+        for phase in ['before', 'after']:
+            self.assertEqual(effect[phase]['initial_body_review']['initial_contract_validation']['state'], 'pending')
+    self.assertEqual(cases.TestReviewedRegistry.plan(self)['changes'], [])
+
+
 class TestRegistryRecovery(unittest.TestCase):
+    test_pending_review_gates_lineage_and_related_manifest = _test_pending_review_gates_lineage_and_related_manifest
     setUp = _TestRegistryRecovery_setUp
     prepare_next = _TestRegistryRecovery_prepare_next
     test_formatter_body_change_requires_its_separate_current_revision = _TestRegistryRecovery_test_formatter_body_change_requires_its_separate_current_revision

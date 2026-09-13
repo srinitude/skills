@@ -9,7 +9,7 @@ from review_ledger_write import write_file
 from registry_lineage_plan import build_plan, current_inputs
 
 
-def refresh(root, names, review_path):
+def refresh(root, names, review_path, pending_body_review=None):
     require(review_path is not None, 'registry refresh requires --review before formatter execution')
     binding = {'path': str(Path(review_path).absolute())}
     raw = read_file(binding); request = read_json(raw.decode('utf-8'))
@@ -34,7 +34,7 @@ def refresh(root, names, review_path):
         calls += 1
         return True
     related = {'target_root': Path(root)} if selected['owner'] == 'repository' else {}
-    result = write_file(request, owner, effect_check=check, **related)
+    result = write_file(request, owner, effect_check=check, pending_body_review=pending_body_review, **related)
     return {'status': 'PASS', 'mode': 'one-file-write', 'change': result, 'execution_acceptance': 'pending',
             'remaining_from_plan': len(plan['changes']) - 1,
             'next': 'Replan and review the next file; a final empty plan still requires complete source and domain validation.'}

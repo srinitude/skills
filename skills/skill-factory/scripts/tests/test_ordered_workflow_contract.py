@@ -2,6 +2,7 @@
 import pathlib
 import re
 import unittest
+from contract_text import contract_text
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 OWNERS = [ROOT / "SKILL.md", ROOT / "assets" / "skill-template.md"]
@@ -29,24 +30,37 @@ def steps(text):
 def _TestOrderedWorkflowContract_test_intent_evidence_execution_and_acceptance_have_the_required_order(self):
     for path in OWNERS:
         with self.subTest(path=path.name):
-            text = path.read_text(encoding="utf-8")
+            text = contract_text(path)
             self.assertEqual(re.findall(r"(?m)^## (.+)$", text), SECTIONS)
 
 def _TestOrderedWorkflowContract_test_steps_are_one_numbered_workflow_without_a_competing_copy(self):
     for path in OWNERS:
         with self.subTest(path=path.name):
-            text = path.read_text(encoding="utf-8")
+            text = contract_text(path)
             workflow = steps(section(text, "Steps"))
             numbers = [int(number) for number, _ in workflow]
             self.assertTrue(numbers, "the Steps section has no workflow")
             self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
-            self.assertEqual(len(steps(text)), len(workflow),
-                             "numbered work exists outside its owning section")
+            _check_workflow_route(self, path, text, workflow)
+
+
+def _check_workflow_route(self, path, text, workflow):
+    if path.name == "SKILL.md":
+        stages = ["reconciled", "selected", "ready", "implemented", "validated", "finalized", "advance"]
+        raw = path.read_text()
+        pattern = r"mise run rule:(" + "|".join(stages) + r")`"
+        self.assertEqual(re.findall(pattern, raw), stages)
+        self.assertEqual(re.findall(pattern, section(raw, "Steps")), stages)
+    else:
+        self.assertEqual(len(steps(text)), len(workflow),
+                         "numbered work exists outside its owning section")
+
 
 def _check_steps_name_the_reader_or_execution_owner_and_public_tasks(self, path):
-    workflow = section(path.read_text(encoding="utf-8"), "Steps")
+    workflow = section(contract_text(path), "Steps")
     for number, body in steps(workflow):
-        self.assertRegex(body, r"^\*\*[^*]+\*\* (?:Model(?: and \[Mise\]\[mise\])?:|Mise:|Mastra:|Human:|Host:|\[Mastra\]\[mastra\] executes)",
+        owner_text = re.sub(r"\[([^\]]+)\](?:\[[^\]]+\]|\([^)]+\))", r"\1", body)
+        self.assertRegex(owner_text, r"^\*\*[^*]+\*\* (?:Model(?: and Mise)?:|Mise:|Mastra:|Human:|Host:|Mastra executes)",
                          f"step {number} has no named owner")
         self.assertTrue("Mise:" not in body or "`mise run" in body,
                         f"step {number} names no public task")
@@ -59,7 +73,7 @@ def _TestOrderedWorkflowContract_test_steps_name_the_reader_or_execution_owner_a
             _check_steps_name_the_reader_or_execution_owner_and_public_tasks(self, path)
 
 def _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, path):
-    text = path.read_text(encoding="utf-8")
+    text = contract_text(path)
     positions = []
     for anchor in LEDGER_ANCHORS[path.name]:
         self.assertEqual(text.count(anchor), 1, anchor)
@@ -77,13 +91,13 @@ def _TestOrderedWorkflowContract_test_the_reusable_ledger_has_one_body_owner_bef
             _check_the_reusable_ledger_has_one_body_owner_before_its_consumers(self, path)
 
 def _check_outer_and_inner_owners_do_not_compete(self, path):
-    graph = section(path.read_text(encoding="utf-8"), "Mise task graph")
+    graph = section(contract_text(path), "Mise task graph")
     if path.name == "SKILL.md":
-        self.assertIn("[Mise][mise] owns public commands", graph)
-        self.assertIn("[Mastra][mastra] owns substantive domain control", graph)
+        self.assertIn("[Mise](https://mise.jdx.dev/) owns public commands", graph)
+        self.assertIn("[Mastra](https://mastra.ai/docs/workflows/overview) owns substantive domain control", graph)
         self.assertIn("Existing tested scripts perform repeatable leaves", graph)
         self.assertIn("with explicit handoffs", graph)
-        self.assertIn("Never add competing recursive [Mise][mise] graphs", graph)
+        self.assertIn("Never add competing recursive [Mise](https://mise.jdx.dev/) graphs", graph)
     else:
         self.assertIn("Mise invokes Mastra once at an explicit boundary", graph)
         self.assertIn("Mastra directly invokes existing scripts or authorized runners", graph)

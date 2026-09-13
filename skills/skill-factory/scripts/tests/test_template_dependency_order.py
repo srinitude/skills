@@ -2,6 +2,7 @@
 import pathlib
 import re
 import unittest
+from contract_text import contract_text
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 TEMPLATE = ROOT / 'assets/skill-template.md'
@@ -58,7 +59,7 @@ def _assert_relations(self, path, initial):
 def _TestTemplateDependencyOrder_test_complete_relationship_vocabulary_is_in_both_initial_bodies(self):
     self.assertEqual(len(RELATIONS), 74)
     for path in [ROOT / 'SKILL.md', TEMPLATE]:
-        text = path.read_text(encoding='utf-8')
+        text = contract_text(path)
         initial = text.split('## Mise task graph\n', 1)[0]
         _assert_relations(self, path, initial)
 

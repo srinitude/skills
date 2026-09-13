@@ -76,7 +76,7 @@ Bind the exact digest to `initial_body_review` or `body_revision.review`. Keep `
 - `reason`: the nonempty necessity and authorized dependency exception.
 - `pending_validation`: a nonempty list naming the remaining checks. Do not declare an unfinished review complete.
 
-The caller must prove authority and semantic coverage; digests and declarations do not authenticate approval. Keep all input, path, overlap, identity, mode, lock and restoration checks. Changed request content needs fresh review and caller selection. Bootstrap rejects this exception. Lineage, catalog, scaffold, standardization and registry stay strict unless their own reviewed interface explicitly supports it.
+The caller must prove authority and semantic coverage; digests and declarations do not authenticate approval. Keep all input, path, overlap, identity, mode, lock and restoration checks. Changed request content needs fresh review and caller selection. Bootstrap rejects this exception. Catalog, scaffold and standardization stay strict unless their own reviewed interface explicitly supports it. Lineage and registry support only the bound options below.
 
 Real regression tests cover writes, missing caller selection, request injection, wrong digest, changed modes, body replacement and post-write review drift, restoration and recovery. They prove no full semantic review, independent protection or final acceptance. Keep whole-file/dependent checks pending until proved. Follow the [body review rules](../SKILL.md#review-and-change-through-the-ledger) for pre/post capture, affected semantic review and valid reuse.
 
@@ -84,7 +84,9 @@ Real regression tests cover writes, missing caller selection, request injection,
 
 Use these commands only in a skill that owns the factory's standalone lineage interface. Lineage changes a skill file, so it needs ordinary review. Run `mise run lineage -- --plan`; save `content_utf8` unchanged, including two-space JSON indent and final newline. Bind `initial_body_review`, all governing inputs and a `change` for `evals/source-lineage.json`. Run `mise run refresh-lineage -- --review <absolute-request.json>`. Mise requires that argument before prerequisites; the writer checks its contents at the effect. All declared prerequisites must pass.
 
-The [portable lineage run](lineage-public-run.json) keeps eight real CLI cases with all input/output bytes, commands, directories, stdout/stderr and exit codes. Its isolated factory copy uses Mise-selected Python/PyYAML and the standalone Python owner, not the full refresh chain. Full native refresh proof and its private inputs belong outside this example.
+To use the [approved prerequisite branch](#authorized-prerequisite-with-pending-body-validation), add `--pending-body-review <digest>` to `refresh-lineage`. All branch rules and task dependencies still apply. A changed request or package needs a new plan and review.
+
+The [portable lineage run](lineage-public-run.json) keeps eight real CLI cases with all input/output bytes, commands, directories, stdout/stderr and exit codes. Its isolated factory copy uses Mise-selected Python/PyYAML and the standalone Python owner, not the full refresh chain. It predates the optional pending-review route. Full native refresh proof and its private inputs belong outside this example.
 
 | Case | Observed result | File effect |
 | --- | --- | --- |
@@ -121,6 +123,8 @@ Argument presence gates entry before self-update; it validates neither content n
 Load this section if the factory owns `refresh-registry-lineage`. Run `mise run refresh-registry-lineage -- <skill...> --plan` for native formatted bytes and derived lineage/manifests without bulk writes. The write route rejects missing review before formatting. Each `plan.changes` entry has full `content_base64`, current/prepared digests, ordinary modes, skill and owner. Order selected bodies before sources, lineage and repository manifests. This does not replace full semantic dependency review.
 
 Save the first change's exact decoded bytes. Give its current `write-file` request to `mise run refresh-registry-lineage -- <skill...> --review <request.json>`. Bodies need `body_revision`; other files need current installed-body `initial_body_review`. Apply at most the next file with its planned mode. Recheck request, runtime, sources, target bytes/directories and formatter inputs around the effect. Replan/review next. Keep prior successful writes; use conditional restoration for the failed current effect. An empty plan still needs full source, domain and recipient validation.
+
+To use the [same prerequisite branch](#authorized-prerequisite-with-pending-body-validation), add `--pending-body-review <digest>` with `--review`. Keep all registry checks and pending proof.
 
 The trusted registry consumer selects the exact repository-relative `evidence/ports/<skill>/source-manifest.json` target. The installed body supplies review context. Request data grants no wider filesystem authority. Related targets reject bootstrap/body revision. Keep distinct rules for archived native identity, repository-baseline identity and target-scaffolding attribution.
 

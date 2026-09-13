@@ -2,21 +2,23 @@
 import json
 import pathlib
 import unittest
+from unittest.mock import patch
+from contract_text import contract_text
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[2]
 
 
 def _TestDeterministicBoundary_test_factory_and_recursive_contract_put_programmatic_work_in_mise(self):
-    skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+    skill = contract_text(SKILL_DIR / "SKILL.md")
     contract = (SKILL_DIR / "references" / "generation-contract.md").read_text()
     self.assertIn("## Mise task graph", skill)
-    for phrase in ["[Mise][mise] owns public commands, pinned environments and outer prerequisites",
-                   "[Mastra][mastra] owns substantive domain control, state and recovery",
+    for phrase in ["[Mise](https://mise.jdx.dev/) owns public commands, pinned environments and outer prerequisites",
+                   "[Mastra](https://mastra.ai/docs/workflows/overview) owns substantive domain control, state and recovery",
                    "Existing tested scripts perform repeatable leaves",
                    "Keep one owner for scheduling, retries, caching, state, effects and cleanup, with explicit handoffs",
-                   "Never add competing recursive [Mise][mise] graphs"]:
+                   "Never add competing recursive [Mise](https://mise.jdx.dev/) graphs"]:
         self.assertIn(phrase, skill)
-    self.assertNotIn("python3 scripts/", skill)
+    self.assertNotIn("python3 scripts/", (SKILL_DIR / "SKILL.md").read_text())
     for phrase in ["Mise for public entry/environment/outer prerequisites",
                    "Mastra for actual domain steps", "scripts for mechanics",
                    "fresh baseline", "evaluator", "Pareto",
@@ -30,14 +32,14 @@ def _TestDeterministicBoundary_test_mise_preserves_model_capabilities(self):
              SKILL_DIR / "references" / "generation-contract.md",
              SKILL_DIR / "assets" / "skill-template.md"]
     for path in paths:
-        text = path.read_text(encoding="utf-8")
+        text = contract_text(path)
         self.assertIn("caller", text.lower())
         self.assertIn("authorized", text)
         self.assertIn("creative", text)
         self.assertIn("judgment", text)
         self.assertNotIn("Mise owns every deterministic command", text)
     for path in [paths[0], paths[2]]:
-        text = path.read_text(encoding="utf-8")
+        text = contract_text(path)
         if path.name == "SKILL.md":
             self.assertIn("Keep every relevant allowed medium", text)
             self.assertIn("Use a capable real runner for binary media", text)
@@ -63,14 +65,35 @@ def _TestDeterministicBoundary_test_factory_has_machine_readable_improvement_con
         self.assertIn(dimension, policy["protected_dimensions"])
 
 
+def _test_routed_contract_rejects_missing_work_and_excludes_unlinked_rules(self):
+    from tempfile import TemporaryDirectory
+    import subprocess
+    import sys
+    result = subprocess.run([sys.executable, "-I", "-c", "import sys; sys.path.insert(0, sys.argv[1]); import contract_text", str(SKILL_DIR / "scripts/tests")], capture_output=True, text=True, timeout=30)
+    self.assertEqual(result.returncode, 0, result.stderr)
+    with TemporaryDirectory() as directory:
+        root = pathlib.Path(directory)
+        body = root / "SKILL.md"
+        body.write_text("Run `mise run rule:one`.\n")
+        task = {"run": "node scripts/run_rule.ts rule:one", "description": "## Work\n\nRequired duty.\n## Proof\nProof."}
+        with patch("contract_text.load_tasks", return_value={"rule:one": task, "rule:hidden": task}):
+            self.assertEqual(contract_text(body).count("Required duty."), 1)
+            body.write_text("No routed work.\n")
+            self.assertNotIn("Required duty.", contract_text(body))
+        body.write_text("Run `mise run rule:missing`.\n")
+        with patch("contract_text.load_tasks", return_value={}):
+            self.assertRaises(KeyError, contract_text, body)
+
+
 class TestDeterministicBoundary(unittest.TestCase):
+    test_routed_contract_rejects_missing_work_and_excludes_unlinked_rules = _test_routed_contract_rejects_missing_work_and_excludes_unlinked_rules
     test_factory_and_recursive_contract_put_programmatic_work_in_mise = _TestDeterministicBoundary_test_factory_and_recursive_contract_put_programmatic_work_in_mise
     test_mise_preserves_model_capabilities = _TestDeterministicBoundary_test_mise_preserves_model_capabilities
     test_factory_has_machine_readable_improvement_contract = _TestDeterministicBoundary_test_factory_has_machine_readable_improvement_contract
 
 
 def _TestFactoryOperations_setUp(self):
-    self.skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+    self.skill = contract_text(SKILL_DIR / "SKILL.md")
     path = SKILL_DIR / "references" / "generation-contract.md"
     self.contract = path.read_text(encoding="utf-8")
 
@@ -98,7 +121,7 @@ def _TestFactoryOperations_test_required_concept_order_is_explicit(self):
 
 def _TestFactoryOperations_test_resource_and_experiment_reference_is_owned(self):
     path = SKILL_DIR / "references" / "resource-and-experiment-design.md"
-    text = path.read_text(encoding="utf-8")
+    text = contract_text(path)
     for phrase in ["Access pattern", "Format", "Resource", "Mise",
                    "Fresh baseline", "human review"]:
         self.assertIn(phrase, text)
@@ -164,7 +187,7 @@ def _TestImprovementLifecycle_test_every_published_dimension_has_a_distinct_sour
     ids = re.findall(r"^\| (Q[0-9]+) \|", text, re.MULTILINE)
     self.assertEqual(ids, [f"Q{number:02}" for number in range(1, 65)])
     for path in [SKILL_DIR / "SKILL.md", SKILL_DIR / "assets/skill-template.md"]:
-        self.assertIn("pending next-invocation confirmation", path.read_text())
+        self.assertIn("pending next-invocation confirmation", contract_text(path))
 
 
 class TestImprovementLifecycle(unittest.TestCase):

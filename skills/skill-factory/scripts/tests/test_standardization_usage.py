@@ -31,7 +31,7 @@ def _TestStandardizationUsage_workflow(self, factory, args, expected):
     runner = (SCRIPTS / 'run_standardization.ts').as_uri()
     code = 'import {runStandardization} from ' + json.dumps(runner) + '; await runStandardization(JSON.parse(process.argv[1]), process.argv[2]);'
     result = subprocess.run(['node', '--input-type=module', '-e', code, json.dumps(args), str(factory)],
-        cwd=SCRIPTS.parent, env={**os.environ, 'UV_PYTHON': sys.executable}, capture_output=True, text=True, timeout=60)
+        cwd=SCRIPTS.parent, env={**os.environ, 'UV_PYTHON': sys.executable, 'MISE_TRUSTED_CONFIG_PATHS': str(factory.resolve())}, capture_output=True, text=True, timeout=60)
     self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
     return result
 

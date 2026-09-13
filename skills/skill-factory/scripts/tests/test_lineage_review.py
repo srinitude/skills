@@ -63,7 +63,7 @@ def _TestLineageReview_test_plan_is_complete_and_read_only(self):
     self.assertEqual(rejected.returncode, 2, rejected.stdout + rejected.stderr)
     self.assertEqual(self.package(), before)
     from check_lineage import report
-    for options in [{'review': self.request_path}, {'write': True, 'plan': True}]:
+    for options in [{'review': self.request_path}, {'write': True, 'plan': True}, {'pending_body_review': '0'*64}]:
         with self.assertRaises(ValueError):
             report(self.root, **options)
     self.assertEqual(self.package(), before)
@@ -157,7 +157,27 @@ def _TestLineageReview_test_cooperating_lock_blocks_effect_then_release_recovers
     result = self.invoke(); self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
 
+def _test_pending_prerequisite_requires_caller_selection(self):
+    from test_review_ledger_write_recovery import pending_review
+    digest = pending_review(self)
+    self.request['pending_body_review'] = digest
+    self.request_path.write_text(json.dumps(self.request))
+    before = self.package()
+    for selection in [[], ['--pending-body-review', '0' * 64]]:
+        result = run('check_lineage.py', self.root, '--write', '--review', self.request_path, *selection)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(self.package(), before)
+    result = run('check_lineage.py', self.root, '--write', '--review', self.request_path, '--pending-body-review', digest)
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    effect = json.loads(result.stdout)['change']
+    self.assertEqual(effect['execution_acceptance'], 'pending')
+    for phase in ['before', 'after']:
+        self.assertEqual(effect[phase]['initial_body_review']['initial_contract_validation']['state'], 'pending')
+    self.assertEqual(json.loads(self.target.read_bytes()), current_document(self.root))
+
+
 class TestLineageReview(unittest.TestCase):
+    test_pending_prerequisite_requires_caller_selection = _test_pending_prerequisite_requires_caller_selection
     package = writes.TestLedgerWrite.package
     setUp = _TestLineageReview_setUp
     prepare = _TestLineageReview_prepare

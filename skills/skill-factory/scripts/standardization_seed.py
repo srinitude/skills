@@ -160,6 +160,7 @@ def operations(profile, tasks):
     candidates = [profile["main_task"], "invocation-policy", "agentic-request",
                   "improvement-policy", "mise-primitives-plan", "mise-primitives-update", "ledger", "render-file-graph", "markdown:accept", "task-tools"]
     candidates += profile.get("public_tasks", [])
+    candidates += [name for name in tasks if name.startswith("rule:")]
     candidates = list(dict.fromkeys(candidates))
     term = profile["primary_term"]
     records = [{"task": name, "outcome": f"Produce the named {term} {name} result.",

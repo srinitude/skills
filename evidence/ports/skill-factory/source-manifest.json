@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "7a6aace341b6b7020e24c54a62337a02cac073692ba692cc941c4e1bfa077a35",
-  "evidence_packet_sha256": "7a6aace341b6b7020e24c54a62337a02cac073692ba692cc941c4e1bfa077a35",
+  "native_manifest_sha256": "9292bb09fbe5e85364fbbf17dab84190dec04456382977bdb7285ad3d5cb1f9f",
+  "evidence_packet_sha256": "9292bb09fbe5e85364fbbf17dab84190dec04456382977bdb7285ad3d5cb1f9f",
   "files": [
     {
       "bytes": 272,
@@ -916,10 +916,10 @@
       "source_path": "scripts/scope_placement.py"
     },
     {
-      "bytes": 6021,
+      "bytes": 6062,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/setup_runtime.mjs",
-      "sha256": "d3a36843c6bb383b75951200fa8d8872f8de77ed3b2a6af7d9bd8b33dcca0208",
+      "sha256": "3c86b48133ba4a429d61a36e4a390eb046a7e8555a08e154979912b436ae04c6",
       "source_path": "scripts/setup_runtime.mjs"
     },
     {

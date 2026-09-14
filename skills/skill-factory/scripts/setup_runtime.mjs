@@ -1,10 +1,11 @@
 /** Reuse checked installs; retain old and failed trees during a rebuild. */
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
+import process from 'node:process';
 import { closeSync, lstatSync, mkdirSync, mkdtempSync, openSync, readFileSync,
   realpathSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 
 const hash = value => createHash('sha256').update(value).digest('hex');
 const receiptName = '.skill-runtime.json';

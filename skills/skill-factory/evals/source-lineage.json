@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "be2048c43625238b84974f84d99287371ac62a4cf8b3c8d9c93d0b282a1bb6d3",
+  "native_manifest_sha256": "2abcbe741e2a76bbd7079abd62c9e26d2330686df05d64ff36338561fa0a7c27",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -2408,11 +2408,11 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "9931ca14d5ddadd18f7480b770be267515ac5400e64bc2f715577018684e3471"
+      "sha256": "ac39d428f3e0821d573ac1384c87ba4c1441d38e0ee37e41f14d1d36bc0b01ff"
     },
     {
       "path": "scripts/standardization_seed.py",
-      "sha256": "2c25a456bf121a36b04c9ee127b0fbf4aa9961391c930337d49939a78314906e"
+      "sha256": "33feebdb007e410f4e15892ce6950bde33e2163bdb6fe5c95b2f0c9548ad5124"
     },
     {
       "path": "scripts/standardization_workflow.ts",
@@ -2708,7 +2708,7 @@
     },
     {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
-      "sha256": "b25c8b63a82fab9f1e492a51312770f61801ebe99a119c55cd543aa4da4ff4e2"
+      "sha256": "c9f9b21dacd33705e9784451d7d0d85fa03aa7714fa531152cc7047d5e9260b4"
     },
     {
       "path": "scripts/tests/test_scaffold_review.py",
@@ -2824,7 +2824,7 @@
     },
     {
       "path": "scripts/tests/test_task_argument_dependencies.py",
-      "sha256": "cbe8571f990c95f800bcb3617429865976104771ec4262af0fa52c3c2807d06a"
+      "sha256": "67bd35d38a5de95ecc0f3fd343136504a8a24ea0c0aa065667f731b63506a719"
     },
     {
       "path": "scripts/tests/test_task_contract_batch.py",

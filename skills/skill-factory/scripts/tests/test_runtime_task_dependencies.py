@@ -70,7 +70,7 @@ def _TestRuntimeDependencies_test_partial_legacy_ci_reaches_every_required_stand
     self.assertEqual(normalize_mise(output), output)
 
 def _TestRuntimeDependencies_test_absent_lint_owner_does_not_erase_the_declared_runtime(self):
-    names = {"test", "check-runtime", "setup-runtime"}
+    names = {name: {"depends": []} for name in ["test", "check-runtime", "setup-runtime"]}
     self.assertEqual(runtime_dependencies("test", ["check-runtime"], names), ["check-runtime"])
 
 def _TestRuntimeDependencies_test_conflicting_native_task_is_rejected_without_rewriting_input(self):
@@ -160,7 +160,21 @@ def _TestRuntimeDependencies_test_standardization_preserves_all_checks_on_one_ru
     self.assertEqual(normalize_mise(normalized), normalized)
 
 
+def _TestRuntimeDependencies_test_custom_test_keeps_its_declared_prerequisites(self):
+    source = base_mise({"primary_term": "clock"})
+    source = source.replace('depends = ["setup-graph-renderer"]', 'depends = []', 1)
+    source = source.replace("python -m unittest discover -s scripts/tests -p 'test_*.py' -v --failfast",
+                            "node scripts/check_clock.mjs")
+    output = normalize_mise(source)
+    tasks = tomllib.loads(output)["tasks"]
+    self.assertEqual(tasks["test"]["depends"], [])
+    self.assertIn("node scripts/check_clock.mjs", tasks["test"]["run"])
+    self.assertIn("lint-code", tasks["ci"]["depends"])
+    self.assertEqual(normalize_mise(output), output)
+
+
 class TestRuntimeDependencies(unittest.TestCase):
+    test_custom_test_keeps_its_declared_prerequisites = _TestRuntimeDependencies_test_custom_test_keeps_its_declared_prerequisites
     assert_ready_graph = _TestRuntimeDependencies_assert_ready_graph
     test_factory_and_generated_test_routes_prepare_the_runtime = _TestRuntimeDependencies_test_factory_and_generated_test_routes_prepare_the_runtime
     test_public_variant_and_target_validation_prepare_the_native_checker = _TestRuntimeDependencies_test_public_variant_and_target_validation_prepare_the_native_checker

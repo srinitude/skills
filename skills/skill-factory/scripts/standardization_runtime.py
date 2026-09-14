@@ -5,6 +5,7 @@ import json
 import tomllib
 from pathlib import Path
 from task_definitions import load_tasks
+from check_task_graph import path_counts
 
 SECTION_RE = re.compile(r"(?m)^\[tasks\.([^]]+)\]\s*$")
 
@@ -136,18 +137,15 @@ def catalog_task(block):
     return result
 
 
-def runtime_dependencies(name, dependencies, names):
-    result = list(dependencies)
-    provider = {"test": "setup-graph-renderer", "setup-graph-renderer": "lint-code", "lint-code": "check-runtime"}.get(name)
-    if provider in names and provider not in result:
-        result.append(provider)
-    chains = [("test", ("setup-graph-renderer", "lint-code", "setup-runtime", "check-runtime")),
-              ("setup-graph-renderer", ("lint-code", "setup-runtime", "check-runtime")),
-              ("lint-code", ("setup-runtime", "check-runtime")), ("check-runtime", ("setup-runtime",))]
-    for consumer, ancestors in chains:
-        if consumer in result and consumer in names:
-            return [item for item in result if item not in ancestors]
-    return result
+def runtime_dependencies(name, dependencies, tasks):
+    graph = {key: {"depends": [item for item in task.get("depends", []) if isinstance(item, str)]}
+             for key, task in tasks.items()}
+    redundant = set()
+    for provider in dependencies:
+        if isinstance(provider, str) and provider in graph:
+            redundant.update(key for key, count in path_counts(graph, provider).items()
+                             if key != provider and count)
+    return [item for item in dependencies if not isinstance(item, str) or item not in redundant]
 
 def task_values(block):
     block = re.sub(r"^\[tasks\.[^\n]+\]\s*\n", "", block)

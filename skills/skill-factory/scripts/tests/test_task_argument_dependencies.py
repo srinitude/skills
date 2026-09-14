@@ -33,7 +33,8 @@ def _TestTaskArgumentDependencies_test_argument_references_keep_unknown_cycle_an
         self.assertIn(diagnostic,result.stdout);self.assertNotIn('Traceback',result.stderr)
 
 def _TestTaskArgumentDependencies_test_argument_instances_survive_runtime_edge_reduction(self):
-    names = {'test', 'lint-code', 'check-runtime', 'setup-runtime'}
+    names = {'test': {'depends': ['lint-code']}, 'lint-code': {'depends': ['check-runtime']},
+             'check-runtime': {'depends': ['setup-runtime']}, 'setup-runtime': {'depends': []}}
     for provider, removed in [('test', 'lint-code'), ('lint-code', 'check-runtime'),
                               ('check-runtime', 'setup-runtime')]:
         instance = {'task': removed, 'args': ['a b', 'a b']}
@@ -54,7 +55,16 @@ def _TestTaskArgumentDependencies_test_standardization_preserves_argument_bytes_
     self.assertEqual(normalize_mise(output),output)
 
 
+def _TestTaskArgumentDependencies_test_only_real_plain_prerequisites_allow_reduction(self):
+    for fields in [{}, {'depends_post': ['setup-runtime']},
+                   {'depends': [{'task': 'setup-runtime', 'args': ['custom']}]}]:
+        tasks = {'test': fields, 'setup-runtime': {'depends': []}}
+        values = ['test', 'setup-runtime']
+        self.assertEqual(runtime_dependencies('ci', values, tasks), values)
+
+
 class TestTaskArgumentDependencies(unittest.TestCase):
+    test_only_real_plain_prerequisites_allow_reduction = _TestTaskArgumentDependencies_test_only_real_plain_prerequisites_allow_reduction
     check = policy.TestTaskGraphPolicy.check
     test_literal_argument_references_pass_in_both_dependency_phases = _TestTaskArgumentDependencies_test_literal_argument_references_pass_in_both_dependency_phases
     test_argument_references_keep_unknown_cycle_and_shape_rejection = _TestTaskArgumentDependencies_test_argument_references_keep_unknown_cycle_and_shape_rejection

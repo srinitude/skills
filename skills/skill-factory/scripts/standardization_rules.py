@@ -4,7 +4,7 @@ import re
 import tomllib
 from validate_skill import split_frontmatter
 from standardization_mise import normalize_mise
-from scaffold_rules import START_RULES, route_cue, template_inputs, rule_spec, task_toml
+from scaffold_rules import START_RULES, LEGACY_START_RULES, route_cue, template_inputs, rule_spec, task_toml
 from standardization_seed import task_records, operations, json_bytes
 
 
@@ -120,7 +120,10 @@ def routed_body(text, factory, cues):
     if error:
         raise ValueError(error)
     header = text[:len(text) - len(body)]
-    body = remove_exact_blocks(body, {START_RULES, *cues})
+    starts = {START_RULES, LEGACY_START_RULES}
+    if sum(block in starts for _, _, block in policy_blocks(body)) > 1:
+        raise ValueError('Duplicate startup rules need an explicit reviewed profile migration')
+    body = remove_exact_blocks(body, {*starts, *cues})
     template = (factory / 'assets/skill-template.md').read_text()
     policies = []
     for prefix in BODY_POLICIES:

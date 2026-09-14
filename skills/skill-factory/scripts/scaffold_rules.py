@@ -7,10 +7,16 @@ from skill_package import sha
 from standardization_runtime import task_header
 
 
-START_RULES = ("**Start here.** Read this whole SKILL.md on every load.\n"
+LEGACY_START_RULES = ("**Start here.** Read this whole SKILL.md on every load.\n"
                   "Run `mise run rule:read` with this exact body as text.\n"
                   "Read `mise tasks info task-tools --json` for the tool and reply contract.\n"
                   "Use the same bound request and state for required tasks.")
+
+START_RULES = (LEGACY_START_RULES + "\n"
+               "Follow this skill's work stages from its whole outcome.\n"
+               "Start design at SKILL.md. Build broad working paths before polish.\n"
+               "Keep safety and required inputs first. Give each gap an owner and check.\n"
+               "Fix those gaps before acceptance.")
 
 def route_cue(name):
     return (f"- **Run `mise run {name}`.** Read its full rules in "

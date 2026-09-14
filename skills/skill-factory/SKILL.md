@@ -11,6 +11,7 @@ metadata:
 
 - **Start here.** On every load, read this whole SKILL.md body first. Run `rule:read`, owned by [load tasks](tasks/context.toml). If its tool is not connected, use `mise run rule:read`. Bind exactly one `body` input: this skill’s real SKILL.md path, current hash and full text. Reject other paths, byte-only input and duplicate body roles before model work. Read the full `task-tools` body through its tool's inspect action; if tools are not connected, use `mise tasks info task-tools --json`. Follow its connection, task-call and model-handoff rules. Use the [Mise task graph](#mise-task-graph) and [Steps](#steps) to select work.
 - **Read and retain context.** Run `mise run rule:context`, owned by [load tasks](tasks/context.toml), after the whole-body read. It owns source capture, meaning review, valid review reuse, missing-input recovery and integration duties. Read its full rules before work uses that context.
+- **Choose useful work.** Follow [the work stages](#steps) from this whole skill's outcome. Start design at SKILL.md and build broad working paths before polish. Keep safety and required inputs first. Give each open gap an owner and a deciding check, then repair those gaps before acceptance.
 
 ## Outcome
 

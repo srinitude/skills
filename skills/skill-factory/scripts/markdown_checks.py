@@ -14,12 +14,13 @@ if __name__ == "__main__":
 
 from markdown_it import MarkdownIt
 from textstat import textstat
+from skill_package import SKIP
 
 VERSIONS = {"textstat": "0.7.8", "markdown-it-py": "4.0.0", "cmudict": "1.1.3",
             "pyphen": "0.18.1", "mdurl": "0.1.2", "importlib_resources": "7.1.0",
             "importlib_metadata": "9.0.1", "zipp": "4.1.0", "setuptools": "84.0.0"}
 PARSER = MarkdownIt("commonmark", {"html": True}).enable(["table", "strikethrough"])
-IGNORED = {".git", "node_modules", ".venv", "__pycache__"}
+IGNORED = SKIP | {".venv"}
 
 
 def runtime():
@@ -30,6 +31,7 @@ def runtime():
     return {"packages": actual, "python": sys.version, "policy": "markdown-reading-v2",
             "paragraph_words": {"maximum_exclusive": 150, "method": "textstat.lexicon_count; extracted paragraph prose"},
             "owner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            "inventory_owner_sha256": hashlib.sha256(Path(__file__).with_name("skill_package.py").read_bytes()).hexdigest(),
             "method": "Flesch-Kincaid; textstat English CMU dictionary with Pyphen fallback",
             "limit": "Estimated reading grade; not proof of meaning or reader performance"}
 

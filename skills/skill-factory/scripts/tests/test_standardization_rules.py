@@ -50,6 +50,41 @@ def test_second_update_is_identical(self):
     self.assertEqual(updated(files), files)
 
 
+def test_prior_startup_migrates_once_and_preserves_examples(self):
+    from scaffold_rules import START_RULES, LEGACY_START_RULES
+    files = updated()
+    old = files['SKILL.md'].decode().replace(START_RULES, LEGACY_START_RULES, 1)
+    example = '\n```markdown\n' + LEGACY_START_RULES + '\n```\n'
+    files['SKILL.md'] = (old + example).encode()
+    result = updated(files)
+    body = result['SKILL.md'].decode()
+    self.assertIn(START_RULES, body)
+    self.assertIn(example, body)
+    self.assertIn('Never infer a missing UTC offset.', body)
+    self.assertEqual(updated(result), result)
+
+
+def test_mixed_duplicate_startup_requires_review(self):
+    from scaffold_rules import LEGACY_START_RULES
+    files = updated()
+    files['SKILL.md'] += ('\n' + LEGACY_START_RULES + '\n').encode()
+    before = dict(files)
+    with self.assertRaisesRegex(ValueError, 'Duplicate.*reviewed.*migration'):
+        updated(files)
+    self.assertEqual(files, before)
+
+
+def test_custom_startup_requires_review(self):
+    from scaffold_rules import START_RULES
+    files = updated()
+    files['SKILL.md'] = files['SKILL.md'].replace(
+        START_RULES.encode(), (START_RULES + '\nKeep our local approval gate.').encode(), 1)
+    before = dict(files)
+    with self.assertRaisesRegex(ValueError, 'reviewed.*migration'):
+        updated(files)
+    self.assertEqual(files, before)
+
+
 def test_updated_skill_uses_broad_method_and_final_boundaries(self):
     files = updated()
     tasks = tomllib.loads(files["mise.toml"].decode())["tasks"]

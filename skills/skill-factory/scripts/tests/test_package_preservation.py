@@ -112,5 +112,28 @@ class TestPackagePreservation(unittest.TestCase):
     test_failed_restoration_retains_backup_for_real_recovery = _TestPackagePreservation_test_failed_restoration_retains_backup_for_real_recovery
 
 
+class TestMarkdownInventory(unittest.TestCase):
+    def test_review_excludes_retained_runtime_but_keeps_owned_markdown(self):
+        import hashlib
+        from markdown_checks import files, runtime
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name).resolve()
+        owned = ['SKILL.md', 'references/guide.md', 'examples/cache.MD']
+        retained = ['.artifacts/runtime/prior/README.md',
+                    'runtime/storage/.artifacts/failed/README.md',
+                    'runtime/storage/node_modules/pkg/README.md', '.venv/README.md']
+        for name in owned + retained:
+            path = root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('Read the file.\n', encoding='utf-8')
+        captured = files([str(root)])
+        self.assertEqual({Path(x['path']).relative_to(root).as_posix() for x in captured}, set(owned))
+        self.assertTrue(all(x['text'] == 'Read the file.\n' for x in captured))
+        self.assertTrue(all((root / name).read_text() == 'Read the file.\n' for name in retained))
+        expected = hashlib.sha256((SCRIPTS / 'skill_package.py').read_bytes()).hexdigest()
+        self.assertEqual(runtime()['inventory_owner_sha256'], expected)
+
+
 if __name__ == '__main__':
     unittest.main()

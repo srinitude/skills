@@ -71,7 +71,11 @@ def test_rejects_unreviewed_template_mapping(self):
 
 
 def test_broad_method_reaches_created_skill(self):
-    tasks = tomllib.loads(rendered()["mise.toml"])["tasks"]
+    files = rendered()
+    startup = files["SKILL.md"].split("## Outcome", 1)[0]
+    self.assertIn("Build broad working paths before polish", startup)
+    self.assertIn("safety and required inputs", startup)
+    tasks = tomllib.loads(files["mise.toml"])["tasks"]
     progress = tasks["rule:implementation-progress"]["description"]
     for duty in ["Build broad working paths before optional polish", "owner, required inputs, next action and deciding check",
                  "main paths work", "whole domain result", "A small request needs a small change"]:

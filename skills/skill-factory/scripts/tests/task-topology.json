@@ -381,7 +381,7 @@
     "rule:mastra-recovery"
   ],
   "rule:loop-contract": [
-    "rule:context"
+    "rule:implementation-progress"
   ],
   "rule:reconciled": [
     "rule:loop-contract"

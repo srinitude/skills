@@ -77,7 +77,7 @@ SHARED_PYTHON = ("scripts/validate_skill.py", "scripts/check_lineage.py",
                  "scripts/standardize_registry_skill.py", "scripts/resolve_scope.py",
                  "scripts/skill_variant.py", "python -m unittest discover")
 
-def isolate_python_helpers(block, task):
+def isolate_python_helpers(block, task, test_run):
     helpers = [command for field in ["run", "run_windows"]
                if isinstance(command := task.get(field), str)
                and any(command.startswith(prefix + owner + " ") or command == prefix + owner
@@ -90,11 +90,14 @@ def isolate_python_helpers(block, task):
     elif not isinstance(environment, dict) or environment.get("UV_PYTHON") != "{{tools.python.path}}":
         raise ValueError("Python helper environment needs explicit reconciliation")
     for command in dict.fromkeys(helpers):
-        if not command.startswith(UV_RUN):
-            continue
-        if command not in block:
+        prefix = next(value for value in [UV_RUN, ISOLATED_UV] if command.startswith(value))
+        suffix = command[len(prefix):]
+        runtime = ISOLATED_UV
+        if suffix.startswith("python -m unittest discover"):
+            runtime = test_run[:test_run.index("python -m unittest discover")]
+        if runtime != prefix and command not in block:
             raise ValueError("Python helper command syntax needs explicit reconciliation")
-        block = block.replace(command, ISOLATED_UV + command[len(UV_RUN):])
+        block = block.replace(command, runtime + suffix)
     return block
 
 def check_runtime(files, factory):
@@ -108,7 +111,6 @@ def check_runtime(files, factory):
 
 CATALOG_USAGE = 'flag "--review <path>" required=#true'
 CATALOG_RUN = 'python3 scripts/sync_mise_primitives.py . --review "${usage_review?}"'
-
 
 def catalog_task(block):
     task = tomllib.loads('[task]\n' + block)['task']
@@ -146,8 +148,6 @@ def runtime_dependencies(name, dependencies, names):
         if consumer in result and consumer in names:
             return [item for item in result if item not in ancestors]
     return result
-
-
 
 def task_values(block):
     block = re.sub(r"^\[tasks\.[^\n]+\]\s*\n", "", block)

@@ -12,6 +12,7 @@ from check_evals import check_cases, check_queries
 from check_placeholders import line_problems
 from standardization_seed import build_evals, build_triggers, seeds, base_mise, operations, task_records
 from standardization_mise import normalize_mise
+from standardization_runtime import UV_RUN, ISOLATED_UV
 from check_task_graph import problems, route_problems
 
 PROFILE = {"skill": "clock-anchor", "primary_term": "clock anchor",
@@ -113,7 +114,30 @@ def _TestStandardizationSeeds_test_scaffold_template_accounts_for_every_task(sel
     self.assertEqual(route_problems(tasks, entries), [])
 
 
+def test_generated_test_runtime_preserves_target_selection(self):
+    suffix = "python -m unittest discover -s domain_tests -p 'check_*.py' --buffer"
+    for prefix in [UV_RUN, ISOLATED_UV]:
+        source = '[tasks.test]\nrun = ' + json.dumps(prefix + suffix)
+        source += '\nrun_windows = ' + json.dumps(prefix + suffix) + '\n'
+        output = normalize_mise(source)
+        task = tomllib.loads(output)['tasks']['test']
+        for field in ['run', 'run_windows']:
+            self.assertTrue(task[field].endswith(suffix))
+            self.assertIn('--with markdown-it-py==4.0.0 ', task[field])
+            self.assertIn('--with textstat==0.7.8 ', task[field])
+            self.assertIn('--no-project --isolated --no-python-downloads ', task[field])
+        self.assertEqual(task['env']['UV_PYTHON'], '{{tools.python.path}}')
+        self.assertEqual(normalize_mise(output), output)
+    custom = 'uv run --with domain-package==1.0 python -m unittest discover -s domain_tests'
+    output = normalize_mise('[tasks.test]\nrun = ' + json.dumps(custom) + '\n')
+    self.assertEqual(tomllib.loads(output)['tasks']['test']['run'], custom)
+    isolated = ISOLATED_UV + 'scripts/check_target.py "domain path"'
+    output = normalize_mise('[tasks.anchor]\nrun = ' + json.dumps(isolated) + '\n')
+    self.assertEqual(tomllib.loads(output)['tasks']['anchor']['run'], isolated)
+
+
 class TestStandardizationSeeds(unittest.TestCase):
+    test_generated_test_runtime_preserves_target_selection = test_generated_test_runtime_preserves_target_selection
     test_scaffold_template_accounts_for_every_task = _TestStandardizationSeeds_test_scaffold_template_accounts_for_every_task
     test_generated_markdown_tasks_have_one_public_path = _TestStandardizationSeeds_test_generated_markdown_tasks_have_one_public_path
     test_missing_triggers_have_required_shape_but_cannot_pass_as_authored = _TestStandardizationSeeds_test_missing_triggers_have_required_shape_but_cannot_pass_as_authored

@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "9292bb09fbe5e85364fbbf17dab84190dec04456382977bdb7285ad3d5cb1f9f",
-  "evidence_packet_sha256": "9292bb09fbe5e85364fbbf17dab84190dec04456382977bdb7285ad3d5cb1f9f",
+  "native_manifest_sha256": "be2048c43625238b84974f84d99287371ac62a4cf8b3c8d9c93d0b282a1bb6d3",
+  "evidence_packet_sha256": "be2048c43625238b84974f84d99287371ac62a4cf8b3c8d9c93d0b282a1bb6d3",
   "files": [
     {
       "bytes": 272,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 19756,
+      "bytes": 20049,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "034feccb688e670dab7651fa9841ca914064f8ac6f9d13864d2695aa220822e5",
+      "sha256": "31e01fc3c5972546b4523f6dfcf8d583f3b5c31fdb7355a68f88969ca648ae4c",
       "source_path": "SKILL.md"
     },
     {
@@ -81,6 +81,13 @@
       "location_path": "skills/skill-factory/assets/example-template.md",
       "sha256": "dde007d3586d35f9b2c8116c4c81e5e2469ee57cf8febe75b9e98dd6ddae7467",
       "source_path": "assets/example-template.md"
+    },
+    {
+      "bytes": 5206501,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/assets/file-map.svg",
+      "sha256": "085471d8217a7019339f63df6dc7e15f520324721cfa88f698148b216ffbee35",
+      "source_path": "assets/file-map.svg"
     },
     {
       "bytes": 3789,
@@ -678,10 +685,10 @@
       "source_path": "scripts/lint_writing.py"
     },
     {
-      "bytes": 7304,
+      "bytes": 7428,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/markdown_checks.py",
-      "sha256": "a95ce9cf8ddecf94d4f2b68fefddef8a5f4556373a7d3d86888761898d087178",
+      "sha256": "6a03c9a997fe3a65319bef57051f642cb517d7c395e430226e83f2b0a33606d4",
       "source_path": "scripts/markdown_checks.py"
     },
     {
@@ -895,10 +902,10 @@
       "source_path": "scripts/scaffold_review.py"
     },
     {
-      "bytes": 6157,
+      "bytes": 6511,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/scaffold_rules.py",
-      "sha256": "f4b509c3fdb49eb6d527b49086b6852c982ba2ed074b8ca62e55e2e439ba1965",
+      "sha256": "1c0c238ab03223900f5586473495c734f623942f03e06bf633694d15843c56e5",
       "source_path": "scripts/scaffold_rules.py"
     },
     {
@@ -993,17 +1000,17 @@
       "source_path": "scripts/standardization_mapping.py"
     },
     {
-      "bytes": 8804,
+      "bytes": 6823,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_markdown.py",
-      "sha256": "0ae936f1e0450bda4abbe03f272cf7e921f4379da77251f23f9e5fa64ebd4f8f",
+      "sha256": "e93ded0d5ef2cb7b221ae0b0af06fb785d16a7f2555fcaabd151b1d68eb4e33b",
       "source_path": "scripts/standardization_markdown.py"
     },
     {
-      "bytes": 10564,
+      "bytes": 10594,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_mise.py",
-      "sha256": "8c7bfdce6fc986061ffb69f379d62ea9bc0c2847ef00e403e9c5ec9700105c53",
+      "sha256": "545e70fc57c5bd6f2a172c6cdca3d3f5c1efd401a89cb5a9f6ee7d9b537e0529",
       "source_path": "scripts/standardization_mise.py"
     },
     {
@@ -1035,24 +1042,24 @@
       "source_path": "scripts/standardization_review.py"
     },
     {
-      "bytes": 2288,
+      "bytes": 7777,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_rewrites.py",
-      "sha256": "f9aba98612d3d1f5eaaa7f586dca0c103bae62a84c591c441977cf8d5892ad6a",
+      "sha256": "e793a2ccd2ab76dce8c7d8f6f8ac63941a18e934219732d5c2faea6e028616d2",
       "source_path": "scripts/standardization_rewrites.py"
     },
     {
-      "bytes": 6953,
+      "bytes": 7184,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_rules.py",
-      "sha256": "9088909e9844067e37911a25fc498599ea1ccd88f567152ae0c2905433ae5724",
+      "sha256": "ec6cf95cdf62848b685383787eea2bdecfbc3baae1b81d9751e52219e7757675",
       "source_path": "scripts/standardization_rules.py"
     },
     {
-      "bytes": 11974,
+      "bytes": 12222,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_runtime.py",
-      "sha256": "72de9469486a3506afedcec41ed793a3dbd4cba37eacb5266329396de9934c30",
+      "sha256": "9931ca14d5ddadd18f7480b770be267515ac5400e64bc2f715577018684e3471",
       "source_path": "scripts/standardization_runtime.py"
     },
     {
@@ -1147,10 +1154,10 @@
       "source_path": "scripts/tests/standardization_test_support.py"
     },
     {
-      "bytes": 8371,
+      "bytes": 8387,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/task-topology.json",
-      "sha256": "f44b4c45a88ca6aa0fa2733c9a856f69196ed85a28fb7a5d47aaa9ee007b2b91",
+      "sha256": "7e7a28f46d65703ddc24b892a5f8881a06a6919f2620f2e328f59e6f529d76da",
       "source_path": "scripts/tests/task-topology.json"
     },
     {
@@ -1329,10 +1336,10 @@
       "source_path": "scripts/tests/test_mapping_promotion.py"
     },
     {
-      "bytes": 9816,
+      "bytes": 9865,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_markdown_reading.py",
-      "sha256": "ad23e3999c9b19e0c064bf3dfe3323fbf3fccec96df8813c385343c063360115",
+      "sha256": "32b5694dbb0b8efa8fd70f25d023425062e5f26e682cc9e70e99afb49543dec7",
       "source_path": "scripts/tests/test_markdown_reading.py"
     },
     {
@@ -1385,10 +1392,10 @@
       "source_path": "scripts/tests/test_ordered_workflow_contract.py"
     },
     {
-      "bytes": 6128,
+      "bytes": 7429,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_package_preservation.py",
-      "sha256": "96cf88a05979d62093bde8ad86b924ee31837cc7aeb65f0a8d5c75251ce7ee4c",
+      "sha256": "a6586e261e0ad73ab30d739780be7e477159c0dfa96bdddd0e9ad37ddd92b463",
       "source_path": "scripts/tests/test_package_preservation.py"
     },
     {
@@ -1588,10 +1595,10 @@
       "source_path": "scripts/tests/test_scaffold_review.py"
     },
     {
-      "bytes": 4798,
+      "bytes": 5001,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_rules.py",
-      "sha256": "51668c7a70e23432be00073d7a56a537f8091a8252916054394375c22bd40f2a",
+      "sha256": "364cde74e79b8c68ff72704bd38c5609738e7fe0c1460692bf480295466059eb",
       "source_path": "scripts/tests/test_scaffold_rules.py"
     },
     {
@@ -1721,6 +1728,13 @@
       "source_path": "scripts/tests/test_standardization_preflight.py"
     },
     {
+      "bytes": 5103,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_standardization_progress.py",
+      "sha256": "62fdc327c3ec410b20f2ee793729a4abec1ea874319a9e4496a80e8624aef5a3",
+      "source_path": "scripts/tests/test_standardization_progress.py"
+    },
+    {
       "bytes": 11442,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_review.py",
@@ -1728,17 +1742,17 @@
       "source_path": "scripts/tests/test_standardization_review.py"
     },
     {
-      "bytes": 6021,
+      "bytes": 7386,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_rules.py",
-      "sha256": "27485079a233a9630117bde8c7a28194fb76d6d3e36d5695759ad30419d9ae9e",
+      "sha256": "c2cc08de7d0ffa3fa666946ef6d80b31e9d4859dc5c485214544ac268e98c63c",
       "source_path": "scripts/tests/test_standardization_rules.py"
     },
     {
-      "bytes": 6833,
+      "bytes": 8381,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_seed.py",
-      "sha256": "457b7758c5c99453462a1e8d14148ee0bfc84e6f460bd709a6d68ff663df3727",
+      "sha256": "51963ac32a806680b90a0e9e05046021d1bad0533612f2f73859a8c7714b19ab",
       "source_path": "scripts/tests/test_standardization_seed.py"
     },
     {

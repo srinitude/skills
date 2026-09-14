@@ -1,5 +1,7 @@
 """Rewrite mechanical skill references through owning Mise tasks."""
 import re
+from standardization_rewrites import (contract_section, contract_resources, RESOURCE_OWNERS,
+                                      rewrite_execution_contract)
 
 SCRIPT_RE = re.compile(
     r"(?:(?:uv run|uvx)(?:\s+(?!python3?\b)[^`\n\s]+)*\s+)?"
@@ -159,40 +161,8 @@ def route_line(line, profile):
     return line
 
 
-RESOURCE_OWNERS = (
-    "Read the [generation contract](references/generation-contract.md) through `mise run validate` "
-    "before accepting a created or updated skill. Read the [file-review example](examples/example-ledger-write.md) "
-    "through `mise run ledger` before a file change. Actual reading and semantic review remain required."
-)
-
-
-def contract_resources():
-    return ("Load `assets/use-case-contract.json` through `mise run use-case-policy` "
-            "and `evals/evals.json` through `mise run evals` only when their "
-            "contracts are needed.")
-
-
-def contract_section(profile):
-    term, task = profile["primary_term"], profile["main_task"]
-    return ("\n## Factory execution contract\n\n"
-            f"The accepted outcome is: {profile['outcome']} Preserve current {term} behavior while changing its smallest owner.\n\n"
-            "1. Freeze the current package with `mise run ci` and record its digest.\n"
-            f"2. Run `mise run domain-research-policy`, then judge the current {term} sources and counterevidence.\n"
-            f"3. Run `mise run {task}` for the named {term} operation. Keep semantic choices with the model.\n"
-            "4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.\n"
-            "5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.\n"
-            "6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.\n\n"
-            "Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.\n")
-
-
 def rewrite_markdown(text, owners, profile, add_contract=False):
     updated = add_resource_gates(rewrite_script_text(text, owners))
     updated = "\n".join(route_line(line, profile) for line in updated.split("\n"))
     updated = BAD_MISE_LINK_RE.sub(lambda item: f"`{item.group(1)}`", updated)
-    if add_contract and "## Factory execution contract" not in updated:
-        updated = updated.rstrip() + "\n" + contract_section(profile)
-    for resource in [contract_resources(), RESOURCE_OWNERS]:
-        if add_contract and resource not in updated:
-            marker = "\nMise owns repeatable mechanics"
-            updated = updated.replace(marker, "\n" + resource + "\n" + marker)
-    return updated
+    return rewrite_execution_contract(updated, profile) if add_contract else updated

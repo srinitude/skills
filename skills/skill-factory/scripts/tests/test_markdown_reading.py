@@ -1,9 +1,11 @@
 """Reading checks must keep evidence and reject dense or changed text."""
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
 OWNER = Path(__file__).resolve().parents[1] / "markdown_checks.py"
+sys.path.insert(0, str(OWNER.parent))
 
 
 def module():

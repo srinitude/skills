@@ -159,7 +159,7 @@ def order_runtime_tasks(text):
     blocks, graph = {}, {}
     for name, block in sections:
         block, children = split_task_body(block)
-        block = isolate_python_helpers(block, tasks[name])
+        block = isolate_python_helpers(block, tasks[name], FACTORY_TASKS["test"]["run"])
         dependencies = runtime_dependencies(name, tasks[name].get("depends", []), tasks)
         graph[name] = [dependency_name(value) for value in dependencies + tasks[name].get("depends_post", [])]
         if not set(graph[name]) <= set(tasks):

@@ -146,16 +146,13 @@ def question_problems(data, now):
             continue
         if not web_url(item["source"]):
             found.append(f"disconfirmation.{index}.source must be a web URL")
-        for field in ["question", "result", "disposition"]:
-            if not nonempty(item[field]):
-                found.append(f"disconfirmation.{index}.{field} is empty")
+        found.extend(f"disconfirmation.{index}.{field} is empty"
+                     for field in ["question", "result", "disposition"] if not nonempty(item[field]))
         if not valid_time(item["checked_at"]):
             found.append(f"disconfirmation.{index}.checked_at needs a timezone")
         else:
-            problem = current_time_problem(
-                item["checked_at"], f"disconfirmation.{index}", now)
-            if problem:
-                found.append(problem)
+            problem = current_time_problem(item["checked_at"], f"disconfirmation.{index}", now)
+            found.extend([problem] if problem else [])
     return found
 
 

@@ -2,6 +2,10 @@
   "version": "1.1.0",
   "skill": "{{NAME}}",
   "outcome": "SCAFFOLD-PLACEHOLDER name the observable {{NAME}} result using its own domain terms.",
+  "audience": {
+    "primary": "SCAFFOLD-PLACEHOLDER human or agent from the main {{NAME}} result",
+    "secondary": []
+  },
   "motivations": [
     {
       "constraint": "SCAFFOLD-PLACEHOLDER name one {{NAME}} constraint.",
@@ -28,22 +32,54 @@
     "SCAFFOLD-PLACEHOLDER second {{NAME}} proof"
   ],
   "domain_dimensions": {
-    "actors": ["SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."],
-    "objects": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."],
-    "actions": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."],
-    "states": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."],
-    "invariants": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."],
-    "variants": ["SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."],
-    "interfaces": ["SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."],
-    "authorities": ["SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."],
-    "failures": ["SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."],
-    "recoveries": ["SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."],
-    "evidence": ["SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."],
-    "time": ["SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."],
-    "resources": ["SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."],
-    "quality": ["SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."],
-    "terminology": ["SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."],
-    "exclusions": ["SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."]
+    "actors": [
+      "SCAFFOLD-PLACEHOLDER name each {{NAME}} actor and role."
+    ],
+    "objects": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} objects and owned facts."
+    ],
+    "actions": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} actions and results."
+    ],
+    "states": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} states and transitions."
+    ],
+    "invariants": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} truths that must hold."
+    ],
+    "variants": [
+      "SCAFFOLD-PLACEHOLDER name valid {{NAME}} variation and its boundary."
+    ],
+    "interfaces": [
+      "SCAFFOLD-PLACEHOLDER name the {{NAME}} integration boundaries."
+    ],
+    "authorities": [
+      "SCAFFOLD-PLACEHOLDER name who may approve each {{NAME}} side effect."
+    ],
+    "failures": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} failure signals."
+    ],
+    "recoveries": [
+      "SCAFFOLD-PLACEHOLDER name verified {{NAME}} recovery paths."
+    ],
+    "evidence": [
+      "SCAFFOLD-PLACEHOLDER name evidence that proves the {{NAME}} outcome."
+    ],
+    "time": [
+      "SCAFFOLD-PLACEHOLDER name {{NAME}} freshness, order, and duration rules."
+    ],
+    "resources": [
+      "SCAFFOLD-PLACEHOLDER name resources that can change the {{NAME}} decision."
+    ],
+    "quality": [
+      "SCAFFOLD-PLACEHOLDER name domain measures for an accepted {{NAME}} result."
+    ],
+    "terminology": [
+      "SCAFFOLD-PLACEHOLDER name preferred, alternate, and rejected {{NAME}} terms."
+    ],
+    "exclusions": [
+      "SCAFFOLD-PLACEHOLDER name adjacent work that is outside {{NAME}} scope."
+    ]
   },
   "research_questions": {
     "actors": "SCAFFOLD-PLACEHOLDER which actors define or use {{NAME}}?",
@@ -110,6 +146,22 @@
       "disposition": "SCAFFOLD-PLACEHOLDER how {{NAME}} changed or why it stayed"
     }
   ],
+  "initial_context": [
+    {
+      "id": "governing-ledger",
+      "role": "ledger",
+      "binding": "invocation",
+      "depends_on": []
+    },
+    {
+      "id": "study-work-matrix",
+      "role": "resource",
+      "binding": "invocation",
+      "depends_on": [
+        "governing-ledger"
+      ]
+    }
+  ],
   "task_graph": {
     "ci_task": "ci",
     "public_operations": [
@@ -142,33 +194,173 @@
         "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} Mise version receipt."
       },
       {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "task": "mise-primitives-plan",
+        "why_default_path": "This is the one read-only agent skill catalog preparation path before the separate reviewed maintenance operation."
+      },
+      {
         "task": "mise-primitives-update",
         "outcome": "SCAFFOLD-PLACEHOLDER name how the {{NAME}} runner primitive catalog advances the skill outcome.",
         "motivation": "SCAFFOLD-PLACEHOLDER explain why {{NAME}} must reconcile upstream Mise primitives.",
         "why_default_path": "SCAFFOLD-PLACEHOLDER explain the post-self-update {{NAME}} catalog path.",
         "proof": "SCAFFOLD-PLACEHOLDER name the {{NAME}} catalog and disposition receipt."
+      },
+      {
+        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
+        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
+        "task": "ledger",
+        "why_default_path": "The agent skill has one public path into its assigned native Mastra ledger read operation with declared locked dependencies."
+      },
+      {
+        "task": "markdown:accept",
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER This {{NAME}} public entry reaches each writing stage once through the declared Mise chain and guarded Mastra steps.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require the full chain; keep real human and domain acceptance separate."
+      },
+      {
+        "task": "render-file-graph",
+        "outcome": "SCAFFOLD-PLACEHOLDER Render the {{NAME}} recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "SCAFFOLD-PLACEHOLDER A successful image command can otherwise omit {{NAME}} package nodes or connectors while looking complete.",
+        "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "why_default_path": "SCAFFOLD-PLACEHOLDER The {{NAME}} has one public render route after locked runtime, code and browser prerequisites; the native ledger remains the relationship owner."
+      },
+      {
+        "task": "task-tools",
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "why_default_path": "The host opens the agent skill connection through this one Mise entry after its runtime checks; each exposed tool calls its own task.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome."
       }
     ],
     "tasks": {
-      "ci": {},
-      "info": {},
-      "test": {},
       "validate": {},
       "lint-writing": {},
-      "lint-code": {},
       "lint-placeholders": {},
       "evals": {},
       "improvement-policy": {},
+      "info": {},
       "domain-research-policy": {},
-      "use-case-policy": {},
-      "mise-primitives-policy": {},
-      "primitive-lifecycle-policy": {},
-      "task-graph-policy": {},
-      "decision-policy": {},
       "invocation-policy": {},
       "agentic-request": {},
       "mise-latest": {},
-      "mise-primitives-update": {}
+      "setup-runtime": {
+        "outcome": "Install the exact locked JavaScript and TypeScript checker dependencies for the agent skill package.",
+        "motivation": "The skill package code checker must not resolve an ambient compiler or undeclared runtime dependency.",
+        "value": "A native lock provides exact skill package compiler and schema artifacts before their consumers.",
+        "proof": "The agent skill package native installer verifies its lock, completes successfully and leaves the declared compiler available.",
+        "applicability": "Run before a skill package check-runtime task; installation alone is not activation, authorization or domain acceptance."
+      },
+      "use-case-policy": {},
+      "check-runtime": {
+        "outcome": "Reject invalid owned skill package TypeScript before running its code-limit checker.",
+        "motivation": "The agent skill code checker requires validated application types and a declared supported compiler API.",
+        "value": "The Mise task graph orders locked installation before strict owned-source type checks and dependent lint-code work.",
+        "proof": "The agent skill package compiler rejects an actual output type mismatch and accepts the current owned source; third-party declaration checking is separately bounded.",
+        "applicability": "Run for owned skill package TypeScript changes and before lint-code; it does not validate runtime effects or semantic judgment."
+      },
+      "ledger": {
+        "outcome": "Read the skill package recorded ledger relationships and direct records with its current complete body and ledger bytes.",
+        "motivation": "Agent skill changes need the recorded conditions, review states and evidence links before dependent work.",
+        "value": "The Mise task graph invokes one native Mastra read workflow that preserves original relationship endpoints and serialized view contents.",
+        "proof": "Actual agent skill workflow tests cover complete body capture, multiple-input relationship roles, direction and depth, stale bindings, malformed input and recovery; execution acceptance remains pending.",
+        "applicability": "Use for asserted skill package relationship views and direct records. These views do not replace inherited context, derived source/reading/task relationships, current source verification, protected changes or semantic acceptance."
+      },
+      "mise-primitives-policy": {},
+      "lint-code": {},
+      "primitive-lifecycle-policy": {},
+      "mise-primitives-plan": {
+        "outcome": "Produce exact selected-version agent skill catalog bytes without changing its package or runner.",
+        "motivation": "Agent skill maintenance needs the actual schema-derived data before its ordinary file review.",
+        "value": "The agent skill author can bind one exact prepared catalog while the current runner and owned files remain unchanged.",
+        "proof": "An actual agent skill catalog plan returns complete content_utf8, current version and schema identity with no file or runner effect; declarations do not prove human or final acceptance.",
+        "applicability": "Use before reviewed agent skill catalog maintenance; prepare new input if its selected runner version or schema changes."
+      },
+      "mise-primitives-update": {},
+      "test": {},
+      "task-graph-policy": {},
+      "decision-policy": {},
+      "ci": {},
+      "markdown:inventory": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Read and bind each Markdown file and all review inputs.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} inventory findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require a complete file inventory and exact input identities.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:mechanical": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Report parse, size, reading-level, link and layout findings.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} mechanical findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require findings tied to each full file; early quality failures stay visible.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:review-request": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Give the model the whole file, source rules and current findings.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} review-request findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require full bound text and explicit questions before model review.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:macro-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge whole-file purpose, coverage, order and form choices.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} macro-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require a current model reply with reasons and cited source evidence.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:micro-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge sections, blocks, preserved rules and rendered form.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} micro-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require whole-file review first and a bound render for direct inspection.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:line-review": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Judge simple language, exact terms and honest score exclusions.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} line-review findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require section review first; do not trade a rule for a low reading score.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:review-check": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Check all model review stages and mechanical findings together.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} review-check findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Reject failed findings, missing stages, stale inputs and unsupported citations.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "markdown:accept": {
+        "outcome": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Close the writing checks while retaining other acceptance duties.",
+        "motivation": "SCAFFOLD-PLACEHOLDER The {{NAME}} reader needs clear instructions with no missing rule or proof.",
+        "value": "SCAFFOLD-PLACEHOLDER Use the {{NAME}} accept findings before the next dependent writing step.",
+        "proof": "SCAFFOLD-PLACEHOLDER For the {{NAME}} package: Require the full chain; keep real human and domain acceptance separate.",
+        "applicability": "SCAFFOLD-PLACEHOLDER For each existing, new or generated {{NAME}} Markdown file; preserve required human review."
+      },
+      "setup-graph-renderer": {
+        "outcome": "SCAFFOLD-PLACEHOLDER The {{NAME}} has the browser selected by its exact locked Mermaid renderer before graph rendering or renderer tests.",
+        "motivation": "SCAFFOLD-PLACEHOLDER An {{NAME}} graph cannot rely on a browser left by another checkout or invocation.",
+        "value": "SCAFFOLD-PLACEHOLDER The {{NAME}} native Puppeteer installer prepares its supported browser after code checks; it downloads only through the declared runtime.",
+        "proof": "SCAFFOLD-PLACEHOLDER The real {{NAME}} setup task succeeds and the installed renderer produces the fixture SVG; installation alone does not prove graph readability or domain acceptance.",
+        "applicability": "SCAFFOLD-PLACEHOLDER Run before {{NAME}} graph rendering and real renderer tests; network access and a supported browser platform are required."
+      },
+      "render-file-graph": {
+        "outcome": "SCAFFOLD-PLACEHOLDER Render the {{NAME}} recorded file graph with every file node and relationship incidence retained in a bound SVG result.",
+        "motivation": "SCAFFOLD-PLACEHOLDER A successful image command can otherwise omit {{NAME}} package nodes or connectors while looking complete.",
+        "value": "SCAFFOLD-PLACEHOLDER The {{NAME}} renderer verifies the native result digest, regenerates its exact Mermaid projection, refuses existing output directories and checks every rendered node and connector identity.",
+        "proof": "SCAFFOLD-PLACEHOLDER Actual {{NAME}} renderer cases reject modified inputs, omitted or duplicate elements, invalid geometry, invalid timeouts and destination collisions; two real runs retain repeated self loops and reproduce identical SVG bytes. Full graph readability and live source inventory remain separate reviews.",
+        "applicability": "SCAFFOLD-PLACEHOLDER Run for each current or intermediate {{NAME}} file graph after its native ledger file-graph result is captured. Supply the result path, new output directory, expected SHA-256 and positive timeout; retain original records and inspect the rendered pixels before acceptance."
+      },
+      "task-tools": {
+        "outcome": "Expose one live tool for each agent skill Mise task.",
+        "motivation": "The agent skill model needs each task's exact rules and real runtime output.",
+        "value": "Inspect and run the named agent skill task with bound inputs; leave judgment and approval with their owners.",
+        "proof": "Real agent skill tool tests prove factory and generated handshakes, full inspection, stale rejection and task-local model handoff. Connection setup alone proves no skill outcome.",
+        "applicability": "When a host needs the agent skill task interface and allows the task's effects."
+      }
     }
   },
   "primitive_roles": {

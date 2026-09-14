@@ -39,7 +39,7 @@ CHECKS = {
 
 def run_check(script, target, inspect_legacy=False):
     command = [sys.executable, str(SCRIPT_DIR / script), str(target)]
-    if script == "validate_skill.py" and not inspect_legacy:
+    if script in ("validate_skill.py", "check_use_case_contract.py") and not inspect_legacy:
         command.append("--accept")
     result = subprocess.run(command, capture_output=True, text=True)
     print(f"[{Path(script).stem}]")

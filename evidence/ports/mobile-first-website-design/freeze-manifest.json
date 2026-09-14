@@ -1625,7 +1625,8 @@
     "pass-full"
   ],
   "source_name": "mobile-first-website-design",
-  "source_root": "/Users/kirensrinivasan/.hermes/skills/software-development/mobile-first-website-design",
+  "source_location": "Archived files are under native/; the original host path is omitted.",
+  "capture_before_location_redaction_sha256": "05266faeba031d57d519288dfdbda9f7881476f593a9d6b6ce9d81f4d46a0c44",
   "source_version": "1.1.1",
   "symlinks": []
 }

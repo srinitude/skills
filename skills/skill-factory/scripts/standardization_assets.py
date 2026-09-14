@@ -1,13 +1,60 @@
 """Build factory policy assets for one registry skill."""
 import datetime
-import json
-from pathlib import Path
+import tomllib
+from standardization_seed import json_bytes, operations, task_records
 
+from agentic_request_contract import read_json
+from agentic_context import audience_record, declaration_order
+from standardization_rewrites import safe_target
 from standardization_profile import DIMENSIONS, PHASES, PRIMITIVES
+from check_decision_records import problems as decision_problems
+from check_primitive_lifecycle import validate as lifecycle_problems
+from check_mise_primitives import configured_fields, validate as primitive_problems
 
 
-def phrase(profile, subject):
-    return f"{profile['primary_term']} {subject}"
+def existing_asset(root, name):
+    path = root / "assets" / name
+    if not path.exists() and not path.is_symlink():
+        return None
+    data = read_json(safe_target(root, "assets/" + name).read_bytes().decode("utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"existing {name} must be an object")
+    return data
+
+
+def existing_use_case(root):
+    return existing_asset(root, "use-case-contract.json")
+
+
+def validate_policy_assets(root):
+    for name in ["primitive-lifecycle.json", "decision-records.json",
+                 "invocation-receipt-template.json", "mise-primitives.json"]:
+        record = existing_asset(root, name)
+        if record is None or record.get("skill") != root.name:
+            raise ValueError(f"existing {name} must name the current skill")
+    contract = existing_use_case(root)
+    decisions = existing_asset(root, "decision-records.json")
+    try:
+        found = decision_problems(decisions, contract.get("domain_terms", []), root.name)
+        found += lifecycle_problems(root) + primitive_problems(root)
+    except (AttributeError, KeyError, TypeError) as error:
+        raise ValueError(f"policy record shape needs explicit reconciliation: {error}") from error
+    if found:
+        raise ValueError("policy records need explicit reconciliation: " + "; ".join(found))
+
+
+def resolved_initial_profile(root, profile):
+    """Preserve existing declarations; supplied changes need prior adaptation."""
+    previous = existing_use_case(root) or {}
+    resolved = dict(profile)
+    for field in ["audience", "initial_context"]:
+        if field in previous and field in profile and profile[field] != previous[field]:
+            raise ValueError(f"{field} conflicts with the existing use-case; reconcile its adaptation first")
+        if field in previous:
+            resolved[field] = previous[field]
+    audience_record(resolved, accept=True)
+    declaration_order(resolved.get("initial_context"))
+    return resolved
 
 
 def motivations(profile):
@@ -44,30 +91,6 @@ def primitive_roles(profile):
     } for name in PRIMITIVES}
 
 
-def task_records(profile, tasks):
-    term = profile["primary_term"]
-    return {name: {
-        "outcome": f"Advance the {term} result through {name}.",
-        "motivation": f"The {term} package needs the {name} gate.",
-        "value": f"Produce current {term} evidence from {name}.",
-        "proof": f"The {term} {name} task exits zero with readable output.",
-        "applicability": f"Use {name} for its declared {term} responsibility.",
-    } for name in tasks}
-
-
-def operations(profile, tasks):
-    candidates = [profile["main_task"], "invocation-policy", "agentic-request",
-                  "improvement-policy", "mise-primitives-update"]
-    candidates += profile.get("public_tasks", [])
-    candidates = list(dict.fromkeys(candidates))
-    term = profile["primary_term"]
-    return [{"task": name, "outcome": f"Produce the named {term} {name} result.",
-             "motivation": f"The {term} workflow needs one {name} entry.",
-             "why_default_path": f"This is the single declared {term} {name} route.",
-             "proof": f"Fresh {term} {name} output and exit status."}
-            for name in candidates if name in tasks]
-
-
 def use_case(profile, tasks, stamp=None):
     stamp = stamp or datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     term = profile["primary_term"]
@@ -77,6 +100,7 @@ def use_case(profile, tasks, stamp=None):
                  for name in DIMENSIONS}
     return {"version": "1.0.0", "skill": profile["skill"],
             "outcome": profile["outcome"], "motivations": motivations(profile),
+            "audience": profile["audience"], "initial_context": profile["initial_context"],
             "domain_terms": profile["domain_terms"],
             "domain_failures": [f"The {term} result changes without proof.",
                                 f"The {term} package reports a false pass."],
@@ -136,6 +160,40 @@ def invocation(profile):
             "proof_rule": f"Tie each entry to fresh {profile['primary_term']} evidence."}
 
 
-def write_json(path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+def primitive_decisions(actual, profile, catalog):
+    term, groups = profile["primary_term"], {}
+    for name, available in catalog["groups"].items():
+        groups[name] = {"used": sorted(actual[name]),
+            "not_applicable": sorted(set(available) - actual[name]),
+            "used_reason": f"The {term} graph uses these {name} primitives.",
+            "nonuse_reason": f"Other {term} {name} primitives add no proved value.",
+            "creative_use": f"The {term} graph uses {name} primitives on one proof path.",
+            "evidence": f"Current {term} Mise configuration and task output."}
+    return {"version": "1.0.0", "skill": profile["skill"],
+            "catalog_version": catalog["version"], "groups": groups}
+
+
+def asset_files(files, profile, tasks, stamp):
+    path = 'assets/use-case-contract.json'
+    previous = read_json(files[path].decode('utf-8')) if path in files else None
+    if previous is not None and not isinstance(previous, dict):
+        raise ValueError('existing use-case-contract.json must be an object')
+    current = dict(previous) if previous is not None else use_case(profile, tasks, stamp)
+    current.update({field: profile[field] for field in ['audience', 'initial_context']})
+    if current != previous:
+        files[path] = json_bytes(current)
+    catalog = read_json(files['assets/mise-primitives-catalog.json'].decode('utf-8'))
+    config = tomllib.loads(files['mise.toml'].decode('utf-8'))
+    for name, seed in [
+        ('primitive-lifecycle.json', lambda: lifecycle(profile)),
+        ('decision-records.json', lambda: decisions(profile)),
+        ('invocation-receipt-template.json', lambda: invocation(profile)),
+        ('mise-primitives.json', lambda: primitive_decisions(configured_fields(config, catalog), profile, catalog)),
+    ]:
+        path = 'assets/' + name
+        if path not in files:
+            files[path] = json_bytes(seed())
+            continue
+        value = read_json(files[path].decode('utf-8'))
+        if not isinstance(value, dict) or value.get('skill') != profile['skill']:
+            raise ValueError('existing policy asset needs reconciliation: ' + name)

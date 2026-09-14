@@ -17,6 +17,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from skill_package import owned_entries
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 CORPUS = SKILL_DIR / "assets" / "source-shape-corpus.json"
@@ -30,26 +31,18 @@ REQUIRED = [
     "scripts", "scripts/tests", "evals/evals.json",
     "evals/trigger-queries.json",
 ]
-IGNORED_PARTS = {".git", ".mise", "__pycache__", "node_modules",
-                 ".pytest_cache", ".mypy_cache", ".ruff_cache"}
-IGNORED_NAMES = {".DS_Store"}
 
 
 def digest_bytes(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def owned_source(path):
-    return (path.name not in IGNORED_NAMES
-            and not (set(path.parts) & IGNORED_PARTS)
-            and path.suffix not in {".pyc", ".pyo"})
-
-
 def file_records(root):
     records = []
-    files = (item for item in root.rglob("*")
+    root = root.resolve()
+    files = (item for item in owned_entries(root)
              if item.is_file() and not item.is_symlink()
-             and owned_source(item.relative_to(root)))
+             and item.suffix not in {".pyc", ".pyo"})
     for path in sorted(files):
         data = path.read_bytes()
         records.append({"path": path.relative_to(root).as_posix(),
@@ -103,7 +96,7 @@ def unclassified_host_paths(records, rules):
 
 def symlink_paths(root):
     return sorted(item.relative_to(root).as_posix()
-                  for item in root.rglob("*") if item.is_symlink())
+                  for item in owned_entries(root) if item.is_symlink())
 
 
 def build_report(root):

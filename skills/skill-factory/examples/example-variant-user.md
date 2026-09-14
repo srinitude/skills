@@ -1,57 +1,31 @@
 # Example: project-level to user-level
 
-## User says
+This run removes the guess about preserving an existing project skill while creating a reviewed variant that works in two materially different projects. Load it before the user direction of `mise run variant`.
 
-```text
-Create a separate user-level variant of atlas-inventory for my Python and JavaScript projects. Preserve the project skill and its read-only behavior. Remove the Atlas binding and any private source data.
-```
+## Request and actual record
 
-## Context and adaptation
+The user requests a separate portable inventory skill derived from the already published Atlas project variant. It must preserve the project skill and read-only counting behavior while using each project's configuration. The [complete run](variant-public-run.json) retains exact source, candidate, project, review and published bytes, every public command, working directory, actual output and exit code, plus the user's words and visible reply. Base64 fields preserve the full bytes and can be decoded with Python's standard-library `base64.b64decode`.
 
-The actual source is skill:atlas-inventory, version 0.1.0, with project scope. The new identity is portable-inventory and its scope is user. It reads each project's inventory.json for directory and extension, replacing the fixed Atlas identity and layout. It preserves file and line counts, no writes, path-boundary checks, symlink rejection, licensing, and attribution. It requires Python 3.11 or newer and UTF-8 source trees. It does not claim that reversing scope restores the original skill's exact bytes or behavior.
+The portable candidate reads the selected project's directory and extension. Atlas supplies Python files in `src`; Boreal supplies JavaScript files in `packages/lib`. These actual fixture inputs and their compatibility limits remain in the record. Project and user scopes express intended availability, independently of the temporary authoring paths.
 
-The paths in these commands are portable labels for the saved synthetic fixture directories. Run factory tasks from its directory and the candidate's CI from the candidate directory. Use `SCOPE_EVAL_OUTPUT=<unused-absolute-directory> mise run test -- -k both_directions_preserve` to reproduce complete source, candidate, and project packages. The fixture task refuses an occupied export directory. Its complete package contents are produced by the same executable test owners, without a dependency on an installed source skill.
+## Dependency and review order
 
-## Commands run
+The `user-` cases show the public scope plan, unaccepted domain-review draft, missing-ledger rejection, complete publication preview and reviewed publication. The domain review covers source preservation, adaptation, privacy, attribution and both behavior scenarios. The separate ledger review covers the initial body and every future file, including derivation lineage. The saved publication and ledger review bind actual current source, candidate, target, factory and governing inputs. Runtime preparation precedes the native checker consumers.
 
-```text
-$ mise run variant -- plan --source <public/atlas-inventory> --source-id skill:atlas-inventory --scope user --name portable-inventory --dest <public-parent> --output <user-plan.json>
-exit 0
+Missing ledger review creates no target. A current complete review permits publication, after which the run checks the source inventory is unchanged and every published file matches its plan. The two public inventory invocations each return one file and two lines. The source and new variant remain independently maintained; reversing scope does not promise restoration of earlier bytes or behavior.
 
-$ mise run variant -- review --plan <user-plan.json> --candidate <stage/portable-inventory> --output <user-review.json>
-exit 0
+## Rerun, refresh and evidence limits
 
-$ mise run ci
-exit 0
+The complete public record includes a fresh publication preview and current ledger review for the exact rerun. It reports `unchanged: true`, states that no files were written, and keeps `execution_acceptance: pending`. The run compares the actual target bytes before and after. The separate current variant tests also exercise changed-target rejection. A requested refresh compares recorded source and target baselines, rejects unresolved conflicts, and retains independent customizations after an explicitly reconciled candidate passes. Run `mise run test -- -k Variant` for those assertions and the isolated privacy, attribution, scope, failure and recovery cases.
 
-$ mise run variant -- accept --plan <user-plan.json> --candidate <stage/portable-inventory> --review <user-review.json>
-exit 0
-```
+The complete public record establishes the two declared project operations and its finite publication predicates. Review fields are synthetic declarations; they are not actual human participation, proof of every privacy judgment, universal portability or completed goal acceptance. These limits remain explicit in the operation reports.
 
-The executor completed the review after reading the whole project skill. Suitable checkers and attribution remained unchanged. Project-bound instructions and implementation changed; source-specific generated lineage was replaced with actual derivation lineage. The review named private markers, documented remaining compatibility limits, and supplied both successful scenarios.
+## Explicit in-place retirement
 
-## Observed report and behavior
+The `in-place-` cases use a separate project fixture and an explicit `--in-place` scope plan. Its portable candidate omits three old optional files. The publication preview lists each retirement with its old bytes and mode, placing the observed Python consumer before its provider. An incomplete retirement review rejects publication without changing the existing variants or the in-place fixture.
 
-| Field | Observed value |
-| --- | --- |
-| Status | PASS |
-| Source | skill:atlas-inventory, project |
-| Target | portable-inventory, user |
-| Target project in lineage | null |
-| Source preserved | true |
-| Material adaptation | Discover each project's source configuration instead of requiring Atlas |
-| Package validation | PASS |
-| Atlas scenario | Python application, src directory, one file and two lines |
-| Boreal scenario | JavaScript workspace, packages/lib directory, one file and two lines |
+After the fixture supplies each missing per-file review, publication removes exactly those three paths and reports their old identity, absent new identity and pending acceptance in its write history. The run verifies that the independent variants and candidate remain byte-exact, and that excluded local state retains its bytes and inode. Both actual public inventory calls still return one file and two lines. Separate actual interference tests verify that a failed per-retirement post-read restores the prior package and permits recovery; this public example does not simulate that failure or claim broader acceptance.
 
-The accepted package's own `mise run ci` exited 0. Its public inventory task independently returned `{"files": 1, "lines": 2}` for each project. Repeating the original accept command returned PASS with unchanged true and “Exact accepted rerun; no writes.”
+## Read the complete record
 
-## Failures and an explicit refresh
-
-A label-only generalization still rejects Boreal and fails acceptance. A separate executable case excludes a private source file, verifies the source digest is unchanged, makes the original source path unavailable, and successfully runs the user variant against both project layouts. Hidden source paths and removed NOTICE files fail before promotion. Pattern scans provide bounded checks; complete package review and isolated behavior establish the remaining privacy and independence evidence.
-
-The refresh case changes the source to exclude blank lines and independently customizes the variant to exclude comment lines. `--refresh` identifies the conflicting inventory implementation. Acceptance without a resolution fails and preserves both packages. The merged candidate excludes both, keeps an unrelated CUSTOM.md customization, passes actual count assertions, and records the new source digest. A requirement that cannot be generalized without weakening its purpose must be resolved before acceptance.
-
-## What the checks establish
-
-The cases prove both source preservation and independent maintenance for the exercised changes. Two different language and directory scenarios prove the declared configuration flexibility. The unchanged source, retained attribution, private-data exclusion, isolated execution, collision tests, and conflict refresh each have separate assertions. Fixture transport in repository evals checks pipeline wiring; these executable scenarios supply adapted behavior evidence.
+The JSON envelope keeps a readable command index and the complete original record in `record_xz_base64`. Decode it with `json.loads(lzma.decompress(base64.b64decode(envelope["record_xz_base64"])))` using Python's standard-library `json`, `lzma` and `base64` modules. Verify the decompressed bytes against `record_sha256`. Nested base64 fields still retain exact individual file or stream bytes. Compression changes storage only; no command, output, input, file, claim or limit is omitted.

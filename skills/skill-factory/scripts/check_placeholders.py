@@ -22,6 +22,8 @@ import re
 import sys
 from pathlib import Path
 
+from skill_package import owned_paths
+
 SENTINEL = "SCAFFOLD-" + "PLACEHOLDER"
 TEMPLATE_RE = re.compile(r"\{\{[A-Za-z0-9_]+\}\}")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
@@ -78,7 +80,7 @@ def check_file(path):
 def wanted(path, root):
     if path.suffix not in SUFFIXES or not path.is_file():
         return False
-    parts = path.relative_to(root).parts
+    parts = path.relative_to(root.resolve()).parts
     return "assets" not in parts and "__pycache__" not in parts
 
 
@@ -87,7 +89,7 @@ def collect(targets):
     for target in targets:
         path = Path(target)
         if path.is_dir():
-            files.extend(p for p in sorted(path.rglob("*"))
+            files.extend(p for p in sorted(owned_paths(path))
                          if wanted(p, path))
         elif path.is_file():
             files.append(path)
@@ -105,7 +107,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         files = collect(args.targets)
-    except FileNotFoundError as missing:
+    except (OSError, ValueError) as missing:
         print(f"error: no such file or directory: {missing}", file=sys.stderr)
         return 2
     problems = []

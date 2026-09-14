@@ -9,29 +9,28 @@ from standardization_markdown import (
     FENCED_SCRIPT_PATH_RE,
     SCRIPT_LINK_RE,
     SCRIPT_RE,
+    linked_public_route,
 )
 
 
-def documented_paths(root):
+def documented_content(files):
     found = set()
-    for markdown in root.rglob("*.md"):
-        text = markdown.read_text(encoding="utf-8")
-        found.update(match.group(1) for match in SCRIPT_RE.finditer(text))
-        found.update(match.group(1) for match in SCRIPT_LINK_RE.finditer(text))
-        found.update(match.group(1) for match in FENCED_SCRIPT_PATH_RE.finditer(text))
-        found.update(match.group(1) for match in BARE_SCRIPT_PATH_RE.finditer(text))
-    return sorted(path for path in found if path.endswith(".py")
-                  and (root / "scripts" / path).is_file())
+    for name, raw in files.items():
+        if not name.endswith(".md"):
+            continue
+        text = raw.decode("utf-8")
+        text = SCRIPT_LINK_RE.sub(lambda match: "" if linked_public_route(text, match) else match[0], text)
+        for pattern in [SCRIPT_RE, SCRIPT_LINK_RE, FENCED_SCRIPT_PATH_RE, BARE_SCRIPT_PATH_RE]:
+            found.update(match.group(1) for match in pattern.finditer(text))
+    return sorted(path for path in found if path.endswith(".py") and "scripts/" + path in files)
 
 
-def existing_owners(root):
-    with (root / "mise.toml").open("rb") as handle:
-        tasks = tomllib.load(handle).get("tasks", {})
+def owner_records(tasks):
     owners = {}
     for name, task in tasks.items():
         for path in re.findall(r"scripts/([\w./-]+\.py)", str(task.get("run", ""))):
             owners[path] = name
-    return owners, tasks
+    return owners
 
 
 def task_name(path, reserved):
@@ -44,17 +43,24 @@ def task_name(path, reserved):
 
 
 def enrich_profile(root, profile):
+    from skill_package import owned_paths
+    files = {path.relative_to(root).as_posix(): path.read_bytes() for path in owned_paths(root)}
+    return enrich_content(files, profile)
+
+
+def enrich_content(files, profile):
     result = copy.deepcopy(profile)
     specs = result.setdefault("script_tasks", {})
     public = result.setdefault("public_tasks", [])
-    owners, tasks = existing_owners(root)
+    tasks = tomllib.loads(files["mise.toml"].decode("utf-8")).get("tasks", {})
+    owners = owner_records(tasks)
     reserved = set(tasks)
     reserved.update(specs)
     for name, task in tasks.items():
         expected = f"Run the {result['primary_term']} {name} operation"
         if task.get("description") == expected and name not in public:
             public.append(name)
-    for path in documented_paths(root):
+    for path in documented_content(files):
         owner = owners.get(path)
         if owner is None:
             owner = task_name(path, reserved)

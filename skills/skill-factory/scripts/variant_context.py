@@ -7,21 +7,24 @@ from skill_scope import read_fields
 PROJECT_FACTS = {"instructions", "structure", "tools", "commands", "configuration", "constraints"}
 
 
-def project_files(project, target, staging=None):
+def project_files(project, target, staging=None, excluded_paths=()):
     root = Path(project["root"])
-    excluded = [path.relative_to(root).as_posix() + "/" for path in [target, staging]
+    excluded = [path.relative_to(root).as_posix() for path in [target, staging, *excluded_paths]
                 if path is not None and path.is_relative_to(root)]
     return {key: value for key, value in inventory(root).items()
-            if not any(key.startswith(prefix) for prefix in excluded)}
+            if not any(key == prefix or key.startswith(prefix + "/") for prefix in excluded)}
 
 
-def check_current(plan, staging=None):
+def check_current(plan, staging=None, source_root=None, excluded_paths=()):
     source = plan["source"]
-    if inventory(Path(source["root"])) != source["files"]:
+    if source_root is not None and not plan["in_place"]:
+        raise ValueError("a retained source is valid only for explicit in-place verification")
+    source_root = Path(source_root) if source_root is not None else Path(source["root"])
+    if inventory(source_root) != source["files"]:
         raise ValueError("source changed since planning; create a fresh plan")
     if tree_digest(source["files"]) != source["digest"]:
         raise ValueError("source digest does not match its inventory")
-    metadata = read_fields(Path(source["root"])).get("metadata", {})
+    metadata = read_fields(source_root).get("metadata", {})
     if metadata.get("scope") and metadata["scope"] != source["scope"]:
         raise ValueError("source scope differs from the immutable baseline")
     if metadata.get("version", "unversioned") != source["version"]:
@@ -30,7 +33,7 @@ def check_current(plan, staging=None):
     if project:
         if not project["files"] or tree_digest(project["files"]) != project["digest"]:
             raise ValueError("project context needs a complete digest-bound inventory")
-        if project_files(project, Path(plan["target"]["path"]), staging) != project["files"]:
+        if project_files(project, Path(plan["target"]["path"]), staging, excluded_paths) != project["files"]:
             raise ValueError("project context changed since planning")
 
 

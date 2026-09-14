@@ -1,0 +1,461 @@
+{
+  "ci": [
+    "test",
+    "validate",
+    "lint-writing",
+    "lint-placeholders",
+    "evals",
+    "improvement-policy",
+    "decision-policy",
+    "source-corpus",
+    "lineage"
+  ],
+  "test-ci": [],
+  "test": [
+    "test-ci",
+    "setup-graph-renderer"
+  ],
+  "setup-graph-renderer": [
+    "lint-code"
+  ],
+  "render-file-graph": [
+    "setup-graph-renderer"
+  ],
+  "validate": [],
+  "lint-writing": [],
+  "setup-runtime": [],
+  "check-runtime": [
+    "setup-runtime"
+  ],
+  "ledger": [
+    "check-runtime"
+  ],
+  "task-tools": [
+    "check-runtime"
+  ],
+  "rule:read": [
+    "check-runtime"
+  ],
+  "rule:context": [
+    "rule:read"
+  ],
+  "rule:outcome": [
+    "rule:context"
+  ],
+  "rule:scope-audience": [
+    "rule:outcome"
+  ],
+  "rule:duties": [
+    "rule:scope-audience"
+  ],
+  "rule:consumer": [
+    "rule:duties"
+  ],
+  "rule:model-duty": [
+    "rule:duties"
+  ],
+  "rule:human-duty": [
+    "rule:duties"
+  ],
+  "rule:program-host": [
+    "rule:duties"
+  ],
+  "rule:acceptance-owner": [
+    "rule:duties"
+  ],
+  "rule:purpose": [
+    "rule:outcome"
+  ],
+  "rule:simplicity": [
+    "rule:purpose"
+  ],
+  "rule:methods": [
+    "rule:purpose"
+  ],
+  "rule:useful-output": [
+    "rule:purpose"
+  ],
+  "rule:eval-design": [
+    "rule:context"
+  ],
+  "rule:eval-cases": [
+    "rule:eval-design"
+  ],
+  "rule:eval-recovery": [
+    "rule:eval-cases"
+  ],
+  "rule:eval-coverage": [
+    "rule:eval-design"
+  ],
+  "rule:eval-antipatterns": [
+    "rule:eval-coverage"
+  ],
+  "rule:eval-resources": [
+    "rule:eval-design"
+  ],
+  "rule:improvement-trial": [
+    "rule:context"
+  ],
+  "rule:improvement-confirm": [
+    "rule:context"
+  ],
+  "rule:implementation-progress": [
+    "rule:context"
+  ],
+  "rule:change-history": [
+    "rule:implementation-progress"
+  ],
+  "rule:acceptance": [
+    "rule:context"
+  ],
+  "rule:delivery-report": [
+    "rule:change-history"
+  ],
+  "rule:source-inputs": [
+    "rule:context"
+  ],
+  "rule:ledger-capture": [
+    "rule:source-inputs"
+  ],
+  "rule:ledger-identity": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-applicability": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-responsibility": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-dependencies": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-quality": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-evidence": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-propagation": [
+    "rule:ledger-capture"
+  ],
+  "rule:ledger-relationships": [
+    "rule:ledger-capture"
+  ],
+  "rule:graph-map": [
+    "rule:ledger-relationships"
+  ],
+  "rule:graph-paths": [
+    "rule:graph-map"
+  ],
+  "rule:graph-coverage": [
+    "rule:graph-paths"
+  ],
+  "rule:graph-order": [
+    "rule:graph-paths"
+  ],
+  "rule:graph-render": [
+    "rule:graph-paths"
+  ],
+  "rule:ledger-traverse": [
+    "rule:ledger-relationships"
+  ],
+  "rule:body-ownership": [
+    "rule:context"
+  ],
+  "rule:change-review": [
+    "rule:ledger-traverse"
+  ],
+  "rule:native-effects": [
+    "rule:change-review"
+  ],
+  "rule:staged-changes": [
+    "rule:change-review"
+  ],
+  "rule:deterministic-checks": [
+    "rule:context"
+  ],
+  "rule:isolation": [
+    "rule:deterministic-checks"
+  ],
+  "rule:prerequisites": [
+    "rule:context"
+  ],
+  "rule:runtime-scheduling": [
+    "rule:prerequisites"
+  ],
+  "rule:factory-repair": [
+    "rule:change-review"
+  ],
+  "rule:judgment-scope": [
+    "rule:context"
+  ],
+  "rule:creative-scope": [
+    "rule:judgment-scope"
+  ],
+  "rule:meaning-decisions": [
+    "rule:judgment-scope"
+  ],
+  "rule:human-matrix": [
+    "rule:judgment-scope"
+  ],
+  "rule:human-inventory": [
+    "rule:human-matrix"
+  ],
+  "rule:human-context": [
+    "rule:human-inventory"
+  ],
+  "rule:selection-meaning": [
+    "rule:human-matrix"
+  ],
+  "rule:research-design": [
+    "rule:human-context"
+  ],
+  "rule:human-proof": [
+    "rule:human-context"
+  ],
+  "markdown:inventory": [
+    "check-runtime"
+  ],
+  "markdown:mechanical": [
+    "markdown:inventory"
+  ],
+  "markdown:review-request": [
+    "markdown:mechanical"
+  ],
+  "markdown:macro-review": [
+    "markdown:review-request"
+  ],
+  "markdown:micro-review": [
+    "markdown:macro-review"
+  ],
+  "markdown:line-review": [
+    "markdown:micro-review"
+  ],
+  "markdown:review-check": [
+    "markdown:line-review"
+  ],
+  "markdown:accept": [
+    "markdown:review-check"
+  ],
+  "lint-code": [
+    "check-runtime"
+  ],
+  "lint-placeholders": [],
+  "evals": [],
+  "improvement-policy": [],
+  "use-case-policy": [
+    "domain-research-policy"
+  ],
+  "mise-primitives-policy": [
+    "use-case-policy"
+  ],
+  "primitive-lifecycle-policy": [
+    "mise-primitives-policy"
+  ],
+  "task-graph-policy": [
+    "primitive-lifecycle-policy"
+  ],
+  "domain-research-policy": [],
+  "decision-policy": [
+    "task-graph-policy"
+  ],
+  "invocation-policy": [],
+  "agentic-request": [],
+  "mise-latest": [],
+  "mise-primitives-plan": [],
+  "mise-primitives-update": [
+    "mise-latest"
+  ],
+  "source-corpus": [],
+  "lineage": [],
+  "refresh-lineage": [
+    "test",
+    "validate",
+    "lint-writing",
+    "lint-placeholders",
+    "evals",
+    "improvement-policy",
+    "decision-policy",
+    "source-corpus"
+  ],
+  "audit-source-corpus": [
+    "doctor",
+    "source-corpus"
+  ],
+  "doctor": [],
+  "new": [
+    "doctor"
+  ],
+  "resolve-scope": [
+    "doctor"
+  ],
+  "variant": [
+    "doctor",
+    "check-runtime"
+  ],
+  "validate-target": [
+    "doctor",
+    "check-runtime"
+  ],
+  "eval-target": [
+    "doctor"
+  ],
+  "plan-standardize": [
+    "doctor",
+    "source-corpus"
+  ],
+  "standardization-usage": [],
+  "standardize-target": [
+    "doctor",
+    "source-corpus",
+    "check-runtime"
+  ],
+  "refresh-registry-lineage": [
+    "doctor",
+    "check-runtime"
+  ],
+  "rule:work-owners": [
+    "rule:context"
+  ],
+  "rule:rule-coverage": [
+    "rule:work-owners"
+  ],
+  "rule:commands": [
+    "rule:context"
+  ],
+  "rule:typed-dispatch": [
+    "rule:context"
+  ],
+  "rule:resource-binding": [
+    "rule:typed-dispatch"
+  ],
+  "rule:resource-duties": [
+    "rule:resource-binding"
+  ],
+  "rule:runtime-interfaces": [
+    "rule:work-owners"
+  ],
+  "rule:runtime-versions": [
+    "rule:runtime-interfaces"
+  ],
+  "rule:task-dependencies": [
+    "rule:rule-coverage"
+  ],
+  "rule:native-task-fields": [
+    "rule:task-dependencies"
+  ],
+  "rule:mise-features": [
+    "rule:runtime-versions"
+  ],
+  "rule:companion-authority": [
+    "rule:runtime-interfaces"
+  ],
+  "rule:usage": [
+    "rule:companion-authority"
+  ],
+  "rule:packslip": [
+    "rule:companion-authority"
+  ],
+  "rule:fnox": [
+    "rule:companion-authority"
+  ],
+  "rule:pitchfork": [
+    "rule:companion-authority"
+  ],
+  "rule:hk": [
+    "rule:companion-authority"
+  ],
+  "rule:mastra-capability": [
+    "rule:runtime-interfaces"
+  ],
+  "rule:mastra-recovery": [
+    "rule:mastra-capability"
+  ],
+  "rule:human-handoff": [
+    "rule:human-context"
+  ],
+  "rule:human-review": [
+    "rule:human-handoff"
+  ],
+  "rule:workflow-granularity": [
+    "rule:mastra-recovery"
+  ],
+  "rule:loop-contract": [
+    "rule:implementation-progress"
+  ],
+  "rule:reconciled": [
+    "rule:loop-contract"
+  ],
+  "rule:selected": [
+    "rule:reconciled"
+  ],
+  "rule:ready": [
+    "rule:selected"
+  ],
+  "rule:implemented": [
+    "rule:ready"
+  ],
+  "rule:validated": [
+    "rule:implemented"
+  ],
+  "rule:finalized": [
+    "rule:validated"
+  ],
+  "rule:advance": [
+    "rule:finalized"
+  ],
+  "rule:markdown-order": [
+    "rule:context"
+  ],
+  "rule:markdown-payload": [
+    "rule:markdown-order"
+  ],
+  "rule:markdown-choices": [
+    "rule:markdown-payload"
+  ],
+  "rule:markdown-reply": [
+    "rule:markdown-choices"
+  ],
+  "rule:markdown-recovery": [
+    "rule:markdown-reply"
+  ],
+  "rule:markdown-authority": [
+    "rule:markdown-order"
+  ],
+  "rule:package-shape": [
+    "rule:context"
+  ],
+  "rule:physical-limits": [
+    "rule:package-shape"
+  ],
+  "rule:plain-writing": [
+    "rule:physical-limits"
+  ],
+  "rule:resource-links": [
+    "rule:package-shape"
+  ],
+  "rule:code-contract": [
+    "rule:package-shape"
+  ],
+  "rule:ponytail-duties": [
+    "rule:code-contract"
+  ],
+  "rule:code-simplicity": [
+    "rule:ponytail-duties"
+  ],
+  "rule:domain-records": [
+    "rule:package-shape"
+  ],
+  "rule:examples": [
+    "rule:domain-records"
+  ],
+  "rule:source-adaptation": [
+    "rule:package-shape"
+  ],
+  "rule:variants": [
+    "rule:source-adaptation"
+  ],
+  "rule:output-propagation": [
+    "rule:source-adaptation"
+  ]
+}

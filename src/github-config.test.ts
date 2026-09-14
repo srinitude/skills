@@ -15,6 +15,12 @@ test('defines local and release GitHub Actions gates', async () => {
   const ci = await yaml('.github/workflows/ci.yml');
   expect(ci).toMatchObject({ permissions: { contents: 'read' } });
   expect(ci.jobs).toHaveProperty('ci');
+  expect(ci.jobs).toMatchObject({
+    factory: {
+      defaults: { run: { 'working-directory': 'skills/skill-factory' } },
+      steps: expect.arrayContaining([{ run: 'mise run ci' }]),
+    },
+  });
 
   const release = await yaml('.github/workflows/release.yml');
   expect(release).toMatchObject({ permissions: { contents: 'write' } });

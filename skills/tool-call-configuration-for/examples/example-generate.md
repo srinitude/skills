@@ -1,5 +1,7 @@
 # Example: generate a read-only tool skill
 
+Historical transcript: the private checkout root is shown as `repository`. The original capture has SHA-256 `f8b749a37aeef35fd2225b20baa1de5312152cb5e259df96924e683ab860955a`. All other command, result and file text is unchanged. This is a redacted record, not a new run.
+
 Guess this example removes: whether a verified read-only profile becomes a complete package rather than generic substituted prose.
 
 ## User says
@@ -20,7 +22,7 @@ Generated established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66. Its 
 
 ```text
 $ mise run tool-call-config generate @evals/fixtures/established-mcp-read.json --behavior @evals/fixtures/behavior-report.json --output ../../.artifacts/tool-call-configuration-for/fixture-read
-{"behavior_hash": "cd25b3f22e0afdabc2e88ea6c0d2a124db4e932895c3459735edecfe07fd2c84", "evidence_dir": "/Users/kiren/Documents/Codex/2026-08-27/create-a-comprehensive-platform-agnostic-x20/work/srinitude-skills/.artifacts/tool-call-configuration-for/fixture-read/evidence", "generated_name": "established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66", "skill_path": "/Users/kiren/Documents/Codex/2026-08-27/create-a-comprehensive-platform-agnostic-x20/work/srinitude-skills/.artifacts/tool-call-configuration-for/fixture-read/established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66", "status": "generated", "tool_identity_hash": "a5c2cc66b4bca30f06fb912d8e0b69140c615259ea5c46b65c54c729bda954c3"}
+{"behavior_hash": "cd25b3f22e0afdabc2e88ea6c0d2a124db4e932895c3459735edecfe07fd2c84", "evidence_dir": "repository/.artifacts/tool-call-configuration-for/fixture-read/evidence", "generated_name": "established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66", "skill_path": "repository/.artifacts/tool-call-configuration-for/fixture-read/established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66", "status": "generated", "tool_identity_hash": "a5c2cc66b4bca30f06fb912d8e0b69140c615259ea5c46b65c54c729bda954c3"}
 exit 0
 
 $ mise run ci
@@ -41,9 +43,9 @@ The generated package contains `SKILL.md`, `mise.toml`, `.github/workflows/ci.ym
 ```json
 {
   "behavior_hash": "cd25b3f22e0afdabc2e88ea6c0d2a124db4e932895c3459735edecfe07fd2c84",
-  "evidence_dir": "/Users/kiren/Documents/Codex/2026-08-27/create-a-comprehensive-platform-agnostic-x20/work/srinitude-skills/.artifacts/tool-call-configuration-for/fixture-read/evidence",
+  "evidence_dir": "repository/.artifacts/tool-call-configuration-for/fixture-read/evidence",
   "generated_name": "established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66",
-  "skill_path": "/Users/kiren/Documents/Codex/2026-08-27/create-a-comprehensive-platform-agnostic-x20/work/srinitude-skills/.artifacts/tool-call-configuration-for/fixture-read/established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66",
+  "skill_path": "repository/.artifacts/tool-call-configuration-for/fixture-read/established-mcp-fixture-catalog-owner-fixture-catalog-s-a5c2cc66",
   "status": "generated",
   "tool_identity_hash": "a5c2cc66b4bca30f06fb912d8e0b69140c615259ea5c46b65c54c729bda954c3"
 }

@@ -59,6 +59,58 @@ test('reports banned wording and duplicate skill locations', async () => {
   );
 });
 
+test.each([
+  ['Expert review supplies bounded evidence.', false],
+  ['Separate expert craft review from observed task performance.', false],
+  ['Expert craft reviews supply bounded evidence.', false],
+  ['Separate model/expert assessments from observed outcomes.', false],
+  ['Expert review is available for beginners.', true],
+  ['Expert craft review is available for novices.', true],
+  ['This guide is for an expert craft reviewer.', true],
+  ['This guide is for experts.', true],
+  ['A novice can run this command.', true],
+])('distinguishes evidence roles from reader labels: %s', async (source, rejected) => {
+  const root = await mkdtemp(join(tmpdir(), 'copy-reader-role-'));
+  temporary.push(root);
+  await writeFile(join(root, 'README.md'), source);
+
+  const report = await validateCopy(root);
+
+  expect(report.findings.some((finding) => finding.code === 'AUDIENCE_LABEL')).toBe(
+    rejected,
+  );
+});
+
+test.each([
+  ['skills/sample/SKILL.md', 99_999, false, 'x'],
+  ['skills/sample/SKILL.md', 100_000, true, 'x'],
+  ['skills/sample/SKILL.md', 50_000, false, '😀'],
+  ['skills/skill-factory/assets/skill-template.md', 99_999, false, 'x'],
+  ['skills/skill-factory/assets/skill-template.md', 100_000, true, 'x'],
+  ['skills/skill-factory/assets/skill-template.md', 50_000, false, '😀'],
+  ['skills/skill-factory/assets/other-template.md', 20_000, true, 'x'],
+  ['skills/sample/assets/skill-template.md', 20_000, true, 'x'],
+  ['skills/sample/references/guide.md', 19_999, false, 'x'],
+  ['skills/sample/references/guide.md', 20_000, true, 'x'],
+  ['skills/sample/references/SKILL.md', 20_000, true, 'x'],
+  ['AGENTS.md', 20_000, true, 'x'],
+])(
+  'enforces the owning Markdown size contract: %s %i',
+  async (path, size, rejected, character) => {
+    const root = await mkdtemp(join(tmpdir(), 'copy-size-contract-'));
+    temporary.push(root);
+    const destination = join(root, path);
+    await mkdir(join(destination, '..'), { recursive: true });
+    await writeFile(destination, character.repeat(size));
+
+    const report = await validateCopy(root);
+
+    expect(report.findings.some((finding) => finding.code === 'MARKDOWN_SIZE')).toBe(
+      rejected,
+    );
+  },
+);
+
 test('does not style-check byte-exact frozen source evidence', async () => {
   const root = await mkdtemp(join(tmpdir(), 'copy-evidence-gate-'));
   temporary.push(root);

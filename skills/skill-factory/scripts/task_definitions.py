@@ -1,8 +1,27 @@
 """Read literal task fields; use native Mise to resolve included TOML owners."""
 import json
+import re
 import subprocess
 import tomllib
 from pathlib import Path
+
+
+def rule_body_problems(tasks):
+    """Match the five-part model-rule body required by the workflow consumer."""
+    found = []
+    for name, task in tasks.items():
+        if not isinstance(name, str) or not name.startswith("rule:") or not isinstance(task, dict):
+            continue
+        body = task.get("description", "")
+        sections = re.split(r"^## ", body, flags=re.MULTILINE)[1:] if isinstance(body, str) else []
+        parts = [section.partition("\n") for section in sections]
+        titles = [title for title, _, _ in parts]
+        valid = (isinstance(body, str) and body.startswith(f"# `{name}`\n")
+                 and titles == ["Why this runs", "When to run", "Inputs", "Work", "Proof"]
+                 and all(text.strip() for _, _, text in parts))
+        if not valid:
+            found.append(f"tasks.{name} needs its complete five-part work body")
+    return found
 
 
 def source_bytes(root, path):

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "2abcbe741e2a76bbd7079abd62c9e26d2330686df05d64ff36338561fa0a7c27",
+  "native_manifest_sha256": "f97633ca01ceb2ecec5ff3043221d0231715f8995f01999f17fbcda91f2e6c0a",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -2176,7 +2176,7 @@
     },
     {
       "path": "scripts/check_task_graph.py",
-      "sha256": "45d306e0a03cdc75e5a9f540e2c198f842e903b7501f1a3fc980f761c6c36116"
+      "sha256": "8808aa1cb17cd90b219ee4e696b1a9affd67c0539c8504ccb8cf9ee5d36a0580"
     },
     {
       "path": "scripts/check_use_case_contract.py",
@@ -2388,7 +2388,7 @@
     },
     {
       "path": "scripts/standardization_profile.py",
-      "sha256": "ce8490b5d54b404f577f0dd24faac066e04f21b7d13d76ac1efb82b125f42078"
+      "sha256": "b3d7f8e503a2e4f72f7035f88ad1d2602c709516977deaefc82ee29cc34aa667"
     },
     {
       "path": "scripts/standardization_render.py",
@@ -2428,7 +2428,7 @@
     },
     {
       "path": "scripts/task_definitions.py",
-      "sha256": "1090da5162232db0b59aea183b3d419a33b1eab806bdd067c3e7ddeeb5069882"
+      "sha256": "72d7ba346b4c88e6ec87470a9e9f88b953192058a4dc02b46aa9c51be0580bc3"
     },
     {
       "path": "scripts/task_inventory.ts",
@@ -2828,7 +2828,7 @@
     },
     {
       "path": "scripts/tests/test_task_contract_batch.py",
-      "sha256": "a8441c6308d523c7b0bdad40e7990fccd23555fa02a930215f5627d92bb65edd"
+      "sha256": "35f5d0db6b7501c99ebf0f928882979ded5a7b254d1b072ca44caabf21deff76"
     },
     {
       "path": "scripts/tests/test_task_graph_policy.py",

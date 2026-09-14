@@ -8,7 +8,7 @@ from graphlib import CycleError, TopologicalSorter
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
-from task_definitions import load_tasks
+from task_definitions import load_tasks, rule_body_problems
 
 DETAIL_FIELDS = {"outcome", "motivation", "value", "proof", "applicability"}
 OP_FIELDS = {"task", "outcome", "motivation", "why_default_path", "proof"}
@@ -50,7 +50,7 @@ def load(root):
 def structure_problems(tasks):
     if not isinstance(tasks, dict):
         return ["tasks must be a table"]
-    found, declared = [], set(tasks)
+    found, declared = rule_body_problems(tasks), set(tasks)
     for name, task in tasks.items():
         if not isinstance(task, dict):
             found.append(f"tasks.{name} must be a table")

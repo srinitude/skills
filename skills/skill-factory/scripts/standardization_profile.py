@@ -2,6 +2,7 @@
 from pathlib import Path
 
 from agentic_request_contract import read_json
+from task_definitions import rule_body_problems
 
 DIMENSIONS = [
     "actors", "objects", "actions", "states", "invariants", "variants",
@@ -75,7 +76,7 @@ def public_task_problems(tasks):
 def script_task_problems(tasks):
     if not isinstance(tasks, dict):
         return ["script_tasks must be an object"]
-    found = []
+    found = rule_body_problems(tasks)
     for name, item in tasks.items():
         valid = (text(name) and isinstance(item, dict)
                  and text(item.get("script")) and text(item.get("description")))
@@ -91,7 +92,7 @@ def script_task_problems(tasks):
 def command_task_problems(tasks):
     if not isinstance(tasks, dict):
         return ["command_tasks must be an object"]
-    found = []
+    found = rule_body_problems(tasks)
     for name, item in tasks.items():
         valid = (text(name) and isinstance(item, dict)
                  and text(item.get("run")) and text(item.get("description")))

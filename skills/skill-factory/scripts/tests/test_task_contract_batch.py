@@ -7,6 +7,8 @@ import unittest
 from pathlib import Path
 
 from test_task_tools import ROOT, task
+from check_task_graph import structure_problems
+from standardization_profile import command_task_problems, script_task_problems
 
 
 CODE = """
@@ -40,4 +42,20 @@ def test_batch_contracts():
 
 
 def load_tests(loader, tests, pattern):
-    return unittest.TestSuite([unittest.FunctionTestCase(test_batch_contracts)])
+    return unittest.TestSuite(map(unittest.FunctionTestCase, [test_batch_contracts, test_rule_body_gates]))
+
+
+def test_rule_body_gates():
+    import tomllib
+    name = "rule:route-answer"
+    valid = tomllib.loads(task(name, "echo reviewed"))["tasks"][name]
+    valid["script"] = "run.py"
+    body = valid["description"]
+    invalid = [body.replace(f"`{name}`", name), body.replace(name, "rule:wrong"),
+               body.replace("## Inputs", "## Inputs "), body.replace("## Inputs", "## Work"), body + "\n## Extra\nUnreviewed",
+               body[:body.index("## Proof")] + "## Proof\n\n"]
+    for check in [command_task_problems, script_task_problems, structure_problems]:
+        assert not check({name: valid}), check({name: valid})
+        for text in invalid:
+            problems = check({name: {**valid, "description": text}})
+            assert problems and any("five-part" in item for item in problems), (check.__name__, text, problems)

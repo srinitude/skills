@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "8ea7be4342e4af0180a3f758dc2581111af47f132e69406a256b359ff170650d",
-  "evidence_packet_sha256": "8ea7be4342e4af0180a3f758dc2581111af47f132e69406a256b359ff170650d",
+  "native_manifest_sha256": "7a6aace341b6b7020e24c54a62337a02cac073692ba692cc941c4e1bfa077a35",
+  "evidence_packet_sha256": "7a6aace341b6b7020e24c54a62337a02cac073692ba692cc941c4e1bfa077a35",
   "files": [
     {
       "bytes": 272,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 19610,
+      "bytes": 19756,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "8d571047eccbd3feab191a4b36d8155033570b359bf416264e1d532c06a58659",
+      "sha256": "034feccb688e670dab7651fa9841ca914064f8ac6f9d13864d2695aa220822e5",
       "source_path": "SKILL.md"
     },
     {
@@ -118,10 +118,10 @@
       "source_path": "assets/mise-primitives.json"
     },
     {
-      "bytes": 26911,
+      "bytes": 27901,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/mise-template.toml",
-      "sha256": "02e5b6fa4f49f66cde33af65f66e300657351cb7acce32f5360b928322a9deae",
+      "sha256": "2328b1d3a36f191e3c0e640086aa1122145e3e356db45fa845c085eed5d0f439",
       "source_path": "assets/mise-template.toml"
     },
     {
@@ -419,10 +419,10 @@
       "source_path": "examples/variant-public-run.json"
     },
     {
-      "bytes": 31893,
+      "bytes": 32871,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/mise.toml",
-      "sha256": "8cc9ef6aac0bf731c8991149f916a6238d1f6e1d53a6f63279f3d4377707bbfb",
+      "sha256": "dde346fd9744420a77e05e01526852a50f34440efed1c51fedc6c7f9b75b0b45",
       "source_path": "mise.toml"
     },
     {
@@ -874,10 +874,10 @@
       "source_path": "scripts/run_standardization.ts"
     },
     {
-      "bytes": 7595,
+      "bytes": 7528,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/runtime_gate.ts",
-      "sha256": "9cbd443f3030ceda45ac93e669a07e2972644a0590cc5e18132f1b76eb09899a",
+      "sha256": "f97ab88017462f001c24002a06bde3df382a2642069062404e1b826ca85154ca",
       "source_path": "scripts/runtime_gate.ts"
     },
     {
@@ -914,6 +914,13 @@
       "location_path": "skills/skill-factory/scripts/scope_placement.py",
       "sha256": "86f5d57cc8abb16d76037300ec3a14dda04e95a229fb84876f2bfb1af9277818",
       "source_path": "scripts/scope_placement.py"
+    },
+    {
+      "bytes": 6021,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/setup_runtime.mjs",
+      "sha256": "d3a36843c6bb383b75951200fa8d8872f8de77ed3b2a6af7d9bd8b33dcca0208",
+      "source_path": "scripts/setup_runtime.mjs"
     },
     {
       "bytes": 6279,
@@ -993,10 +1000,10 @@
       "source_path": "scripts/standardization_markdown.py"
     },
     {
-      "bytes": 10666,
+      "bytes": 10564,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_mise.py",
-      "sha256": "ff8e0a3ea265190fc45a9aa21d2f3644eaa4c08848ffe6fec9a30fd3964f6d2b",
+      "sha256": "8c7bfdce6fc986061ffb69f379d62ea9bc0c2847ef00e403e9c5ec9700105c53",
       "source_path": "scripts/standardization_mise.py"
     },
     {
@@ -1042,10 +1049,10 @@
       "source_path": "scripts/standardization_rules.py"
     },
     {
-      "bytes": 11922,
+      "bytes": 11974,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/standardization_runtime.py",
-      "sha256": "1ba1501e3e82ac9b54c0a0b6865b698adf7eae74479b0ca8c3625dbfe543f248",
+      "sha256": "72de9469486a3506afedcec41ed793a3dbd4cba37eacb5266329396de9934c30",
       "source_path": "scripts/standardization_runtime.py"
     },
     {
@@ -1560,10 +1567,17 @@
       "source_path": "scripts/tests/test_rule_workflow.py"
     },
     {
-      "bytes": 11710,
+      "bytes": 3243,
+      "location_kind": "repository",
+      "location_path": "skills/skill-factory/scripts/tests/test_runtime_reuse.py",
+      "sha256": "da857a80606b9867e570f4354ad830773ceda80b5e597759122ce0d3f874b41b",
+      "source_path": "scripts/tests/test_runtime_reuse.py"
+    },
+    {
+      "bytes": 11727,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_runtime_task_dependencies.py",
-      "sha256": "d5208c6cccc3594978d042036c2ab9ecd1b7a7ba3c548fd0edf73b22bcabca67",
+      "sha256": "b25c8b63a82fab9f1e492a51312770f61801ebe99a119c55cd543aa4da4ff4e2",
       "source_path": "scripts/tests/test_runtime_task_dependencies.py"
     },
     {

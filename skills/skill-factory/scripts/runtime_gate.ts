@@ -24,8 +24,7 @@ const storageProbe = "import {createRequire} from 'node:module'; import {pathToF
   + "const path=load.resolve('@mastra/libsql'); const runtime=await import(pathToFileURL(path).href); "
   + "if(typeof runtime.LibSQLStore!=='function') throw Error('Storage runtime has no LibSQLStore'); "
   + "console.log(JSON.stringify({resolved:path,LibSQLStore:'available'}));";
-const setupCommand = ['npm ci --include=dev --ignore-scripts 1>&2',
-  'npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2'];
+const setupCommand = ['node scripts/setup_runtime.mjs runtime/standardization'];
 
 async function capture(root: string, request: unknown) {
   const task = await taskContract(root, 'check-runtime', 'node scripts/runtime_gate.ts', ['setup-runtime']);

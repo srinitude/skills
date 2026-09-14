@@ -75,7 +75,7 @@ def _TestRuntimeDependencies_test_absent_lint_owner_does_not_erase_the_declared_
 
 def _TestRuntimeDependencies_test_conflicting_native_task_is_rejected_without_rewriting_input(self):
     source = normalize_mise(base_mise({"primary_term": "source-ledger"}))
-    invalid = source.replace("npm ci --include=dev --ignore-scripts", "npm run custom")
+    invalid = source.replace("node scripts/setup_runtime.mjs runtime/standardization", "npm run custom")
     with self.assertRaisesRegex(ValueError, "native runtime task"):
         normalize_mise(invalid)
 

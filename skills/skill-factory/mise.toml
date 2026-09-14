@@ -116,9 +116,9 @@ depends = []
 run = "python3 scripts/doctor.py"
 
 [tasks.setup-runtime]
-description = "Install exact locked factory checking and standardization runtimes"
+description = "# `setup-runtime`\n\n## Why this runs\n\nReuse a checked install instead of replacing it on each task call.\n\n## When to run\n\nRun before the runtime check or to repair missing packages.\n\n## Inputs\n\nUse this skill's package files, frozen locks, Node, npm and host platform.\nThis bootstrap has no task dependency: it installs the workflow engine.\n\n## Work\n\nRun through Mise. Check live packages even when the saved identity matches.\nRebuild only if reuse fails. Stop active runtime users before a rebuild.\nKeep prior and failed trees for recovery; restore the prior tree on failure.\nThe installer lock covers cooperating setup calls only, not other writers.\nKeep failure logs. Inspect actual state before retrying a stopped install.\nDo not clear a lock or remove retained trees while a user may need them.\nDo not call nested Mise or use a saved setup result as outcome proof.\n\n## Proof\n\nRequire matching inputs and a passed live package check for each runtime.\nThe dependent check-runtime task owns storage imports, compilation and Mastra proof.\nFull skill acceptance remains separate.\n"
 depends = []
-run = ["npm ci --include=dev --ignore-scripts 1>&2", "npm ci --prefix runtime/standardization --omit=peer --ignore-scripts 1>&2"]
+run = ["node scripts/setup_runtime.mjs runtime/standardization"]
 
 [tasks.check-runtime]
 env = { UV_PYTHON = "{{tools.python.path}}" }

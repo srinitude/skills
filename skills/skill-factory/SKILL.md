@@ -88,7 +88,7 @@ metadata:
 - **Run `mise run rule:resource-binding`.** Bind initial resources to their actual consumers. Read the full [task rules](tasks/runtime.toml) before its work.
 - **Run `mise run rule:resource-duties`.** Name and test every resource handoff. Read the full [task rules](tasks/runtime.toml) before its work.
 - **Run `mise run rule:runtime-interfaces`.** Verify the real interface before composing a runtime. Read the full [task rules](tasks/runtime.toml) before its work.
-- **Run `mise run rule:runtime-versions`.** Freeze compatible environments and exact versions. Read the full [task rules](tasks/runtime.toml) before its work.
+- **Run `mise run rule:runtime-versions`.** Freeze compatible environments and exact versions. Run `setup-runtime` to reuse a checked install or retain and rebuild it. Stop its users before a rebuild; keep failed checks and recovery copies. Read the full [task rules](tasks/runtime.toml) before its work.
 - **Run `mise run rule:task-dependencies`.** Review and declare every real task dependency. Read the full [task rules](tasks/runtime.toml) before its work.
 - **Run `mise run rule:native-task-fields`.** Check native wait, post-task and inheritance behavior. Read the full [task rules](tasks/runtime.toml) before its work.
 - **Run `mise run rule:mise-features`.** Review each released Mise feature and its domain use. Read the full [task rules](tasks/runtime.toml) before its work.

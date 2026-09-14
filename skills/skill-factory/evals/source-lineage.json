@@ -2,7 +2,7 @@
   "schema_version": 1,
   "public_version": "0.5.1",
   "native_version": "0.5.1",
-  "native_manifest_sha256": "8ea7be4342e4af0180a3f758dc2581111af47f132e69406a256b359ff170650d",
+  "native_manifest_sha256": "7a6aace341b6b7020e24c54a62337a02cac073692ba692cc941c4e1bfa077a35",
   "public_files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -785,6 +785,12 @@
       ]
     },
     {
+      "path": "scripts/setup_runtime.mjs",
+      "source_paths": [
+        "scripts/setup_runtime.mjs"
+      ]
+    },
+    {
       "path": "scripts/skill_package.py",
       "source_paths": [
         "scripts/skill_package.py"
@@ -1337,6 +1343,12 @@
       ]
     },
     {
+      "path": "scripts/tests/test_runtime_reuse.py",
+      "source_paths": [
+        "scripts/tests/test_runtime_reuse.py"
+      ]
+    },
+    {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
       "source_paths": [
         "scripts/tests/test_runtime_task_dependencies.py"
@@ -1792,7 +1804,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "8d571047eccbd3feab191a4b36d8155033570b359bf416264e1d532c06a58659"
+      "sha256": "034feccb688e670dab7651fa9841ca914064f8ac6f9d13864d2695aa220822e5"
     },
     {
       "path": "assets/agentic-request-template.json",
@@ -1848,7 +1860,7 @@
     },
     {
       "path": "assets/mise-template.toml",
-      "sha256": "02e5b6fa4f49f66cde33af65f66e300657351cb7acce32f5360b928322a9deae"
+      "sha256": "2328b1d3a36f191e3c0e640086aa1122145e3e356db45fa845c085eed5d0f439"
     },
     {
       "path": "assets/primitive-lifecycle-template.json",
@@ -2020,7 +2032,7 @@
     },
     {
       "path": "mise.toml",
-      "sha256": "8cc9ef6aac0bf731c8991149f916a6238d1f6e1d53a6f63279f3d4377707bbfb"
+      "sha256": "dde346fd9744420a77e05e01526852a50f34440efed1c51fedc6c7f9b75b0b45"
     },
     {
       "path": "package-lock.json",
@@ -2280,7 +2292,7 @@
     },
     {
       "path": "scripts/runtime_gate.ts",
-      "sha256": "9cbd443f3030ceda45ac93e669a07e2972644a0590cc5e18132f1b76eb09899a"
+      "sha256": "f97ab88017462f001c24002a06bde3df382a2642069062404e1b826ca85154ca"
     },
     {
       "path": "scripts/scaffold_plan.py",
@@ -2301,6 +2313,10 @@
     {
       "path": "scripts/scope_placement.py",
       "sha256": "86f5d57cc8abb16d76037300ec3a14dda04e95a229fb84876f2bfb1af9277818"
+    },
+    {
+      "path": "scripts/setup_runtime.mjs",
+      "sha256": "d3a36843c6bb383b75951200fa8d8872f8de77ed3b2a6af7d9bd8b33dcca0208"
     },
     {
       "path": "scripts/skill_package.py",
@@ -2348,7 +2364,7 @@
     },
     {
       "path": "scripts/standardization_mise.py",
-      "sha256": "ff8e0a3ea265190fc45a9aa21d2f3644eaa4c08848ffe6fec9a30fd3964f6d2b"
+      "sha256": "8c7bfdce6fc986061ffb69f379d62ea9bc0c2847ef00e403e9c5ec9700105c53"
     },
     {
       "path": "scripts/standardization_plan.py",
@@ -2376,7 +2392,7 @@
     },
     {
       "path": "scripts/standardization_runtime.py",
-      "sha256": "1ba1501e3e82ac9b54c0a0b6865b698adf7eae74479b0ca8c3625dbfe543f248"
+      "sha256": "72de9469486a3506afedcec41ed793a3dbd4cba37eacb5266329396de9934c30"
     },
     {
       "path": "scripts/standardization_seed.py",
@@ -2671,8 +2687,12 @@
       "sha256": "d9cb88d60146a7a875056c280381039c629e3f8339194974bf48ca177cba1572"
     },
     {
+      "path": "scripts/tests/test_runtime_reuse.py",
+      "sha256": "da857a80606b9867e570f4354ad830773ceda80b5e597759122ce0d3f874b41b"
+    },
+    {
       "path": "scripts/tests/test_runtime_task_dependencies.py",
-      "sha256": "d5208c6cccc3594978d042036c2ab9ecd1b7a7ba3c548fd0edf73b22bcabca67"
+      "sha256": "b25c8b63a82fab9f1e492a51312770f61801ebe99a119c55cd543aa4da4ff4e2"
     },
     {
       "path": "scripts/tests/test_scaffold_review.py",

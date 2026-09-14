@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "e89b6c588974563efd8ca25a1b2309fc3b8bc57049ad8b300e6164d9eb80919a",
-  "evidence_packet_sha256": "e89b6c588974563efd8ca25a1b2309fc3b8bc57049ad8b300e6164d9eb80919a",
+  "native_manifest_sha256": "123914d8ff84127460927c0d81533a464f5b13ab4c87ac9627c9b851f6df8da1",
+  "evidence_packet_sha256": "123914d8ff84127460927c0d81533a464f5b13ab4c87ac9627c9b851f6df8da1",
   "files": [
     {
       "bytes": 272,
@@ -1413,10 +1413,10 @@
       "source_path": "scripts/tests/test_promotion_context.py"
     },
     {
-      "bytes": 6781,
+      "bytes": 6782,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_refresh_registry_lineage.py",
-      "sha256": "d82480a5025b780cc966a6e3a6ba96cabba18d37f64ab0b1eb64352174b3bbcc",
+      "sha256": "b4d5868873a740f24b8d324259976bc90bf38470573f38db6551e3803c5329d0",
       "source_path": "scripts/tests/test_refresh_registry_lineage.py"
     },
     {

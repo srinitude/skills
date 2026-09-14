@@ -7,12 +7,13 @@ import tempfile
 import unittest
 from pathlib import Path
 import base64
+
+SCRIPT = Path(__file__).resolve().parents[1] / "refresh_registry_lineage.py"
+sys.path.insert(0, str(SCRIPT.parent))
 from registry_lineage_plan import build_plan
 from skill_package import inventory
 from standardization_test_support import native_formatter
 
-SCRIPT = Path(__file__).resolve().parents[1] / "refresh_registry_lineage.py"
-sys.path.insert(0, str(SCRIPT.parent))
 SPEC = importlib.util.spec_from_file_location("refresh_registry_lineage", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)

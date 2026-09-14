@@ -40,7 +40,23 @@ A review contains `plan_sha256`, `context`, `body_review` and exactly one entry 
 
 To reject a selected persisted run, use the same inputs with `--workflow-state`, `--workflow-run` and `--workflow-reject`, without `--apply`. Rejection closes that run before application. A completed or rejected run refuses replay without starting another native command. Changed inputs require a new plan and review; legitimate recovery uses a fresh reviewed run. After approval declarations, the existing native leaf still owns validation and guarded writes. The workflow verifies actual resulting bytes and executable modes against the selected plan.
 
-Standardization places the current initial-loading, reusable ledger, full relationship table, dependency, traversal, per-file review and efficiency policies before domain actions. It retains the existing domain body and frontmatter. Different or duplicate owned policies require an explicit reviewed migration before effect; preserve all applicable domain rules during reconciliation. Descriptive owner links retain their public Mise routes without becoming new executable tasks. The updated body also names the shipped generation contract and file-review example with their load conditions. Standardization connects missing baseline CI checks through existing task owners and retains domain tasks. Generated CI checks bind the complete normalized CI task. Exact factory-generated checks are refreshed; customized checks retain their contents for explicit review. Existing custom CI commands and task settings are retained. Nested calls with arguments or shell work require explicit reconciliation before standardization. It preserves authored eval cases and trigger labels; incomplete domain content remains marked for rejection. The observed reviewed rerun changed no files. Propagation and package checks do not establish faster accepted outcomes.
+Current updates keep the first-load cue in SKILL.md and place shared factory rules in full Mise task bodies.
+The body names each `rule:body-*` task to read and run before its work.
+These tasks use the existing parent tasks, individual agent tools and Mastra workflows.
+They retain the initial-loading, reusable ledger, full relationship table, dependency, traversal, per-file review and efficiency policies.
+
+- Keep the existing domain body and frontmatter.
+- Different or duplicate owned policies, or changed owned task settings, need an explicit reviewed migration before any effect. Preserve all applicable domain rules.
+- Keep the generation contract and file-review example, with their load conditions and public Mise routes, in the full rule text.
+- Add missing task records and public operations using the skill's reviewed domain profile. Preserve existing domain records.
+- Connect missing baseline CI checks through existing task owners and retain domain tasks.
+- Bind generated CI checks to the complete normalized CI task. Refresh exact factory-generated checks; keep customized checks for explicit review.
+- Preserve existing custom CI commands and task settings. Nested calls with arguments or shell work need explicit review before standardization.
+- Preserve authored eval cases and trigger labels. Keep incomplete domain content marked for rejection.
+
+The archived run below predates the task-body layout. Its observed reviewed rerun changed no files.
+Use the current plan and task bodies for a new update; do not treat the archive as current package proof.
+Propagation and package checks do not establish faster accepted outcomes.
 
 ## Observed result and limits
 

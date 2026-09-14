@@ -25,7 +25,9 @@ def _TestRegistryStandardization_assert_package_files(self, root):
         self.assertIn("mise run anchor", skill)
         self.assertNotIn("scripts/anchor.py", skill)
         owner = "[context reader](scripts/agentic_context.py)"
-        self.assertIn(owner, skill)
+        self.assertIn("mise run rule:body-resource-duties", skill)
+        tasks = tomllib.loads((root / "mise.toml").read_text())["tasks"]
+        self.assertIn(owner, tasks["rule:body-resource-duties"]["description"])
         self.assertNotIn("scripts/", skill.replace(owner, "context reader"))
         reference = (root / "references/contract.md").read_text()
         self.assertIn("mise run anchor", reference)

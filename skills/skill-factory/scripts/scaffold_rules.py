@@ -7,6 +7,16 @@ from skill_package import sha
 from standardization_runtime import task_header
 
 
+START_RULES = ("**Start here.** Read this whole SKILL.md on every load.\n"
+                  "Run `mise run rule:read` with this exact body as text.\n"
+                  "Read `mise tasks info task-tools --json` for the tool and reply contract.\n"
+                  "Use the same bound request and state for required tasks.")
+
+def route_cue(name):
+    return (f"- **Run `mise run {name}`.** Read its full rules in "
+            "[the task file](mise.toml) before its work.")
+
+
 def template_inputs(root):
     source = (root / "assets/skill-template.md").read_bytes()
     routes = json.loads((root / "assets/skill-template-routes.json").read_text())
@@ -74,15 +84,11 @@ def routed_template(root, tokens, mise, renderer):
         name = "rule:body-" + owner.removeprefix("rule:")
         groups.setdefault(name, (owner, []))[1].append(block)
         if name not in seen:
-            output.append(f"- **Run `mise run {name}`.** Read its full rules in "
-                          "[the task file](mise.toml) before its work.")
+            output.append(route_cue(name))
             seen.add(name)
     specs = {name: rule_spec(name, owner, parts, blocks[-1], tasks)
              for name, (owner, parts) in groups.items()}
-    output.insert(1, "**Start here.** Read this whole SKILL.md on every load.\n"
-                  "Run `mise run rule:read` with this exact body as text.\n"
-                  "Read `mise tasks info task-tools --json` for the tool and reply contract.\n"
-                  "Use the same bound request and state for required tasks.")
+    output.insert(1, START_RULES)
     output.insert(-1, "Read the [first-run example](examples/example-first-run.md) before first use through "
                   "`mise run rule:body-examples`.\n"
                   "Use [local cases](evals/evals.json) through `mise run rule:body-eval-design`.\n"

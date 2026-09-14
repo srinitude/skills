@@ -2,6 +2,7 @@
 import base64
 import json
 import tempfile
+import tomllib
 import unittest
 import yaml
 from pathlib import Path
@@ -118,12 +119,17 @@ def _TestStandardizationReview_test_updated_body_inherits_the_accepted_outcome_e
     result = run('standardize_registry_skill.py', *self.args, '--apply', '--plan-file', plan_path, '--review', path)
     self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
     body = (self.root / 'SKILL.md').read_text()
-    self.assertIn('Close the smallest ready functional path', body)
-    self.assertIn('The pre-review determines the necessary change, owner, prerequisites and proof', body)
-    self.assertIn('the post-review checks its actual effect against all retained rules and invalidates affected evidence', body)
-    self.assertIn('append a durable entry to the existing per-file change history', body)
-    self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', body)
-    self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', body)
+    tasks = tomllib.loads((self.root / 'mise.toml').read_text())['tasks']
+    names = ['rule:body-implementation-progress', 'rule:body-loop-contract']
+    for name in names:
+        self.assertIn('mise run ' + name, body)
+    rules = '\n'.join(tasks[name]['description'] for name in names)
+    self.assertIn('Close the smallest ready functional path', rules)
+    self.assertIn('The pre-review determines the necessary change, owner, prerequisites and proof', rules)
+    self.assertIn('the post-review checks its actual effect against all retained rules and invalidates affected evidence', rules)
+    self.assertIn('append a durable entry to the existing per-file change history', rules)
+    self.assertIn('Use this history throughout execution to choose the next unfinished prerequisite', rules)
+    self.assertIn('Report implemented behavior, validated behavior and accepted obligations separately.', rules)
 
 def _TestStandardizationReview_test_custom_efficiency_policy_requires_explicit_reviewed_migration(self):
     custom = '**Efficiency and optional improvement.** Preserve the project-specific review order.'
@@ -140,7 +146,9 @@ def _TestStandardizationReview_test_custom_efficiency_policy_requires_explicit_r
     path, _, plan_path = self.reviewed_plan()
     result = run('standardize_registry_skill.py', *self.args, '--apply', '--plan-file', plan_path, '--review', path)
     self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-    self.assertEqual(body.read_text().count(current), 1)
+    tasks = tomllib.loads((self.root / 'mise.toml').read_text())['tasks']
+    self.assertIn('mise run rule:body-implementation-progress', body.read_text())
+    self.assertEqual(tasks['rule:body-implementation-progress']['description'].count(current), 1)
     self.assertIn('Preserve the project-specific review order.', body.read_text())
 
 def _TestStandardizationReview_test_native_formatter_config_byte_drift_invalidates_the_saved_plan(self):

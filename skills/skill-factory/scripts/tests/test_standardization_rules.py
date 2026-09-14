@@ -50,6 +50,21 @@ def test_second_update_is_identical(self):
     self.assertEqual(updated(files), files)
 
 
+def test_updated_skill_uses_broad_method_and_final_boundaries(self):
+    files = updated()
+    tasks = tomllib.loads(files["mise.toml"].decode())["tasks"]
+    for name in ["rule:implementation-progress", "rule:selected", "rule:acceptance"]:
+        self.assertEqual(tasks[name]["run"], "node scripts/run_rule.ts " + name)
+    progress = tasks["rule:implementation-progress"]["description"]
+    self.assertIn("main paths work", progress)
+    self.assertIn("owner, required inputs, next action and deciding check", progress)
+    self.assertIn("A small request needs a small change", progress)
+    self.assertIn("whole domain result", tasks["rule:acceptance"]["description"])
+    self.assertIn("broad working paths", tasks["rule:body-implementation-progress"]["description"])
+    self.assertNotIn("Close the smallest ready functional path", tasks["rule:body-implementation-progress"]["description"])
+    self.assertIn("Never infer a missing UTC offset.", files["SKILL.md"].decode())
+
+
 def test_custom_policy_is_not_replaced(self):
     files = updated()
     files["SKILL.md"] += b"\n**Relationship records.** Keep our domain exception.\n"

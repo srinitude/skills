@@ -4,10 +4,12 @@ import json
 import re
 import unittest
 import tempfile
+import sys
 from pathlib import Path
-from scaffold_rules import template_inputs
 
 from cli import SCRIPTS
+sys.path.insert(0, str(SCRIPTS))
+from scaffold_rules import template_inputs
 from scaffold_plan import render_plan
 from scaffold_skill import source_files
 import tomllib
@@ -68,9 +70,28 @@ def test_rejects_unreviewed_template_mapping(self):
             template_inputs(root)
 
 
+def test_broad_method_reaches_created_skill(self):
+    tasks = tomllib.loads(rendered()["mise.toml"])["tasks"]
+    progress = tasks["rule:implementation-progress"]["description"]
+    for duty in ["Build broad working paths before optional polish", "owner, required inputs, next action and deciding check",
+                 "main paths work", "whole domain result", "A small request needs a small change"]:
+        self.assertIn(duty, progress)
+    selected = tasks["rule:selected"]["description"]
+    self.assertIn("broad work or precise repair", selected)
+    acceptance = tasks["rule:acceptance"]["description"]
+    self.assertIn("whole factory", acceptance)
+    self.assertIn("whole output skill", acceptance)
+    self.assertIn("whole domain result", acceptance)
+    body = tasks["rule:body-implementation-progress"]["description"]
+    self.assertNotIn("Close the smallest ready functional path", body)
+    self.assertIn("broad working paths", body)
+    self.assertEqual(tasks["rule:body-implementation-progress"]["depends"], ["rule:implementation-progress"])
+
+
 def load_tests(loader, tests, pattern):
     cls = type("ScaffoldRuleTests", (unittest.TestCase,), {
         "test_body_uses_real_workflow_tasks": test_body_uses_real_workflow_tasks,
         "test_source_rules_survive_without_loss": test_source_rules_survive_without_loss,
-        "test_rejects_unreviewed_template_mapping": test_rejects_unreviewed_template_mapping})
+        "test_rejects_unreviewed_template_mapping": test_rejects_unreviewed_template_mapping,
+        "test_broad_method_reaches_created_skill": test_broad_method_reaches_created_skill})
     return loader.loadTestsFromTestCase(cls)

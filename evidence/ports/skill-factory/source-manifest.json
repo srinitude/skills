@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "skill-factory",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "123914d8ff84127460927c0d81533a464f5b13ab4c87ac9627c9b851f6df8da1",
-  "evidence_packet_sha256": "123914d8ff84127460927c0d81533a464f5b13ab4c87ac9627c9b851f6df8da1",
+  "native_manifest_sha256": "8ea7be4342e4af0180a3f758dc2581111af47f132e69406a256b359ff170650d",
+  "evidence_packet_sha256": "8ea7be4342e4af0180a3f758dc2581111af47f132e69406a256b359ff170650d",
   "files": [
     {
       "bytes": 272,
@@ -20,10 +20,10 @@
       "source_path": "LICENSE"
     },
     {
-      "bytes": 19409,
+      "bytes": 19610,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/SKILL.md",
-      "sha256": "d3c5f4cec30363c8b834eeb980eb1ca54845b04b11834bea932c3b420091641a",
+      "sha256": "8d571047eccbd3feab191a4b36d8155033570b359bf416264e1d532c06a58659",
       "source_path": "SKILL.md"
     },
     {
@@ -149,14 +149,14 @@
       "bytes": 5316,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template-routes.json",
-      "sha256": "9eda81f5f638cfe5d3d1c0df862f99ead33ad976821677a93f4d3e6eab513f95",
+      "sha256": "2db599e2f7a6d978ae0401299540355ba67beae8a01af5c2d11e7705044e4c00",
       "source_path": "assets/skill-template-routes.json"
     },
     {
-      "bytes": 93803,
+      "bytes": 93937,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/assets/skill-template.md",
-      "sha256": "0073b156c163d7e0a18af1f05f6b6721bac2995acbced165b7bdcf3757fe3a65",
+      "sha256": "2dd4b2342d0acb0d449546161e05f57f96c99f208f197812adcc59090188fac0",
       "source_path": "assets/skill-template.md"
     },
     {
@@ -1567,17 +1567,17 @@
       "source_path": "scripts/tests/test_runtime_task_dependencies.py"
     },
     {
-      "bytes": 9105,
+      "bytes": 9272,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_review.py",
-      "sha256": "d8b30c388188d6f09f0af410d36b68b34fcbad9e86e1297d4accb40f7ca65183",
+      "sha256": "e7920444eb42459e31765c9532739cf85532c8b7a5860dcefac8af8bb9968940",
       "source_path": "scripts/tests/test_scaffold_review.py"
     },
     {
-      "bytes": 3597,
+      "bytes": 4798,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_scaffold_rules.py",
-      "sha256": "68ab03152017b551a49b969ea4d2e3a6d574e5a1f48619ba4a70404b4da09079",
+      "sha256": "51668c7a70e23432be00073d7a56a537f8091a8252916054394375c22bd40f2a",
       "source_path": "scripts/tests/test_scaffold_rules.py"
     },
     {
@@ -1707,17 +1707,17 @@
       "source_path": "scripts/tests/test_standardization_preflight.py"
     },
     {
-      "bytes": 11273,
+      "bytes": 11442,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_review.py",
-      "sha256": "32cf594e8776562c923c0c270f84827f061959e63e5a20784d91ead96ffc1a34",
+      "sha256": "4a22fab405c49c085dc222884149bd1a850c8df8e05e5abc0ea4aac7df4d0bf0",
       "source_path": "scripts/tests/test_standardization_review.py"
     },
     {
-      "bytes": 5039,
+      "bytes": 6021,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/scripts/tests/test_standardization_rules.py",
-      "sha256": "085355d490f82805fa8165cdbc33bdb47977a33b936fa6eb52970ab29481131f",
+      "sha256": "27485079a233a9630117bde8c7a28194fb76d6d3e36d5695759ad30419d9ae9e",
       "source_path": "scripts/tests/test_standardization_rules.py"
     },
     {
@@ -1980,10 +1980,10 @@
       "source_path": "tasks/evaluation.toml"
     },
     {
-      "bytes": 16920,
+      "bytes": 18201,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/tasks/execution.toml",
-      "sha256": "e67d068d83835e69ea7190d531e625467d98326d7aedf2612a151923c4d15be7",
+      "sha256": "b207ec08ec8d26ef6ddf022112dff89192b9ef7b8d8072cc52c19e772521bb4a",
       "source_path": "tasks/execution.toml"
     },
     {
@@ -2043,10 +2043,10 @@
       "source_path": "tasks/principles.toml"
     },
     {
-      "bytes": 9292,
+      "bytes": 11500,
       "location_kind": "repository",
       "location_path": "skills/skill-factory/tasks/progress.toml",
-      "sha256": "137ba96b572231fd6f4f1e88deef7a2bdd4178577806f621980474fcde63b894",
+      "sha256": "7f88a849854cc78de617af70a454840dad87dcd44247316c5b72536e37bbad2d",
       "source_path": "tasks/progress.toml"
     },
     {

@@ -20,9 +20,27 @@ A dependency pass proves its checked scope, not all skill acceptance.
 
 ## Work
 
-Every action must advance a required skill-file change, validation or delivery.
+Apply this method to factory work, skill creation and updates, and each skill's own domain work.
 
-Close the smallest ready functional path through its gates, proof and allowed delivery.
+Every action must advance a required result change, validation or delivery.
+
+Build broad working paths before optional polish. Fix shared gaps at their real owners.
+
+A small request needs a small change. Never add work just to make a large diff.
+
+Keep safety, authority, data integrity and each consumer's required inputs throughout.
+
+Check available effects promptly. Mark what works, fails or remains untested.
+
+For each gap, record its owner, required inputs, next action and deciding check.
+
+Switch to precise repair when the main paths work, available effects are checked and every known gap has that repair path.
+
+Follow that path in dependency order. Fix a prerequisite early if it blocks broad work.
+
+A nonblocking gap may stay pending during broad work. It cannot pass final acceptance.
+
+Complete required validation and allowed delivery. Keep independent eligible work moving.
 
 Tie reads, research, infrastructure, graph/ledger work and packaging to the change or missing proof they enable.
 
@@ -32,11 +50,21 @@ Private drafts, plans, reports and queued jobs alone earn no implementation prog
 
 Neither do cosmetic churn or repeated unchanged checks.
 
-Real progress needs a necessary skill-file change tied to a named obligation.
+For creation or updates, real progress needs a necessary skill-file change tied to a named obligation.
+
+For a skill's own use, it needs an actual change to the requested domain result.
+
+Do not require a skill-file edit when the request only asks the skill to do its work.
 
 Fresh proof must show its intended effect and required validation.
 
 An applied change with no validation stays implemented, with validation pending.
+
+Before finishing, check the whole domain result or complete skill against its request through `rule:acceptance`.
+
+Compare time, rework and closed gaps only for matched scope and proof. Report missing measures.
+
+Neither wording nor a partial gain guarantees speed or correctness on every turn.
 
 Read the full workflow output. Use the model's own tools and judgment.
 Code checks facts that can be tested; required human work stays with its owner.
@@ -80,6 +108,8 @@ A dependency pass proves its checked scope, not all skill acceptance.
 In the existing changelog and ledger, bind the file, source rule, purpose and actual effect.
 
 Record validation, the remaining gap and next dependent action.
+
+Each open gap needs its owner, required inputs, next action and deciding check.
 
 Keep proposed, implemented, validated and accepted states distinct.
 
@@ -163,6 +193,18 @@ A dependency pass proves its checked scope, not all skill acceptance.
 Accept only fresh, sufficient proof for each required rule that applies.
 
 Cover the factory, required outputs, operations and joined use.
+
+- Before factory completion, check the whole factory against its specification and integrated behavior.
+- Before creation or update completes, check the whole output skill against its supplied specification and independent domain use.
+- Before a skill's own workflow completes, check its whole domain result and all work against that request and its domain criteria.
+
+These are separate required boundaries. A factory pass cannot supply an output or domain-result pass.
+
+Use the existing final check owners and exact result identities. Include every required code, model, human, visual and integration check.
+
+Reuse still-valid proof and rerun affected checks after repairs. Saving evidence alone does not change its tested subject.
+
+Do not repeat the final suite after each small step unless a retained rule requires it.
 
 Bind exact subjects, revisions and bytes.
 

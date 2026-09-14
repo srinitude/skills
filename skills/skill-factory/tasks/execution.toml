@@ -25,6 +25,10 @@ Start with the matching public command in [SKILL.md → Mise task graph](../SKIL
 
 Use the seven [SKILL.md stages](../SKILL.md#steps) for creation and maintenance: RECONCILED, SELECTED, READY, IMPLEMENTED, VALIDATED, FINALIZED and ADVANCE.
 
+Use `rule:implementation-progress` for broad work, owned repair paths and precise repair.
+
+Carry that method into each resulting skill's own domain workflow. Do not turn ordinary skill use into package maintenance.
+
 Each stage needs real Mise tasks, Mastra step IDs, declared inputs and outputs, direct dependencies and current proof.
 
 Mise prepares runtimes and prerequisites.
@@ -51,7 +55,7 @@ Resume this same task through Mise using the `rule:context` reply contract.
 A workflow pass checks bindings; it cannot prove meaning or human acceptance.
 '''
 env = { UV_PYTHON = "{{tools.python.path}}" }
-depends = ["rule:context"]
+depends = ["rule:implementation-progress"]
 run = "node scripts/run_rule.ts rule:loop-contract"
 
 ["rule:reconciled"]
@@ -160,6 +164,14 @@ A dependency pass proves its checked scope, not all skill acceptance.
 Start at SKILL.md, then files one connector away, then two, and so on by shortest valid path.
 
 Follow real prerequisites and approved exceptions.
+
+Name the current phase: broad work or precise repair. Use the phase checks in `rule:implementation-progress`.
+
+Choose a shared working path before optional polish. Small requests still use small changes.
+
+Return to any earlier owner when a required repair or shared change needs it.
+
+Graph distance guides discovery; it cannot defer a real prerequisite or force a needless edit.
 
 Resume eligible unfinished work before other preparation.
 
@@ -273,6 +285,8 @@ For new skills, build tasks and CI/graph contract tests first.
 
 Observe a failing behavior test, write the smallest sound change, then update docs and evals.
 
+Size the change to the selected working path. A small local diff must not leave its shared cause unfixed.
+
 Use focused RED, GREEN, REFACTOR and affected regression checks.
 
 Reject placeholders, generic profiles, unsupported interfaces, lost behavior and source changes without authority.
@@ -328,6 +342,12 @@ A dependency pass proves its checked scope, not all skill acceptance.
 5. **VALIDATED.** Model: run the assigned checks and obtain required real human or recipient proof.
 
 Run `mise run decision-policy`, the target's full `mise run ci`, `validate-target`, `eval-target` and the actual case runner.
+
+During broad work, run available affected checks first. Run the full checks above at integration and final acceptance.
+
+Keep missing dependent proof pending until its inputs exist; preserve every required precondition and check.
+
+For a skill's own domain work, run its actual domain checks and whole-result review. Do not substitute package checks.
 
 Inspect exact artifacts in their real media.
 
@@ -396,6 +416,10 @@ Reject needless layers, duplicate owners, cosmetic churn and speculative additio
 Hardening proves the current contract, not that a file will never need repair.
 
 Pending proof is still not acceptance.
+
+Before moving on, give every known gap an owner, required inputs, next action and deciding check.
+
+Permit eligible broad work while nonblocking gaps remain pending. Use `rule:acceptance` at each final boundary.
 
 Read the full workflow output. Use the model's own tools and judgment.
 Code checks facts that can be tested; required human work stays with its owner.

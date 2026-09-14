@@ -124,7 +124,9 @@ def _TestStandardizationReview_test_updated_body_inherits_the_accepted_outcome_e
     for name in names:
         self.assertIn('mise run ' + name, body)
     rules = '\n'.join(tasks[name]['description'] for name in names)
-    self.assertIn('Close the smallest ready functional path', rules)
+    self.assertIn('Build broad working paths before optional polish', rules)
+    self.assertIn('follow owned gaps through precise repair and full acceptance', rules)
+    self.assertNotIn('Close the smallest ready functional path', rules)
     self.assertIn('The pre-review determines the necessary change, owner, prerequisites and proof', rules)
     self.assertIn('the post-review checks its actual effect against all retained rules and invalidates affected evidence', rules)
     self.assertIn('append a durable entry to the existing per-file change history', rules)

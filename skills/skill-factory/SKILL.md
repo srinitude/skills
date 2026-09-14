@@ -108,7 +108,7 @@ metadata:
 
 - **Run `mise run rule:loop-contract`.** Use the seven stages without replaying finished effects. Read the full [task rules](tasks/execution.toml) before its work.
 - **Run `mise run rule:reconciled`.** Bind the current request, sources and rights. Read the full [task rules](tasks/execution.toml) before its work.
-- **Run `mise run rule:selected`.** Choose the earliest ready gap from SKILL.md outward. Read the full [task rules](tasks/execution.toml) before its work.
+- **Run `mise run rule:selected`.** Start design at SKILL.md. Build broad working paths, then fix owned gaps in dependency order. Read the full [task rules](tasks/execution.toml) before its work.
 - **Run `mise run rule:ready`.** Bind the exact allowed change and deciding checks. Read the full [task rules](tasks/execution.toml) before its work.
 - **Run `mise run rule:implemented`.** Carry out the reviewed change and retain its effects. Read the full [task rules](tasks/execution.toml) before its work.
 - **Run `mise run rule:validated`.** Check actual behavior and invalidate affected proof. Read the full [task rules](tasks/execution.toml) before its work.
@@ -145,10 +145,10 @@ metadata:
 - **Run `mise run rule:eval-antipatterns`.** Find real failures and test sound alternatives. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
 - **Run `mise run rule:improvement-trial`.** Load the full trial contract; keep gains only without protected loss. Read its full [task rules](tasks/improvement.toml) when its trigger applies.
 - **Run `mise run rule:improvement-confirm`.** Check an adopted trial on the next invocation; restore regressions. Read its full [task rules](tasks/improvement.toml) when its trigger applies.
-- **Run `mise run rule:implementation-progress`.** Make the ready skill change and prove its effect. Read its full [task rules](tasks/progress.toml) when its trigger applies.
+- **Run `mise run rule:implementation-progress`.** Build useful paths before polish. Keep each gap's repair owner and check. Apply this method to creation, updates and each skill's own work. Read its full [task rules](tasks/progress.toml) when its trigger applies.
 - **Run `mise run rule:change-history`.** Bind each change, its proof, open gap and next action. Read its full [task rules](tasks/progress.toml) when its trigger applies.
 - **Run `mise run rule:eval-resources`.** Measure complete paths with matched inputs and honest limits. Read its full [task rules](tasks/evaluation.toml) when its trigger applies.
-- **Run `mise run rule:acceptance`.** Require fresh proof for every rule that applies. Read its full [task rules](tasks/progress.toml) when its trigger applies.
+- **Run `mise run rule:acceptance`.** Check the whole factory, whole output skill and whole domain result at their own finish. Require all applicable proof. Read its full [task rules](tasks/progress.toml) when its trigger applies.
 - **Run `mise run rule:delivery-report`.** Give the full decision trail and distinguish work from acceptance. Read its full [task rules](tasks/progress.toml) when its trigger applies.
 
 [use-case]: assets/use-case-contract.json

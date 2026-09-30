@@ -49,6 +49,9 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
+  "overrides": {
+    "esbuild": "$esbuild"
+  },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "1.27.1",
     "@eslint/js": "10.0.1",
@@ -60,7 +63,7 @@
     "tsx": "4.21.0",
     "typescript": "6.0.2",
     "typescript-eslint": "8.65.0",
-    "vitest": "4.1.1",
+    "vitest": "4.1.11",
     "yaml": "2.9.0",
     "zod": "4.3.6"
   }

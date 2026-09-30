@@ -1,0 +1,509 @@
+{
+  "version": "1.0.0",
+  "skill": "human-language",
+  "outcome": "Write or edit plain, natural prose that fits the reader and keeps the author's meaning and exact data.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted plain prose behavior.",
+      "reason": "The plain prose outcome depends on stable domain semantics.",
+      "failure_prevented": "A plain prose update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable plain prose checks through Mise.",
+      "reason": "The plain prose judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A plain prose claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "plain prose",
+    "reader fit",
+    "exact data",
+    "output check"
+  ],
+  "domain_failures": [
+    "The plain prose result changes without proof.",
+    "The plain prose package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh plain prose task output and saved receipts.",
+    "Current plain prose behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": [
+      "The plain prose contract owns actors decisions."
+    ],
+    "objects": [
+      "The plain prose contract owns objects decisions."
+    ],
+    "actions": [
+      "The plain prose contract owns actions decisions."
+    ],
+    "states": [
+      "The plain prose contract owns states decisions."
+    ],
+    "invariants": [
+      "The plain prose contract owns invariants decisions."
+    ],
+    "variants": [
+      "The plain prose contract owns variants decisions."
+    ],
+    "interfaces": [
+      "The plain prose contract owns interfaces decisions."
+    ],
+    "authorities": [
+      "The plain prose contract owns authorities decisions."
+    ],
+    "failures": [
+      "The plain prose contract owns failures decisions."
+    ],
+    "recoveries": [
+      "The plain prose contract owns recoveries decisions."
+    ],
+    "evidence": [
+      "The plain prose contract owns evidence decisions."
+    ],
+    "time": [
+      "The plain prose contract owns time decisions."
+    ],
+    "resources": [
+      "The plain prose contract owns resources decisions."
+    ],
+    "quality": [
+      "The plain prose contract owns quality decisions."
+    ],
+    "terminology": [
+      "The plain prose contract owns terminology decisions."
+    ],
+    "exclusions": [
+      "The plain prose contract owns exclusions decisions."
+    ]
+  },
+  "research_questions": {
+    "actors": "What can change the plain prose actors decision?",
+    "objects": "What can change the plain prose objects decision?",
+    "actions": "What can change the plain prose actions decision?",
+    "states": "What can change the plain prose states decision?",
+    "invariants": "What can change the plain prose invariants decision?",
+    "variants": "What can change the plain prose variants decision?",
+    "interfaces": "What can change the plain prose interfaces decision?",
+    "authorities": "What can change the plain prose authorities decision?",
+    "failures": "What can change the plain prose failures decision?",
+    "recoveries": "What can change the plain prose recoveries decision?",
+    "evidence": "What can change the plain prose evidence decision?",
+    "time": "What can change the plain prose time decision?",
+    "resources": "What can change the plain prose resources decision?",
+    "quality": "What can change the plain prose quality decision?",
+    "terminology": "What can change the plain prose terminology decision?",
+    "exclusions": "What can change the plain prose exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://digital.gov/guides/plain-language/principles/write-for-reader",
+      "source_class": "first_party",
+      "claim": "Plain writing starts from readers' real questions and needs.",
+      "limitations": "A generic reading level does not replace knowledge of the actual reader.",
+      "disposition": "retained",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://digital.gov/guides/plain-language/test",
+      "source_class": "first_party",
+      "claim": "Test early, revise, and test again with real readers.",
+      "limitations": "Model review is not reader testing.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html",
+      "source_class": "standard",
+      "claim": "Complex text may need a simpler version.",
+      "limitations": "WCAG's cited level is lower secondary, not grade 6.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.cdc.gov/ccindex/tool/index.html",
+      "source_class": "standard",
+      "claim": "Communication can be reviewed with criteria beyond word choice.",
+      "limitations": "The package claims no Index score without the full method.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://arxiv.org/html/2509.19163v1",
+      "source_class": "research",
+      "claim": "Quality judgments of AI slop link to relevance, coherence, repetition, and tone.",
+      "limitations": "A word list or one model verdict cannot certify quality.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can a banned-word list prove prose is plain and natural?",
+      "source": "https://arxiv.org/html/2509.19163v1",
+      "checked_at": "2026-09-15T00:00:00-04:00",
+      "result": "No. Slop judgments span several traits and vary between raters.",
+      "disposition": "Keep the word-list lint and the reader-fit review as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named plain prose agentic-request result.",
+        "motivation": "The plain prose workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared plain prose agentic-request route.",
+        "proof": "Fresh plain prose agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named plain prose invocation-policy result.",
+        "motivation": "The plain prose workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared plain prose invocation-policy route.",
+        "proof": "Fresh plain prose invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named plain prose improvement-policy result.",
+        "motivation": "The plain prose workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared plain prose improvement-policy route.",
+        "proof": "Fresh plain prose improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named plain prose mise-primitives-update result.",
+        "motivation": "The plain prose workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared plain prose mise-primitives-update route.",
+        "proof": "Fresh plain prose mise-primitives-update output and exit status."
+      },
+      {
+        "task": "default",
+        "outcome": "Produce the named plain prose default result.",
+        "motivation": "The plain prose workflow needs one default entry.",
+        "why_default_path": "This is the single declared plain prose default route.",
+        "proof": "Fresh plain prose default output and exit status."
+      }
+    ],
+    "tasks": {
+      "test": {
+        "outcome": "Advance the plain prose result through test.",
+        "motivation": "The plain prose package needs the test gate.",
+        "value": "Produce current plain prose evidence from test.",
+        "proof": "The plain prose test task exits zero with readable output.",
+        "applicability": "Use test for its declared plain prose responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the plain prose result through validate.",
+        "motivation": "The plain prose package needs the validate gate.",
+        "value": "Produce current plain prose evidence from validate.",
+        "proof": "The plain prose validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared plain prose responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the plain prose result through lint-writing.",
+        "motivation": "The plain prose package needs the lint-writing gate.",
+        "value": "Produce current plain prose evidence from lint-writing.",
+        "proof": "The plain prose lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared plain prose responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the plain prose result through lint-code.",
+        "motivation": "The plain prose package needs the lint-code gate.",
+        "value": "Produce current plain prose evidence from lint-code.",
+        "proof": "The plain prose lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared plain prose responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the plain prose result through evals.",
+        "motivation": "The plain prose package needs the evals gate.",
+        "value": "Produce current plain prose evidence from evals.",
+        "proof": "The plain prose evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared plain prose responsibility."
+      },
+      "ci": {
+        "outcome": "Advance the plain prose result through ci.",
+        "motivation": "The plain prose package needs the ci gate.",
+        "value": "Produce current plain prose evidence from ci.",
+        "proof": "The plain prose ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared plain prose responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the plain prose result through domain-research-policy.",
+        "motivation": "The plain prose package needs the domain-research-policy gate.",
+        "value": "Produce current plain prose evidence from domain-research-policy.",
+        "proof": "The plain prose domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared plain prose responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the plain prose result through use-case-policy.",
+        "motivation": "The plain prose package needs the use-case-policy gate.",
+        "value": "Produce current plain prose evidence from use-case-policy.",
+        "proof": "The plain prose use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared plain prose responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the plain prose result through mise-primitives-policy.",
+        "motivation": "The plain prose package needs the mise-primitives-policy gate.",
+        "value": "Produce current plain prose evidence from mise-primitives-policy.",
+        "proof": "The plain prose mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared plain prose responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the plain prose result through primitive-lifecycle-policy.",
+        "motivation": "The plain prose package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current plain prose evidence from primitive-lifecycle-policy.",
+        "proof": "The plain prose primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared plain prose responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the plain prose result through task-graph-policy.",
+        "motivation": "The plain prose package needs the task-graph-policy gate.",
+        "value": "Produce current plain prose evidence from task-graph-policy.",
+        "proof": "The plain prose task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared plain prose responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the plain prose result through decision-policy.",
+        "motivation": "The plain prose package needs the decision-policy gate.",
+        "value": "Produce current plain prose evidence from decision-policy.",
+        "proof": "The plain prose decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared plain prose responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the plain prose result through improvement-policy.",
+        "motivation": "The plain prose package needs the improvement-policy gate.",
+        "value": "Produce current plain prose evidence from improvement-policy.",
+        "proof": "The plain prose improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared plain prose responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the plain prose result through invocation-policy.",
+        "motivation": "The plain prose package needs the invocation-policy gate.",
+        "value": "Produce current plain prose evidence from invocation-policy.",
+        "proof": "The plain prose invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared plain prose responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the plain prose result through agentic-request.",
+        "motivation": "The plain prose package needs the agentic-request gate.",
+        "value": "Produce current plain prose evidence from agentic-request.",
+        "proof": "The plain prose agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared plain prose responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the plain prose result through mise-latest.",
+        "motivation": "The plain prose package needs the mise-latest gate.",
+        "value": "Produce current plain prose evidence from mise-latest.",
+        "proof": "The plain prose mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared plain prose responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the plain prose result through mise-primitives-update.",
+        "motivation": "The plain prose package needs the mise-primitives-update gate.",
+        "value": "Produce current plain prose evidence from mise-primitives-update.",
+        "proof": "The plain prose mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared plain prose responsibility."
+      },
+      "default": {
+        "outcome": "Advance the plain prose result through default.",
+        "motivation": "The plain prose package needs the default gate.",
+        "value": "Produce current plain prose evidence from default.",
+        "proof": "The plain prose default task exits zero with readable output.",
+        "applicability": "Use default for its declared plain prose responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose skill_body behavior.",
+      "outcome": "Keep plain prose skill_body aligned with the accepted result.",
+      "motivation": "The plain prose package needs one skill_body owner.",
+      "value": "Expose current plain prose skill_body progress.",
+      "failure_prevented": "Stale or generic plain prose skill_body behavior.",
+      "proof": "Fresh plain prose skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose references behavior.",
+      "outcome": "Keep plain prose references aligned with the accepted result.",
+      "motivation": "The plain prose package needs one references owner.",
+      "value": "Expose current plain prose references progress.",
+      "failure_prevented": "Stale or generic plain prose references behavior.",
+      "proof": "Fresh plain prose references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose assets behavior.",
+      "outcome": "Keep plain prose assets aligned with the accepted result.",
+      "motivation": "The plain prose package needs one assets owner.",
+      "value": "Expose current plain prose assets progress.",
+      "failure_prevented": "Stale or generic plain prose assets behavior.",
+      "proof": "Fresh plain prose assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose scripts behavior.",
+      "outcome": "Keep plain prose scripts aligned with the accepted result.",
+      "motivation": "The plain prose package needs one scripts owner.",
+      "value": "Expose current plain prose scripts progress.",
+      "failure_prevented": "Stale or generic plain prose scripts behavior.",
+      "proof": "Fresh plain prose scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose tests behavior.",
+      "outcome": "Keep plain prose tests aligned with the accepted result.",
+      "motivation": "The plain prose package needs one tests owner.",
+      "value": "Expose current plain prose tests progress.",
+      "failure_prevented": "Stale or generic plain prose tests behavior.",
+      "proof": "Fresh plain prose tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose mise_tasks behavior.",
+      "outcome": "Keep plain prose mise_tasks aligned with the accepted result.",
+      "motivation": "The plain prose package needs one mise_tasks owner.",
+      "value": "Expose current plain prose mise_tasks progress.",
+      "failure_prevented": "Stale or generic plain prose mise_tasks behavior.",
+      "proof": "Fresh plain prose mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose examples behavior.",
+      "outcome": "Keep plain prose examples aligned with the accepted result.",
+      "motivation": "The plain prose package needs one examples owner.",
+      "value": "Expose current plain prose examples progress.",
+      "failure_prevented": "Stale or generic plain prose examples behavior.",
+      "proof": "Fresh plain prose examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose evals behavior.",
+      "outcome": "Keep plain prose evals aligned with the accepted result.",
+      "motivation": "The plain prose package needs one evals owner.",
+      "value": "Expose current plain prose evals progress.",
+      "failure_prevented": "Stale or generic plain prose evals behavior.",
+      "proof": "Fresh plain prose evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose policies behavior.",
+      "outcome": "Keep plain prose policies aligned with the accepted result.",
+      "motivation": "The plain prose package needs one policies owner.",
+      "value": "Expose current plain prose policies progress.",
+      "failure_prevented": "Stale or generic plain prose policies behavior.",
+      "proof": "Fresh plain prose policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose schemas behavior.",
+      "outcome": "Keep plain prose schemas aligned with the accepted result.",
+      "motivation": "The plain prose package needs one schemas owner.",
+      "value": "Expose current plain prose schemas progress.",
+      "failure_prevented": "Stale or generic plain prose schemas behavior.",
+      "proof": "Fresh plain prose schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own plain prose records behavior.",
+      "outcome": "Keep plain prose records aligned with the accepted result.",
+      "motivation": "The plain prose package needs one records owner.",
+      "value": "Expose current plain prose records progress.",
+      "failure_prevented": "Stale or generic plain prose records behavior.",
+      "proof": "Fresh plain prose records validation and behavioral evidence."
+    }
+  }
+}

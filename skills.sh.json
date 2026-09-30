@@ -60,7 +60,7 @@
     },
     {
       "title": "Writing",
-      "skills": ["meaning-preserving-rewrite"]
+      "skills": ["human-language", "meaning-preserving-rewrite", "rich-and-native-markdown"]
     }
   ]
 }

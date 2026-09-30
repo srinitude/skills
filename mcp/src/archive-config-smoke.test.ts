@@ -57,7 +57,7 @@ test('starts every declared MCP route from packaged canonical bytes', async () =
   for (const config of configs) {
     const proof = await probeMcp(config);
     expect(proof.toolNames).toEqual(expectedTools);
-    expect(proof.resourceCount).toBe(22);
+    expect(proof.resourceCount).toBe(24);
     expect(proof.resources).toEqual(expectedResources);
     expect(proof.annotationsValid).toBe(true);
   }

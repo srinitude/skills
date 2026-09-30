@@ -1,0 +1,530 @@
+{
+  "version": "1.0.0",
+  "skill": "rich-and-native-markdown",
+  "outcome": "Complete each Markdown rewrite so the result keeps the source meaning, exact data, and sound reading paths.",
+  "motivations": [
+    {
+      "constraint": "Preserve the accepted Markdown rewrite behavior.",
+      "reason": "The Markdown rewrite outcome depends on stable domain semantics.",
+      "failure_prevented": "A Markdown rewrite update that changes user-visible meaning."
+    },
+    {
+      "constraint": "Route repeatable Markdown rewrite checks through Mise.",
+      "reason": "The Markdown rewrite judgment needs fresh deterministic evidence.",
+      "failure_prevented": "A Markdown rewrite claim backed only by prose or intent."
+    }
+  ],
+  "domain_terms": [
+    "Markdown rewrite",
+    "meaning ledger",
+    "reading path",
+    "line limit"
+  ],
+  "domain_failures": [
+    "The Markdown rewrite result changes without proof.",
+    "The Markdown rewrite package reports a false pass."
+  ],
+  "domain_evidence": [
+    "Fresh Markdown rewrite task output and saved receipts.",
+    "Current Markdown rewrite behavior and counterexample checks."
+  ],
+  "domain_dimensions": {
+    "actors": [
+      "The Markdown rewrite contract owns actors decisions."
+    ],
+    "objects": [
+      "The Markdown rewrite contract owns objects decisions."
+    ],
+    "actions": [
+      "The Markdown rewrite contract owns actions decisions."
+    ],
+    "states": [
+      "The Markdown rewrite contract owns states decisions."
+    ],
+    "invariants": [
+      "The Markdown rewrite contract owns invariants decisions."
+    ],
+    "variants": [
+      "The Markdown rewrite contract owns variants decisions."
+    ],
+    "interfaces": [
+      "The Markdown rewrite contract owns interfaces decisions."
+    ],
+    "authorities": [
+      "The Markdown rewrite contract owns authorities decisions."
+    ],
+    "failures": [
+      "The Markdown rewrite contract owns failures decisions."
+    ],
+    "recoveries": [
+      "The Markdown rewrite contract owns recoveries decisions."
+    ],
+    "evidence": [
+      "The Markdown rewrite contract owns evidence decisions."
+    ],
+    "time": [
+      "The Markdown rewrite contract owns time decisions."
+    ],
+    "resources": [
+      "The Markdown rewrite contract owns resources decisions."
+    ],
+    "quality": [
+      "The Markdown rewrite contract owns quality decisions."
+    ],
+    "terminology": [
+      "The Markdown rewrite contract owns terminology decisions."
+    ],
+    "exclusions": [
+      "The Markdown rewrite contract owns exclusions decisions."
+    ]
+  },
+  "research_questions": {
+    "actors": "What can change the Markdown rewrite actors decision?",
+    "objects": "What can change the Markdown rewrite objects decision?",
+    "actions": "What can change the Markdown rewrite actions decision?",
+    "states": "What can change the Markdown rewrite states decision?",
+    "invariants": "What can change the Markdown rewrite invariants decision?",
+    "variants": "What can change the Markdown rewrite variants decision?",
+    "interfaces": "What can change the Markdown rewrite interfaces decision?",
+    "authorities": "What can change the Markdown rewrite authorities decision?",
+    "failures": "What can change the Markdown rewrite failures decision?",
+    "recoveries": "What can change the Markdown rewrite recoveries decision?",
+    "evidence": "What can change the Markdown rewrite evidence decision?",
+    "time": "What can change the Markdown rewrite time decision?",
+    "resources": "What can change the Markdown rewrite resources decision?",
+    "quality": "What can change the Markdown rewrite quality decision?",
+    "terminology": "What can change the Markdown rewrite terminology decision?",
+    "exclusions": "What can change the Markdown rewrite exclusions decision?"
+  },
+  "research_receipts": [
+    {
+      "source": "https://spec.commonmark.org/0.31.2/",
+      "source_class": "standard",
+      "claim": "CommonMark 0.31.2 is the core Markdown syntax baseline.",
+      "limitations": "It is syntax guidance, not a parser conformance audit.",
+      "disposition": "retained",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://github.github.com/gfm/",
+      "source_class": "first_party",
+      "claim": "GitHub Flavored Markdown adds pipe tables and other host extensions.",
+      "limitations": "Complex table support must be checked per target.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/tutorials/page-structure/headings/",
+      "source_class": "standard",
+      "claim": "Meaningful heading structure helps readers find content.",
+      "limitations": "Heading depth rules beyond this guidance are the package's own project rules.",
+      "disposition": "adapted",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://www.w3.org/WAI/test-evaluate/",
+      "source_class": "standard",
+      "claim": "Automated tools alone cannot determine accessibility.",
+      "limitations": "Evaluation guidance does not name one required tool.",
+      "disposition": "retained",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    },
+    {
+      "source": "https://developers.google.com/style/accessibility",
+      "source_class": "practitioner",
+      "claim": "Source formatting and rendered semantics both matter.",
+      "limitations": "Publisher style advice is distinct from standards.",
+      "disposition": "bounded",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "dimensions": [
+        "actors",
+        "objects",
+        "actions",
+        "states",
+        "invariants",
+        "variants",
+        "interfaces",
+        "authorities",
+        "failures",
+        "recoveries",
+        "evidence",
+        "time",
+        "resources",
+        "quality",
+        "terminology",
+        "exclusions"
+      ]
+    }
+  ],
+  "disconfirmation": [
+    {
+      "question": "Can a passing file checker prove a Markdown rewrite kept its meaning?",
+      "source": "https://www.w3.org/WAI/test-evaluate/",
+      "checked_at": "2026-09-17T00:00:00-04:00",
+      "result": "No. Mechanical checks cannot judge meaning or reader understanding.",
+      "disposition": "Keep mechanical checks, semantic review, and reader tests as separate gates."
+    }
+  ],
+  "task_graph": {
+    "ci_task": "ci",
+    "public_operations": [
+      {
+        "task": "agentic-request",
+        "outcome": "Produce the named Markdown rewrite agentic-request result.",
+        "motivation": "The Markdown rewrite workflow needs one agentic-request entry.",
+        "why_default_path": "This is the single declared Markdown rewrite agentic-request route.",
+        "proof": "Fresh Markdown rewrite agentic-request output and exit status."
+      },
+      {
+        "task": "invocation-policy",
+        "outcome": "Produce the named Markdown rewrite invocation-policy result.",
+        "motivation": "The Markdown rewrite workflow needs one invocation-policy entry.",
+        "why_default_path": "This is the single declared Markdown rewrite invocation-policy route.",
+        "proof": "Fresh Markdown rewrite invocation-policy output and exit status."
+      },
+      {
+        "task": "improvement-policy",
+        "outcome": "Produce the named Markdown rewrite improvement-policy result.",
+        "motivation": "The Markdown rewrite workflow needs one improvement-policy entry.",
+        "why_default_path": "This is the single declared Markdown rewrite improvement-policy route.",
+        "proof": "Fresh Markdown rewrite improvement-policy output and exit status."
+      },
+      {
+        "task": "mise-primitives-update",
+        "outcome": "Produce the named Markdown rewrite mise-primitives-update result.",
+        "motivation": "The Markdown rewrite workflow needs one mise-primitives-update entry.",
+        "why_default_path": "This is the single declared Markdown rewrite mise-primitives-update route.",
+        "proof": "Fresh Markdown rewrite mise-primitives-update output and exit status."
+      },
+      {
+        "task": "check-markdown",
+        "outcome": "Produce the named Markdown rewrite check-markdown result.",
+        "motivation": "The Markdown rewrite workflow needs one check-markdown entry.",
+        "why_default_path": "This is the single declared Markdown rewrite check-markdown route.",
+        "proof": "Fresh Markdown rewrite check-markdown output and exit status."
+      },
+      {
+        "task": "default",
+        "outcome": "Produce the named Markdown rewrite default result.",
+        "motivation": "The Markdown rewrite workflow needs one default entry.",
+        "why_default_path": "This is the single declared Markdown rewrite default route.",
+        "proof": "Fresh Markdown rewrite default output and exit status."
+      }
+    ],
+    "tasks": {
+      "test": {
+        "outcome": "Advance the Markdown rewrite result through test.",
+        "motivation": "The Markdown rewrite package needs the test gate.",
+        "value": "Produce current Markdown rewrite evidence from test.",
+        "proof": "The Markdown rewrite test task exits zero with readable output.",
+        "applicability": "Use test for its declared Markdown rewrite responsibility."
+      },
+      "validate": {
+        "outcome": "Advance the Markdown rewrite result through validate.",
+        "motivation": "The Markdown rewrite package needs the validate gate.",
+        "value": "Produce current Markdown rewrite evidence from validate.",
+        "proof": "The Markdown rewrite validate task exits zero with readable output.",
+        "applicability": "Use validate for its declared Markdown rewrite responsibility."
+      },
+      "lint-writing": {
+        "outcome": "Advance the Markdown rewrite result through lint-writing.",
+        "motivation": "The Markdown rewrite package needs the lint-writing gate.",
+        "value": "Produce current Markdown rewrite evidence from lint-writing.",
+        "proof": "The Markdown rewrite lint-writing task exits zero with readable output.",
+        "applicability": "Use lint-writing for its declared Markdown rewrite responsibility."
+      },
+      "lint-code": {
+        "outcome": "Advance the Markdown rewrite result through lint-code.",
+        "motivation": "The Markdown rewrite package needs the lint-code gate.",
+        "value": "Produce current Markdown rewrite evidence from lint-code.",
+        "proof": "The Markdown rewrite lint-code task exits zero with readable output.",
+        "applicability": "Use lint-code for its declared Markdown rewrite responsibility."
+      },
+      "evals": {
+        "outcome": "Advance the Markdown rewrite result through evals.",
+        "motivation": "The Markdown rewrite package needs the evals gate.",
+        "value": "Produce current Markdown rewrite evidence from evals.",
+        "proof": "The Markdown rewrite evals task exits zero with readable output.",
+        "applicability": "Use evals for its declared Markdown rewrite responsibility."
+      },
+      "ci": {
+        "outcome": "Advance the Markdown rewrite result through ci.",
+        "motivation": "The Markdown rewrite package needs the ci gate.",
+        "value": "Produce current Markdown rewrite evidence from ci.",
+        "proof": "The Markdown rewrite ci task exits zero with readable output.",
+        "applicability": "Use ci for its declared Markdown rewrite responsibility."
+      },
+      "domain-research-policy": {
+        "outcome": "Advance the Markdown rewrite result through domain-research-policy.",
+        "motivation": "The Markdown rewrite package needs the domain-research-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from domain-research-policy.",
+        "proof": "The Markdown rewrite domain-research-policy task exits zero with readable output.",
+        "applicability": "Use domain-research-policy for its declared Markdown rewrite responsibility."
+      },
+      "use-case-policy": {
+        "outcome": "Advance the Markdown rewrite result through use-case-policy.",
+        "motivation": "The Markdown rewrite package needs the use-case-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from use-case-policy.",
+        "proof": "The Markdown rewrite use-case-policy task exits zero with readable output.",
+        "applicability": "Use use-case-policy for its declared Markdown rewrite responsibility."
+      },
+      "mise-primitives-policy": {
+        "outcome": "Advance the Markdown rewrite result through mise-primitives-policy.",
+        "motivation": "The Markdown rewrite package needs the mise-primitives-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from mise-primitives-policy.",
+        "proof": "The Markdown rewrite mise-primitives-policy task exits zero with readable output.",
+        "applicability": "Use mise-primitives-policy for its declared Markdown rewrite responsibility."
+      },
+      "primitive-lifecycle-policy": {
+        "outcome": "Advance the Markdown rewrite result through primitive-lifecycle-policy.",
+        "motivation": "The Markdown rewrite package needs the primitive-lifecycle-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from primitive-lifecycle-policy.",
+        "proof": "The Markdown rewrite primitive-lifecycle-policy task exits zero with readable output.",
+        "applicability": "Use primitive-lifecycle-policy for its declared Markdown rewrite responsibility."
+      },
+      "task-graph-policy": {
+        "outcome": "Advance the Markdown rewrite result through task-graph-policy.",
+        "motivation": "The Markdown rewrite package needs the task-graph-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from task-graph-policy.",
+        "proof": "The Markdown rewrite task-graph-policy task exits zero with readable output.",
+        "applicability": "Use task-graph-policy for its declared Markdown rewrite responsibility."
+      },
+      "decision-policy": {
+        "outcome": "Advance the Markdown rewrite result through decision-policy.",
+        "motivation": "The Markdown rewrite package needs the decision-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from decision-policy.",
+        "proof": "The Markdown rewrite decision-policy task exits zero with readable output.",
+        "applicability": "Use decision-policy for its declared Markdown rewrite responsibility."
+      },
+      "improvement-policy": {
+        "outcome": "Advance the Markdown rewrite result through improvement-policy.",
+        "motivation": "The Markdown rewrite package needs the improvement-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from improvement-policy.",
+        "proof": "The Markdown rewrite improvement-policy task exits zero with readable output.",
+        "applicability": "Use improvement-policy for its declared Markdown rewrite responsibility."
+      },
+      "invocation-policy": {
+        "outcome": "Advance the Markdown rewrite result through invocation-policy.",
+        "motivation": "The Markdown rewrite package needs the invocation-policy gate.",
+        "value": "Produce current Markdown rewrite evidence from invocation-policy.",
+        "proof": "The Markdown rewrite invocation-policy task exits zero with readable output.",
+        "applicability": "Use invocation-policy for its declared Markdown rewrite responsibility."
+      },
+      "agentic-request": {
+        "outcome": "Advance the Markdown rewrite result through agentic-request.",
+        "motivation": "The Markdown rewrite package needs the agentic-request gate.",
+        "value": "Produce current Markdown rewrite evidence from agentic-request.",
+        "proof": "The Markdown rewrite agentic-request task exits zero with readable output.",
+        "applicability": "Use agentic-request for its declared Markdown rewrite responsibility."
+      },
+      "mise-latest": {
+        "outcome": "Advance the Markdown rewrite result through mise-latest.",
+        "motivation": "The Markdown rewrite package needs the mise-latest gate.",
+        "value": "Produce current Markdown rewrite evidence from mise-latest.",
+        "proof": "The Markdown rewrite mise-latest task exits zero with readable output.",
+        "applicability": "Use mise-latest for its declared Markdown rewrite responsibility."
+      },
+      "mise-primitives-update": {
+        "outcome": "Advance the Markdown rewrite result through mise-primitives-update.",
+        "motivation": "The Markdown rewrite package needs the mise-primitives-update gate.",
+        "value": "Produce current Markdown rewrite evidence from mise-primitives-update.",
+        "proof": "The Markdown rewrite mise-primitives-update task exits zero with readable output.",
+        "applicability": "Use mise-primitives-update for its declared Markdown rewrite responsibility."
+      },
+      "deps": {
+        "outcome": "Advance the Markdown rewrite result through deps.",
+        "motivation": "The Markdown rewrite package needs the deps gate.",
+        "value": "Produce current Markdown rewrite evidence from deps.",
+        "proof": "The Markdown rewrite deps task exits zero with readable output.",
+        "applicability": "Use deps for its declared Markdown rewrite responsibility."
+      },
+      "check-markdown": {
+        "outcome": "Advance the Markdown rewrite result through check-markdown.",
+        "motivation": "The Markdown rewrite package needs the check-markdown gate.",
+        "value": "Produce current Markdown rewrite evidence from check-markdown.",
+        "proof": "The Markdown rewrite check-markdown task exits zero with readable output.",
+        "applicability": "Use check-markdown for its declared Markdown rewrite responsibility."
+      },
+      "default": {
+        "outcome": "Advance the Markdown rewrite result through default.",
+        "motivation": "The Markdown rewrite package needs the default gate.",
+        "value": "Produce current Markdown rewrite evidence from default.",
+        "proof": "The Markdown rewrite default task exits zero with readable output.",
+        "applicability": "Use default for its declared Markdown rewrite responsibility."
+      }
+    }
+  },
+  "primitive_roles": {
+    "skill_body": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite skill_body behavior.",
+      "outcome": "Keep Markdown rewrite skill_body aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one skill_body owner.",
+      "value": "Expose current Markdown rewrite skill_body progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite skill_body behavior.",
+      "proof": "Fresh Markdown rewrite skill_body validation and behavioral evidence."
+    },
+    "references": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite references behavior.",
+      "outcome": "Keep Markdown rewrite references aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one references owner.",
+      "value": "Expose current Markdown rewrite references progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite references behavior.",
+      "proof": "Fresh Markdown rewrite references validation and behavioral evidence."
+    },
+    "assets": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite assets behavior.",
+      "outcome": "Keep Markdown rewrite assets aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one assets owner.",
+      "value": "Expose current Markdown rewrite assets progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite assets behavior.",
+      "proof": "Fresh Markdown rewrite assets validation and behavioral evidence."
+    },
+    "scripts": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite scripts behavior.",
+      "outcome": "Keep Markdown rewrite scripts aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one scripts owner.",
+      "value": "Expose current Markdown rewrite scripts progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite scripts behavior.",
+      "proof": "Fresh Markdown rewrite scripts validation and behavioral evidence."
+    },
+    "tests": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite tests behavior.",
+      "outcome": "Keep Markdown rewrite tests aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one tests owner.",
+      "value": "Expose current Markdown rewrite tests progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite tests behavior.",
+      "proof": "Fresh Markdown rewrite tests validation and behavioral evidence."
+    },
+    "mise_tasks": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite mise_tasks behavior.",
+      "outcome": "Keep Markdown rewrite mise_tasks aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one mise_tasks owner.",
+      "value": "Expose current Markdown rewrite mise_tasks progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite mise_tasks behavior.",
+      "proof": "Fresh Markdown rewrite mise_tasks validation and behavioral evidence."
+    },
+    "examples": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite examples behavior.",
+      "outcome": "Keep Markdown rewrite examples aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one examples owner.",
+      "value": "Expose current Markdown rewrite examples progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite examples behavior.",
+      "proof": "Fresh Markdown rewrite examples validation and behavioral evidence."
+    },
+    "evals": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite evals behavior.",
+      "outcome": "Keep Markdown rewrite evals aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one evals owner.",
+      "value": "Expose current Markdown rewrite evals progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite evals behavior.",
+      "proof": "Fresh Markdown rewrite evals validation and behavioral evidence."
+    },
+    "policies": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite policies behavior.",
+      "outcome": "Keep Markdown rewrite policies aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one policies owner.",
+      "value": "Expose current Markdown rewrite policies progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite policies behavior.",
+      "proof": "Fresh Markdown rewrite policies validation and behavioral evidence."
+    },
+    "schemas": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite schemas behavior.",
+      "outcome": "Keep Markdown rewrite schemas aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one schemas owner.",
+      "value": "Expose current Markdown rewrite schemas progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite schemas behavior.",
+      "proof": "Fresh Markdown rewrite schemas validation and behavioral evidence."
+    },
+    "records": {
+      "ownership": "domain_specific",
+      "role": "Own Markdown rewrite records behavior.",
+      "outcome": "Keep Markdown rewrite records aligned with the accepted result.",
+      "motivation": "The Markdown rewrite package needs one records owner.",
+      "value": "Expose current Markdown rewrite records progress.",
+      "failure_prevented": "Stale or generic Markdown rewrite records behavior.",
+      "proof": "Fresh Markdown rewrite records validation and behavioral evidence."
+    }
+  }
+}

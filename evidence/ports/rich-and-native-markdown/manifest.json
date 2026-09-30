@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "skill": "rich-and-native-markdown",
+  "native_version": "unversioned",
+  "source_commit": "8aaebd3b425765110f97af98a15fbffb57833c3e",
+  "native_manifest_sha256": "0dd75c6ed6d192ef86275077cd1e53ba440101636c68a1a4f4338a7e3a53616e",
+  "manifest_algorithm": "SHA-256 of source-path, NUL, file SHA-256, and newline rows in manifest order",
+  "source_case_ids": [
+    "RNM-001",
+    "RNM-002",
+    "RNM-003",
+    "RNM-004",
+    "RNM-005",
+    "RNM-006",
+    "RNM-007",
+    "RNM-008",
+    "RNM-009",
+    "RNM-010",
+    "RNM-011",
+    "RNM-012",
+    "RNM-013",
+    "RNM-014",
+    "RNM-015",
+    "RNM-016",
+    "RNM-017",
+    "RNM-018",
+    "RNM-019",
+    "RNM-020",
+    "RNM-021",
+    "RNM-022",
+    "RNM-023",
+    "RNM-024",
+    "RNM-025",
+    "RNM-026",
+    "RNM-027",
+    "RNM-028",
+    "RNM-029",
+    "RNM-030",
+    "RNM-031",
+    "RNM-032",
+    "RNM-033",
+    "RNM-034",
+    "RNM-035",
+    "RNM-036",
+    "RNM-037",
+    "RNM-038",
+    "RNM-039",
+    "RNM-040",
+    "RNM-041",
+    "RNM-042",
+    "RNM-043",
+    "RNM-044",
+    "RNM-045",
+    "RNM-046",
+    "RNM-047",
+    "RNM-048",
+    "RNM-049",
+    "RNM-050",
+    "RNM-051",
+    "RNM-052",
+    "RNM-053",
+    "RNM-054",
+    "RNM-055",
+    "RNM-056",
+    "RNM-057",
+    "RNM-058",
+    "RNM-059",
+    "RNM-060",
+    "RNM-061",
+    "RNM-062",
+    "RNM-063"
+  ],
+  "native_case_ids": [
+    "B01",
+    "B02",
+    "B03-149",
+    "B03-150",
+    "B03-151",
+    "B03-199",
+    "B03-200",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08-self",
+    "B08-direct",
+    "B08-indirect",
+    "B08-alias",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B17",
+    "B18",
+    "B19-changed",
+    "B19-partial",
+    "B19-branch",
+    "B19-exact",
+    "B20",
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25",
+    "B26",
+    "B27",
+    "B28",
+    "B29",
+    "B30",
+    "B31",
+    "B32",
+    "B33",
+    "B34",
+    "B35",
+    "B36",
+    "B37",
+    "B38",
+    "B39",
+    "B40",
+    "B41",
+    "B42",
+    "B43",
+    "B44",
+    "B45",
+    "B46",
+    "B47",
+    "B48",
+    "B49",
+    "B50",
+    "B51",
+    "B52",
+    "B53"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "native/SKILL.native.md",
+      "sha256": "25631ccbe59e6caaf127eb026b86b3787bb1d8abd1fe6fe40bfb35b23fd444d6",
+      "bytes": 9044
+    },
+    {
+      "source_path": "evals/behavior-cases.json",
+      "evidence_path": "native/evals/behavior-cases.json",
+      "sha256": "a55ffa880e48e0d17adc779b5e07c6554d2fa6d5c3704899d9d30fac2a2c602f",
+      "bytes": 46419
+    },
+    {
+      "source_path": "references/audit.md",
+      "evidence_path": "native/references/audit.md",
+      "sha256": "3ded1e10991d09d35f6a091f52f8814d93248e1a46a6da0603e95c2e960aba35",
+      "bytes": 2203
+    },
+    {
+      "source_path": "references/catalog-asides.md",
+      "evidence_path": "native/references/catalog-asides.md",
+      "sha256": "5c6c666ebc0b45814a5bc1daee436132970874e5faa17832b893c61fc80bb298",
+      "bytes": 4047
+    },
+    {
+      "source_path": "references/catalog-blocks.md",
+      "evidence_path": "native/references/catalog-blocks.md",
+      "sha256": "b4b694d08ca0f2b78b1be483ba540e20bd4b1e26fd4bcdfc180cf0327eb25ae2",
+      "bytes": 3666
+    },
+    {
+      "source_path": "references/catalog-containers.md",
+      "evidence_path": "native/references/catalog-containers.md",
+      "sha256": "79aad228b541a7300a1dac2e6a8117a9440b51d74d88290172ca2f4bea95fca2",
+      "bytes": 4266
+    },
+    {
+      "source_path": "references/catalog-gfm.md",
+      "evidence_path": "native/references/catalog-gfm.md",
+      "sha256": "99cb575a27004321be139319260aaa886c7113216eeff2002e7a11a726eae011",
+      "bytes": 2281
+    },
+    {
+      "source_path": "references/catalog-host-content.md",
+      "evidence_path": "native/references/catalog-host-content.md",
+      "sha256": "354eb461817d96d94eb44e8f4bc51772327e7a7d41cf628ce5b2c771b171ecb6",
+      "bytes": 4977
+    },
+    {
+      "source_path": "references/catalog-includes.md",
+      "evidence_path": "native/references/catalog-includes.md",
+      "sha256": "238472c479e9d9c943220c8342237a14528fd1b203b17ef4541344e49c6119fa",
+      "bytes": 3905
+    },
+    {
+      "source_path": "references/catalog-inline.md",
+      "evidence_path": "native/references/catalog-inline.md",
+      "sha256": "84e928201fb7bdfc4bf99a3d7fcfe77cfa143a935ee29ffee81e05ca73e86a72",
+      "bytes": 4335
+    },
+    {
+      "source_path": "references/catalog-inventory.md",
+      "evidence_path": "native/references/catalog-inventory.md",
+      "sha256": "2c46e818899effaed52d8865e9df2458e0970a60f974f4e9eba27ab2a188cf14",
+      "bytes": 11338
+    },
+    {
+      "source_path": "references/catalog-links-code.md",
+      "evidence_path": "native/references/catalog-links-code.md",
+      "sha256": "89ad9a6d6175256f72302ee5d0e8e8143c9b8bd90d8d4df5411119b70d3499e9",
+      "bytes": 5282
+    },
+    {
+      "source_path": "references/catalog-math-edits.md",
+      "evidence_path": "native/references/catalog-math-edits.md",
+      "sha256": "e0b152a927349cb6ad64b4cb56cd1ab7201cfba2dbff6d62d1ecd2fb1a7e36ae",
+      "bytes": 5398
+    },
+    {
+      "source_path": "references/catalog-mdx-media.md",
+      "evidence_path": "native/references/catalog-mdx-media.md",
+      "sha256": "01475a42afd171062bf6b9aadc9e96198d281eef4b2eb271343935185fda8111",
+      "bytes": 3585
+    },
+    {
+      "source_path": "references/catalog-metadata-cites.md",
+      "evidence_path": "native/references/catalog-metadata-cites.md",
+      "sha256": "b4bd62c16b264716e20850f38cfe9905912a3e33fbb724db402655317976181e",
+      "bytes": 3367
+    },
+    {
+      "source_path": "references/catalog-myst.md",
+      "evidence_path": "native/references/catalog-myst.md",
+      "sha256": "9aa0aa28d5112178e15cad769bcd874278b873270043f7429cae8aaaa9790bb3",
+      "bytes": 4085
+    },
+    {
+      "source_path": "references/catalog-notes-lists.md",
+      "evidence_path": "native/references/catalog-notes-lists.md",
+      "sha256": "bca74000af6703a4305ccaacb6481a47bee6b4233fdff9c8e15681eaa4dcb621",
+      "bytes": 3484
+    },
+    {
+      "source_path": "references/catalog-parsing.md",
+      "evidence_path": "native/references/catalog-parsing.md",
+      "sha256": "13a9cdaaee38bfa26d5b197bd254727e0a94fdcc40bc8d06031139a612db7f9c",
+      "bytes": 4164
+    },
+    {
+      "source_path": "references/catalog-quarto-markdoc.md",
+      "evidence_path": "native/references/catalog-quarto-markdoc.md",
+      "sha256": "ea41da4437606de3762a5967d46083561cb5a6aa4540183cbb7d58bac36c5dad",
+      "bytes": 4016
+    },
+    {
+      "source_path": "references/catalog-sources.md",
+      "evidence_path": "native/references/catalog-sources.md",
+      "sha256": "986dfaaed2ea4c9981dee598a38b7643a4aba1ee4d05ef63f74e360688043100",
+      "bytes": 8196
+    },
+    {
+      "source_path": "references/catalog-tables-media.md",
+      "evidence_path": "native/references/catalog-tables-media.md",
+      "sha256": "d807f660cf0e2fba7fc8ca8b3497263c929ada9cc1dd9ff89bc19e9cc9653ddf",
+      "bytes": 3565
+    },
+    {
+      "source_path": "references/catalog-text.md",
+      "evidence_path": "native/references/catalog-text.md",
+      "sha256": "cb23a29fd8c6b76740e4ef19506ad6761790392ee355fa60ccaab7466d9c6796",
+      "bytes": 3283
+    },
+    {
+      "source_path": "references/catalog-theme.md",
+      "evidence_path": "native/references/catalog-theme.md",
+      "sha256": "92c4b89f806adf06d58bdfbfa24e1860df3aa1bb0468dc38092278980ce69ca1",
+      "bytes": 3631
+    },
+    {
+      "source_path": "references/catalog.md",
+      "evidence_path": "native/references/catalog.md",
+      "sha256": "5cd3a7bbaed58dee700d34b58024410ac3ce0ac1793d98b36ecea8a88525f4a1",
+      "bytes": 7632
+    },
+    {
+      "source_path": "references/checks.md",
+      "evidence_path": "native/references/checks.md",
+      "sha256": "c69e98d4fa853ef07cfd9c91fb37e5b9b7aa631172e5f33115bb94100b1fb80b",
+      "bytes": 6064
+    },
+    {
+      "source_path": "references/context.md",
+      "evidence_path": "native/references/context.md",
+      "sha256": "ada65de59f3b7af12bdff6b0aa22c09159901fd6e0ec887927d65bc9cdf5496f",
+      "bytes": 6119
+    },
+    {
+      "source_path": "references/coverage.md",
+      "evidence_path": "native/references/coverage.md",
+      "sha256": "e8761d85cf2b9647a3380056e15e35b4c606d1557c79092431ef424c274fcc59",
+      "bytes": 8498
+    },
+    {
+      "source_path": "references/dependencies.md",
+      "evidence_path": "native/references/dependencies.md",
+      "sha256": "85dfa637381046a1c685cc44c45dc130121c001b003abc7ca389b8e902c5cc7c",
+      "bytes": 14621
+    },
+    {
+      "source_path": "references/disclosure.md",
+      "evidence_path": "native/references/disclosure.md",
+      "sha256": "3b04ec6ce5f2645c4ece86c720be3b66124aacc2d0d374eac28b92e7169be727",
+      "bytes": 6785
+    },
+    {
+      "source_path": "references/headings.md",
+      "evidence_path": "native/references/headings.md",
+      "sha256": "201b33cd5c5528c506236d4bf9c580b20f64fb475d39be6930f439f50f047864",
+      "bytes": 5928
+    },
+    {
+      "source_path": "references/hierarchy.md",
+      "evidence_path": "native/references/hierarchy.md",
+      "sha256": "be5ffb9b1d778253a87362641de035550e9482cf57a91e988feff93bf8d0b9cf",
+      "bytes": 6241
+    },
+    {
+      "source_path": "references/language.md",
+      "evidence_path": "native/references/language.md",
+      "sha256": "36f5ba303979f0ad85fd24be000300d4211e7e7f11facb36803c828f36939994",
+      "bytes": 8209
+    },
+    {
+      "source_path": "references/manifest.md",
+      "evidence_path": "native/references/manifest.md",
+      "sha256": "c93f26d6986a4e53476c1ee740b7ca92b7daf82671c0f949e475d120461dc7af",
+      "bytes": 2980
+    },
+    {
+      "source_path": "references/placement.md",
+      "evidence_path": "native/references/placement.md",
+      "sha256": "53d750e9478d8372875500ca83ae63607a47c962d6d93956e25aef582481be85",
+      "bytes": 7989
+    },
+    {
+      "source_path": "references/readability.md",
+      "evidence_path": "native/references/readability.md",
+      "sha256": "901d660a314c842f6b10377f17e0116da44886ce013f94299743da7cc5c0d337",
+      "bytes": 8774
+    },
+    {
+      "source_path": "references/research.md",
+      "evidence_path": "native/references/research.md",
+      "sha256": "89a2020ee83b3fdc4fdc4f49392ae6745db7ab8d5180471e6e9b3d195609ce64",
+      "bytes": 6796
+    },
+    {
+      "source_path": "references/structure.md",
+      "evidence_path": "native/references/structure.md",
+      "sha256": "59e94722ef6ba8451346576ccea7c4a6d61f048b751a348da4d228ca90f07876",
+      "bytes": 3054
+    },
+    {
+      "source_path": "references/validation.md",
+      "evidence_path": "native/references/validation.md",
+      "sha256": "cc7853d8a0b99f0e69a5ca5ca750f643c56a104c73936219ecbe53a9ee681dbe",
+      "bytes": 5981
+    },
+    {
+      "source_path": "scripts/check_markdown.py",
+      "evidence_path": "native/scripts/check_markdown.py",
+      "sha256": "d5a09135da24df70291d351d46a96bef99c68c2586a299431c9b00f99c455a79",
+      "bytes": 4222
+    },
+    {
+      "source_path": "scripts/markdown_graph.py",
+      "evidence_path": "native/scripts/markdown_graph.py",
+      "sha256": "aeed61887942f87e163aa34cd6714f7d4fbc206c37c4afdaf15325a52608fffd",
+      "bytes": 1724
+    },
+    {
+      "source_path": "scripts/markdown_links.py",
+      "evidence_path": "native/scripts/markdown_links.py",
+      "sha256": "b5b508753101728294f638ddc1ac41d40395547a3faedb7e9a7ea7b536d821a6",
+      "bytes": 2128
+    },
+    {
+      "source_path": "scripts/markdown_manifest.py",
+      "evidence_path": "native/scripts/markdown_manifest.py",
+      "sha256": "60836af86194edcfbc778e3ab712101920804261988dcf8b138cc84dbf3238be",
+      "bytes": 3731
+    },
+    {
+      "source_path": "scripts/markdown_parse.py",
+      "evidence_path": "native/scripts/markdown_parse.py",
+      "sha256": "bd214f8c1a98821e84adac87e42735c171050169f389701ee2e6c8285a1590c1",
+      "bytes": 3119
+    },
+    {
+      "source_path": "scripts/markdown_structure.py",
+      "evidence_path": "native/scripts/markdown_structure.py",
+      "sha256": "311dccf4ba66a04e3c9d054255d2b8d897728de9a5acd0e6fb5f8ac715386dd8",
+      "bytes": 7161
+    },
+    {
+      "source_path": "scripts/test_checks.py",
+      "evidence_path": "native/scripts/test_checks.py",
+      "sha256": "564239b1943b9d3cca5653c3f339385e786494e0a57ff6da5703bb2817abaf79",
+      "bytes": 5626
+    },
+    {
+      "source_path": "scripts/test_code_limits.py",
+      "evidence_path": "native/scripts/test_code_limits.py",
+      "sha256": "e49ed57742c0268fa293d4f00c254483a09c74c6a7a1e515802e4f3b4409afcc",
+      "bytes": 1532
+    },
+    {
+      "source_path": "scripts/test_structure.py",
+      "evidence_path": "native/scripts/test_structure.py",
+      "sha256": "fcaa5e2ad6221c47366290c8c56c126baa0961e631d27855074b91282d8f86fa",
+      "bytes": 6287
+    }
+  ],
+  "excluded_entries": [
+    "scripts/__pycache__",
+    ".DS_Store"
+  ],
+  "private_scan_findings": [],
+  "portable_skill": "skills/rich-and-native-markdown"
+}

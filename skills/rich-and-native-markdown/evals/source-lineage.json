@@ -1,0 +1,878 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "0dd75c6ed6d192ef86275077cd1e53ba440101636c68a1a4f4338a7e3a53616e",
+  "active_case_ids": [
+    "RNM-001",
+    "RNM-002",
+    "RNM-003",
+    "RNM-004",
+    "RNM-005",
+    "RNM-006",
+    "RNM-007",
+    "RNM-008",
+    "RNM-009",
+    "RNM-010",
+    "RNM-011",
+    "RNM-012",
+    "RNM-013",
+    "RNM-014",
+    "RNM-015",
+    "RNM-016",
+    "RNM-017",
+    "RNM-018",
+    "RNM-019",
+    "RNM-020",
+    "RNM-021",
+    "RNM-022",
+    "RNM-023",
+    "RNM-024",
+    "RNM-025",
+    "RNM-026",
+    "RNM-027",
+    "RNM-028",
+    "RNM-029",
+    "RNM-030",
+    "RNM-031",
+    "RNM-032",
+    "RNM-033",
+    "RNM-034",
+    "RNM-035",
+    "RNM-036",
+    "RNM-037",
+    "RNM-038",
+    "RNM-039",
+    "RNM-040",
+    "RNM-041",
+    "RNM-042",
+    "RNM-043",
+    "RNM-044",
+    "RNM-045",
+    "RNM-046",
+    "RNM-047",
+    "RNM-048",
+    "RNM-049",
+    "RNM-050",
+    "RNM-051",
+    "RNM-052",
+    "RNM-053",
+    "RNM-054",
+    "RNM-055",
+    "RNM-056",
+    "RNM-057",
+    "RNM-058",
+    "RNM-059",
+    "RNM-060",
+    "RNM-061",
+    "RNM-062",
+    "RNM-063"
+  ],
+  "native_version": "unversioned",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "25631ccbe59e6caaf127eb026b86b3787bb1d8abd1fe6fe40bfb35b23fd444d6"
+    },
+    {
+      "path": "evals/behavior-cases.json",
+      "sha256": "a55ffa880e48e0d17adc779b5e07c6554d2fa6d5c3704899d9d30fac2a2c602f"
+    },
+    {
+      "path": "references/audit.md",
+      "sha256": "3ded1e10991d09d35f6a091f52f8814d93248e1a46a6da0603e95c2e960aba35"
+    },
+    {
+      "path": "references/catalog-asides.md",
+      "sha256": "5c6c666ebc0b45814a5bc1daee436132970874e5faa17832b893c61fc80bb298"
+    },
+    {
+      "path": "references/catalog-blocks.md",
+      "sha256": "b4b694d08ca0f2b78b1be483ba540e20bd4b1e26fd4bcdfc180cf0327eb25ae2"
+    },
+    {
+      "path": "references/catalog-containers.md",
+      "sha256": "79aad228b541a7300a1dac2e6a8117a9440b51d74d88290172ca2f4bea95fca2"
+    },
+    {
+      "path": "references/catalog-gfm.md",
+      "sha256": "99cb575a27004321be139319260aaa886c7113216eeff2002e7a11a726eae011"
+    },
+    {
+      "path": "references/catalog-host-content.md",
+      "sha256": "354eb461817d96d94eb44e8f4bc51772327e7a7d41cf628ce5b2c771b171ecb6"
+    },
+    {
+      "path": "references/catalog-includes.md",
+      "sha256": "238472c479e9d9c943220c8342237a14528fd1b203b17ef4541344e49c6119fa"
+    },
+    {
+      "path": "references/catalog-inline.md",
+      "sha256": "84e928201fb7bdfc4bf99a3d7fcfe77cfa143a935ee29ffee81e05ca73e86a72"
+    },
+    {
+      "path": "references/catalog-inventory.md",
+      "sha256": "2c46e818899effaed52d8865e9df2458e0970a60f974f4e9eba27ab2a188cf14"
+    },
+    {
+      "path": "references/catalog-links-code.md",
+      "sha256": "89ad9a6d6175256f72302ee5d0e8e8143c9b8bd90d8d4df5411119b70d3499e9"
+    },
+    {
+      "path": "references/catalog-math-edits.md",
+      "sha256": "e0b152a927349cb6ad64b4cb56cd1ab7201cfba2dbff6d62d1ecd2fb1a7e36ae"
+    },
+    {
+      "path": "references/catalog-mdx-media.md",
+      "sha256": "01475a42afd171062bf6b9aadc9e96198d281eef4b2eb271343935185fda8111"
+    },
+    {
+      "path": "references/catalog-metadata-cites.md",
+      "sha256": "b4bd62c16b264716e20850f38cfe9905912a3e33fbb724db402655317976181e"
+    },
+    {
+      "path": "references/catalog-myst.md",
+      "sha256": "9aa0aa28d5112178e15cad769bcd874278b873270043f7429cae8aaaa9790bb3"
+    },
+    {
+      "path": "references/catalog-notes-lists.md",
+      "sha256": "bca74000af6703a4305ccaacb6481a47bee6b4233fdff9c8e15681eaa4dcb621"
+    },
+    {
+      "path": "references/catalog-parsing.md",
+      "sha256": "13a9cdaaee38bfa26d5b197bd254727e0a94fdcc40bc8d06031139a612db7f9c"
+    },
+    {
+      "path": "references/catalog-quarto-markdoc.md",
+      "sha256": "ea41da4437606de3762a5967d46083561cb5a6aa4540183cbb7d58bac36c5dad"
+    },
+    {
+      "path": "references/catalog-sources.md",
+      "sha256": "986dfaaed2ea4c9981dee598a38b7643a4aba1ee4d05ef63f74e360688043100"
+    },
+    {
+      "path": "references/catalog-tables-media.md",
+      "sha256": "d807f660cf0e2fba7fc8ca8b3497263c929ada9cc1dd9ff89bc19e9cc9653ddf"
+    },
+    {
+      "path": "references/catalog-text.md",
+      "sha256": "cb23a29fd8c6b76740e4ef19506ad6761790392ee355fa60ccaab7466d9c6796"
+    },
+    {
+      "path": "references/catalog-theme.md",
+      "sha256": "92c4b89f806adf06d58bdfbfa24e1860df3aa1bb0468dc38092278980ce69ca1"
+    },
+    {
+      "path": "references/catalog.md",
+      "sha256": "5cd3a7bbaed58dee700d34b58024410ac3ce0ac1793d98b36ecea8a88525f4a1"
+    },
+    {
+      "path": "references/checks.md",
+      "sha256": "c69e98d4fa853ef07cfd9c91fb37e5b9b7aa631172e5f33115bb94100b1fb80b"
+    },
+    {
+      "path": "references/context.md",
+      "sha256": "ada65de59f3b7af12bdff6b0aa22c09159901fd6e0ec887927d65bc9cdf5496f"
+    },
+    {
+      "path": "references/coverage.md",
+      "sha256": "e8761d85cf2b9647a3380056e15e35b4c606d1557c79092431ef424c274fcc59"
+    },
+    {
+      "path": "references/dependencies.md",
+      "sha256": "85dfa637381046a1c685cc44c45dc130121c001b003abc7ca389b8e902c5cc7c"
+    },
+    {
+      "path": "references/disclosure.md",
+      "sha256": "3b04ec6ce5f2645c4ece86c720be3b66124aacc2d0d374eac28b92e7169be727"
+    },
+    {
+      "path": "references/headings.md",
+      "sha256": "201b33cd5c5528c506236d4bf9c580b20f64fb475d39be6930f439f50f047864"
+    },
+    {
+      "path": "references/hierarchy.md",
+      "sha256": "be5ffb9b1d778253a87362641de035550e9482cf57a91e988feff93bf8d0b9cf"
+    },
+    {
+      "path": "references/language.md",
+      "sha256": "36f5ba303979f0ad85fd24be000300d4211e7e7f11facb36803c828f36939994"
+    },
+    {
+      "path": "references/manifest.md",
+      "sha256": "c93f26d6986a4e53476c1ee740b7ca92b7daf82671c0f949e475d120461dc7af"
+    },
+    {
+      "path": "references/placement.md",
+      "sha256": "53d750e9478d8372875500ca83ae63607a47c962d6d93956e25aef582481be85"
+    },
+    {
+      "path": "references/readability.md",
+      "sha256": "901d660a314c842f6b10377f17e0116da44886ce013f94299743da7cc5c0d337"
+    },
+    {
+      "path": "references/research.md",
+      "sha256": "89a2020ee83b3fdc4fdc4f49392ae6745db7ab8d5180471e6e9b3d195609ce64"
+    },
+    {
+      "path": "references/structure.md",
+      "sha256": "59e94722ef6ba8451346576ccea7c4a6d61f048b751a348da4d228ca90f07876"
+    },
+    {
+      "path": "references/validation.md",
+      "sha256": "cc7853d8a0b99f0e69a5ca5ca750f643c56a104c73936219ecbe53a9ee681dbe"
+    },
+    {
+      "path": "scripts/check_markdown.py",
+      "sha256": "d5a09135da24df70291d351d46a96bef99c68c2586a299431c9b00f99c455a79"
+    },
+    {
+      "path": "scripts/markdown_graph.py",
+      "sha256": "aeed61887942f87e163aa34cd6714f7d4fbc206c37c4afdaf15325a52608fffd"
+    },
+    {
+      "path": "scripts/markdown_links.py",
+      "sha256": "b5b508753101728294f638ddc1ac41d40395547a3faedb7e9a7ea7b536d821a6"
+    },
+    {
+      "path": "scripts/markdown_manifest.py",
+      "sha256": "60836af86194edcfbc778e3ab712101920804261988dcf8b138cc84dbf3238be"
+    },
+    {
+      "path": "scripts/markdown_parse.py",
+      "sha256": "bd214f8c1a98821e84adac87e42735c171050169f389701ee2e6c8285a1590c1"
+    },
+    {
+      "path": "scripts/markdown_structure.py",
+      "sha256": "311dccf4ba66a04e3c9d054255d2b8d897728de9a5acd0e6fb5f8ac715386dd8"
+    },
+    {
+      "path": "scripts/test_checks.py",
+      "sha256": "564239b1943b9d3cca5653c3f339385e786494e0a57ff6da5703bb2817abaf79"
+    },
+    {
+      "path": "scripts/test_code_limits.py",
+      "sha256": "e49ed57742c0268fa293d4f00c254483a09c74c6a7a1e515802e4f3b4409afcc"
+    },
+    {
+      "path": "scripts/test_structure.py",
+      "sha256": "fcaa5e2ad6221c47366290c8c56c126baa0961e631d27855074b91282d8f86fa"
+    }
+  ],
+  "source_case_ids": [
+    "RNM-001",
+    "RNM-002",
+    "RNM-003",
+    "RNM-004",
+    "RNM-005",
+    "RNM-006",
+    "RNM-007",
+    "RNM-008",
+    "RNM-009",
+    "RNM-010",
+    "RNM-011",
+    "RNM-012",
+    "RNM-013",
+    "RNM-014",
+    "RNM-015",
+    "RNM-016",
+    "RNM-017",
+    "RNM-018",
+    "RNM-019",
+    "RNM-020",
+    "RNM-021",
+    "RNM-022",
+    "RNM-023",
+    "RNM-024",
+    "RNM-025",
+    "RNM-026",
+    "RNM-027",
+    "RNM-028",
+    "RNM-029",
+    "RNM-030",
+    "RNM-031",
+    "RNM-032",
+    "RNM-033",
+    "RNM-034",
+    "RNM-035",
+    "RNM-036",
+    "RNM-037",
+    "RNM-038",
+    "RNM-039",
+    "RNM-040",
+    "RNM-041",
+    "RNM-042",
+    "RNM-043",
+    "RNM-044",
+    "RNM-045",
+    "RNM-046",
+    "RNM-047",
+    "RNM-048",
+    "RNM-049",
+    "RNM-050",
+    "RNM-051",
+    "RNM-052",
+    "RNM-053",
+    "RNM-054",
+    "RNM-055",
+    "RNM-056",
+    "RNM-057",
+    "RNM-058",
+    "RNM-059",
+    "RNM-060",
+    "RNM-061",
+    "RNM-062",
+    "RNM-063"
+  ],
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "LICENSE",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": [
+        "SKILL.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/behavior-cases.json",
+      "source_paths": [
+        "evals/behavior-cases.json"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": [
+        "evals/behavior-cases.json",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": [
+        "evals/behavior-cases.json",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/package-check.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/short-input.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/audit.md",
+      "source_paths": [
+        "references/audit.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-asides.md",
+      "source_paths": [
+        "references/catalog-asides.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-blocks.md",
+      "source_paths": [
+        "references/catalog-blocks.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-containers.md",
+      "source_paths": [
+        "references/catalog-containers.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-gfm.md",
+      "source_paths": [
+        "references/catalog-gfm.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-host-content.md",
+      "source_paths": [
+        "references/catalog-host-content.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-includes.md",
+      "source_paths": [
+        "references/catalog-includes.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-inline.md",
+      "source_paths": [
+        "references/catalog-inline.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-inventory.md",
+      "source_paths": [
+        "references/catalog-inventory.md"
+      ]
+    },
+    {
+      "path": "references/catalog-links-code.md",
+      "source_paths": [
+        "references/catalog-links-code.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-math-edits.md",
+      "source_paths": [
+        "references/catalog-math-edits.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-mdx-media.md",
+      "source_paths": [
+        "references/catalog-mdx-media.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-metadata-cites.md",
+      "source_paths": [
+        "references/catalog-metadata-cites.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-myst.md",
+      "source_paths": [
+        "references/catalog-myst.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-notes-lists.md",
+      "source_paths": [
+        "references/catalog-notes-lists.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-parsing.md",
+      "source_paths": [
+        "references/catalog-parsing.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-quarto-markdoc.md",
+      "source_paths": [
+        "references/catalog-quarto-markdoc.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-sources.md",
+      "source_paths": [
+        "references/catalog-sources.md"
+      ]
+    },
+    {
+      "path": "references/catalog-tables-media.md",
+      "source_paths": [
+        "references/catalog-tables-media.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog-text.md",
+      "source_paths": [
+        "references/catalog-text.md"
+      ]
+    },
+    {
+      "path": "references/catalog-theme.md",
+      "source_paths": [
+        "references/catalog-theme.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/catalog.md",
+      "source_paths": [
+        "references/catalog.md"
+      ]
+    },
+    {
+      "path": "references/checks.md",
+      "source_paths": [
+        "references/checks.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/context.md",
+      "source_paths": [
+        "references/context.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/coverage.md",
+      "source_paths": [
+        "references/coverage.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/dependencies.md",
+      "source_paths": [
+        "references/dependencies.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/disclosure.md",
+      "source_paths": [
+        "references/disclosure.md"
+      ]
+    },
+    {
+      "path": "references/headings.md",
+      "source_paths": [
+        "references/headings.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/hierarchy.md",
+      "source_paths": [
+        "references/hierarchy.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/language.md",
+      "source_paths": [
+        "references/language.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/manifest.md",
+      "source_paths": [
+        "references/manifest.md"
+      ]
+    },
+    {
+      "path": "references/placement.md",
+      "source_paths": [
+        "references/placement.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/readability.md",
+      "source_paths": [
+        "references/readability.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/research.md",
+      "source_paths": [
+        "references/research.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/structure.md",
+      "source_paths": [
+        "references/structure.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/validation.md",
+      "source_paths": [
+        "references/validation.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_markdown.py",
+      "source_paths": [
+        "scripts/check_markdown.py"
+      ]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/markdown_graph.py",
+      "source_paths": [
+        "scripts/markdown_graph.py"
+      ]
+    },
+    {
+      "path": "scripts/markdown_links.py",
+      "source_paths": [
+        "scripts/markdown_links.py"
+      ]
+    },
+    {
+      "path": "scripts/markdown_manifest.py",
+      "source_paths": [
+        "scripts/markdown_manifest.py"
+      ]
+    },
+    {
+      "path": "scripts/markdown_parse.py",
+      "source_paths": [
+        "scripts/markdown_parse.py"
+      ]
+    },
+    {
+      "path": "scripts/markdown_structure.py",
+      "source_paths": [
+        "scripts/markdown_structure.py"
+      ]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_checks.py",
+      "source_paths": [
+        "scripts/test_checks.py"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_code_limits.py",
+      "source_paths": [
+        "scripts/test_code_limits.py",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_source_lineage.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_structure.py",
+      "source_paths": [
+        "scripts/test_structure.py"
+      ]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    }
+  ]
+}

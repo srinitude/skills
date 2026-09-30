@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "skill": "rich-and-native-markdown",
+  "cases": [
+    {
+      "id": "TR-001",
+      "kind": "positive",
+      "prompt": "Turn these meeting notes into clear Markdown with headings and a table.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-002",
+      "kind": "positive",
+      "prompt": "Rewrite this README so the structure is clearer but the meaning stays the same.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-003",
+      "kind": "positive",
+      "prompt": "Split this 400-line Markdown guide into short linked files with a clear reading path.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-004",
+      "kind": "positive",
+      "prompt": "Convert this plain text changelog to GitHub Flavored Markdown.",
+      "should_trigger": true
+    },
+    {
+      "id": "TR-005",
+      "kind": "near_neighbor",
+      "prompt": "Render this Markdown file to HTML with pandoc and do not change the source.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-006",
+      "kind": "near_neighbor",
+      "prompt": "Count the words in this Markdown file.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-007",
+      "kind": "hard_negative",
+      "prompt": "Fix the failing unit test in the date parser.",
+      "should_trigger": false
+    },
+    {
+      "id": "TR-008",
+      "kind": "hard_negative",
+      "prompt": "Resize these screenshots to 800 pixels wide.",
+      "should_trigger": false
+    }
+  ]
+}

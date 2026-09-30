@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "human-language",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted plain prose result.",
+      "motivation": "The plain prose decision needs its correct owner.",
+      "why_this_path": "The plain prose responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current plain prose contract"],
+      "expected_effect": "Make the plain prose decision testable.",
+      "proof": "Fresh plain prose evidence from the named owner.",
+      "falsifier": "Current plain prose evidence contradicts the decision.",
+      "failure_branch": "Block the plain prose result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted plain prose result.",
+      "motivation": "The plain prose decision needs its correct owner.",
+      "why_this_path": "The plain prose responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current plain prose contract"],
+      "expected_effect": "Make the plain prose decision testable.",
+      "proof": "Fresh plain prose evidence from the named owner.",
+      "falsifier": "Current plain prose evidence contradicts the decision.",
+      "failure_branch": "Block the plain prose result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted plain prose result.",
+      "motivation": "The plain prose decision needs its correct owner.",
+      "why_this_path": "The plain prose responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current plain prose contract"],
+      "expected_effect": "Make the plain prose decision testable.",
+      "proof": "Fresh plain prose evidence from the named owner.",
+      "falsifier": "Current plain prose evidence contradicts the decision.",
+      "failure_branch": "Block the plain prose result and restore the accepted state."
+    }
+  ]
+}

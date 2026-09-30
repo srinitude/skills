@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Rewrite this error message so a customer understands it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Remove the AI slop from this blog intro.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make this handoff note to the next agent plain and clear.",
+    "should_trigger": true
+  },
+  {
+    "query": "Edit this product copy to grade 6 English without changing the prices.",
+    "should_trigger": true
+  },
+  {
+    "query": "Translate this paragraph into French word for word.",
+    "should_trigger": false
+  },
+  {
+    "query": "Format this JSON file with two-space indentation.",
+    "should_trigger": false
+  },
+  {
+    "query": "Compute the SHA-256 checksum of this file and print only the hash.",
+    "should_trigger": false
+  },
+  {
+    "query": "Resize these screenshots to 800 pixels wide.",
+    "should_trigger": false
+  }
+]

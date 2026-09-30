@@ -4,6 +4,8 @@ All notable changes to this project are recorded here.
 
 ## Unreleased
 
+- Add the `human-language` and `rich-and-native-markdown` Agent Skills at `metadata.version: "0.1.0"`. Each is ported from its own repository (`srinitude/human-language` at `6efecee`, `srinitude/rich-and-native-markdown` at `8aaebd3`) with a byte-exact native evidence packet, all native cases (36 and 63), worked examples with real command output, and skill-local CI. `rich-and-native-markdown` requires `human-language`, so the two ship together.
+- Update the skills.sh Writing group, Aider, repository, copy, plugin, integration, and MCP resource-count checks for the two new skills. Exclude both packages from Prettier so they stay byte-identical to their source repositories.
 - Designate all 22 canonical skills as user-level through `metadata.scope: "user"`. Add the designation to the 21 legacy packages with patch version bumps and refreshed lineage; preserve their instructions, other metadata, installation locations, and permissions.
 
 ## Skill factory 0.5.1

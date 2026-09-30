@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "skill": "human-language",
+  "operation": "Name the current plain prose operation.",
+  "entries": [],
+  "entry_rule": "Account for every declared Mise task.",
+  "proof_rule": "Tie each entry to fresh plain prose evidence."
+}

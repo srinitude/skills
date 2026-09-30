@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "rich-and-native-markdown",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "rich-and-native-markdown-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite actors aligned.",
+      "motivation": "The Markdown rewrite result depends on actors ownership.",
+      "proof": "Fresh Markdown rewrite actors evidence."
+    },
+    "objects": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite objects aligned.",
+      "motivation": "The Markdown rewrite result depends on objects ownership.",
+      "proof": "Fresh Markdown rewrite objects evidence."
+    },
+    "actions": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite actions aligned.",
+      "motivation": "The Markdown rewrite result depends on actions ownership.",
+      "proof": "Fresh Markdown rewrite actions evidence."
+    },
+    "states": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite states aligned.",
+      "motivation": "The Markdown rewrite result depends on states ownership.",
+      "proof": "Fresh Markdown rewrite states evidence."
+    },
+    "invariants": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite invariants aligned.",
+      "motivation": "The Markdown rewrite result depends on invariants ownership.",
+      "proof": "Fresh Markdown rewrite invariants evidence."
+    },
+    "variants": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite variants aligned.",
+      "motivation": "The Markdown rewrite result depends on variants ownership.",
+      "proof": "Fresh Markdown rewrite variants evidence."
+    },
+    "interfaces": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite interfaces aligned.",
+      "motivation": "The Markdown rewrite result depends on interfaces ownership.",
+      "proof": "Fresh Markdown rewrite interfaces evidence."
+    },
+    "authorities": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite authorities aligned.",
+      "motivation": "The Markdown rewrite result depends on authorities ownership.",
+      "proof": "Fresh Markdown rewrite authorities evidence."
+    },
+    "failures": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite failures aligned.",
+      "motivation": "The Markdown rewrite result depends on failures ownership.",
+      "proof": "Fresh Markdown rewrite failures evidence."
+    },
+    "recoveries": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite recoveries aligned.",
+      "motivation": "The Markdown rewrite result depends on recoveries ownership.",
+      "proof": "Fresh Markdown rewrite recoveries evidence."
+    },
+    "evidence": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite evidence aligned.",
+      "motivation": "The Markdown rewrite result depends on evidence ownership.",
+      "proof": "Fresh Markdown rewrite evidence evidence."
+    },
+    "time": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite time aligned.",
+      "motivation": "The Markdown rewrite result depends on time ownership.",
+      "proof": "Fresh Markdown rewrite time evidence."
+    },
+    "resources": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite resources aligned.",
+      "motivation": "The Markdown rewrite result depends on resources ownership.",
+      "proof": "Fresh Markdown rewrite resources evidence."
+    },
+    "quality": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite quality aligned.",
+      "motivation": "The Markdown rewrite result depends on quality ownership.",
+      "proof": "Fresh Markdown rewrite quality evidence."
+    },
+    "terminology": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite terminology aligned.",
+      "motivation": "The Markdown rewrite result depends on terminology ownership.",
+      "proof": "Fresh Markdown rewrite terminology evidence."
+    },
+    "exclusions": {
+      "profile": "rich-and-native-markdown-lifecycle",
+      "outcome": "Keep Markdown rewrite exclusions aligned.",
+      "motivation": "The Markdown rewrite result depends on exclusions ownership.",
+      "proof": "Fresh Markdown rewrite exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "references": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "assets": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "scripts": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "tests": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "examples": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "evals": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "policies": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "schemas": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    },
+    "records": {
+      "profile": "rich-and-native-markdown-lifecycle"
+    }
+  }
+}

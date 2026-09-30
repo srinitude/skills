@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "skill": "human-language",
+  "native_version": "unversioned",
+  "source_commit": "6efeceef26b43417477a448057bccf6a2c7f0de8",
+  "native_manifest_sha256": "dcf912359a2c9bee00fda168542a8f8880ec98e07bbfbc8ba024ecef053d49b4",
+  "manifest_algorithm": "SHA-256 of source-path, NUL, file SHA-256, and newline rows in manifest order",
+  "source_case_ids": [
+    "HL-001",
+    "HL-002",
+    "HL-003",
+    "HL-004",
+    "HL-005",
+    "HL-006",
+    "HL-007",
+    "HL-008",
+    "HL-009",
+    "HL-010",
+    "HL-011",
+    "HL-012",
+    "HL-013",
+    "HL-014",
+    "HL-015",
+    "HL-016",
+    "HL-017",
+    "HL-018",
+    "HL-019",
+    "HL-020",
+    "HL-021",
+    "HL-022",
+    "HL-023",
+    "HL-024",
+    "HL-025",
+    "HL-026",
+    "HL-027",
+    "HL-028",
+    "HL-029",
+    "HL-030",
+    "HL-031",
+    "HL-032",
+    "HL-033",
+    "HL-034",
+    "HL-035",
+    "HL-036"
+  ],
+  "native_case_ids": [
+    "Plain rewrite",
+    "Conditions",
+    "Fresh correction",
+    "Brief follow-up",
+    "Tool input",
+    "Tool failure",
+    "Source injection",
+    "Exact quote",
+    "Specialist reader",
+    "UI error",
+    "Other language",
+    "Human tone",
+    "Lost context",
+    "Private memory",
+    "Activation claim",
+    "Readability trap",
+    "Cancellation",
+    "Long artifact",
+    "Author stance",
+    "Three genres",
+    "Logical gap",
+    "Useful pattern",
+    "Hollow rewrite",
+    "Supplied personal voice",
+    "Detector temptation",
+    "Necessary length",
+    "Diverse rhythm",
+    "Rhythm restraint",
+    "Smooth false link",
+    "Fresh long guide",
+    "Missing image",
+    "Prediction",
+    "Literary subtext",
+    "Clipped capture",
+    "Label overreach",
+    "Archive boundary"
+  ],
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "evidence_path": "native/SKILL.native.md",
+      "sha256": "b53148e58c01247542c3740226209aaab3c69d7d8c8819e0852dc621f1808e35",
+      "bytes": 1956
+    },
+    {
+      "source_path": "references/context-and-events.md",
+      "evidence_path": "native/references/context-and-events.md",
+      "sha256": "68752055dcc24e4fdc375d47b819993cf2d680bafff83e9861d1726321b5dea4",
+      "bytes": 7478
+    },
+    {
+      "source_path": "references/human-writing.md",
+      "evidence_path": "native/references/human-writing.md",
+      "sha256": "3e8587afb231ccfa0ce410ef29be55c1b207199c39ae94d8fbfb48f5c4b87e30",
+      "bytes": 15302
+    },
+    {
+      "source_path": "references/pre-2015-writing.md",
+      "evidence_path": "native/references/pre-2015-writing.md",
+      "sha256": "5c12484613c6c96c4ec93ae7f73540f883994bc17408a42890540a42bdd605d0",
+      "bytes": 12477
+    },
+    {
+      "source_path": "references/research.md",
+      "evidence_path": "native/references/research.md",
+      "sha256": "d73a9c9b735b9728f4ca7c62636ccc9aff791b8b94b59069f173313fddece6c0",
+      "bytes": 7280
+    },
+    {
+      "source_path": "references/social-writing.md",
+      "evidence_path": "native/references/social-writing.md",
+      "sha256": "3bd45cd771ba64318d0899fe09dea44c14d86c1a075150f7897cfec29bcdf8d8",
+      "bytes": 5742
+    },
+    {
+      "source_path": "references/validation.md",
+      "evidence_path": "native/references/validation.md",
+      "sha256": "521922e29d8bf06375d3c62ddca2b1f7d92055509e669ad0930df92466b1e2f8",
+      "bytes": 13474
+    },
+    {
+      "source_path": "references/writing-rules.md",
+      "evidence_path": "native/references/writing-rules.md",
+      "sha256": "51022585836e81e1c899d7e2b3a525b52a31c8766d7a19163c4f983eb28185cc",
+      "bytes": 13067
+    }
+  ],
+  "excluded_entries": [
+    "scripts/__pycache__",
+    ".DS_Store"
+  ],
+  "private_scan_findings": [],
+  "portable_skill": "skills/human-language"
+}

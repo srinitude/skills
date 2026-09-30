@@ -15,6 +15,7 @@ const expectedSkills = [
   ['dtcg-tokens', '0.4.2'],
   ['figma-code-connect-design-system', '0.3.1'],
   ['goal-prompt', '0.1.1'],
+  ['human-language', '0.1.0'],
   ['logic-audit', '0.1.2'],
   ['meaning-preserving-rewrite', '0.1.1'],
   ['mobile-first-website-design', '0.1.1'],
@@ -22,6 +23,7 @@ const expectedSkills = [
   ['outcome-bounded-work', '0.1.1'],
   ['prompt-enhancer', '0.1.1'],
   ['reify', '0.1.1'],
+  ['rich-and-native-markdown', '0.1.0'],
   ['simplify-skill', '0.1.1'],
   ['skill-factory', '0.5.1'],
   ['starting-point', '0.1.1'],
@@ -44,7 +46,7 @@ test('validates every skill and all frozen specification pages', async () => {
 
   expect(report).toMatchObject({
     errors: [],
-    skillCount: 22,
+    skillCount: 24,
     sourcePageCount: 13,
     status: 'PASS',
     version: '0.1.0',

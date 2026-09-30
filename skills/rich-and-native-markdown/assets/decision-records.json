@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "skill": "rich-and-native-markdown",
+  "records": [
+    {
+      "id": "deterministic-gates",
+      "kind": "deterministic",
+      "outcome": "Protect the accepted Markdown rewrite result.",
+      "motivation": "The Markdown rewrite decision needs its correct owner.",
+      "why_this_path": "The Markdown rewrite responsibility belongs to mise.",
+      "owner": "mise",
+      "inputs": ["current Markdown rewrite contract"],
+      "expected_effect": "Make the Markdown rewrite decision testable.",
+      "proof": "Fresh Markdown rewrite evidence from the named owner.",
+      "falsifier": "Current Markdown rewrite evidence contradicts the decision.",
+      "failure_branch": "Block the Markdown rewrite result and restore the accepted state."
+    },
+    {
+      "id": "semantic-judgment",
+      "kind": "model_owned",
+      "outcome": "Protect the accepted Markdown rewrite result.",
+      "motivation": "The Markdown rewrite decision needs its correct owner.",
+      "why_this_path": "The Markdown rewrite responsibility belongs to model.",
+      "owner": "model",
+      "inputs": ["current Markdown rewrite contract"],
+      "expected_effect": "Make the Markdown rewrite decision testable.",
+      "proof": "Fresh Markdown rewrite evidence from the named owner.",
+      "falsifier": "Current Markdown rewrite evidence contradicts the decision.",
+      "failure_branch": "Block the Markdown rewrite result and restore the accepted state."
+    },
+    {
+      "id": "side-effect-authority",
+      "kind": "human_owned",
+      "outcome": "Protect the accepted Markdown rewrite result.",
+      "motivation": "The Markdown rewrite decision needs its correct owner.",
+      "why_this_path": "The Markdown rewrite responsibility belongs to human.",
+      "owner": "human",
+      "inputs": ["current Markdown rewrite contract"],
+      "expected_effect": "Make the Markdown rewrite decision testable.",
+      "proof": "Fresh Markdown rewrite evidence from the named owner.",
+      "falsifier": "Current Markdown rewrite evidence contradicts the decision.",
+      "failure_branch": "Block the Markdown rewrite result and restore the accepted state."
+    }
+  ]
+}

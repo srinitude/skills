@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "native_manifest_sha256": "dcf912359a2c9bee00fda168542a8f8880ec98e07bbfbc8ba024ecef053d49b4",
+  "active_case_ids": [
+    "HL-001",
+    "HL-002",
+    "HL-003",
+    "HL-004",
+    "HL-005",
+    "HL-006",
+    "HL-007",
+    "HL-008",
+    "HL-009",
+    "HL-010",
+    "HL-011",
+    "HL-012",
+    "HL-013",
+    "HL-014",
+    "HL-015",
+    "HL-016",
+    "HL-017",
+    "HL-018",
+    "HL-019",
+    "HL-020",
+    "HL-021",
+    "HL-022",
+    "HL-023",
+    "HL-024",
+    "HL-025",
+    "HL-026",
+    "HL-027",
+    "HL-028",
+    "HL-029",
+    "HL-030",
+    "HL-031",
+    "HL-032",
+    "HL-033",
+    "HL-034",
+    "HL-035",
+    "HL-036"
+  ],
+  "native_version": "unversioned",
+  "public_version": "0.1.0",
+  "source_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "b53148e58c01247542c3740226209aaab3c69d7d8c8819e0852dc621f1808e35"
+    },
+    {
+      "path": "references/context-and-events.md",
+      "sha256": "68752055dcc24e4fdc375d47b819993cf2d680bafff83e9861d1726321b5dea4"
+    },
+    {
+      "path": "references/human-writing.md",
+      "sha256": "3e8587afb231ccfa0ce410ef29be55c1b207199c39ae94d8fbfb48f5c4b87e30"
+    },
+    {
+      "path": "references/pre-2015-writing.md",
+      "sha256": "5c12484613c6c96c4ec93ae7f73540f883994bc17408a42890540a42bdd605d0"
+    },
+    {
+      "path": "references/research.md",
+      "sha256": "d73a9c9b735b9728f4ca7c62636ccc9aff791b8b94b59069f173313fddece6c0"
+    },
+    {
+      "path": "references/social-writing.md",
+      "sha256": "3bd45cd771ba64318d0899fe09dea44c14d86c1a075150f7897cfec29bcdf8d8"
+    },
+    {
+      "path": "references/validation.md",
+      "sha256": "521922e29d8bf06375d3c62ddca2b1f7d92055509e669ad0930df92466b1e2f8"
+    },
+    {
+      "path": "references/writing-rules.md",
+      "sha256": "51022585836e81e1c899d7e2b3a525b52a31c8766d7a19163c4f983eb28185cc"
+    }
+  ],
+  "source_case_ids": [
+    "HL-001",
+    "HL-002",
+    "HL-003",
+    "HL-004",
+    "HL-005",
+    "HL-006",
+    "HL-007",
+    "HL-008",
+    "HL-009",
+    "HL-010",
+    "HL-011",
+    "HL-012",
+    "HL-013",
+    "HL-014",
+    "HL-015",
+    "HL-016",
+    "HL-017",
+    "HL-018",
+    "HL-019",
+    "HL-020",
+    "HL-021",
+    "HL-022",
+    "HL-023",
+    "HL-024",
+    "HL-025",
+    "HL-026",
+    "HL-027",
+    "HL-028",
+    "HL-029",
+    "HL-030",
+    "HL-031",
+    "HL-032",
+    "HL-033",
+    "HL-034",
+    "HL-035",
+    "HL-036"
+  ],
+  "public_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "LICENSE",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "source_paths": [
+        "SKILL.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/decision-records.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/improvement-contract.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/invocation-receipt-template.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives-catalog.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/mise-primitives.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/primitive-lifecycle.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "assets/use-case-contract.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/cases.json",
+      "source_paths": [
+        "references/validation.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/contract.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "source_paths": [
+        "references/validation.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/manifest.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/rubric.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/speed-budgets.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-cases.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "evals/trigger-queries.json",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/keep-exact-data.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/package-check.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "examples/plain-rewrite.md",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "mise.toml",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/context-and-events.md",
+      "source_paths": [
+        "references/context-and-events.md"
+      ]
+    },
+    {
+      "path": "references/human-writing.md",
+      "source_paths": [
+        "references/human-writing.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/pre-2015-writing.md",
+      "source_paths": [
+        "references/pre-2015-writing.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/research.md",
+      "source_paths": [
+        "references/research.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/social-writing.md",
+      "source_paths": [
+        "references/social-writing.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/validation.md",
+      "source_paths": [
+        "references/validation.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "references/writing-rules.md",
+      "source_paths": [
+        "references/writing-rules.md",
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/agentic_request_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_code_rules.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_decision_records.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_domain_research.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_evals.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_improvement_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_invocation_receipt.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_mise_primitives.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_placeholders.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_primitive_lifecycle.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_task_graph.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/check_use_case_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/domain_text.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/lint_writing.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/run_agentic_request.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/sync_mise_primitives.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_ci_contract.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/tests/test_source_lineage.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "source_paths": [
+        "target-scaffolding"
+      ]
+    }
+  ]
+}

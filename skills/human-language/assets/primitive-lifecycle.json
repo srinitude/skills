@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "skill": "human-language",
+  "required_phases": [
+    "discover",
+    "research",
+    "experiment",
+    "decide",
+    "create",
+    "inspect",
+    "update",
+    "validate",
+    "accept",
+    "restore",
+    "deprecate",
+    "retire"
+  ],
+  "profiles": {
+    "human-language-lifecycle": {
+      "discover": "agentic-request",
+      "research": "domain-research-policy",
+      "experiment": "improvement-policy",
+      "decide": "decision-policy",
+      "create": "agentic-request",
+      "inspect": "validate",
+      "update": "agentic-request",
+      "validate": "ci",
+      "accept": "ci",
+      "restore": "improvement-policy",
+      "deprecate": "decision-policy",
+      "retire": "decision-policy"
+    }
+  },
+  "aspects": {
+    "actors": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose actors aligned.",
+      "motivation": "The plain prose result depends on actors ownership.",
+      "proof": "Fresh plain prose actors evidence."
+    },
+    "objects": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose objects aligned.",
+      "motivation": "The plain prose result depends on objects ownership.",
+      "proof": "Fresh plain prose objects evidence."
+    },
+    "actions": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose actions aligned.",
+      "motivation": "The plain prose result depends on actions ownership.",
+      "proof": "Fresh plain prose actions evidence."
+    },
+    "states": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose states aligned.",
+      "motivation": "The plain prose result depends on states ownership.",
+      "proof": "Fresh plain prose states evidence."
+    },
+    "invariants": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose invariants aligned.",
+      "motivation": "The plain prose result depends on invariants ownership.",
+      "proof": "Fresh plain prose invariants evidence."
+    },
+    "variants": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose variants aligned.",
+      "motivation": "The plain prose result depends on variants ownership.",
+      "proof": "Fresh plain prose variants evidence."
+    },
+    "interfaces": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose interfaces aligned.",
+      "motivation": "The plain prose result depends on interfaces ownership.",
+      "proof": "Fresh plain prose interfaces evidence."
+    },
+    "authorities": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose authorities aligned.",
+      "motivation": "The plain prose result depends on authorities ownership.",
+      "proof": "Fresh plain prose authorities evidence."
+    },
+    "failures": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose failures aligned.",
+      "motivation": "The plain prose result depends on failures ownership.",
+      "proof": "Fresh plain prose failures evidence."
+    },
+    "recoveries": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose recoveries aligned.",
+      "motivation": "The plain prose result depends on recoveries ownership.",
+      "proof": "Fresh plain prose recoveries evidence."
+    },
+    "evidence": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose evidence aligned.",
+      "motivation": "The plain prose result depends on evidence ownership.",
+      "proof": "Fresh plain prose evidence evidence."
+    },
+    "time": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose time aligned.",
+      "motivation": "The plain prose result depends on time ownership.",
+      "proof": "Fresh plain prose time evidence."
+    },
+    "resources": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose resources aligned.",
+      "motivation": "The plain prose result depends on resources ownership.",
+      "proof": "Fresh plain prose resources evidence."
+    },
+    "quality": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose quality aligned.",
+      "motivation": "The plain prose result depends on quality ownership.",
+      "proof": "Fresh plain prose quality evidence."
+    },
+    "terminology": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose terminology aligned.",
+      "motivation": "The plain prose result depends on terminology ownership.",
+      "proof": "Fresh plain prose terminology evidence."
+    },
+    "exclusions": {
+      "profile": "human-language-lifecycle",
+      "outcome": "Keep plain prose exclusions aligned.",
+      "motivation": "The plain prose result depends on exclusions ownership.",
+      "proof": "Fresh plain prose exclusions evidence."
+    }
+  },
+  "primitives": {
+    "skill_body": {
+      "profile": "human-language-lifecycle"
+    },
+    "references": {
+      "profile": "human-language-lifecycle"
+    },
+    "assets": {
+      "profile": "human-language-lifecycle"
+    },
+    "scripts": {
+      "profile": "human-language-lifecycle"
+    },
+    "tests": {
+      "profile": "human-language-lifecycle"
+    },
+    "mise_tasks": {
+      "profile": "human-language-lifecycle"
+    },
+    "examples": {
+      "profile": "human-language-lifecycle"
+    },
+    "evals": {
+      "profile": "human-language-lifecycle"
+    },
+    "policies": {
+      "profile": "human-language-lifecycle"
+    },
+    "schemas": {
+      "profile": "human-language-lifecycle"
+    },
+    "records": {
+      "profile": "human-language-lifecycle"
+    }
+  }
+}

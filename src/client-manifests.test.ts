@@ -173,7 +173,14 @@ test('groups canonical skills for skills-hub clients', async () => {
       { skills: ['always-current-datetime'], title: 'Temporal Context' },
       { skills: ['timebox'], title: 'Timeboxed Execution' },
       { skills: ['mobile-first-website-design'], title: 'Website Design' },
-      { skills: ['meaning-preserving-rewrite'], title: 'Writing' },
+      {
+        skills: [
+          'human-language',
+          'meaning-preserving-rewrite',
+          'rich-and-native-markdown',
+        ],
+        title: 'Writing',
+      },
     ],
   });
 });

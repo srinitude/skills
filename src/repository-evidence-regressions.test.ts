@@ -39,7 +39,7 @@ test('LOGIC-003 and LOGIC-004 repository validation verifies every source claim'
   const report = await validateRepository(root);
   expect(report.status, report.errors.join('\n')).toBe('PASS');
   expect(report.skills.every((skill) => skill.errors.length === 0)).toBe(true);
-});
+}, 30_000);
 
 test('LOGIC-006A repository validation rejects an unlisted public skill file', async () => {
   const fixture = await copyTimeboxFixture();

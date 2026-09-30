@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Turn these meeting notes into clear Markdown with headings and a table.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite this README so the structure is clearer but the meaning stays the same.",
+    "should_trigger": true
+  },
+  {
+    "query": "Split this 400-line Markdown guide into short linked files with a clear reading path.",
+    "should_trigger": true
+  },
+  {
+    "query": "Convert this plain text changelog to GitHub Flavored Markdown.",
+    "should_trigger": true
+  },
+  {
+    "query": "Render this Markdown file to HTML with pandoc and do not change the source.",
+    "should_trigger": false
+  },
+  {
+    "query": "Count the words in this Markdown file.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the failing unit test in the date parser.",
+    "should_trigger": false
+  },
+  {
+    "query": "Resize these screenshots to 800 pixels wide.",
+    "should_trigger": false
+  }
+]

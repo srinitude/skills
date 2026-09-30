@@ -5,6 +5,8 @@ evidence/ports/
 mcp/dist/
 schemas/agent-plugins/
 skills/skill-factory/
+skills/human-language/
+skills/rich-and-native-markdown/
 skills/dtcg-tokens/SKILL.md
 
 skills/mobile-first-website-design/assets/fixtures/

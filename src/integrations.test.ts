@@ -33,7 +33,7 @@ test('OpenClaw uses the portable bundle without a false native manifest', async 
   });
   const report = await validateAgentPlugin(root);
   expect(report.status).toBe('PASS');
-  expect(report.skills).toHaveLength(22);
+  expect(report.skills).toHaveLength(24);
 });
 
 async function registeredPluginSkills() {

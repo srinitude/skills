@@ -1,0 +1,65 @@
+{
+  "schema": "source-evidence/v1",
+  "skill": "human-language",
+  "source_kind": "archived_source",
+  "native_manifest_sha256": "dcf912359a2c9bee00fda168542a8f8880ec98e07bbfbc8ba024ecef053d49b4",
+  "evidence_packet_sha256": "dcf912359a2c9bee00fda168542a8f8880ec98e07bbfbc8ba024ecef053d49b4",
+  "files": [
+    {
+      "source_path": "SKILL.md",
+      "location_kind": "evidence",
+      "location_path": "native/SKILL.native.md",
+      "sha256": "b53148e58c01247542c3740226209aaab3c69d7d8c8819e0852dc621f1808e35",
+      "bytes": 1956
+    },
+    {
+      "source_path": "references/context-and-events.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/context-and-events.md",
+      "sha256": "68752055dcc24e4fdc375d47b819993cf2d680bafff83e9861d1726321b5dea4",
+      "bytes": 7478
+    },
+    {
+      "source_path": "references/human-writing.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/human-writing.md",
+      "sha256": "3e8587afb231ccfa0ce410ef29be55c1b207199c39ae94d8fbfb48f5c4b87e30",
+      "bytes": 15302
+    },
+    {
+      "source_path": "references/pre-2015-writing.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/pre-2015-writing.md",
+      "sha256": "5c12484613c6c96c4ec93ae7f73540f883994bc17408a42890540a42bdd605d0",
+      "bytes": 12477
+    },
+    {
+      "source_path": "references/research.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/research.md",
+      "sha256": "d73a9c9b735b9728f4ca7c62636ccc9aff791b8b94b59069f173313fddece6c0",
+      "bytes": 7280
+    },
+    {
+      "source_path": "references/social-writing.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/social-writing.md",
+      "sha256": "3bd45cd771ba64318d0899fe09dea44c14d86c1a075150f7897cfec29bcdf8d8",
+      "bytes": 5742
+    },
+    {
+      "source_path": "references/validation.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/validation.md",
+      "sha256": "521922e29d8bf06375d3c62ddca2b1f7d92055509e669ad0930df92466b1e2f8",
+      "bytes": 13474
+    },
+    {
+      "source_path": "references/writing-rules.md",
+      "location_kind": "evidence",
+      "location_path": "native/references/writing-rules.md",
+      "sha256": "51022585836e81e1c899d7e2b3a525b52a31c8766d7a19163c4f983eb28185cc",
+      "bytes": 13067
+    }
+  ]
+}

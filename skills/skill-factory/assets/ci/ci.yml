@@ -1,6 +1,6 @@
 # CI workflow template.
 # Generated skills receive this file as .github/workflows/ci.yml.
-# For skill-factory itself, copy this file to <repo root>/.github/workflows/ci.yml.
+# Keep an existing repository workflow; add this skill as its own job when needed.
 # Remote CI runs the same single command as local runs: mise run ci
 name: ci
 
@@ -11,7 +11,11 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    env:
+      CHROME_DEVEL_SANDBOX: /usr/local/share/chromium/chrome-linux/chrome_sandbox
     steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+        with:
+          version: 2026.9.3
       - run: mise run ci

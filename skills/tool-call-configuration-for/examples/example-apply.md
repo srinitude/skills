@@ -1,5 +1,7 @@
 # Example: apply and repeat
 
+Historical transcript: the private checkout root is shown as `repository`. The original capture has SHA-256 `70a44eff0a1b3e338b3b44dbb0ece093fd08938f57fea707502c833782c21ea7`. All other command, result and file text is unchanged. This is a redacted record, not a new run.
+
 Guess this example removes: whether the supported apply path edits one canonical target and becomes a no-op on final bytes.
 
 ## User says
@@ -22,7 +24,7 @@ $ mise run tool-call-config apply @.artifacts/tool-call-configuration-for/real-a
 exit 0
 
 $ mise run tool-call-config apply @.artifacts/tool-call-configuration-for/real-apply/exec-command-tool.json --target skill-factory --skills-root skills --behavior @.artifacts/tool-call-configuration-for/real-apply/behavior.json --integration @.artifacts/tool-call-configuration-for/real-apply/integration-plan.json --evidence .artifacts/tool-call-configuration-for/real-apply/idempotence-evidence
-{"behavior_hash":"908b0ae6a8559c28d68097e7fdd9d081d3ef33a4cb9bd249fdff4b4379edb5b3","changed_files":[],"status":"no-op","target":"/Users/kiren/Documents/Codex/2026-08-27/create-a-comprehensive-platform-agnostic-x20/work/srinitude-skills/skills/skill-factory","tool_identity_hash":"7335f79289938cb2c3bac054e714f1725a2dc5334d0e0f591fc1100794adf2f6"}
+{"behavior_hash":"908b0ae6a8559c28d68097e7fdd9d081d3ef33a4cb9bd249fdff4b4379edb5b3","changed_files":[],"status":"no-op","target":"repository/skills/skill-factory","tool_identity_hash":"7335f79289938cb2c3bac054e714f1725a2dc5334d0e0f591fc1100794adf2f6"}
 exit 0
 ```
 

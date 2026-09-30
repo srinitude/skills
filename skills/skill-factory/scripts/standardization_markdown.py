@@ -1,5 +1,7 @@
 """Rewrite mechanical skill references through owning Mise tasks."""
 import re
+from standardization_rewrites import (contract_section, contract_resources, RESOURCE_OWNERS,
+                                      rewrite_execution_contract)
 
 SCRIPT_RE = re.compile(
     r"(?:(?:uv run|uvx)(?:\s+(?!python3?\b)[^`\n\s]+)*\s+)?"
@@ -40,13 +42,12 @@ def task_script_paths(task):
 
 
 def script_task_map(tasks):
-    found = {}
-    ambiguous = set()
-    for name, task in tasks.items():
-        for path in task_script_paths(task):
-            if path in found and found[path] != name:
-                ambiguous.add(path)
-            found[path] = name
+    found, ambiguous = {}, set()
+    paths = ((name, path) for name, task in tasks.items() for path in task_script_paths(task))
+    for name, path in paths:
+        if path in found and found[path] != name:
+            ambiguous.add(path)
+        found[path] = name
     return {path: task for path, task in found.items() if path not in ambiguous}
 
 
@@ -84,8 +85,8 @@ def replace_evidence_path(match):
     return f"{match.group('quote')}<skill-implementation>/{name}{match.group('quote')}"
 
 
-def rewrite_script_text(text, owners):
-    updated = SCRIPT_LINK_RE.sub(lambda item: replace_link(item, owners), text)
+def rewrite_unlinked_text(text, owners):
+    updated = text
     updated = TEST_RE.sub("mise run test", updated)
     updated = SCRIPT_RE.sub(lambda item: replace_script(item, owners), updated)
     updated = FENCED_SCRIPT_COMMAND_RE.sub(
@@ -94,7 +95,23 @@ def rewrite_script_text(text, owners):
     updated = BARE_SCRIPT_PATH_RE.sub(lambda item: replace_path(item, owners), updated)
     updated = SCRIPT_DIR_RE.sub("`mise run test`", updated)
     updated = SCRIPT_EVIDENCE_PATH_RE.sub(replace_evidence_path, updated)
-    return DUPLICATE_TASK_RE.sub(r"`\1`", updated)
+    return updated
+
+
+def linked_public_route(text, match):
+    before = max(0, text.rfind('\n\n', 0, match.start()) + 2)
+    after = text.find('\n\n', match.end())
+    return 'mise run ' in text[before:after if after >= 0 else None]
+
+
+def rewrite_script_text(text, owners):
+    pieces, start = [], 0
+    for match in SCRIPT_LINK_RE.finditer(text):
+        pieces.append(rewrite_unlinked_text(text[start:match.start()], owners))
+        pieces.append(match[0] if linked_public_route(text, match) else replace_link(match, owners))
+        start = match.end()
+    pieces.append(rewrite_unlinked_text(text[start:], owners))
+    return DUPLICATE_TASK_RE.sub(r'`\1`', ''.join(pieces))
 
 
 def pair_resource(line):
@@ -135,10 +152,6 @@ def add_resource_gates(text):
     return "\n".join(output)
 
 
-def rewrite_body(text, owners):
-    return add_resource_gates(rewrite_script_text(text, owners))
-
-
 def route_line(line, profile):
     for route in profile.get("line_task_routes", []):
         if route["contains"] not in line:
@@ -148,32 +161,8 @@ def route_line(line, profile):
     return line
 
 
-def contract_resources():
-    return ("Load `assets/use-case-contract.json` through `mise run use-case-policy` "
-            "and `evals/evals.json` through `mise run evals` only when their "
-            "contracts are needed.")
-
-
-def contract_section(profile):
-    term, task = profile["primary_term"], profile["main_task"]
-    return ("\n## Factory execution contract\n\n"
-            f"The accepted outcome is: {profile['outcome']} Preserve current {term} behavior while changing its smallest owner.\n\n"
-            "1. Freeze the current package with `mise run ci` and record its digest.\n"
-            f"2. Run `mise run domain-research-policy`, then judge the current {term} sources and counterevidence.\n"
-            f"3. Run `mise run {task}` for the named {term} operation. Keep semantic choices with the model.\n"
-            "4. Run `mise run decision-policy`, `mise run ci`, and the behavioral evals. Return to the lowest failed owner.\n"
-            "5. Run `mise run invocation-policy -- <receipt>` and account for every task or its domain-specific non-use.\n"
-            "6. Optionally run `mise run improvement-policy`. Keep one changed dimension only if no protected dimension regresses.\n\n"
-            "Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.\n")
-
-
 def rewrite_markdown(text, owners, profile, add_contract=False):
-    updated = rewrite_body(text, owners)
+    updated = add_resource_gates(rewrite_script_text(text, owners))
     updated = "\n".join(route_line(line, profile) for line in updated.split("\n"))
     updated = BAD_MISE_LINK_RE.sub(lambda item: f"`{item.group(1)}`", updated)
-    if add_contract and "## Factory execution contract" not in updated:
-        updated = updated.rstrip() + "\n" + contract_section(profile)
-    if add_contract and contract_resources() not in updated:
-        marker = "\nMise owns repeatable mechanics"
-        updated = updated.replace(marker, "\n" + contract_resources() + "\n" + marker)
-    return updated
+    return rewrite_execution_contract(updated, profile) if add_contract else updated

@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "mode": "optional_final_step",
   "cli_owner": "mise",
   "baseline": {
@@ -129,5 +129,19 @@
     "not_applicable_resource_reasons",
     "status",
     "restoration_receipt_when_rejected"
-  ]
+  ],
+  "lifecycle": {
+    "scope": "factory_and_all_touched_skills",
+    "checkpoint": "required_final_development_step",
+    "trial": "opportunity_authority_and_evidence_budget",
+    "dimension_catalog": "references/resource-and-experiment-design.md#improvement-dimension-catalog",
+    "catalog_coverage": "all_applicable_plus_source_and_domain_extensions",
+    "adoption": "pending_next_invocation_confirmation",
+    "next_invocation": "probe_before_reliance_and_actual_outcome_at_final_checkpoint",
+    "regression": "restore_prior_verified_baseline_before_affected_continuation",
+    "restoration": "reviewed_owned_change_set_with_three_way_conflict_preservation",
+    "rollback_proof": "required_before_adoption_and_after_restoration",
+    "evaluator": "frozen_effective_inputs_and_independent_confirmation",
+    "process_improvement": "same_protected_end_to_end_evaluation"
+  }
 }

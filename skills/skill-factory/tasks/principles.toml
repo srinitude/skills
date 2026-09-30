@@ -1,0 +1,241 @@
+["rule:purpose"]
+description = '''
+# `rule:purpose`
+
+## Why this runs
+
+Protect the reasons, allowed choices and intended result.
+
+## When to run
+
+On load and before deciding how a rule serves the skill.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+Turn intent into skills that can be used.
+
+Make its reasons, actions and proof open to review.
+
+For each rule that matters, state the outcome it protects and the failure it prevents.
+
+Keep valid alternatives.
+
+Keep uncertainty, intelligence, creativity, craft and taste.
+
+A part can be sound in a technical sense and still fail its task.
+
+Use `rule:simplicity`, `rule:methods` and `rule:useful-output`, routed from [Motivation](../SKILL.md#motivation).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:outcome"]
+run = "node scripts/run_rule.ts rule:purpose"
+
+["rule:simplicity"]
+description = '''
+# `rule:simplicity`
+
+## Why this runs
+
+Simplify only while preserving the complete contract.
+
+## When to run
+
+Before removing, combining or simplifying skill content.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Simple means clear and complete under the contract.
+
+Keep one owner for each meaning, one stable term and one default route per real choice.
+
+Reuse each canonical owner.
+
+Remove content only when its consumers and ledger links prove it serves neither the outcome nor the skill's integrity.
+
+Fewer files, lines, connectors, tokens or seconds cannot justify lost rules.
+
+They cannot cut domain complexity, safety, privacy, accessibility, authority or proof.
+
+Keep valid reasoning and solutions even when unexpected.
+
+Never weaken acceptance.
+
+The graph tracks specifications and helps organize successful use.
+
+Judge architecture by complete factory and output-skill outcomes.
+
+Counts only support that judgment.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:purpose"]
+run = "node scripts/run_rule.ts rule:simplicity"
+
+["rule:methods"]
+description = '''
+# `rule:methods`
+
+## Why this runs
+
+Choose methods from measured work and proof needs.
+
+## When to run
+
+Before selecting algorithms, formats, dependencies or reuse.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Choose methods from measured needs.
+
+Set context budgets from domain work, risk and required proof.
+
+Keep required full reads, domain judgment and context.
+
+Reuse existing code, native tools and accepted structures before adding dependencies.
+
+Choose algorithms, data structures and formats for access, writes, queries, order, use with other systems and lifetime.
+
+Use those needs to choose batches and work that can run at once.
+
+Reuse native streaming, indexes and atomic replacement only within their real guarantees.
+
+If these simplicity and method rules cannot be met, use the verified complete authorized baseline or block the affected consumer.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:purpose"]
+run = "node scripts/run_rule.ts rule:methods"
+
+["rule:useful-output"]
+description = '''
+# `rule:useful-output`
+
+## Why this runs
+
+Finish the producer work and test its real usefulness.
+
+## When to run
+
+Before designing or delivering work for a recipient.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Prevent WorkSlop: output that fails its task or leaves the recipient to finish its reasoning, checks or repair.
+
+Find the real need.
+
+Finish the producer's work, verify its claims and make the result usable.
+
+Through `mise run domain-research-policy`, consult relevant original [research](https://www.betterup.com/workslop), [preprint](https://doi.org/10.31234/osf.io/5f78h_v1) and [survey](https://zapier.com/blog/ai-workslop/).
+
+Keep their methods, populations, context and uncertainty.
+
+Consider real working conditions, culture, agency and meaningful purpose.
+
+Adoption and attractive presentation do not prove useful or causal improvement.
+
+Neither do subjective satisfaction or commercial associations.
+
+Review [Case for Conditions](https://www.betterup.com/the-case-for-conditions) and [workplace-culture findings](https://www.betterup.com/blog/ai-watermarking-workslop-culture) for relevant purpose, workload, trust and agency.
+
+Keep self-reports, associations, preprints, commercial advice and causation distinct.
+
+Do not combine separate samples or call estimated costs measured losses.
+
+Seek contrary proof and newer findings.
+
+Reward useful outcomes and honest correction.
+
+Make flawed inputs and uncertainty easy to report.
+
+Keep meaningful human control.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:purpose"]
+run = "node scripts/run_rule.ts rule:useful-output"

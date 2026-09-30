@@ -2,7 +2,10 @@
 """Reject generic skill primitives without a domain role and proof.
 
 Usage:
-  python3 scripts/check_use_case_contract.py [skill-root]
+  python3 scripts/check_use_case_contract.py [skill-root] [--accept]
+
+Inspection may omit legacy audience and initial context. --accept requires both.
+These checks do not prove audience suitability, resource use or human evidence.
 
 Exit codes:
   0  the use-case contract passes
@@ -17,6 +20,8 @@ import json
 import sys
 from pathlib import Path
 
+from agentic_request_contract import read_json
+from agentic_context import audience_record, declaration_order
 from domain_text import uses_generic_task_template, uses_term, words
 
 KINDS = {"skill_body", "references", "assets", "scripts", "tests",
@@ -37,7 +42,10 @@ def load(root):
     if not path.is_file():
         raise ValueError(f"missing {path}")
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        data = read_json(path.read_bytes().decode("utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("use-case contract must be a JSON object")
+        return data
     except json.JSONDecodeError as error:
         raise ValueError(f"invalid JSON: {error}") from error
 
@@ -132,12 +140,25 @@ def check_roles(data, terms, found):
                                 item[field], terms)
 
 
-def problems(data, root):
+def check_initial_contract(data, found, accept):
+    try:
+        audience_record(data, accept)
+    except ValueError as error:
+        found.append(str(error))
+    if "initial_context" in data or accept:
+        try:
+            declaration_order(data.get("initial_context"))
+        except ValueError as error:
+            found.append(str(error))
+
+
+def problems(data, root, accept=False):
     found = []
     if data.get("skill") != root.name:
         found.append(f"skill must equal directory name {root.name}")
     if SENTINEL in json.dumps(data):
         found.append("scaffold placeholder remains in use-case contract")
+    check_initial_contract(data, found, accept)
     check_motivations(data, found)
     terms = check_domain(data, found)
     check_dimensions(data, terms, found)
@@ -149,14 +170,16 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("skill_root", nargs="?", default=".")
+    parser.add_argument("--accept", action="store_true",
+                        help="require resolved audience and initial context for changed output")
     args = parser.parse_args(argv)
     root = Path(args.skill_root).resolve()
     try:
         data = load(root)
-    except ValueError as error:
+    except (OSError, UnicodeError, ValueError) as error:
         print(f"FAIL {error}")
         return 1
-    found = problems(data, root)
+    found = problems(data, root, args.accept)
     for problem in found:
         print(f"FAIL {problem}")
     print(f"use-case contract: {len(found)} problems")

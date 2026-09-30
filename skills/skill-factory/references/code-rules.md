@@ -4,10 +4,19 @@ These caps bind every code file in this skill and in every generated skill. `mis
 
 ## Size and shape
 
-- 200 lines of code per file at most. Blank lines and comments do not count.
-- 30 lines of code per function or class, counting its own lines and skipping nested definitions.
-- Block nesting caps at depth 3 inside any function. Test functions count depth from the test declaration.
-- No work markers, mocks, stubs, or placeholder branches. Every code path does real work. Split a file before it hits a cap.
+- At most 200 physical lines per code file, including blank lines and comments.
+- At most 30 physical lines per whole code construct, including functions, classes, interfaces and their contents. Count decorators and nested definitions.
+- Block nesting across the whole file is at most 3. Include function and class declarations; peer `elif` or `else if` branches do not add depth. Apply the same rules to tests.
+- Genuine JSON, YAML, TOML and other configuration files retain the size-limit exemption. A configuration file must not conceal code to evade these limits.
+- No work markers, mocks, stubs, or placeholder branches. Every code path does real work. Simplify or reorganize code before it exceeds a cap, preserving behavior and required relationships. Do not split files merely to inflate a change count.
+
+## Native checker boundary
+
+`mise run lint-code` checks owned Python, shell, JavaScript and TypeScript files. Its `check-runtime` prerequisite first installs the native lock through `mise run setup-runtime`, then checks owned TypeScript with the declared compiler. The native Python and TypeScript parsers check whole constructs and file-wide block depth. Physical file counts include blank lines, comments and multiline literals. Shell files currently receive file-size and work-marker checks only; shell construct and depth validation remain unresolved and must not be claimed as passed. Installed dependencies, caches, bytecode and tool state remain outside owned-file checks; owned symlinks fail.
+
+The managed environment pins Node and npm, with exact compiler/schema dependencies in package.json and package-lock.json. `mise run check-runtime` uses strict application checking with `skipLibCheck`, matching the verified upstream and repository configuration. It does not prove that every dependency declaration is sound, nor that application runtime behavior is correct. Keep failed dependency checks and actual runtime/API probes as separate evidence. The source parser enforces code shape; domain and human proof remain required.
+
+Scaffolding copies the same runtime contract and code-check owners. `mise run standardize-target` replaces only a recognized prior checker or the current exact checker. Conflicting runtime manifests, tool pins or unreviewed checker customizations require explicit reconciliation before that migration; rejection preserves the original target.
 
 ## Script interface
 

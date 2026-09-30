@@ -2,8 +2,8 @@
   "schema": "source-evidence/v1",
   "skill": "tool-call-configuration-for",
   "source_kind": "repository_baseline",
-  "native_manifest_sha256": "af2d508dae3aff85c15d91097bf526889806bf027715ad54afeac0b591d096cb",
-  "evidence_packet_sha256": "af2d508dae3aff85c15d91097bf526889806bf027715ad54afeac0b591d096cb",
+  "native_manifest_sha256": "fe4caa62ce5456fc85f97b8fb46da2f52781d898232c73e83eb90f28e1cb8d0e",
+  "evidence_packet_sha256": "fe4caa62ce5456fc85f97b8fb46da2f52781d898232c73e83eb90f28e1cb8d0e",
   "files": [
     {
       "bytes": 423,
@@ -202,17 +202,17 @@
       "source_path": "evals/trigger-queries.json"
     },
     {
-      "bytes": 2608,
+      "bytes": 2785,
       "location_kind": "repository",
       "location_path": "skills/tool-call-configuration-for/examples/example-apply.md",
-      "sha256": "70a44eff0a1b3e338b3b44dbb0ece093fd08938f57fea707502c833782c21ea7",
+      "sha256": "1499d626131a3e2dc42d1dab4717eda501a281a4a0935ab1194dcc83d7e7887c",
       "source_path": "examples/example-apply.md"
     },
     {
-      "bytes": 3206,
+      "bytes": 3095,
       "location_kind": "repository",
       "location_path": "skills/tool-call-configuration-for/examples/example-generate.md",
-      "sha256": "f8b749a37aeef35fd2225b20baa1de5312152cb5e259df96924e683ab860955a",
+      "sha256": "5d8794191c691b916e2fc944f100f371dca5709bb6e077a720bc80bb1ca854dd",
       "source_path": "examples/example-generate.md"
     },
     {

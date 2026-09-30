@@ -1,6 +1,7 @@
 """Validate domain-specific agentic request data."""
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from domain_text import uses_term
@@ -12,8 +13,25 @@ OPERATION_FIELDS = ("outcome", "motivation", "why_default_path", "proof")
 SENTINEL = "SCAFFOLD-" + "PLACEHOLDER"
 
 
-def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def finite_number(value):
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError("non-finite JSON number")
+    return number
+
+
+def read_json(text):
+    return json.loads(text, object_pairs_hook=unique_object,
+                      parse_float=finite_number, parse_constant=finite_number)
 
 
 def checked_file(item, label, base):
@@ -28,10 +46,11 @@ def checked_file(item, label, base):
     path = path if path.is_absolute() else base / path
     if not path.is_file() or path.is_symlink():
         raise ValueError(f"{label}.path must be a regular file: {path}")
-    actual = digest(path)
+    raw = path.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
     if actual != expected:
         raise ValueError(f"{label} digest mismatch: {path}")
-    return path.resolve(), actual
+    return path.resolve(), actual, raw.decode("utf-8")
 
 
 def trace_record(item, label, terms):
@@ -78,10 +97,12 @@ def agentic_task_record(data, terms):
 
 
 def use_case_record(item, base):
-    path, actual = checked_file(item, "use_case", base)
+    path, actual, text = checked_file(item, "use_case", base)
     if path.name != "use-case-contract.json":
         raise ValueError("use_case.path must name use-case-contract.json")
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = read_json(text)
+    if not isinstance(data, dict):
+        raise ValueError("use-case contract must be a JSON object")
     skill, outcome = data.get("skill"), data.get("outcome")
     terms = data.get("domain_terms")
     if not isinstance(skill, str) or not skill:
@@ -95,9 +116,10 @@ def use_case_record(item, base):
     if item.get("promised_outcome") != outcome:
         raise ValueError("promised outcome must match the use-case contract")
     task = agentic_task_record(data, terms)
-    record = {"path": str(path), "sha256": actual, "skill": skill,
+    record = {"path": str(path), "sha256": actual, "text": text, "skill": skill,
               "promised_outcome": outcome, "domain_terms": terms,
-              "agentic_task": task}
+              "agentic_task": task, "audience": data.get("audience"),
+              "initial_context": data.get("initial_context")}
     return record, terms
 
 
@@ -113,10 +135,9 @@ def prompt_record(item, base, terms):
             raise ValueError("prompt.text must be nonempty text")
         text = item["text"]
     else:
-        path, _ = checked_file(
+        _, _, text = checked_file(
             {"path": item["file"], "sha256": item.get("sha256")},
             "prompt", base)
-        text = path.read_text(encoding="utf-8")
     if not uses_term(text, terms):
         raise ValueError("prompt content needs a use-case domain term")
     return text, trace
@@ -127,10 +148,10 @@ def skill_records(items, base, terms):
         raise ValueError("skills must be an array")
     records = []
     for index, item in enumerate(items):
-        path, actual = checked_file(item, f"skills.{index}", base)
+        path, actual, text = checked_file(item, f"skills.{index}", base)
         if path.name != "SKILL.md":
             raise ValueError(f"skills.{index}.path must name SKILL.md")
-        records.append({"path": str(path), "sha256": actual,
+        records.append({"path": str(path), "sha256": actual, "text": text,
                         "trace": trace_record(item.get("trace"),
                                               f"skills.{index}", terms)})
     return records
@@ -158,7 +179,8 @@ def primitive_records(items, terms):
 
 
 def build_envelope(data, base):
-    if not isinstance(data, dict) or data.get("version") != 1:
+    if (not isinstance(data, dict) or data.get("version") != 1
+            or isinstance(data.get("version"), bool)):
         raise ValueError("request must be a version 1 object")
     if "runner" in data:
         raise ValueError("request data cannot select its runner")

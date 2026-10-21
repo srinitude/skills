@@ -19,7 +19,8 @@
     "reload_after_compaction",
     "separate_old_from_current",
     "run_relative_clock",
-    "resolve_relative_time"
+    "resolve_relative_time",
+    "run_self_contained_clock"
   ],
   "cases": [
     {
@@ -186,6 +187,31 @@
         "tool action uses absolute date-time and timezone"
       ],
       "veto": ["resolve from conversation start time", "drop the timezone"]
+    },
+    {
+      "id": "ACDT-HOST-001",
+      "source_id": "ACDT-HOST-001",
+      "group": "failure_handling",
+      "title": "Resource-only skill load with no mounted directory",
+      "decision": "run_self_contained_clock",
+      "pressures": [
+        "loader returns only a skill resource address",
+        "supporting files cannot be read",
+        "a Python 3 process runner is available"
+      ],
+      "prompt": "Continue with the task.",
+      "required": [
+        "run the self-contained Python block exactly once",
+        "honor the host-configured timezone",
+        "validate all ten anchor fields",
+        "store a fresh date-time prefix"
+      ],
+      "veto": [
+        "treat the resource address as a local path",
+        "report a missing skill directory as a clock failure",
+        "guess or reuse a timestamp",
+        "run both clock paths"
+      ]
     }
   ]
 }

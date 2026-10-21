@@ -123,6 +123,20 @@
         "The response preserves the user's words in two hours.",
         "Any tool argument uses an absolute date-time and timezone."
       ]
+    },
+    {
+      "id": 13,
+      "prompt": "Continue when the skill loader supplies only a resource address and no supporting files, but Python is available.",
+      "expected_output": "The self-contained clock runs exactly once with the configured timezone, and its validated fresh anchor supplies the visible prefix.",
+      "assertions": [
+        "No package directory or supporting file is needed.",
+        "The resource address is never used as a local filesystem path.",
+        "The clock preserves all ten fields and timezone precedence.",
+        "Invalid timezones still fail without a success object."
+      ],
+      "files": [
+        "SKILL.md"
+      ]
     }
   ]
 }

@@ -84,12 +84,14 @@ def label(scope):
     return {"user": "user-level", "project": "project-level"}.get(scope)
 
 
+def unique_pairs(pairs):
+    data = {}
+    for key, value in pairs:
+        if key in data:
+            raise ValueError(f"duplicate JSON key: {key}")
+        data[key] = value
+    return data
+
+
 def load_json(path):
-    def unique(pairs):
-        data = {}
-        for key, value in pairs:
-            if key in data:
-                raise ValueError(f"duplicate JSON key: {key}")
-            data[key] = value
-        return data
-    return json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique)
+    return json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique_pairs)

@@ -1,0 +1,343 @@
+["rule:eval-design"]
+description = '''
+# `rule:eval-design`
+
+## Why this runs
+
+Freeze the eval rules before building or testing.
+
+## When to run
+
+Before defining, changing or running an eval.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Before you define, change or run an eval, read the full [eval method](../references/eval-authoring.md) through `mise run evals`.
+
+Read the real case runner too.
+
+Before you build, freeze the rules and expected results.
+
+Fix what may vary, what would disprove a claim, and the test inputs.
+
+Fix who will judge, how to recover, and what may be compared.
+
+Keep every source component that applies.
+
+Use real public paths, fresh contexts and matched baselines.
+
+Use judges able to assess the work.
+
+Name the models used.
+
+Report repeated results, uncertainty and independence limits.
+
+Code can score the same input the same way.
+
+It cannot make judgment repeatable.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:eval-design"
+
+["rule:eval-cases"]
+description = '''
+# `rule:eval-cases`
+
+## Why this runs
+
+Run real domain cases and trigger checks.
+
+## When to run
+
+When preparing or running a skill evaluation.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Through `mise run evals`, load [local cases](../evals/evals.json) and [trigger queries](../evals/trigger-queries.json).
+
+Load each registry file that applies: [manifest](../evals/manifest.json), [cases](../evals/cases.json), [triggers](../evals/trigger-cases.json), [contract](../evals/contract.md), [rubric](../evals/rubric.md), [speed budgets](../evals/speed-budgets.json) and [lineage](../evals/source-lineage.json).
+
+Require at least four real domain cases.
+
+Each needs a prompt, expected output and claims that can be checked.
+
+Test when the skill should and should not start, including near misses.
+
+Keep real source hashes.
+
+Check version matches through their independent owners.
+
+Schema checks do not run cases.
+
+Required policies, validation, lint and full CI must pass through their real interfaces.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:eval-design"]
+run = "node scripts/run_rule.ts rule:eval-cases"
+
+["rule:eval-recovery"]
+description = '''
+# `rule:eval-recovery`
+
+## Why this runs
+
+Prove rejection, required non-effects and safe recovery.
+
+## When to run
+
+When testing failed inputs, skipped gates or recovery.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Run all [rejection and recovery cases](../references/eval-authoring.md#rejection-and-recovery) through their real consumers.
+
+Reject lost or weakened rules.
+
+Reject stale or wrong bindings and skipped gates.
+
+Reject ignored resources, hidden failures, fake human input and simulated proof.
+
+Check that forbidden effects did not occur and unrelated state stayed intact.
+
+Restore valid prerequisites, then prove recovery.
+
+Cover references and native task schemas.
+
+Cover caches, crashes, storage and concurrent resume.
+
+A read-only label or exit code is not enough.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:eval-cases"]
+run = "node scripts/run_rule.ts rule:eval-recovery"
+
+["rule:eval-coverage"]
+description = '''
+# `rule:eval-coverage`
+
+## Why this runs
+
+Cover required operations alone and together.
+
+## When to run
+
+When selecting cases or judging their coverage.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Use the full [case coverage contract](../references/eval-authoring.md#required-case-coverage).
+
+Bind each required source test to proof from the real case runner.
+
+Cover all operations, interfaces and source families, alone and together.
+
+Include cases where three or more parts interact or order matters.
+
+Cover repeatable, creative and exploratory work.
+
+Cover real human and physical limits, and independent generated skills.
+
+Report sampling and combinations left out.
+
+Tests of pairs cannot replace required proof of the whole result.
+
+Nor can a scaffold or a signed package.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:eval-design"]
+run = "node scripts/run_rule.ts rule:eval-coverage"
+
+["rule:eval-antipatterns"]
+description = '''
+# `rule:eval-antipatterns`
+
+## Why this runs
+
+Find real failures and test sound alternatives.
+
+## When to run
+
+When testing agent choices or repairing a confirmed failure.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Use the [anti-pattern eval method](../references/eval-authoring.md#anti-pattern-evaluation) to find real domain failures.
+
+For each, name the broken rule and its owner.
+
+Show the smallest choice that meets the rules, with good and bad examples.
+
+Observe what agents do and whether their results can be used.
+
+Measure false alarms, missed violations and limits.
+
+Keep needed complexity and required methods.
+
+The catalog sets minimum coverage.
+
+Extend it from evidence.
+
+Repair the smallest owner shown to be at fault.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:eval-coverage"]
+run = "node scripts/run_rule.ts rule:eval-antipatterns"
+
+["rule:eval-resources"]
+description = '''
+# `rule:eval-resources`
+
+## Why this runs
+
+Measure complete paths with matched inputs and honest limits.
+
+## When to run
+
+When comparing outcomes, speed, cost or resource use.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+Use [outcome and resource measurement](../references/eval-authoring.md#outcome-and-resource-measurement) to compare accepted factory invocation, skill creation/update, output invocation and maintenance.
+
+Measure matched cold and warm complete paths.
+
+Include reading, failures, recovery, checks, actual tokens and recipient effort.
+
+Report external waits, uncertainty, estimates and missing counters separately.
+
+Do not count concurrent work twice or call required review waste.
+
+Improve measured bottlenecks with no protected regression.
+
+A test of one small part cannot prove savings for the whole result.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:eval-design"]
+run = "node scripts/run_rule.ts rule:eval-resources"

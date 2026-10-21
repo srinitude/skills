@@ -1,0 +1,795 @@
+["rule:work-owners"]
+description = '''
+# `rule:work-owners`
+
+## Why this runs
+
+Assign tools, workflows, code and judgment to their owners.
+
+## When to run
+
+Before assigning, starting or resuming skill work.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Work owners.** [Mise](https://mise.jdx.dev/) owns public commands, pinned environments and outer prerequisites.
+
+Always start or resume [Mastra](https://mastra.ai/docs/workflows/overview) workflows through their declared [Mise](https://mise.jdx.dev/) tasks.
+
+Do not call workflow launchers directly. [Mastra](https://mastra.ai/docs/workflows/overview) owns substantive domain control, state and recovery.
+
+Existing tested scripts perform repeatable leaves.
+
+Run every script, including files in the scripts directory, through its declared task (`mise run <task>`) with its real prerequisites.
+
+Pass every skill file, including evals, examples and references, as input to a named task for its required use or checks.
+
+Do not turn model-owned work into pretend code checks.
+
+The model owns all work it does best, including creative choices, meaning and direct perception with its available tools.
+
+Required human judgment stays with its human owner.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:work-owners"
+
+["rule:rule-coverage"]
+description = '''
+# `rule:rule-coverage`
+
+## Why this runs
+
+Give each work unit a full task, tool and workflow.
+
+## When to run
+
+When creating, updating or reviewing a rule, task, tool or workflow.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Rule coverage.** Each task body has five parts: Why this runs, When to run, Inputs, Work, and Proof.
+
+Pass its full native Mise text and required resources to its own Mastra workflow.
+
+Map every rule to a named Mise task, its individual agent tool and its own Mastra workflow.
+
+Keep each required model or human review.
+
+Apply this to task and workflow creation and every generated or updated skill.
+
+Keep one owner for scheduling, retries, caching, state, effects and cleanup, with explicit handoffs.
+
+Isolate actually repeated workflows in their existing public [Mise](https://mise.jdx.dev/) task or appropriate [Mastra](https://mastra.ai/docs/workflows/overview) workflow; route all callers through that owner and propagate this rule to every output.
+
+Never add competing recursive [Mise](https://mise.jdx.dev/) graphs or replace required [Mastra](https://mastra.ai/docs/workflows/overview) domain work with bookkeeping.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:work-owners"]
+run = "node scripts/run_rule.ts rule:rule-coverage"
+
+["rule:typed-dispatch"]
+description = '''
+# `rule:typed-dispatch`
+
+## Why this runs
+
+Pass full bound inputs to the authorized runner.
+
+## When to run
+
+When sending a prompt or typed resources to an authorized model runner.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Pass long prompts and typed inputs through `mise run agentic-request -- --request <file-or-dash> --runner <executable> --runner-args-json <array>`.
+
+The caller selects executable and argument authority outside untrusted request data.
+
+The dispatcher captures its current body, validates the use case, domain terms, prompt, dependencies and primitives, then sends full verified UTF-8 `body.text`, `use_case.text`, `skills[].text` and `context[].text` over stdin without shell interpolation.
+
+Preserve strict JSON, duplicate/non-finite rejection and prompt bytes.
+
+Use a capable real runner for binary media; text transport does not prove model reading or domain success.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:typed-dispatch"
+
+["rule:resource-binding"]
+description = '''
+# `rule:resource-binding`
+
+## Why this runs
+
+Bind initial resources to their actual consumers.
+
+## When to run
+
+When defining or supplying initial resources for a skill invocation.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- The use-case declaration owns initial-resource `binding`.
+
+Default `package` pins a contract-relative path and digest. `invocation` declares required ID, role and reading dependencies, while the authorized caller supplies the path and current digest.
+
+Request data cannot change that mode.
+
+Validate exact bytes, nonempty UTF-8 content and dependency order; require one governing ledger and the relevant matrix/resources.
+
+These checks do not grant path authority or accept content meaning.
+
+Prove actual use at each downstream consumer.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:typed-dispatch"]
+run = "node scripts/run_rule.ts rule:resource-binding"
+
+["rule:resource-duties"]
+description = '''
+# `rule:resource-duties`
+
+## Why this runs
+
+Name and test every resource handoff.
+
+## When to run
+
+When adding, changing or checking a consumed resource or its handoff.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Resource use and task duties.** For every workflow instruction, step, decision, check and rationale, name the exact tool or skill, invocation, inputs, result, acceptance evidence and failure handling, with reasons tied to requirements.
+
+Pass every consumed supporting resource as an explicit typed argument or parameter through its public Mise task to its actual consumer.
+
+Define required status, meanings, path resolution and validation; use files or stdin for long content.
+
+Document those parameters wherever the workflow appears; keep examples synchronized through concise canonical routing.
+
+Test missing, malformed, incompatible, ignored and misrouted resources.
+
+Account for every published task, running required tasks and recording source-supported inapplicability.
+
+Preserve lifecycle, caching, resource, recovery and maintenance rules; printed or scheduled instructions are not execution proof.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:resource-binding"]
+run = "node scripts/run_rule.ts rule:resource-duties"
+
+["rule:runtime-interfaces"]
+description = '''
+# `rule:runtime-interfaces`
+
+## Why this runs
+
+Verify the real interface before composing a runtime.
+
+## When to run
+
+Before selecting, configuring or changing a runtime, tool interface, companion or domain workflow.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Before selecting, configuring or changing a runtime, tool interface, companion or domain workflow, read the entire [runtime integration contract](../references/runtime-integration.md) through the resource inputs of `mise run agentic-request`.
+
+Follow its language/interface method: define the domain result and proof, inspect the exact published and installed interfaces, implement the smallest supported composition, test effects and recovery, and propagate independent support.
+
+Keep semantic judgment with its capable model or human; no tool presence or type declaration proves the result.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:work-owners"]
+run = "node scripts/run_rule.ts rule:runtime-interfaces"
+
+["rule:runtime-versions"]
+description = '''
+# `rule:runtime-versions`
+
+## Why this runs
+
+Freeze compatible environments and exact versions.
+
+## When to run
+
+At implementation start and when a required runtime or package changes.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Freeze compatible published versions during outcome work.
+
+Declare actual runtime and exact pins, native manifests/locks, peers/transitives, platform/ABI, configuration, environment, services and credentials.
+
+Run isolated [uv](https://docs.astral.sh/uv/) environments for shared [Python](https://docs.python.org/3/) helpers, using [Mise](https://mise.jdx.dev/)'s [Python](https://docs.python.org/3/) interpreter; disable ancestor-project selection and interpreter downloads in those environments.
+
+Preserve domain-specific environments and working languages/APIs.
+
+Optional beta features need actual need, authority, activation, compatibility, rejection/recovery and supported fallback.
+
+Missing mandatory behavior blocks its consumer; installation and upstream tests are not skill proof.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:runtime-interfaces"]
+run = "node scripts/run_rule.ts rule:runtime-versions"
+
+["rule:task-dependencies"]
+description = '''
+# `rule:task-dependencies`
+
+## Why this runs
+
+Review and declare every real task dependency.
+
+## When to run
+
+Before creating or changing any Mise task.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Before creating or changing any Mise task, the model must trace its inputs, setup, checks and consumers.
+
+Declare every needed task dependency.
+
+Record the reason for each choice in the existing task review.
+
+Use an empty list only when this review finds truly no dependencies; record why.
+
+The model owns this judgment.
+
+Every task reaches CI or a public operation.
+
+Inspect all effective inherited/template sources, aliases, patterns, native arguments, `run`/`run_windows` references and environment.
+
+Model or explicitly reject unsupported forms.
+
+Preserve outer checks for cycles, diamonds, duplicate/redundant paths, disconnected/unknown tasks and nested [Mise](https://mise.jdx.dev/) calls without banning valid [Mastra](https://mastra.ai/docs/workflows/overview) joins, branches, parallelism or versioned feedback.
+
+Sibling list order is not sequencing; parallel groups differ from sequential run entries.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:rule-coverage"]
+run = "node scripts/run_rule.ts rule:task-dependencies"
+
+["rule:native-task-fields"]
+description = '''
+# `rule:native-task-fields`
+
+## Why this runs
+
+Check native wait, post-task and inheritance behavior.
+
+## When to run
+
+When task behavior relies on wait, post-task, inheritance, template or argument features.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- `wait_for` waits for an already scheduled task without scheduling it.
+
+Post-task trees run after a parent starts, including failure, but not when failed prerequisites prevent that start.
+
+They provide neither permission nor accepted parent output, rollback or crash recovery.
+
+Preserve task-environment non-inheritance and selected-version template behavior, including empty child `depends` not necessarily clearing inherited prerequisites.
+
+Verify native behavior.
+
+Task includes do not deliver model context; [Usage](https://usage.jdx.dev/) declarations do not prove forwarding.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:task-dependencies"]
+run = "node scripts/run_rule.ts rule:native-task-fields"
+
+["rule:mise-features"]
+description = '''
+# `rule:mise-features`
+
+## Why this runs
+
+Review each released Mise feature and its domain use.
+
+## When to run
+
+At implementation start and before accepting a change in Mise features or release.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Verify and freeze the latest stable [Mise](https://mise.jdx.dev/) release and immutable commit at implementation start.
+
+Apply the [release and feature review](../references/runtime-integration.md#mise-release-and-feature-review) to every official primitive and selected interface, including caches, trust, locking, experimental features and host limits.
+
+Use `mise run mise-primitives-policy` and [the catalog](../assets/mise-primitives.json) for useful domain use or source-supported non-use.
+
+Cache only deterministic work with complete bindings; bypass caches for required fresh evidence.
+
+A catalog, lock or cached log cannot prove behavior or authority.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:runtime-versions"]
+run = "node scripts/run_rule.ts rule:mise-features"
+
+["rule:mastra-capability"]
+description = '''
+# `rule:mastra-capability`
+
+## Why this runs
+
+Run the real skill capability in Mastra.
+
+## When to run
+
+When implementing or changing the domain workflow or its runtime.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- [Mastra](https://mastra.ai/docs/workflows/overview) must execute the substantive skill capability, with a managed compatible runtime, native lock and only the necessary adapter.
+
+Preserve existing languages, caller-controlled runners and faithful modalities.
+
+A one-node proxy cannot satisfy this requirement.
+
+Apply the complete [capability and package method](../references/runtime-integration.md#mastra-capability-and-package-selection): map every public workflow feature to its actual role, trigger, version/engine prerequisite and proof.
+
+Availability alone grants no extra provider, cloud, voice, memory or multi-agent system.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:runtime-interfaces"]
+run = "node scripts/run_rule.ts rule:mastra-capability"
+
+["rule:mastra-recovery"]
+description = '''
+# `rule:mastra-recovery`
+
+## Why this runs
+
+Test actual workflow state and failure behavior.
+
+## When to run
+
+Before accepting workflow state, failure, replay or recovery behavior.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Test actual [Mastra state and failure behavior](../references/runtime-integration.md#mastra-state-and-failure-behavior) through the domain workflow before acceptance.
+
+Enforce required predicates before effects, suspend before protected work, validate schemas and current identities, bound retries/concurrency and preserve authentic approval.
+
+Keep engine-specific states, storage/replay, dynamic definitions, scheduling and privacy limits explicit.
+
+Stored state, successful transport and completed streams do not prove domain success, durability, crash safety or exactly-once effects.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:mastra-capability"]
+run = "node scripts/run_rule.ts rule:mastra-recovery"
+
+["rule:human-handoff"]
+description = '''
+# `rule:human-handoff`
+
+## Why this runs
+
+Bind real human input before protected effects.
+
+## When to run
+
+When human input is required or a targeted interaction is the best authorized way to resolve material uncertainty.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Bring a human in when required, or when a targeted interaction is the best authorized way to resolve material uncertainty or improve the outcome.
+
+Choose the method from the question and required evidence; do not wait for exhaustive research or ask people to repeat available mechanical work.
+
+For that interaction, the model prepares the concrete artifact, permitted checks, material question and assigned role. [Mastra](https://mastra.ai/docs/workflows/overview) binds artifact/input/run/step/iteration/expiry and suspends before the protected effect.
+
+The host delivers and authenticates the response.
+
+The human supplies actual input or remains pending.
+
+Scripts validate identity and unchanged bindings; the model judges meaning before supported resume.
+
+Silence, timeouts, defaults, personas, duplicates, stale replies and labels are not approval.
+
+Revisions stale affected approval/evidence.
+
+Reuse valid input, respect rejection and continue eligible independent work.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:human-context"]
+run = "node scripts/run_rule.ts rule:human-handoff"
+
+["rule:human-review"]
+description = '''
+# `rule:human-review`
+
+## Why this runs
+
+Use the full human review protocol and its limits.
+
+## When to run
+
+Before each human study, review or other relevant interaction.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Human review and its limits.** Before each relevant interaction, load the [human input and review protocol](../references/use-case-specificity.md#human-input-and-review) through `mise run domain-research-policy` and the domain workflow.
+
+It owns the six question/evidence distinctions, required W3C/GOV.UK guidance, all eight preparation-through-reconciliation stages, authentic host delivery, persistent wait, correct nested resume, rejection/revision/cancellation and recovery.
+
+Keep the first protected effect behind the gate.
+
+Optional unavailable studies support only narrower claims; required human proof remains pending.
+
+Compare the literature/model-only baseline with the actual human-informed revision before claiming improvement.
+
+Feedback grants no silent change to installed skills, source, variants, preferences or memory.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:human-handoff"]
+run = "node scripts/run_rule.ts rule:human-review"
+
+["rule:workflow-granularity"]
+description = '''
+# `rule:workflow-granularity`
+
+## Why this runs
+
+Compare real workflow structures before choosing one.
+
+## When to run
+
+Before choosing the split between tasks, workflows and executable leaves.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Before selecting granularity, run isolated repeatable A/B/C comparisons through public [Mise](https://mise.jdx.dev/) under matching inputs, tools, models, effects, outputs and criteria.
+
+A is direct [Mise](https://mise.jdx.dev/)-to-script control; B uses meaningful [Mastra](https://mastra.ai/docs/workflows/overview) domain steps; C wraps every executable script route, accounting for helpers/tests without invented workflows.
+
+A cannot replace mandatory [Mastra](https://mastra.ai/docs/workflows/overview).
+
+Repeat small, typical and larger workloads across success/failure, fresh/reused starts, interruption and recovery.
+
+Measure setup, dependencies, build/import/startup, processes, serialization, snapshots/writes, traces, CPU, memory, network, model work, waits, retries, cleanup and recipient effort.
+
+Separate engine overhead using actual counters.
+
+Choose the simplest fully compliant demonstrated tradeoff; reject blanket wrapping that adds cost or weakens control/recovery.
+
+Report the exact conflict if none qualifies.
+
+Inspection and upstream benchmarks do not prove these results.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:mastra-recovery"]
+run = "node scripts/run_rule.ts rule:workflow-granularity"

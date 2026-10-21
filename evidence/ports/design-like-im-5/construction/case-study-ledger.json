@@ -27,6 +27,10 @@
   "agency_count": 23,
   "constructed_at": "2026-08-30",
   "copyright_limit": "Each direct page excerpt is at most 20 words.",
+  "location_redaction": {
+    "original_capture_sha256": "6235fc2ad2a95fafdcff9345777eb25205f4a290d1aef7d466ccdd26fe9af66c",
+    "scope": "The private source locator is omitted; all case-study records and original source identity are unchanged."
+  },
   "method": "All original pages were read from saved source text. Opening, middle, and closing page views were inspected with native vision.",
   "record_count": 205,
   "records": [
@@ -22423,7 +22427,7 @@
     }
   ],
   "schema": "design-like-im-5-case-ledger/v1",
-  "source": "/Users/kiren/Downloads/case_study_library.md",
+  "source": "case_study_library.md",
   "source_bytes": 80139,
   "source_lines": 590,
   "source_sha256": "bddb4b784070d4aaebd8302bb2793136e8cccafc3fe9ec1aea1d798097ca072f"

@@ -2,13 +2,14 @@
 import json
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 from cli import SKILL_DIR, SCRIPTS
 sys.path.insert(0, str(SCRIPTS))
 from check_lineage import report
 from skill_package import inventory, tree_digest
-from standardize_registry_skill import apply
+from standardization_test_support import reviewed_standardize
 SOURCES = [
     {"source": "https://docs.python.org/3/library/pathlib.html", "source_class": "first_party",
      "claim": "Path resolution and recursive discovery support file inventory boundaries.", "limitations": "The skill must enforce its own project boundary."},
@@ -75,8 +76,15 @@ def package(root, scope, project_id="repo:atlas"):
     seed_evals(root)
     data = {"skill": root.name, "primary_term": "file inventory", "outcome": "Count configured source files and lines without writes.",
             "domain_terms": ["file inventory", "source files", "project configuration"], "main_task": "inventory",
-            "main_run": "python3 scripts/inventory.py", "sources": SOURCES}
-    apply(root, data)
+            "main_run": "python3 scripts/inventory.py", "sources": SOURCES,
+            "audience": {"primary": "agent"}, "initial_context": [{"id": "governing-ledger", "role": "ledger", "binding": "invocation", "depends_on": []},
+                            {"id": "study-work-matrix", "role": "resource", "binding": "invocation", "depends_on": ["governing-ledger"]}]}
+    with tempfile.TemporaryDirectory() as temporary:
+        config = Path(temporary) / 'profile.json'
+        write_json(config, data)
+        result = reviewed_standardize(root, '--profile', config, '--apply')
+        if result.returncode:
+            raise ValueError(result.stdout + result.stderr)
     return root
 
 

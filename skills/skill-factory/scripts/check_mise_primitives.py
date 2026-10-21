@@ -26,6 +26,10 @@ def read_json(path):
 def actual_fields(root, catalog):
     with (root / "mise.toml").open("rb") as handle:
         data = tomllib.load(handle)
+    return configured_fields(data, catalog)
+
+
+def configured_fields(data, catalog):
     groups = {"config": set(data) & set(catalog["groups"]["config"])}
     groups["task"] = task_fields(data, catalog)
     groups["task_config"] = set(data.get("task_config", {}))

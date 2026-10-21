@@ -15,6 +15,7 @@ help: show the supported operations.
 new <prompt>: create a skill for a stated outcome and scope.
 update <path> <prompt>: preserve the skill's purpose, accepted behavior, and valid scope unless a change is requested.
 standardize <path>: apply the factory format without replacing the capability.
+standardization-usage: export the native standardization argument definition for review.
 standardize-target <path> <profile>: plan or apply a profile-bound registry standardization.
 refresh-registry-lineage <skill...>: refresh lineage for accepted registry changes.
 import <source> <destination>: convert a source into a separate portable package.
@@ -28,30 +29,12 @@ Choose user for availability across your projects or project for a specific proj
 
 ## Fresh help readback
 
-The following excerpts were observed from public tasks. Readiness details and unrelated help paragraphs are omitted; no files were created.
+Load [the full help record](help-run.json) through `mise run new`, `mise run standardize-target` or `mise run variant` or `mise run standardization-usage` before using their flags or exported definition. It contains actual complete stdout, stderr and exit codes for creation help, standardization help, variant-plan and variant-accept help, native Usage export, spec lint and a current-interface comparison, with the observed runtime identity. The public prerequisites install declared runtime dependencies; these commands create no target artifacts. Creation exposes `--plan` and `--review`; standardization exposes `--apply`, `--plan-file` and `--review`; variant planning retains its independent scope, project, placement, refresh and in-place branches; acceptance exposes `--preview`, `--plan-file` and `--ledger-review` in addition to its separate domain `--review`.
 
-```text
-$ mise run new -- --help
-usage: scaffold_skill.py [-h] --name NAME --description DESCRIPTION
-                         --scope {user,project}
-                         [--placement-receipt PLACEMENT_RECEIPT] --dest DEST
-exit 0
-
-$ mise run variant -- plan --help
---source SOURCE
---source-id SOURCE_ID
---scope {user,project}
---name NAME
---dest DEST
---project PROJECT
---project-id PROJECT_ID
---refresh
---in-place
-exit 0
-```
-
-The plan operation resolves the source, target scope, identity, destination, and project context. The review operation prepares a digest-bound draft. Accept validates the completed review, adapted behavior, and package before promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
+The plan operation resolves the source, target scope, identity, destination and project context. The review operation prepares a digest-bound draft. Accept requires the complete publication preview and current initial-body and every-file ledger review, then validates the separate domain review, adapted behavior and package before guarded promotion. Load references/scope-variants.md through `mise run variant` for the full workflow and failure branches.
 
 ## What the run proves
 
-The scaffold requires an explicit scope. Both variant directions use the same public operation. Help output proves interface availability; the behavioral tests establish adaptation and preservation for their exercised cases.
+The run record stores complete stdout and stderr in `stdout_base64` and `stderr_base64`. Decode base64 as UTF-8 to read the exact observed streams, including discovery diagnostics. Commands, exit codes, supplied comparison stdin and runtime identities describe the recorded execution. The current Usage asset equals the exact export; lint passes and the comparison reports no change. The comparison is between the reviewed current asset and its actual current export, since no earlier released Usage spec exists. Native argument compatibility needs the separate parser and forwarding regressions.
+
+Help output proves interface availability. Source/ledger review, behavioral checks, failure and recovery observations, and current delivery evidence remain separate requirements.

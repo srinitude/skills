@@ -1,0 +1,311 @@
+["rule:graph-map"]
+description = '''
+# `rule:graph-map`
+
+## Why this runs
+
+Map every rule to its real file owners.
+
+## When to run
+
+Before creating or checking graph records.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Map rules to files.** The ledger owns the canonical file graph. [Mermaid](https://mermaid.js.org/) renders the same stable file and relationship IDs.
+
+Each node is one real file.
+
+Keep richer non-file and multi-endpoint relations in the ledger; map them exactly to file incidences in the graph.
+
+Do not invent nodes for rules or proof.
+
+Sort only collections whose order has no meaning.
+
+Keep meaningful endpoint order and repeats.
+
+Reject unknown endpoints, ID clashes, stale inventories and silent gaps.
+
+Bind every source rule to its body clause, implementation files, real consumer/output, required proof and current disposition.
+
+Check both directions.
+
+Unmapped rules, unsupported non-use and missing or failed proof stay open.
+
+No file or rule may leave completion accounting.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:ledger-relationships"]
+run = "node scripts/run_rule.ts rule:graph-map"
+
+["rule:graph-paths"]
+description = '''
+# `rule:graph-paths`
+
+## Why this runs
+
+Keep every file on a true path to SKILL.md.
+
+## When to run
+
+Before accepting graph structure or changing file ownership.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Keep the root and required paths.** [SKILL.md](../SKILL.md) is the center, source and start.
+
+Every file needs a justified directed path ending there, which may pass through other files.
+
+Never group files or connectors, or invent or reverse edges to pass.
+
+Include tasks, workflows, scripts, configs, tests, examples and evals.
+
+The authorized skill specifications set requirements; the whole graph is a baseline and aid.
+
+Files and edges may change unless a source fixes them.
+
+Before local edits, compare whole workflows, shared execution/checks, owners and data forms.
+
+Measure file/node and connector counts before and after each proposed merge, deletion or shared-workflow extraction.
+
+Reduce both where possible.
+
+Preserve every needed relationship, source duty, consumer behavior, readable core load and return path.
+
+If fewer files need more connectors, compare both counts and justify the tradeoff.
+
+Keep the 200/30/3 limits and configuration exemption below.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:graph-map"]
+run = "node scripts/run_rule.ts rule:graph-paths"
+
+["rule:graph-coverage"]
+description = '''
+# `rule:graph-coverage`
+
+## Why this runs
+
+Cover every file in a whole-directory update.
+
+## When to run
+
+When planning or checking a whole-directory change.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Cover each file.** A required whole-directory update covers every existing file.
+
+Use all authorized specifications and the whole graph for needed edits, updates, replacements, removals and additions.
+
+Track every baseline and added file through interim inventories to its final owner or verified removal.
+
+Before retiring or replacing structure, prove the new owners preserve required meaning, behavior, methods and proof.
+
+Keep migration history and independent work.
+
+Each change needs a named duty and proof of its intended effect.
+
+Sampling, graph-only review and cosmetic edits do not qualify.
+
+A file with no justified change stays unresolved; study its role or replacement while other eligible work proceeds.
+
+Keep the per-file reads, body review, changelog, outward order and true prerequisites below.
+
+A declared relationship alone proves no working behavior.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:graph-paths"]
+run = "node scripts/run_rule.ts rule:graph-coverage"
+
+["rule:graph-order"]
+description = '''
+# `rule:graph-order`
+
+## Why this runs
+
+Work outward while keeping real prerequisites.
+
+## When to run
+
+Before selecting a change or reusing a graph baseline.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Work outward with true prerequisites.** Inspect the whole current graph before cleanup.
+
+Keep current and interim states that can be rebuilt.
+
+Bind each to inventory, ledger, skill revision, source contract, generator and proof.
+
+Keep observed, proposed, rejected and accepted states distinct.
+
+Reuse unchanged data; capture is not acceptance.
+
+Improve and validate from [SKILL.md](../SKILL.md) at distance zero, then one connector away, then two, by shortest distance.
+
+Select open duties whose logical, package and runtime prerequisites pass; use outward order among eligible work.
+
+Retire consumers before providers when required.
+
+Before and after each addition, update or removal, compare the real inventory, graph, ledger, body, affected consumers and proof.
+
+Trace every affected file and consumer.
+
+Change the responsible owner; run required rejection, recovery and output checks.
+
+Update proof and mark dependent proof stale before the next selection.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:graph-paths"]
+run = "node scripts/run_rule.ts rule:graph-order"
+
+["rule:graph-render"]
+description = '''
+# `rule:graph-render`
+
+## Why this runs
+
+Render and inspect the complete file graph.
+
+## When to run
+
+After graph changes and before relying on its visual form.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **Render and inspect.** Use `mise run ledger -- <request.json>` for graph records.
+
+Its `file-graph` action needs an explicit positive incidence `budget`.
+
+It emits deterministic Mermaid source, individual IDs, exact records and projection gaps from the recorded current package snapshot.
+
+Task endpoints use their explicit owning file.
+
+Keep meaningful endpoint order and repeats.
+
+This read action proves neither live inventory nor accepted topology or render clarity.
+
+Use pinned [Mermaid](https://mermaid.js.org/) and [`mmdc`](https://github.com/mermaid-js/mermaid-cli) through their owning [Mise](https://mise.jdx.dev/) tasks.
+
+Include the complete generated graph in the body, with a large vector render and readable access to every node and connector.
+
+Check exact node/connector IDs and rendered geometry, then inspect pixels.
+
+Counts and XML alone cannot prove readability.
+
+Final ledger shape must follow the stable graph; an exact deterministic translation may support the transition.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:graph-paths"]
+run = "node scripts/run_rule.ts rule:graph-render"

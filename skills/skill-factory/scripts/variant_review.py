@@ -75,11 +75,12 @@ def check_attribution(plan, candidate):
     for field in ["license", "allowed-tools"]:
         if old.get(field) != new.get(field):
             raise ValueError(f"variant must preserve {field}; resolve any mandatory change first")
-    for name in plan["source"]["files"]:
-        if Path(name).name.upper().startswith(("LICENSE", "NOTICE", "COPYING")):
-            target = candidate / name
-            if not target.is_file() or target.read_bytes() != (source / name).read_bytes():
-                raise ValueError(f"required license or attribution differs: {name}")
+    notices = (name for name in plan["source"]["files"]
+               if Path(name).name.upper().startswith(("LICENSE", "NOTICE", "COPYING")))
+    for name in notices:
+        target = candidate / name
+        if not target.is_file() or target.read_bytes() != (source / name).read_bytes():
+            raise ValueError(f"required license or attribution differs: {name}")
 
 
 def check_customizations(plan, candidate, review):

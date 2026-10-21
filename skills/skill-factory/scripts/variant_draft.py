@@ -1,7 +1,9 @@
 """Prepare an unaccepted review and save operation artifacts outside packages."""
+import json
+import os
+import tempfile
 from pathlib import Path
 
-from check_lineage import write_atomic
 from skill_package import inventory, real_path, tree_digest
 from skill_scope import load_json
 from variant_context import PROJECT_FACTS, check_current
@@ -26,6 +28,16 @@ def draft(plan, candidate):
 
 def coverage(files):
     return {name: {"disposition": "reviewed", "reason": ""} for name in files}
+
+
+def write_atomic(path, document):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(document, indent=2) + "\n"
+    with tempfile.NamedTemporaryFile("w", dir=path.parent, delete=False,
+                                     encoding="utf-8") as handle:
+        handle.write(payload)
+        temporary = handle.name
+    os.replace(temporary, path)
 
 
 def save_output(path, result, plan, candidate=None):

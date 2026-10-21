@@ -15,10 +15,10 @@ Example:
 import argparse
 import json
 import sys
-import tomllib
 from pathlib import Path
 
 from domain_text import uses_generic_task_template, uses_term
+from task_definitions import load_tasks
 
 FIELDS = {"task", "status", "applicability_reason", "proof"}
 STATUSES = {"run", "inapplicable"}
@@ -27,8 +27,7 @@ SELF_TASK = "invocation-policy"
 
 def load(root, receipt_path):
     try:
-        with (root / "mise.toml").open("rb") as handle:
-            tasks = tomllib.load(handle).get("tasks", {})
+        tasks = load_tasks(root)
         use_case = json.loads(
             (root / "assets/use-case-contract.json").read_text("utf-8"))
         receipt = json.loads(receipt_path.read_text("utf-8"))

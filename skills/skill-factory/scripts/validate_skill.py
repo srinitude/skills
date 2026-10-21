@@ -106,9 +106,9 @@ def check_optional_fields(fields, problems):
                               for key, value in metadata.items()))
     if "metadata" in fields and not valid_metadata:
         problems.append("metadata must map string keys to string values")
-    if isinstance(metadata, dict) and "scope" in metadata:
-        if not isinstance(metadata["scope"], str) or metadata["scope"] not in ("user", "project"):
-            problems.append('metadata.scope must be the string "user" or "project"')
+    if (isinstance(metadata, dict) and "scope" in metadata
+            and (not isinstance(metadata["scope"], str) or metadata["scope"] not in ("user", "project"))):
+        problems.append('metadata.scope must be the string "user" or "project"')
     allowed = fields.get("allowed-tools")
     if "allowed-tools" in fields and not isinstance(allowed, str):
         problems.append("allowed-tools must be a space-separated string")
@@ -140,6 +140,11 @@ def check_layout(skill, body, problems):
         problems.append("missing mise.toml task graph")
 
 
+def check_acceptance_scope(fields, acceptance, problems):
+    if acceptance and (not isinstance(fields.get("metadata"), dict) or "scope" not in fields["metadata"]):
+        problems.append("metadata.scope is required for newly created or updated output")
+
+
 def validate(skill, acceptance=False):
     problems = []
     text = (skill / "SKILL.md").read_text(encoding="utf-8")
@@ -153,9 +158,7 @@ def validate(skill, acceptance=False):
             problems.append(header_error)
         else:
             check_fields(fields, skill.name, problems)
-            if acceptance and (not isinstance(fields.get("metadata"), dict)
-                               or "scope" not in fields["metadata"]):
-                problems.append("metadata.scope is required for newly created or updated output")
+            check_acceptance_scope(fields, acceptance, problems)
         check_body(body, text, problems)
     check_layout(skill, body, problems)
     return problems

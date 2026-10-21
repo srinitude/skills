@@ -1,0 +1,142 @@
+["rule:read"]
+description = '''
+# `rule:read`
+
+## Why this runs
+
+Read this skill's whole body before using its rules.
+Keep the model's work tied to the current skill and request.
+
+## When to run
+
+On every load of this skill, before choosing its work tasks.
+This rule also applies to each skill the factory creates or updates.
+
+## Inputs
+
+Use this skill's full [SKILL.md](../SKILL.md), current request and task tools.
+The host must allow the required reads and task effects.
+Set `SKILL_RULE_REQUEST` and `SKILL_RULE_STATE` to full paths.
+Keep the state in a private folder outside the skill.
+
+The request holds `run_id`, `turn`, `obligation` and `context`.
+Each context item holds `path`, `sha256`, `role` and `format`.
+Bind exactly one input with role `body` and format `text`.
+Its path must be this skill's real SKILL.md, with its current hash.
+Reject a missing body, another path, byte-only input or duplicate body roles.
+The workflow checks this before it asks the model to do work.
+Bind each other needed input to its current bytes. The request grants no rights.
+
+## Work
+
+1. Read the whole current SKILL.md body, including its first-load duties.
+   Use its purpose, scope, limits, rules and proof to judge this request.
+   A hash, old read or passed task cannot stand in for this read.
+2. Inspect the full `task-tools` body through its agent tool.
+   If it is not connected, read `mise tasks info task-tools --json`.
+   Follow its rules for the connection, task calls and model handoffs.
+3. Survey this skill's own tools. Select the tasks whose triggers fit.
+   Read their full bodies and needed inputs. Follow prior tasks until none
+   remains unread. Track visited tasks; reject missing owners or cycles.
+   Do not turn a citation or backlink into an execution dependency.
+4. Use SKILL.md's Mise task graph and Steps to choose the work path.
+   The model uses its own tools to judge and act. Code checks exact facts.
+   Required human choices remain with the real person who owns them.
+5. If input is missing, stale or unread, keep its consumer pending.
+   Obtain or correct the input, then inspect and run with fresh bindings.
+   A task pause does not pause unrelated work or any outside controller.
+
+Read the full returned payload. Do the named model work before resuming.
+Set `SKILL_RULE_REPLY` to the full path of the reply JSON.
+It holds `task`, `input_sha256`, `reviewer`, `summary` and `evidence`.
+Each evidence item holds its full `path` and `sha256`.
+Resume the same task, request and state. Do not repeat completed effects.
+
+## Proof
+
+Bind the whole-body read and chosen task path to the actual request.
+Give reasons and cited findings, including missing work and proof limits.
+Check current inputs, runtime proof and the reply's task and input identity.
+Reject stale or wrong replies; retain failure and prove allowed recovery.
+These checks cannot prove that a model understood or followed the rules.
+Semantic review, human evidence and final skill acceptance remain separate.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["check-runtime"]
+run = "node scripts/run_rule.ts rule:read"
+
+["rule:context"]
+description = '''
+# `rule:context`
+
+## Why this runs
+
+Use the right sources and current reviews before relying on a skill rule.
+Keep each skill's context, rights and proof separate.
+
+## When to run
+
+Run on each skill load, once the full body is read.
+Run before work that needs this context.
+Run again if changed inputs or context make an old review stale.
+Use this rule in the factory and each skill it creates or updates.
+
+## Inputs
+
+Use this skill's request and full [SKILL.md](../SKILL.md).
+Also use its source ledger, past reviews and all inputs that set its rules.
+A ledger lists source rules and their proof.
+Include all resources needed at load time, the callers and their dependencies.
+Use the passed body-read result. Never borrow another task's approvals.
+
+Bind these inputs in the same `SKILL_RULE_REQUEST` used for the body read.
+Each `context` item has an absolute real `path`, current `sha256`,
+`role` and `format`. Keep the body as `text`.
+Capture all bytes of the ledger and inputs that set its rules.
+Use text for sources the model must read. Bytes alone prove no meaning review.
+Keep `SKILL_RULE_STATE` in the same private folder outside the skill.
+
+## Work
+
+1. Keep a source ledger and review history for this skill.
+   For a new ledger, add its source rules.
+   Also add each portable factory rule that applies.
+   Never use another task's ledger or approvals to pass.
+2. Check each current rule and relationship before use. Judge what they mean.
+   Read all resources needed at load time before their work starts.
+   Keep each source's authority and scope. Keep its conditions and exceptions.
+3. Reuse a completed review only if its exact source still matches.
+   Its full scope and relevant context must still match too.
+   Review each changed or affected record. Include callers, dependencies and proof.
+   A fresh builder must fill review gaps.
+4. Hold work if content or review it needs is missing or stale.
+   Do the same if it was sent to the wrong owner or ignored.
+   Find or fix that input. Repeat the affected review.
+   Bind the corrected request before retrying. Keep other allowed work moving.
+5. A link, hash or receipt is not proof of a meaning review.
+   It does not prove current use either.
+   The same holds for an acknowledgment or a past load.
+   Get permission to delegate.
+   The agent that invokes the skill owns integration and final proof.
+   It keeps these duties when another worker helps.
+6. Read all returned rules. Use the model's tools and judgment to check meaning.
+   Code cannot judge that meaning. Record real findings and their source locations.
+   A bare verdict is not enough.
+
+Set `SKILL_RULE_REPLY` to the reply's full path.
+Resume this same task through Mise.
+The reply holds `task`, `input_sha256`, `reviewer`, `summary` and `evidence`.
+Each evidence item has `path` and `sha256`.
+Name any meaning, human or integration proof that is still pending.
+
+## Proof
+
+Show which current rules, relationships and resources you reviewed.
+For reused reviews, show the unchanged source, full scope and relevant context.
+Name each gap and the work it holds. Keep failed and recovered results.
+Before reuse, check the actual input bytes, body-read proof and reply identity.
+A workflow pass proves those bindings. It does not prove meaning or final acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:read"]
+run = "node scripts/run_rule.ts rule:context"

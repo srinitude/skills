@@ -1,0 +1,51 @@
+["rule:commands"]
+description = '''
+# `rule:commands`
+
+## Why this runs
+
+Choose the supported command and its reviewed path.
+
+## When to run
+
+When choosing or explaining a public skill command.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+| Command | Route and result |
+| --- | --- |
+| `help` | Show this grammar and one-line results; `mise run validate` owns the [help example](../examples/example-help.md). |
+| `new <prompt>` | Resolve name, description, scope, audience and destination. Use `mise run new -- --name <name> --description "<description>" --scope <user-or-project> --dest <destination> --plan`; review exact bytes and repeat with `--review <review.json>` instead of `--plan`. A scaffold remains unaccepted. |
+| `update <path> <prompt>`; `standardize <path>` | Freeze the baseline with `mise run plan-standardize -- <path>`, then use the supported reviewed operation and validate the complete target. |
+| `standardization-usage`; `standardize-target <path> <profile>` | `mise run --output interleave standardization-usage` exports the native [Python](https://docs.python.org/3/) argument definition through pinned [Usage](https://usage.jdx.dev/). `mise run --output interleave standardize-target -- <path> --profile <profile>` plans the actual domain workflow. Load the [standardization procedure](../examples/example-standardization.md) for scope, reviewed apply, persistent state, rejection, replay refusal, recovery and proof limits. |
+| `import <source> <destination>` | Run `mise run audit-source-corpus -- <source>` and `mise run plan-standardize -- <source>`; preserve/classify the whole source before the supported separate-destination conversion. Grammar does not invent a missing interface. |
+| `variant <source> <user-or-project>` | Use `mise run variant` and the [variant contract](../references/scope-variants.md) for scope planning, adaptation, domain review, publication preview, per-file/retirement review and guarded acceptance. |
+| `validate <path>`; `eval <path>` | Run `mise run validate-target -- <path>` and `mise run eval-target -- <path>`, then the actual declared evaluation runner. `--inspect-legacy` cannot accept a changed output with missing fields. |
+| `refresh-registry-lineage <skill...>` | `mise run refresh-registry-lineage -- <skill...> --plan` exposes changes; its `--review <request.json>` applies only the next dependency-ordered file. Replan until empty, then validate the whole result using [file review](../examples/example-ledger-write.md). |
+| `doctor` | `mise run doctor` reports actual supported readiness and the precise missing prerequisite. |
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:commands"

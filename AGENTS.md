@@ -118,4 +118,5 @@ A component PASS never proves the full package.
 - Use `Kiren Srinivasan <kiren@fantasymetals.com>` for commits.
 - Don't add generated attribution or co-author trailers.
 - Don't commit credentials, `.env` files, temporary homes, reports, or paid-run output.
+- Never commit details specific to a local agent session or machine, including personal absolute paths, host identifiers, private workspace state, or local configuration. Keep those records outside the repository; retain only the portable source, tests, required examples, and distribution evidence.
 - A release requires two clean local CI passes and passing remote CI.

@@ -1,0 +1,125 @@
+["rule:improvement-trial"]
+description = '''
+# `rule:improvement-trial`
+
+## Why this runs
+
+Load the full trial contract; keep gains only without protected loss.
+
+## When to run
+
+Read on first load; assess a trial at the last development step.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+On first load, read the full current improvement contract and dimension catalog.
+
+Use `mise run improvement-policy` and [resource/experiment design](../references/resource-and-experiment-design.md).
+
+At the last step of development, assess a real chance to improve.
+
+Check all required dimensions of quality, intelligence, human outcomes, operation, security and resources.
+
+Add source and domain dimensions beyond the finite catalog.
+
+Change the skill only for a justified, allowed trial with enough proof budget.
+
+Freeze the full accepted baseline, evaluator and inputs.
+
+Freeze protected criteria, resource conditions and the stopping rule.
+
+Test one hypothesis.
+
+Keep only a material gain with no protected regression.
+
+Add an open-ended loop only if the user's completion rule needs it.
+
+The candidate cannot grade itself or weaken its evaluator.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:improvement-trial"
+
+["rule:improvement-confirm"]
+description = '''
+# `rule:improvement-confirm`
+
+## Why this runs
+
+Check an adopted trial on the next invocation; restore regressions.
+
+## When to run
+
+Before relying on an adopted trial, and at that invocation's final checkpoint.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+## Work
+
+An adopted trial remains pending next-invocation confirmation.
+
+Before relying on the change, run the frozen regression probe.
+
+At that invocation's final checkpoint, compare its actual outcome.
+
+If the trial caused a regression, restore its full prior owned change set through the reviewed writer/promotion owner.
+
+Include modes and supported creations and retirements.
+
+Compare baseline, candidate and current state.
+
+Keep independent edits and variants; resolve overlap.
+
+Recheck restored consumers and stale proof.
+
+Unknown safety or correctness blocks reliance.
+
+Lack of safe restoration blocks adoption.
+
+Keep proof of no-op, pending, keep, discard, crash and restoration states.
+
+Improve the process through independent held-out comparisons of complete paths.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:improvement-confirm"

@@ -1,0 +1,275 @@
+["rule:companion-authority"]
+description = '''
+# `rule:companion-authority`
+
+## Why this runs
+
+Check companion need, versions and authority.
+
+## When to run
+
+Before choosing or invoking Usage, Packslip, fnox, Pitchfork or hk.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+All five companions require current official feature and interface review, compatible frozen versions, native boundary tests and justified conditional use.
+
+Read [companion selection and authority](../references/runtime-integration.md#companion-selection-and-authority) through `mise run agentic-request` before their consumers.
+
+Preserve native package locks, shared-check ownership, bounded concurrency and explicit permission for hooks, vendor MCP, setup, provisioning, signing, publication and sync.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:runtime-interfaces"]
+run = "node scripts/run_rule.ts rule:companion-authority"
+
+["rule:usage"]
+description = '''
+# `rule:usage`
+
+## Why this runs
+
+Keep one native argument owner.
+
+## When to run
+
+When parsing, exporting or forwarding command arguments, help or completion.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **[Usage](https://usage.jdx.dev/).** One native argument owner drives parsing, help, completion, examples and interface documentation.
+
+Test export fidelity and actual forwarding; domain validation stays with its code owner.
+
+Apply every [Usage boundary check](../references/runtime-integration.md#usage).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:companion-authority"]
+run = "node scripts/run_rule.ts rule:usage"
+
+["rule:packslip"]
+description = '''
+# `rule:packslip`
+
+## Why this runs
+
+Verify distribution and provenance boundaries.
+
+## When to run
+
+When the skill needs artifact distribution or provenance checks.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **[Packslip](https://packslip.dev/).** Use native supported distribution only when required.
+
+Verify artifact, issuer, consumer policy and provenance separately; signatures grant neither quality nor execution authority.
+
+Apply every [Packslip boundary check](../references/runtime-integration.md#packslip).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:companion-authority"]
+run = "node scripts/run_rule.ts rule:packslip"
+
+["rule:fnox"]
+description = '''
+# `rule:fnox`
+
+## Why this runs
+
+Pass scoped secrets only to ready consumers.
+
+## When to run
+
+When a ready skill consumer needs scoped secrets.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **[fnox](https://fnox.jdx.dev/).** Use the maintained scoped-subprocess CLI only for required secrets.
+
+Validate identity, scope, freshness and consumer readiness; reject missing credentials and exclude secret values from prompts and records.
+
+Apply every [fnox boundary check](../references/runtime-integration.md#fnox).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:companion-authority"]
+run = "node scripts/run_rule.ts rule:fnox"
+
+["rule:pitchfork"]
+description = '''
+# `rule:pitchfork`
+
+## Why this runs
+
+Own persistent processes and their cleanup.
+
+## When to run
+
+When the skill needs a persistent process, readiness probe or owned cleanup.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **[Pitchfork](https://pitchfork.jdx.dev/).** Use only for required persistent processes, with exact ownership, pinned daemon/probe environments, all required readiness predicates and owned cleanup.
+
+Keep finite transformations in Mise.
+
+Apply every [Pitchfork boundary check](../references/runtime-integration.md#pitchfork).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:companion-authority"]
+run = "node scripts/run_rule.ts rule:pitchfork"
+
+["rule:hk"]
+description = '''
+# `rule:hk`
+
+## Why this runs
+
+Reuse checks within the verified hook boundary.
+
+## When to run
+
+When proposing, configuring or running checks through hk hooks.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- **[hk](https://hk.jdx.dev/).** Reuse declared native checks with exact roots, pinned configuration, explicit effect modes and verified preservation of unrelated work.
+
+Neither labels nor locks prove isolation.
+
+Apply every [hk boundary check](../references/runtime-integration.md#hk).
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:companion-authority"]
+run = "node scripts/run_rule.ts rule:hk"

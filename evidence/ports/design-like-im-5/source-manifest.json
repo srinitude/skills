@@ -1,5 +1,5 @@
 {
-  "evidence_packet_sha256": "9723cc3243bd35687436542c34475a47e8855f80312647c2f674165ffc7bb717",
+  "evidence_packet_sha256": "6353e57e673cd58b4e346ec00564f9db4d6dc52ac39123d66aa1f10674901332",
   "files": [
     {
       "bytes": 423,
@@ -219,10 +219,10 @@
       "source_path": "construction/baselines/SKILL-before-context-routing.md"
     },
     {
-      "bytes": 1148826,
+      "bytes": 1149054,
       "location_kind": "evidence",
       "location_path": "construction/case-study-ledger.json",
-      "sha256": "6235fc2ad2a95fafdcff9345777eb25205f4a290d1aef7d466ccdd26fe9af66c",
+      "sha256": "021933eebc0645cb60f6cdc5c27997c533603336ea97c1a2ae91ac893dae0031",
       "source_path": "construction/case-study-ledger.json"
     },
     {
@@ -975,7 +975,7 @@
       "source_path": "scripts/validate_skill.py"
     }
   ],
-  "native_manifest_sha256": "9723cc3243bd35687436542c34475a47e8855f80312647c2f674165ffc7bb717",
+  "native_manifest_sha256": "6353e57e673cd58b4e346ec00564f9db4d6dc52ac39123d66aa1f10674901332",
   "schema": "source-evidence/v1",
   "skill": "design-like-im-5",
   "source_kind": "hybrid_archived_and_repository_baseline"

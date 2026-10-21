@@ -7,6 +7,8 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    env:
+      CHROME_DEVEL_SANDBOX: /usr/local/share/chromium/chrome-linux/chrome_sandbox
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2

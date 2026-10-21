@@ -9,3 +9,16 @@ __pycache__/
 !.env.example
 .DS_Store
 mcp/dist/*.map
+
+# Local environments, caches and task state.
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+mise.local.toml
+mise.local.*.toml
+/.codex/
+/.claude/settings.local.json
+/work/
+/outputs/

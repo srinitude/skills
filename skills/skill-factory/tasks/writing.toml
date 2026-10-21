@@ -1,0 +1,315 @@
+["rule:markdown-order"]
+description = '''
+# `rule:markdown-order`
+
+## Why this runs
+
+Review whole files before blocks and lines.
+
+## When to run
+
+Before reviewing or rewriting any Markdown file.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Review the whole file first: its purpose, reader, required rules, structure, order and fit with the skill.
+
+Next review its sections and blocks.
+
+Polish lines last.
+
+Judge Markdown forms, spacing and plain language together.
+
+Then read the full result again.
+
+Use `mise run markdown:inventory`, `markdown:mechanical`, `markdown:review-request`, `markdown:macro-review`, `markdown:micro-review`, `markdown:line-review`, `markdown:review-check`, then `markdown:accept`.
+
+Run each through `mise run`; each task names its real prerequisite.
+
+Load the [writing rules](../references/writing-rules.md) for this review.
+
+Within this skill, check each sentence, rule, section, file and cross-file relationship for kept meaning and alternate readings.
+
+The [rewrite method](https://github.com/srinitude/skills/blob/main/skills/meaning-preserving-rewrite/SKILL.md) and [ambiguity method](https://github.com/srinitude/skills/blob/main/skills/only-one-interpretation/SKILL.md) are sources, not required installed skills.
+
+Map source clauses to replacements and back.
+
+Test alternate readings, conflicts and exceptions.
+
+Human same-meaning review checks clarity and completeness.
+
+Lexical lint cannot replace it.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:context"]
+run = "node scripts/run_rule.ts rule:markdown-order"
+
+["rule:markdown-payload"]
+description = '''
+# `rule:markdown-payload`
+
+## Why this runs
+
+Read the full bound review result.
+
+## When to run
+
+When a Markdown review task returns a result or error to the model.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- The current model runs the tasks and reads their full results and errors.
+
+Each task returns one full bound review payload.
+
+Omit only exact duplicate payloads from printed step traces; keep all unique diagnostics and the saved execution record.
+
+Give it the exact text, source rules, affected links, prose findings and readable renders.
+
+It must judge the assigned question, then send its reply to the same pending run.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:markdown-order"]
+run = "node scripts/run_rule.ts rule:markdown-payload"
+
+["rule:markdown-choices"]
+description = '''
+# `rule:markdown-choices`
+
+## Why this runs
+
+Explain and prove each Markdown form choice.
+
+## When to run
+
+When judging Markdown forms, plain language, structure or meaning.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Each reply needs reasons and cited proof.
+
+For every Markdown feature, explain what it is, which form fits, when and how to use it, why it helps, and who writes, checks and approves it.
+
+Cover the full named standards and target extensions; choose only forms the content needs.
+
+Check meaning, clear actions, terms, structure, first-load rules, file graph fit and honest score exclusions.
+
+Bind the full feature map and reply to the same turn, baseline, run, step, file bytes and policy versions.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:markdown-payload"]
+run = "node scripts/run_rule.ts rule:markdown-choices"
+
+["rule:markdown-reply"]
+description = '''
+# `rule:markdown-reply`
+
+## Why this runs
+
+Validate the review and its exact prior stage.
+
+## When to run
+
+Before accepting or resuming from a Markdown review reply.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Check each reply against its schema, exact inputs and passed prior stage.
+
+Keep required reads, safety and integrity checks before each change.
+
+Early quality findings must reach the model for whole-file review; they still block final acceptance until fixed.
+
+A line check cannot replace whole-file or section review.
+
+Changes stale affected proof.
+
+Resume at the earliest affected stage and keep missing model, human or integration proof pending.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:markdown-choices"]
+run = "node scripts/run_rule.ts rule:markdown-reply"
+
+["rule:markdown-recovery"]
+description = '''
+# `rule:markdown-recovery`
+
+## Why this runs
+
+Prove failed and resumed review paths.
+
+## When to run
+
+Before accepting a Markdown review workflow or its recovery behavior.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Test failure and recovery through the real tasks.
+
+Include stale replies, skipped gates and repeat resume.
+
+Check saved-state recovery and protection from concurrent writes on the actual runner.
+
+A passed task alone cannot prove these properties.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:markdown-reply"]
+run = "node scripts/run_rule.ts rule:markdown-recovery"
+
+["rule:markdown-authority"]
+description = '''
+# `rule:markdown-authority`
+
+## Why this runs
+
+Keep workflow and human authority separate.
+
+## When to run
+
+When connecting Markdown checks, model review and human acceptance.
+This rule binds this factory and every skill it creates or updates.
+
+## Inputs
+
+Read [SKILL.md](../SKILL.md), the current request and the sources named below.
+Use the same bound request and private state as `rule:context`.
+Include the exact relevant files and prior evidence in the request context.
+A dependency pass proves its checked scope, not all skill acceptance.
+
+
+## Work
+
+- Mastra calls the shared owners directly.
+
+It must never call nested Mise.
+
+Keep the model's judgment distinct from human authority.
+
+A local checker that the agent can edit provides cooperative checks, not independent enforcement.
+
+Read the full workflow output. Use the model's own tools and judgment.
+Code checks facts that can be tested; required human work stays with its owner.
+Do not run this task or its dependents from inside this work unit.
+Missing inputs or proof keep the affected result pending.
+Correct the input or obtain the required proof before retrying.
+
+## Proof
+
+Return reasons, source locations, actual evidence and remaining limits.
+Keep the reply bound to this task and its exact inputs.
+Resume this same task through Mise using the `rule:context` reply contract.
+A workflow pass checks bindings; it cannot prove meaning or human acceptance.
+'''
+env = { UV_PYTHON = "{{tools.python.path}}" }
+depends = ["rule:markdown-order"]
+run = "node scripts/run_rule.ts rule:markdown-authority"

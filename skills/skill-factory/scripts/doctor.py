@@ -26,7 +26,7 @@ SCRIPTS = ["lint_writing.py", "validate_skill.py", "check_code_rules.py",
            "check_task_graph.py", "check_invocation_receipt.py",
            "check_mise_primitives.py", "check_primitive_lifecycle.py",
            "sync_mise_primitives.py", "domain_text.py",
-           "scaffold_skill.py", "doctor.py"]
+           "scaffold_plan.py", "scaffold_review.py", "scaffold_skill.py", "doctor.py"]
 TEMPLATES = ["skill-template.md", "mise-template.toml", "example-template.md",
              "evals-template.json", "trigger-template.json",
              "starter-script.py", "starter-test.py", "starter-ci-test.py",

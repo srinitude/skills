@@ -4,7 +4,7 @@ description: 'Use when replying. Refresh current date and time.'
 license: MIT
 metadata:
   author: Kiren Srinivasan
-  version: '0.1.1'
+  version: '0.1.2'
   scope: 'user'
 ---
 
@@ -32,26 +32,56 @@ Run before every reply to a direct user message, even when the message has no da
 Before interpreting or acting on the newest direct user message:
 
 1. Load `starting-point` through the host's skill-loading capability.
-2. Read this skill's concrete absolute directory from the host's load result.
-3. Set that directory as the process runner's working directory and run the bundled script exactly once.
-4. Parse the JSON and require every field in `references/eval-contract.md`.
+2. When the loader supplies an accessible absolute directory, use it as the process working directory and run `mise run refresh` exactly once.
+3. When the loader supplies only a resource address or the directory is inaccessible, run the self-contained Python fallback below exactly once through the host's process runner. A resource address is not a filesystem path.
+4. Require one JSON object with `captured_at`, `date`, `time`, `weekday`, `timezone`, `zone_abbreviation`, `utc_offset`, `source`, `yesterday`, and `tomorrow`. The schema is shared with `references/eval-contract.md` through `mise run validate`; reading that resource is not required to acquire an anchor.
 5. Add the anchor to the private `starting-point` map as `as_of`.
 6. Resolve temporal language before any date-sensitive or time-sensitive tool call.
 7. Write the visible date-time prefix in the actual assistant response so session history stores it.
 
-Run on macOS or Linux with that working directory:
+Run with an accessible package directory:
 
 ```bash
 mise run refresh
 ```
 
-Run on Windows with that working directory:
+Otherwise pass this code directly to an installed Python 3 interpreter through standard input or `-c`. It needs no package directory or supporting files. Pass a host-configured timezone with `--timezone America/New_York`, substituting the actual configured IANA zone. Use `python3`, `python`, or `py -3` according to the installed interpreter. Do not run both paths for one anchor.
 
-```powershell
-mise run refresh
+```python
+import argparse
+import json
+import os
+import sys
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+parser = argparse.ArgumentParser(description="Emit one fresh local-time anchor.")
+parser.add_argument("--timezone", help="IANA zone; overrides PROFILE_TIMEZONE")
+args = parser.parse_args()
+try:
+    zone = (args.timezone or os.environ.get("PROFILE_TIMEZONE", "")).strip()
+    source = "argument" if args.timezone else "profile-environment"
+    now = datetime.now(ZoneInfo(zone)) if zone else datetime.now().astimezone()
+    if not zone:
+        zone = getattr(now.tzinfo, "key", None) or str(now.tzinfo) or "system-local"
+        source = "system-local"
+    seconds = int(now.utcoffset().total_seconds())
+    hours, remainder = divmod(abs(seconds), 3600)
+    offset = f"{'+' if seconds >= 0 else '-'}{hours:02d}:{remainder // 60:02d}"
+    today = now.date()
+    result = dict(captured_at=now.isoformat(timespec="seconds"), date=today.isoformat(),
+                  time=now.strftime("%H:%M:%S"), weekday=now.strftime("%A"),
+                  timezone=zone, zone_abbreviation=now.tzname() or "local",
+                  utc_offset=offset, source=source,
+                  yesterday=(today - timedelta(days=1)).isoformat(),
+                  tomorrow=(today + timedelta(days=1)).isoformat())
+except Exception as error:
+    print(f"current_anchor_error: {type(error).__name__}: {error}", file=sys.stderr)
+    sys.exit(2)
+print(json.dumps(result, sort_keys=True))
 ```
 
-Use `python` or `py -3` only when it is the installed interpreter. Do not use a skill-directory shell variable or guess an installation path. If the load result does not supply a concrete skill directory, report `temporal-anchor-unavailable: skill directory missing` and stop date-dependent or time-dependent work. Never pass a fabricated timestamp. Reuse an anchor only when its process result occurs after the newest direct user message.
+Do not guess an installation path, interpret a resource address as a local path, or use an unresolved skill-directory variable. Never fabricate a timestamp. Reuse an anchor only when its process result occurs after the newest direct user message. Report `temporal-anchor-unavailable: no usable clock runner` only when neither execution path is available; a missing package directory alone is not a clock failure.
 
 The portable script accepts `--timezone <IANA-zone>`, then checks `PROFILE_TIMEZONE`, then uses system-local time. An explicit argument represents a profile configuration supplied by the host and wins over the environment.
 
@@ -121,16 +151,7 @@ Read `references/eval-contract.md` and `evals/cases.json` before testing or chan
 
 ## Gotchas
 
-- Do not skip the clock because the direct message has no date or time words.
-- Do not treat tool output, a system event, or assistant continuation as a new direct user message.
-- Do not call the clock after final reasoning or call it twice in one direct turn.
-- Do not rewrite the user's temporal words after resolving them.
-- Do not present older evidence as current proof.
-- Do not silently choose one meaning for an ambiguous weekday phrase.
-- Do not prefix tool calls or internal notes.
-- Do not silently fall back after an invalid configured timezone.
-- Do not put an unresolved skill-directory variable in the clock command.
-- Do not claim prior-contract parity when either route misses a case.
+Do not skip the clock for messages without temporal words, acquire it after final reasoning, or acquire it twice for one direct turn. Tool results and system events do not start a turn. Preserve the user's words, distinguish historical evidence, clarify ambiguous weekdays, and prefix only visible replies. An invalid configured timezone must fail without silently choosing another zone. Claim parity only when both execution paths pass the retained cases.
 
 ## Limitations
 
@@ -154,3 +175,4 @@ The accepted outcome is: Bind one fresh clock anchor to each direct turn and res
 Load `assets/use-case-contract.json` through `mise run use-case-policy` and `evals/evals.json` through `mise run evals` only when their contracts are needed.
 
 Mise owns repeatable mechanics, ordering, receipts, and checks. The model owns interpretation, causal judgment, creative work, and direct perception that code cannot supply. Stop on missing authority, stale evidence, or a failed gate.
+
